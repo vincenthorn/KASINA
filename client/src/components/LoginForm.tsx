@@ -40,7 +40,7 @@ const LoginForm: React.FC = () => {
   return (
     <Card className="w-full max-w-md bg-gray-900 border-gray-700">
       <CardHeader>
-        <CardTitle className="text-white text-center">Welcome to KASINA</CardTitle>
+        <CardTitle className="text-white text-center">Login w/ your Contemplative.Technology Account</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">

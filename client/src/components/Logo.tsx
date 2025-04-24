@@ -45,7 +45,7 @@ const Logo: React.FC<LogoProps> = ({
         KASINA
       </h1>
       {showTagline && (
-        <p className="text-gray-400 mt-1 text-sm">A 3D Visual Meditation Tool</p>
+        <p className="text-white mt-1 text-sm">A 3D Visual Meditation Tool</p>
       )}
     </div>
   );
