@@ -187,41 +187,70 @@ const FreestylePage: React.FC = () => {
             {/* Debug Timer Controls */}
             <div className="absolute bottom-4 right-4 flex flex-col gap-2">
               <div className="text-white bg-black/70 p-2 rounded">
-                {selectedDuration === Infinity ? 
-                  `Elapsed: ${elapsedTime}s` : 
-                  `Remaining: ${Math.max(0, selectedDuration - elapsedTime)}s / ${selectedDuration}s`
-                }
+                Timer Status: {isRunning ? 'Running' : 'Stopped'}, Duration: {selectedDuration}s
               </div>
-              <Button 
-                size="sm"
-                variant="outline" 
-                className="bg-purple-900/80 text-white"
+              
+              <button 
+                style={{
+                  backgroundColor: 'purple',
+                  color: 'white',
+                  padding: '8px',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  border: 'none',
+                  fontWeight: 'bold'
+                }}
                 onClick={() => {
-                  console.log('Debug button: Setting duration to 60s (1 minute)');
-                  setSelectedDuration(60);
+                  alert('Alert Test: Plain JavaScript alert works!');
                 }}
               >
-                <Timer className="h-4 w-4 mr-2" />
-                Set 1:00
-              </Button>
+                Test Alert
+              </button>
               
-              <Button 
-                size="sm"
-                variant="outline" 
-                className={isRunning ? "bg-red-900/80 text-white" : "bg-green-900/80 text-white"}
+              <button 
+                style={{
+                  backgroundColor: 'blue',
+                  color: 'white',
+                  padding: '8px',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  border: 'none',
+                  fontWeight: 'bold'
+                }}
                 onClick={() => {
-                  if (!isRunning) {
-                    console.log('Debug button: Starting timer');
-                    console.log('Current duration:', selectedDuration);
+                  console.log('Console log test!');
+                  setSelectedDuration(60);
+                  window.setTimeout(() => {
+                    console.log('Timeout fired: Timer duration is now:', selectedDuration);
+                  }, 100);
+                }}
+              >
+                Set 1:00 (Plain)
+              </button>
+              
+              <button 
+                style={{
+                  backgroundColor: 'green',
+                  color: 'white',
+                  padding: '8px',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  border: 'none',
+                  fontWeight: 'bold'
+                }}
+                onClick={() => {
+                  console.log('Start button clicked');
+                  try {
                     startTimer();
-                  } else {
-                    console.log('Debug button: Stopping timer');
-                    stopTimer();
+                    console.log('Timer started successfully');
+                  } catch (err) {
+                    console.error('Error starting timer:', err);
+                    alert('Error starting timer: ' + err);
                   }
                 }}
               >
-                {isRunning ? 'Stop Timer' : 'Start Timer'}
-              </Button>
+                Start Timer (Plain)
+              </button>
             </div>
           </div>
         </div>
