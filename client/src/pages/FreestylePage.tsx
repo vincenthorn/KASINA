@@ -208,10 +208,20 @@ const FreestylePage: React.FC = () => {
               } else {
                 // Entering focus mode
                 setIsFocusMode(true);
+                
+                // Display focus mode instruction toasts
                 toast.info(
                   "Entered Focus Mode. Move your mouse to show controls. Press ESC or click Exit to exit.", 
                   { duration: 4000 }
                 );
+                
+                // Add a small delay for the second toast so they don't appear at exactly the same time
+                setTimeout(() => {
+                  toast.info(
+                    "You can zoom in and out using your mouse wheel or trackpad gestures to change the orb size.",
+                    { duration: 4000 }
+                  );
+                }, 500);
               }
             }} 
             className={`
@@ -249,7 +259,7 @@ const FreestylePage: React.FC = () => {
             ${isFocusMode ? 'w-full h-full' : 'flex-1'} 
             bg-black rounded-lg overflow-hidden
           `}>
-            <KasinaOrb />
+            <KasinaOrb enableZoom={isFocusMode} />
             
             {/* Timer component for focus mode */}
             {isFocusMode && (

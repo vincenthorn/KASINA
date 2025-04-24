@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
@@ -277,7 +277,7 @@ const DynamicOrb: React.FC = () => {
 };
 
 // Scene setup component
-const Scene: React.FC = () => {
+const Scene: React.FC<{ enableZoom?: boolean }> = ({ enableZoom = false }) => {
   const { gl, camera } = useThree();
   
   // Clear the background to pure black
@@ -285,23 +285,55 @@ const Scene: React.FC = () => {
     gl.setClearColor(new THREE.Color("#000000"), 1);
   }, [gl]);
 
+  // Add camera ref to work with zoom 
+  const cameraRef = useRef<THREE.PerspectiveCamera>(null);
+
+  useEffect(() => {
+    // When zoom is enabled, set a slightly larger initial distance
+    if (enableZoom && cameraRef.current) {
+      cameraRef.current.position.z = 4;
+    }
+  }, [enableZoom]);
+
+  // Add a dynamic light that follows the camera
+  const [cameraLight, setCameraLight] = useState(new THREE.Vector3(0, 0, 5));
+  
+  useFrame(() => {
+    if (cameraRef.current) {
+      // Update light position to follow camera
+      setCameraLight(cameraRef.current.position.clone());
+    }
+  });
+
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 0, 3]} fov={50} />
+      <PerspectiveCamera makeDefault position={[0, 0, 3]} fov={50} ref={cameraRef} />
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
+      <pointLight position={cameraLight} intensity={0.8} distance={10} />
       <DynamicOrb />
-      <OrbitControls enableZoom={false} enablePan={false} rotateSpeed={0.5} />
+      <OrbitControls 
+        enableZoom={enableZoom} 
+        enablePan={false} 
+        rotateSpeed={0.5}
+        minDistance={0.05}  // Allow zooming in very close
+        maxDistance={20}    // Allow zooming out quite far
+        zoomSpeed={1.2}     // Adjusted zoom speed
+      />
     </>
   );
 };
 
 // Main KasinaOrb component
-const KasinaOrb: React.FC = () => {
+interface KasinaOrbProps {
+  enableZoom?: boolean;
+}
+
+const KasinaOrb: React.FC<KasinaOrbProps> = ({ enableZoom = false }) => {
   return (
     <div className="w-full h-full bg-black">
       <Canvas>
-        <Scene />
+        <Scene enableZoom={enableZoom} />
       </Canvas>
     </div>
   );
