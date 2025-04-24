@@ -1,45 +1,55 @@
 import { create } from "zustand";
 import { apiRequest } from "../api";
-import { getLocalStorage, setLocalStorage } from "../utils";
+import { toast } from "sonner";
 
 interface AuthState {
   isAuthenticated: boolean;
   email: string | null;
   
   login: (email: string) => Promise<boolean>;
-  logout: () => void;
-  checkAuthStatus: () => void;
+  logout: () => Promise<void>;
+  checkAuthStatus: () => Promise<void>;
 }
 
 export const useAuth = create<AuthState>((set) => ({
-  isAuthenticated: getLocalStorage("isAuthenticated") || false,
-  email: getLocalStorage("userEmail") || null,
+  isAuthenticated: false,
+  email: null,
   
   login: async (email: string) => {
     try {
       // Make API request to check if email is in whitelist
-      const response = await apiRequest("POST", "/api/auth/login", { email });
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+        credentials: 'include',
+      });
       
       if (!response.ok) {
-        console.error("Login failed:", await response.text());
+        const errorData = await response.json();
+        toast.error(errorData.message || 'Login failed');
         return false;
       }
       
-      // Store authenticated state
-      set({ isAuthenticated: true, email });
-      setLocalStorage("isAuthenticated", true);
-      setLocalStorage("userEmail", email);
+      const data = await response.json();
       
+      // Store authenticated state
+      set({
+        isAuthenticated: true,
+        email: data.user.email,
+      });
+      
+      toast.success('Successfully logged in');
       return true;
     } catch (error) {
       console.error("Login error:", error);
+      toast.error('Login failed. Please try again later.');
       
       // Fallback login for development/testing
-      // In a real app, we would always use the server validation
       if (import.meta.env.DEV) {
         set({ isAuthenticated: true, email });
-        setLocalStorage("isAuthenticated", true);
-        setLocalStorage("userEmail", email);
         return true;
       }
       
@@ -47,20 +57,56 @@ export const useAuth = create<AuthState>((set) => ({
     }
   },
   
-  logout: () => {
-    set({ isAuthenticated: false, email: null });
-    localStorage.removeItem("isAuthenticated");
-    localStorage.removeItem("userEmail");
+  logout: async () => {
+    try {
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+      
+      set({
+        isAuthenticated: false,
+        email: null,
+      });
+      
+      toast.success('Successfully logged out');
+    } catch (error) {
+      console.error('Logout error:', error);
+      toast.error('Logout failed. Please try again.');
+      
+      // Still clear the local state on failure
+      set({
+        isAuthenticated: false,
+        email: null,
+      });
+    }
   },
   
-  checkAuthStatus: () => {
-    const isAuthenticated = getLocalStorage("isAuthenticated");
-    const email = getLocalStorage("userEmail");
-    
-    if (isAuthenticated && email) {
-      set({ isAuthenticated, email });
-    } else {
-      set({ isAuthenticated: false, email: null });
+  checkAuthStatus: async () => {
+    try {
+      const response = await fetch('/api/auth/me', {
+        credentials: 'include',
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        
+        set({
+          isAuthenticated: true,
+          email: data.user.email,
+        });
+      } else {
+        set({
+          isAuthenticated: false,
+          email: null,
+        });
+      }
+    } catch (error) {
+      console.error('Auth check error:', error);
+      set({
+        isAuthenticated: false,
+        email: null,
+      });
     }
   },
 }));
