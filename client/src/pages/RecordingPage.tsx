@@ -40,10 +40,7 @@ const FocusModeRecordingControls: React.FC = () => {
         streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
       } else {
         streamRef.current = await navigator.mediaDevices.getDisplayMedia({ 
-          video: { 
-            displaySurface: "browser",
-            frameRate: 30
-          }, 
+          video: true, 
           audio: true 
         });
       }
