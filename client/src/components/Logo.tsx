@@ -1,5 +1,6 @@
 import React from "react";
 import AnimatedOrb from "./AnimatedOrb";
+import { useColor } from "../lib/contexts/ColorContext";
 
 interface LogoProps {
   size?: "small" | "medium" | "large";
@@ -12,6 +13,9 @@ const Logo: React.FC<LogoProps> = ({
   showTagline = true, 
   showOrb = true 
 }) => {
+  // Use shared color context
+  const { currentColor } = useColor();
+  
   const sizeClasses = {
     small: "text-xl",
     medium: "text-3xl",
@@ -31,7 +35,15 @@ const Logo: React.FC<LogoProps> = ({
           <AnimatedOrb size={orbSizes[size]} />
         </div>
       )}
-      <h1 className={`font-bold ${sizeClasses[size]} text-white`}>KASINA</h1>
+      <h1 
+        className={`font-bold ${sizeClasses[size]}`}
+        style={{ 
+          color: currentColor,
+          transition: "color 3s ease-in-out"
+        }}
+      >
+        KASINA
+      </h1>
       {showTagline && (
         <p className="text-gray-400 mt-1 text-sm">A 3D Visual Meditation Tool</p>
       )}

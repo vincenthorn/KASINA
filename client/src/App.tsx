@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import { useAuth } from "./lib/stores/useAuth";
 import { Toaster } from "sonner";
+import { ColorProvider } from "./lib/contexts/ColorContext";
 
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
@@ -31,61 +32,63 @@ function AuthenticatedRoute({ children }: { children: React.ReactNode }) {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/"
-            element={
-              <AuthenticatedRoute>
-                <HomePage />
-              </AuthenticatedRoute>
-            }
-          />
-          <Route
-            path="/freestyle"
-            element={
-              <AuthenticatedRoute>
-                <FreestylePage />
-              </AuthenticatedRoute>
-            }
-          />
-          <Route
-            path="/recording"
-            element={
-              <AuthenticatedRoute>
-                <RecordingPage />
-              </AuthenticatedRoute>
-            }
-          />
-          <Route
-            path="/meditation"
-            element={
-              <AuthenticatedRoute>
-                <MeditationPage />
-              </AuthenticatedRoute>
-            }
-          />
-          <Route
-            path="/reflection"
-            element={
-              <AuthenticatedRoute>
-                <ReflectionPage />
-              </AuthenticatedRoute>
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <AuthenticatedRoute>
-                <AdminPage />
-              </AuthenticatedRoute>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-      <Toaster position="top-center" />
+      <ColorProvider>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/"
+              element={
+                <AuthenticatedRoute>
+                  <HomePage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="/freestyle"
+              element={
+                <AuthenticatedRoute>
+                  <FreestylePage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="/recording"
+              element={
+                <AuthenticatedRoute>
+                  <RecordingPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="/meditation"
+              element={
+                <AuthenticatedRoute>
+                  <MeditationPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="/reflection"
+              element={
+                <AuthenticatedRoute>
+                  <ReflectionPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <AuthenticatedRoute>
+                  <AdminPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+        <Toaster position="top-center" />
+      </ColorProvider>
     </QueryClientProvider>
   );
 }
