@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import KasinaOrb from "../components/KasinaOrb";
 import FreestyleControls from "../components/FreestyleControls";
@@ -27,6 +27,55 @@ const FreestylePage: React.FC = () => {
   
   // Use local state for focus mode instead of Zustand store
   const [isFocusMode, setIsFocusMode] = useState(false);
+  
+  // For fading UI elements on mouse inactivity
+  const [isUIVisible, setIsUIVisible] = useState(true);
+  const inactivityTimerRef = useRef<number | null>(null);
+  
+  // Function to handle mouse movement
+  const handleMouseMove = () => {
+    if (isFocusMode) {
+      // Show UI elements
+      setIsUIVisible(true);
+      
+      // Clear any existing timer
+      if (inactivityTimerRef.current) {
+        window.clearTimeout(inactivityTimerRef.current);
+      }
+      
+      // Set a new timer to hide UI elements after 2 seconds of inactivity
+      inactivityTimerRef.current = window.setTimeout(() => {
+        setIsUIVisible(false);
+      }, 2000);
+    }
+  };
+  
+  // Set up mouse movement listener for focus mode
+  useEffect(() => {
+    if (isFocusMode) {
+      // Show UI initially
+      setIsUIVisible(true);
+      
+      // Set initial timer
+      inactivityTimerRef.current = window.setTimeout(() => {
+        setIsUIVisible(false);
+      }, 2000);
+      
+      // Add mouse move listener
+      window.addEventListener('mousemove', handleMouseMove);
+      
+      // Cleanup
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        if (inactivityTimerRef.current) {
+          window.clearTimeout(inactivityTimerRef.current);
+        }
+      };
+    } else {
+      // When not in focus mode, UI is always visible
+      setIsUIVisible(true);
+    }
+  }, [isFocusMode]);
 
   // Effect to handle timer completion
   useEffect(() => {
@@ -128,7 +177,11 @@ const FreestylePage: React.FC = () => {
     <Layout fullWidth isFocusMode={isFocusMode}>
       <div className="h-full w-full relative">
         {/* Focus mode toggle button - more visible in focus mode */}
-        <div className="absolute top-4 right-4 z-20">
+        <div className={`
+          absolute top-4 right-4 z-20
+          transition-opacity duration-500 ease-in-out
+          ${(!isFocusMode || isUIVisible) ? 'opacity-100' : 'opacity-0'}
+        `}>
           <Button 
             variant={isFocusMode ? "default" : "ghost"}
             size={isFocusMode ? "default" : "icon"}
@@ -143,7 +196,7 @@ const FreestylePage: React.FC = () => {
                 // Entering focus mode
                 setIsFocusMode(true);
                 toast.info(
-                  "Entered Focus Mode. Press ESC or click the button again to exit.", 
+                  "Entered Focus Mode. Move your mouse to show controls. Press ESC or click Exit to exit.", 
                   { duration: 4000 }
                 );
               }
@@ -187,7 +240,11 @@ const FreestylePage: React.FC = () => {
             
             {/* Timer component for focus mode */}
             {isFocusMode && (
-              <div className="absolute bottom-4 right-4">
+              <div className={`
+                absolute bottom-4 right-4
+                transition-opacity duration-500 ease-in-out
+                ${isUIVisible ? 'opacity-100' : 'opacity-0'}
+              `}>
                 <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-2 shadow-lg">
                   <SimpleTimer onComplete={() => {
                     toast.success("Meditation session completed!");
