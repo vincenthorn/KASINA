@@ -4,6 +4,7 @@ import PracticeChart from "../components/PracticeChart";
 import PracticeLog from "../components/PracticeLog";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
+import { toast } from "sonner";
 
 interface Session {
   id: string;
@@ -17,33 +18,54 @@ const ReflectionPage: React.FC = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Disable caching in useEffect by using a refresh counter
+  const [refreshCounter, setRefreshCounter] = useState(0);
+  
+  const refresh = () => {
+    setRefreshCounter(prev => prev + 1);
+    toast.info("Refreshing sessions...");
+  };
+
   useEffect(() => {
     const fetchSessions = async () => {
       setIsLoading(true);
       let combinedSessions: Session[] = [];
       
+      console.log("================================");
+      console.log("REFRESHING SESSIONS");
+      console.log("================================");
+      
       // Get local sessions first - prioritize these
       try {
         const localStorageSessions = localStorage.getItem("sessions");
-        console.log("Raw localStorage:", localStorageSessions);
+        console.log("Raw localStorage value:", localStorageSessions);
         
         if (localStorageSessions) {
-          const localSessions = JSON.parse(localStorageSessions);
-          console.log("Parsed local sessions:", localSessions);
-          
-          if (Array.isArray(localSessions) && localSessions.length > 0) {
-            // Ensure all sessions have kasinaName
-            const formattedLocalSessions = localSessions.map(session => ({
-              ...session,
-              kasinaName: session.kasinaName || KASINA_NAMES[session.kasinaType] || session.kasinaType
-            }));
+          try {
+            const localSessions = JSON.parse(localStorageSessions);
+            console.log("Parsed local sessions:", localSessions);
             
-            combinedSessions = [...formattedLocalSessions];
-            console.log("Added local sessions:", formattedLocalSessions.length);
+            if (Array.isArray(localSessions) && localSessions.length > 0) {
+              // Ensure all sessions have kasinaName
+              const formattedLocalSessions = localSessions.map(session => ({
+                ...session,
+                kasinaName: session.kasinaName || KASINA_NAMES[session.kasinaType] || session.kasinaType
+              }));
+              
+              combinedSessions = [...formattedLocalSessions];
+              console.log("Added local sessions:", formattedLocalSessions.length);
+            } else {
+              console.warn("Local sessions is not an array or is empty:", localSessions);
+            }
+          } catch (parseError) {
+            console.error("Failed to parse local sessions JSON:", parseError);
+            toast.error("Error parsing local sessions data");
           }
+        } else {
+          console.log("No sessions found in localStorage");
         }
       } catch (localError) {
-        console.error("Error parsing local sessions:", localError);
+        console.error("Error accessing localStorage:", localError);
       }
       
       // Now try to get server sessions
@@ -72,12 +94,14 @@ const ReflectionPage: React.FC = () => {
       });
       
       console.log("Final combined sessions:", combinedSessions);
+      console.log("================================");
+      
       setSessions(combinedSessions);
       setIsLoading(false);
     };
 
     fetchSessions();
-  }, []);
+  }, [refreshCounter]);
 
   const clearLocalSessions = () => {
     if (window.confirm("Are you sure you want to clear your locally stored sessions? This can't be undone.")) {
@@ -91,6 +115,12 @@ const ReflectionPage: React.FC = () => {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-white">Practice Reflection</h1>
         <div className="flex gap-2">
+          <button 
+            onClick={refresh}
+            className="text-xs text-blue-500 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
+          >
+            Refresh Data
+          </button>
           <button 
             onClick={() => {
               const rawData = localStorage.getItem("sessions");
@@ -114,7 +144,7 @@ const ReflectionPage: React.FC = () => {
           </button>
           <button 
             onClick={clearLocalSessions}
-            className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
+            className="text-xs text-red-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
           >
             Clear Local Data
           </button>

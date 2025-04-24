@@ -205,32 +205,48 @@ const Freestyle = () => {
               {timerRunning ? "Pause" : "Start Meditation"}
             </Button>
             
-            {/* DEBUG: Test Session Save Button */}
             <Button
               onClick={() => {
-                const testSession = {
-                  kasinaType: selectedKasina,
-                  kasinaName: KASINA_NAMES[selectedKasina] || selectedKasina,
-                  duration: 60, // 1 minute
-                  timestamp: new Date().toISOString(),
-                  id: Date.now().toString()
-                };
+                // Only allow saving if timer has run
+                if (countUpTime === 0 && timeRemaining === timerDuration && !timerRunning) {
+                  toast.error("Start a meditation first before saving");
+                  return;
+                }
                 
-                // Manual localStorage save for testing
-                const localSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
-                localSessions.push(testSession);
-                localStorage.setItem("sessions", JSON.stringify(localSessions));
+                // Record current session manually
+                const duration = timeRemaining === null ? countUpTime : timerDuration - (timeRemaining || 0);
                 
-                console.log("Manually saved test session to localStorage:", testSession);
-                console.log("Current localStorage sessions:", localSessions);
-                
-                toast.success("Test session manually saved - Check Reflection page");
+                // Direct localStorage approach
+                try {
+                  const newSession = {
+                    id: Date.now().toString(),
+                    kasinaType: selectedKasina as string,
+                    kasinaName: KASINA_NAMES[selectedKasina as string] || selectedKasina,
+                    duration: duration,
+                    timestamp: new Date().toISOString()
+                  };
+                  
+                  // Save directly to localStorage
+                  const existingSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
+                  existingSessions.push(newSession);
+                  localStorage.setItem("sessions", JSON.stringify(existingSessions));
+                  
+                  console.log("Session directly saved to localStorage:", newSession);
+                  console.log("All sessions in localStorage:", existingSessions);
+                  
+                  toast.success("Meditation session saved");
+                  
+                  // Stop timer after saving
+                  setTimerRunning(false);
+                } catch (error) {
+                  console.error("Error saving session:", error);
+                  toast.error("Failed to save session");
+                }
               }}
               className="w-full mt-2"
-              variant="outline"
-              size="sm"
+              variant="secondary"
             >
-              [Debug] Save Test Session
+              Save Session
             </Button>
           </div>
         </div>
