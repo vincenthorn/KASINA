@@ -111,7 +111,7 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
     // Extract emails from the parsed data
     const emails = records
       .filter((record: any) => record[emailColumnName])
-      .map((record: any) => record[emailColumnName].trim().toLowerCase());
+      .map((record: any) => String(record[emailColumnName]).trim().toLowerCase());
 
     // Check if there are any emails in the data
     if (emails.length === 0) {
@@ -129,7 +129,7 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
     }
     
     // Combine existing and new emails, removing duplicates
-    const combinedEmails = Array.from(new Set(emails));
+    const combinedEmails = Array.from(new Set([...existingEmails, ...emails])) as string[];
     
     // Create a header row and add emails
     const csvContent = [

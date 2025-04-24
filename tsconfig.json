@@ -13,6 +13,8 @@
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
     "moduleResolution": "bundler",
+    "downlevelIteration": true,
+    "target": "es2015",
     "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
