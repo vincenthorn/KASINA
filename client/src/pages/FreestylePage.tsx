@@ -5,8 +5,11 @@ import FreestyleControls from "../components/FreestyleControls";
 import { useTimer } from "../lib/stores/useTimer";
 import { toast } from "sonner";
 import { useKasina } from "../lib/stores/useKasina";
+import { useFocus } from "../lib/stores/useFocus";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
+import { Button } from "../components/ui/button";
+import { Maximize, Minimize } from "lucide-react";
 
 const FreestylePage: React.FC = () => {
   const { 
@@ -19,6 +22,7 @@ const FreestylePage: React.FC = () => {
   } = useTimer();
   
   const { selectedKasina } = useKasina();
+  const { isFocusMode, toggleFocusMode } = useFocus();
 
   // Effect to handle timer completion
   useEffect(() => {
