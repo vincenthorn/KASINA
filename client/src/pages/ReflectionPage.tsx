@@ -123,19 +123,46 @@ const ReflectionPage: React.FC = () => {
           </button>
           <button 
             onClick={() => {
-              const rawData = localStorage.getItem("sessions");
-              console.log("Raw localStorage sessions:", rawData);
-              if (rawData) {
+              try {
+                // Test direct localStorage access and manipulation
+                const testSession = {
+                  id: Date.now().toString(),
+                  kasinaType: "white", 
+                  kasinaName: "White", 
+                  duration: 60,
+                  timestamp: new Date().toISOString()
+                };
+                
+                // Try to get existing sessions
+                let existingSessions = [];
                 try {
-                  const parsed = JSON.parse(rawData);
-                  console.log("Parsed localStorage sessions:", parsed);
-                  alert(`Found ${parsed.length} sessions in localStorage`);
+                  const storedSessions = window.localStorage.getItem("sessions");
+                  if (storedSessions) {
+                    existingSessions = JSON.parse(storedSessions);
+                    if (!Array.isArray(existingSessions)) {
+                      console.error("Stored sessions is not an array:", existingSessions);
+                      existingSessions = [];
+                    }
+                  }
                 } catch (e) {
-                  console.error("Error parsing sessions:", e);
-                  alert("Error parsing sessions: " + e);
+                  console.error("Error reading from localStorage:", e);
                 }
-              } else {
-                alert("No sessions found in localStorage");
+                
+                // Add test session
+                existingSessions.push(testSession);
+                
+                // Write back to localStorage
+                window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
+                
+                // Verify it got saved
+                const verification = window.localStorage.getItem("sessions");
+                console.log("LOCAL STORAGE TEST - Saved sessions:", verification);
+                
+                alert("Test session added! Check the Reflection page after refreshing.");
+                refresh();
+              } catch (e) {
+                console.error("LocalStorage test failed:", e);
+                alert("LocalStorage test failed: " + e);
               }
             }}
             className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"

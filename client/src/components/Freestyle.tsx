@@ -216,8 +216,9 @@ const Freestyle = () => {
                 // Record current session manually
                 const duration = timeRemaining === null ? countUpTime : timerDuration - (timeRemaining || 0);
                 
-                // Direct localStorage approach
+                // Direct window.localStorage approach with explicit error handling
                 try {
+                  // Create the session object
                   const newSession = {
                     id: Date.now().toString(),
                     kasinaType: selectedKasina as string,
@@ -226,13 +227,38 @@ const Freestyle = () => {
                     timestamp: new Date().toISOString()
                   };
                   
-                  // Save directly to localStorage
-                  const existingSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
-                  existingSessions.push(newSession);
-                  localStorage.setItem("sessions", JSON.stringify(existingSessions));
+                  console.log("SAVING SESSION", newSession);
                   
-                  console.log("Session directly saved to localStorage:", newSession);
-                  console.log("All sessions in localStorage:", existingSessions);
+                  // Get existing sessions with careful error handling
+                  let existingSessions = [];
+                  
+                  try {
+                    const storedValue = window.localStorage.getItem("sessions");
+                    console.log("Raw localStorage value:", storedValue);
+                    
+                    if (storedValue) {
+                      const parsed = JSON.parse(storedValue);
+                      if (Array.isArray(parsed)) {
+                        existingSessions = parsed;
+                      } else {
+                        console.warn("Stored sessions is not an array, resetting:", parsed);
+                      }
+                    }
+                  } catch (readError) {
+                    console.error("Error reading from localStorage:", readError);
+                  }
+                  
+                  // Add new session
+                  existingSessions.push(newSession);
+                  console.log("Updated sessions array:", existingSessions);
+                  
+                  // Save back to localStorage with explicit window reference
+                  const sessionsString = JSON.stringify(existingSessions);
+                  window.localStorage.setItem("sessions", sessionsString);
+                  
+                  // Verify the save worked
+                  const verification = window.localStorage.getItem("sessions");
+                  console.log("Verification - localStorage after save:", verification);
                   
                   toast.success("Meditation session saved");
                   
