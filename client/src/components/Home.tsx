@@ -34,7 +34,6 @@ const Home = () => {
   return (
     <div className="container mx-auto px-4 py-10 flex flex-col items-center">
       <div className="text-center mb-12">
-        <Logo className="h-24 mx-auto mb-6" />
         <h1 className="text-3xl font-bold mb-2">Welcome to KASINA</h1>
         <p className="text-lg text-gray-400 max-w-xl mx-auto">
           Deepen your concentration using traditional kasina practices rendered as dynamic 3D visual orbs
