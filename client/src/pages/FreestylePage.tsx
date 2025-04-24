@@ -131,11 +131,11 @@ const FreestylePage: React.FC = () => {
   return (
     <Layout fullWidth>
       <div className="h-full w-full relative">
-        {/* Focus mode toggle button */}
+        {/* Focus mode toggle button - more visible in focus mode */}
         <div className="absolute top-4 right-4 z-20">
           <Button 
-            variant="ghost" 
-            size="icon" 
+            variant={isFocusMode ? "default" : "ghost"}
+            size={isFocusMode ? "default" : "icon"}
             onClick={() => {
               toggleFocusMode();
               
@@ -147,10 +147,24 @@ const FreestylePage: React.FC = () => {
                 );
               }
             }} 
-            className="bg-gray-900 bg-opacity-50 hover:bg-gray-800 text-white"
+            className={`
+              ${isFocusMode 
+                ? "bg-white text-black hover:bg-gray-200 border-2 border-gray-300" 
+                : "bg-gray-900 bg-opacity-50 hover:bg-gray-800 text-white"}
+              transition-opacity hover:opacity-100
+              ${isFocusMode ? "opacity-90" : "opacity-90"}
+              ${isFocusMode ? "shadow-md" : ""}
+            `}
             title={isFocusMode ? "Exit Focus Mode" : "Enter Focus Mode"}
           >
-            {isFocusMode ? <Minimize className="h-5 w-5" /> : <Maximize className="h-5 w-5" />}
+            {isFocusMode ? (
+              <>
+                <Minimize className="h-4 w-4 mr-2" />
+                <span>Exit Focus</span>
+              </>
+            ) : (
+              <Maximize className="h-5 w-5" />
+            )}
           </Button>
         </div>
 
