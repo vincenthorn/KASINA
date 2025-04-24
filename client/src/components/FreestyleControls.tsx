@@ -124,7 +124,12 @@ const TimerControl: React.FC = () => {
           <div className="flex space-x-2">
             {!isRunning && !isPaused ? (
               <Button 
-                onClick={startTimer} 
+                onClick={() => {
+                  console.log('Start button clicked');
+                  console.log('Selected duration:', selectedDuration);
+                  startTimer();
+                  console.log('Timer started, isRunning:', isRunning);
+                }} 
                 className="bg-green-600 hover:bg-green-700"
               >
                 <PlayCircle className="mr-2 h-4 w-4" />

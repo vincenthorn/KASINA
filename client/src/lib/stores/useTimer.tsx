@@ -32,7 +32,11 @@ export const useTimer = create<TimerState>((set, get) => ({
   },
   
   startTimer: () => {
+    console.log('useTimer: startTimer called');
+    console.log('useTimer: current state before start', get());
+    
     const startNow = Date.now();
+    console.log('useTimer: setting startTime to', startNow);
     
     set({
       isRunning: true,
@@ -42,8 +46,11 @@ export const useTimer = create<TimerState>((set, get) => ({
       elapsedTime: 0
     });
     
+    console.log('useTimer: state after set', get());
+    
     // Start the timer loop with a separate function to prevent closure issues
     function createTimerLoop() {
+      console.log('useTimer: createTimerLoop called');
       let lastFrameTime = performance.now();
       let animationFrameId: number;
       
@@ -51,7 +58,10 @@ export const useTimer = create<TimerState>((set, get) => ({
         const { isRunning, isPaused } = get();
         
         // Only continue if timer is still running and not paused
-        if (!isRunning || isPaused) return;
+        if (!isRunning || isPaused) {
+          console.log('useTimer: loop stopped, isRunning:', isRunning, 'isPaused:', isPaused);
+          return;
+        }
         
         // Calculate time since last frame (with a reasonable cap to handle tab switching)
         const deltaTime = Math.min(currentTime - lastFrameTime, 1000) / 1000;
@@ -66,6 +76,11 @@ export const useTimer = create<TimerState>((set, get) => ({
         if (state.startTime) {
           newElapsedTime = Math.floor((Date.now() - state.startTime) / 1000);
           set({ elapsedTime: newElapsedTime });
+          
+          // Log every 5 seconds to avoid console spam
+          if (newElapsedTime % 5 === 0 && newElapsedTime > 0) {
+            console.log(`useTimer: ${newElapsedTime}s elapsed`);
+          }
         }
         
         // Continue the loop
@@ -73,16 +88,19 @@ export const useTimer = create<TimerState>((set, get) => ({
       }
       
       // Start the loop
+      console.log('useTimer: starting animation frame loop');
       animationFrameId = requestAnimationFrame(loop);
       
       // Return a cleanup function
       return () => {
+        console.log('useTimer: cleaning up animation frame');
         cancelAnimationFrame(animationFrameId);
       };
     }
     
     // Initialize the timer loop
     createTimerLoop();
+    console.log('useTimer: timer loop initialized');
   },
   
   pauseTimer: () => {
