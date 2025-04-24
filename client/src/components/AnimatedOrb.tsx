@@ -62,8 +62,8 @@ const AnimatedOrb: React.FC<AnimatedOrbProps> = ({
   }, [intervalDuration]);
   
   // Calculate the current color with smoother transitions
-  // Using a less harsh black for a gentler effect
-  const currentColor = isBlack ? "#141414" : "#F0F0F0"; 
+  // Using darker, moodier colors with a subtle purple tint for a more atmospheric effect
+  const currentColor = isBlack ? "#070707" : "#2a2a35"; 
   
   return (
     <div
@@ -72,7 +72,7 @@ const AnimatedOrb: React.FC<AnimatedOrbProps> = ({
         width: `${size}px`,
         height: `${size}px`,
         backgroundColor: currentColor,
-        boxShadow: `0 0 ${size / 2.5}px ${size / 8}px ${currentColor}`,
+        boxShadow: `0 0 ${size / 2}px ${size / 6}px ${currentColor}, 0 0 ${size / 1.5}px ${size / 4}px rgba(0, 0, 0, 0.3)`,
         transition: `background-color 0.008s ease-in-out, box-shadow 0.008s ease-in-out`,
         animation: "breathe 2s infinite ease-in-out",
       }}
