@@ -6,12 +6,197 @@ import RecordingList from "../components/RecordingList";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import FreestyleControls from "../components/FreestyleControls";
 import { Button } from "../components/ui/button";
-import { Maximize, Minimize } from "lucide-react";
+import { Maximize, Minimize, Mic, Video, Square } from "lucide-react";
 import { toast } from "sonner";
 import SimpleTimer from "../components/SimpleTimer";
 import { useKasina } from "../lib/stores/useKasina";
 import { KASINA_NAMES } from "../lib/constants";
 import { apiRequest } from "../lib/api";
+
+// Recording controls for focus mode
+const FocusModeRecordingControls: React.FC = () => {
+  const [isRecording, setIsRecording] = useState(false);
+  const [recordingType, setRecordingType] = useState<"audio" | "screen">("screen"); // Default to screen recording in focus mode
+  const [recordingTime, setRecordingTime] = useState(0);
+  const [recordingBlob, setRecordingBlob] = useState<Blob | null>(null);
+  
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+  const timerRef = useRef<number | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+  
+  // Format time display (mm:ss)
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+  
+  const startRecording = async () => {
+    chunksRef.current = [];
+    
+    try {
+      if (recordingType === "audio") {
+        streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
+      } else {
+        streamRef.current = await navigator.mediaDevices.getDisplayMedia({ 
+          video: { 
+            displaySurface: "browser",
+            frameRate: 30
+          }, 
+          audio: true 
+        });
+      }
+      
+      mediaRecorderRef.current = new MediaRecorder(streamRef.current);
+      
+      mediaRecorderRef.current.addEventListener("dataavailable", (event) => {
+        if (event.data.size > 0) {
+          chunksRef.current.push(event.data);
+        }
+      });
+      
+      mediaRecorderRef.current.addEventListener("stop", () => {
+        const blob = new Blob(chunksRef.current, { 
+          type: recordingType === "audio" ? "audio/webm" : "video/webm" 
+        });
+        
+        setRecordingBlob(blob);
+        
+        // Clean up the recording state
+        if (timerRef.current) {
+          window.clearInterval(timerRef.current);
+          timerRef.current = null;
+        }
+        
+        // Save the recording
+        const now = new Date();
+        const filename = `kasina_${recordingType === "audio" ? "audio" : "screen"}_${now.toISOString().split("T")[0]}.webm`;
+        const url = URL.createObjectURL(blob);
+        
+        // Get the user's selected kasina from local storage since we're in focus mode
+        const localSettings = localStorage.getItem("kasina-settings");
+        const settings = localSettings ? JSON.parse(localSettings) : { selectedKasina: "blue" };
+        
+        // Add to recordings
+        const recordings = JSON.parse(localStorage.getItem("recordings") || "[]");
+        recordings.push({
+          id: Date.now().toString(),
+          type: recordingType,
+          url,
+          filename,
+          kasinaType: settings.selectedKasina,
+          duration: recordingTime,
+          date: now.toISOString(),
+          size: blob.size
+        });
+        localStorage.setItem("recordings", JSON.stringify(recordings));
+        
+        toast.success(`${recordingType === "audio" ? "Audio" : "Screen"} recording saved!`);
+      });
+      
+      // Start recording
+      mediaRecorderRef.current.start();
+      setIsRecording(true);
+      
+      // Start timer
+      timerRef.current = window.setInterval(() => {
+        setRecordingTime(prev => prev + 1);
+      }, 1000);
+      
+    } catch (error) {
+      console.error("Error starting recording:", error);
+      toast.error("Failed to start recording. Please check your permissions.");
+    }
+  };
+  
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+      
+      // Stop all tracks
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop());
+      }
+    }
+  };
+  
+  // Clean up on unmount
+  useEffect(() => {
+    return () => {
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+        mediaRecorderRef.current.stop();
+      }
+      
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop());
+      }
+      
+      if (timerRef.current) {
+        window.clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+  
+  return (
+    <div className="flex flex-col items-center">
+      {/* Recording type toggle (only shown when not recording) */}
+      {!isRecording && (
+        <div className="flex gap-2 mb-2 w-full">
+          <Button
+            variant={recordingType === "screen" ? "default" : "outline"}
+            size="sm"
+            onClick={() => setRecordingType("screen")}
+            className="flex items-center gap-1 flex-1"
+          >
+            <Video className="w-4 h-4" />
+            <span className="text-sm">Screen</span>
+          </Button>
+          <Button
+            variant={recordingType === "audio" ? "default" : "outline"}
+            size="sm"
+            onClick={() => setRecordingType("audio")}
+            className="flex items-center gap-1 flex-1"
+          >
+            <Mic className="w-4 h-4" />
+            <span className="text-sm">Audio</span>
+          </Button>
+        </div>
+      )}
+      
+      {/* Recording status and timer */}
+      {isRecording && (
+        <div className="flex items-center mb-2 w-full justify-center text-sm">
+          <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse mr-2"></div>
+          <span>Recording {formatTime(recordingTime)}</span>
+        </div>
+      )}
+      
+      {/* Recording control button */}
+      {!isRecording ? (
+        <Button
+          onClick={startRecording}
+          className="w-full bg-red-600 hover:bg-red-700 flex items-center gap-2"
+          size="sm"
+        >
+          {recordingType === "audio" ? <Mic className="w-4 h-4" /> : <Video className="w-4 h-4" />}
+          Start Recording
+        </Button>
+      ) : (
+        <Button
+          onClick={stopRecording}
+          variant="outline"
+          className="w-full flex items-center gap-2"
+          size="sm"
+        >
+          <Square className="w-4 h-4" />
+          Stop Recording
+        </Button>
+      )}
+    </div>
+  );
+};
 
 const RecordingPage: React.FC = () => {
   const { selectedKasina } = useKasina();
@@ -122,47 +307,14 @@ const RecordingPage: React.FC = () => {
           <div className="w-full h-full bg-black rounded-lg overflow-hidden">
             <KasinaOrb enableZoom={true} />
             
-            {/* Timer component for focus mode */}
+            {/* Recording control panel for focus mode */}
             <div className={`
               absolute bottom-4 right-4
               transition-opacity duration-500 ease-in-out
               ${isUIVisible ? 'opacity-100' : 'opacity-0'}
             `}>
-              <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-2 shadow-lg">
-                <SimpleTimer onComplete={() => {
-                  toast.success("Meditation session completed!");
-                  
-                  // Record the meditation session
-                  const timerDuration = document.querySelector('.simple-timer-duration')?.getAttribute('data-duration');
-                  const duration = timerDuration ? parseInt(timerDuration, 10) : 60;
-                  
-                  const recordSession = async () => {
-                    try {
-                      await apiRequest("POST", "/api/sessions", {
-                        kasinaType: selectedKasina,
-                        kasinaName: KASINA_NAMES[selectedKasina],
-                        duration, // The completed duration
-                        timestamp: new Date().toISOString(),
-                      });
-                      toast.info("Session saved to your practice log");
-                    } catch (error) {
-                      console.error("Failed to record session:", error);
-                      // Store locally if API call fails
-                      const sessions = JSON.parse(localStorage.getItem("sessions") || "[]");
-                      sessions.push({
-                        id: Date.now().toString(),
-                        kasinaType: selectedKasina,
-                        kasinaName: KASINA_NAMES[selectedKasina],
-                        duration,
-                        timestamp: new Date().toISOString(),
-                      });
-                      localStorage.setItem("sessions", JSON.stringify(sessions));
-                      toast.info("Session saved locally (offline mode)");
-                    }
-                  };
-                  
-                  recordSession();
-                }} />
+              <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-3 shadow-lg">
+                <FocusModeRecordingControls />
               </div>
             </div>
           </div>
