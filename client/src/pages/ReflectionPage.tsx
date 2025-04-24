@@ -19,18 +19,45 @@ const ReflectionPage: React.FC = () => {
   useEffect(() => {
     const fetchSessions = async () => {
       setIsLoading(true);
+      let combinedSessions: Session[] = [];
+      
       try {
+        // Get server sessions
         const response = await apiRequest("GET", "/api/sessions", undefined);
-        const data = await response.json();
-        setSessions(data);
+        const serverSessions = await response.json();
+        console.log("Fetched server sessions:", serverSessions);
+        
+        if (Array.isArray(serverSessions)) {
+          combinedSessions = [...serverSessions];
+        }
       } catch (error) {
-        console.error("Failed to fetch sessions:", error);
-        // Fallback to local storage
-        const localSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
-        setSessions(localSessions);
-      } finally {
-        setIsLoading(false);
+        console.warn("Failed to fetch sessions from server:", error);
       }
+      
+      try {
+        // Get local sessions (we'll display both)
+        const localSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
+        console.log("Fetched local sessions:", localSessions);
+        
+        if (Array.isArray(localSessions) && localSessions.length > 0) {
+          // Avoid duplicates by checking IDs
+          const existingIds = new Set(combinedSessions.map(s => s.id));
+          const uniqueLocalSessions = localSessions.filter(s => !existingIds.has(s.id));
+          
+          combinedSessions = [...combinedSessions, ...uniqueLocalSessions];
+        }
+      } catch (localError) {
+        console.error("Error parsing local sessions:", localError);
+      }
+      
+      // Sort sessions by timestamp (newest first)
+      combinedSessions.sort((a, b) => {
+        return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+      });
+      
+      console.log("Final combined sessions:", combinedSessions);
+      setSessions(combinedSessions);
+      setIsLoading(false);
     };
 
     fetchSessions();
