@@ -17,7 +17,7 @@ interface TimerState {
   resetTimer: () => void;
 }
 
-export const useTimer = create<TimerState>((set, get) => ({
+export const useTimer = create<TimerState>()((set, get) => ({
   // Default to 5 minutes (in seconds) or last selected
   selectedDuration: getLocalStorage("selectedDuration") || 5 * 60,
   isRunning: false,
@@ -32,35 +32,57 @@ export const useTimer = create<TimerState>((set, get) => ({
   },
   
   startTimer: () => {
+    const startNow = Date.now();
+    
     set({
       isRunning: true,
       isPaused: false,
-      startTime: Date.now(),
+      startTime: startNow,
       pauseTime: null,
       elapsedTime: 0
     });
     
-    // Start the timer loop
-    const timerLoop = () => {
-      const { isRunning, isPaused, startTime, pauseTime, elapsedTime } = get();
+    // Start the timer loop with a separate function to prevent closure issues
+    function createTimerLoop() {
+      let lastFrameTime = performance.now();
+      let animationFrameId: number;
       
-      if (isRunning && !isPaused && startTime) {
-        let newElapsedTime = elapsedTime;
+      function loop(currentTime: number) {
+        const { isRunning, isPaused } = get();
         
-        if (pauseTime) {
-          // If resuming from pause, add the current elapsed time
-          newElapsedTime = elapsedTime + Math.floor((Date.now() - pauseTime) / 1000);
-        } else {
-          // Normal running
-          newElapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        // Only continue if timer is still running and not paused
+        if (!isRunning || isPaused) return;
+        
+        // Calculate time since last frame (with a reasonable cap to handle tab switching)
+        const deltaTime = Math.min(currentTime - lastFrameTime, 1000) / 1000;
+        lastFrameTime = currentTime;
+        
+        // Get the current state
+        const state = get();
+        
+        // Update elapsed time based on actual time difference
+        let newElapsedTime = state.elapsedTime;
+        
+        if (state.startTime) {
+          newElapsedTime = Math.floor((Date.now() - state.startTime) / 1000);
+          set({ elapsedTime: newElapsedTime });
         }
         
-        set({ elapsedTime: newElapsedTime });
-        requestAnimationFrame(timerLoop);
+        // Continue the loop
+        animationFrameId = requestAnimationFrame(loop);
       }
-    };
+      
+      // Start the loop
+      animationFrameId = requestAnimationFrame(loop);
+      
+      // Return a cleanup function
+      return () => {
+        cancelAnimationFrame(animationFrameId);
+      };
+    }
     
-    requestAnimationFrame(timerLoop);
+    // Initialize the timer loop
+    createTimerLoop();
   },
   
   pauseTimer: () => {
@@ -84,18 +106,45 @@ export const useTimer = create<TimerState>((set, get) => ({
         pauseTime: null
       });
       
-      // Restart timer loop
-      const timerLoop = () => {
-        const { isRunning, isPaused, startTime } = get();
+      // Start the timer loop with a separate function to prevent closure issues
+      function createTimerLoop() {
+        let lastFrameTime = performance.now();
+        let animationFrameId: number;
         
-        if (isRunning && !isPaused && startTime) {
-          const newElapsedTime = Math.floor((Date.now() - startTime) / 1000);
-          set({ elapsedTime: newElapsedTime });
-          requestAnimationFrame(timerLoop);
+        function loop(currentTime: number) {
+          const { isRunning, isPaused } = get();
+          
+          // Only continue if timer is still running and not paused
+          if (!isRunning || isPaused) return;
+          
+          // Calculate time since last frame (with a reasonable cap to handle tab switching)
+          const deltaTime = Math.min(currentTime - lastFrameTime, 1000) / 1000;
+          lastFrameTime = currentTime;
+          
+          // Get the current state
+          const state = get();
+          
+          // Update elapsed time based on actual time difference
+          if (state.startTime) {
+            const newElapsedTime = Math.floor((Date.now() - state.startTime) / 1000);
+            set({ elapsedTime: newElapsedTime });
+          }
+          
+          // Continue the loop
+          animationFrameId = requestAnimationFrame(loop);
         }
-      };
+        
+        // Start the loop
+        animationFrameId = requestAnimationFrame(loop);
+        
+        // Return a cleanup function
+        return () => {
+          cancelAnimationFrame(animationFrameId);
+        };
+      }
       
-      requestAnimationFrame(timerLoop);
+      // Initialize the timer loop
+      createTimerLoop();
     }
   },
   
