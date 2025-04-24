@@ -4,7 +4,7 @@ import KasinaOrb from "../components/KasinaOrb";
 import RecordingControls from "../components/RecordingControls";
 import RecordingList from "../components/RecordingList";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
-import FreestyleControls from "../components/FreestyleControls";
+
 import { Button } from "../components/ui/button";
 import { Maximize, Minimize, Mic, Video, Square } from "lucide-react";
 import { toast } from "sonner";
@@ -366,7 +366,6 @@ const RecordingPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Left: Controls */}
             <div className="lg:col-span-1 space-y-6">
-              <FreestyleControls />
               <RecordingControls />
             </div>
             
