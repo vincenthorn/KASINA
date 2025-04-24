@@ -31,12 +31,15 @@ const RecordingControls: React.FC = () => {
       return;
     }
     
+    console.log("RecordingControls: Starting recording with options:", { captureAudio, captureScreen });
+    
     try {
       await startRecording();
       toast.success("Recording started");
     } catch (error) {
-      console.error("Failed to start recording:", error);
-      toast.error("Failed to start recording. Please check permissions and try again.");
+      console.error("RecordingControls: Failed to start recording:", error);
+      // Show more specific error message
+      toast.error("Failed to start recording: " + (error instanceof Error ? error.message : String(error)));
     }
   };
 

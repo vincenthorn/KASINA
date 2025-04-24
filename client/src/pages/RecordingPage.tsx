@@ -33,27 +33,38 @@ const FocusModeRecordingControls: React.FC = () => {
   };
   
   const startRecording = async () => {
+    console.log("Focus mode: Starting recording, type:", recordingType);
     chunksRef.current = [];
     
     try {
       if (recordingType === "audio") {
+        console.log("Focus mode: Requesting audio stream");
         streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
       } else {
+        console.log("Focus mode: Requesting display media");
         streamRef.current = await navigator.mediaDevices.getDisplayMedia({ 
           video: true, 
           audio: true 
         });
+        console.log("Focus mode: Display media obtained successfully");
       }
       
+      if (!streamRef.current) {
+        throw new Error("Failed to get media stream");
+      }
+      
+      console.log("Focus mode: Creating MediaRecorder with stream");
       mediaRecorderRef.current = new MediaRecorder(streamRef.current);
       
       mediaRecorderRef.current.addEventListener("dataavailable", (event) => {
+        console.log("Focus mode: Data available event received", event.data.size);
         if (event.data.size > 0) {
           chunksRef.current.push(event.data);
         }
       });
       
       mediaRecorderRef.current.addEventListener("stop", () => {
+        console.log("Focus mode: Recording stopped, processing data");
         const blob = new Blob(chunksRef.current, { 
           type: recordingType === "audio" ? "audio/webm" : "video/webm" 
         });
@@ -92,18 +103,27 @@ const FocusModeRecordingControls: React.FC = () => {
         toast.success(`${recordingType === "audio" ? "Audio" : "Screen"} recording saved!`);
       });
       
-      // Start recording
+      // Set up error handling
+      mediaRecorderRef.current.addEventListener("error", (event) => {
+        console.error("Focus mode: MediaRecorder error:", event);
+        toast.error("Recording error occurred");
+      });
+      
+      console.log("Focus mode: Starting MediaRecorder");
       mediaRecorderRef.current.start();
       setIsRecording(true);
       
       // Start timer
+      console.log("Focus mode: Starting timer");
       timerRef.current = window.setInterval(() => {
         setRecordingTime(prev => prev + 1);
       }, 1000);
       
+      toast.success("Recording started");
+      
     } catch (error) {
-      console.error("Error starting recording:", error);
-      toast.error("Failed to start recording. Please check your permissions.");
+      console.error("Focus mode: Error starting recording:", error);
+      toast.error("Failed to start recording. Please check your permissions: " + (error instanceof Error ? error.message : String(error)));
     }
   };
   

@@ -35,20 +35,34 @@ export const useMediaRecorder = (
 
       // Get screen capture if enabled
       if (options.captureScreen) {
-        const screenStream = await navigator.mediaDevices.getDisplayMedia({
-          video: true,
-          audio: false,
-        });
-        mediaStreams.push(screenStream);
+        console.log("useMediaRecorder: Requesting display media");
+        try {
+          const screenStream = await navigator.mediaDevices.getDisplayMedia({
+            video: true,
+            audio: options.captureAudio ? false : true, // Only capture audio through screen if not capturing mic
+          });
+          console.log("useMediaRecorder: Display media stream obtained successfully", screenStream.id);
+          mediaStreams.push(screenStream);
+        } catch (err) {
+          console.error("useMediaRecorder: Failed to get display media:", err);
+          throw new Error("Failed to access screen: " + (err instanceof Error ? err.message : String(err)));
+        }
       }
 
       // Get audio if enabled
       if (options.captureAudio) {
-        const audioStream = await navigator.mediaDevices.getUserMedia({
-          audio: true,
-          video: false,
-        });
-        mediaStreams.push(audioStream);
+        console.log("useMediaRecorder: Requesting audio media");
+        try {
+          const audioStream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+            video: false,
+          });
+          console.log("useMediaRecorder: Audio stream obtained successfully", audioStream.id);
+          mediaStreams.push(audioStream);
+        } catch (err) {
+          console.error("useMediaRecorder: Failed to get audio media:", err);
+          throw new Error("Failed to access microphone: " + (err instanceof Error ? err.message : String(err)));
+        }
       }
 
       if (mediaStreams.length === 0) {
@@ -85,16 +99,33 @@ export const useMediaRecorder = (
         combinedStream.getTracks().forEach(track => track.stop());
       };
 
-      // Start recording
-      recorder.start(1000); // Collect data every second
-      setMediaRecorder(recorder);
-      setIsRecording(true);
+      // Add error event handler
+      recorder.onerror = (event) => {
+        console.error("useMediaRecorder: MediaRecorder error occurred:", event);
+      };
       
-      // Start the timer to track recording duration
-      const interval = window.setInterval(() => {
-        setRecordingDuration(prev => prev + 1);
-      }, 1000);
-      setTimerInterval(interval);
+      // Try-catch for starting the recorder
+      try {
+        console.log("useMediaRecorder: Starting MediaRecorder with interval 1000ms");
+        // Start recording
+        recorder.start(1000); // Collect data every second
+        console.log("useMediaRecorder: MediaRecorder started successfully");
+        
+        setMediaRecorder(recorder);
+        setIsRecording(true);
+        
+        // Start the timer to track recording duration
+        console.log("useMediaRecorder: Starting recording timer");
+        const interval = window.setInterval(() => {
+          setRecordingDuration(prev => prev + 1);
+        }, 1000);
+        setTimerInterval(interval);
+        
+        console.log("useMediaRecorder: Recording setup completed successfully");
+      } catch (err) {
+        console.error("useMediaRecorder: Error when starting recorder:", err);
+        throw new Error("Error starting recorder: " + (err instanceof Error ? err.message : String(err)));
+      }
     } catch (error) {
       console.error("Error starting recording:", error);
       throw error;
