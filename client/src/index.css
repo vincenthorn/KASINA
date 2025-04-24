@@ -44,3 +44,19 @@ canvas {
     opacity: 0.95;
   }
 }
+
+/* Slow breathing animation for the login orb */
+@keyframes breathe-slowly {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.25); /* 25% larger at the peak */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
