@@ -318,7 +318,7 @@ const Scene: React.FC<{ enableZoom?: boolean }> = ({ enableZoom = false }) => {
         rotateSpeed={0.5}
         minDistance={0.05}  // Allow zooming in very close
         maxDistance={20}    // Allow zooming out quite far
-        zoomSpeed={1.2}     // Adjusted zoom speed
+        zoomSpeed={0.01}    // Extremely slow zoom speed (1/100th of the default)
       />
     </>
   );
