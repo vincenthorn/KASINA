@@ -42,9 +42,9 @@ const HomePage: React.FC = () => {
   return (
     <Layout>
       <div className="text-center mb-12">
-        <Logo size="large" />
+        <h1 className="text-3xl font-bold mb-2">Welcome to KASINA</h1>
         <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-          Welcome to KASINA, your visual meditation tool. Choose from different kasina orbs to deepen your concentration and enhance your practice.
+          Welcome to your visual meditation tool. Choose from different kasina orbs to deepen your concentration and enhance your practice.
         </p>
       </div>
       
