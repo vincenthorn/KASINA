@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { useMediaRecorder } from "../hooks/useMediaRecorder";
-import { useTimer } from "../lib/stores/useTimer";
+
 import { useKasina } from "../lib/stores/useKasina";
 import { Mic, MicOff, Video, VideoOff, Square, Save, Trash2 } from "lucide-react";
 import { useRecording } from "../lib/stores/useRecording";
@@ -13,7 +13,6 @@ const RecordingControls: React.FC = () => {
   const [captureAudio, setCaptureAudio] = useState(true);
   const [captureScreen, setCaptureScreen] = useState(true);
   const { selectedKasina } = useKasina();
-  const { elapsedTime, isRunning } = useTimer();
   const { saveRecording } = useRecording();
   
   const {
@@ -54,7 +53,7 @@ const RecordingControls: React.FC = () => {
     try {
       await saveRecording({
         blob: recordedBlob,
-        duration: elapsedTime,
+        duration: 0, // Duration will be tracked by the useMediaRecorder hook
         kasinaType: selectedKasina,
         kasinaName: KASINA_NAMES[selectedKasina],
         timestamp: new Date().toISOString(),
@@ -115,7 +114,7 @@ const RecordingControls: React.FC = () => {
               <Button 
                 onClick={handleStartRecording} 
                 className="flex-1 bg-red-600 hover:bg-red-700"
-                disabled={(!captureAudio && !captureScreen) || !isRunning}
+                disabled={!captureAudio && !captureScreen}
               >
                 <span className="flex items-center">
                   <span className="h-3 w-3 rounded-full bg-white mr-2 animate-pulse"></span>

@@ -8,6 +8,7 @@ interface MediaRecorderOptions {
 interface MediaRecorderHook {
   isRecording: boolean;
   recordedBlob: Blob | null;
+  recordingDuration: number;
   startRecording: () => Promise<void>;
   stopRecording: () => void;
   resetRecording: () => void;
@@ -21,10 +22,13 @@ export const useMediaRecorder = (
   const [isRecording, setIsRecording] = useState(false);
   const [recordedChunks, setRecordedChunks] = useState<Blob[]>([]);
   const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null);
+  const [recordingDuration, setRecordingDuration] = useState(0);
+  const [timerInterval, setTimerInterval] = useState<number | null>(null);
 
   const startRecording = useCallback(async () => {
     setRecordedChunks([]);
     setRecordedBlob(null);
+    setRecordingDuration(0);
 
     try {
       const mediaStreams: MediaStream[] = [];
@@ -88,6 +92,12 @@ export const useMediaRecorder = (
       recorder.start(1000); // Collect data every second
       setMediaRecorder(recorder);
       setIsRecording(true);
+      
+      // Start the timer to track recording duration
+      const interval = window.setInterval(() => {
+        setRecordingDuration(prev => prev + 1);
+      }, 1000);
+      setTimerInterval(interval);
     } catch (error) {
       console.error("Error starting recording:", error);
       throw error;
