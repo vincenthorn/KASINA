@@ -22,12 +22,12 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     return location.pathname === path;
   };
 
-  // Nav items configuration
+  // Nav items configuration - updated order to match HomePage
   const navItems = [
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/freestyle", label: "Freestyle", icon: <Flame className="w-5 h-5" /> },
-    { path: "/recording", label: "Recording", icon: <Video className="w-5 h-5" /> },
     { path: "/meditation", label: "Meditation", icon: <BookOpen className="w-5 h-5" /> },
+    { path: "/recording", label: "Recording", icon: <Video className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflection", icon: <BarChart className="w-5 h-5" /> },
   ];
   
@@ -59,26 +59,28 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
                 </Button>
               </Link>
             ))}
-            
-            {/* Admin link - only visible to admin users */}
-            {isAdmin && (
-              <Link to={adminItem.path}>
-                <Button
-                  variant={isActive(adminItem.path) ? "default" : "ghost"}
-                  className={`w-full justify-start text-left ${
-                    isActive(adminItem.path) 
-                      ? "bg-purple-600 hover:bg-purple-700" 
-                      : "hover:bg-gray-800"
-                  }`}
-                >
-                  {adminItem.icon}
-                  <span className="ml-3">{adminItem.label}</span>
-                </Button>
-              </Link>
-            )}
           </nav>
           
           <div className="mt-auto pt-4 border-t border-gray-800">
+            {/* Admin link - only visible to admin users, now moved just above logout */}
+            {isAdmin && (
+              <div className="mb-2">
+                <Link to={adminItem.path}>
+                  <Button
+                    variant={isActive(adminItem.path) ? "default" : "ghost"}
+                    className={`w-full justify-start text-left ${
+                      isActive(adminItem.path) 
+                        ? "bg-purple-600 hover:bg-purple-700" 
+                        : "hover:bg-gray-800"
+                    }`}
+                  >
+                    {adminItem.icon}
+                    <span className="ml-3">{adminItem.label}</span>
+                  </Button>
+                </Link>
+              </div>
+            )}
+            
             <Button 
               variant="ghost" 
               onClick={logout}
@@ -97,6 +99,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
           <div className="flex items-center justify-between p-4">
             <Logo size="small" showTagline={false} />
             <div className="flex space-x-2">
+              {/* Regular nav items */}
               {navItems.map((item) => (
                 <Link key={item.path} to={item.path}>
                   <Button
@@ -108,6 +111,8 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
                   </Button>
                 </Link>
               ))}
+              
+              {/* Admin button kept at the end for consistency with desktop */}
               {isAdmin && (
                 <Link to={adminItem.path}>
                   <Button

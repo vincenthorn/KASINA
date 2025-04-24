@@ -17,18 +17,18 @@ const HomePage: React.FC = () => {
       color: "from-orange-600 to-orange-800",
     },
     {
-      icon: <Video className="h-10 w-10 text-blue-500" />,
-      title: "Recording",
-      description: "Record your meditation sessions to revisit and share your practice.",
-      path: "/recording",
-      color: "from-blue-600 to-blue-800",
-    },
-    {
       icon: <BookOpen className="h-10 w-10 text-purple-500" />,
       title: "Meditation",
       description: "Learn with guided meditations and community resources.",
       path: "/meditation",
       color: "from-purple-600 to-purple-800",
+    },
+    {
+      icon: <Video className="h-10 w-10 text-blue-500" />,
+      title: "Recording",
+      description: "Record your meditation sessions to revisit and share your practice.",
+      path: "/recording",
+      color: "from-blue-600 to-blue-800",
     },
     {
       icon: <BarChart className="h-10 w-10 text-green-500" />,
