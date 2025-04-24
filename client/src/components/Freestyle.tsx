@@ -71,7 +71,7 @@ const Freestyle = () => {
       <div className="flex flex-col md:flex-row h-full">
         {/* Sidebar */}
         <div className="w-full md:w-80 bg-gray-900 p-4 overflow-y-auto">
-          <h2 className="text-2xl font-bold mb-6">Freestyle Kasina</h2>
+          <h2 className="text-2xl font-bold mb-6">Freestyle</h2>
           
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-2">Select Kasina Orb</h3>

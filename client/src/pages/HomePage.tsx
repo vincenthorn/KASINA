@@ -11,8 +11,8 @@ const HomePage: React.FC = () => {
   const features = [
     {
       icon: <Flame className="h-10 w-10 text-orange-500" />,
-      title: "Freestyle Kasina",
-      description: "Choose from 10 different kasina orbs and customize your meditation practice.",
+      title: "Freestyle",
+      description: "Choose from 10 different orbs and customize your meditation practice.",
       path: "/freestyle",
       color: "from-orange-600 to-orange-800",
     },
