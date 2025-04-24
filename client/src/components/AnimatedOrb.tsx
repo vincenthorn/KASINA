@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface AnimatedOrbProps {
   size?: number; // Size in pixels
@@ -9,40 +9,38 @@ const AnimatedOrb: React.FC<AnimatedOrbProps> = ({
   size = 120, 
   className = ""
 }) => {
-  // Blue spectrum colors - from deep blue to light blue
-  const blueSpectrumColors = [
-    "#0D47A1", // Deep Blue
-    "#1565C0", // Dark Blue
-    "#1976D2", // Medium Blue
-    "#1E88E5", // Bright Medium Blue
-    "#2196F3", // Primary Blue
-    "#42A5F5", // Light Blue
-    "#64B5F6", // Lighter Blue
-    "#90CAF9", // Very Light Blue
-    "#64B5F6", // Lighter Blue (back down)
-    "#42A5F5", // Light Blue
-    "#2196F3", // Primary Blue
-    "#1E88E5", // Bright Medium Blue
-    "#1976D2", // Medium Blue
-    "#1565C0", // Dark Blue
-  ];
-  
-  // For smooth transition, we'll use CSS animation instead of state changes
-  const [currentPosition, setCurrentPosition] = useState(0);
+  // Black & white rapid flicker animation
+  const [isBlack, setIsBlack] = useState(false);
   const animationRef = useRef<NodeJS.Timeout | null>(null);
   
-  // The time for a full cycle (10-30 seconds, we'll use 20)
-  const cycleDuration = 20000; // 20 seconds
-  const stepDuration = cycleDuration / blueSpectrumColors.length;
+  // Frequency will fluctuate between 5-40 Hz
+  const minFrequency = 5; // 5 Hz
+  const maxFrequency = 40; // 40 Hz
+  
+  // Calculate interval in milliseconds based on frequency
+  // f = 1/T where f is frequency and T is time period
+  const getRandomFrequency = () => {
+    // Get a random frequency between min and max
+    const randomFreq = Math.random() * (maxFrequency - minFrequency) + minFrequency;
+    // Convert frequency to milliseconds (1000 ms / frequency)
+    return Math.round(1000 / randomFreq);
+  };
+  
+  // State for current interval duration
+  const [intervalDuration, setIntervalDuration] = useState(getRandomFrequency());
   
   useEffect(() => {
-    // Function to smoothly transition through the color spectrum
-    const animateColors = () => {
-      setCurrentPosition(prev => (prev + 1) % blueSpectrumColors.length);
+    // Function to toggle between black and white
+    const flickerColors = () => {
+      setIsBlack(prev => !prev);
+      // Change the frequency randomly every few flickers
+      if (Math.random() < 0.15) { // ~15% chance to change frequency on each flicker
+        setIntervalDuration(getRandomFrequency());
+      }
     };
     
-    // Start the animation
-    animationRef.current = setInterval(animateColors, stepDuration);
+    // Start the flicker animation
+    animationRef.current = setInterval(flickerColors, intervalDuration);
     
     // Cleanup interval on component unmount
     return () => {
@@ -50,10 +48,10 @@ const AnimatedOrb: React.FC<AnimatedOrbProps> = ({
         clearInterval(animationRef.current);
       }
     };
-  }, [stepDuration]);
+  }, [intervalDuration]);
   
-  // Calculate the main color and next color for gradient effect
-  const mainColor = blueSpectrumColors[currentPosition];
+  // Calculate the current color
+  const currentColor = isBlack ? "#000000" : "#FFFFFF";
   
   return (
     <div
@@ -61,10 +59,10 @@ const AnimatedOrb: React.FC<AnimatedOrbProps> = ({
       style={{
         width: `${size}px`,
         height: `${size}px`,
-        backgroundColor: mainColor,
-        boxShadow: `0 0 ${size / 2.5}px ${size / 8}px ${mainColor}`,
-        transition: "background-color 1.5s ease-in-out, box-shadow 1.5s ease-in-out",
-        animation: "breathe 4s infinite ease-in-out",
+        backgroundColor: currentColor,
+        boxShadow: `0 0 ${size / 2.5}px ${size / 8}px ${currentColor}`,
+        transition: `background-color 0.02s linear, box-shadow 0.02s linear`,
+        animation: "breathe 1s infinite ease-in-out",
       }}
     />
   );
