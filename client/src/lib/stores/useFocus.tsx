@@ -6,8 +6,19 @@ interface FocusState {
   setFocusMode: (enabled: boolean) => void;
 }
 
-export const useFocus = create<FocusState>((set) => ({
+export const useFocus = create<FocusState>((set, get) => ({
   isFocusMode: false,
-  toggleFocusMode: () => set((state) => ({ isFocusMode: !state.isFocusMode })),
-  setFocusMode: (enabled: boolean) => set({ isFocusMode: enabled }),
+  toggleFocusMode: () => {
+    // Get current state
+    const currentMode = get().isFocusMode;
+    // Log for debugging
+    console.log('Current focus mode:', currentMode);
+    console.log('Toggling to:', !currentMode);
+    // Set new state
+    set({ isFocusMode: !currentMode });
+  },
+  setFocusMode: (enabled: boolean) => {
+    console.log('Setting focus mode to:', enabled);
+    set({ isFocusMode: enabled });
+  },
 }));

@@ -118,7 +118,9 @@ const FreestylePage: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isFocusMode) {
-        toggleFocusMode();
+        console.log("ESC key pressed, exiting focus mode");
+        // Directly set state instead of using toggle
+        useFocus.setState({ isFocusMode: false });
       }
     };
     
@@ -126,7 +128,7 @@ const FreestylePage: React.FC = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isFocusMode, toggleFocusMode]);
+  }, [isFocusMode]);
 
   return (
     <Layout fullWidth>
@@ -137,10 +139,20 @@ const FreestylePage: React.FC = () => {
             variant={isFocusMode ? "default" : "ghost"}
             size={isFocusMode ? "default" : "icon"}
             onClick={() => {
-              toggleFocusMode();
+              console.log("Button clicked, current focus mode:", isFocusMode);
               
-              // Show toast notification only when entering focus mode
-              if (!isFocusMode) {
+              // Directly call setFocusMode instead of toggle for more predictable behavior
+              const newMode = !isFocusMode;
+              console.log("Setting focus mode to:", newMode);
+              
+              // Force a direct state update instead of toggle
+              if (isFocusMode) {
+                // Exiting focus mode
+                useFocus.setState({ isFocusMode: false });
+              } else {
+                // Entering focus mode
+                useFocus.setState({ isFocusMode: true });
+                
                 toast.info(
                   "Entered Focus Mode. Press ESC or click the button again to exit.", 
                   { duration: 4000 }
