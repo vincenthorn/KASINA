@@ -17,9 +17,9 @@ interface TimerState {
   resetTimer: () => void;
 }
 
-export const useTimer = create<TimerState>()((set, get) => ({
+export const useTimer = create<TimerState>((set, get) => ({
   // Default to 5 minutes (in seconds) or last selected
-  selectedDuration: getLocalStorage("selectedDuration") || 5 * 60,
+  selectedDuration: getLocalStorage("selectedDuration", 5 * 60),
   isRunning: false,
   isPaused: false,
   startTime: null,
