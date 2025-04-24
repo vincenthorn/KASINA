@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import KasinaOrb from "../components/KasinaOrb";
 import FreestyleControls from "../components/FreestyleControls";
+import SimpleTimer from "../components/SimpleTimer";
 import { useTimer } from "../lib/stores/useTimer";
 import { toast } from "sonner";
 import { useKasina } from "../lib/stores/useKasina";
@@ -184,73 +185,15 @@ const FreestylePage: React.FC = () => {
           `}>
             <KasinaOrb />
             
-            {/* Debug Timer Controls */}
+            {/* SimpleTimer Component */}
             <div className="absolute bottom-4 right-4 flex flex-col gap-2">
-              <div className="text-white bg-black/70 p-2 rounded">
-                Timer Status: {isRunning ? 'Running' : 'Stopped'}, Duration: {selectedDuration}s
+              <div className="text-white bg-black/70 p-2 rounded text-center font-bold">
+                New Simple Timer
               </div>
               
-              <button 
-                style={{
-                  backgroundColor: 'purple',
-                  color: 'white',
-                  padding: '8px',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  border: 'none',
-                  fontWeight: 'bold'
-                }}
-                onClick={() => {
-                  alert('Alert Test: Plain JavaScript alert works!');
-                }}
-              >
-                Test Alert
-              </button>
-              
-              <button 
-                style={{
-                  backgroundColor: 'blue',
-                  color: 'white',
-                  padding: '8px',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  border: 'none',
-                  fontWeight: 'bold'
-                }}
-                onClick={() => {
-                  console.log('Console log test!');
-                  setSelectedDuration(60);
-                  window.setTimeout(() => {
-                    console.log('Timeout fired: Timer duration is now:', selectedDuration);
-                  }, 100);
-                }}
-              >
-                Set 1:00 (Plain)
-              </button>
-              
-              <button 
-                style={{
-                  backgroundColor: 'green',
-                  color: 'white',
-                  padding: '8px',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  border: 'none',
-                  fontWeight: 'bold'
-                }}
-                onClick={() => {
-                  console.log('Start button clicked');
-                  try {
-                    startTimer();
-                    console.log('Timer started successfully');
-                  } catch (err) {
-                    console.error('Error starting timer:', err);
-                    alert('Error starting timer: ' + err);
-                  }
-                }}
-              >
-                Start Timer (Plain)
-              </button>
+              <div className="bg-gray-900/90 border border-gray-700 rounded-lg p-4">
+                <SimpleTimer initialDuration={60} />
+              </div>
             </div>
           </div>
         </div>
