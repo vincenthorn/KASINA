@@ -90,12 +90,35 @@ const ReflectionPage: React.FC = () => {
     <Layout>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-white">Practice Reflection</h1>
-        <button 
-          onClick={clearLocalSessions}
-          className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
-        >
-          Clear Local Data
-        </button>
+        <div className="flex gap-2">
+          <button 
+            onClick={() => {
+              const rawData = localStorage.getItem("sessions");
+              console.log("Raw localStorage sessions:", rawData);
+              if (rawData) {
+                try {
+                  const parsed = JSON.parse(rawData);
+                  console.log("Parsed localStorage sessions:", parsed);
+                  alert(`Found ${parsed.length} sessions in localStorage`);
+                } catch (e) {
+                  console.error("Error parsing sessions:", e);
+                  alert("Error parsing sessions: " + e);
+                }
+              } else {
+                alert("No sessions found in localStorage");
+              }
+            }}
+            className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
+          >
+            Debug Storage
+          </button>
+          <button 
+            onClick={clearLocalSessions}
+            className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
+          >
+            Clear Local Data
+          </button>
+        </div>
       </div>
       
       {isLoading ? (

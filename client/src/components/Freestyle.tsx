@@ -10,6 +10,7 @@ import Timer from "../lib/Timer";
 import { useKasina } from "../lib/stores/useKasina";
 import { KasinaType, getOrbConfig } from "../lib/types";
 import { toast } from "sonner";
+import { KASINA_NAMES } from "../lib/constants";
 
 const Freestyle = () => {
   const { selectedKasina, setSelectedKasina, saveSession } = useKasina();
@@ -202,6 +203,34 @@ const Freestyle = () => {
               size="lg"
             >
               {timerRunning ? "Pause" : "Start Meditation"}
+            </Button>
+            
+            {/* DEBUG: Test Session Save Button */}
+            <Button
+              onClick={() => {
+                const testSession = {
+                  kasinaType: selectedKasina,
+                  kasinaName: KASINA_NAMES[selectedKasina] || selectedKasina,
+                  duration: 60, // 1 minute
+                  timestamp: new Date().toISOString(),
+                  id: Date.now().toString()
+                };
+                
+                // Manual localStorage save for testing
+                const localSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
+                localSessions.push(testSession);
+                localStorage.setItem("sessions", JSON.stringify(localSessions));
+                
+                console.log("Manually saved test session to localStorage:", testSession);
+                console.log("Current localStorage sessions:", localSessions);
+                
+                toast.success("Test session manually saved - Check Reflection page");
+              }}
+              className="w-full mt-2"
+              variant="outline"
+              size="sm"
+            >
+              [Debug] Save Test Session
             </Button>
           </div>
         </div>
