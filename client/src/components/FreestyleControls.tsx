@@ -39,7 +39,8 @@ const KasinaSelector: React.FC = () => {
                   type === KASINA_TYPES.BLUE ? "#0000FF" : 
                   type === KASINA_TYPES.RED ? "#FF0000" : 
                   "#FFFF00",
-                color: (type === KASINA_TYPES.WHITE || type === KASINA_TYPES.YELLOW) ? "#000000" : "#FFFFFF"
+                color: selectedKasina === type ? "#FFFFFF" : 
+                  (type === KASINA_TYPES.WHITE || type === KASINA_TYPES.YELLOW) ? "#000000" : "#FFFFFF"
               }}
             >
               {KASINA_NAMES[type]}

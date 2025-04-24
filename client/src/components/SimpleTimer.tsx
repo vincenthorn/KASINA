@@ -158,8 +158,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           className={duration === null ? "border-2 border-purple-500" : ""}
           size="sm"
         >
-          <InfinityIcon className="h-4 w-4 mr-1" />
-          ∞
+          <InfinityIcon className="h-4 w-4" />
         </Button>
       </div>
     </div>
