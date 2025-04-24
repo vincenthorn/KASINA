@@ -60,3 +60,8 @@ canvas {
     opacity: 0.9;
   }
 }
+
+/* Cursor hiding for focus mode */
+.cursor-none {
+  cursor: none !important;
+}

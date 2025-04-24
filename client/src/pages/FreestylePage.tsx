@@ -173,9 +173,22 @@ const FreestylePage: React.FC = () => {
     };
   }, [isFocusMode]);
 
+  // Apply cursor-none style to the root element as well when in focus mode and UI is hidden
+  useEffect(() => {
+    if (isFocusMode && !isUIVisible) {
+      document.body.classList.add('cursor-none');
+    } else {
+      document.body.classList.remove('cursor-none');
+    }
+    
+    return () => {
+      document.body.classList.remove('cursor-none');
+    };
+  }, [isFocusMode, isUIVisible]);
+
   return (
     <Layout fullWidth isFocusMode={isFocusMode}>
-      <div className="h-full w-full relative">
+      <div className={`h-full w-full relative ${isFocusMode && !isUIVisible ? 'cursor-none' : ''}`}>
         {/* Focus mode toggle button - more visible in focus mode */}
         <div className={`
           absolute top-4 right-4 z-20
