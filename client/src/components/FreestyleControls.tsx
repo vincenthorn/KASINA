@@ -171,14 +171,6 @@ const FreestyleControls: React.FC = () => {
     <div className="space-y-6 p-4 bg-gray-900 rounded-lg">
       <h2 className="text-xl text-white font-semibold">Kasina Selection</h2>
       <KasinaSelector />
-      
-      <div className="mt-8 p-4 bg-gray-800 rounded-lg border border-gray-700">
-        <p className="text-center text-gray-400 text-sm">
-          Use the timer in the bottom right corner of the screen to time your sessions.
-          <br />
-          You can select from preset durations or use the infinity mode for open-ended sessions.
-        </p>
-      </div>
     </div>
   );
 };
