@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
+import { Infinity as InfinityIcon, Clock } from 'lucide-react';
 
 interface SimpleTimerProps {
-  initialDuration?: number; // in seconds
+  initialDuration?: number | null; // in seconds, null means infinity (count up)
+  onComplete?: () => void;
 }
 
 export const SimpleTimer: React.FC<SimpleTimerProps> = ({ 
-  initialDuration = 60 // Default to 60 seconds (1 minute)
+  initialDuration = 60, // Default to 60 seconds (1 minute)
+  onComplete
 }) => {
-  const [duration, setDuration] = useState(initialDuration);
+  const [duration, setDuration] = useState<number | null>(initialDuration);
   const [isRunning, setIsRunning] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState(initialDuration);
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [timeRemaining, setTimeRemaining] = useState<number | null>(duration);
   
   // Reset when duration changes
   useEffect(() => {
     setTimeRemaining(duration);
+    setElapsedTime(0);
   }, [duration]);
   
   // Timer logic
@@ -23,19 +28,27 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     
     if (isRunning) {
       intervalId = window.setInterval(() => {
-        setTimeRemaining(prev => {
-          const newTime = prev - 1;
-          
-          // Stop at zero
-          if (newTime <= 0) {
-            setIsRunning(false);
-            window.clearInterval(intervalId!);
-            alert('Timer completed!');
-            return 0;
-          }
-          
-          return newTime;
-        });
+        // Update elapsed time (for both countdown and count-up)
+        setElapsedTime(prev => prev + 1);
+        
+        // Update remaining time (for countdown only)
+        if (timeRemaining !== null) {
+          setTimeRemaining(prev => {
+            if (prev === null) return null;
+            
+            const newTime = prev - 1;
+            
+            // Stop at zero
+            if (newTime <= 0) {
+              setIsRunning(false);
+              window.clearInterval(intervalId!);
+              if (onComplete) onComplete();
+              return 0;
+            }
+            
+            return newTime;
+          });
+        }
       }, 1000);
     }
     
@@ -45,7 +58,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         window.clearInterval(intervalId);
       }
     };
-  }, [isRunning]);
+  }, [isRunning, timeRemaining, onComplete]);
   
   // Format time as MM:SS
   const formatTime = (seconds: number): string => {
@@ -56,8 +69,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   
   const startTimer = () => {
     console.log('Starting simple timer...');
-    if (timeRemaining <= 0) {
+    // Reset the timer if it's completed
+    if (timeRemaining === 0) {
       setTimeRemaining(duration);
+      setElapsedTime(0);
     }
     setIsRunning(true);
   };
@@ -71,18 +86,39 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     console.log('Resetting simple timer...');
     setIsRunning(false);
     setTimeRemaining(duration);
+    setElapsedTime(0);
+  };
+  
+  // Set duration to infinity (null)
+  const setInfiniteMode = () => {
+    setDuration(null);
+    setTimeRemaining(null);
+    setElapsedTime(0);
   };
   
   return (
     <div className="flex flex-col items-center space-y-4">
-      <div className="text-3xl font-mono">
-        {formatTime(timeRemaining)}
+      <div className="text-3xl font-mono text-white">
+        {timeRemaining === null ? 
+          formatTime(elapsedTime) : 
+          formatTime(timeRemaining)}
+      </div>
+      
+      {/* Timer status - Include data attribute for tracking completed duration */}
+      <div 
+        className="text-xs text-gray-300 simple-timer-duration"
+        data-duration={elapsedTime}
+      >
+        {timeRemaining === null 
+          ? `Elapsed: ${formatTime(elapsedTime)}`
+          : `Remaining: ${formatTime(timeRemaining)} / ${formatTime(duration || 0)}`}
       </div>
       
       <div className="flex space-x-2">
         <Button 
           variant={isRunning ? "destructive" : "default"} 
           onClick={isRunning ? stopTimer : startTimer}
+          className="w-20"
         >
           {isRunning ? 'Stop' : 'Start'}
         </Button>
@@ -91,17 +127,19 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           variant="outline" 
           onClick={resetTimer}
           disabled={isRunning}
+          className="w-20"
         >
           Reset
         </Button>
       </div>
       
-      <div className="flex space-x-2 mt-4">
+      <div className="grid grid-cols-3 gap-2 mt-4 w-full">
         <Button 
           variant="outline" 
           onClick={() => setDuration(60)}
           disabled={isRunning}
           className={duration === 60 ? "border-2 border-blue-500" : ""}
+          size="sm"
         >
           1:00
         </Button>
@@ -111,6 +149,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           onClick={() => setDuration(300)}
           disabled={isRunning}
           className={duration === 300 ? "border-2 border-blue-500" : ""}
+          size="sm"
         >
           5:00
         </Button>
@@ -120,8 +159,40 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           onClick={() => setDuration(600)}
           disabled={isRunning}
           className={duration === 600 ? "border-2 border-blue-500" : ""}
+          size="sm"
         >
           10:00
+        </Button>
+
+        <Button 
+          variant="outline" 
+          onClick={() => setDuration(900)}
+          disabled={isRunning}
+          className={duration === 900 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          15:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => setDuration(1200)}
+          disabled={isRunning}
+          className={duration === 1200 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          20:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={setInfiniteMode}
+          disabled={isRunning}
+          className={duration === null ? "border-2 border-purple-500" : ""}
+          size="sm"
+        >
+          <InfinityIcon className="h-4 w-4 mr-1" />
+          ∞
         </Button>
       </div>
     </div>

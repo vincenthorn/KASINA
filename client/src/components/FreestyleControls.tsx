@@ -172,8 +172,13 @@ const FreestyleControls: React.FC = () => {
       <h2 className="text-xl text-white font-semibold">Kasina Selection</h2>
       <KasinaSelector />
       
-      <h2 className="text-xl text-white font-semibold mt-8">Timer Controls</h2>
-      <TimerControl />
+      <div className="mt-8 p-4 bg-gray-800 rounded-lg border border-gray-700">
+        <p className="text-center text-gray-400 text-sm">
+          Use the timer in the bottom right corner of the screen to time your sessions.
+          <br />
+          You can select from preset durations or use the infinity mode for open-ended sessions.
+        </p>
+      </div>
     </div>
   );
 };
