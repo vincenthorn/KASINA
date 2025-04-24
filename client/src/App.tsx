@@ -11,6 +11,7 @@ import FreestylePage from "./pages/FreestylePage";
 import RecordingPage from "./pages/RecordingPage";
 import MeditationPage from "./pages/MeditationPage";
 import ReflectionPage from "./pages/ReflectionPage";
+import AdminPage from "./pages/AdminPage";
 import NotFound from "./pages/not-found";
 
 function AuthenticatedRoute({ children }: { children: React.ReactNode }) {
@@ -70,6 +71,14 @@ function App() {
             element={
               <AuthenticatedRoute>
                 <ReflectionPage />
+              </AuthenticatedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <AuthenticatedRoute>
+                <AdminPage />
               </AuthenticatedRoute>
             }
           />

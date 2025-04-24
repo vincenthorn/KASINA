@@ -1,9 +1,20 @@
-import type { Express } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import multer from "multer";
+import { parse } from "csv-parse/sync";
+
+// Extend the Express Request type to include session
+declare module "express-session" {
+  interface SessionData {
+    user?: {
+      email: string;
+    };
+  }
+}
 
 // Get the directory name
 const __filename = fileURLToPath(import.meta.url);
@@ -40,7 +51,90 @@ async function readWhitelist(): Promise<string[]> {
 const sessions: any[] = [];
 const communityVideos: any[] = [];
 
+// Configure multer for file uploads
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024, // Limit file size to 5MB
+  },
+});
+
+// Helper function to write whitelist from CSV data
+async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
+  try {
+    // Parse CSV data
+    const records = parse(csvData, {
+      columns: true,
+      skip_empty_lines: true,
+    });
+
+    // Extract emails from the parsed data
+    const emails = records
+      .filter((record: any) => record.Email)
+      .map((record: any) => record.Email.trim().toLowerCase());
+
+    // Check if there are any emails in the data
+    if (emails.length === 0) {
+      throw new Error("No valid email addresses found in the CSV file");
+    }
+
+    // Create a header row and add emails
+    const csvContent = [
+      "email",
+      ...emails
+    ].join("\n");
+
+    // Write to the whitelist file
+    await fs.promises.writeFile(whitelistPath, csvContent, "utf-8");
+
+    return emails;
+  } catch (error) {
+    console.error("Error updating whitelist from CSV:", error);
+    throw error;
+  }
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Admin routes - restricted to admin users
+  const adminEmails = ["admin@kasina.app"];
+  
+  // Middleware to check if user is admin
+  const isAdmin = (req: Request, res: Response, next: Function) => {
+    const userEmail = req.session?.user?.email;
+    if (userEmail && adminEmails.includes(userEmail)) {
+      next();
+    } else {
+      res.status(403).json({ message: "Unauthorized: Admin access required" });
+    }
+  };
+  
+  // CSV Upload endpoint
+  app.post(
+    "/api/admin/upload-whitelist", 
+    upload.single("csv"), 
+    async (req, res) => {
+      try {
+        // Check if file was provided
+        if (!req.file) {
+          return res.status(400).json({ message: "No CSV file uploaded" });
+        }
+        
+        // Process the uploaded CSV
+        const emails = await updateWhitelistFromCSV(req.file.buffer);
+        
+        return res.status(200).json({ 
+          message: "Whitelist updated successfully", 
+          count: emails.length 
+        });
+      } catch (error) {
+        console.error("Error processing whitelist upload:", error);
+        return res.status(500).json({ 
+          message: "Failed to process the uploaded CSV file",
+          error: error instanceof Error ? error.message : "Unknown error" 
+        });
+      }
+    }
+  );
   // Auth routes
   app.post("/api/auth/login", async (req, res) => {
     try {
