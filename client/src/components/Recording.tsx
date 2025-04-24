@@ -243,7 +243,7 @@ const Recording = () => {
                   speed={orbConfig.speed}
                   complexity={orbConfig.complexity}
                 />
-                <OrbitControls enableZoom={false} enablePan={false} />
+                <OrbitControls enableZoom={true} enablePan={false} zoomSpeed={0.08} />
               </Canvas>
             </div>
           </div>
