@@ -105,17 +105,71 @@ const FreestylePage: React.FC = () => {
     };
   }, [isRunning, elapsedTime, resetTimer, stopTimer, selectedKasina]);
 
+  // Effect to exit focus mode when leaving the page
+  useEffect(() => {
+    return () => {
+      if (isFocusMode) {
+        toggleFocusMode();
+      }
+    };
+  }, [isFocusMode, toggleFocusMode]);
+  
+  // Listen for escape key to exit focus mode
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isFocusMode) {
+        toggleFocusMode();
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isFocusMode, toggleFocusMode]);
+
   return (
     <Layout fullWidth>
-      <div className="h-full flex flex-col md:flex-row">
-        {/* Left side: Controls */}
-        <div className="w-full md:w-72 lg:w-96 mb-4 md:mb-0">
-          <FreestyleControls />
+      <div className="h-full w-full relative">
+        {/* Focus mode toggle button */}
+        <div className="absolute top-4 right-4 z-20">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => {
+              toggleFocusMode();
+              
+              // Show toast notification only when entering focus mode
+              if (!isFocusMode) {
+                toast.info(
+                  "Entered Focus Mode. Press ESC or click the button again to exit.", 
+                  { duration: 4000 }
+                );
+              }
+            }} 
+            className="bg-gray-900 bg-opacity-50 hover:bg-gray-800 text-white"
+            title={isFocusMode ? "Exit Focus Mode" : "Enter Focus Mode"}
+          >
+            {isFocusMode ? <Minimize className="h-5 w-5" /> : <Maximize className="h-5 w-5" />}
+          </Button>
         </div>
-        
-        {/* Right side: Kasina Orb */}
-        <div className="flex-1 bg-black rounded-lg overflow-hidden">
-          <KasinaOrb />
+
+        {/* Flex container for content */}
+        <div className={`h-full flex ${isFocusMode ? 'flex-col' : 'flex-col md:flex-row'}`}>
+          {/* Left side: Controls - hidden in focus mode */}
+          {!isFocusMode && (
+            <div className="w-full md:w-72 lg:w-96 mb-4 md:mb-0">
+              <FreestyleControls />
+            </div>
+          )}
+          
+          {/* Kasina Orb - full screen in focus mode */}
+          <div className={`
+            ${isFocusMode ? 'w-full h-full' : 'flex-1'} 
+            bg-black rounded-lg overflow-hidden
+          `}>
+            <KasinaOrb />
+          </div>
         </div>
       </div>
     </Layout>
