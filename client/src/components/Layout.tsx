@@ -4,17 +4,16 @@ import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
 import { Home, Flame, Video, BookOpen, BarChart, LogOut, Settings } from "lucide-react";
-import { useFocus } from "../lib/stores/useFocus";
 
 interface LayoutProps {
   children: ReactNode;
   fullWidth?: boolean;
+  isFocusMode?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false }) => {
+const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMode = false }) => {
   const location = useLocation();
   const { logout, email } = useAuth();
-  const { isFocusMode } = useFocus();
 
   // Check if user is admin
   const isAdmin = email === "admin@kasina.app";

@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import KasinaOrb from "../components/KasinaOrb";
 import FreestyleControls from "../components/FreestyleControls";
 import { useTimer } from "../lib/stores/useTimer";
 import { toast } from "sonner";
 import { useKasina } from "../lib/stores/useKasina";
-import { useFocus } from "../lib/stores/useFocus";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
 import { Button } from "../components/ui/button";
@@ -22,7 +21,9 @@ const FreestylePage: React.FC = () => {
   } = useTimer();
   
   const { selectedKasina } = useKasina();
-  const { isFocusMode, toggleFocusMode } = useFocus();
+  
+  // Use local state for focus mode instead of Zustand store
+  const [isFocusMode, setIsFocusMode] = useState(false);
 
   // Effect to handle timer completion
   useEffect(() => {
@@ -105,22 +106,12 @@ const FreestylePage: React.FC = () => {
     };
   }, [isRunning, elapsedTime, resetTimer, stopTimer, selectedKasina]);
 
-  // Effect to exit focus mode when leaving the page
-  useEffect(() => {
-    return () => {
-      if (isFocusMode) {
-        toggleFocusMode();
-      }
-    };
-  }, [isFocusMode, toggleFocusMode]);
-  
   // Listen for escape key to exit focus mode
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isFocusMode) {
         console.log("ESC key pressed, exiting focus mode");
-        // Directly set state instead of using toggle
-        useFocus.setState({ isFocusMode: false });
+        setIsFocusMode(false);
       }
     };
     
@@ -131,7 +122,7 @@ const FreestylePage: React.FC = () => {
   }, [isFocusMode]);
 
   return (
-    <Layout fullWidth>
+    <Layout fullWidth isFocusMode={isFocusMode}>
       <div className="h-full w-full relative">
         {/* Focus mode toggle button - more visible in focus mode */}
         <div className="absolute top-4 right-4 z-20">
@@ -141,18 +132,13 @@ const FreestylePage: React.FC = () => {
             onClick={() => {
               console.log("Button clicked, current focus mode:", isFocusMode);
               
-              // Directly call setFocusMode instead of toggle for more predictable behavior
-              const newMode = !isFocusMode;
-              console.log("Setting focus mode to:", newMode);
-              
-              // Force a direct state update instead of toggle
+              // Toggle the focus mode
               if (isFocusMode) {
                 // Exiting focus mode
-                useFocus.setState({ isFocusMode: false });
+                setIsFocusMode(false);
               } else {
                 // Entering focus mode
-                useFocus.setState({ isFocusMode: true });
-                
+                setIsFocusMode(true);
                 toast.info(
                   "Entered Focus Mode. Press ESC or click the button again to exit.", 
                   { duration: 4000 }
