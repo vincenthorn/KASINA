@@ -185,10 +185,45 @@ const FreestylePage: React.FC = () => {
           `}>
             <KasinaOrb />
             
-            {/* Timer component in the bottom right - keeping for reference */}
-            {false && (
-              <div className="absolute bottom-4 right-4 flex flex-col gap-2">
-                {/* This is kept as commented code for reference */}
+            {/* Timer component for focus mode */}
+            {isFocusMode && (
+              <div className="absolute bottom-4 right-4">
+                <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-2 shadow-lg">
+                  <SimpleTimer onComplete={() => {
+                    toast.success("Meditation session completed!");
+                    
+                    // Record the meditation session
+                    const timerDuration = document.querySelector('.simple-timer-duration')?.getAttribute('data-duration');
+                    const duration = timerDuration ? parseInt(timerDuration, 10) : 60;
+                    
+                    const recordSession = async () => {
+                      try {
+                        await apiRequest("POST", "/api/sessions", {
+                          kasinaType: selectedKasina,
+                          kasinaName: KASINA_NAMES[selectedKasina],
+                          duration, // The completed duration
+                          timestamp: new Date().toISOString(),
+                        });
+                        toast.info("Session saved to your practice log");
+                      } catch (error) {
+                        console.error("Failed to record session:", error);
+                        // Store locally if API call fails
+                        const sessions = JSON.parse(localStorage.getItem("sessions") || "[]");
+                        sessions.push({
+                          id: Date.now().toString(),
+                          kasinaType: selectedKasina,
+                          kasinaName: KASINA_NAMES[selectedKasina],
+                          duration,
+                          timestamp: new Date().toISOString(),
+                        });
+                        localStorage.setItem("sessions", JSON.stringify(sessions));
+                        toast.info("Session saved locally (offline mode)");
+                      }
+                    };
+                    
+                    recordSession();
+                  }} />
+                </div>
               </div>
             )}
           </div>

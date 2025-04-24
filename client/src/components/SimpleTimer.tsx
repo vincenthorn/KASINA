@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Button } from './ui/button';
-import { Infinity as InfinityIcon, Clock } from 'lucide-react';
+import { Infinity as InfinityIcon } from 'lucide-react';
+import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
 interface SimpleTimerProps {
   initialDuration?: number | null; // in seconds, null means infinity (count up)
@@ -11,16 +12,26 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   initialDuration = 60, // Default to 60 seconds (1 minute)
   onComplete
 }) => {
-  const [duration, setDuration] = useState<number | null>(initialDuration);
-  const [isRunning, setIsRunning] = useState(false);
-  const [elapsedTime, setElapsedTime] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState<number | null>(duration);
+  // Use the Zustand store instead of local state
+  const {
+    duration,
+    isRunning,
+    elapsedTime,
+    timeRemaining,
+    setDuration,
+    startTimer,
+    stopTimer,
+    resetTimer,
+    tick,
+    setInfiniteMode
+  } = useSimpleTimer();
   
-  // Reset when duration changes
+  // Set initial duration if provided
   useEffect(() => {
-    setTimeRemaining(duration);
-    setElapsedTime(0);
-  }, [duration]);
+    if (initialDuration !== duration) {
+      setDuration(initialDuration);
+    }
+  }, [initialDuration, duration, setDuration]);
   
   // Timer logic
   useEffect(() => {
@@ -28,26 +39,11 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     
     if (isRunning) {
       intervalId = window.setInterval(() => {
-        // Update elapsed time (for both countdown and count-up)
-        setElapsedTime(prev => prev + 1);
+        tick();
         
-        // Update remaining time (for countdown only)
-        if (timeRemaining !== null) {
-          setTimeRemaining(prev => {
-            if (prev === null) return null;
-            
-            const newTime = prev - 1;
-            
-            // Stop at zero
-            if (newTime <= 0) {
-              setIsRunning(false);
-              window.clearInterval(intervalId!);
-              if (onComplete) onComplete();
-              return 0;
-            }
-            
-            return newTime;
-          });
+        // Check for completion
+        if (timeRemaining === 0) {
+          if (onComplete) onComplete();
         }
       }, 1000);
     }
@@ -58,42 +54,13 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         window.clearInterval(intervalId);
       }
     };
-  }, [isRunning, timeRemaining, onComplete]);
+  }, [isRunning, timeRemaining, tick, onComplete]);
   
   // Format time as MM:SS
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
-  
-  const startTimer = () => {
-    console.log('Starting simple timer...');
-    // Reset the timer if it's completed
-    if (timeRemaining === 0) {
-      setTimeRemaining(duration);
-      setElapsedTime(0);
-    }
-    setIsRunning(true);
-  };
-  
-  const stopTimer = () => {
-    console.log('Stopping simple timer...');
-    setIsRunning(false);
-  };
-  
-  const resetTimer = () => {
-    console.log('Resetting simple timer...');
-    setIsRunning(false);
-    setTimeRemaining(duration);
-    setElapsedTime(0);
-  };
-  
-  // Set duration to infinity (null)
-  const setInfiniteMode = () => {
-    setDuration(null);
-    setTimeRemaining(null);
-    setElapsedTime(0);
   };
   
   return (
