@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
-import { Home, Flame, Video, BookOpen, BarChart, LogOut } from "lucide-react";
+import { Home, Flame, Video, BookOpen, BarChart, LogOut, Settings } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,7 +12,10 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false }) => {
   const location = useLocation();
-  const { logout } = useAuth();
+  const { logout, email } = useAuth();
+
+  // Check if user is admin
+  const isAdmin = email === "admin@kasina.app";
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -26,6 +29,9 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false }) => {
     { path: "/meditation", label: "Meditation", icon: <BookOpen className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflection", icon: <BarChart className="w-5 h-5" /> },
   ];
+  
+  // Admin nav item (only shown to admin users)
+  const adminItem = { path: "/admin", label: "Admin", icon: <Settings className="w-5 h-5" /> };
 
   return (
     <div className="flex h-screen bg-black text-white">
@@ -51,6 +57,23 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false }) => {
               </Button>
             </Link>
           ))}
+          
+          {/* Admin link - only visible to admin users */}
+          {isAdmin && (
+            <Link to={adminItem.path}>
+              <Button
+                variant={isActive(adminItem.path) ? "default" : "ghost"}
+                className={`w-full justify-start text-left ${
+                  isActive(adminItem.path) 
+                    ? "bg-purple-600 hover:bg-purple-700" 
+                    : "hover:bg-gray-800"
+                }`}
+              >
+                {adminItem.icon}
+                <span className="ml-3">{adminItem.label}</span>
+              </Button>
+            </Link>
+          )}
         </nav>
         
         <div className="mt-auto pt-4 border-t border-gray-800">
@@ -81,6 +104,17 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false }) => {
                 </Button>
               </Link>
             ))}
+            {isAdmin && (
+              <Link to={adminItem.path}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={isActive(adminItem.path) ? "text-purple-400" : "text-gray-400"}
+                >
+                  {adminItem.icon}
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
