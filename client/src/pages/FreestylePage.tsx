@@ -8,7 +8,7 @@ import { useKasina } from "../lib/stores/useKasina";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
 import { Button } from "../components/ui/button";
-import { Maximize, Minimize } from "lucide-react";
+import { Maximize, Minimize, Timer } from "lucide-react";
 
 const FreestylePage: React.FC = () => {
   const { 
@@ -17,7 +17,9 @@ const FreestylePage: React.FC = () => {
     selectedDuration,
     elapsedTime, 
     resetTimer,
-    stopTimer
+    stopTimer,
+    startTimer,
+    setSelectedDuration
   } = useTimer();
   
   const { selectedKasina } = useKasina();
@@ -181,6 +183,46 @@ const FreestylePage: React.FC = () => {
             bg-black rounded-lg overflow-hidden
           `}>
             <KasinaOrb />
+            
+            {/* Debug Timer Controls */}
+            <div className="absolute bottom-4 right-4 flex flex-col gap-2">
+              <div className="text-white bg-black/70 p-2 rounded">
+                {selectedDuration === Infinity ? 
+                  `Elapsed: ${elapsedTime}s` : 
+                  `Remaining: ${Math.max(0, selectedDuration - elapsedTime)}s / ${selectedDuration}s`
+                }
+              </div>
+              <Button 
+                size="sm"
+                variant="outline" 
+                className="bg-purple-900/80 text-white"
+                onClick={() => {
+                  console.log('Debug button: Setting duration to 60s (1 minute)');
+                  setSelectedDuration(60);
+                }}
+              >
+                <Timer className="h-4 w-4 mr-2" />
+                Set 1:00
+              </Button>
+              
+              <Button 
+                size="sm"
+                variant="outline" 
+                className={isRunning ? "bg-red-900/80 text-white" : "bg-green-900/80 text-white"}
+                onClick={() => {
+                  if (!isRunning) {
+                    console.log('Debug button: Starting timer');
+                    console.log('Current duration:', selectedDuration);
+                    startTimer();
+                  } else {
+                    console.log('Debug button: Stopping timer');
+                    stopTimer();
+                  }
+                }}
+              >
+                {isRunning ? 'Stop Timer' : 'Start Timer'}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
