@@ -18,6 +18,7 @@ const RecordingControls: React.FC = () => {
   const {
     isRecording,
     recordedBlob,
+    recordingDuration,
     startRecording,
     stopRecording,
     resetRecording,
@@ -53,7 +54,7 @@ const RecordingControls: React.FC = () => {
     try {
       await saveRecording({
         blob: recordedBlob,
-        duration: 0, // Duration will be tracked by the useMediaRecorder hook
+        duration: recordingDuration,
         kasinaType: selectedKasina,
         kasinaName: KASINA_NAMES[selectedKasina],
         timestamp: new Date().toISOString(),
@@ -108,6 +109,15 @@ const RecordingControls: React.FC = () => {
         
         <div className="flex flex-col space-y-4">
           <h2 className="text-xl text-white font-semibold">Recording Controls</h2>
+          
+          {isRecording && (
+            <div className="flex items-center justify-center mb-2 p-2 bg-gray-800 rounded">
+              <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse mr-2"></div>
+              <span className="text-white">
+                Recording: {Math.floor(recordingDuration / 60)}:{(recordingDuration % 60).toString().padStart(2, '0')}
+              </span>
+            </div>
+          )}
           
           <div className="flex space-x-4">
             {!isRecording ? (

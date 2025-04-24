@@ -36,10 +36,7 @@ export const useMediaRecorder = (
       // Get screen capture if enabled
       if (options.captureScreen) {
         const screenStream = await navigator.mediaDevices.getDisplayMedia({
-          video: {
-            cursor: "always",
-            displaySurface: "browser",
-          },
+          video: true,
           audio: false,
         });
         mediaStreams.push(screenStream);
@@ -107,12 +104,19 @@ export const useMediaRecorder = (
   const stopRecording = useCallback(() => {
     if (mediaRecorder && mediaRecorder.state !== "inactive") {
       mediaRecorder.stop();
+      
+      // Clear timer interval
+      if (timerInterval !== null) {
+        window.clearInterval(timerInterval);
+        setTimerInterval(null);
+      }
     }
-  }, [mediaRecorder]);
+  }, [mediaRecorder, timerInterval]);
 
   const resetRecording = useCallback(() => {
     setRecordedChunks([]);
     setRecordedBlob(null);
+    setRecordingDuration(0);
   }, []);
 
   const downloadRecording = useCallback((filename: string) => {
@@ -140,6 +144,7 @@ export const useMediaRecorder = (
   return {
     isRecording,
     recordedBlob,
+    recordingDuration,
     startRecording,
     stopRecording,
     resetRecording,

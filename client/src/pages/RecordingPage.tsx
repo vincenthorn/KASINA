@@ -169,7 +169,7 @@ const FocusModeRecordingControls: React.FC = () => {
       {isRecording && (
         <div className="flex items-center mb-2 w-full justify-center text-sm">
           <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse mr-2"></div>
-          <span>Recording {formatTime(recordingTime)}</span>
+          <span>Recording: {Math.floor(recordingTime / 60)}:{(recordingTime % 60).toString().padStart(2, '0')}</span>
         </div>
       )}
       
