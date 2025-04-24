@@ -39,7 +39,11 @@ const Logo: React.FC<LogoProps> = ({
         className={`font-bold ${sizeClasses[size]}`}
         style={{ 
           color: currentColor,
-          transition: "color 3s ease-in-out"
+          transition: "color 3s ease-in-out",
+          fontFamily: "'Nunito', sans-serif", 
+          letterSpacing: "2px",
+          fontWeight: 700,
+          textTransform: "uppercase"
         }}
       >
         KASINA
