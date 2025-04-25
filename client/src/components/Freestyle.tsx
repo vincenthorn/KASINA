@@ -181,17 +181,8 @@ const Freestyle = () => {
           
           {/* Timer Section */}
           <div className="mb-6">
-            <div className="flex items-center justify-between mb-4">
+            <div className="mb-4">
               <h3 className="text-lg font-medium">Timer</h3>
-              <Button
-                variant="outline"
-                size="sm"
-                className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white"
-                onClick={() => navigate('/infinity')}
-              >
-                <span className="text-lg">∞</span>
-                <span>Infinity Mode</span>
-              </Button>
             </div>
             
             {/* Timer Options */}

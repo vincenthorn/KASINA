@@ -13,7 +13,7 @@ import RecordingPage from "./pages/RecordingPage";
 import MeditationPage from "./pages/MeditationPage";
 import ReflectionPage from "./pages/ReflectionPage";
 import AdminPage from "./pages/AdminPage";
-import InfinityModePage from "./pages/InfinityModePage";
+
 import NotFound from "./pages/not-found";
 
 function AuthenticatedRoute({ children }: { children: React.ReactNode }) {
@@ -85,14 +85,7 @@ function App() {
                 </AuthenticatedRoute>
               }
             />
-            <Route
-              path="/infinity"
-              element={
-                <AuthenticatedRoute>
-                  <InfinityModePage />
-                </AuthenticatedRoute>
-              }
-            />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
