@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 
 import KasinaOrb from '../components/KasinaOrb';
-import InfinityTimer from '../components/InfinityTimer';
 import { useKasina } from '../lib/stores/useKasina';
 import { KasinaType, getOrbConfig } from '../lib/types';
 import { KASINA_NAMES } from '../lib/constants';
@@ -14,6 +14,7 @@ import { Button } from './ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 
 const Freestyle = () => {
+  const navigate = useNavigate();
   const { selectedKasina, setSelectedKasina, saveSession } = useKasina();
   const typedKasina = selectedKasina as KasinaType;  // Cast to KasinaType for type safety
   const [timerRunning, setTimerRunning] = useState(false);
@@ -205,24 +206,18 @@ const Freestyle = () => {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-medium">Timer Mode</h3>
-              <div className="flex items-center space-x-1">
-                <span className={!isInfinityMode ? "font-medium" : "text-gray-500"}>Timed</span>
-                <button 
-                  onClick={() => toggleInfinityMode(!isInfinityMode)}
-                  className="w-12 h-6 bg-gray-700 rounded-full p-1 relative"
-                >
-                  <div 
-                    className={`absolute w-4 h-4 rounded-full bg-white transition-all duration-300 ${
-                      isInfinityMode ? "right-1" : "left-1"
-                    }`}
-                  />
-                </button>
-                <span className={isInfinityMode ? "font-medium" : "text-gray-500"}>∞</span>
-              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white"
+                onClick={() => navigate('/infinity')}
+              >
+                <span className="text-lg">∞</span>
+                <span>Switch to Infinity Mode</span>
+              </Button>
             </div>
             
             {/* Regular Timer */}
-            {!isInfinityMode && (
               <div>
                 <div className="grid grid-cols-3 gap-2">
                   {/* 1 minute */}
@@ -372,12 +367,7 @@ const Freestyle = () => {
                   </Button>
                 </div>
               </div>
-            )}
-            
-            {/* Infinity Timer Component */}
-            {isInfinityMode && (
-              <InfinityTimer kasinaType={typedKasina} />
-            )}
+            }
           </div>
         </div>
         
