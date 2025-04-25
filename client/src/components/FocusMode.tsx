@@ -14,6 +14,8 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const [lastActivity, setLastActivity] = useState(Date.now());
   const [zoomLevel, setZoomLevel] = useState(1); // 1 = 100% (default size)
   const zoomSpeed = 0.075; // Zoom speed factor
+  const minZoom = 0.1; // 10%
+  const maxZoom = 25; // 2500%
   const contentRef = useRef<HTMLDivElement>(null);
   
   // Handle mouse movement to show UI temporarily
@@ -28,7 +30,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       e.preventDefault();
       // Calculate new zoom level based on wheel delta
       const delta = -Math.sign(e.deltaY) * zoomSpeed;
-      const newZoom = Math.max(0.5, Math.min(2.5, zoomLevel + delta));
+      const newZoom = Math.max(minZoom, Math.min(maxZoom, zoomLevel + delta));
       setZoomLevel(newZoom);
       
       // Show UI when zooming
@@ -128,19 +130,19 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           >
             <div className="bg-black/50 text-white text-sm px-3 py-1 rounded-md border border-gray-800 flex items-center gap-2">
               <button 
-                onClick={() => setZoomLevel(Math.max(0.5, zoomLevel - zoomSpeed * 2))}
+                onClick={() => setZoomLevel(Math.max(minZoom, zoomLevel - zoomSpeed * 2))}
                 className="hover:bg-gray-700 rounded p-1 transition-colors"
-                disabled={zoomLevel <= 0.5}
+                disabled={zoomLevel <= minZoom}
               >
                 <ZoomOut className="h-4 w-4" />
               </button>
               
-              <span className="min-w-[40px] text-center">{Math.round(zoomLevel * 100)}%</span>
+              <span className="min-w-[60px] text-center">{Math.round(zoomLevel * 100)}%</span>
               
               <button 
-                onClick={() => setZoomLevel(Math.min(2.5, zoomLevel + zoomSpeed * 2))}
+                onClick={() => setZoomLevel(Math.min(maxZoom, zoomLevel + zoomSpeed * 2))}
                 className="hover:bg-gray-700 rounded p-1 transition-colors"
-                disabled={zoomLevel >= 2.5}
+                disabled={zoomLevel >= maxZoom}
               >
                 <ZoomIn className="h-4 w-4" />
               </button>

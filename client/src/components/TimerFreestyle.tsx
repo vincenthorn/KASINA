@@ -214,7 +214,6 @@ const TimerFreestyle: React.FC = () => {
             <div className="orb-container orb-content w-80 h-80 rounded-full relative flex items-center justify-center" 
                  style={{ 
                    backgroundColor: getColorForKasina(typedKasina),
-                   boxShadow: `0 0 80px 20px ${getColorForKasina(typedKasina)}`,
                    border: `3px solid ${getColorForKasina(typedKasina)}`
                  }}>
               <div className="text-white text-opacity-0">
