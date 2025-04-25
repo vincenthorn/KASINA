@@ -220,8 +220,8 @@ const ElementalKasina = ({
     <group ref={groupRef}>
       <mesh ref={coreRef}>
         {type === "water" ? (
-          // Higher resolution geometry for water to prevent seams
-          <sphereGeometry args={[1, 64, 64]} />
+          // Use icosahedron for water to avoid seams completely
+          <icosahedronGeometry args={[1, 8]} />
         ) : (
           <sphereGeometry args={[1, 32, 32]} />
         )}

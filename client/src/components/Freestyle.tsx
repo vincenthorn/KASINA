@@ -83,91 +83,81 @@ const Freestyle = () => {
               </TabsList>
               
               <TabsContent value="color" className="mt-0">
-                <RadioGroup 
-                  value={selectedKasina} 
-                  onValueChange={(val) => setSelectedKasina(val as KasinaType)}
-                  className="grid grid-cols-2 gap-2"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="white" id="white" />
-                    <Label htmlFor="white" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-white mr-2 border border-gray-400"></span>
-                      White
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="blue" id="blue" />
-                    <Label htmlFor="blue" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-blue-500 mr-2"></span>
-                      Blue
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="red" id="red" />
-                    <Label htmlFor="red" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-red-500 mr-2"></span>
-                      Red
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="yellow" id="yellow" />
-                    <Label htmlFor="yellow" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-yellow-400 mr-2"></span>
-                      Yellow
-                    </Label>
-                  </div>
-                </RadioGroup>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "white" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-white to-gray-100 text-gray-700 font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("white")}
+                  >
+                    <span className="block">⚪ White</span>
+                  </button>
+                  
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "blue" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-blue-500 to-blue-700 text-white font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("blue")}
+                  >
+                    <span className="block">🔵 Blue</span>
+                  </button>
+                  
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "red" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-red-500 to-red-700 text-white font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("red")}
+                  >
+                    <span className="block">🔴 Red</span>
+                  </button>
+                  
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "yellow" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-yellow-400 to-yellow-600 text-gray-800 font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("yellow")}
+                  >
+                    <span className="block">🟡 Yellow</span>
+                  </button>
+                </div>
               </TabsContent>
               
               <TabsContent value="elemental" className="mt-0">
-                <RadioGroup 
-                  value={selectedKasina} 
-                  onValueChange={(val) => setSelectedKasina(val as KasinaType)}
-                  className="grid grid-cols-2 gap-2"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="water" id="water" />
-                    <Label htmlFor="water" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-blue-300 mr-2"></span>
-                      Water
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="air" id="air" />
-                    <Label htmlFor="air" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-gray-200 mr-2"></span>
-                      Air
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="fire" id="fire" />
-                    <Label htmlFor="fire" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-orange-500 mr-2"></span>
-                      Fire
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="earth" id="earth" />
-                    <Label htmlFor="earth" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-green-800 mr-2"></span>
-                      Earth
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="space" id="space" />
-                    <Label htmlFor="space" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-indigo-900 mr-2"></span>
-                      Space
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="light" id="light" />
-                    <Label htmlFor="light" className="flex items-center">
-                      <span className="w-4 h-4 rounded-full bg-yellow-200 mr-2"></span>
-                      Light
-                    </Label>
-                  </div>
-                </RadioGroup>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "water" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-sky-400 to-blue-600 text-white font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("water")}
+                  >
+                    <span className="block">💧 Water</span>
+                  </button>
+                  
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "air" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-gray-200 to-blue-100 text-gray-700 font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("air")}
+                  >
+                    <span className="block">💨 Air</span>
+                  </button>
+                  
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "fire" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-orange-500 to-red-600 text-white font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("fire")}
+                  >
+                    <span className="block">🔥 Fire</span>
+                  </button>
+                  
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "earth" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-green-700 to-amber-900 text-white font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("earth")}
+                  >
+                    <span className="block">🌎 Earth</span>
+                  </button>
+                  
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "space" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-indigo-900 to-purple-900 text-white font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("space")}
+                  >
+                    <span className="block">✨ Space</span>
+                  </button>
+                  
+                  <button
+                    className={`relative p-4 rounded border-2 ${selectedKasina === "light" ? "border-gray-300" : "border-transparent"} bg-gradient-to-br from-yellow-200 to-amber-100 text-amber-800 font-semibold shadow transition-all hover:shadow-md`}
+                    onClick={() => setSelectedKasina("light")}
+                  >
+                    <span className="block">☀️ Light</span>
+                  </button>
+                </div>
               </TabsContent>
             </Tabs>
           </div>
