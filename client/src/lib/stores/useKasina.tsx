@@ -41,24 +41,24 @@ export const useKasina = create<KasinaState>((set, get) => ({
         timestamp: new Date().toISOString(),
       };
       
-      // Always save to local storage regardless of server success
-      const localSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
-      const newSession = {
-        id: Date.now().toString(),
-        ...sessionData
-      };
-      localSessions.push(newSession);
-      localStorage.setItem("sessions", JSON.stringify(localSessions));
-      console.log("Session saved to local storage:", newSession);
-      
-      // Also try to save to server
+      // Only save to server, not to localStorage
+      // This prevents duplicate entries between localStorage and API storage
       try {
         const response = await apiRequest("POST", "/api/sessions", sessionData);
         const serverResponse = await response.json();
-        console.log("Session also saved to server:", serverResponse);
+        console.log("Session saved to server:", serverResponse);
       } catch (error) {
         console.warn("Failed to save session to server:", error);
-        // Local storage fallback already handled above
+        
+        // Only save to localStorage as fallback if server save fails
+        const localSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
+        const newSession = {
+          id: Date.now().toString(),
+          ...sessionData
+        };
+        localSessions.push(newSession);
+        localStorage.setItem("sessions", JSON.stringify(localSessions));
+        console.log("Session saved to local storage as fallback:", newSession);
       }
     } catch (error) {
       console.error("Error saving session:", error);

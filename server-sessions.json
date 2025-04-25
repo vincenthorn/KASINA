@@ -5,5 +5,12 @@
     "kasinaName": "Yellow",
     "duration": 5,
     "timestamp": "2025-04-25T03:57:18.033Z"
+  },
+  {
+    "id": "1745553808774",
+    "kasinaType": "red",
+    "kasinaName": "Red",
+    "duration": 60,
+    "timestamp": "2025-04-25T04:03:28.296Z"
   }
 ]
