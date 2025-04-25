@@ -4,9 +4,10 @@ import { OrbitControls } from '@react-three/drei';
 import { toast } from 'sonner';
 
 import KasinaOrb from '../components/KasinaOrb';
+import InfinityTimer from '../components/InfinityTimer';
 import { useKasina } from '../lib/stores/useKasina';
 import { KasinaType, getOrbConfig } from '../lib/types';
-import { KASINA_NAMES, TIMER_OPTIONS } from '../lib/constants';
+import { KASINA_NAMES } from '../lib/constants';
 import Timer from '../lib/Timer';
 
 import { Button } from './ui/button';
@@ -20,6 +21,7 @@ const Freestyle = () => {
   const [timeRemaining, setTimeRemaining] = useState<number | null>(timerDuration);
   const [countUpTime, setCountUpTime] = useState<number>(0);
   const [activeTab, setActiveTab] = useState<string>("color");
+  const [isInfinityMode, setIsInfinityMode] = useState<boolean>(false);
 
   // Reset timer when changing kasina
   useEffect(() => {
@@ -88,12 +90,21 @@ const Freestyle = () => {
     }
   };
 
-  // Log timer options from constants for debugging
-  useEffect(() => {
-    console.log("TIMER_OPTIONS from constants:", TIMER_OPTIONS);
-  }, []);
-
   const orbConfig = getOrbConfig(typedKasina);
+
+  // Toggle between regular and infinity mode
+  const toggleInfinityMode = (enabled: boolean) => {
+    console.log(`Switching to ${enabled ? "INFINITY" : "REGULAR"} mode`);
+    setIsInfinityMode(enabled);
+    setTimerRunning(false);
+    
+    if (enabled) {
+      setTimerDuration(null);
+      toast.success("Infinity Timer Mode Activated");
+    } else {
+      setTimerDuration(5 * 60); // Back to default 5 minutes
+    }
+  };
 
   return (
     <div className="h-full w-full bg-black text-white flex flex-col">
@@ -190,249 +201,183 @@ const Freestyle = () => {
             </Tabs>
           </div>
           
+          {/* Timer Mode Selector */}
           <div className="mb-6">
-            <h3 className="text-lg font-medium mb-2">Timer</h3>
-            
-            {/* Fixed timer buttons - standard mode */}
-            <div className="grid grid-cols-3 gap-2">
-              {/* 1 minute */}
-              <Button
-                variant={timerDuration === 60 ? "default" : "outline"}
-                onClick={() => {
-                  console.log("Setting timer to 1 minute (60 seconds)");
-                  setTimerDuration(60);
-                }}
-                disabled={timerRunning}
-                className="w-full"
-              >
-                1 min
-              </Button>
-              
-              {/* 5 minutes */}
-              <Button
-                variant={timerDuration === 300 ? "default" : "outline"}
-                onClick={() => {
-                  console.log("Setting timer to 5 minutes (300 seconds)");
-                  setTimerDuration(300);
-                }}
-                disabled={timerRunning}
-                className="w-full"
-              >
-                5 min
-              </Button>
-              
-              {/* 10 minutes */}
-              <Button
-                variant={timerDuration === 600 ? "default" : "outline"}
-                onClick={() => {
-                  console.log("Setting timer to 10 minutes (600 seconds)");
-                  setTimerDuration(600);
-                }}
-                disabled={timerRunning}
-                className="w-full"
-              >
-                10 min
-              </Button>
-              
-              {/* 15 minutes */}
-              <Button
-                variant={timerDuration === 900 ? "default" : "outline"}
-                onClick={() => {
-                  console.log("Setting timer to 15 minutes (900 seconds)");
-                  setTimerDuration(900);
-                }}
-                disabled={timerRunning}
-                className="w-full"
-              >
-                15 min
-              </Button>
-              
-              {/* 20 minutes */}
-              <Button
-                variant={timerDuration === 1200 ? "default" : "outline"}
-                onClick={() => {
-                  console.log("Setting timer to 20 minutes (1200 seconds)");
-                  setTimerDuration(1200);
-                }}
-                disabled={timerRunning}
-                className="w-full"
-              >
-                20 min
-              </Button>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-medium">Timer Mode</h3>
+              <div className="flex items-center space-x-1">
+                <span className={!isInfinityMode ? "font-medium" : "text-gray-500"}>Timed</span>
+                <button 
+                  onClick={() => toggleInfinityMode(!isInfinityMode)}
+                  className="w-12 h-6 bg-gray-700 rounded-full p-1 relative"
+                >
+                  <div 
+                    className={`absolute w-4 h-4 rounded-full bg-white transition-all duration-300 ${
+                      isInfinityMode ? "right-1" : "left-1"
+                    }`}
+                  />
+                </button>
+                <span className={isInfinityMode ? "font-medium" : "text-gray-500"}>∞</span>
+              </div>
             </div>
             
-            {/* Separate infinity mode button for more visual distinction */}
-            <div className="mt-4">
-              <button 
-                className={`w-full p-3 rounded-md text-center font-semibold transition-all ${
-                  timerDuration === null 
-                    ? "bg-blue-500 text-white shadow-lg" 
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-                }`}
-                onClick={() => {
-                  // Direct setting of state without using constants
-                  console.log("INFINITY MODE: Setting timer to null");
+            {/* Regular Timer */}
+            {!isInfinityMode && (
+              <div>
+                <div className="grid grid-cols-3 gap-2">
+                  {/* 1 minute */}
+                  <Button
+                    variant={timerDuration === 60 ? "default" : "outline"}
+                    onClick={() => {
+                      console.log("Setting timer to 1 minute (60 seconds)");
+                      setTimerDuration(60);
+                    }}
+                    disabled={timerRunning}
+                    className="w-full"
+                  >
+                    1 min
+                  </Button>
                   
-                  // Debug previous state
-                  console.log("Previous timerDuration:", timerDuration);
+                  {/* 5 minutes */}
+                  <Button
+                    variant={timerDuration === 300 ? "default" : "outline"}
+                    onClick={() => {
+                      console.log("Setting timer to 5 minutes (300 seconds)");
+                      setTimerDuration(300);
+                    }}
+                    disabled={timerRunning}
+                    className="w-full"
+                  >
+                    5 min
+                  </Button>
                   
-                  // Set to null directly 
-                  setTimerDuration(null);
+                  {/* 10 minutes */}
+                  <Button
+                    variant={timerDuration === 600 ? "default" : "outline"}
+                    onClick={() => {
+                      console.log("Setting timer to 10 minutes (600 seconds)");
+                      setTimerDuration(600);
+                    }}
+                    disabled={timerRunning}
+                    className="w-full"
+                  >
+                    10 min
+                  </Button>
                   
-                  // Force verify state was updated
-                  setTimeout(() => {
-                    console.log("After timeout check - timerDuration:", timerDuration === null ? "NULL/INFINITY" : timerDuration);
-                  }, 100);
+                  {/* 15 minutes */}
+                  <Button
+                    variant={timerDuration === 900 ? "default" : "outline"}
+                    onClick={() => {
+                      console.log("Setting timer to 15 minutes (900 seconds)");
+                      setTimerDuration(900);
+                    }}
+                    disabled={timerRunning}
+                    className="w-full"
+                  >
+                    15 min
+                  </Button>
                   
-                  // Show toast for user feedback
-                  toast.success("Infinity Timer Mode Activated");
-                }}
-                disabled={timerRunning}
-              >
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-2xl">∞</span>
-                  <span>Infinity Mode</span>
+                  {/* 20 minutes */}
+                  <Button
+                    variant={timerDuration === 1200 ? "default" : "outline"}
+                    onClick={() => {
+                      console.log("Setting timer to 20 minutes (1200 seconds)");
+                      setTimerDuration(1200);
+                    }}
+                    disabled={timerRunning}
+                    className="w-full"
+                  >
+                    20 min
+                  </Button>
                 </div>
-              </button>
-            </div>
-          </div>
-          
-          <div className="flex flex-col items-center">
-            {timerDuration === null && (
-              <div className="bg-blue-500 text-white px-3 py-1 rounded-lg mb-2 text-sm font-medium animate-pulse">
-                Infinity Mode Active
+                
+                {/* Regular Timer Display and Controls */}
+                <div className="flex flex-col items-center mt-6">
+                  <Timer 
+                    duration={timerDuration}
+                    running={timerRunning}
+                    onComplete={handleTimerComplete}
+                    onUpdate={handleTimerUpdate}
+                  />
+                  
+                  <Button
+                    onClick={() => {
+                      console.log("Start/Pause button clicked");
+                      setTimerRunning(!timerRunning);
+                    }}
+                    className="w-full mt-4"
+                    size="lg"
+                  >
+                    {timerRunning ? "Pause" : "Start Meditation"}
+                  </Button>
+                  
+                  <Button
+                    onClick={() => {
+                      // Only allow saving if timer has run
+                      if (countUpTime === 0 && timeRemaining === timerDuration && !timerRunning) {
+                        toast.error("Start a meditation first before saving");
+                        return;
+                      }
+                      
+                      try {
+                        // Calculate duration
+                        const duration = (timerDuration || 0) - (timeRemaining || 0);
+                        console.log("Countdown mode, calculated duration:", duration);
+                        
+                        // Create the session object
+                        const newSession = {
+                          id: Date.now().toString(),
+                          kasinaType: typedKasina,
+                          kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
+                          duration: duration,
+                          timestamp: new Date().toISOString()
+                        };
+                        
+                        // Store in localStorage
+                        let existingSessions = [];
+                        const storedValue = window.localStorage.getItem("sessions");
+                        
+                        if (storedValue) {
+                          try {
+                            const parsed = JSON.parse(storedValue);
+                            if (Array.isArray(parsed)) {
+                              existingSessions = parsed;
+                            }
+                          } catch (error) {
+                            console.error("Parse error:", error);
+                          }
+                        }
+                        
+                        existingSessions.push(newSession);
+                        window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
+                        
+                        // Use store method
+                        saveSession({
+                          kasinaType: typedKasina,
+                          duration: duration,
+                          date: new Date(),
+                        });
+                        
+                        toast.success("Meditation session saved");
+                        setTimerRunning(false);
+                      } catch (error) {
+                        console.error("Error saving session:", error);
+                        toast.error("Failed to save session");
+                      }
+                    }}
+                    className="w-full mt-2"
+                    variant="secondary"
+                  >
+                    Save Session
+                  </Button>
+                </div>
               </div>
             )}
-            <Timer 
-              duration={timerDuration}
-              running={timerRunning}
-              onComplete={handleTimerComplete}
-              onUpdate={handleTimerUpdate}
-            />
             
-            <Button
-              onClick={() => {
-                console.log("Start/Pause button clicked");
-                console.log("Current running state:", timerRunning);
-                console.log("Changing to:", !timerRunning);
-                console.log("Current timerDuration:", timerDuration);
-                console.log("Is infinity mode:", timerDuration === null);
-                setTimerRunning(!timerRunning);
-              }}
-              className="w-full mt-4"
-              size="lg"
-            >
-              {timerRunning ? "Pause" : "Start Meditation"}
-            </Button>
-            
-            <Button
-              onClick={() => {
-                // Only allow saving if timer has run
-                if (countUpTime === 0 && timeRemaining === timerDuration && !timerRunning) {
-                  toast.error("Start a meditation first before saving");
-                  return;
-                }
-                
-                // Record current session manually
-                let duration = 0;
-                let isInfinityMode = timerDuration === null;
-                
-                console.log("SAVE SESSION - Current state:");
-                console.log("- timerDuration:", timerDuration);
-                console.log("- timeRemaining:", timeRemaining);
-                console.log("- countUpTime:", countUpTime);
-                console.log("- timerRunning:", timerRunning);
-                console.log("- isInfinityMode:", isInfinityMode);
-                
-                // Special handling for infinity mode
-                if (isInfinityMode) {
-                  duration = countUpTime;
-                  console.log("INFINITY MODE SESSION SAVE");
-                  console.log("Using countUpTime for session duration:", countUpTime);
-                  
-                  // Show explicit feedback
-                  toast.success("Saving infinity mode session");
-                } else {
-                  // Normal countdown mode
-                  duration = timerDuration - (timeRemaining || 0);
-                  console.log("Countdown mode, calculated duration:", duration);
-                }
-                
-                try {
-                  // Create the session object
-                  const newSession = {
-                    id: Date.now().toString(),
-                    kasinaType: typedKasina,
-                    kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
-                    duration: duration,
-                    timestamp: new Date().toISOString()
-                  };
-                  
-                  console.log("SAVING SESSION", newSession);
-                  
-                  // APPROACH 1: Direct localStorage manipulation with detailed debugging
-                  try {
-                    // Get existing sessions with careful error handling
-                    let existingSessions = [];
-                    
-                    const storedValue = window.localStorage.getItem("sessions");
-                    console.log("Raw localStorage value:", storedValue);
-                    
-                    if (storedValue) {
-                      try {
-                        const parsed = JSON.parse(storedValue);
-                        if (Array.isArray(parsed)) {
-                          existingSessions = parsed;
-                        } else {
-                          console.warn("Stored sessions is not an array, resetting:", parsed);
-                        }
-                      } catch (parseError) {
-                        console.error("Parse error on localStorage, resetting:", parseError);
-                      }
-                    }
-                    
-                    // Add new session
-                    existingSessions.push(newSession);
-                    console.log("Updated sessions array:", existingSessions);
-                    
-                    // Save back to localStorage with explicit window reference
-                    const sessionsString = JSON.stringify(existingSessions);
-                    window.localStorage.setItem("sessions", sessionsString);
-                    
-                    // Verify the save worked
-                    const verification = window.localStorage.getItem("sessions");
-                    console.log("Verification - localStorage after save:", verification);
-                  } catch (localStorageError) {
-                    console.error("LocalStorage error:", localStorageError);
-                  }
-                  
-                  // APPROACH 2: Use the Zustand store method
-                  try {
-                    // Use the store's saveSession method - this handles server sync
-                    saveSession({
-                      kasinaType: typedKasina,
-                      duration: duration,
-                      date: new Date(),
-                    });
-                    console.log("Session saved via store");
-                  } catch (storeError) {
-                    console.error("Store save error:", storeError);
-                  }
-                  
-                  toast.success("Meditation session saved");
-                  
-                  // Stop timer after saving
-                  setTimerRunning(false);
-                } catch (error) {
-                  console.error("Error saving session:", error);
-                  toast.error("Failed to save session");
-                }
-              }}
-              className="w-full mt-2"
-              variant="secondary"
-            >
-              Save Session
-            </Button>
+            {/* Infinity Timer Component */}
+            {isInfinityMode && (
+              <InfinityTimer kasinaType={typedKasina} />
+            )}
           </div>
         </div>
         
