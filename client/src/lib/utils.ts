@@ -5,14 +5,14 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const getLocalStorage = <T>(key: string, defaultValue: T): T => {
+export const getLocalStorage = <T>(key: string, defaultValue?: T): T => {
   const stored = window.localStorage.getItem(key);
-  if (stored === null) return defaultValue;
+  if (stored === null) return defaultValue as T;
   try {
     return JSON.parse(stored) as T;
   } catch (error) {
     console.error(`Error parsing stored value for ${key}:`, error);
-    return defaultValue;
+    return defaultValue as T;
   }
 };
 

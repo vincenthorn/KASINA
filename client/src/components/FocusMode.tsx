@@ -36,19 +36,23 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
     return () => clearInterval(interval);
   }, [isFocusModeActive, lastActivity, inactivityThreshold]);
   
-  // Add and remove event listeners
+  // Add and remove event listeners and body class
   useEffect(() => {
     if (isFocusModeActive) {
       window.addEventListener('mousemove', handleMouseMove);
+      // Add focus mode class to body
+      document.body.classList.add('focus-mode-body');
       // Also hide cursor after inactivity
       document.body.classList.toggle('cursor-none', !isUIVisible);
     } else {
       setIsUIVisible(true);
+      document.body.classList.remove('focus-mode-body');
       document.body.classList.remove('cursor-none');
     }
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      document.body.classList.remove('focus-mode-body');
       document.body.classList.remove('cursor-none');
     };
   }, [isFocusModeActive, isUIVisible]);
@@ -70,26 +74,41 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       .cursor-none * {
         cursor: none !important;
       }
-      .focus-mode-active * {
+      
+      /* Hide all elements in focus mode */
+      body.focus-mode-body * {
         opacity: 0 !important;
         pointer-events: none !important;
-        transition: opacity 0.2s ease !important;
+        transition: opacity 0.15s ease !important;
       }
-      .focus-mode-active .orb-container,
-      .focus-mode-active .orb-content,
-      .focus-mode-active canvas,
-      .focus-mode-active .orb-container * {
+      
+      /* But keep the orb visible */
+      body.focus-mode-body .orb-container,
+      body.focus-mode-body .orb-content,
+      body.focus-mode-body .focus-mode-active,
+      body.focus-mode-body canvas,
+      body.focus-mode-body .orb-container * {
         opacity: 1 !important;
         pointer-events: auto !important;
       }
-      .focus-mode-active .orb-container {
+      
+      /* Center and size the orb properly */
+      body.focus-mode-body .orb-container {
         position: fixed !important;
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 400px !important;
-        height: 400px !important;
-        z-index: 100 !important;
+        width: 500px !important;
+        height: 500px !important;
+        z-index: 9999 !important;
+        background-color: black !important;
+        border-radius: 50% !important;
+      }
+      
+      /* Ensure the sidebar is hidden */
+      body.focus-mode-body aside,
+      body.focus-mode-body nav {
+        display: none !important;
       }
     `;
     
