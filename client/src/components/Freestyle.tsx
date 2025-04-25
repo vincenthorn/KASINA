@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { Button } from "./ui/button";
-import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
-import { Label } from "./ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import KasinaOrb from "../lib/kasina-orbs/KasinaOrb";
-import Timer from "../lib/Timer";
-import { useKasina } from "../lib/stores/useKasina";
-import { KasinaType, getOrbConfig } from "../lib/types";
-import { toast } from "sonner";
-import { KASINA_NAMES } from "../lib/constants";
+import React, { useState, useEffect } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import { toast } from 'sonner';
+
+import { KasinaOrb } from '../lib/kasina-orbs/KasinaOrb';
+import { useKasina } from '../lib/stores/useKasina';
+import { KasinaType, getOrbConfig } from '../lib/types';
+import { KASINA_NAMES } from '../lib/constants';
+import Timer from '../lib/Timer';
+
+import { Button } from './ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 
 const Freestyle = () => {
   const { selectedKasina, setSelectedKasina, saveSession } = useKasina();
   const typedKasina = selectedKasina as KasinaType;  // Cast to KasinaType for type safety
   const [timerRunning, setTimerRunning] = useState(false);
-  const [timerDuration, setTimerDuration] = useState<number>(5 * 60); // Default 5 minutes
-  const [timeRemaining, setTimeRemaining] = useState<number>(timerDuration);
+  const [timerDuration, setTimerDuration] = useState<number | null>(5 * 60); // Default 5 minutes
+  const [timeRemaining, setTimeRemaining] = useState<number | null>(timerDuration);
   const [countUpTime, setCountUpTime] = useState<number>(0);
   const [activeTab, setActiveTab] = useState<string>("color");
 
@@ -43,12 +43,14 @@ const Freestyle = () => {
       if (timeRemaining === 0) {
         // Fixed duration mode that just completed
         console.log("Saving fixed duration session");
-        saveSession({
-          kasinaType: typedKasina,
-          duration: timerDuration,
-          date: new Date(),
-        });
-      } else if (timeRemaining === null || timeRemaining === 0) {
+        if (timerDuration !== null) {
+          saveSession({
+            kasinaType: typedKasina,
+            duration: timerDuration,
+            date: new Date(),
+          });
+        }
+      } else if (timeRemaining === null) {
         // Infinity mode (counting up)
         console.log("Saving infinity mode session");
         saveSession({
@@ -58,13 +60,15 @@ const Freestyle = () => {
         });
       } else {
         // Partial session - calculate actual duration
-        const actualDuration = timerDuration - timeRemaining;
-        console.log("Saving partial session with duration:", actualDuration);
-        saveSession({
-          kasinaType: typedKasina,
-          duration: actualDuration,
-          date: new Date(),
-        });
+        if (timerDuration !== null) {
+          const actualDuration = timerDuration - timeRemaining;
+          console.log("Saving partial session with duration:", actualDuration);
+          saveSession({
+            kasinaType: typedKasina,
+            duration: actualDuration,
+            date: new Date(),
+          });
+        }
       }
     } catch (error) {
       console.error("Error in handleTimerComplete:", error);
@@ -75,7 +79,7 @@ const Freestyle = () => {
   const handleTimerUpdate = (remaining: number | null, elapsed: number) => {
     // Handle infinite timer (null) vs countdown timer differently
     if (remaining === null) {
-      setTimeRemaining(0); // Use 0 instead of null to avoid type issues
+      setTimeRemaining(null);
       setCountUpTime(elapsed);
     } else {
       setTimeRemaining(remaining);
@@ -195,7 +199,10 @@ const Freestyle = () => {
                 <Button
                   key={option.label}
                   variant={timerDuration === option.value ? "default" : "outline"}
-                  onClick={() => setTimerDuration(option.value ?? 0)}
+                  onClick={() => {
+                    console.log("Setting timer duration to:", option.value);
+                    setTimerDuration(option.value);
+                  }}
                   disabled={timerRunning}
                   className="w-full"
                 >
@@ -230,7 +237,12 @@ const Freestyle = () => {
                 }
                 
                 // Record current session manually
-                const duration = timeRemaining === null ? countUpTime : timerDuration - (timeRemaining || 0);
+                let duration = 0;
+                if (timeRemaining === null) {
+                  duration = countUpTime;
+                } else if (timerDuration !== null) {
+                  duration = timerDuration - (timeRemaining || 0);
+                }
                 
                 try {
                   // Create the session object
