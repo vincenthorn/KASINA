@@ -192,6 +192,8 @@ const Freestyle = () => {
           
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-2">Timer</h3>
+            
+            {/* Fixed timer buttons - standard mode */}
             <div className="grid grid-cols-3 gap-2">
               {/* 1 minute */}
               <Button
@@ -257,22 +259,41 @@ const Freestyle = () => {
               >
                 20 min
               </Button>
-              
-              {/* Infinity */}
-              <Button
-                variant={timerDuration === null ? "default" : "outline"}
+            </div>
+            
+            {/* Separate infinity mode button for more visual distinction */}
+            <div className="mt-4">
+              <button 
+                className={`w-full p-3 rounded-md text-center font-semibold transition-all ${
+                  timerDuration === null 
+                    ? "bg-blue-500 text-white shadow-lg" 
+                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                }`}
                 onClick={() => {
-                  console.log("Setting timer to null (infinity mode)");
+                  // Direct setting of state without using constants
+                  console.log("INFINITY MODE: Setting timer to null");
+                  
+                  // Debug previous state
+                  console.log("Previous timerDuration:", timerDuration);
+                  
+                  // Set to null directly 
                   setTimerDuration(null);
-                  // Double check
-                  console.log("timerDuration after setting:", null);
-                  console.log("Is infinity mode:", true);
+                  
+                  // Force verify state was updated
+                  setTimeout(() => {
+                    console.log("After timeout check - timerDuration:", timerDuration === null ? "NULL/INFINITY" : timerDuration);
+                  }, 100);
+                  
+                  // Show toast for user feedback
+                  toast.success("Infinity Timer Mode Activated");
                 }}
                 disabled={timerRunning}
-                className="w-full"
               >
-                ∞
-              </Button>
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-2xl">∞</span>
+                  <span>Infinity Mode</span>
+                </div>
+              </button>
             </div>
           </div>
           
@@ -314,18 +335,23 @@ const Freestyle = () => {
                 
                 // Record current session manually
                 let duration = 0;
+                let isInfinityMode = timerDuration === null;
                 
                 console.log("SAVE SESSION - Current state:");
                 console.log("- timerDuration:", timerDuration);
                 console.log("- timeRemaining:", timeRemaining);
                 console.log("- countUpTime:", countUpTime);
                 console.log("- timerRunning:", timerRunning);
-                console.log("- isInfinityMode:", timerDuration === null);
+                console.log("- isInfinityMode:", isInfinityMode);
                 
-                // If infinity mode or timeRemaining is null
-                if (timerDuration === null || timeRemaining === null) {
+                // Special handling for infinity mode
+                if (isInfinityMode) {
                   duration = countUpTime;
-                  console.log("Infinity mode detected, using countUpTime:", countUpTime);
+                  console.log("INFINITY MODE SESSION SAVE");
+                  console.log("Using countUpTime for session duration:", countUpTime);
+                  
+                  // Show explicit feedback
+                  toast.success("Saving infinity mode session");
                 } else {
                   // Normal countdown mode
                   duration = timerDuration - (timeRemaining || 0);
