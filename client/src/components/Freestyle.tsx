@@ -61,7 +61,7 @@ const Freestyle = () => {
         const actualDuration = timerDuration - timeRemaining;
         console.log("Saving partial session with duration:", actualDuration);
         saveSession({
-          kasinaType: selectedKasina,
+          kasinaType: typedKasina,
           duration: actualDuration,
           date: new Date(),
         });
@@ -236,8 +236,8 @@ const Freestyle = () => {
                   // Create the session object
                   const newSession = {
                     id: Date.now().toString(),
-                    kasinaType: selectedKasina,
-                    kasinaName: KASINA_NAMES[selectedKasina] || selectedKasina,
+                    kasinaType: typedKasina,
+                    kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
                     duration: duration,
                     timestamp: new Date().toISOString()
                   };
@@ -284,7 +284,7 @@ const Freestyle = () => {
                   try {
                     // Use the store's saveSession method - this handles server sync
                     saveSession({
-                      kasinaType: selectedKasina,
+                      kasinaType: typedKasina,
                       duration: duration,
                       date: new Date(),
                     });
@@ -316,7 +316,7 @@ const Freestyle = () => {
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 10, 10]} intensity={0.8} />
             <KasinaOrb
-              type={selectedKasina}
+              type={typedKasina}
               color={orbConfig.color}
               speed={orbConfig.speed}
               complexity={orbConfig.complexity}
