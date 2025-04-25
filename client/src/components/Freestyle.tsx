@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { toast } from 'sonner';
 
-import { KasinaOrb } from '../lib/kasina-orbs/KasinaOrb';
+import KasinaOrb from '../lib/kasina-orbs/KasinaOrb';
 import { useKasina } from '../lib/stores/useKasina';
 import { KasinaType, getOrbConfig } from '../lib/types';
 import { KASINA_NAMES } from '../lib/constants';
@@ -78,7 +78,9 @@ const Freestyle = () => {
 
   const handleTimerUpdate = (remaining: number | null, elapsed: number) => {
     // Handle infinite timer (null) vs countdown timer differently
+    console.log("Timer update - remaining:", remaining, "elapsed:", elapsed);
     if (remaining === null) {
+      console.log("Infinity mode timer update");
       setTimeRemaining(null);
       setCountUpTime(elapsed);
     } else {
@@ -202,6 +204,9 @@ const Freestyle = () => {
                   onClick={() => {
                     console.log("Setting timer duration to:", option.value);
                     setTimerDuration(option.value);
+                    // Log the current state for debugging
+                    console.log("timerDuration after setting:", option.value);
+                    console.log("Is infinity mode:", option.value === null);
                   }}
                   disabled={timerRunning}
                   className="w-full"

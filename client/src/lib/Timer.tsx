@@ -73,6 +73,8 @@ const Timer = ({
   
   // Reset timer when duration changes
   useEffect(() => {
+    console.log("Duration changed to:", duration);
+    console.log("Is infinity mode:", duration === null);
     setTimeLeft(duration);
     setElapsedTime(0);
   }, [duration]);
