@@ -17,6 +17,8 @@ const Freestyle = () => {
   const navigate = useNavigate();
   const { selectedKasina, setSelectedKasina, saveSession } = useKasina();
   const typedKasina = selectedKasina as KasinaType;  // Cast to KasinaType for type safety
+  
+  // Timer state
   const [timerRunning, setTimerRunning] = useState(false);
   const [timerDuration, setTimerDuration] = useState<number>(5 * 60); // Default 5 minutes
   const [timeRemaining, setTimeRemaining] = useState<number>(5 * 60);
