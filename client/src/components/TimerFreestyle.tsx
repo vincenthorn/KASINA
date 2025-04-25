@@ -78,7 +78,7 @@ const TimerFreestyle: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Freestyle Meditation</h1>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left column - Kasina Selection */}
           <div className="space-y-6">
             <Card>
@@ -209,40 +209,9 @@ const TimerFreestyle: React.FC = () => {
             </Card>
           </div>
           
-          {/* Center column - Timer Controls */}
-          <div>
-            <Tabs value={selectedTab} onValueChange={setSelectedTab}>
-              <TabsList className="grid w-full grid-cols-1">
-                <TabsTrigger value="simple">Timer</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="simple" className="space-y-4">
-                <Card>
-                  <CardContent className="pt-6">
-                    <SimpleTimer
-                      initialDuration={60}
-                      onComplete={handleTimerComplete}
-                      onUpdate={handleStatusUpdate}
-                    />
-                    <div ref={timerDurationRef} className="hidden simple-timer-duration"></div>
-                  </CardContent>
-                </Card>
-                
-                <div className="flex justify-end">
-                  <Button 
-                    onClick={saveSession}
-                    disabled={elapsedTime === 0}
-                  >
-                    Save Session
-                  </Button>
-                </div>
-              </TabsContent>
-            </Tabs>
-          </div>
-          
-          {/* Content area */}
-          <div className="flex-1 relative flex items-center justify-center" style={{ backgroundColor: 'black' }}>
-            <div className="orb-container orb-content w-64 h-64 rounded-full relative flex items-center justify-center" 
+          {/* Right column - Kasina Orb */}
+          <div className="flex-1 relative flex items-center justify-center rounded-lg" style={{ backgroundColor: 'black', minHeight: '400px' }}>
+            <div className="orb-container orb-content w-80 h-80 rounded-full relative flex items-center justify-center" 
                  style={{ 
                    backgroundColor: getColorForKasina(typedKasina),
                    boxShadow: `0 0 80px 20px ${getColorForKasina(typedKasina)}`,
@@ -253,6 +222,37 @@ const TimerFreestyle: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Timer Controls - Below kasina selection and orb */}
+        <div className="mt-8">
+          <Tabs value={selectedTab} onValueChange={setSelectedTab}>
+            <TabsList className="grid w-full grid-cols-1">
+              <TabsTrigger value="simple">Timer</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="simple" className="space-y-4">
+              <Card>
+                <CardContent className="pt-6">
+                  <SimpleTimer
+                    initialDuration={60}
+                    onComplete={handleTimerComplete}
+                    onUpdate={handleStatusUpdate}
+                  />
+                  <div ref={timerDurationRef} className="hidden simple-timer-duration"></div>
+                </CardContent>
+              </Card>
+              
+              <div className="flex justify-end">
+                <Button 
+                  onClick={saveSession}
+                  disabled={elapsedTime === 0}
+                >
+                  Save Session
+                </Button>
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
     </FocusMode>
