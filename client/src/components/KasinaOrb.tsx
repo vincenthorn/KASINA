@@ -4,6 +4,7 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 import { useKasina } from "../lib/stores/useKasina";
 import { KASINA_TYPES, KASINA_COLORS } from "../lib/constants";
+import { KasinaType } from "../lib/types";
 
 // Shader materials for the elemental kasinas
 const waterShader = {
@@ -327,9 +328,27 @@ const Scene: React.FC<{ enableZoom?: boolean }> = ({ enableZoom = false }) => {
 // Main KasinaOrb component
 interface KasinaOrbProps {
   enableZoom?: boolean;
+  type?: KasinaType;     // Kasina type (water, fire, etc.)
+  color?: string;        // Color code for the orb
+  speed?: number;        // Animation speed
+  complexity?: number;   // Detail level for the orb
 }
 
-const KasinaOrb: React.FC<KasinaOrbProps> = ({ enableZoom = false }) => {
+const KasinaOrb: React.FC<KasinaOrbProps> = ({ 
+  enableZoom = false,
+  type,
+  color,
+  speed,
+  complexity
+}) => {
+  // If type is provided, update the selected kasina in the store
+  useEffect(() => {
+    if (type) {
+      const kasinaStore = useKasina.getState();
+      kasinaStore.setSelectedKasina(type);
+    }
+  }, [type]);
+  
   return (
     <div className="w-full h-full bg-black">
       <Canvas>
