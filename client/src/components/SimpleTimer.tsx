@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Button } from './ui/button';
-import { Infinity as InfinityIcon } from 'lucide-react';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
 interface SimpleTimerProps {
@@ -22,8 +21,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     startTimer,
     stopTimer,
     resetTimer,
-    tick,
-    setInfiniteMode
+    tick
   } = useSimpleTimer();
   
   // Set initial duration if provided
@@ -149,16 +147,6 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           size="sm"
         >
           20:00
-        </Button>
-        
-        <Button 
-          variant="outline" 
-          onClick={setInfiniteMode}
-          disabled={isRunning}
-          className={duration === null ? "border-2 border-purple-500" : ""}
-          size="sm"
-        >
-          <InfinityIcon className="h-4 w-4" />
         </Button>
       </div>
     </div>

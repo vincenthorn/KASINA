@@ -106,15 +106,18 @@ const TimerControl: React.FC = () => {
       {/* Timer selection */}
       <div className="grid grid-cols-3 gap-2">
         {TIMER_OPTIONS.map((option) => (
-          <Button
-            key={option.value}
-            onClick={() => setSelectedDuration(option.value)}
-            variant={selectedDuration === option.value ? "default" : "outline"}
-            disabled={isRunning}
-            className={`${selectedDuration === option.value ? 'bg-indigo-600 hover:bg-indigo-700' : ''}`}
-          >
-            {option.label}
-          </Button>
+          // Skip rendering the infinity option if it somehow still exists
+          option.label !== "∞" && (
+            <Button
+              key={option.value}
+              onClick={() => setSelectedDuration(option.value)}
+              variant={selectedDuration === option.value ? "default" : "outline"}
+              disabled={isRunning}
+              className={`${selectedDuration === option.value ? 'bg-indigo-600 hover:bg-indigo-700' : ''}`}
+            >
+              {option.label}
+            </Button>
+          )
         ))}
       </div>
 
