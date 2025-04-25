@@ -47,9 +47,39 @@ async function readWhitelist(): Promise<string[]> {
   }
 }
 
-// In-memory sessions storage (to be replaced by database)
-const sessions: any[] = [];
-const communityVideos: any[] = [];
+// Session storage with file persistence
+const sessionsFilePath = path.join(__dirname, "../server-sessions.json");
+const communityVideosFilePath = path.join(__dirname, "../community-videos.json");
+
+// Helper to load data from JSON file or return empty array if file doesn't exist
+const loadDataFromFile = (filePath: string): any[] => {
+  try {
+    if (fs.existsSync(filePath)) {
+      const data = fs.readFileSync(filePath, "utf-8");
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    console.error(`Error loading data from ${filePath}:`, error);
+  }
+  return [];
+};
+
+// Helper to save data to JSON file
+const saveDataToFile = (filePath: string, data: any[]): void => {
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
+  } catch (error) {
+    console.error(`Error saving data to ${filePath}:`, error);
+  }
+};
+
+// Load data from files or initialize with empty arrays
+const sessions: any[] = loadDataFromFile(sessionsFilePath);
+const communityVideos: any[] = loadDataFromFile(communityVideosFilePath);
+
+// Log the loaded data
+console.log(`Loaded ${sessions.length} sessions from file`);
+console.log(`Loaded ${communityVideos.length} community videos from file`);
 
 // Configure multer for file uploads
 const upload = multer({
@@ -266,6 +296,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     };
     
     sessions.push(session);
+    
+    // Save to file
+    saveDataToFile(sessionsFilePath, sessions);
+    console.log(`Saved session, total sessions: ${sessions.length}`);
+    
     res.status(201).json(session);
   });
   

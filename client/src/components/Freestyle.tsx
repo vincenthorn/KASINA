@@ -206,7 +206,6 @@ const Freestyle = () => {
                 // Record current session manually
                 const duration = timeRemaining === null ? countUpTime : timerDuration - (timeRemaining || 0);
                 
-                // Direct window.localStorage approach with explicit error handling
                 try {
                   // Create the session object
                   const newSession = {
@@ -219,36 +218,54 @@ const Freestyle = () => {
                   
                   console.log("SAVING SESSION", newSession);
                   
-                  // Get existing sessions with careful error handling
-                  let existingSessions = [];
-                  
+                  // APPROACH 1: Direct localStorage manipulation with detailed debugging
                   try {
+                    // Get existing sessions with careful error handling
+                    let existingSessions = [];
+                    
                     const storedValue = window.localStorage.getItem("sessions");
                     console.log("Raw localStorage value:", storedValue);
                     
                     if (storedValue) {
-                      const parsed = JSON.parse(storedValue);
-                      if (Array.isArray(parsed)) {
-                        existingSessions = parsed;
-                      } else {
-                        console.warn("Stored sessions is not an array, resetting:", parsed);
+                      try {
+                        const parsed = JSON.parse(storedValue);
+                        if (Array.isArray(parsed)) {
+                          existingSessions = parsed;
+                        } else {
+                          console.warn("Stored sessions is not an array, resetting:", parsed);
+                        }
+                      } catch (parseError) {
+                        console.error("Parse error on localStorage, resetting:", parseError);
                       }
                     }
-                  } catch (readError) {
-                    console.error("Error reading from localStorage:", readError);
+                    
+                    // Add new session
+                    existingSessions.push(newSession);
+                    console.log("Updated sessions array:", existingSessions);
+                    
+                    // Save back to localStorage with explicit window reference
+                    const sessionsString = JSON.stringify(existingSessions);
+                    window.localStorage.setItem("sessions", sessionsString);
+                    
+                    // Verify the save worked
+                    const verification = window.localStorage.getItem("sessions");
+                    console.log("Verification - localStorage after save:", verification);
+                  } catch (localStorageError) {
+                    console.error("LocalStorage error:", localStorageError);
                   }
                   
-                  // Add new session
-                  existingSessions.push(newSession);
-                  console.log("Updated sessions array:", existingSessions);
-                  
-                  // Save back to localStorage with explicit window reference
-                  const sessionsString = JSON.stringify(existingSessions);
-                  window.localStorage.setItem("sessions", sessionsString);
-                  
-                  // Verify the save worked
-                  const verification = window.localStorage.getItem("sessions");
-                  console.log("Verification - localStorage after save:", verification);
+                  // APPROACH 2: Use the Zustand store method
+                  try {
+                    // Use the store's saveSession method - this handles server sync
+                    saveSession({
+                      kasinaType: selectedKasina,
+                      duration: duration,
+                      date: new Date(),
+                    });
+                    console.log("Session saved via store");
+                  } catch (storeError) {
+                    console.error("Store save error:", storeError);
+                  }
                   
                   toast.success("Meditation session saved");
                   
