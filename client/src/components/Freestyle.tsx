@@ -193,27 +193,95 @@ const Freestyle = () => {
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-2">Timer</h3>
             <div className="grid grid-cols-3 gap-2">
-              {TIMER_OPTIONS.map((option: { label: string, value: number | null }) => (
-                <Button
-                  key={option.label}
-                  variant={timerDuration === option.value ? "default" : "outline"}
-                  onClick={() => {
-                    console.log("Setting timer duration to:", option.value);
-                    setTimerDuration(option.value);
-                    // Log the current state for debugging
-                    console.log("timerDuration after setting:", option.value);
-                    console.log("Is infinity mode:", option.value === null);
-                  }}
-                  disabled={timerRunning}
-                  className="w-full"
-                >
-                  {option.label}
-                </Button>
-              ))}
+              {/* 1 minute */}
+              <Button
+                variant={timerDuration === 60 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 1 minute (60 seconds)");
+                  setTimerDuration(60);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                1 min
+              </Button>
+              
+              {/* 5 minutes */}
+              <Button
+                variant={timerDuration === 300 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 5 minutes (300 seconds)");
+                  setTimerDuration(300);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                5 min
+              </Button>
+              
+              {/* 10 minutes */}
+              <Button
+                variant={timerDuration === 600 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 10 minutes (600 seconds)");
+                  setTimerDuration(600);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                10 min
+              </Button>
+              
+              {/* 15 minutes */}
+              <Button
+                variant={timerDuration === 900 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 15 minutes (900 seconds)");
+                  setTimerDuration(900);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                15 min
+              </Button>
+              
+              {/* 20 minutes */}
+              <Button
+                variant={timerDuration === 1200 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 20 minutes (1200 seconds)");
+                  setTimerDuration(1200);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                20 min
+              </Button>
+              
+              {/* Infinity */}
+              <Button
+                variant={timerDuration === null ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to null (infinity mode)");
+                  setTimerDuration(null);
+                  // Double check
+                  console.log("timerDuration after setting:", null);
+                  console.log("Is infinity mode:", true);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                ∞
+              </Button>
             </div>
           </div>
           
           <div className="flex flex-col items-center">
+            {timerDuration === null && (
+              <div className="bg-blue-500 text-white px-3 py-1 rounded-lg mb-2 text-sm font-medium animate-pulse">
+                Infinity Mode Active
+              </div>
+            )}
             <Timer 
               duration={timerDuration}
               running={timerRunning}
