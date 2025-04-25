@@ -33,11 +33,13 @@ const ReflectionPage: React.FC = () => {
       
       console.log("================================");
       console.log("REFRESHING SESSIONS");
+      console.log("Refresh counter:", refreshCounter);
       console.log("================================");
       
       // Get local sessions first - prioritize these
       try {
-        const localStorageSessions = localStorage.getItem("sessions");
+        // Force direct window reference to avoid any scope issues
+        const localStorageSessions = window.localStorage.getItem("sessions");
         console.log("Raw localStorage value:", localStorageSessions);
         
         if (localStorageSessions) {
@@ -54,6 +56,11 @@ const ReflectionPage: React.FC = () => {
               
               combinedSessions = [...formattedLocalSessions];
               console.log("Added local sessions:", formattedLocalSessions.length);
+              
+              // Show notification if we found sessions
+              if (formattedLocalSessions.length > 0) {
+                toast.success(`Found ${formattedLocalSessions.length} sessions in local storage`);
+              }
             } else {
               console.warn("Local sessions is not an array or is empty:", localSessions);
             }

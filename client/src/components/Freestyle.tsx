@@ -16,7 +16,7 @@ const Freestyle = () => {
   const { selectedKasina, setSelectedKasina, saveSession } = useKasina();
   const [timerRunning, setTimerRunning] = useState(false);
   const [timerDuration, setTimerDuration] = useState<number>(5 * 60); // Default 5 minutes
-  const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
+  const [timeRemaining, setTimeRemaining] = useState<number>(timerDuration);
   const [countUpTime, setCountUpTime] = useState<number>(0);
   const [activeTab, setActiveTab] = useState<string>("color");
 
@@ -50,9 +50,12 @@ const Freestyle = () => {
   };
 
   const handleTimerUpdate = (remaining: number | null, elapsed: number) => {
-    setTimeRemaining(remaining);
+    // Handle infinite timer (null) vs countdown timer differently
     if (remaining === null) {
+      setTimeRemaining(0); // Use 0 instead of null to avoid type issues
       setCountUpTime(elapsed);
+    } else {
+      setTimeRemaining(remaining);
     }
   };
 
@@ -169,7 +172,7 @@ const Freestyle = () => {
                 <Button
                   key={option.label}
                   variant={timerDuration === option.value ? "default" : "outline"}
-                  onClick={() => setTimerDuration(option.value || null)}
+                  onClick={() => setTimerDuration(option.value ?? 0)}
                   disabled={timerRunning}
                   className="w-full"
                 >
@@ -210,8 +213,8 @@ const Freestyle = () => {
                   // Create the session object
                   const newSession = {
                     id: Date.now().toString(),
-                    kasinaType: selectedKasina as string,
-                    kasinaName: KASINA_NAMES[selectedKasina as string] || selectedKasina,
+                    kasinaType: selectedKasina,
+                    kasinaName: KASINA_NAMES[selectedKasina] || selectedKasina,
                     duration: duration,
                     timestamp: new Date().toISOString()
                   };
