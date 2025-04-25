@@ -10,9 +10,25 @@ interface FocusModeState {
 export const useFocusMode = create<FocusModeState>((set, get) => ({
   isFocusModeActive: false,
   
-  enableFocusMode: () => set({ isFocusModeActive: true }),
+  enableFocusMode: () => {
+    // Remove body class to avoid CSS conflicts with our dialog approach
+    document.body.classList.remove('focus-mode-body');
+    set({ isFocusModeActive: true });
+  },
   
-  disableFocusMode: () => set({ isFocusModeActive: false }),
+  disableFocusMode: () => {
+    // Remove body class to avoid CSS conflicts with our dialog approach
+    document.body.classList.remove('focus-mode-body');
+    document.body.classList.remove('cursor-none');
+    set({ isFocusModeActive: false });
+  },
   
-  toggleFocusMode: () => set(state => ({ isFocusModeActive: !state.isFocusModeActive })),
+  toggleFocusMode: () => {
+    const currentState = get();
+    if (currentState.isFocusModeActive) {
+      currentState.disableFocusMode();
+    } else {
+      currentState.enableFocusMode();
+    }
+  },
 }));
