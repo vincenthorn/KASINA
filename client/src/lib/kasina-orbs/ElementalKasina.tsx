@@ -50,10 +50,21 @@ const ElementalKasina = ({
       let radius, theta, phi;
       
       if (type === "water") {
-        // Water particles form a wavy sphere
-        radius = 1.2 + Math.random() * 0.6;
-        theta = Math.random() * Math.PI * 2;
-        phi = Math.random() * Math.PI;
+        // Water particles form a smoother, more uniform sphere to avoid visible seams
+        radius = 1.1 + Math.random() * 0.5;
+        
+        // Use golden ratio distribution for more uniform sphere coverage
+        const goldenRatio = (1 + Math.sqrt(5)) / 2;
+        const idx = i / particleCount;
+        const y = 1 - (idx * 2);  // y goes from 1 to -1
+        const radiusAtY = Math.sqrt(1 - y * y); // radius at y position
+        
+        phi = Math.acos(y);
+        theta = 2 * Math.PI * idx * goldenRatio;
+        
+        // Add some randomness to avoid perfect patterns
+        theta += Math.random() * 0.2;
+        phi += Math.random() * 0.1;
       } else if (type === "air") {
         // Air particles are more dispersed
         radius = 1 + Math.random() * 1.2;
@@ -108,10 +119,13 @@ const ElementalKasina = ({
     switch (type) {
       case "water":
         return { 
-          roughness: 0.1, 
-          metalness: 0.8, 
+          roughness: 0.05, // More smoothness to avoid visible lines
+          metalness: 0.9,  // More reflective like water
           transparent: true, 
-          opacity: 0.9 
+          opacity: 0.9,
+          envMapIntensity: 1.2, // Enhanced reflections
+          clearcoat: 0.8, // Add clearcoat for extra smoothness
+          clearcoatRoughness: 0.1,
         };
       case "air":
         return { 
@@ -205,7 +219,12 @@ const ElementalKasina = ({
   return (
     <group ref={groupRef}>
       <mesh ref={coreRef}>
-        <sphereGeometry args={[1, 32, 32]} />
+        {type === "water" ? (
+          // Higher resolution geometry for water to prevent seams
+          <sphereGeometry args={[1, 64, 64]} />
+        ) : (
+          <sphereGeometry args={[1, 32, 32]} />
+        )}
         <meshStandardMaterial 
           color={color} 
           emissive={emissive} 
@@ -217,10 +236,10 @@ const ElementalKasina = ({
         <points ref={particlesRef}>
           <primitive object={particles} />
           <pointsMaterial
-            size={0.05}
+            size={type === "water" ? 0.03 : 0.05} // Smaller particles for water for smoother appearance
             vertexColors
             transparent
-            opacity={0.8}
+            opacity={type === "water" ? 0.6 : 0.8} // More transparency for water
             depthWrite={false}
           />
         </points>
