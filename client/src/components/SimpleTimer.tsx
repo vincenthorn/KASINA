@@ -131,7 +131,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         </Button>
       </div>
       
-      <div className="grid grid-cols-3 gap-2 mt-4 w-full">
+      <div className="grid grid-cols-4 gap-2 mt-4 w-full">
         <Button 
           variant="outline" 
           onClick={() => setDuration(60)}
@@ -190,6 +190,26 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           size="sm"
         >
           30:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => setDuration(2700)}
+          disabled={isRunning}
+          className={duration === 2700 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          45:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => setDuration(3600)}
+          disabled={isRunning}
+          className={duration === 3600 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          60:00
         </Button>
       </div>
     </div>
