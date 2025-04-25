@@ -121,54 +121,65 @@ const ReflectionPage: React.FC = () => {
           >
             Refresh Data
           </button>
-          <button 
-            onClick={() => {
-              try {
-                // Test direct localStorage access and manipulation
-                const testSession = {
-                  id: Date.now().toString(),
-                  kasinaType: "white", 
-                  kasinaName: "White", 
-                  duration: 60,
-                  timestamp: new Date().toISOString()
-                };
+          {/* Only show in development environment - hidden in production */}
+          {process.env.NODE_ENV === 'development' && (
+            <button 
+              onClick={() => {
+                // Ask which kasina type to test with
+                const kasinaType = prompt("Enter kasina type to test (e.g., fire, water, blue):", "");
+                if (!kasinaType) return;
                 
-                // Try to get existing sessions
-                let existingSessions = [];
+                // Ask for duration
+                const durationInput = prompt("Enter duration in seconds:", "60");
+                const duration = parseInt(durationInput || "60", 10);
+                
                 try {
-                  const storedSessions = window.localStorage.getItem("sessions");
-                  if (storedSessions) {
-                    existingSessions = JSON.parse(storedSessions);
-                    if (!Array.isArray(existingSessions)) {
-                      console.error("Stored sessions is not an array:", existingSessions);
-                      existingSessions = [];
+                  // Test direct localStorage access with user specified values
+                  const testSession = {
+                    id: Date.now().toString(),
+                    kasinaType: kasinaType, 
+                    kasinaName: KASINA_NAMES[kasinaType] || kasinaType, 
+                    duration: duration,
+                    timestamp: new Date().toISOString()
+                  };
+                  
+                  // Try to get existing sessions
+                  let existingSessions = [];
+                  try {
+                    const storedSessions = window.localStorage.getItem("sessions");
+                    if (storedSessions) {
+                      existingSessions = JSON.parse(storedSessions);
+                      if (!Array.isArray(existingSessions)) {
+                        console.error("Stored sessions is not an array:", existingSessions);
+                        existingSessions = [];
+                      }
                     }
+                  } catch (e) {
+                    console.error("Error reading from localStorage:", e);
                   }
+                  
+                  // Add test session
+                  existingSessions.push(testSession);
+                  
+                  // Write back to localStorage
+                  window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
+                  
+                  // Verify it got saved
+                  const verification = window.localStorage.getItem("sessions");
+                  console.log("LOCAL STORAGE TEST - Saved sessions:", verification);
+                  
+                  toast.success(`Test ${kasinaType} session added (${duration}s)`);
+                  refresh();
                 } catch (e) {
-                  console.error("Error reading from localStorage:", e);
+                  console.error("LocalStorage test failed:", e);
+                  toast.error("LocalStorage test failed: " + e);
                 }
-                
-                // Add test session
-                existingSessions.push(testSession);
-                
-                // Write back to localStorage
-                window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
-                
-                // Verify it got saved
-                const verification = window.localStorage.getItem("sessions");
-                console.log("LOCAL STORAGE TEST - Saved sessions:", verification);
-                
-                alert("Test session added! Check the Reflection page after refreshing.");
-                refresh();
-              } catch (e) {
-                console.error("LocalStorage test failed:", e);
-                alert("LocalStorage test failed: " + e);
-              }
-            }}
-            className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
-          >
-            Debug Storage
-          </button>
+              }}
+              className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
+            >
+              Debug Storage
+            </button>
+          )}
           <button 
             onClick={clearLocalSessions}
             className="text-xs text-red-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
