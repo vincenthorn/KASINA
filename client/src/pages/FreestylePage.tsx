@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SimpleFreestyle from "../components/SimpleFreestyle";
+import Freestyle from "../components/Freestyle";
 
 const FreestylePage: React.FC = () => {
   return (
     <Layout fullWidth={true}>
-      <SimpleFreestyle />
+      <Freestyle />
     </Layout>
   );
 };
