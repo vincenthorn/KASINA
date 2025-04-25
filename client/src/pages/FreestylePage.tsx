@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../components/Layout";
-import Freestyle from "../components/Freestyle";
+import TimerFreestyle from "../components/TimerFreestyle";
 
 const FreestylePage: React.FC = () => {
   return (
     <Layout fullWidth={true}>
-      <Freestyle />
+      <TimerFreestyle />
     </Layout>
   );
 };
