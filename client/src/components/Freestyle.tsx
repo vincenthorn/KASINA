@@ -14,6 +14,7 @@ import { KASINA_NAMES } from "../lib/constants";
 
 const Freestyle = () => {
   const { selectedKasina, setSelectedKasina, saveSession } = useKasina();
+  const typedKasina = selectedKasina as KasinaType;  // Cast to KasinaType for type safety
   const [timerRunning, setTimerRunning] = useState(false);
   const [timerDuration, setTimerDuration] = useState<number>(5 * 60); // Default 5 minutes
   const [timeRemaining, setTimeRemaining] = useState<number>(timerDuration);
@@ -28,24 +29,46 @@ const Freestyle = () => {
   }, [selectedKasina, timerDuration]);
 
   const handleTimerComplete = () => {
+    console.log("TIMER COMPLETE TRIGGERED");
+    console.log("timeRemaining:", timeRemaining);
+    console.log("timerDuration:", timerDuration);
+    console.log("countUpTime:", countUpTime);
+    console.log("selectedKasina:", selectedKasina);
+
     setTimerRunning(false);
     toast.success("Meditation session complete");
     
     // Save session data
-    if (timeRemaining === null) {
-      // Infinity mode (counting up)
-      saveSession({
-        kasinaType: selectedKasina,
-        duration: countUpTime,
-        date: new Date(),
-      });
-    } else {
-      // Fixed duration mode
-      saveSession({
-        kasinaType: selectedKasina,
-        duration: timerDuration,
-        date: new Date(),
-      });
+    try {
+      if (timeRemaining === 0) {
+        // Fixed duration mode that just completed
+        console.log("Saving fixed duration session");
+        saveSession({
+          kasinaType: typedKasina,
+          duration: timerDuration,
+          date: new Date(),
+        });
+      } else if (timeRemaining === null || timeRemaining === 0) {
+        // Infinity mode (counting up)
+        console.log("Saving infinity mode session");
+        saveSession({
+          kasinaType: typedKasina, 
+          duration: countUpTime,
+          date: new Date(),
+        });
+      } else {
+        // Partial session - calculate actual duration
+        const actualDuration = timerDuration - timeRemaining;
+        console.log("Saving partial session with duration:", actualDuration);
+        saveSession({
+          kasinaType: selectedKasina,
+          duration: actualDuration,
+          date: new Date(),
+        });
+      }
+    } catch (error) {
+      console.error("Error in handleTimerComplete:", error);
+      toast.error("Failed to save your session. Please try again.");
     }
   };
 
@@ -68,7 +91,7 @@ const Freestyle = () => {
     { value: null, label: "∞" },
   ];
 
-  const orbConfig = getOrbConfig(selectedKasina);
+  const orbConfig = getOrbConfig(typedKasina);
 
   return (
     <div className="h-full w-full bg-black text-white flex flex-col">

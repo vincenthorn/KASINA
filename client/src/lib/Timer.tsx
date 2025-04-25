@@ -45,6 +45,7 @@ const Timer = ({
             window.clearInterval(timerRef.current);
             timerRef.current = null;
           }
+          console.log("Timer reached zero! Triggering onComplete");
           onComplete?.();
         }
         
