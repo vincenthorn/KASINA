@@ -70,16 +70,26 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       .cursor-none * {
         cursor: none !important;
       }
-      .focus-mode-active .focus-mode-hide {
+      .focus-mode-active * {
         opacity: 0 !important;
         pointer-events: none !important;
+        transition: opacity 0.2s ease !important;
+      }
+      .focus-mode-active .orb-container,
+      .focus-mode-active .orb-content,
+      .focus-mode-active canvas,
+      .focus-mode-active .orb-container * {
+        opacity: 1 !important;
+        pointer-events: auto !important;
       }
       .focus-mode-active .orb-container {
         position: fixed !important;
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        z-index: 50 !important;
+        width: 400px !important;
+        height: 400px !important;
+        z-index: 100 !important;
       }
     `;
     
@@ -112,7 +122,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       </div>
       
       {/* Main content - will be hidden in focus mode */}
-      <div className={`focus-mode-hide transition-opacity duration-200 ${isFocusModeActive && !isUIVisible ? 'opacity-0' : 'opacity-100'}`}>
+      <div>
         {children}
       </div>
     </div>
