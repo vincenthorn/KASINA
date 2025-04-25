@@ -8,7 +8,8 @@ import {
   PointsMaterial, 
   Points,
   BufferAttribute,
-  Color
+  Color,
+  MeshPhysicalMaterial
 } from "three";
 
 interface ElementalKasinaProps {
@@ -176,20 +177,36 @@ const ElementalKasina = ({
     if (coreRef.current) {
       // Type-specific animations
       if (type === "water") {
-        coreRef.current.scale.x = 1 + Math.sin(time * speed * 1.1) * 0.1;
-        coreRef.current.scale.y = 1 + Math.sin(time * speed * 0.9) * 0.1;
-        coreRef.current.scale.z = 1 + Math.sin(time * speed * 1.0) * 0.1;
+        // Special water animation - more gentle and smooth
+        const pulseX = 1 + Math.sin(time * speed * 0.6) * 0.06;
+        const pulseY = 1 + Math.cos(time * speed * 0.5) * 0.06;
+        const pulseZ = 1 + Math.sin(time * speed * 0.7) * 0.06;
+        coreRef.current.scale.set(pulseX, pulseY, pulseZ);
+        
+        // Smooth rotation for water
+        coreRef.current.rotation.y = time * speed * 0.15;
+        coreRef.current.rotation.x = Math.sin(time * speed * 0.12) * 0.15;
+        coreRef.current.rotation.z = Math.cos(time * speed * 0.1) * 0.1;
+        
+        // Also animate the parent group for water to create more flow
+        if (groupRef.current) {
+          groupRef.current.rotation.y = time * speed * 0.08;
+          groupRef.current.rotation.x = Math.sin(time * speed * 0.07) * 0.08;
+        }
       } else if (type === "fire") {
         coreRef.current.scale.x = 1 + Math.sin(time * speed * 1.5) * 0.15;
         coreRef.current.scale.y = 1 + Math.sin(time * speed * 1.7) * 0.15;
         coreRef.current.scale.z = 1 + Math.sin(time * speed * 1.3) * 0.15;
+        
+        coreRef.current.rotation.y = time * speed * 0.3;
+        coreRef.current.rotation.x = Math.sin(time * speed * 0.2) * 0.3;
       } else {
         const pulse = Math.sin(time * speed) * 0.08 + 1;
         coreRef.current.scale.set(pulse, pulse, pulse);
+        
+        coreRef.current.rotation.y = time * speed * 0.3;
+        coreRef.current.rotation.x = Math.sin(time * speed * 0.2) * 0.3;
       }
-      
-      coreRef.current.rotation.y = time * speed * 0.3;
-      coreRef.current.rotation.x = Math.sin(time * speed * 0.2) * 0.3;
     }
     
     // Particles animation
@@ -218,19 +235,62 @@ const ElementalKasina = ({
   
   return (
     <group ref={groupRef}>
-      <mesh ref={coreRef}>
-        {type === "water" ? (
-          // Use icosahedron for water to avoid seams completely
-          <icosahedronGeometry args={[1, 8]} />
-        ) : (
+      {type === "water" ? (
+        // Completely different approach for water - use multiple overlapping spheres to hide seams
+        <group>
+          {/* Inner core */}
+          <mesh ref={coreRef}>
+            <dodecahedronGeometry args={[0.95, 5]} />
+            <meshStandardMaterial 
+              color={color} 
+              emissive={emissive} 
+              transparent
+              opacity={0.85}
+              envMapIntensity={1.5}
+              roughness={0.05}
+              metalness={0.9}
+            />
+          </mesh>
+          
+          {/* Middle layer - slightly rotated to mask seams */}
+          <mesh rotation={[Math.PI/6, Math.PI/4, Math.PI/5]}>
+            <dodecahedronGeometry args={[1.0, 4]} />
+            <meshStandardMaterial 
+              color={color} 
+              emissive={emissive} 
+              transparent
+              opacity={0.4}
+              envMapIntensity={1.2}
+              roughness={0.1}
+              metalness={0.7}
+            />
+          </mesh>
+          
+          {/* Outer layer - different rotation */}
+          <mesh rotation={[Math.PI/3, Math.PI/7, Math.PI/2]}>
+            <icosahedronGeometry args={[1.05, 3]} />
+            <meshStandardMaterial 
+              color={color} 
+              emissive={emissive} 
+              transparent
+              opacity={0.2}
+              envMapIntensity={0.8}
+              roughness={0.1}
+              metalness={0.6}
+            />
+          </mesh>
+        </group>
+      ) : (
+        // Standard approach for other elemental kasinas
+        <mesh ref={coreRef}>
           <sphereGeometry args={[1, 32, 32]} />
-        )}
-        <meshStandardMaterial 
-          color={color} 
-          emissive={emissive} 
-          {...materialProps}
-        />
-      </mesh>
+          <meshStandardMaterial 
+            color={color} 
+            emissive={emissive} 
+            {...materialProps}
+          />
+        </mesh>
+      )}
       
       {particles && (
         <points ref={particlesRef}>
