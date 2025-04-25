@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { Maximize2, Minimize2, ZoomIn, ZoomOut } from 'lucide-react';
 import { useFocusMode } from '../lib/stores/useFocusMode';
+import { useKasina } from '../lib/stores/useKasina';
+import { KASINA_BACKGROUNDS } from '../lib/constants';
+import { KasinaType } from '../lib/types';
 import { Dialog, DialogContent } from './ui/dialog';
 
 interface FocusModeProps {
@@ -10,6 +13,7 @@ interface FocusModeProps {
 
 const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const { isFocusModeActive, enableFocusMode, disableFocusMode } = useFocusMode();
+  const { selectedKasina } = useKasina();
   const [isUIVisible, setIsUIVisible] = useState(true);
   const [lastActivity, setLastActivity] = useState(Date.now());
   const [zoomLevel, setZoomLevel] = useState(1); // 1 = 100% (default size)
@@ -17,6 +21,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const minZoom = 0.1; // 10%
   const maxZoom = 25; // 2500%
   const contentRef = useRef<HTMLDivElement>(null);
+  
+  // Get the background color for the selected kasina
+  const getBackgroundColor = () => {
+    return KASINA_BACKGROUNDS[selectedKasina as KasinaType] || '#000000';
+  };
   
   // Handle mouse movement to show UI temporarily
   const handleMouseMove = () => {
@@ -103,11 +112,15 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         }}
       >
         <DialogContent 
-          className="bg-black border-none max-w-full h-screen p-0 flex items-center justify-center"
+          className="border-none max-w-full h-screen p-0 flex items-center justify-center"
           onMouseMove={handleMouseMove}
           onWheel={handleWheel}
           ref={contentRef}
-          style={{ width: '100vw' }}
+          style={{ 
+            width: '100vw',
+            backgroundColor: getBackgroundColor(),
+            transition: 'background-color 0.5s ease'
+          }}
         >
           {/* Exit button - visible on mouse movement */}
           <div 
