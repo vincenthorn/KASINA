@@ -251,6 +251,19 @@ const Freestyle = () => {
               >
                 20 min
               </Button>
+              
+              {/* 30 minutes */}
+              <Button
+                variant={timerDuration === 1800 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 30 minutes (1800 seconds)");
+                  setTimerDuration(1800);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                30 min
+              </Button>
             </div>
             
             {/* Timer Display and Controls */}

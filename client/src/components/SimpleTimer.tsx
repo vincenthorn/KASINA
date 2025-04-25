@@ -148,6 +148,16 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         >
           20:00
         </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => setDuration(1800)}
+          disabled={isRunning}
+          className={duration === 1800 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          30:00
+        </Button>
       </div>
     </div>
   );
