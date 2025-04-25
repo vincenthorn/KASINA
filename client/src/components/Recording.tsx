@@ -242,7 +242,7 @@ const Recording = () => {
                 </Card>
               </div>
               
-              <div className="h-[400px] bg-black rounded-lg overflow-hidden">
+              <div className="orb-container h-[400px] bg-black rounded-lg overflow-hidden">
                 <Canvas>
                   <ambientLight intensity={0.5} />
                   <pointLight position={[10, 10, 10]} intensity={0.8} />

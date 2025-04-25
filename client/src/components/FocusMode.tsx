@@ -11,7 +11,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const { isFocusModeActive, enableFocusMode, disableFocusMode } = useFocusMode();
   const [isUIVisible, setIsUIVisible] = useState(true);
   const [lastActivity, setLastActivity] = useState(Date.now());
-  const inactivityThreshold = 2000; // 2 seconds
+  const inactivityThreshold = 300; // 300 milliseconds for near-instant transition
   
   // Handle mouse movement to show UI and track user activity
   const handleMouseMove = () => {
@@ -32,7 +32,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       }
     };
     
-    const interval = setInterval(checkInactivity, 500);
+    const interval = setInterval(checkInactivity, 100); // Check more frequently
     return () => clearInterval(interval);
   }, [isFocusModeActive, lastActivity, inactivityThreshold]);
   
@@ -53,7 +53,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
     };
   }, [isFocusModeActive, isUIVisible]);
 
-  // Add CSS for cursor hiding
+  // Add CSS for cursor hiding and focus mode styling
   useEffect(() => {
     // Create style element if it doesn't exist
     let style = document.getElementById('focus-mode-style');
@@ -70,6 +70,17 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       .cursor-none * {
         cursor: none !important;
       }
+      .focus-mode-active .focus-mode-hide {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      .focus-mode-active .orb-container {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: 50 !important;
+      }
     `;
     
     return () => {
@@ -81,16 +92,15 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
 
   return (
     <div 
-      className={`relative transition-opacity duration-500 ${isFocusModeActive && !isUIVisible ? 'opacity-0' : 'opacity-100'}`}
+      className={`relative ${isFocusModeActive ? 'focus-mode-active' : ''}`}
       onMouseMove={handleMouseMove}
     >
       {/* Focus mode toggle button */}
-      <div className="absolute top-4 right-4 z-10">
+      <div className={`absolute top-4 right-4 z-10 transition-opacity duration-200 ${isFocusModeActive && !isUIVisible ? 'opacity-0' : 'opacity-100'}`}>
         <Button
           variant="ghost"
           size="sm"
           onClick={isFocusModeActive ? disableFocusMode : enableFocusMode}
-          className={`transition-opacity duration-300 ${isFocusModeActive && !isUIVisible ? 'opacity-0' : 'opacity-100'}`}
         >
           {isFocusModeActive ? (
             <Minimize2 className="h-4 w-4 mr-1" />
@@ -101,10 +111,8 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         </Button>
       </div>
       
-      {/* Main content */}
-      <div 
-        className={`transition-opacity duration-500 ${isFocusModeActive && !isUIVisible ? 'opacity-0' : 'opacity-100'}`}
-      >
+      {/* Main content - will be hidden in focus mode */}
+      <div className={`focus-mode-hide transition-opacity duration-200 ${isFocusModeActive && !isUIVisible ? 'opacity-0' : 'opacity-100'}`}>
         {children}
       </div>
     </div>

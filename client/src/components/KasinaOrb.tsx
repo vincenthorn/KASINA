@@ -350,7 +350,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   }, [type]);
   
   return (
-    <div className="w-full h-full bg-black">
+    <div className="w-full h-full bg-black orb-content">
       <Canvas>
         <Scene enableZoom={enableZoom} />
       </Canvas>
