@@ -30,6 +30,14 @@ const Freestyle = () => {
     setTimeRemaining(timerDuration);
     setCountUpTime(0);
   }, [selectedKasina, timerDuration]);
+  
+  // Separate useEffect for timerDuration changes only - to update the UI immediately
+  useEffect(() => {
+    console.log("Timer duration changed to:", timerDuration);
+    setTimeRemaining(timerDuration);
+    // Force UI update
+    handleTimerUpdate(timerDuration, 0);
+  }, [timerDuration]);
 
   const handleTimerComplete = () => {
     console.log("TIMER COMPLETE TRIGGERED");
@@ -281,6 +289,15 @@ const Freestyle = () => {
             
             {/* Timer Display and Controls */}
             <div className="flex flex-col items-center mt-6">
+              <div className="mb-2 text-sm text-gray-300">
+                Selected: {timerDuration === 60 ? "1 min" : 
+                          timerDuration === 300 ? "5 min" : 
+                          timerDuration === 600 ? "10 min" : 
+                          timerDuration === 900 ? "15 min" : 
+                          timerDuration === 1200 ? "20 min" : 
+                          timerDuration === 1800 ? "30 min" : 
+                          "Custom"}
+              </div>
               <Timer 
                 duration={timerDuration}
                 running={timerRunning}

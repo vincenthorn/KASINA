@@ -89,7 +89,13 @@ const Timer = ({
     console.log("Is infinity mode:", duration === null);
     setTimeLeft(duration);
     setElapsedTime(0);
-  }, [duration]);
+    
+    // Force update the UI by explicitly calling onUpdate
+    if (onUpdate) {
+      console.log("Forcing UI update with new duration:", duration);
+      onUpdate(duration, 0);
+    }
+  }, [duration, onUpdate]);
   
   // Calculate percentage for progress circle
   const percentage = getPercentage();
