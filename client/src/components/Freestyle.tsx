@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 import KasinaOrb from '../components/KasinaOrb';
 import { useKasina } from '../lib/stores/useKasina';
 import { KasinaType, getOrbConfig } from '../lib/types';
-import { KASINA_NAMES } from '../lib/constants';
+import { KASINA_NAMES, TIMER_OPTIONS } from '../lib/constants';
 import Timer from '../lib/Timer';
 
 import { Button } from './ui/button';
@@ -88,14 +88,10 @@ const Freestyle = () => {
     }
   };
 
-  const timerOptions = [
-    { value: 60, label: "1 min" },
-    { value: 300, label: "5 min" },
-    { value: 600, label: "10 min" },
-    { value: 900, label: "15 min" },
-    { value: 1200, label: "20 min" },
-    { value: null, label: "∞" },
-  ];
+  // Log timer options from constants for debugging
+  useEffect(() => {
+    console.log("TIMER_OPTIONS from constants:", TIMER_OPTIONS);
+  }, []);
 
   const orbConfig = getOrbConfig(typedKasina);
 
@@ -197,7 +193,7 @@ const Freestyle = () => {
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-2">Timer</h3>
             <div className="grid grid-cols-3 gap-2">
-              {timerOptions.map((option) => (
+              {TIMER_OPTIONS.map((option: { label: string, value: number | null }) => (
                 <Button
                   key={option.label}
                   variant={timerDuration === option.value ? "default" : "outline"}
