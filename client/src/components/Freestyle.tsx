@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { toast } from 'sonner';
 
-import KasinaOrb from '../lib/kasina-orbs/KasinaOrb';
+import KasinaOrb from '../components/KasinaOrb';
 import { useKasina } from '../lib/stores/useKasina';
 import { KasinaType, getOrbConfig } from '../lib/types';
 import { KASINA_NAMES } from '../lib/constants';
@@ -226,7 +226,14 @@ const Freestyle = () => {
             />
             
             <Button
-              onClick={() => setTimerRunning(!timerRunning)}
+              onClick={() => {
+                console.log("Start/Pause button clicked");
+                console.log("Current running state:", timerRunning);
+                console.log("Changing to:", !timerRunning);
+                console.log("Current timerDuration:", timerDuration);
+                console.log("Is infinity mode:", timerDuration === null);
+                setTimerRunning(!timerRunning);
+              }}
               className="w-full mt-4"
               size="lg"
             >

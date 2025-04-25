@@ -27,10 +27,14 @@ const Timer = ({
   
   // Update timer
   const updateTimer = useCallback(() => {
+    console.log("Timer update called, duration:", duration);
+    
     if (duration === null) {
       // Count up mode (infinity)
-      setElapsedTime(prev => prev + 1);
-      onUpdate?.(null, elapsedTime + 1);
+      const newElapsed = elapsedTime + 1;
+      console.log("Infinity mode: counting up to", newElapsed);
+      setElapsedTime(newElapsed);
+      onUpdate?.(null, newElapsed);
     } else {
       // Count down mode
       setTimeLeft(prev => {
@@ -56,15 +60,23 @@ const Timer = ({
   
   // Start/stop timer based on running state
   useEffect(() => {
+    console.log("Running state changed:", running, "duration:", duration);
+    
     if (running) {
+      console.log("Starting timer interval");
+      if (timerRef.current) {
+        window.clearInterval(timerRef.current);
+      }
       timerRef.current = window.setInterval(updateTimer, 1000);
     } else if (timerRef.current) {
+      console.log("Clearing timer interval");
       window.clearInterval(timerRef.current);
       timerRef.current = null;
     }
     
     return () => {
       if (timerRef.current) {
+        console.log("Cleanup: clearing timer interval");
         window.clearInterval(timerRef.current);
         timerRef.current = null;
       }
