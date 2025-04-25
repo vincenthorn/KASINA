@@ -177,21 +177,34 @@ const ElementalKasina = ({
     if (coreRef.current) {
       // Type-specific animations
       if (type === "water") {
-        // Special water animation - more gentle and smooth
-        const pulseX = 1 + Math.sin(time * speed * 0.6) * 0.06;
-        const pulseY = 1 + Math.cos(time * speed * 0.5) * 0.06;
-        const pulseZ = 1 + Math.sin(time * speed * 0.7) * 0.06;
-        coreRef.current.scale.set(pulseX, pulseY, pulseZ);
-        
-        // Smooth rotation for water
+        // Special water animation - much more fluid
+        // Main torus knot rotation - slow and smooth
+        coreRef.current.rotation.x = time * speed * 0.1;
         coreRef.current.rotation.y = time * speed * 0.15;
-        coreRef.current.rotation.x = Math.sin(time * speed * 0.12) * 0.15;
-        coreRef.current.rotation.z = Math.cos(time * speed * 0.1) * 0.1;
+        coreRef.current.rotation.z = time * speed * 0.12;
         
-        // Also animate the parent group for water to create more flow
+        // Find the middle torus and outer sphere (siblings of the core)
+        if (coreRef.current.parent) {
+          const siblings = coreRef.current.parent.children;
+          // Sibling 0 is the core, 1 is middle torus, 2 is outer sphere
+          if (siblings.length >= 3) {
+            // Middle torus - different rotation direction
+            const middleTorus = siblings[1] as Mesh;
+            middleTorus.rotation.x = Math.PI/2 + Math.sin(time * speed * 0.2) * 0.1;
+            middleTorus.rotation.y = time * speed * 0.07;
+            middleTorus.rotation.z = time * speed * 0.05;
+            
+            // Outer sphere - gentle pulsing
+            const outerSphere = siblings[2] as Mesh;
+            const pulse = 1 + Math.sin(time * speed * 0.3) * 0.04;
+            outerSphere.scale.set(pulse, pulse, pulse);
+          }
+        }
+        
+        // Gentle overall group rotation
         if (groupRef.current) {
-          groupRef.current.rotation.y = time * speed * 0.08;
-          groupRef.current.rotation.x = Math.sin(time * speed * 0.07) * 0.08;
+          groupRef.current.rotation.y = time * speed * 0.05;
+          groupRef.current.rotation.x = Math.sin(time * speed * 0.04) * 0.03;
         }
       } else if (type === "fire") {
         coreRef.current.scale.x = 1 + Math.sin(time * speed * 1.5) * 0.15;
@@ -236,47 +249,48 @@ const ElementalKasina = ({
   return (
     <group ref={groupRef}>
       {type === "water" ? (
-        // Completely different approach for water - use multiple overlapping spheres to hide seams
+        // Completely new approach for water - use toroidal shapes which have no seams
         <group>
-          {/* Inner core */}
+          {/* Inner core - a torus knot provides a fluid, continuous surface */}
           <mesh ref={coreRef}>
-            <dodecahedronGeometry args={[0.95, 5]} />
+            <torusKnotGeometry args={[0.7, 0.3, 100, 16, 2, 3]} />
             <meshStandardMaterial 
               color={color} 
               emissive={emissive} 
               transparent
-              opacity={0.85}
+              opacity={0.9}
               envMapIntensity={1.5}
               roughness={0.05}
               metalness={0.9}
             />
           </mesh>
           
-          {/* Middle layer - slightly rotated to mask seams */}
-          <mesh rotation={[Math.PI/6, Math.PI/4, Math.PI/5]}>
-            <dodecahedronGeometry args={[1.0, 4]} />
+          {/* Middle layer - a different torus with different rotation */}
+          <mesh rotation={[Math.PI/2, 0, 0]}>
+            <torusGeometry args={[0.85, 0.2, 30, 100]} />
             <meshStandardMaterial 
               color={color} 
               emissive={emissive} 
               transparent
-              opacity={0.4}
+              opacity={0.5}
               envMapIntensity={1.2}
               roughness={0.1}
-              metalness={0.7}
+              metalness={0.8}
             />
           </mesh>
           
-          {/* Outer layer - different rotation */}
-          <mesh rotation={[Math.PI/3, Math.PI/7, Math.PI/2]}>
-            <icosahedronGeometry args={[1.05, 3]} />
+          {/* Outer spherical glow */}
+          <mesh>
+            <sphereGeometry args={[1.05, 64, 64]} />
             <meshStandardMaterial 
               color={color} 
               emissive={emissive} 
               transparent
-              opacity={0.2}
+              opacity={0.15}
               envMapIntensity={0.8}
               roughness={0.1}
               metalness={0.6}
+              side={2} // Double-sided rendering
             />
           </mesh>
         </group>
