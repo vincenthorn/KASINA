@@ -51,21 +51,20 @@ const ElementalKasina = ({
       let radius, theta, phi;
       
       if (type === "water") {
-        // Water particles form a smoother, more uniform sphere to avoid visible seams
-        radius = 1.1 + Math.random() * 0.5;
+        // Improved water particles - using a Fibonacci spiral distribution for perfectly even coverage
+        // This creates a natural-looking flow pattern with no seams or clustering
         
-        // Use golden ratio distribution for more uniform sphere coverage
+        // Fibonacci spiral approach for even distribution
         const goldenRatio = (1 + Math.sqrt(5)) / 2;
         const idx = i / particleCount;
-        const y = 1 - (idx * 2);  // y goes from 1 to -1
-        const radiusAtY = Math.sqrt(1 - y * y); // radius at y position
         
-        phi = Math.acos(y);
+        // Spherical coordinates with golden angle
+        phi = Math.acos(1 - 2 * idx);
         theta = 2 * Math.PI * idx * goldenRatio;
         
-        // Add some randomness to avoid perfect patterns
-        theta += Math.random() * 0.2;
-        phi += Math.random() * 0.1;
+        // Make the particles distribute in a toroid shape to match the new water form
+        // Large outer radius for the toroid, plus some volume
+        radius = 1.0 + Math.sin(phi * 4) * 0.15 + Math.random() * 0.3;
       } else if (type === "air") {
         // Air particles are more dispersed
         radius = 1 + Math.random() * 1.2;
@@ -177,34 +176,42 @@ const ElementalKasina = ({
     if (coreRef.current) {
       // Type-specific animations
       if (type === "water") {
-        // Special water animation - much more fluid
-        // Main torus knot rotation - slow and smooth
-        coreRef.current.rotation.x = time * speed * 0.1;
-        coreRef.current.rotation.y = time * speed * 0.15;
-        coreRef.current.rotation.z = time * speed * 0.12;
+        // Water animation - create a very fluid, continuously flowing appearance
         
-        // Find the middle torus and outer sphere (siblings of the core)
+        // Main torus knot rotation - slow and continuous with subtle variations
+        coreRef.current.rotation.x = time * speed * 0.08;
+        coreRef.current.rotation.y = time * speed * 0.12;
+        coreRef.current.rotation.z = time * speed * 0.09;
+        
+        // Add a gentle pulsation to create a "breathing" water effect
+        const mainPulse = 1 + Math.sin(time * speed * 0.3) * 0.04;
+        coreRef.current.scale.set(mainPulse, mainPulse, mainPulse * 0.98);
+        
+        // Find the middle torus knot and outer sphere (siblings of the core)
         if (coreRef.current.parent) {
           const siblings = coreRef.current.parent.children;
-          // Sibling 0 is the core, 1 is middle torus, 2 is outer sphere
           if (siblings.length >= 3) {
-            // Middle torus - different rotation direction
-            const middleTorus = siblings[1] as Mesh;
-            middleTorus.rotation.x = Math.PI/2 + Math.sin(time * speed * 0.2) * 0.1;
-            middleTorus.rotation.y = time * speed * 0.07;
-            middleTorus.rotation.z = time * speed * 0.05;
+            // Second torus knot - rotate in a different direction than the main one
+            const secondKnot = siblings[1] as Mesh;
+            secondKnot.rotation.x = Math.PI/2.5 + Math.sin(time * speed * 0.15) * 0.1;
+            secondKnot.rotation.y = time * speed * 0.06 + Math.PI/4;
+            secondKnot.rotation.z = time * speed * 0.07;
             
-            // Outer sphere - gentle pulsing
+            // Secondary gentle pulsation out of phase with the main one
+            const secondPulse = 1 + Math.sin(time * speed * 0.25 + Math.PI/2) * 0.035;
+            secondKnot.scale.set(secondPulse, secondPulse, secondPulse);
+            
+            // Outer sphere - subtle pulsing glow effect
             const outerSphere = siblings[2] as Mesh;
-            const pulse = 1 + Math.sin(time * speed * 0.3) * 0.04;
-            outerSphere.scale.set(pulse, pulse, pulse);
+            const outerPulse = 1 + Math.sin(time * speed * 0.2) * 0.06;
+            outerSphere.scale.set(outerPulse, outerPulse, outerPulse);
           }
         }
         
-        // Gentle overall group rotation
+        // Very gentle overall group rotation for cohesiveness
         if (groupRef.current) {
-          groupRef.current.rotation.y = time * speed * 0.05;
-          groupRef.current.rotation.x = Math.sin(time * speed * 0.04) * 0.03;
+          groupRef.current.rotation.y = time * speed * 0.03;
+          groupRef.current.rotation.x = Math.sin(time * speed * 0.025) * 0.02;
         }
       } else if (type === "fire") {
         coreRef.current.scale.x = 1 + Math.sin(time * speed * 1.5) * 0.15;
@@ -251,43 +258,46 @@ const ElementalKasina = ({
       {type === "water" ? (
         // Completely new approach for water - use toroidal shapes which have no seams
         <group>
-          {/* Inner core - a torus knot provides a fluid, continuous surface */}
+          {/* Core - using a large, smooth torusKnot for the main water shape */}
           <mesh ref={coreRef}>
-            <torusKnotGeometry args={[0.7, 0.3, 100, 16, 2, 3]} />
+            <torusKnotGeometry args={[0.6, 0.25, 196, 32, 3, 4]} />
             <meshStandardMaterial 
               color={color} 
-              emissive={emissive} 
+              emissive={emissive}
+              emissiveIntensity={0.4}
               transparent
-              opacity={0.9}
+              opacity={0.85}
               envMapIntensity={1.5}
               roughness={0.05}
               metalness={0.9}
             />
           </mesh>
           
-          {/* Middle layer - a different torus with different rotation */}
-          <mesh rotation={[Math.PI/2, 0, 0]}>
-            <torusGeometry args={[0.85, 0.2, 30, 100]} />
+          {/* Second layer - differently shaped inner torus knot */}
+          <mesh rotation={[Math.PI/2.5, Math.PI/3, 0]}>
+            <torusKnotGeometry args={[0.55, 0.18, 128, 24, 2, 5]} />
             <meshStandardMaterial 
               color={color} 
-              emissive={emissive} 
+              emissive={emissive}
+              emissiveIntensity={0.6}
               transparent
-              opacity={0.5}
-              envMapIntensity={1.2}
+              opacity={0.4}
+              envMapIntensity={1.3}
               roughness={0.1}
               metalness={0.8}
             />
           </mesh>
           
-          {/* Outer spherical glow */}
+          {/* Outer glow layer */}
           <mesh>
-            <sphereGeometry args={[1.05, 64, 64]} />
+            <sphereGeometry args={[1.0, 64, 64]} />
             <meshStandardMaterial 
               color={color} 
-              emissive={emissive} 
+              emissive={emissive}
+              emissiveIntensity={0.3}
               transparent
               opacity={0.15}
-              envMapIntensity={0.8}
+              envMapIntensity={0.7}
               roughness={0.1}
               metalness={0.6}
               side={2} // Double-sided rendering
