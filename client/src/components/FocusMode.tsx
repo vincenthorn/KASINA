@@ -13,7 +13,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const [isUIVisible, setIsUIVisible] = useState(true);
   const [lastActivity, setLastActivity] = useState(Date.now());
   const [zoomLevel, setZoomLevel] = useState(1); // 1 = 100% (default size)
-  const zoomSpeed = 0.075; // Zoom speed factor
+  const zoomSpeed = 0.08; // Zoom speed factor - adjusted to 0.08
   const minZoom = 0.1; // 10%
   const maxZoom = 25; // 2500%
   const contentRef = useRef<HTMLDivElement>(null);
@@ -130,7 +130,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           >
             <div className="bg-black/50 text-white text-sm px-3 py-1 rounded-md border border-gray-800 flex items-center gap-2">
               <button 
-                onClick={() => setZoomLevel(Math.max(minZoom, zoomLevel - zoomSpeed * 2))}
+                onClick={() => setZoomLevel(Math.max(minZoom, zoomLevel - zoomSpeed * 3))}
                 className="hover:bg-gray-700 rounded p-1 transition-colors"
                 disabled={zoomLevel <= minZoom}
               >
@@ -140,7 +140,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               <span className="min-w-[60px] text-center">{Math.round(zoomLevel * 100)}%</span>
               
               <button 
-                onClick={() => setZoomLevel(Math.min(maxZoom, zoomLevel + zoomSpeed * 2))}
+                onClick={() => setZoomLevel(Math.min(maxZoom, zoomLevel + zoomSpeed * 3))}
                 className="hover:bg-gray-700 rounded p-1 transition-colors"
                 disabled={zoomLevel >= maxZoom}
               >
