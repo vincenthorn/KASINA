@@ -52,12 +52,6 @@ const introductionVideos = [
     embedId: "syKikRHpZmw",
     title: "Benefits of Visual Meditation",
     description: "Discover how visual meditation can improve concentration and clarity."
-  },
-  {
-    id: "3",
-    embedId: "KxgD9En6Vgc",
-    title: "How to Practice with KASINA App",
-    description: "A step-by-step guide to getting the most out of your KASINA practice."
   }
 ];
 
@@ -121,6 +115,24 @@ const MeditationVideos: React.FC = () => {
             embedId: "0ZNIQOO2sfA",
             createdAt: new Date().toISOString(),
             submittedBy: "meditator@example.com"
+          },
+          {
+            id: "3",
+            title: "Light Kasina Session",
+            description: "Experience the brightness of light kasina practice.",
+            youtubeUrl: "https://www.youtube.com/watch?v=VJrm8V5Ah3I",
+            embedId: "VJrm8V5Ah3I",
+            createdAt: new Date().toISOString(),
+            submittedBy: "practitioner@example.com"
+          },
+          {
+            id: "4",
+            title: "Earth Kasina Daily Practice",
+            description: "Finding stability through earth element meditation.",
+            youtubeUrl: "https://www.youtube.com/watch?v=6h_BARSvBGw",
+            embedId: "6h_BARSvBGw",
+            createdAt: new Date().toISOString(),
+            submittedBy: "grounded@example.com"
           }
         ]);
       }
