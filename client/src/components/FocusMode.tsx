@@ -75,61 +75,50 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         cursor: none !important;
       }
       
-      /* Hide everything first */
-      body.focus-mode-body * {
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transition: opacity 0.15s ease !important;
+      /* Create a fixed full-screen black overlay */
+      body.focus-mode-body:before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: black;
+        z-index: 9990;
       }
       
-      /* Then make sure specific elements like sidebar are completely gone */
+      /* Hide UI elements individually instead of using * selector */
+      body.focus-mode-body header,
       body.focus-mode-body aside,
       body.focus-mode-body nav,
-      body.focus-mode-body header,
       body.focus-mode-body .sidebar,
       body.focus-mode-body h1,
-      body.focus-mode-body button,
-      body.focus-mode-body .tabs,
+      body.focus-mode-body h2,
+      body.focus-mode-body h3,
+      body.focus-mode-body button:not(.focus-mode-exempt),
       body.focus-mode-body .tabs-list,
-      body.focus-mode-body .card,
-      body.focus-mode-body form {
-        display: none !important;
+      body.focus-mode-body .card:not(.orb-container),
+      body.focus-mode-body form,
+      body.focus-mode-body footer {
+        opacity: 0 !important;
         visibility: hidden !important;
+        pointer-events: none !important;
       }
       
-      /* Ensure body background is black in focus mode */
-      body.focus-mode-body {
-        background-color: black !important;
-      }
-      
-      /* Make the orb and its container visible */
-      body.focus-mode-body .orb-container,
-      body.focus-mode-body .orb-container *,
-      body.focus-mode-body .orb-content,
-      body.focus-mode-body .orb-content *,
-      body.focus-mode-body canvas {
+      /* Make the orb container visible and centered */
+      body.focus-mode-body .orb-container {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-      
-      /* Center and size the orb properly */
-      body.focus-mode-body .orb-container {
         position: fixed !important;
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 400px !important;
-        height: 400px !important;
+        width: 300px !important;
+        height: 300px !important;
         z-index: 9999 !important;
-        background-color: black !important;
-      }
-      
-      /* Ensure the sidebar is hidden */
-      body.focus-mode-body aside,
-      body.focus-mode-body nav {
-        display: none !important;
+        pointer-events: auto !important;
+        border-radius: 50% !important;
       }
     `;
     
