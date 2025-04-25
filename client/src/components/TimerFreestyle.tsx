@@ -95,17 +95,8 @@ const TimerFreestyle = () => {
     toast.success("Meditation session complete");
     console.log("Timer completed with duration:", timerDuration);
     
-    // Save session data
-    try {
-      saveSession({
-        kasinaType: typedKasina,
-        duration: timerDuration,
-        date: new Date(),
-      });
-    } catch (error) {
-      console.error("Error saving completed session:", error);
-      toast.error("Failed to save your session. Please try again.");
-    }
+    // Save session data - we'll use the Save Session button instead of auto-saving
+    // to prevent duplicate entries
   };
   
   // Handle manual save
@@ -120,34 +111,7 @@ const TimerFreestyle = () => {
       const duration = timerDuration - timeRemaining;
       console.log("Saving session with duration:", duration);
       
-      // Create the session object
-      const newSession = {
-        id: Date.now().toString(),
-        kasinaType: typedKasina,
-        kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
-        duration: duration,
-        timestamp: new Date().toISOString()
-      };
-      
-      // Store in localStorage
-      let existingSessions = [];
-      const storedValue = window.localStorage.getItem("sessions");
-      
-      if (storedValue) {
-        try {
-          const parsed = JSON.parse(storedValue);
-          if (Array.isArray(parsed)) {
-            existingSessions = parsed;
-          }
-        } catch (error) {
-          console.error("Parse error:", error);
-        }
-      }
-      
-      existingSessions.push(newSession);
-      window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
-      
-      // Use store method
+      // Use only the store method to prevent duplicate session entries
       saveSession({
         kasinaType: typedKasina,
         duration: duration,
