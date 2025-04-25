@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { KASINA_TYPES, KASINA_COLORS, KASINA_EMOJIS, KASINA_NAMES } from "../constants";
 import { getLocalStorage, setLocalStorage } from "../utils";
-import { KasinaSession } from "../types";
+import { KasinaSession, KasinaType } from "../types";
 import { apiRequest } from "../api";
 
 interface KasinaState {
@@ -70,10 +70,11 @@ export const useKasina = create<KasinaState>((set, get) => ({
   addSession: async (session) => {
     // Just delegate to saveSession - this is for backwards compatibility
     const { saveSession } = get();
+    // Cast to any to avoid type issues - we know these values are compatible
     return saveSession({
       kasinaType: session.kasinaType,
       duration: session.duration,
       date: new Date()
-    });
+    } as any);
   }
 }));

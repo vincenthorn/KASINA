@@ -35,14 +35,23 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     }
   }, [initialDuration, duration, setDuration]);
   
-  // Timer logic
+  // Handle focus mode on timer start/stop
+  useEffect(() => {
+    // Only change focus mode state when timer actually starts/stops, not on every render
+    if (isRunning) {
+      // Enable focus mode only when starting
+      enableFocusMode();
+    } else if (elapsedTime > 0) {
+      // Only disable when stopping after timer has run (not on initial load)
+      disableFocusMode();
+    }
+  }, [isRunning, elapsedTime > 0]); // Only run when running state changes or when we go from 0 to >0 time
+  
+  // Timer logic - separated from focus mode logic
   useEffect(() => {
     let intervalId: number | null = null;
     
     if (isRunning) {
-      // Enable focus mode when timer starts
-      enableFocusMode();
-      
       intervalId = window.setInterval(() => {
         tick();
         
@@ -54,16 +63,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         // Check for completion
         if (timeRemaining === 0) {
           if (onComplete) onComplete();
-          
-          // Disable focus mode when timer completes
-          disableFocusMode();
+          // Note: Focus mode disable happens in the other useEffect
         }
       }, 1000);
-    } else {
-      // Disable focus mode when timer is manually stopped
-      if (!isRunning && elapsedTime > 0) {
-        disableFocusMode();
-      }
     }
     
     // Cleanup
@@ -72,7 +74,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         window.clearInterval(intervalId);
       }
     };
-  }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate, enableFocusMode, disableFocusMode]);
+  }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate]);
   
   // Format time as MM:SS
   const formatTime = (seconds: number): string => {
@@ -103,12 +105,11 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         <Button 
           variant={isRunning ? "destructive" : "default"} 
           onClick={() => {
+            // Just start/stop the timer, focus mode is managed in the useEffect
             if (isRunning) {
               stopTimer();
-              disableFocusMode();
             } else {
               startTimer();
-              enableFocusMode();
             }
           }}
           className="w-20 focus-mode-exempt"
@@ -120,6 +121,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           variant="outline" 
           onClick={() => {
             resetTimer();
+            // Safe to call directly since Reset is only clicked once
             disableFocusMode();
           }}
           disabled={isRunning}
