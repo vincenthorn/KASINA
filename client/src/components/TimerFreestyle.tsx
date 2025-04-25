@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { useKasina } from '../lib/stores/useKasina';
-import { KASINA_NAMES, KASINA_TYPES, KASINA_COLORS } from '../lib/constants';
+import { KASINA_NAMES, KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
@@ -71,6 +71,43 @@ const TimerFreestyle: React.FC = () => {
   // Helper function to get the appropriate color for the selected kasina
   const getColorForKasina = (type: KasinaType): string => {
     return KASINA_COLORS[type] || '#FFFFFF';
+  };
+  
+  // Helper function to get the appropriate background color for the selected kasina
+  const getBackgroundForKasina = (type: KasinaType): string => {
+    return KASINA_BACKGROUNDS[type] || '#000000';
+  };
+  
+  // Helper function to determine if we should apply special animation effects
+  const shouldApplyAnimation = (type: KasinaType): boolean => {
+    return [
+      KASINA_TYPES.WATER, 
+      KASINA_TYPES.AIR, 
+      KASINA_TYPES.FIRE, 
+      KASINA_TYPES.EARTH, 
+      KASINA_TYPES.SPACE, 
+      KASINA_TYPES.LIGHT
+    ].includes(type);
+  };
+  
+  // Get the appropriate animation class based on kasina type
+  const getAnimationClass = (type: KasinaType): string => {
+    switch(type) {
+      case KASINA_TYPES.WATER:
+        return 'water-animation';
+      case KASINA_TYPES.AIR:
+        return 'air-animation';
+      case KASINA_TYPES.FIRE:
+        return 'fire-animation';
+      case KASINA_TYPES.EARTH:
+        return 'earth-animation';
+      case KASINA_TYPES.SPACE:
+        return 'space-animation';
+      case KASINA_TYPES.LIGHT:
+        return 'light-animation';
+      default:
+        return '';
+    }
   };
   
   return (
@@ -210,11 +247,17 @@ const TimerFreestyle: React.FC = () => {
           </div>
           
           {/* Right column - Kasina Orb */}
-          <div className="flex-1 relative flex items-center justify-center rounded-lg" style={{ backgroundColor: 'black', minHeight: '400px' }}>
-            <div className="orb-container orb-content w-80 h-80 rounded-full relative flex items-center justify-center" 
+          <div className="flex-1 relative flex items-center justify-center rounded-lg" 
+               style={{ 
+                 backgroundColor: getBackgroundForKasina(typedKasina), 
+                 minHeight: '400px',
+                 transition: 'background-color 0.5s ease' 
+               }}>
+            <div className={`orb-container orb-content w-80 h-80 rounded-full relative flex items-center justify-center ${shouldApplyAnimation(typedKasina) ? getAnimationClass(typedKasina) : ''}`} 
                  style={{ 
                    backgroundColor: getColorForKasina(typedKasina),
-                   border: `3px solid ${getColorForKasina(typedKasina)}`
+                   border: `3px solid ${getColorForKasina(typedKasina)}`,
+                   transition: 'background-color 0.5s ease, border-color 0.5s ease'
                  }}>
               <div className="text-white text-opacity-0">
                 {selectedKasina} kasina

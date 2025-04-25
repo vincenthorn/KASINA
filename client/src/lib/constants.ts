@@ -32,12 +32,26 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.BLUE]: "#0000FF",
   [KASINA_TYPES.RED]: "#FF0000",
   [KASINA_TYPES.YELLOW]: "#FFFF00",
-  [KASINA_TYPES.WATER]: "#0099FF",
-  [KASINA_TYPES.AIR]: "#D3F0FF",
-  [KASINA_TYPES.FIRE]: "#FF3300",
-  [KASINA_TYPES.EARTH]: "#613A00",
-  [KASINA_TYPES.SPACE]: "#000033",
-  [KASINA_TYPES.LIGHT]: "#FFFCF0"
+  [KASINA_TYPES.WATER]: "#0099FF", // Deep water blue
+  [KASINA_TYPES.AIR]: "#87CEEB",   // Sky blue
+  [KASINA_TYPES.FIRE]: "#FF6600",  // Bright orange for fire
+  [KASINA_TYPES.EARTH]: "#993300", // Terracotta red
+  [KASINA_TYPES.SPACE]: "#330066", // Deep purple
+  [KASINA_TYPES.LIGHT]: "#FFFCF0"  // Light yellowish white
+};
+
+// Background colors for elemental kasinas
+export const KASINA_BACKGROUNDS: Record<string, string> = {
+  [KASINA_TYPES.WHITE]: "#000000", // Default black
+  [KASINA_TYPES.BLUE]: "#000000",  // Default black
+  [KASINA_TYPES.RED]: "#000000",   // Default black
+  [KASINA_TYPES.YELLOW]: "#000000", // Default black
+  [KASINA_TYPES.WATER]: "#001933", // Deep dark ocean blue
+  [KASINA_TYPES.AIR]: "#4682B4",   // Steel blue
+  [KASINA_TYPES.FIRE]: "#330000",  // Deep dark red
+  [KASINA_TYPES.EARTH]: "#2E1A00", // Deep dark earth brown
+  [KASINA_TYPES.SPACE]: "#000000", // Black
+  [KASINA_TYPES.LIGHT]: "#000000"  // Pure black
 };
 
 // Kasina emojis
