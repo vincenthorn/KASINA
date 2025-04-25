@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
-import { Maximize2, Minimize2 } from 'lucide-react';
+import { Maximize2, Minimize2, ZoomIn, ZoomOut } from 'lucide-react';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { Dialog, DialogContent } from './ui/dialog';
 
@@ -12,11 +12,29 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const { isFocusModeActive, enableFocusMode, disableFocusMode } = useFocusMode();
   const [isUIVisible, setIsUIVisible] = useState(true);
   const [lastActivity, setLastActivity] = useState(Date.now());
+  const [zoomLevel, setZoomLevel] = useState(1); // 1 = 100% (default size)
+  const zoomSpeed = 0.075; // Zoom speed factor
+  const contentRef = useRef<HTMLDivElement>(null);
   
   // Handle mouse movement to show UI temporarily
   const handleMouseMove = () => {
     setLastActivity(Date.now());
     setIsUIVisible(true);
+  };
+  
+  // Handle mouse wheel for zooming
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (isFocusModeActive) {
+      e.preventDefault();
+      // Calculate new zoom level based on wheel delta
+      const delta = -Math.sign(e.deltaY) * zoomSpeed;
+      const newZoom = Math.max(0.5, Math.min(2.5, zoomLevel + delta));
+      setZoomLevel(newZoom);
+      
+      // Show UI when zooming
+      setLastActivity(Date.now());
+      setIsUIVisible(true);
+    }
   };
   
   // Hide UI after inactivity
@@ -42,6 +60,13 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       document.body.classList.remove('cursor-none');
     };
   }, [isFocusModeActive, isUIVisible]);
+  
+  // Reset zoom level when exiting focus mode
+  useEffect(() => {
+    if (!isFocusModeActive) {
+      setZoomLevel(1);
+    }
+  }, [isFocusModeActive]);
   
   return (
     <>
@@ -78,6 +103,8 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         <DialogContent 
           className="bg-black border-none max-w-full h-screen p-0 flex items-center justify-center"
           onMouseMove={handleMouseMove}
+          onWheel={handleWheel}
+          ref={contentRef}
           style={{ width: '100vw' }}
         >
           {/* Exit button - visible on mouse movement */}
@@ -93,6 +120,31 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               <Minimize2 className="h-4 w-4 mr-1" />
               Exit Focus Mode
             </Button>
+          </div>
+          
+          {/* Zoom controls - visible on mouse movement */}
+          <div 
+            className={`fixed top-4 left-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <div className="bg-black/50 text-white text-sm px-3 py-1 rounded-md border border-gray-800 flex items-center gap-2">
+              <button 
+                onClick={() => setZoomLevel(Math.max(0.5, zoomLevel - zoomSpeed * 2))}
+                className="hover:bg-gray-700 rounded p-1 transition-colors"
+                disabled={zoomLevel <= 0.5}
+              >
+                <ZoomOut className="h-4 w-4" />
+              </button>
+              
+              <span className="min-w-[40px] text-center">{Math.round(zoomLevel * 100)}%</span>
+              
+              <button 
+                onClick={() => setZoomLevel(Math.min(2.5, zoomLevel + zoomSpeed * 2))}
+                className="hover:bg-gray-700 rounded p-1 transition-colors"
+                disabled={zoomLevel >= 2.5}
+              >
+                <ZoomIn className="h-4 w-4" />
+              </button>
+            </div>
           </div>
           
           {/* Render only the orb from the children */}
@@ -128,12 +180,13 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                   className: `${orb.props.className} fixed-orb`,
                   style: {
                     ...orb.props.style,
-                    width: '300px',
-                    height: '300px',
+                    width: `${300 * zoomLevel}px`,
+                    height: `${300 * zoomLevel}px`,
                     position: 'fixed',
                     top: '50%',
                     left: '50%',
-                    transform: 'translate(-50%, -50%)'
+                    transform: 'translate(-50%, -50%)',
+                    transition: 'width 0.2s ease, height 0.2s ease'
                   }
                 }) : null;
               }
