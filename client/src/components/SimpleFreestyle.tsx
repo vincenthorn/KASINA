@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import { Button } from './ui/button';
-import KasinaOrb from './KasinaOrb';
-import { KasinaType, getOrbConfig } from '../lib/types';
 import { toast } from 'sonner';
 
 // Create a simple, standalone component for testing purposes
 const SimpleFreestyle = () => {
   // Basic state
-  const [selectedKasina, setSelectedKasina] = useState<KasinaType>("blue");
   const [timerDuration, setTimerDuration] = useState(300); // 5 minutes default
   const [timerDisplay, setTimerDisplay] = useState("05:00");
   
@@ -28,35 +23,12 @@ const SimpleFreestyle = () => {
     setTimerDisplay(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
   };
   
-  const orbConfig = getOrbConfig(selectedKasina);
-  
   return (
     <div className="h-full w-full bg-black text-white flex flex-col">
       <div className="flex flex-col md:flex-row h-full">
         {/* Simple sidebar */}
         <div className="w-full md:w-80 bg-gray-900 p-4">
           <h2 className="text-2xl font-bold mb-6">Simplified Freestyle</h2>
-          
-          {/* Simple kasina selector */}
-          <div className="mb-6">
-            <h3 className="text-lg font-medium mb-2">Select Kasina</h3>
-            <div className="grid grid-cols-2 gap-2">
-              <Button 
-                variant={selectedKasina === "blue" ? "default" : "outline"}
-                onClick={() => setSelectedKasina("blue")}
-                className="w-full"
-              >
-                Blue
-              </Button>
-              <Button 
-                variant={selectedKasina === "red" ? "default" : "outline"}
-                onClick={() => setSelectedKasina("red")}
-                className="w-full"
-              >
-                Red
-              </Button>
-            </div>
-          </div>
           
           {/* Timer buttons */}
           <div className="mb-6">
@@ -102,19 +74,9 @@ const SimpleFreestyle = () => {
           </div>
         </div>
         
-        {/* Canvas */}
-        <div className="flex-1 relative">
-          <Canvas>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={0.8} />
-            <KasinaOrb
-              type={selectedKasina}
-              color={orbConfig.color}
-              speed={orbConfig.speed}
-              complexity={orbConfig.complexity}
-            />
-            <OrbitControls enableZoom={false} enablePan={false} />
-          </Canvas>
+        {/* Content area */}
+        <div className="flex-1 relative bg-gray-800 flex items-center justify-center">
+          <div className="text-4xl">Timer Test</div>
         </div>
       </div>
     </div>
