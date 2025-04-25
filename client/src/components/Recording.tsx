@@ -29,7 +29,7 @@ const Recording = () => {
   const timerRef = useRef<number | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   
-  const orbConfig = getOrbConfig(selectedKasina);
+  const orbConfig = getOrbConfig(selectedKasina as KasinaType);
 
   useEffect(() => {
     // Cleanup function
@@ -76,7 +76,7 @@ const Recording = () => {
           type: recordingType,
           url,
           filename,
-          kasinaType: selectedKasina,
+          kasinaType: selectedKasina as KasinaType,
           duration: recordingTime,
           date: now,
           size: recordingBlob.size
@@ -165,166 +165,166 @@ const Recording = () => {
     <FocusMode>
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Recording Studio</h1>
-      
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 mb-8">
-          <TabsTrigger value="record">Record Session</TabsTrigger>
-          <TabsTrigger value="library">Your Recordings</TabsTrigger>
-        </TabsList>
         
-        <TabsContent value="record" className="mt-0">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <Card className="bg-gray-800 text-white border-gray-700 mb-6">
-                <CardHeader>
-                  <CardTitle>Recording Controls</CardTitle>
-                  <CardDescription className="text-gray-300">
-                    Create audio or screen recordings of your meditation sessions
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <Button 
-                      variant={recordingType === "audio" ? "default" : "outline"} 
-                      onClick={() => setRecordingType("audio")}
-                      disabled={isRecording}
-                      className="flex gap-2"
-                    >
-                      <Mic size={18} />
-                      Audio Only
-                    </Button>
-                    <Button 
-                      variant={recordingType === "screen" ? "default" : "outline"} 
-                      onClick={() => setRecordingType("screen")}
-                      disabled={isRecording}
-                      className="flex gap-2"
-                    >
-                      <Video size={18} />
-                      Screen + Audio
-                    </Button>
-                  </div>
-                  
-                  {isRecording && (
-                    <div className="flex items-center mb-6">
-                      <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse mr-2"></div>
-                      <span>Recording: {formatTime(recordingTime)}</span>
-                    </div>
-                  )}
-                  
-                  <Alert className="mb-6">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertTitle>Remember</AlertTitle>
-                    <AlertDescription>
-                      {recordingType === "audio" 
-                        ? "Audio recording will capture your voice and background sounds."
-                        : "Screen recording will capture this browser tab and your audio."}
-                    </AlertDescription>
-                  </Alert>
-                </CardContent>
-                <CardFooter>
-                  {!isRecording ? (
-                    <Button 
-                      onClick={startRecording} 
-                      className="w-full bg-red-600 hover:bg-red-700"
-                    >
-                      Start Recording
-                    </Button>
-                  ) : (
-                    <Button 
-                      onClick={stopRecording} 
-                      variant="outline" 
-                      className="w-full"
-                    >
-                      Stop Recording
-                    </Button>
-                  )}
-                </CardFooter>
-              </Card>
-            </div>
-            
-            <div className="h-[400px] bg-black rounded-lg overflow-hidden">
-              <Canvas>
-                <ambientLight intensity={0.5} />
-                <pointLight position={[10, 10, 10]} intensity={0.8} />
-                <KasinaOrb
-                  type={selectedKasina}
-                  color={orbConfig.color}
-                  speed={orbConfig.speed}
-                  complexity={orbConfig.complexity}
-                />
-                <OrbitControls enableZoom={true} enablePan={false} zoomSpeed={0.08} />
-              </Canvas>
-            </div>
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="library" className="mt-0">
-          <h2 className="text-2xl font-semibold mb-6">Your Recordings</h2>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full grid-cols-2 mb-8">
+            <TabsTrigger value="record">Record Session</TabsTrigger>
+            <TabsTrigger value="library">Your Recordings</TabsTrigger>
+          </TabsList>
           
-          {recordings.length === 0 ? (
-            <Card className="bg-gray-800 text-white border-gray-700 p-8 text-center">
-              <AlertCircle className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-              <h3 className="text-xl font-medium mb-2">No recordings yet</h3>
-              <p className="text-gray-400">
-                Create your first recording in the Record Session tab.
-              </p>
-            </Card>
-          ) : (
-            <div className="grid md:grid-cols-2 gap-4">
-              {recordings.map((recording) => (
-                <Card key={recording.id} className="bg-gray-800 text-white border-gray-700">
+          <TabsContent value="record" className="mt-0">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <Card className="bg-gray-800 text-white border-gray-700 mb-6">
                   <CardHeader>
-                    <CardTitle className="flex items-center">
-                      {recording.type === "audio" ? (
-                        <Mic className="mr-2 h-5 w-5" />
-                      ) : (
-                        <Video className="mr-2 h-5 w-5" />
-                      )}
-                      {recording.kasinaType.charAt(0).toUpperCase() + recording.kasinaType.slice(1)} Kasina
-                    </CardTitle>
+                    <CardTitle>Recording Controls</CardTitle>
                     <CardDescription className="text-gray-300">
-                      {new Date(recording.date).toLocaleDateString()} • {formatTime(recording.duration)} • {formatFileSize(recording.size)}
+                      Create audio or screen recordings of your meditation sessions
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    {recording.type === "audio" ? (
-                      <audio controls className="w-full">
-                        <source src={recording.url} type="audio/webm" />
-                        Your browser does not support the audio element.
-                      </audio>
-                    ) : (
-                      <video controls className="w-full rounded">
-                        <source src={recording.url} type="video/webm" />
-                        Your browser does not support the video element.
-                      </video>
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <Button 
+                        variant={recordingType === "audio" ? "default" : "outline"} 
+                        onClick={() => setRecordingType("audio")}
+                        disabled={isRecording}
+                        className="flex gap-2"
+                      >
+                        <Mic size={18} />
+                        Audio Only
+                      </Button>
+                      <Button 
+                        variant={recordingType === "screen" ? "default" : "outline"} 
+                        onClick={() => setRecordingType("screen")}
+                        disabled={isRecording}
+                        className="flex gap-2"
+                      >
+                        <Video size={18} />
+                        Screen + Audio
+                      </Button>
+                    </div>
+                    
+                    {isRecording && (
+                      <div className="flex items-center mb-6">
+                        <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse mr-2"></div>
+                        <span>Recording: {formatTime(recordingTime)}</span>
+                      </div>
                     )}
+                    
+                    <Alert className="mb-6">
+                      <AlertCircle className="h-4 w-4" />
+                      <AlertTitle>Remember</AlertTitle>
+                      <AlertDescription>
+                        {recordingType === "audio" 
+                          ? "Audio recording will capture your voice and background sounds."
+                          : "Screen recording will capture this browser tab and your audio."}
+                      </AlertDescription>
+                    </Alert>
                   </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => handleDownload(recording.url, recording.filename)}
-                      className="flex gap-2"
-                    >
-                      <Download size={16} />
-                      Download
-                    </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      onClick={() => handleDelete(recording.id)}
-                      className="text-red-400 hover:text-red-300 flex gap-2"
-                    >
-                      <Trash2 size={16} />
-                      Delete
-                    </Button>
+                  <CardFooter>
+                    {!isRecording ? (
+                      <Button 
+                        onClick={startRecording} 
+                        className="w-full bg-red-600 hover:bg-red-700"
+                      >
+                        Start Recording
+                      </Button>
+                    ) : (
+                      <Button 
+                        onClick={stopRecording} 
+                        variant="outline" 
+                        className="w-full"
+                      >
+                        Stop Recording
+                      </Button>
+                    )}
                   </CardFooter>
                 </Card>
-              ))}
+              </div>
+              
+              <div className="h-[400px] bg-black rounded-lg overflow-hidden">
+                <Canvas>
+                  <ambientLight intensity={0.5} />
+                  <pointLight position={[10, 10, 10]} intensity={0.8} />
+                  <KasinaOrb
+                    type={selectedKasina as KasinaType}
+                    color={orbConfig.color}
+                    speed={orbConfig.speed}
+                    complexity={orbConfig.complexity}
+                  />
+                  <OrbitControls enableZoom={true} enablePan={false} zoomSpeed={0.08} />
+                </Canvas>
+              </div>
             </div>
-          )}
-        </TabsContent>
-      </Tabs>
+          </TabsContent>
+          
+          <TabsContent value="library" className="mt-0">
+            <h2 className="text-2xl font-semibold mb-6">Your Recordings</h2>
+            
+            {recordings.length === 0 ? (
+              <Card className="bg-gray-800 text-white border-gray-700 p-8 text-center">
+                <AlertCircle className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+                <h3 className="text-xl font-medium mb-2">No recordings yet</h3>
+                <p className="text-gray-400">
+                  Create your first recording in the Record Session tab.
+                </p>
+              </Card>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-4">
+                {recordings.map((recording) => (
+                  <Card key={recording.id} className="bg-gray-800 text-white border-gray-700">
+                    <CardHeader>
+                      <CardTitle className="flex items-center">
+                        {recording.type === "audio" ? (
+                          <Mic className="mr-2 h-5 w-5" />
+                        ) : (
+                          <Video className="mr-2 h-5 w-5" />
+                        )}
+                        {recording.kasinaType.charAt(0).toUpperCase() + recording.kasinaType.slice(1)} Kasina
+                      </CardTitle>
+                      <CardDescription className="text-gray-300">
+                        {new Date(recording.date).toLocaleDateString()} • {formatTime(recording.duration)} • {formatFileSize(recording.size)}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {recording.type === "audio" ? (
+                        <audio controls className="w-full">
+                          <source src={recording.url} type="audio/webm" />
+                          Your browser does not support the audio element.
+                        </audio>
+                      ) : (
+                        <video controls className="w-full rounded">
+                          <source src={recording.url} type="video/webm" />
+                          Your browser does not support the video element.
+                        </video>
+                      )}
+                    </CardContent>
+                    <CardFooter className="flex justify-between">
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => handleDownload(recording.url, recording.filename)}
+                        className="flex gap-2"
+                      >
+                        <Download size={16} />
+                        Download
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => handleDelete(recording.id)}
+                        className="text-red-400 hover:text-red-300 flex gap-2"
+                      >
+                        <Trash2 size={16} />
+                        Delete
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </TabsContent>
+        </Tabs>
       </div>
     </FocusMode>
   );
