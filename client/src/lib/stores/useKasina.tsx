@@ -10,6 +10,7 @@ interface KasinaState {
   getKasinaColor: (type: string) => string;
   getKasinaEmoji: (type: string) => string;
   saveSession: (session: Omit<KasinaSession, "id">) => Promise<void>;
+  addSession: (session: { kasinaType: string, duration: number }) => Promise<void>;
 }
 
 export const useKasina = create<KasinaState>((set, get) => ({
@@ -63,5 +64,16 @@ export const useKasina = create<KasinaState>((set, get) => ({
     } catch (error) {
       console.error("Error saving session:", error);
     }
+  },
+  
+  // Alias for saveSession to maintain compatibility with TimerFreestyle component
+  addSession: async (session) => {
+    // Just delegate to saveSession - this is for backwards compatibility
+    const { saveSession } = get();
+    return saveSession({
+      kasinaType: session.kasinaType,
+      duration: session.duration,
+      date: new Date()
+    });
   }
 }));

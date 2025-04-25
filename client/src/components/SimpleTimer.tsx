@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
 import { Button } from './ui/button';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
+import { useFocusMode } from '../lib/stores/useFocusMode';
 
 interface SimpleTimerProps {
   initialDuration?: number | null; // in seconds, null means infinity (count up)
   onComplete?: () => void;
+  onUpdate?: (remaining: number | null, elapsed: number) => void;
 }
 
 export const SimpleTimer: React.FC<SimpleTimerProps> = ({ 
   initialDuration = 60, // Default to 60 seconds (1 minute)
-  onComplete
+  onComplete,
+  onUpdate
 }) => {
+  const { enableFocusMode, disableFocusMode } = useFocusMode();
   // Use the Zustand store instead of local state
   const {
     duration,
@@ -36,14 +40,30 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     let intervalId: number | null = null;
     
     if (isRunning) {
+      // Enable focus mode when timer starts
+      enableFocusMode();
+      
       intervalId = window.setInterval(() => {
         tick();
+        
+        // Update parent component with current timer status
+        if (onUpdate) {
+          onUpdate(timeRemaining, elapsedTime);
+        }
         
         // Check for completion
         if (timeRemaining === 0) {
           if (onComplete) onComplete();
+          
+          // Disable focus mode when timer completes
+          disableFocusMode();
         }
       }, 1000);
+    } else {
+      // Disable focus mode when timer is manually stopped
+      if (!isRunning && elapsedTime > 0) {
+        disableFocusMode();
+      }
     }
     
     // Cleanup
@@ -52,7 +72,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         window.clearInterval(intervalId);
       }
     };
-  }, [isRunning, timeRemaining, tick, onComplete]);
+  }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate, enableFocusMode, disableFocusMode]);
   
   // Format time as MM:SS
   const formatTime = (seconds: number): string => {
@@ -82,17 +102,28 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       <div className="flex space-x-2">
         <Button 
           variant={isRunning ? "destructive" : "default"} 
-          onClick={isRunning ? stopTimer : startTimer}
-          className="w-20"
+          onClick={() => {
+            if (isRunning) {
+              stopTimer();
+              disableFocusMode();
+            } else {
+              startTimer();
+              enableFocusMode();
+            }
+          }}
+          className="w-20 focus-mode-exempt"
         >
           {isRunning ? 'Stop' : 'Start'}
         </Button>
         
         <Button 
           variant="outline" 
-          onClick={resetTimer}
+          onClick={() => {
+            resetTimer();
+            disableFocusMode();
+          }}
           disabled={isRunning}
-          className="w-20"
+          className="w-20 focus-mode-exempt"
         >
           Reset
         </Button>
