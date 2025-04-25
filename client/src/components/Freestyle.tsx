@@ -22,7 +22,6 @@ const Freestyle = () => {
   const [timeRemaining, setTimeRemaining] = useState<number | null>(timerDuration);
   const [countUpTime, setCountUpTime] = useState<number>(0);
   const [activeTab, setActiveTab] = useState<string>("color");
-  const [isInfinityMode, setIsInfinityMode] = useState<boolean>(false);
 
   // Reset timer when changing kasina
   useEffect(() => {
@@ -53,18 +52,10 @@ const Freestyle = () => {
             date: new Date(),
           });
         }
-      } else if (timeRemaining === null) {
-        // Infinity mode (counting up)
-        console.log("Saving infinity mode session");
-        saveSession({
-          kasinaType: typedKasina, 
-          duration: countUpTime,
-          date: new Date(),
-        });
       } else {
         // Partial session - calculate actual duration
         if (timerDuration !== null) {
-          const actualDuration = timerDuration - timeRemaining;
+          const actualDuration = timerDuration - (timeRemaining || 0);
           console.log("Saving partial session with duration:", actualDuration);
           saveSession({
             kasinaType: typedKasina,
@@ -92,20 +83,6 @@ const Freestyle = () => {
   };
 
   const orbConfig = getOrbConfig(typedKasina);
-
-  // Toggle between regular and infinity mode
-  const toggleInfinityMode = (enabled: boolean) => {
-    console.log(`Switching to ${enabled ? "INFINITY" : "REGULAR"} mode`);
-    setIsInfinityMode(enabled);
-    setTimerRunning(false);
-    
-    if (enabled) {
-      setTimerDuration(null);
-      toast.success("Infinity Timer Mode Activated");
-    } else {
-      setTimerDuration(5 * 60); // Back to default 5 minutes
-    }
-  };
 
   return (
     <div className="h-full w-full bg-black text-white flex flex-col">
@@ -202,10 +179,10 @@ const Freestyle = () => {
             </Tabs>
           </div>
           
-          {/* Timer Mode Selector */}
+          {/* Timer Section */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-medium">Timer Mode</h3>
+              <h3 className="text-lg font-medium">Timer</h3>
               <Button
                 variant="outline"
                 size="sm"
@@ -213,161 +190,158 @@ const Freestyle = () => {
                 onClick={() => navigate('/infinity')}
               >
                 <span className="text-lg">∞</span>
-                <span>Switch to Infinity Mode</span>
+                <span>Infinity Mode</span>
               </Button>
             </div>
             
-            {/* Regular Timer */}
-              <div>
-                <div className="grid grid-cols-3 gap-2">
-                  {/* 1 minute */}
-                  <Button
-                    variant={timerDuration === 60 ? "default" : "outline"}
-                    onClick={() => {
-                      console.log("Setting timer to 1 minute (60 seconds)");
-                      setTimerDuration(60);
-                    }}
-                    disabled={timerRunning}
-                    className="w-full"
-                  >
-                    1 min
-                  </Button>
+            {/* Timer Options */}
+            <div className="grid grid-cols-3 gap-2">
+              {/* 1 minute */}
+              <Button
+                variant={timerDuration === 60 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 1 minute (60 seconds)");
+                  setTimerDuration(60);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                1 min
+              </Button>
+              
+              {/* 5 minutes */}
+              <Button
+                variant={timerDuration === 300 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 5 minutes (300 seconds)");
+                  setTimerDuration(300);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                5 min
+              </Button>
+              
+              {/* 10 minutes */}
+              <Button
+                variant={timerDuration === 600 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 10 minutes (600 seconds)");
+                  setTimerDuration(600);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                10 min
+              </Button>
+              
+              {/* 15 minutes */}
+              <Button
+                variant={timerDuration === 900 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 15 minutes (900 seconds)");
+                  setTimerDuration(900);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                15 min
+              </Button>
+              
+              {/* 20 minutes */}
+              <Button
+                variant={timerDuration === 1200 ? "default" : "outline"}
+                onClick={() => {
+                  console.log("Setting timer to 20 minutes (1200 seconds)");
+                  setTimerDuration(1200);
+                }}
+                disabled={timerRunning}
+                className="w-full"
+              >
+                20 min
+              </Button>
+            </div>
+            
+            {/* Timer Display and Controls */}
+            <div className="flex flex-col items-center mt-6">
+              <Timer 
+                duration={timerDuration}
+                running={timerRunning}
+                onComplete={handleTimerComplete}
+                onUpdate={handleTimerUpdate}
+              />
+              
+              <Button
+                onClick={() => {
+                  console.log("Start/Pause button clicked");
+                  setTimerRunning(!timerRunning);
+                }}
+                className="w-full mt-4"
+                size="lg"
+              >
+                {timerRunning ? "Pause" : "Start Meditation"}
+              </Button>
+              
+              <Button
+                onClick={() => {
+                  // Only allow saving if timer has run
+                  if (countUpTime === 0 && timeRemaining === timerDuration && !timerRunning) {
+                    toast.error("Start a meditation first before saving");
+                    return;
+                  }
                   
-                  {/* 5 minutes */}
-                  <Button
-                    variant={timerDuration === 300 ? "default" : "outline"}
-                    onClick={() => {
-                      console.log("Setting timer to 5 minutes (300 seconds)");
-                      setTimerDuration(300);
-                    }}
-                    disabled={timerRunning}
-                    className="w-full"
-                  >
-                    5 min
-                  </Button>
-                  
-                  {/* 10 minutes */}
-                  <Button
-                    variant={timerDuration === 600 ? "default" : "outline"}
-                    onClick={() => {
-                      console.log("Setting timer to 10 minutes (600 seconds)");
-                      setTimerDuration(600);
-                    }}
-                    disabled={timerRunning}
-                    className="w-full"
-                  >
-                    10 min
-                  </Button>
-                  
-                  {/* 15 minutes */}
-                  <Button
-                    variant={timerDuration === 900 ? "default" : "outline"}
-                    onClick={() => {
-                      console.log("Setting timer to 15 minutes (900 seconds)");
-                      setTimerDuration(900);
-                    }}
-                    disabled={timerRunning}
-                    className="w-full"
-                  >
-                    15 min
-                  </Button>
-                  
-                  {/* 20 minutes */}
-                  <Button
-                    variant={timerDuration === 1200 ? "default" : "outline"}
-                    onClick={() => {
-                      console.log("Setting timer to 20 minutes (1200 seconds)");
-                      setTimerDuration(1200);
-                    }}
-                    disabled={timerRunning}
-                    className="w-full"
-                  >
-                    20 min
-                  </Button>
-                </div>
-                
-                {/* Regular Timer Display and Controls */}
-                <div className="flex flex-col items-center mt-6">
-                  <Timer 
-                    duration={timerDuration}
-                    running={timerRunning}
-                    onComplete={handleTimerComplete}
-                    onUpdate={handleTimerUpdate}
-                  />
-                  
-                  <Button
-                    onClick={() => {
-                      console.log("Start/Pause button clicked");
-                      setTimerRunning(!timerRunning);
-                    }}
-                    className="w-full mt-4"
-                    size="lg"
-                  >
-                    {timerRunning ? "Pause" : "Start Meditation"}
-                  </Button>
-                  
-                  <Button
-                    onClick={() => {
-                      // Only allow saving if timer has run
-                      if (countUpTime === 0 && timeRemaining === timerDuration && !timerRunning) {
-                        toast.error("Start a meditation first before saving");
-                        return;
-                      }
-                      
+                  try {
+                    // Calculate duration
+                    const duration = (timerDuration || 0) - (timeRemaining || 0);
+                    console.log("Countdown mode, calculated duration:", duration);
+                    
+                    // Create the session object
+                    const newSession = {
+                      id: Date.now().toString(),
+                      kasinaType: typedKasina,
+                      kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
+                      duration: duration,
+                      timestamp: new Date().toISOString()
+                    };
+                    
+                    // Store in localStorage
+                    let existingSessions = [];
+                    const storedValue = window.localStorage.getItem("sessions");
+                    
+                    if (storedValue) {
                       try {
-                        // Calculate duration
-                        const duration = (timerDuration || 0) - (timeRemaining || 0);
-                        console.log("Countdown mode, calculated duration:", duration);
-                        
-                        // Create the session object
-                        const newSession = {
-                          id: Date.now().toString(),
-                          kasinaType: typedKasina,
-                          kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
-                          duration: duration,
-                          timestamp: new Date().toISOString()
-                        };
-                        
-                        // Store in localStorage
-                        let existingSessions = [];
-                        const storedValue = window.localStorage.getItem("sessions");
-                        
-                        if (storedValue) {
-                          try {
-                            const parsed = JSON.parse(storedValue);
-                            if (Array.isArray(parsed)) {
-                              existingSessions = parsed;
-                            }
-                          } catch (error) {
-                            console.error("Parse error:", error);
-                          }
+                        const parsed = JSON.parse(storedValue);
+                        if (Array.isArray(parsed)) {
+                          existingSessions = parsed;
                         }
-                        
-                        existingSessions.push(newSession);
-                        window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
-                        
-                        // Use store method
-                        saveSession({
-                          kasinaType: typedKasina,
-                          duration: duration,
-                          date: new Date(),
-                        });
-                        
-                        toast.success("Meditation session saved");
-                        setTimerRunning(false);
                       } catch (error) {
-                        console.error("Error saving session:", error);
-                        toast.error("Failed to save session");
+                        console.error("Parse error:", error);
                       }
-                    }}
-                    className="w-full mt-2"
-                    variant="secondary"
-                  >
-                    Save Session
-                  </Button>
-                </div>
-              </div>
-            }
+                    }
+                    
+                    existingSessions.push(newSession);
+                    window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
+                    
+                    // Use store method
+                    saveSession({
+                      kasinaType: typedKasina,
+                      duration: duration,
+                      date: new Date(),
+                    });
+                    
+                    toast.success("Meditation session saved");
+                    setTimerRunning(false);
+                  } catch (error) {
+                    console.error("Error saving session:", error);
+                    toast.error("Failed to save session");
+                  }
+                }}
+                className="w-full mt-2"
+                variant="secondary"
+              >
+                Save Session
+              </Button>
+            </div>
           </div>
         </div>
         
