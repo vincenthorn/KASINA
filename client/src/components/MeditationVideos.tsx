@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Button } from "./ui/button";
 import { YoutubeIcon } from "lucide-react";
 import { apiRequest } from "../lib/api";
@@ -193,7 +192,7 @@ const MeditationVideos: React.FC = () => {
           <CardTitle className="text-white">Introduction to Kasina Practice</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {introductionVideos.map((video) => (
               <Card key={video.id} className="bg-gray-800 border-gray-700">
                 <CardContent className="p-4 space-y-4">
@@ -207,12 +206,32 @@ const MeditationVideos: React.FC = () => {
         </CardContent>
       </Card>
       
-      <Tabs defaultValue="guided" className="w-full">
+      {/* Guided Meditations */}
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold text-white mb-4">Guided Meditations</h2>
+        <Card className="bg-gray-900 border-gray-700">
+          <CardContent className="p-6 space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {guidedVideos.map((video) => (
+                <Card key={video.id} className="bg-gray-800 border-gray-700">
+                  <CardContent className="p-4 space-y-4">
+                    <YouTubeEmbed embedId={video.embedId} title={video.title} />
+                    <div>
+                      <h3 className="text-white font-semibold">{video.title}</h3>
+                      <p className="text-gray-400 text-sm">{video.channelTitle}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+      
+      {/* Community Meditations */}
+      <div className="mt-8">
         <div className="flex items-center justify-between mb-4">
-          <TabsList className="bg-gray-800">
-            <TabsTrigger value="guided" className="text-white">Guided Meditations</TabsTrigger>
-            <TabsTrigger value="community" className="text-white">Community Meditations</TabsTrigger>
-          </TabsList>
+          <h2 className="text-2xl font-bold text-white">Community Meditations</h2>
           
           {!showSubmissionForm && (
             <Button 
@@ -225,118 +244,96 @@ const MeditationVideos: React.FC = () => {
           )}
         </div>
         
-        <TabsContent value="guided">
-          <Card className="bg-gray-900 border-gray-700">
-            <CardContent className="p-6 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {guidedVideos.map((video) => (
+        {showSubmissionForm && (
+          <Card className="bg-gray-800 border-gray-700 mb-6">
+            <CardHeader>
+              <CardTitle className="text-white">Submit Your Meditation</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-2">
+                  <label htmlFor="title" className="text-sm text-gray-400">Title</label>
+                  <Input
+                    id="title"
+                    value={submission.title}
+                    onChange={(e) => setSubmission({...submission, title: e.target.value})}
+                    required
+                    placeholder="Enter a title for your meditation"
+                    className="bg-gray-700 border-gray-600 text-white"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="youtubeUrl" className="text-sm text-gray-400">YouTube URL</label>
+                  <Input
+                    id="youtubeUrl"
+                    value={submission.youtubeUrl}
+                    onChange={(e) => setSubmission({...submission, youtubeUrl: e.target.value})}
+                    required
+                    placeholder="https://www.youtube.com/watch?v=..."
+                    className="bg-gray-700 border-gray-600 text-white"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="description" className="text-sm text-gray-400">Description</label>
+                  <Textarea
+                    id="description"
+                    value={submission.description}
+                    onChange={(e) => setSubmission({...submission, description: e.target.value})}
+                    required
+                    placeholder="Describe your meditation experience..."
+                    className="bg-gray-700 border-gray-600 text-white"
+                    rows={3}
+                  />
+                </div>
+                
+                <div className="flex space-x-2 justify-end">
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    onClick={() => setShowSubmissionForm(false)}
+                    className="border-gray-600 text-white"
+                  >
+                    Cancel
+                  </Button>
+                  <Button 
+                    type="submit" 
+                    className="bg-indigo-600 hover:bg-indigo-700"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit Meditation"}
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+        )}
+        
+        <Card className="bg-gray-900 border-gray-700">
+          <CardContent className="p-6 space-y-6">
+            {communityVideos.length === 0 ? (
+              <div className="text-center py-10">
+                <p className="text-gray-400">No community meditations yet. Be the first to share yours!</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                {communityVideos.map((video) => (
                   <Card key={video.id} className="bg-gray-800 border-gray-700">
                     <CardContent className="p-4 space-y-4">
                       <YouTubeEmbed embedId={video.embedId} title={video.title} />
                       <div>
                         <h3 className="text-white font-semibold">{video.title}</h3>
-                        <p className="text-gray-400 text-sm">{video.channelTitle}</p>
+                        <p className="text-gray-400 text-sm">{video.description}</p>
                       </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        
-        <TabsContent value="community">
-          {showSubmissionForm && (
-            <Card className="bg-gray-800 border-gray-700 mb-6">
-              <CardHeader>
-                <CardTitle className="text-white">Submit Your Meditation</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="space-y-2">
-                    <label htmlFor="title" className="text-sm text-gray-400">Title</label>
-                    <Input
-                      id="title"
-                      value={submission.title}
-                      onChange={(e) => setSubmission({...submission, title: e.target.value})}
-                      required
-                      placeholder="Enter a title for your meditation"
-                      className="bg-gray-700 border-gray-600 text-white"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="youtubeUrl" className="text-sm text-gray-400">YouTube URL</label>
-                    <Input
-                      id="youtubeUrl"
-                      value={submission.youtubeUrl}
-                      onChange={(e) => setSubmission({...submission, youtubeUrl: e.target.value})}
-                      required
-                      placeholder="https://www.youtube.com/watch?v=..."
-                      className="bg-gray-700 border-gray-600 text-white"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="description" className="text-sm text-gray-400">Description</label>
-                    <Textarea
-                      id="description"
-                      value={submission.description}
-                      onChange={(e) => setSubmission({...submission, description: e.target.value})}
-                      required
-                      placeholder="Describe your meditation experience..."
-                      className="bg-gray-700 border-gray-600 text-white"
-                      rows={3}
-                    />
-                  </div>
-                  
-                  <div className="flex space-x-2 justify-end">
-                    <Button 
-                      type="button" 
-                      variant="outline" 
-                      onClick={() => setShowSubmissionForm(false)}
-                      className="border-gray-600 text-white"
-                    >
-                      Cancel
-                    </Button>
-                    <Button 
-                      type="submit" 
-                      className="bg-indigo-600 hover:bg-indigo-700"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? "Submitting..." : "Submit Meditation"}
-                    </Button>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
-          )}
-          
-          <Card className="bg-gray-900 border-gray-700">
-            <CardContent className="p-6 space-y-6">
-              {communityVideos.length === 0 ? (
-                <div className="text-center py-10">
-                  <p className="text-gray-400">No community meditations yet. Be the first to share yours!</p>
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {communityVideos.map((video) => (
-                    <Card key={video.id} className="bg-gray-800 border-gray-700">
-                      <CardContent className="p-4 space-y-4">
-                        <YouTubeEmbed embedId={video.embedId} title={video.title} />
-                        <div>
-                          <h3 className="text-white font-semibold">{video.title}</h3>
-                          <p className="text-gray-400 text-sm">{video.description}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+            )}
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
