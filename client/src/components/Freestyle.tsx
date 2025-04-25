@@ -12,6 +12,7 @@ import Timer from '../lib/Timer';
 
 import { Button } from './ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { Clock } from 'lucide-react';
 
 const Freestyle = () => {
   const navigate = useNavigate();
@@ -193,10 +194,12 @@ const Freestyle = () => {
                 onClick={() => {
                   console.log("Setting timer to 1 minute (60 seconds)");
                   setTimerDuration(60);
+                  setTimeRemaining(60);
                 }}
                 disabled={timerRunning}
-                className="w-full"
+                className={`w-full ${timerDuration === 60 ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
               >
+                <Clock className="mr-1 h-4 w-4" />
                 1 min
               </Button>
               
@@ -206,10 +209,12 @@ const Freestyle = () => {
                 onClick={() => {
                   console.log("Setting timer to 5 minutes (300 seconds)");
                   setTimerDuration(300);
+                  setTimeRemaining(300);
                 }}
                 disabled={timerRunning}
-                className="w-full"
+                className={`w-full ${timerDuration === 300 ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
               >
+                <Clock className="mr-1 h-4 w-4" />
                 5 min
               </Button>
               
@@ -219,10 +224,12 @@ const Freestyle = () => {
                 onClick={() => {
                   console.log("Setting timer to 10 minutes (600 seconds)");
                   setTimerDuration(600);
+                  setTimeRemaining(600);
                 }}
                 disabled={timerRunning}
-                className="w-full"
+                className={`w-full ${timerDuration === 600 ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
               >
+                <Clock className="mr-1 h-4 w-4" />
                 10 min
               </Button>
               
@@ -232,10 +239,12 @@ const Freestyle = () => {
                 onClick={() => {
                   console.log("Setting timer to 15 minutes (900 seconds)");
                   setTimerDuration(900);
+                  setTimeRemaining(900);
                 }}
                 disabled={timerRunning}
-                className="w-full"
+                className={`w-full ${timerDuration === 900 ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
               >
+                <Clock className="mr-1 h-4 w-4" />
                 15 min
               </Button>
               
@@ -245,10 +254,12 @@ const Freestyle = () => {
                 onClick={() => {
                   console.log("Setting timer to 20 minutes (1200 seconds)");
                   setTimerDuration(1200);
+                  setTimeRemaining(1200);
                 }}
                 disabled={timerRunning}
-                className="w-full"
+                className={`w-full ${timerDuration === 1200 ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
               >
+                <Clock className="mr-1 h-4 w-4" />
                 20 min
               </Button>
               
@@ -258,10 +269,12 @@ const Freestyle = () => {
                 onClick={() => {
                   console.log("Setting timer to 30 minutes (1800 seconds)");
                   setTimerDuration(1800);
+                  setTimeRemaining(1800);
                 }}
                 disabled={timerRunning}
-                className="w-full"
+                className={`w-full ${timerDuration === 1800 ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
               >
+                <Clock className="mr-1 h-4 w-4" />
                 30 min
               </Button>
             </div>
