@@ -13,7 +13,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const [isUIVisible, setIsUIVisible] = useState(true);
   const [lastActivity, setLastActivity] = useState(Date.now());
   const [zoomLevel, setZoomLevel] = useState(1); // 1 = 100% (default size)
-  const zoomSpeed = 0.08; // Zoom speed factor - adjusted to 0.08
+  const zoomSpeed = 0.068; // Zoom speed factor - reduced by ~15% from 0.08
   const minZoom = 0.1; // 10%
   const maxZoom = 25; // 2500%
   const contentRef = useRef<HTMLDivElement>(null);
