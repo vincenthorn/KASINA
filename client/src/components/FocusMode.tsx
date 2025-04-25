@@ -75,50 +75,76 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         cursor: none !important;
       }
       
-      /* Create a fixed full-screen black overlay */
-      body.focus-mode-body:before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: black;
-        z-index: 9990;
+      /* Set full background to black */
+      body.focus-mode-body {
+        background-color: black !important;
       }
       
-      /* Hide UI elements individually instead of using * selector */
-      body.focus-mode-body header,
-      body.focus-mode-body aside,
-      body.focus-mode-body nav,
-      body.focus-mode-body .sidebar,
-      body.focus-mode-body h1,
-      body.focus-mode-body h2,
-      body.focus-mode-body h3,
-      body.focus-mode-body button:not(.focus-mode-exempt),
-      body.focus-mode-body .tabs-list,
-      body.focus-mode-body .card:not(.orb-container),
-      body.focus-mode-body form,
-      body.focus-mode-body footer {
-        opacity: 0 !important;
+      /* First hide everything */
+      body.focus-mode-body > *:not(.focus-mode-root) {
         visibility: hidden !important;
+        opacity: 0 !important;
         pointer-events: none !important;
       }
       
+      /* Make sure all containers for focus mode exist and are visible */
+      body.focus-mode-body .focus-mode-root,
+      body.focus-mode-body .focus-mode-active,
+      body.focus-mode-body .focus-mode-active > div {
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: block !important;
+        position: relative;
+        z-index: 9995 !important;
+        background-color: black !important;
+        width: 100% !important;
+        height: 100vh !important;
+        pointer-events: auto !important;
+      }
+      
+      /* Make focus mode root take over the screen */
+      body.focus-mode-body .focus-mode-root {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+      }
+      
       /* Make the orb container visible and centered */
-      body.focus-mode-body .orb-container {
+      body.focus-mode-body .orb-container,
+      body.focus-mode-body .orb-content,
+      body.focus-mode-body .orb-content * {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      
+      /* Position the orb correctly */
+      body.focus-mode-body .orb-container {
         position: fixed !important;
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
         width: 300px !important;
         height: 300px !important;
+        max-width: none !important;
+        max-height: none !important;
+        min-width: 300px !important;
+        min-height: 300px !important;
         z-index: 9999 !important;
-        pointer-events: auto !important;
         border-radius: 50% !important;
+        overflow: visible !important;
+      }
+      
+      /* Make exempt buttons visible */
+      body.focus-mode-body .focus-mode-exempt {
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 9999 !important;
       }
     `;
     
@@ -131,7 +157,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
 
   return (
     <div 
-      className={`relative ${isFocusModeActive ? 'focus-mode-active' : ''}`}
+      className={`relative focus-mode-root ${isFocusModeActive ? 'focus-mode-active' : ''}`}
       onMouseMove={handleMouseMove}
     >
       {/* Focus mode toggle button */}
@@ -140,6 +166,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           variant="ghost"
           size="sm"
           onClick={isFocusModeActive ? disableFocusMode : enableFocusMode}
+          className="focus-mode-exempt"
         >
           {isFocusModeActive ? (
             <Minimize2 className="h-4 w-4 mr-1" />
@@ -150,8 +177,8 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         </Button>
       </div>
       
-      {/* Main content - will be hidden in focus mode */}
-      <div>
+      {/* Main content */}
+      <div className="focus-mode-content">
         {children}
       </div>
     </div>
