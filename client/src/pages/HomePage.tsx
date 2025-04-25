@@ -43,9 +43,6 @@ const HomePage: React.FC = () => {
     <Layout>
       <div className="text-center mb-12">
         <h1 className="text-3xl font-bold mb-2">Welcome to KASINA</h1>
-        <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-          Welcome to your visual meditation tool. Choose from different kasina orbs to deepen your concentration and enhance your practice.
-        </p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
