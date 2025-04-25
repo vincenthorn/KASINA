@@ -250,10 +250,22 @@ const Freestyle = () => {
                 
                 // Record current session manually
                 let duration = 0;
-                if (timeRemaining === null) {
+                
+                console.log("SAVE SESSION - Current state:");
+                console.log("- timerDuration:", timerDuration);
+                console.log("- timeRemaining:", timeRemaining);
+                console.log("- countUpTime:", countUpTime);
+                console.log("- timerRunning:", timerRunning);
+                console.log("- isInfinityMode:", timerDuration === null);
+                
+                // If infinity mode or timeRemaining is null
+                if (timerDuration === null || timeRemaining === null) {
                   duration = countUpTime;
-                } else if (timerDuration !== null) {
+                  console.log("Infinity mode detected, using countUpTime:", countUpTime);
+                } else {
+                  // Normal countdown mode
                   duration = timerDuration - (timeRemaining || 0);
+                  console.log("Countdown mode, calculated duration:", duration);
                 }
                 
                 try {
