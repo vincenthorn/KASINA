@@ -61,5 +61,4 @@ export const TIMER_OPTIONS = [
   { label: "10 min", value: 600 }, // 10 minutes in seconds
   { label: "15 min", value: 900 }, // 15 minutes in seconds
   { label: "20 min", value: 1200 }, // 20 minutes in seconds
-  { label: "∞", value: null }, // Infinity (count-up mode) - must be null
 ];
