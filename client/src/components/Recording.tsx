@@ -10,11 +10,14 @@ import KasinaOrb from "../lib/kasina-orbs/KasinaOrb";
 import { KasinaType, getOrbConfig } from "../lib/types";
 import { useKasina } from "../lib/stores/useKasina";
 import { useRecording } from "../lib/stores/useRecording";
+import { useFocusMode } from "../lib/stores/useFocusMode";
+import FocusMode from "./FocusMode";
 import { Mic, Video, AlertCircle, Download, Trash2 } from "lucide-react";
 
 const Recording = () => {
   const { selectedKasina } = useKasina();
   const { recordings, addRecording, removeRecording } = useRecording();
+  const { enableFocusMode, disableFocusMode } = useFocusMode();
   
   const [isRecording, setIsRecording] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
@@ -93,6 +96,10 @@ const Recording = () => {
       mediaRecorderRef.current.start();
       setIsRecording(true);
       
+      // Enable focus mode when recording starts
+      enableFocusMode();
+      console.log("Focus mode activated for recording");
+      
       // Start timer
       timerRef.current = window.setInterval(() => {
         setRecordingTime(prev => prev + 1);
@@ -119,6 +126,10 @@ const Recording = () => {
         window.clearInterval(timerRef.current);
         timerRef.current = null;
       }
+      
+      // Disable focus mode when recording stops
+      disableFocusMode();
+      console.log("Focus mode deactivated for recording");
     }
   };
 
@@ -151,8 +162,9 @@ const Recording = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Recording Studio</h1>
+    <FocusMode>
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">Recording Studio</h1>
       
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-2 mb-8">
@@ -313,7 +325,8 @@ const Recording = () => {
           )}
         </TabsContent>
       </Tabs>
-    </div>
+      </div>
+    </FocusMode>
   );
 };
 
