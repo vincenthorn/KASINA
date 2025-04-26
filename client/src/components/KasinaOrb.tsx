@@ -468,11 +468,11 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       // Gentle rotation
       meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
       
-      // Shrinking effect for end of session (when remaining time is <= 30 seconds)
-      if (remainingTime !== null && remainingTime <= 30) {
-        // Calculate scale factor: from 1.0 (at 30s) to 0.0 (at 0s)
-        // This creates a smooth shrinking effect over the last 30 seconds
-        const endingScale = remainingTime / 30;
+      // Shrinking effect for end of session (when remaining time is <= 60 seconds)
+      if (remainingTime !== null && remainingTime <= 60) {
+        // Calculate scale factor: from 1.0 (at 60s) to 0.0 (at 0s)
+        // This creates a smooth shrinking effect over the last 60 seconds
+        const endingScale = remainingTime / 60;
         
         // Apply the shrinking scale
         meshRef.current.scale.set(endingScale, endingScale, endingScale);
@@ -490,11 +490,11 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         }
         
         // Log the shrinking effect (for debugging)
-        // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)}`);
+        // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)} (of 60s fade)`);
       } 
       // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
       else if ((selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.FIRE) && 
-              (remainingTime === null || remainingTime > 30)) {
+              (remainingTime === null || remainingTime > 60)) {
         const time = clock.getElapsedTime();
         
         // Use cubic-bezier-like timing function for smoother animation
@@ -578,7 +578,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         }
       }
       // Reset scale to normal for all other cases
-      else if (remainingTime === null || remainingTime > 30) {
+      else if (remainingTime === null || remainingTime > 60) {
         // Make sure the orb is at normal scale when not in shrinking mode
         meshRef.current.scale.set(1, 1, 1);
         
