@@ -65,11 +65,17 @@ const TimerKasinas: React.FC = () => {
     // Determine which duration to use for saving the session
     // For fully completed timers, use the originally set duration (custom or preset)
     // For manually stopped timers, use the elapsed time
-    const durationToSave = duration || 60; // Use the duration that was set, or default to 60s
+    
+    // CRITICAL FIX: Get the duration directly from the store to ensure accuracy
+    const storeState = useSimpleTimer.getState();
+    const actualDuration = storeState.duration;
+    
+    const durationToSave = actualDuration || 60; // Use the duration that was set, or default to 60s
     
     // Log the exact value being used for saving
     console.log("DURATION DETAILS:");
-    console.log("- Original duration from useSimpleTimer store:", duration, "seconds");
+    console.log("- Local duration variable:", duration, "seconds");
+    console.log("- Store duration value:", actualDuration, "seconds");
     console.log("- Duration being used for saving:", durationToSave, "seconds");
     
     // Always round up to the nearest minute for consistent storage
@@ -121,14 +127,21 @@ const TimerKasinas: React.FC = () => {
       
       // Determine which duration to save based on completion percentage
       // If user completed more than 90% of the meditation, use the full duration
-      const completionPercentage = elapsed / (duration || 60) * 100;
+      
+      // CRITICAL FIX: Get the duration directly from the store to ensure accuracy
+      const storeState = useSimpleTimer.getState();
+      const actualDuration = storeState.duration;
+      
+      const completionPercentage = elapsed / (actualDuration || 60) * 100;
       let durationToSave = elapsed;
       
       console.log(`Completion: ${completionPercentage.toFixed(1)}%`);
+      console.log("- Local duration variable:", duration, "seconds");
+      console.log("- Store duration value:", actualDuration, "seconds");
       
       if (completionPercentage >= 90) {
         // If they were very close to finishing, count it as a full session
-        durationToSave = duration || 60;
+        durationToSave = actualDuration || 60;
         console.log("Manual stop near completion - using full duration:", durationToSave);
       } else {
         console.log("Manual stop - using actual elapsed time:", elapsed);

@@ -650,10 +650,28 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
   useEffect(() => {
     console.log("Scene component mounted with kasina:", selectedKasina);
     
+    // Helper function to clean up WebGL resources
+    const cleanupWebGL = () => {
+      try {
+        // Clear any render lists
+        gl.renderLists.dispose();
+        
+        // Reset renderer state to avoid memory leaks
+        gl.info.reset();
+        
+        // Force garbage collection hint (though browser decides when to run GC)
+        if (typeof window !== 'undefined' && window.gc) {
+          window.gc();
+        }
+      } catch (err) {
+        console.error("Error cleaning up WebGL resources", err);
+      }
+    };
+    
     // Make sure to clean up WebGL resources properly when scene unmounts
     return () => {
       console.log("Scene component unmounted, releasing resources");
-      gl.renderLists.dispose();
+      cleanupWebGL();
     };
   }, []);
   
@@ -723,6 +741,10 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
   
+  // Add a key based on all important props to ensure full re-rendering when needed
+  // This is critical for proper functioning when returning from focus mode
+  const instanceKey = `kasina-orb-${type || selectedKasina}-${enableZoom ? 'zoom' : 'nozoom'}-${Date.now()}`;
+  
   // If type is provided, update the selected kasina in the store
   useEffect(() => {
     if (type) {
@@ -734,10 +756,16 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   
   // When component mounts or unmounts, log for debugging
   useEffect(() => {
-    console.log("KasinaOrb component mounted with type:", type);
+    console.log("KasinaOrb component mounted with type:", type || selectedKasina);
+    
+    // Force a re-render after focus mode exits by adding a class and removing it
+    document.body.classList.add('kasina-reinit');
+    setTimeout(() => {
+      document.body.classList.remove('kasina-reinit');
+    }, 50);
     
     return () => {
-      console.log("KasinaOrb component unmounted, had type:", type);
+      console.log("KasinaOrb component unmounted, had type:", type || selectedKasina);
     };
   }, []);
   
@@ -748,6 +776,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
     <div 
       className="w-full h-full orb-content"
       style={{ backgroundColor: bgColor }}
+      key={instanceKey}
     >
       <Canvas>
         <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
