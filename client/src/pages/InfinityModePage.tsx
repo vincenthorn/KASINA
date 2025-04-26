@@ -64,17 +64,21 @@ const InfinityMode = () => {
       return;
     }
     
+    // Round up to the nearest minute
+    const roundedElapsedTime = roundUpToNearestMinute(elapsedTime);
+    
     console.log("INFINITY PAGE: Saving session");
     console.log("- kasinaType:", typedKasina);
     console.log("- elapsedTime:", elapsedTime);
+    console.log("- roundedElapsedTime:", roundedElapsedTime);
     
     try {
-      // Create the session object
+      // Create the session object with rounded duration
       const sessionData = {
         id: Date.now().toString(),
         kasinaType: typedKasina,
         kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
-        duration: elapsedTime,
+        duration: roundedElapsedTime,
         timestamp: new Date().toISOString()
         // userEmail will be set by the server
       };
@@ -103,14 +107,14 @@ const InfinityMode = () => {
         console.error("INFINITY PAGE: LocalStorage error:", localStorageError);
       }
       
-      // Use store method for server sync
+      // Use store method for server sync with rounded duration
       saveSession({
         kasinaType: typedKasina,
-        duration: elapsedTime,
+        duration: roundedElapsedTime,
         date: new Date(),
       });
       
-      toast.success("Infinity meditation session saved!");
+      toast.success(`Infinity meditation session of ${formatTime(roundedElapsedTime)} saved!`);
       
       // Reset after saving
       setIsRunning(false);
