@@ -259,7 +259,7 @@ const TimerKasinas: React.FC = () => {
                       backgroundColor: selectedKasina === KASINA_TYPES.WATER ? KASINA_COLORS.water : 'transparent' 
                     }}
                   >
-                    Water
+                    {KASINA_EMOJIS[KASINA_TYPES.WATER]} Water
                   </Button>
                   
                   <Button
@@ -270,7 +270,7 @@ const TimerKasinas: React.FC = () => {
                       backgroundColor: selectedKasina === KASINA_TYPES.FIRE ? KASINA_COLORS.fire : 'transparent' 
                     }}
                   >
-                    Fire
+                    {KASINA_EMOJIS[KASINA_TYPES.FIRE]} Fire
                   </Button>
                   
                   <Button
@@ -282,7 +282,7 @@ const TimerKasinas: React.FC = () => {
                       color: selectedKasina === KASINA_TYPES.AIR ? 'black' : 'white'
                     }}
                   >
-                    Air
+                    {KASINA_EMOJIS[KASINA_TYPES.AIR]} Air
                   </Button>
                   
                   <Button
@@ -293,7 +293,7 @@ const TimerKasinas: React.FC = () => {
                       backgroundColor: selectedKasina === KASINA_TYPES.EARTH ? KASINA_COLORS.earth : 'transparent' 
                     }}
                   >
-                    Earth
+                    {KASINA_EMOJIS[KASINA_TYPES.EARTH]} Earth
                   </Button>
                   
                   <Button
@@ -304,7 +304,7 @@ const TimerKasinas: React.FC = () => {
                       backgroundColor: selectedKasina === KASINA_TYPES.SPACE ? KASINA_COLORS.space : 'transparent' 
                     }}
                   >
-                    Space
+                    {KASINA_EMOJIS[KASINA_TYPES.SPACE]} Space
                   </Button>
                   
                   <Button
@@ -316,7 +316,7 @@ const TimerKasinas: React.FC = () => {
                       color: selectedKasina === KASINA_TYPES.LIGHT ? 'black' : 'white'
                     }}
                   >
-                    Light
+                    {KASINA_EMOJIS[KASINA_TYPES.LIGHT]} Light
                   </Button>
                 </div>
               </CardContent>
