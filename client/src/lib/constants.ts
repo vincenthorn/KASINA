@@ -48,7 +48,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.YELLOW]: "#000000", // Default black
   [KASINA_TYPES.WATER]: "#001933", // Deep dark ocean blue
   [KASINA_TYPES.AIR]: "#4682B4",   // Steel blue
-  [KASINA_TYPES.FIRE]: "#330000",  // Deep dark red
+  [KASINA_TYPES.FIRE]: "#000000",  // Black (changed from deep dark red)
   [KASINA_TYPES.EARTH]: "#2E1A00", // Deep dark earth brown
   [KASINA_TYPES.SPACE]: "#000000", // Black
   [KASINA_TYPES.LIGHT]: "#000000"  // Pure black
