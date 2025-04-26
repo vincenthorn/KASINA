@@ -48,6 +48,13 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     if (isFocusModeActive) {
       e.preventDefault();
+      
+      // Disable scrolling/zooming during the final 30 seconds of meditation
+      if (timerState.timeRemaining !== null && timerState.timeRemaining <= 30) {
+        // Don't allow zoom changes during final animation
+        return;
+      }
+      
       // Calculate new zoom level based on wheel delta
       const delta = -Math.sign(e.deltaY) * zoomSpeed;
       const newZoom = Math.max(minZoom, Math.min(maxZoom, zoomLevel + delta));
@@ -163,10 +170,14 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 onClick={(e) => {
                   // Don't treat this as normal mouse movement
                   e.stopPropagation();
+                  // Don't allow zoom changes during final animation
+                  if (timerState.timeRemaining !== null && timerState.timeRemaining <= 30) {
+                    return;
+                  }
                   setZoomLevel(Math.max(minZoom, zoomLevel - zoomSpeed * 3));
                 }}
                 className="hover:bg-gray-700 rounded p-1 transition-colors"
-                disabled={zoomLevel <= minZoom}
+                disabled={zoomLevel <= minZoom || (timerState.timeRemaining !== null && timerState.timeRemaining <= 30)}
               >
                 <ZoomOut className="h-4 w-4" />
               </button>
@@ -177,10 +188,14 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 onClick={(e) => {
                   // Don't treat this as normal mouse movement
                   e.stopPropagation();
+                  // Don't allow zoom changes during final animation
+                  if (timerState.timeRemaining !== null && timerState.timeRemaining <= 30) {
+                    return;
+                  }
                   setZoomLevel(Math.min(maxZoom, zoomLevel + zoomSpeed * 3));
                 }}
                 className="hover:bg-gray-700 rounded p-1 transition-colors"
-                disabled={zoomLevel >= maxZoom}
+                disabled={zoomLevel >= maxZoom || (timerState.timeRemaining !== null && timerState.timeRemaining <= 30)}
               >
                 <ZoomIn className="h-4 w-4" />
               </button>
