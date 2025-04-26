@@ -122,32 +122,46 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     }, 50);
   };
   
+  // Handle key press events for the timer input
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    // If Enter key is pressed, save the time
+    if (e.key === 'Enter') {
+      handleSaveTime();
+    }
+    // If Tab key is pressed on minutes, move to seconds
+    else if (e.key === 'Tab' && !e.shiftKey && e.currentTarget === minutesInputRef.current) {
+      e.preventDefault();
+      secondsInputRef.current?.focus();
+      secondsInputRef.current?.select();
+    }
+    // If Escape key is pressed, cancel editing
+    else if (e.key === 'Escape') {
+      setIsEditing(false);
+    }
+  };
+  
   // Handle saving the edited time
   const handleSaveTime = () => {
     // Convert inputs to numbers
     const mins = parseInt(minutesInput) || 0;
     const secs = parseInt(secondsInput) || 0;
     
+    // Validate seconds (0-59)
+    const validatedSecs = Math.min(Math.max(secs, 0), 59);
+    
     // Calculate total seconds
-    const totalSeconds = (mins * 60) + secs;
+    const totalSeconds = (mins * 60) + validatedSecs;
     
     // Set minimum duration to 1 second
     const newDuration = Math.max(totalSeconds, 1);
     
     // Update timer
-    console.log(`Custom time set to ${mins}:${secs.toString().padStart(2, '0')} (${newDuration} seconds)`);
+    console.log(`Custom time set to ${mins}:${validatedSecs.toString().padStart(2, '0')} (${newDuration} seconds)`);
     setDuration(newDuration);
     setIsEditing(false);
   };
   
-  // Handle key press events in the inputs
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleSaveTime();
-    } else if (e.key === 'Escape') {
-      setIsEditing(false);
-    }
-  };
+  // This is now handled by the handleKeyPress function above
   
   return (
     <div className="flex flex-col items-center space-y-4">
