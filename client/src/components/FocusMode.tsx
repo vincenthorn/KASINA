@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
-import { Maximize2, Minimize2, ZoomIn, ZoomOut } from 'lucide-react';
+import { Maximize2, Minimize2, ZoomIn, ZoomOut, Timer } from 'lucide-react';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
+import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { KASINA_BACKGROUNDS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import { Dialog, DialogContent } from './ui/dialog';
@@ -10,6 +11,32 @@ import { Dialog, DialogContent } from './ui/dialog';
 interface FocusModeProps {
   children: React.ReactNode;
 }
+
+// Timer display component that shows the current time in focus mode
+const TimerDisplay: React.FC = () => {
+  const { duration, isRunning, elapsedTime, timeRemaining } = useSimpleTimer();
+  
+  // Format time as MM:SS
+  const formatTime = (seconds: number): string => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+  
+  // If timer isn't running, don't show anything
+  if (!isRunning) return null;
+  
+  return (
+    <div className="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800">
+      <Timer className="h-4 w-4 text-gray-400" />
+      <div className="text-xl font-mono">
+        {timeRemaining === null ? 
+          formatTime(elapsedTime) : 
+          formatTime(timeRemaining)}
+      </div>
+    </div>
+  );
+};
 
 const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const { isFocusModeActive, enableFocusMode, disableFocusMode } = useFocusMode();
@@ -237,6 +264,21 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               }
               return null;
             })}
+          </div>
+          
+          {/* Timer display - visible on mouse movement */}
+          <div 
+            className={`fixed top-4 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+          >
+            {/* Use the SimpleTimer component's data via the store */}
+            <div className="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800">
+              <Timer className="h-4 w-4 text-gray-400" />
+              <div className="text-xl font-mono">
+                {useSimpleTimer.getState().timeRemaining !== null
+                  ? formatTime(useSimpleTimer.getState().timeRemaining)
+                  : formatTime(useSimpleTimer.getState().elapsedTime)}
+              </div>
+            </div>
           </div>
           
           {/* Timer controls - visible on mouse movement */}
