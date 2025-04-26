@@ -308,8 +308,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // CRITICAL FIX: Create a safe copy of the request body we can modify
     const safeBody = { ...req.body };
     
-    // EXTREMELY AGGRESSIVE FIX FOR 2-MINUTE SESSIONS
-    // Check if this is a 2-minute session by examining all possible indicators
+    // UNIVERSAL FIX FOR ALL TIMER DURATIONS
+    // Extract all relevant duration data from the request
     const kasinaName = (safeBody.kasinaName || '').toLowerCase();
     const duration = typeof safeBody.duration === 'number' ? safeBody.duration : 
                     parseInt(safeBody.duration, 10) || 0;
@@ -324,40 +324,41 @@ export async function registerRoutes(app: Express): Promise<Server> {
     console.log("5. Duration in Minutes:", durationInMinutes);
     console.log("6. Minutes Rounded:", Math.round(duration/60));
     
-    // DIRECT FIX: Insert 2-minute override
-    let finalDuration = duration; // Default to original value
+    // STEP 1: Start with the most reliable value
+    let finalDuration = duration; // Default to parsed duration value
     
-    // THE DEFINITIVE 2-MINUTE FIX
-    // If ANY sign points to this being a 2-minute session, make it exactly 120 seconds
-    if (
-      // Explicit indicators
-      durationInMinutes === 2 || 
-      originalDuration === 120 ||
-      kasinaName.includes('2-minute') ||
-      kasinaName.includes('2 minute') ||
-      // Duration indicators
-      duration === 120 ||
-      (duration >= 115 && duration <= 125) ||
-      Math.round(duration/60) === 2
-    ) {
-      console.log("💥 CRITICAL OVERRIDE: Forcing 2-minute session to exactly 120 seconds");
-      finalDuration = 120;
+    // STEP 2: Use a match in the name as an override (most explicit)
+    const minuteMatch = kasinaName.match(/(\d+)[- ]minute/);
+    if (minuteMatch && minuteMatch[1]) {
+      const extractedMinutes = parseInt(minuteMatch[1], 10);
+      if (!isNaN(extractedMinutes) && extractedMinutes > 0) {
+        console.log(`💡 Found explicit minute value in name: ${extractedMinutes} minutes`);
+        finalDuration = extractedMinutes * 60; // Convert to seconds
+      }
     }
     
-    // Similar aggressive fix for 3-minute sessions 
-    else if (
-      // Explicit indicators
-      durationInMinutes === 3 || 
-      originalDuration === 180 ||
-      kasinaName.includes('3-minute') ||
-      kasinaName.includes('3 minute') ||
-      // Duration indicators
-      duration === 180 ||
-      (duration >= 175 && duration <= 185) ||
-      Math.round(duration/60) === 3
-    ) {
-      console.log("💥 CRITICAL OVERRIDE: Forcing 3-minute session to exactly 180 seconds");
-      finalDuration = 180;
+    // STEP 3: Use explicitly provided duration in minutes
+    else if (durationInMinutes > 0) {
+      console.log(`💡 Using explicitly provided minutes: ${durationInMinutes} minutes`);
+      finalDuration = durationInMinutes * 60; // Convert to seconds
+    }
+    
+    // STEP 4: Use original duration if it's valid and different
+    else if (originalDuration > 0 && originalDuration !== duration) {
+      console.log(`💡 Using original duration: ${originalDuration} seconds`);
+      finalDuration = originalDuration;
+    }
+    
+    // STEP 5: For common time values, ensure they're exactly correct (1, 2, 3, 5, 10, 15, etc minutes)
+    // Get the intended number of minutes
+    const intendedMinutes = Math.round(finalDuration / 60);
+    if (intendedMinutes > 0) {
+      const exactSeconds = intendedMinutes * 60;
+      // If the current duration is within 5% of a whole minute value, snap to the exact minute
+      if (Math.abs(finalDuration - exactSeconds) < (exactSeconds * 0.05)) {
+        console.log(`💡 Correcting ${finalDuration}s to exactly ${intendedMinutes} minutes (${exactSeconds}s)`);
+        finalDuration = exactSeconds;
+      }
     }
     
     // Validate finalDuration is sensible
