@@ -655,7 +655,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.15); /* Reduced to 15% growth - subtle but still visible */
+    transform: scale(1.08); /* Further reduced to just 8% growth - very subtle */
   }
   100% {
     transform: scale(1);
