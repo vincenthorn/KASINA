@@ -18,6 +18,9 @@ const TimerKasinas: React.FC = () => {
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const { timeRemaining } = useSimpleTimer();
   
+  // Add this ref to prevent multiple session saves
+  const sessionSavedRef = useRef(false);
+  
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedTab, setSelectedTab] = useState<string>("simple");
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -25,9 +28,26 @@ const TimerKasinas: React.FC = () => {
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
   
+  // Reset session saved flag when the component mounts
+  useEffect(() => {
+    sessionSavedRef.current = false;
+    
+    // Reset saved flag when navigating or unmounting
+    return () => {
+      sessionSavedRef.current = false;
+    };
+  }, []);
+  
+  // Reset session saved flag when changing kasina type
+  useEffect(() => {
+    // When user selects a different kasina, reset the saved flag
+    sessionSavedRef.current = false;
+    console.log("Resetting session saved flag - kasina changed to", selectedKasina);
+  }, [selectedKasina]);
+  
   // Handle timer completion
   const handleTimerComplete = () => {
-    console.log("Timer completed", { elapsedTime });
+    console.log("Timer completed", { elapsedTime, alreadySaved: sessionSavedRef.current });
     
     // Disable focus mode when timer completes
     disableFocusMode();
@@ -35,6 +55,12 @@ const TimerKasinas: React.FC = () => {
     // Show feedback
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
+    
+    // Only proceed if we haven't already saved this session
+    if (sessionSavedRef.current) {
+      console.log("Session already saved, skipping save operation");
+      return;
+    }
     
     // Automatically save the session with rounded duration
     const roundedElapsedTime = roundUpToNearestMinute(elapsedTime);
@@ -46,6 +72,9 @@ const TimerKasinas: React.FC = () => {
         kasinaType: selectedKasina,
         duration: roundedElapsedTime
       });
+      
+      // Mark as saved before the API call to prevent duplicates
+      sessionSavedRef.current = true;
       
       addSession({
         kasinaType: selectedKasina,
@@ -64,11 +93,18 @@ const TimerKasinas: React.FC = () => {
   
   // Track timer status for saving
   const handleStatusUpdate = (remaining: number | null, elapsed: number) => {
-    console.log("Timer update:", { remaining, elapsed });
+    console.log("Timer update:", { remaining, elapsed, alreadySaved: sessionSavedRef.current });
     setElapsedTime(elapsed);
     
     // Handle manual stop (when remaining is not 0 but we got a final update)
+    // This condition detects when user manually stops the timer
     if (remaining !== null && remaining !== 0 && elapsed > 0) {
+      // Skip if we already saved this session 
+      if (sessionSavedRef.current) {
+        console.log("Session already saved, skipping additional save");
+        return;
+      }
+      
       // This happens when the user manually stops the timer
       // Let's save the session if it's at least 1 minute long
       const roundedElapsedTime = roundUpToNearestMinute(elapsed);
@@ -78,6 +114,9 @@ const TimerKasinas: React.FC = () => {
           kasinaType: selectedKasina,
           duration: roundedElapsedTime
         });
+        
+        // Mark as saved before the API call to prevent duplicates
+        sessionSavedRef.current = true;
         
         addSession({
           kasinaType: selectedKasina,
