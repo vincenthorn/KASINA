@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import KasinaOrb from '../components/KasinaOrb';
 import { useKasina } from '../lib/stores/useKasina';
+import { useAuth } from '../lib/stores/useAuth';
 import { KasinaType, getOrbConfig } from '../lib/types';
 import { KASINA_NAMES } from '../lib/constants';
 import { formatTime } from '../lib/utils';
@@ -17,6 +18,7 @@ import Layout from '../components/Layout';
 const InfinityMode = () => {
   const navigate = useNavigate();
   const { selectedKasina, setSelectedKasina, saveSession } = useKasina();
+  const { email } = useAuth();
   const typedKasina = selectedKasina as KasinaType;
   const [activeTab, setActiveTab] = useState<string>("color");
   
@@ -75,7 +77,8 @@ const InfinityMode = () => {
         kasinaType: typedKasina,
         kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
         duration: elapsedTime,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        userEmail: email // Include user email
       };
       
       // Store in localStorage

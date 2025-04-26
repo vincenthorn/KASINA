@@ -34,12 +34,26 @@ export const useKasina = create<KasinaState>((set, get) => ({
     try {
       console.log("Saving session:", session);
       
+      // Try to get current user email from localStorage
+      // This is set by the auth system when a user logs in
+      let userEmail = null;
+      try {
+        const authData = localStorage.getItem("auth");
+        if (authData) {
+          const parsedAuth = JSON.parse(authData);
+          userEmail = parsedAuth.email;
+        }
+      } catch (e) {
+        console.warn("Failed to get user email from localStorage:", e);
+      }
+      
       // Format the session data
       const sessionData = {
         kasinaType: session.kasinaType,
         kasinaName: KASINA_NAMES[session.kasinaType] || session.kasinaType,
         duration: session.duration,
         timestamp: new Date().toISOString(),
+        userEmail: userEmail, // Include user email if available
       };
       
       // Only save to server, not to localStorage
