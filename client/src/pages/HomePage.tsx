@@ -4,11 +4,17 @@ import Layout from "../components/Layout";
 import { Card, CardContent } from "../components/ui/card";
 import { Flame, Video, BookOpen, BarChart } from "lucide-react";
 import Logo from "../components/Logo";
+import { useAuth } from "../lib/stores/useAuth";
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
-
-  const features = [
+  const { email } = useAuth();
+  
+  // Check if user is admin
+  const isAdmin = email === "admin@kasina.app";
+  
+  // Features available to all users
+  const baseFeatures = [
     {
       icon: <Flame className="h-10 w-10 text-orange-500" />,
       title: "Freestyle",
@@ -16,6 +22,17 @@ const HomePage: React.FC = () => {
       path: "/freestyle",
       color: "from-orange-600 to-orange-800",
     },
+    {
+      icon: <BarChart className="h-10 w-10 text-green-500" />,
+      title: "Reflection",
+      description: "Track your practice progress and view your meditation history.",
+      path: "/reflection",
+      color: "from-green-600 to-green-800",
+    },
+  ];
+  
+  // Features only available to admin users
+  const adminFeatures = [
     {
       icon: <BookOpen className="h-10 w-10 text-purple-500" />,
       title: "Meditation",
@@ -30,13 +47,12 @@ const HomePage: React.FC = () => {
       path: "/recording",
       color: "from-blue-600 to-blue-800",
     },
-    {
-      icon: <BarChart className="h-10 w-10 text-green-500" />,
-      title: "Reflection",
-      description: "Track your practice progress and view your meditation history.",
-      path: "/reflection",
-      color: "from-green-600 to-green-800",
-    },
+  ];
+  
+  // Combine features based on user role
+  const features = [
+    ...baseFeatures,
+    ...(isAdmin ? adminFeatures : [])
   ];
 
   return (
