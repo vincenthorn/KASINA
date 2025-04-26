@@ -62,6 +62,12 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         // Check for completion
         if (timeRemaining === 0) {
+          // Always send the final update right before completion
+          if (onUpdate) {
+            onUpdate(0, elapsedTime);
+          }
+          
+          // Then call the completion handler
           if (onComplete) onComplete();
           // Note: Focus mode disable happens in the other useEffect
         }
@@ -95,6 +101,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       <div 
         className="text-xs text-gray-300 simple-timer-duration"
         data-duration={elapsedTime}
+        data-time-remaining={timeRemaining}
       >
         {timeRemaining === null 
           ? `Elapsed: ${formatTime(elapsedTime)}`
@@ -108,6 +115,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             // Just start/stop the timer, focus mode is managed in the useEffect
             if (isRunning) {
               stopTimer();
+              // Ensure we send a final update when user stops the timer manually
+              if (onUpdate) {
+                onUpdate(timeRemaining, elapsedTime);
+              }
             } else {
               startTimer();
             }

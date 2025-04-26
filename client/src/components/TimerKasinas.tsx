@@ -27,7 +27,7 @@ const TimerKasinas: React.FC = () => {
   
   // Handle timer completion
   const handleTimerComplete = () => {
-    console.log("Timer completed");
+    console.log("Timer completed", { elapsedTime });
     
     // Disable focus mode when timer completes
     disableFocusMode();
@@ -38,24 +38,60 @@ const TimerKasinas: React.FC = () => {
     
     // Automatically save the session with rounded duration
     const roundedElapsedTime = roundUpToNearestMinute(elapsedTime);
+    console.log("Rounded elapsed time:", roundedElapsedTime);
     
     // Only save if there was actual meditation time
     if (roundedElapsedTime > 0) {
+      console.log("Saving session with data:", {
+        kasinaType: selectedKasina,
+        duration: roundedElapsedTime
+      });
+      
       addSession({
         kasinaType: selectedKasina,
         duration: roundedElapsedTime
       });
       
       console.log(`Auto-saved session: ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]}`);
+      
+      // Show toast notification with rounded time
+      toast.success(`You completed a ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
+    } else {
+      console.warn("Not saving session because roundedElapsedTime is 0");
+      toast.error("Session too short to save - minimum recordable time is 1 minute");
     }
-    
-    // Show toast notification with rounded time
-    toast.success(`You completed a ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
   };
   
   // Track timer status for saving
-  const handleStatusUpdate = (_remaining: number | null, elapsed: number) => {
+  const handleStatusUpdate = (remaining: number | null, elapsed: number) => {
+    console.log("Timer update:", { remaining, elapsed });
     setElapsedTime(elapsed);
+    
+    // Handle manual stop (when remaining is not 0 but we got a final update)
+    if (remaining !== null && remaining !== 0 && elapsed > 0) {
+      // This happens when the user manually stops the timer
+      // Let's save the session if it's at least 1 minute long
+      const roundedElapsedTime = roundUpToNearestMinute(elapsed);
+      
+      if (roundedElapsedTime >= 60) {
+        console.log("Manual stop detected - saving session with data:", {
+          kasinaType: selectedKasina,
+          duration: roundedElapsedTime
+        });
+        
+        addSession({
+          kasinaType: selectedKasina,
+          duration: roundedElapsedTime
+        });
+        
+        toast.success(`You completed a ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
+      } else {
+        console.warn("Session too short to save - needs at least 1 minute");
+        if (elapsed > 0) {
+          toast.info("Session was too short to save - minimum is 1 minute");
+        }
+      }
+    }
   };
   
   // Set up a timer ref to track duration
