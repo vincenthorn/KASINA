@@ -77,29 +77,29 @@ const TimerKasinas: React.FC = () => {
     
     // CRITICAL FIX: Get the duration directly from the store to ensure accuracy
     const storeState = useSimpleTimer.getState();
-    const actualDuration = storeState.duration;
+    // CRITICAL FIX: Always use the original duration that was set
+    // This ensures 2-minute timers save as 2 minutes, etc.
+    const originalDuration = storeState.duration;
     
-    const durationToSave = actualDuration || 60; // Use the duration that was set, or default to 60s
+    // We no longer round up here - we save exactly what the user set
+    // This is because the rounding is causing issues with exact minute values
+    const durationToSave = originalDuration || 60; // Use the duration that was set, or default to 60s
     
     // Log the exact value being used for saving
     console.log("DURATION DETAILS:");
     console.log("- Local duration variable:", duration, "seconds");
-    console.log("- Store duration value:", actualDuration, "seconds");
-    console.log("- Duration being used for saving:", durationToSave, "seconds");
-    
-    // Always round up to the nearest minute for consistent storage
-    const roundedDuration = roundUpToNearestMinute(durationToSave);
+    console.log("- Store original duration value:", originalDuration, "seconds");
+    console.log("- Duration being saved (exact):", durationToSave, "seconds");
     
     console.log("TIMER COMPLETION - Duration values:");
     console.log("- Original duration setting:", duration, "seconds");
-    console.log("- Duration to save:", durationToSave, "seconds");
-    console.log("- Rounded duration for saving:", roundedDuration, "seconds");
+    console.log("- Exact duration to save:", durationToSave, "seconds");
     
     // Only save if there was actual meditation time
-    if (roundedDuration > 0) {
+    if (durationToSave > 0) {
       console.log("Saving session with data:", {
         kasinaType: selectedKasina,
-        duration: roundedDuration
+        duration: durationToSave
       });
       
       // Mark as saved before the API call to prevent duplicates
@@ -107,13 +107,13 @@ const TimerKasinas: React.FC = () => {
       
       addSession({
         kasinaType: selectedKasina,
-        duration: roundedDuration
+        duration: durationToSave
       });
       
-      console.log(`Auto-saved session: ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]}`);
+      console.log(`Auto-saved session: ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]}`);
       
-      // Show toast notification with rounded time
-      toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
+      // Show toast notification with exact time
+      toast.success(`You completed a ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
     } else {
       console.warn("Not saving session because roundedDuration is 0");
       toast.error("Session too short to save - minimum recordable time is 1 minute");
