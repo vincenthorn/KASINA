@@ -170,8 +170,9 @@ const TimerKasinas: React.FC = () => {
         console.log("🔍 FOUND 4-MINUTE SESSION - Ensuring it's saved as 240 seconds");
       }
       
-      // Ensure the displayed name matches exactly
-      const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-minute)`;
+      // Ensure the displayed name matches exactly with proper pluralization
+      const minuteText = minutesValue === 1 ? "minute" : "minutes";
+      const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-${minuteText})`;
             
       // Create a complete, detailed payload
       const sessionPayload = {
@@ -283,8 +284,9 @@ const TimerKasinas: React.FC = () => {
           console.log("🔍 FOUND MANUAL STOP 4-MINUTE SESSION - Ensuring correct duration");
         }
         
-        // Create the correct name with minutes
-        const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-minute)`;
+        // Create the correct name with proper pluralization
+        const minuteText = minutesValue === 1 ? "minute" : "minutes";
+        const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-${minuteText})`;
         
         // Complete session payload with all needed information
         const manualSessionPayload = {

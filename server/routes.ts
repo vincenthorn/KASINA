@@ -370,14 +370,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
       finalDuration = 60;
     }
     
-    // Format the name to include the CORRECT duration in minutes
+    // Format the name to include the CORRECT duration in minutes with proper pluralization
     const minutes = Math.round(finalDuration / 60);
     
     // Determine the kasina type for the name
     const kasinaType = safeBody.kasinaType || '';
     
+    // Add proper pluralization to "minute"
+    const minuteText = minutes === 1 ? "minute" : "minutes";
+    
     // Create a completely new name to be absolutely certain
-    const correctKasinaName = `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-minute)`;
+    const correctKasinaName = `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-${minuteText})`;
     
     // Final record to save
     const session = {
