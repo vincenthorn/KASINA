@@ -588,13 +588,16 @@
 
 /* Space kasina animation - inverted: black orb with dark purple background */
 .space-animation {
-  animation: space-pulse 15s infinite alternate;
+  animation: 
+    space-pulse 15s infinite alternate,
+    space-breathe 15s infinite ease-in-out; /* Add expansion/contraction over 15s */
   /* Outer purple glow */
   box-shadow: 0 0 35px rgba(51, 0, 102, 0.7);
   position: relative;
   overflow: hidden;
   /* Purple background with slightly smoother shade */
   background-color: #2a0055;
+  transform-origin: center; /* Ensure expansion happens from center */
 }
 
 .space-animation::before {
@@ -626,18 +629,28 @@
 @keyframes space-pulse {
   0% {
     filter: brightness(0.8) contrast(1.3);
-    transform: scale(0.99);
     box-shadow: 0 0 35px rgba(51, 0, 102, 0.6);
   }
   50% {
     filter: brightness(1) contrast(1.5);
-    transform: scale(1.01);
     box-shadow: 0 0 45px rgba(51, 0, 102, 0.8);
   }
   100% {
     filter: brightness(0.9) contrast(1.3);
-    transform: scale(0.99);
     box-shadow: 0 0 35px rgba(51, 0, 102, 0.6);
+  }
+}
+
+/* Space expansion/contraction breathing effect - 15 seconds cycle */
+@keyframes space-breathe {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Expand to 120% (20% growth) */
+  }
+  100% {
+    transform: scale(1);
   }
 }
 

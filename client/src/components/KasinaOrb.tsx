@@ -236,6 +236,13 @@ const DynamicOrb: React.FC = () => {
     if (meshRef.current) {
       // Gentle rotation
       meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
+      
+      // Add expansion/contraction breathing effect for space kasina (15s cycle)
+      if (selectedKasina === KASINA_TYPES.SPACE) {
+        const time = clock.getElapsedTime();
+        const breatheFactor = Math.sin(time * (Math.PI / 7.5)) * 0.2 + 1; // 15 sec cycle (7.5 * 2), oscillate between 0.8 and 1.2 (20% expansion/contraction)
+        meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
+      }
     }
     
     // Update time uniform for shader materials
