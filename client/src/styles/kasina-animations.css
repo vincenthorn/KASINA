@@ -120,11 +120,12 @@
 /* Air kasina animation - semi-transparent and swept by the air */
 .air-animation {
   animation: air-float 10s infinite ease-in-out;
-  box-shadow: 0 0 30px rgba(211, 240, 255, 0.6);
+  box-shadow: 0 0 30px rgba(60, 180, 255, 0.7);
   position: relative;
   overflow: hidden;
   border: none !important; /* Remove border to fix edge artifacts */
   backdrop-filter: blur(1px); /* Add subtle blur for airy effect */
+  background: linear-gradient(135deg, #a0d6f7 0%, #78c6ff 100%); /* Base blue gradient */
 }
 
 /* Add a second wind/mist layer to enhance the airy quality */
@@ -136,8 +137,31 @@
   width: 140%;
   height: 140%;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, transparent 30%, rgba(255, 255, 255, 0.1) 70%, transparent 100%);
-  opacity: 0.4;
+  background: 
+    linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.4) 0%, 
+      rgba(170, 220, 255, 0.2) 50%, 
+      rgba(120, 200, 255, 0.1) 100%
+    ),
+    /* Wind streaks */
+    repeating-linear-gradient(
+      80deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.06) 10px,
+      rgba(255, 255, 255, 0.06) 12px,
+      transparent 12px,
+      transparent 14px
+    ),
+    repeating-linear-gradient(
+      170deg,
+      transparent,
+      transparent 15px,
+      rgba(255, 255, 255, 0.04) 15px,
+      rgba(255, 255, 255, 0.04) 17px
+    );
+  opacity: 0.7;
   animation: air-mist 25s infinite linear;
   pointer-events: none;
 }
@@ -150,8 +174,14 @@
   width: 120%; /* Wider than container to ensure no edge artifacts */
   height: 120%;
   border-radius: 50%; /* Keep the circular shape */
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(211, 240, 255, 0.65) 60%, rgba(173, 216, 230, 0.5) 100%);
-  opacity: 0.8;
+  background: 
+    radial-gradient(
+      circle, 
+      rgba(124, 195, 255, 0.7) 0%, 
+      rgba(160, 214, 247, 0.65) 50%, 
+      rgba(113, 175, 232, 0.5) 100%
+    );
+  opacity: 0.9;
   animation: air-swirl 15s infinite linear;
 }
 
@@ -211,20 +241,39 @@
 
 @keyframes air-mist {
   0% {
-    transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1) translateX(0px);
     opacity: 0.3;
+    filter: blur(0px);
+  }
+  20% {
+    transform: rotate(80deg) scale(1.05) translateX(5px);
+    opacity: 0.6;
+    filter: blur(1px);
   }
   30% {
-    transform: rotate(120deg) scale(1.1);
+    transform: rotate(120deg) scale(1.1) translateX(2px);
     opacity: 0.5;
+    filter: blur(2px);
+  }
+  50% {
+    transform: rotate(180deg) scale(1) translateX(-3px);
+    opacity: 0.4;
+    filter: blur(1.5px);
   }
   60% {
-    transform: rotate(240deg) scale(0.9);
-    opacity: 0.3;
+    transform: rotate(240deg) scale(0.95) translateX(-6px);
+    opacity: 0.6;
+    filter: blur(2px);
+  }
+  80% {
+    transform: rotate(300deg) scale(1.02) translateX(-2px);
+    opacity: 0.5;
+    filter: blur(1px);
   }
   100% {
-    transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1) translateX(0px);
     opacity: 0.4;
+    filter: blur(0px);
   }
 }
 

@@ -33,7 +33,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.RED]: "#FF0000",
   [KASINA_TYPES.YELLOW]: "#FFFF00",
   [KASINA_TYPES.WATER]: "#0099FF", // Deep water blue
-  [KASINA_TYPES.AIR]: "#d9f0ff",   // Light sky blue - updated
+  [KASINA_TYPES.AIR]: "#a0d6f7",   // Distinct medium sky blue with a hint of aqua
   [KASINA_TYPES.FIRE]: "#FF6600",  // Bright orange for fire
   [KASINA_TYPES.EARTH]: "#993300", // Terracotta red
   [KASINA_TYPES.SPACE]: "#330066", // Deep purple
