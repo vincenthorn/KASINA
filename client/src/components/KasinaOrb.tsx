@@ -10,7 +10,8 @@ import { KasinaType } from "../lib/types";
 const waterShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#0099ff") }
+    color: { value: new THREE.Color("#0099ff") },
+    opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -43,7 +44,8 @@ const waterShader = {
 const fireShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#ff3300") }
+    color: { value: new THREE.Color("#ff3300") },
+    opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -79,7 +81,8 @@ const fireShader = {
 const airShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#d3f0ff") }
+    color: { value: new THREE.Color("#d3f0ff") },
+    opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -117,7 +120,8 @@ const airShader = {
 const earthShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#613a00") }
+    color: { value: new THREE.Color("#613a00") },
+    opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -152,7 +156,8 @@ const earthShader = {
 const spaceShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#000000") } // Black color for the inverted space orb
+    color: { value: new THREE.Color("#000000") }, // Black color for the inverted space orb
+    opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -195,7 +200,8 @@ const spaceShader = {
 const lightShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#fffcf0") }
+    color: { value: new THREE.Color("#fffcf0") },
+    opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -227,7 +233,7 @@ const lightShader = {
 };
 
 // Dynamic Orb component with shader materials
-const DynamicOrb: React.FC = () => {
+const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime = null }) => {
   const { selectedKasina } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
@@ -237,8 +243,32 @@ const DynamicOrb: React.FC = () => {
       // Gentle rotation
       meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
       
-      // Add expansion/contraction breathing effect for space kasina (15s cycle)
-      if (selectedKasina === KASINA_TYPES.SPACE) {
+      // Shrinking effect for end of session (when remaining time is <= 30 seconds)
+      if (remainingTime !== null && remainingTime <= 30) {
+        // Calculate scale factor: from 1.0 (at 30s) to 0.0 (at 0s)
+        // This creates a smooth shrinking effect over the last 30 seconds
+        const endingScale = remainingTime / 30;
+        
+        // Apply the shrinking scale
+        meshRef.current.scale.set(endingScale, endingScale, endingScale);
+        
+        // Optional: make the orb fade out as well
+        if (materialRef.current) {
+          if ('opacity' in materialRef.current) {
+            (materialRef.current as THREE.MeshBasicMaterial).opacity = endingScale;
+            (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
+          } else if ('uniforms' in materialRef.current && 
+                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
+            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingScale;
+            (materialRef.current as THREE.ShaderMaterial).transparent = true;
+          }
+        }
+        
+        // Log the shrinking effect (for debugging)
+        // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)}`);
+      } 
+      // Normal breathing effect for Space kasina when not in end-of-session shrinking
+      else if (selectedKasina === KASINA_TYPES.SPACE && (remainingTime === null || remainingTime > 30)) {
         const time = clock.getElapsedTime();
         
         // Use cubic-bezier-like timing function to make the breathing more pronounced
@@ -281,6 +311,21 @@ const DynamicOrb: React.FC = () => {
           }
         }
       }
+      // Reset scale to normal for all other cases
+      else if (remainingTime === null || remainingTime > 30) {
+        // Make sure the orb is at normal scale when not in shrinking mode
+        meshRef.current.scale.set(1, 1, 1);
+        
+        // Reset opacity if needed
+        if (materialRef.current) {
+          if ('opacity' in materialRef.current) {
+            (materialRef.current as THREE.MeshBasicMaterial).opacity = 1;
+          } else if ('uniforms' in materialRef.current && 
+                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
+            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = 1;
+          }
+        }
+      }
     }
     
     // Update time uniform for shader materials
@@ -292,21 +337,22 @@ const DynamicOrb: React.FC = () => {
   const getShaderMaterial = () => {
     switch (selectedKasina) {
       case KASINA_TYPES.WATER:
-        return new THREE.ShaderMaterial(waterShader);
+        return new THREE.ShaderMaterial({...waterShader, transparent: true});
       case KASINA_TYPES.FIRE:
-        return new THREE.ShaderMaterial(fireShader);
+        return new THREE.ShaderMaterial({...fireShader, transparent: true});
       case KASINA_TYPES.AIR:
-        return new THREE.ShaderMaterial(airShader);
+        return new THREE.ShaderMaterial({...airShader, transparent: true});
       case KASINA_TYPES.EARTH:
-        return new THREE.ShaderMaterial(earthShader);
+        return new THREE.ShaderMaterial({...earthShader, transparent: true});
       case KASINA_TYPES.SPACE:
-        return new THREE.ShaderMaterial(spaceShader);
+        return new THREE.ShaderMaterial({...spaceShader, transparent: true});
       case KASINA_TYPES.LIGHT:
-        return new THREE.ShaderMaterial(lightShader);
+        return new THREE.ShaderMaterial({...lightShader, transparent: true});
       default:
         // For basic color kasinas
         return new THREE.MeshBasicMaterial({ 
-          color: KASINA_COLORS[selectedKasina] 
+          color: KASINA_COLORS[selectedKasina],
+          transparent: true
         });
     }
   };
@@ -327,7 +373,10 @@ const DynamicOrb: React.FC = () => {
 };
 
 // Scene setup component
-const Scene: React.FC<{ enableZoom?: boolean }> = ({ enableZoom = false }) => {
+const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> = ({ 
+  enableZoom = false,
+  remainingTime = null
+}) => {
   const { gl, camera } = useThree();
   const { selectedKasina } = useKasina();
   
@@ -363,7 +412,7 @@ const Scene: React.FC<{ enableZoom?: boolean }> = ({ enableZoom = false }) => {
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
       <pointLight position={cameraLight} intensity={0.8} distance={10} />
-      <DynamicOrb />
+      <DynamicOrb remainingTime={remainingTime} />
       <OrbitControls 
         enableZoom={enableZoom} 
         enablePan={false} 
@@ -383,6 +432,7 @@ interface KasinaOrbProps {
   color?: string;        // Color code for the orb
   speed?: number;        // Animation speed
   complexity?: number;   // Detail level for the orb
+  remainingTime?: number | null; // Remaining time in seconds, used for end-session effects
 }
 
 const KasinaOrb: React.FC<KasinaOrbProps> = ({ 
@@ -390,7 +440,8 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   type,
   color,
   speed,
-  complexity
+  complexity,
+  remainingTime = null
 }) => {
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
@@ -412,7 +463,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
       style={{ backgroundColor: bgColor }}
     >
       <Canvas>
-        <Scene enableZoom={enableZoom} />
+        <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
       </Canvas>
     </div>
   );
