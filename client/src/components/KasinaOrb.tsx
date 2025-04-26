@@ -463,6 +463,12 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
   
+  // Safety check: ensure we always have a valid kasina type
+  // This helps prevent rendering issues during state transitions
+  const safeKasinaType = selectedKasina && selectedKasina.trim().length > 0 
+    ? selectedKasina as KasinaType 
+    : KASINA_TYPES.WHITE;
+  
   useFrame(({ clock }) => {
     if (meshRef.current) {
       // Gentle rotation
@@ -650,6 +656,10 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
   useEffect(() => {
     console.log("Scene component mounted with kasina:", selectedKasina);
     
+    // Reset camera position on new scene mount (helps with previews)
+    camera.position.set(0, 0, 5);
+    camera.lookAt(0, 0, 0);
+    
     // Helper function to clean up WebGL resources
     const cleanupWebGL = () => {
       try {
@@ -750,10 +760,12 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
     }
   }, [type]);
   
-  // When component mounts or unmounts, log for debugging
+  // Reset internal orb state when component remounts 
+  // This helps ensure the preview orb is always fresh after a session
   useEffect(() => {
     console.log("KasinaOrb component mounted with type:", type || selectedKasina);
     
+    // Implement cleanup that runs when component unmounts
     return () => {
       console.log("KasinaOrb component unmounted, had type:", type || selectedKasina);
     };

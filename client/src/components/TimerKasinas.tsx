@@ -52,14 +52,29 @@ const TimerKasinas: React.FC = () => {
     // CRITICAL FIX: Handle focus mode exit properly
     console.log("Timer completed, scheduling focus mode exit and orb reinit");
     
+    // Create a unique identifier for the current session to help with cleanup
+    const sessionId = Date.now().toString();
+    console.log(`Timer session ${sessionId} completed - beginning cleanup`);
+    
     // Delay focus mode exit slightly to ensure proper cleanup
     setTimeout(() => {
+      // First exit focus mode
       disableFocusMode();
       
-      // Instead of forcing a DOM-based re-render, we'll use React's state management
-      // to properly handle component re-rendering without visual artifacts
-      console.log("Allowing React to handle re-rendering naturally");
-    }, 100);
+      // Re-initialize the kasina selection to ensure we get a fresh orb
+      const currentKasina = selectedKasina;
+      console.log(`Re-initializing kasina orb from ${currentKasina}`);
+      
+      // Force a re-render of the kasina by briefly setting it to a different value and back
+      // This is more reliable than relying on the key prop alone
+      setSelectedKasina('');
+      
+      // Set it back to the original value after a short delay
+      setTimeout(() => {
+        setSelectedKasina(currentKasina);
+        console.log(`Kasina reset complete, restored to ${currentKasina}`);
+      }, 50);
+    }, 150);
     
     // Show feedback
     setShowConfetti(true);
@@ -507,7 +522,9 @@ const TimerKasinas: React.FC = () => {
           <div className="flex-1 relative flex items-center justify-center rounded-lg" 
                style={{ minHeight: '400px' }}>
             <div className="w-full h-full" style={{ minHeight: '400px' }}>
+              {/* Added key to force re-render when the component updates */}
               <KasinaOrb 
+                key={`kasina-preview-${selectedKasina}-${Date.now()}`}
                 type={typedKasina} 
                 remainingTime={timeRemaining} 
               />
