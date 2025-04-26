@@ -6,6 +6,26 @@ import { useKasina } from "../lib/stores/useKasina";
 import { KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from "../lib/constants";
 import { KasinaType } from "../lib/types";
 
+// Utility function to ensure a valid KasinaType
+// Uses a type assertion that is safe because we're checking against valid values
+const ensureValidKasinaType = (type: any): KasinaType => {
+  // If type is missing or empty, return WHITE
+  if (!type || (typeof type === 'string' && type.trim().length === 0)) {
+    return KASINA_TYPES.WHITE;
+  }
+  
+  // Get all valid kasina types
+  const validKasinaTypes = Object.values(KASINA_TYPES);
+  
+  // Check if the provided type is valid
+  if (validKasinaTypes.includes(type)) {
+    return type;
+  }
+  
+  // Fallback to WHITE if invalid
+  return KASINA_TYPES.WHITE;
+};
+
 // Shader materials for the elemental kasinas
 const waterShader = {
   uniforms: {
@@ -472,11 +492,8 @@ const DynamicOrb: React.FC<{
   
   // Safety check: ensure we always have a valid kasina type
   // This helps prevent rendering issues during state transitions
-  // Prefer the directly passed prop over global state
-  const typeStr = kasinaType || selectedKasina;
-  const safeKasinaType: KasinaType = typeStr && typeStr.trim().length > 0 
-    ? typeStr as KasinaType 
-    : KASINA_TYPES.WHITE;
+  // Prefer the directly passed prop over global state and use our utility function
+  const safeKasinaType: KasinaType = ensureValidKasinaType(kasinaType || selectedKasina);
   
   useFrame(({ clock }) => {
     if (meshRef.current) {
@@ -704,10 +721,7 @@ const Scene: React.FC<{
   
   // Safety check: ensure we always have a valid kasina type for background color
   // Prefer the prop type that was passed directly over the global state
-  const typeStr = type || selectedKasina;
-  const safeKasinaType: KasinaType = typeStr && typeStr.trim().length > 0 
-    ? typeStr as KasinaType 
-    : KASINA_TYPES.WHITE;
+  const safeKasinaType: KasinaType = ensureValidKasinaType(type || selectedKasina);
   
   // Set the background color based on the selected kasina
   useEffect(() => {
@@ -805,9 +819,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   
   // Ensure we have a valid kasina type for the background
   // Use the effectiveType that we defined above to avoid dependency on global state
-  const safeKasinaType: KasinaType = effectiveType && effectiveType.trim().length > 0 
-    ? effectiveType as KasinaType 
-    : KASINA_TYPES.WHITE;
+  const safeKasinaType: KasinaType = ensureValidKasinaType(effectiveType);
     
   // Get the background color for the selected kasina
   const bgColor = KASINA_BACKGROUNDS[safeKasinaType] || "#000000";

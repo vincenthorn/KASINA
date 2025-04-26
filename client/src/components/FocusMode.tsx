@@ -240,7 +240,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               }}
             >
               <KasinaOrb
-                key={`focus-mode-orb-${selectedKasina}`}
+                key={`focus-mode-orb-${selectedKasina}-${timerState.isRunning ? 'running' : 'stopped'}`}
                 type={selectedKasina as KasinaType}
                 enableZoom={true}
                 remainingTime={timerState.timeRemaining}
