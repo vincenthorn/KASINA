@@ -115,7 +115,7 @@ const TimerKasinas: React.FC = () => {
       // Show toast notification with exact time
       toast.success(`You completed a ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
     } else {
-      console.warn("Not saving session because roundedDuration is 0");
+      console.warn("Not saving session because duration is 0");
       toast.error("Session too short to save - minimum recordable time is 1 minute");
     }
   };
