@@ -288,7 +288,6 @@ const TimerFreestyle: React.FC = () => {
               <Card>
                 <CardContent className="pt-6">
                   <SimpleTimer
-                    initialDuration={60}
                     onComplete={handleTimerComplete}
                     onUpdate={handleStatusUpdate}
                   />

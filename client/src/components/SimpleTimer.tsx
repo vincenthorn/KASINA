@@ -28,14 +28,16 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     tick
   } = useSimpleTimer();
   
-  // Set initial duration if provided
+  // Set initial duration if provided and only when the component first mounts
   useEffect(() => {
     console.log("SimpleTimer useEffect - initialDuration:", initialDuration, "current duration:", duration);
-    if (initialDuration !== duration) {
+    // Only set the initialDuration when the component first mounts (when duration is 60 - default value)
+    // This prevents overriding user selections when navigating between pages
+    if (duration === 60 && initialDuration !== duration) {
       console.log("Setting duration to:", initialDuration);
       setDuration(initialDuration);
     }
-  }, [initialDuration, duration, setDuration]);
+  }, [initialDuration, setDuration]); // Removed duration dependency
   
   // Handle focus mode on timer start/stop
   useEffect(() => {
@@ -147,7 +149,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       <div className="grid grid-cols-4 gap-2 mt-4 w-full">
         <Button 
           variant="outline" 
-          onClick={() => setDuration(60)}
+          onClick={() => {
+            console.log("Setting duration to 60 seconds (1 minute)");
+            setDuration(60);
+          }}
           disabled={isRunning}
           className={duration === 60 ? "border-2 border-blue-500" : ""}
           size="sm"
@@ -170,7 +175,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         <Button 
           variant="outline" 
-          onClick={() => setDuration(600)}
+          onClick={() => {
+            console.log("Setting duration to 600 seconds (10 minutes)");
+            setDuration(600);
+          }}
           disabled={isRunning}
           className={duration === 600 ? "border-2 border-blue-500" : ""}
           size="sm"
@@ -180,7 +188,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
 
         <Button 
           variant="outline" 
-          onClick={() => setDuration(900)}
+          onClick={() => {
+            console.log("Setting duration to 900 seconds (15 minutes)");
+            setDuration(900);
+          }}
           disabled={isRunning}
           className={duration === 900 ? "border-2 border-blue-500" : ""}
           size="sm"
@@ -190,7 +201,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         <Button 
           variant="outline" 
-          onClick={() => setDuration(1200)}
+          onClick={() => {
+            console.log("Setting duration to 1200 seconds (20 minutes)");
+            setDuration(1200);
+          }}
           disabled={isRunning}
           className={duration === 1200 ? "border-2 border-blue-500" : ""}
           size="sm"
@@ -200,7 +214,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         <Button 
           variant="outline" 
-          onClick={() => setDuration(1800)}
+          onClick={() => {
+            console.log("Setting duration to 1800 seconds (30 minutes)");
+            setDuration(1800);
+          }}
           disabled={isRunning}
           className={duration === 1800 ? "border-2 border-blue-500" : ""}
           size="sm"
@@ -210,7 +227,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         <Button 
           variant="outline" 
-          onClick={() => setDuration(2700)}
+          onClick={() => {
+            console.log("Setting duration to 2700 seconds (45 minutes)");
+            setDuration(2700);
+          }}
           disabled={isRunning}
           className={duration === 2700 ? "border-2 border-blue-500" : ""}
           size="sm"
@@ -220,7 +240,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         <Button 
           variant="outline" 
-          onClick={() => setDuration(3600)}
+          onClick={() => {
+            console.log("Setting duration to 3600 seconds (60 minutes)");
+            setDuration(3600);
+          }}
           disabled={isRunning}
           className={duration === 3600 ? "border-2 border-blue-500" : ""}
           size="sm"
