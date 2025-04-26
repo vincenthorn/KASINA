@@ -499,7 +499,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)} (of 60s fade)`);
       } 
       // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
-      else if ((selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.FIRE) && 
+      else if ((safeKasinaType === KASINA_TYPES.SPACE || safeKasinaType === KASINA_TYPES.FIRE) && 
               (remainingTime === null || remainingTime > 60)) {
         const time = clock.getElapsedTime();
         
@@ -508,7 +508,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         let breatheCycle = 0;
         let breatheFactor = 1;
 
-        if (selectedKasina === KASINA_TYPES.SPACE) {
+        if (safeKasinaType === KASINA_TYPES.SPACE) {
           // Space kasina: Subtle 10-second breathing cycle
           const t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
           const easeValue = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
@@ -523,7 +523,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
           // Apply an extremely subtle pulsing effect to the orb's position
           meshRef.current.position.z = breatheCycle * 0.05; // Minimal movement in z-direction
         } 
-        else if (selectedKasina === KASINA_TYPES.FIRE) {
+        else if (safeKasinaType === KASINA_TYPES.FIRE) {
           // Fire kasina: More rapid 4-second breathing cycle with flame-like pulsation
           const t = time % 4 / 4; // Normalized time in the cycle (0-1) - 4 second cycle
           
@@ -553,7 +553,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
             // Attempt to modify any shader uniforms that might affect the appearance
             const material = materialRef.current as THREE.ShaderMaterial;
             
-            if (selectedKasina === KASINA_TYPES.SPACE) {
+            if (safeKasinaType === KASINA_TYPES.SPACE) {
               if (material.uniforms.glowIntensity !== undefined) {
                 material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
               }
@@ -567,7 +567,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
                 material.uniforms.opacity.value = 0.8 + breatheCycle * 0.2;
               }
             }
-            else if (selectedKasina === KASINA_TYPES.FIRE) {
+            else if (safeKasinaType === KASINA_TYPES.FIRE) {
               // Fire-specific adjustments to shader uniforms
               // Flame color pulsation
               if (material.uniforms.color !== undefined) {
@@ -607,7 +607,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   });
 
   const getShaderMaterial = () => {
-    switch (selectedKasina) {
+    // Use the safe kasina type to prevent errors during transitions
+    switch (safeKasinaType) {
       case KASINA_TYPES.WATER:
         return new THREE.ShaderMaterial({...waterShader, transparent: true});
       case KASINA_TYPES.FIRE:
@@ -623,7 +624,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       default:
         // For basic color kasinas
         return new THREE.MeshBasicMaterial({ 
-          color: KASINA_COLORS[selectedKasina],
+          color: KASINA_COLORS[safeKasinaType],
           transparent: true
         });
     }
@@ -634,8 +635,10 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       const material = getShaderMaterial();
       meshRef.current.material = material;
       materialRef.current = material;
+      
+      console.log(`Applied shader material for kasina type: ${safeKasinaType}`);
     }
-  }, [selectedKasina]);
+  }, [selectedKasina, safeKasinaType]);
 
   return (
     <mesh ref={meshRef}>
@@ -685,11 +688,17 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
     };
   }, []);
   
+  // Safety check: ensure we always have a valid kasina type for background color
+  const safeKasinaType = selectedKasina && selectedKasina.trim().length > 0 
+    ? selectedKasina as KasinaType 
+    : KASINA_TYPES.WHITE;
+  
   // Set the background color based on the selected kasina
   useEffect(() => {
-    const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
+    const bgColor = KASINA_BACKGROUNDS[safeKasinaType] || "#000000";
     gl.setClearColor(new THREE.Color(bgColor), 1);
-  }, [gl, selectedKasina]);
+    console.log(`Set scene background to: ${bgColor} for kasina: ${safeKasinaType}`);
+  }, [gl, selectedKasina, safeKasinaType]);
 
   // Add camera ref to work with zoom 
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
@@ -771,13 +780,19 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
     };
   }, []);
   
+  // Ensure we have a valid kasina type for the background
+  const safeKasinaType = selectedKasina && selectedKasina.trim().length > 0 
+    ? selectedKasina as KasinaType 
+    : KASINA_TYPES.WHITE;
+    
   // Get the background color for the selected kasina
-  const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
+  const bgColor = KASINA_BACKGROUNDS[safeKasinaType] || "#000000";
   
   return (
     <div 
       className="w-full h-full orb-content"
       style={{ backgroundColor: bgColor }}
+      data-kasina-type={safeKasinaType}
     >
       <Canvas>
         <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
