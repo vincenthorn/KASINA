@@ -12,35 +12,18 @@ interface FocusModeProps {
   children: React.ReactNode;
 }
 
-// Timer display component that shows the current time in focus mode
-const TimerDisplay: React.FC = () => {
-  const { duration, isRunning, elapsedTime, timeRemaining } = useSimpleTimer();
-  
-  // Format time as MM:SS
-  const formatTime = (seconds: number): string => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
-  
-  // If timer isn't running, don't show anything
-  if (!isRunning) return null;
-  
-  return (
-    <div className="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800">
-      <Timer className="h-4 w-4 text-gray-400" />
-      <div className="text-xl font-mono">
-        {timeRemaining === null ? 
-          formatTime(elapsedTime) : 
-          formatTime(timeRemaining)}
-      </div>
-    </div>
-  );
+// Helper function to format time as MM:SS, handling null
+const formatTime = (seconds: number | null): string => {
+  if (seconds === null) return "00:00";
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 };
 
 const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const { isFocusModeActive, enableFocusMode, disableFocusMode } = useFocusMode();
   const { selectedKasina } = useKasina();
+  const timerState = useSimpleTimer();
   const [isUIVisible, setIsUIVisible] = useState(true);
   const [lastActivity, setLastActivity] = useState(Date.now());
   const [zoomLevel, setZoomLevel] = useState(1); // 1 = 100% (default size)
@@ -268,17 +251,19 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           
           {/* Timer display - visible on mouse movement */}
           <div 
-            className={`fixed top-4 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`fixed top-16 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
           >
-            {/* Use the SimpleTimer component's data via the store */}
-            <div className="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800">
-              <Timer className="h-4 w-4 text-gray-400" />
-              <div className="text-xl font-mono">
-                {useSimpleTimer.getState().timeRemaining !== null
-                  ? formatTime(useSimpleTimer.getState().timeRemaining)
-                  : formatTime(useSimpleTimer.getState().elapsedTime)}
+            {/* Only show timer when it's running */}
+            {timerState.isRunning && (
+              <div className="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800">
+                <Timer className="h-4 w-4 text-gray-400" />
+                <div className="text-xl font-mono">
+                  {timerState.timeRemaining !== null 
+                    ? formatTime(timerState.timeRemaining) 
+                    : formatTime(timerState.elapsedTime)}
+                </div>
               </div>
-            </div>
+            )}
           </div>
           
           {/* Timer controls - visible on mouse movement */}
