@@ -16,7 +16,7 @@
   transform-style: preserve-3d;
 }
 
-/* Water kasina animation - liquid blue water that changes gradually */
+/* Water kasina animation - liquid blue water that morphs through different shades */
 .water-animation {
   animation: water-pulse 8s infinite alternate;
   box-shadow: 0 0 25px rgba(0, 153, 255, 0.7);
@@ -31,10 +31,32 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, #00b8ff 0%, #0077cc 50%, #005599 100%);
   opacity: 0.7;
-  animation: water-move 20s infinite linear;
+  animation: 
+    water-color-morph 15s infinite alternate,
+    water-move 20s infinite linear;
   transform-origin: center;
+}
+
+/* Add rippling water surface overlay */
+.water-animation::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: 
+    radial-gradient(
+      circle, 
+      rgba(255, 255, 255, 0.2) 0%, 
+      rgba(255, 255, 255, 0.1) 30%, 
+      transparent 70%
+    );
+  opacity: 0.3;
+  animation: water-surface 12s infinite linear;
+  pointer-events: none;
 }
 
 @keyframes water-pulse {
@@ -58,6 +80,74 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Color morphing animation for water */
+@keyframes water-color-morph {
+  0% {
+    background: radial-gradient(circle, #00b8ff 0%, #0077cc 50%, #005599 100%);
+    filter: brightness(1) saturate(1) contrast(1);
+    transform: scale(1);
+  }
+  16.67% {
+    background: radial-gradient(circle, #0099ff 0%, #0066cc 50%, #004488 100%);
+    filter: brightness(0.9) saturate(1.1) contrast(1.05);
+    transform: scale(1.01);
+  }
+  33.33% {
+    background: radial-gradient(circle, #00ccff 0%, #0088dd 50%, #0055aa 100%);
+    filter: brightness(1.1) saturate(0.9) contrast(0.95);
+    transform: scale(0.99);
+  }
+  50% {
+    background: radial-gradient(circle, #0077ff 0%, #0055dd 50%, #0033aa 100%);
+    filter: brightness(0.95) saturate(1.2) contrast(1.1);
+    transform: scale(1.02);
+  }
+  66.67% {
+    background: radial-gradient(circle, #33aaff 0%, #2288cc 50%, #006699 100%);
+    filter: brightness(1.05) saturate(0.95) contrast(1);
+    transform: scale(1);
+  }
+  83.33% {
+    background: radial-gradient(circle, #0066aa 0%, #004488 50%, #003366 100%);
+    filter: brightness(0.9) saturate(1.1) contrast(1.05);
+    transform: scale(0.98);
+  }
+  100% {
+    background: radial-gradient(circle, #0088cc 0%, #006699 50%, #004466 100%);
+    filter: brightness(1) saturate(1) contrast(1);
+    transform: scale(1);
+  }
+}
+
+/* Water surface rippling animation */
+@keyframes water-surface {
+  0% {
+    transform: rotate(0deg) scale(1) translateX(0px);
+    opacity: 0.2;
+    filter: blur(0px);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.05) translateX(3px);
+    opacity: 0.3;
+    filter: blur(0.5px);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1) translateX(0px);
+    opacity: 0.4;
+    filter: blur(1px);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.05) translateX(-3px);
+    opacity: 0.3;
+    filter: blur(0.5px);
+  }
+  100% {
+    transform: rotate(360deg) scale(1) translateX(0px);
+    opacity: 0.2;
+    filter: blur(0px);
   }
 }
 
