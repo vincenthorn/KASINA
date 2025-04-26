@@ -247,8 +247,8 @@ const DynamicOrb: React.FC = () => {
         const easeInOutQuad = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
         const breatheCycle = Math.sin(easeInOutQuad * Math.PI);
         
-        // Subtle scale factor (0.9 to 1.1 = 20% change, which is more natural)
-        const breatheFactor = 1 + breatheCycle * 0.2; 
+        // Very subtle scale factor (0.93 to 1.07 = 14% change, matching CSS animation)
+        const breatheFactor = 1 + breatheCycle * 0.15; 
         
         // Apply a more moderate scaling effect for the Space kasina's breathing
         // Use a scale range of 20% (0.9 to 1.1) which is noticeable but not too extreme

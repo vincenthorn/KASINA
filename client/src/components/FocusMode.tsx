@@ -164,7 +164,19 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           </div>
           
           {/* Render only the orb from the children */}
-          <div className="orb-container-wrapper">
+          <div className="orb-container-wrapper" style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            height: '100%',
+            overflow: 'hidden'
+          }}>
             {React.Children.map(children, (child) => {
               if (React.isValidElement(child)) {
                 // Find and extract only the .orb-container element
@@ -197,10 +209,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                   <div 
                     className={`orb-wrapper ${selectedKasina === 'space' ? 'kasina-space-breathe-effect' : ''}`}
                     style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
+                      position: 'relative',
                       width: `${300 * zoomLevel}px`,
                       height: `${300 * zoomLevel}px`,
                       display: 'flex',
