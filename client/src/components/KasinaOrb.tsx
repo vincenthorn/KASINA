@@ -10,16 +10,29 @@ import { KasinaType } from "../lib/types";
 const waterShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#0077cc") }, // Base water color
+    color: { value: new THREE.Color("#0065b3") }, // Deeper water base color
     opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
     varying vec3 vPosition;
+    uniform float time;
+    
+    // Add slight vertex displacement for more dynamic water surface
     void main() {
       vUv = uv;
       vPosition = position;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      
+      // Apply subtle vertex displacement for wave effect
+      vec3 pos = position;
+      
+      // Only deform surface slightly, not too much to keep spherical shape
+      float deformAmount = 0.025; // 2.5% deformation
+      
+      // Gentle wave motion on the surface
+      pos += normal * sin(position.x * 2.0 + position.y * 3.0 + time * 0.7) * deformAmount;
+      
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     }
   `,
   fragmentShader: `
@@ -29,12 +42,12 @@ const waterShader = {
     varying vec2 vUv;
     varying vec3 vPosition;
     
-    // Hash function for noise generation
+    // Hash function for noise
     float hash(float n) {
       return fract(sin(n) * 43758.5453);
     }
     
-    // 3D noise function for seamless water effect
+    // 3D noise function
     float noise(vec3 x) {
       vec3 p = floor(x);
       vec3 f = fract(x);
@@ -53,68 +66,126 @@ const waterShader = {
         f.z);
     }
     
-    // Flow function for water-like movement
-    float flow(vec3 p, float time) {
-      float n = 0.0;
-      
-      // Convert to spherical coordinates for seamless sphere mapping
+    // Wave movement function
+    vec3 waveDisplacement(vec3 p, float t) {
+      // Convert to spherical coordinates for smooth mapping
       float radius = length(p);
       float theta = acos(p.z / radius);
       float phi = atan(p.y, p.x);
       
-      // Layer different noise frequencies for water depth effect
+      // Create wave patterns
+      // Fast primary wave
+      float wave1 = sin(phi * 3.0 + theta * 4.0 + t * 0.6) * 0.5 + 0.5;
+      // Secondary intersecting wave
+      float wave2 = sin(phi * 5.0 - theta * 2.0 + t * 0.4) * 0.5 + 0.5;
+      // Slow undulating wave
+      float wave3 = sin(phi * 1.0 + t * 0.2) * 0.5 + 0.5;
+      
+      // Combine waves with different strengths for natural water movement
+      float wave = wave1 * 0.6 + wave2 * 0.3 + wave3 * 0.1;
+      
+      // Return wave displacement vector
+      return vec3(wave);
+    }
+    
+    // Function to create fluid water currents
+    float waterFlow(vec3 p, float t) {
+      // Get basic wave displacement
+      vec3 wave = waveDisplacement(p, t);
+      
+      // Convert to spherical for base mapping
+      float radius = length(p);
+      float theta = acos(p.z / radius);
+      float phi = atan(p.y, p.x);
+      
+      // Apply wave displacement to coordinates for fluid motion
+      phi += sin(wave.x * 3.1415) * 0.2; // Displace angle based on wave
+      theta += cos(wave.y * 3.1415) * 0.15; // Displace another angle
+      
+      // Build layered water currents
+      float flow = 0.0;
+      
+      // Add several layers of flowing noise
       for (float i = 1.0; i <= 4.0; i++) {
-        float speed = 0.2 - 0.05 * i; // Different speeds for each layer
-        float scale = pow(2.0, i - 1.0);
-        float intensity = pow(0.5, i); // Diminishing intensity for higher frequencies
+        // Faster flow speeds for more layers
+        float speed = 0.4 - 0.05 * i;
+        float scale = pow(1.8, i - 1.0);
+        float intensity = pow(0.7, i); // Higher intensity for water currents
         
-        // Animate noise in spherical coordinates for natural water flow
-        vec3 q = vec3(
-          phi * 3.0 * scale,
-          theta * 3.0 * scale,
-          radius * scale + time * speed
+        // Create flowing water currents
+        vec3 flowCoord = vec3(
+          phi * 2.5 * scale + t * speed * sin(theta),
+          theta * 2.5 * scale + t * speed * 0.5,
+          radius * scale + t * speed
         );
         
-        n += noise(q) * intensity;
+        // Add noise layer with flowing water effect
+        flow += noise(flowCoord) * intensity;
       }
       
-      return n * 0.65; // Scale to appropriate range
+      return flow * 0.6; // Adjust flow intensity
     }
     
     void main() {
-      // Get dynamic fluid motion based on position and time
-      float flowValue = flow(vPosition, time);
+      // Get dynamic water current flows
+      float flowValue = waterFlow(vPosition, time);
       
-      // Create multiple water shades based on flow value
-      vec3 deepBlue = vec3(0.0, 0.3, 0.6);      // Deep ocean blue
-      vec3 mediumBlue = vec3(0.0, 0.5, 0.8);    // Medium water blue
-      vec3 lightBlue = vec3(0.4, 0.7, 0.9);     // Light water blue
-      vec3 tropicalBlue = vec3(0.0, 0.8, 1.0);  // Tropical water blue
+      // Create a palette of vibrant water colors
+      vec3 deepOceanBlue = vec3(0.0, 0.2, 0.5);     // Deep ocean blue
+      vec3 midnightBlue = vec3(0.05, 0.25, 0.6);    // Midnight ocean blue
+      vec3 azureBlue = vec3(0.1, 0.4, 0.75);        // Azure water blue
+      vec3 caribbeanBlue = vec3(0.0, 0.5, 0.8);     // Caribbean blue
+      vec3 tropicalBlue = vec3(0.2, 0.65, 0.9);     // Tropical turquoise
       
-      // Map flow value to colors for fluid transitions
+      // Build complex wave patterns
+      vec3 p = normalize(vPosition); // Use normalized position
+      
+      // Create dynamic wave patterns with different frequencies
+      float waves = 0.0;
+      waves += sin(p.x * 8.0 + p.y * 4.0 + time * 0.8) * 0.08;
+      waves += sin(p.y * 7.0 - p.z * 5.0 + time * 0.6) * 0.06;
+      waves += sin(p.z * 6.0 + p.x * 3.0 + time * 0.4) * 0.04;
+      
+      // Add waves to flowValue for more complex patterns
+      flowValue += waves;
+      
+      // Calculate water color based on flow patterns
       vec3 waterColor;
-      if (flowValue < 0.3) {
-        float t = flowValue / 0.3;
-        waterColor = mix(deepBlue, mediumBlue, t);
-      } else if (flowValue < 0.6) {
-        float t = (flowValue - 0.3) / 0.3;
-        waterColor = mix(mediumBlue, lightBlue, t);
+      if (flowValue < 0.25) {
+        float t = flowValue / 0.25;
+        waterColor = mix(deepOceanBlue, midnightBlue, t);
+      } else if (flowValue < 0.5) {
+        float t = (flowValue - 0.25) / 0.25;
+        waterColor = mix(midnightBlue, azureBlue, t);
+      } else if (flowValue < 0.75) {
+        float t = (flowValue - 0.5) / 0.25;
+        waterColor = mix(azureBlue, caribbeanBlue, t);
       } else {
-        float t = (flowValue - 0.6) / 0.4;
-        waterColor = mix(lightBlue, tropicalBlue, t);
+        float t = (flowValue - 0.75) / 0.25;
+        waterColor = mix(caribbeanBlue, tropicalBlue, t);
       }
       
-      // Add subtle wave highlights and reflections
-      float highlight = pow(max(0.0, sin(flowValue * 10.0)), 5.0) * 0.15;
+      // Add specular highlights for water surface
+      float fresnel = pow(1.0 - max(0.0, dot(normalize(vPosition), vec3(0.0, 0.0, 1.0))), 2.0);
       
-      // Add high-frequency ripple detail
-      float ripple = sin(vPosition.x * 20.0 + time) * sin(vPosition.y * 20.0 + time) * 0.02;
+      // Surface ripples and circular wave patterns
+      float ripples = 0.0;
+      // Small fast ripples
+      ripples += sin(length(p) * 40.0 - time * 1.0) * 0.01;
+      // Medium ripples
+      ripples += sin(p.x * 15.0 + p.y * 15.0 + time * 0.8) * sin(p.y * 10.0 + p.z * 10.0 + time * 1.2) * 0.025;
       
-      // Combine for final water effect
-      vec3 finalColor = waterColor + highlight + ripple;
+      // Add soft underwater glow/light rays
+      float glow = pow(1.0 - length(vPosition) * 0.5, 2.0) * 0.15;
       
-      // Apply base color influence and opacity
-      gl_FragColor = vec4(finalColor, opacity);
+      // Add water surface highlights based on viewing angle
+      float highlight = fresnel * 0.15;
+      
+      // Final water color with all effects combined
+      vec3 finalColor = waterColor + ripples + glow + highlight;
+      
+      // Final color with slightly enhanced transparency for water
+      gl_FragColor = vec4(finalColor, opacity * 0.9);
     }
   `
 };
