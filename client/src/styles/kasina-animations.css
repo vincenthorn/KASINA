@@ -586,12 +586,15 @@
   }
 }
 
-/* Space kasina animation - dark purple with starry effects */
+/* Space kasina animation - inverted: black orb with dark purple background */
 .space-animation {
   animation: space-pulse 15s infinite alternate;
+  /* Outer purple glow */
   box-shadow: 0 0 35px rgba(51, 0, 102, 0.7);
   position: relative;
   overflow: hidden;
+  /* Purple background with slightly smoother shade */
+  background-color: #2a0055;
 }
 
 .space-animation::before {
@@ -601,8 +604,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at center, #330066 0%, #220044 60%, #110022 100%);
-  opacity: 0.8;
+  /* Black center with very slight dark purple gradient for depth */
+  background: radial-gradient(ellipse at center, #000000 0%, #0a0011 60%, #110022 100%);
+  opacity: 0.95;
   animation: space-nebula 30s infinite linear;
 }
 
@@ -621,25 +625,34 @@
 
 @keyframes space-pulse {
   0% {
-    filter: brightness(0.8) contrast(1.1);
-    transform: scale(0.98);
+    filter: brightness(0.8) contrast(1.3);
+    transform: scale(0.99);
+    box-shadow: 0 0 35px rgba(51, 0, 102, 0.6);
   }
   50% {
-    filter: brightness(1) contrast(1.2);
-    transform: scale(1.02);
+    filter: brightness(1) contrast(1.5);
+    transform: scale(1.01);
+    box-shadow: 0 0 45px rgba(51, 0, 102, 0.8);
   }
   100% {
-    filter: brightness(0.9) contrast(1.1);
+    filter: brightness(0.9) contrast(1.3);
     transform: scale(0.99);
+    box-shadow: 0 0 35px rgba(51, 0, 102, 0.6);
   }
 }
 
 @keyframes space-nebula {
   0% {
     transform: rotate(0deg) scale(1);
+    opacity: 0.98;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+    opacity: 0.95;
   }
   100% {
-    transform: rotate(360deg) scale(1.1);
+    transform: rotate(360deg) scale(1);
+    opacity: 0.98;
   }
 }
 
