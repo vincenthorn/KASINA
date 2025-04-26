@@ -8,12 +8,15 @@ import { KasinaType } from '../lib/types';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
 import FocusMode from './FocusMode';
+import KasinaOrb from './KasinaOrb';
 import { formatTime } from '../lib/utils';
 import { toast } from 'sonner';
+import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
 const TimerFreestyle: React.FC = () => {
   const { selectedKasina, setSelectedKasina, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
+  const { timeRemaining } = useSimpleTimer();
   
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedTab, setSelectedTab] = useState<string>("simple");
@@ -248,23 +251,12 @@ const TimerFreestyle: React.FC = () => {
           
           {/* Right column - Kasina Orb */}
           <div className="flex-1 relative flex items-center justify-center rounded-lg" 
-               style={{ 
-                 backgroundColor: getBackgroundForKasina(typedKasina), 
-                 minHeight: '400px',
-                 transition: 'background-color 0.5s ease' 
-               }}>
-            <div 
-                 className={`orb-container orb-content w-80 h-80 rounded-full relative flex items-center justify-center 
-                   ${shouldApplyAnimation(typedKasina) ? getAnimationClass(typedKasina) : ''}
-                   ${typedKasina === KASINA_TYPES.SPACE ? 'kasina-space-breathe-effect' : ''}`} 
-                 style={{ 
-                   backgroundColor: getColorForKasina(typedKasina),
-                   border: `3px solid ${getColorForKasina(typedKasina)}`,
-                   transition: 'background-color 0.5s ease, border-color 0.5s ease'
-                 }}>
-              <div className="text-white text-opacity-0">
-                {selectedKasina} kasina
-              </div>
+               style={{ minHeight: '400px' }}>
+            <div className="w-full h-full" style={{ minHeight: '400px' }}>
+              <KasinaOrb 
+                type={typedKasina} 
+                remainingTime={timeRemaining} 
+              />
             </div>
           </div>
         </div>
