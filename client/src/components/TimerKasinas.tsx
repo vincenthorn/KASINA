@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { useKasina } from '../lib/stores/useKasina';
-import { KASINA_NAMES, KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
+import { KASINA_NAMES, KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS, KASINA_EMOJIS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
@@ -210,7 +210,7 @@ const TimerKasinas: React.FC = () => {
                       color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
                     }}
                   >
-                    White
+                    {KASINA_EMOJIS[KASINA_TYPES.WHITE]} White
                   </Button>
                   
                   <Button
@@ -221,7 +221,7 @@ const TimerKasinas: React.FC = () => {
                       backgroundColor: selectedKasina === KASINA_TYPES.BLUE ? KASINA_COLORS.blue : 'transparent' 
                     }}
                   >
-                    Blue
+                    {KASINA_EMOJIS[KASINA_TYPES.BLUE]} Blue
                   </Button>
                   
                   <Button
@@ -232,7 +232,7 @@ const TimerKasinas: React.FC = () => {
                       backgroundColor: selectedKasina === KASINA_TYPES.RED ? KASINA_COLORS.red : 'transparent' 
                     }}
                   >
-                    Red
+                    {KASINA_EMOJIS[KASINA_TYPES.RED]} Red
                   </Button>
                   
                   <Button
@@ -244,7 +244,7 @@ const TimerKasinas: React.FC = () => {
                       color: selectedKasina === KASINA_TYPES.YELLOW ? 'black' : 'white'
                     }}
                   >
-                    Yellow
+                    {KASINA_EMOJIS[KASINA_TYPES.YELLOW]} Yellow
                   </Button>
                 </div>
                 
