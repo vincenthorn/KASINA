@@ -77,8 +77,8 @@ const InfinityMode = () => {
         kasinaType: typedKasina,
         kasinaName: KASINA_NAMES[typedKasina] || typedKasina,
         duration: elapsedTime,
-        timestamp: new Date().toISOString(),
-        userEmail: email // Include user email
+        timestamp: new Date().toISOString()
+        // userEmail will be set by the server
       };
       
       // Store in localStorage
@@ -93,9 +93,14 @@ const InfinityMode = () => {
           }
         }
         
-        existingSessions.push(sessionData);
+        // Add user email to the session in localStorage
+        const sessionWithUser = {
+          ...sessionData,
+          userEmail: email // Add current user email
+        };
+        existingSessions.push(sessionWithUser);
         window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
-        console.log("INFINITY PAGE: Session saved to localStorage");
+        console.log("INFINITY PAGE: Session saved to localStorage with user:", email);
       } catch (localStorageError) {
         console.error("INFINITY PAGE: LocalStorage error:", localStorageError);
       }

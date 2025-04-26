@@ -302,11 +302,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       return res.status(401).json({ message: "Authentication required" });
     }
     
-    // Include user email in the session
+    // Include user email in the session (merging req.body first, then overriding email)
     const session = {
       id: Date.now().toString(),
-      userEmail: req.session.user.email,
-      ...req.body
+      ...req.body,
+      userEmail: req.session.user.email // Override any userEmail sent from client
     };
     
     sessions.push(session);

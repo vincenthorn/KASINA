@@ -34,26 +34,13 @@ export const useKasina = create<KasinaState>((set, get) => ({
     try {
       console.log("Saving session:", session);
       
-      // Try to get current user email from localStorage
-      // This is set by the auth system when a user logs in
-      let userEmail = null;
-      try {
-        const authData = localStorage.getItem("auth");
-        if (authData) {
-          const parsedAuth = JSON.parse(authData);
-          userEmail = parsedAuth.email;
-        }
-      } catch (e) {
-        console.warn("Failed to get user email from localStorage:", e);
-      }
-      
       // Format the session data
       const sessionData = {
         kasinaType: session.kasinaType,
         kasinaName: KASINA_NAMES[session.kasinaType] || session.kasinaType,
         duration: session.duration,
         timestamp: new Date().toISOString(),
-        userEmail: userEmail, // Include user email if available
+        // The userEmail will be set by the server based on the authenticated user
       };
       
       // Only save to server, not to localStorage
@@ -67,10 +54,25 @@ export const useKasina = create<KasinaState>((set, get) => ({
         
         // Only save to localStorage as fallback if server save fails
         const localSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
+        
+        // Try to get user email from auth data in localStorage
+        let userEmail = null;
+        try {
+          const authData = localStorage.getItem("auth");
+          if (authData) {
+            const parsedAuth = JSON.parse(authData);
+            userEmail = parsedAuth.email;
+          }
+        } catch (e) {
+          console.warn("Failed to get user email from localStorage:", e);
+        }
+        
         const newSession = {
           id: Date.now().toString(),
-          ...sessionData
+          ...sessionData,
+          userEmail // Include user email in localStorage fallback
         };
+        
         localSessions.push(newSession);
         localStorage.setItem("sessions", JSON.stringify(localSessions));
         console.log("Session saved to local storage as fallback:", newSession);

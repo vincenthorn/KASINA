@@ -40,5 +40,13 @@
     "kasinaName": "Fire",
     "duration": 59,
     "timestamp": "2025-04-26T04:05:47.812Z"
+  },
+  {
+    "id": "1745641225966",
+    "userEmail": null,
+    "kasinaType": "space",
+    "kasinaName": "Space",
+    "duration": 59,
+    "timestamp": "2025-04-26T04:20:25.803Z"
   }
 ]
