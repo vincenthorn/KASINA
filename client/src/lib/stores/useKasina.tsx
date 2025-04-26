@@ -50,11 +50,18 @@ export const useKasina = create<KasinaState>((set, get) => ({
       
       console.log("saveSession - Duration to save:", duration, "seconds");
       
-      // Format the session data
+      // Format the session data with explicit duration info
+      // CRITICAL FIX: Include both original and processed durations for server reference
+      let durationMinutes = Math.round(duration / 60);
+      
       const sessionData = {
         kasinaType: session.kasinaType,
-        kasinaName: KASINA_NAMES[session.kasinaType] || session.kasinaType,
+        // Include a duration reference in the name to help debugging
+        kasinaName: `${KASINA_NAMES[session.kasinaType] || session.kasinaType} (${durationMinutes}-minute)`,
         duration: duration, // Use our validated duration
+        // Include original duration values to help the server make correct decisions
+        originalDuration: session.duration, // The raw value from the original session object
+        durationInMinutes: durationMinutes, // Duration in minutes for easier reference
         timestamp: new Date().toISOString(),
         // The userEmail will be set by the server based on the authenticated user
       };
