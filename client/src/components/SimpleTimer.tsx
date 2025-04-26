@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Button } from './ui/button';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useFocusMode } from '../lib/stores/useFocusMode';
+import { formatTime } from '../lib/utils';
 import { Input } from './ui/input';
 
 interface SimpleTimerProps {
@@ -29,12 +30,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     tick
   } = useSimpleTimer();
   
-  // State for editable timer
+  // State for editable timer - simplified to just minutes
   const [isEditing, setIsEditing] = useState(false);
   const [minutesInput, setMinutesInput] = useState('');
-  const [secondsInput, setSecondsInput] = useState('');
   const minutesInputRef = useRef<HTMLInputElement>(null);
-  const secondsInputRef = useRef<HTMLInputElement>(null);
   
   // Set initial duration if provided and only when the component first mounts
   useEffect(() => {
@@ -94,22 +93,15 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     };
   }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate]);
   
-  // Format time as MM:SS
-  const formatTime = (seconds: number): string => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  // Using formatTime imported from utils
   
   // Toggle edit mode
   const startEditing = () => {
     if (isRunning) return; // Don't allow editing while timer is running
     
-    // Initialize the input fields with current duration
+    // Initialize the input field with current duration in minutes
     const mins = Math.floor((duration || 0) / 60);
-    const secs = (duration || 0) % 60;
     setMinutesInput(mins.toString());
-    setSecondsInput(secs.toString().padStart(2, '0'));
     
     setIsEditing(true);
     
@@ -128,12 +120,6 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     if (e.key === 'Enter') {
       handleSaveTime();
     }
-    // If Tab key is pressed on minutes, move to seconds
-    else if (e.key === 'Tab' && !e.shiftKey && e.currentTarget === minutesInputRef.current) {
-      e.preventDefault();
-      secondsInputRef.current?.focus();
-      secondsInputRef.current?.select();
-    }
     // If Escape key is pressed, cancel editing
     else if (e.key === 'Escape') {
       setIsEditing(false);
@@ -142,21 +128,15 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   
   // Handle saving the edited time
   const handleSaveTime = () => {
-    // Convert inputs to numbers
+    // Convert input to number
     const mins = parseInt(minutesInput) || 0;
-    const secs = parseInt(secondsInput) || 0;
     
-    // Validate seconds (0-59)
-    const validatedSecs = Math.min(Math.max(secs, 0), 59);
-    
-    // Calculate total seconds
-    const totalSeconds = (mins * 60) + validatedSecs;
-    
-    // Set minimum duration to 1 second
-    const newDuration = Math.max(totalSeconds, 1);
+    // Set minimum duration to 1 minute (60 seconds)
+    const totalSeconds = mins * 60;
+    const newDuration = Math.max(totalSeconds, 60); // Minimum 1 minute
     
     // Update timer
-    console.log(`Custom time set to ${mins}:${validatedSecs.toString().padStart(2, '0')} (${newDuration} seconds)`);
+    console.log(`Custom time set to ${mins} minutes (${newDuration} seconds)`);
     setDuration(newDuration);
     setIsEditing(false);
   };
@@ -166,36 +146,18 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   return (
     <div className="flex flex-col items-center space-y-4">
       {isEditing ? (
-        <div className="flex items-center space-x-1 text-white">
+        <div className="flex items-center space-x-2 text-white">
           <Input
             ref={minutesInputRef}
             type="text"
             value={minutesInput}
             onChange={(e) => setMinutesInput(e.target.value.replace(/[^0-9]/g, ''))}
             onKeyDown={handleKeyPress}
-            className="w-16 text-center font-mono text-white bg-gray-800 focus:ring-blue-500"
+            className="w-20 text-center font-mono text-white bg-gray-800 focus:ring-blue-500"
             maxLength={3}
-            placeholder="00"
+            placeholder="minutes"
           />
-          <span className="text-xl font-mono">:</span>
-          <Input
-            ref={secondsInputRef}
-            type="text"
-            value={secondsInput}
-            onChange={(e) => {
-              const value = e.target.value.replace(/[^0-9]/g, '');
-              setSecondsInput(value.length > 0 ? value : '00');
-            }}
-            onKeyDown={handleKeyPress}
-            className="w-16 text-center font-mono text-white bg-gray-800 focus:ring-blue-500"
-            maxLength={2}
-            placeholder="00"
-            onBlur={() => {
-              // Format seconds with leading zero
-              const value = parseInt(secondsInput) || 0;
-              setSecondsInput(value.toString().padStart(2, '0'));
-            }}
-          />
+          <span className="text-sm">minutes</span>
           <Button size="sm" variant="outline" onClick={handleSaveTime} className="ml-2">
             Set
           </Button>
