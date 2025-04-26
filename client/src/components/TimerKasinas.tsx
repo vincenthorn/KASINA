@@ -61,25 +61,8 @@ const TimerKasinas: React.FC = () => {
   // Set up a timer ref to track duration
   const timerDurationRef = useRef<HTMLDivElement>(null);
   
-  // Save session to history (manual save button)
-  const saveSession = () => {
-    if (elapsedTime > 0) {
-      // Round up time to nearest minute for consistency
-      const roundedElapsedTime = roundUpToNearestMinute(elapsedTime);
-      
-      addSession({
-        kasinaType: selectedKasina,
-        duration: roundedElapsedTime
-      });
-      
-      toast.success(`Your ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation has been saved.`);
-      
-      // Reset elapsed time
-      setElapsedTime(0);
-    } else {
-      toast.error("Please complete a meditation session first.");
-    }
-  };
+  // Note: Manual save session functionality has been removed
+  // Sessions are now saved automatically when the timer completes
   
   // Handle timer start to enable focus mode
   const handleTimerStart = () => {
@@ -296,14 +279,7 @@ const TimerKasinas: React.FC = () => {
                 </CardContent>
               </Card>
               
-              <div className="flex justify-end">
-                <Button 
-                  onClick={saveSession}
-                  disabled={elapsedTime === 0}
-                >
-                  Save Session
-                </Button>
-              </div>
+              {/* Sessions are now saved automatically when the timer completes */}
             </TabsContent>
           </Tabs>
         </div>
