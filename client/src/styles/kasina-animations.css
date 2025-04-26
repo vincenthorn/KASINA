@@ -123,17 +123,19 @@
   box-shadow: 0 0 30px rgba(211, 240, 255, 0.8);
   position: relative;
   overflow: hidden;
+  border: none !important; /* Remove border to fix edge artifacts */
 }
 
 .air-animation::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(211, 240, 255, 0.7) 50%, rgba(173, 216, 230, 0.8) 100%);
-  opacity: 0.7;
+  top: -10%;  /* Extend past the borders to avoid artifacts */
+  left: -10%;
+  width: 120%; /* Wider than container to ensure no edge artifacts */
+  height: 120%;
+  border-radius: 50%; /* Keep the circular shape */
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(211, 240, 255, 0.8) 60%, rgba(173, 216, 230, 0.7) 100%);
+  opacity: 0.9;
   animation: air-swirl 15s infinite linear;
 }
 
