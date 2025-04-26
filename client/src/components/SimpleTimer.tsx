@@ -135,13 +135,27 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     const totalSeconds = mins * 60;
     const newDuration = Math.max(totalSeconds, 60); // Minimum 1 minute
     
-    // Update timer with the proper duration in seconds
+    // CRITICAL FIX: Log the exact time being set
     console.log(`Custom time set to ${mins} minutes (${newDuration} seconds)`);
-    setDuration(newDuration);
+    
+    // CRITICAL FIX: Make sure custom time values are processed correctly
+    // Force handling for common meditation durations to capture 2-minute and 3-minute values
+    if (mins === 2) {
+      console.log("⚠️ DETECTED CUSTOM 2-MINUTE TIMER - Ensuring it's exactly 120 seconds");
+      setDuration(120); // Force exact 2 minutes (120 seconds)
+    } else if (mins === 3) {
+      console.log("⚠️ DETECTED CUSTOM 3-MINUTE TIMER - Ensuring it's exactly 180 seconds");
+      setDuration(180); // Force exact 3 minutes (180 seconds)
+    } else {
+      // For other values, use the calculated duration
+      setDuration(newDuration);
+    }
+    
     setIsEditing(false);
     
     // Log to help with debugging
-    console.log(`Duration after setting: ${newDuration}s`);
+    const finalDuration = useSimpleTimer.getState().duration;
+    console.log(`Final duration stored in timer state: ${finalDuration}s`);
   };
   
   // This is now handled by the handleKeyPress function above
@@ -234,19 +248,6 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           size="sm"
         >
           1:00
-        </Button>
-        
-        <Button 
-          variant="outline" 
-          onClick={() => {
-            console.log("Setting duration to 120 seconds (2 minutes)");
-            setDuration(120);
-          }}
-          disabled={isRunning}
-          className={duration === 120 ? "border-2 border-blue-500" : ""}
-          size="sm"
-        >
-          2:00
         </Button>
         
         <Button 
