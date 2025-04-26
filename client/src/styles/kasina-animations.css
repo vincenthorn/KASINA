@@ -613,15 +613,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    radial-gradient(1px 1px at 50px 80px, #ffffff 100%, transparent 0),
-    radial-gradient(1px 1px at 150px 50px, #ffffff 100%, transparent 0),
-    radial-gradient(1px 1px at 100px 150px, #ffffff 100%, transparent 0),
-    radial-gradient(1px 1px at 30px 150px, #ffffff 100%, transparent 0),
-    radial-gradient(1px 1px at 170px 40px, #ffffff 100%, transparent 0),
-    radial-gradient(1px 1px at 200px 200px, #ffffff 100%, transparent 0);
-  opacity: 0.5;
-  animation: space-stars 20s infinite linear;
+  /* Removed the white specks/stars */
+  background-image: none;
+  opacity: 0;
+  animation: none;
 }
 
 @keyframes space-pulse {
