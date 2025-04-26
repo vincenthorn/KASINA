@@ -230,7 +230,7 @@ const ReflectionPage: React.FC = () => {
         <div className="text-center py-10 bg-gray-900 rounded-lg">
           <div className="text-6xl mb-4">📊</div>
           <h3 className="text-xl font-semibold text-white mb-2">No meditation sessions recorded yet</h3>
-          <p className="text-gray-400">Complete a meditation session in Freestyle mode to start tracking your practice.</p>
+          <p className="text-gray-400">Complete a meditation session in Kasinas mode to start tracking your practice.</p>
         </div>
       ) : (
         <div className="space-y-8">

@@ -82,7 +82,7 @@ export const useKasina = create<KasinaState>((set, get) => ({
     }
   },
   
-  // Alias for saveSession to maintain compatibility with TimerFreestyle component
+  // Alias for saveSession to maintain compatibility with TimerKasinas component
   addSession: async (session) => {
     // Just delegate to saveSession - this is for backwards compatibility
     const { saveSession } = get();
