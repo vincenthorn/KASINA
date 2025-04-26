@@ -652,11 +652,18 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.25); /* Expand to 125% (25% growth) to make it more noticeable */
+    transform: scale(1.3); /* Expand to 130% (30% growth) to make it very noticeable */
   }
   100% {
     transform: scale(1);
   }
+}
+
+/* Special class to apply directly to elements in focus mode for guaranteed animation */
+.kasina-space-breathe-effect {
+  animation: space-breathe 15s infinite cubic-bezier(0.4, 0, 0.6, 1) !important;
+  transform-origin: center !important;
+  will-change: transform !important;
 }
 
 @keyframes space-nebula {

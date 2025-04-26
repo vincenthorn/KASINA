@@ -250,13 +250,35 @@ const DynamicOrb: React.FC = () => {
         // Slightly larger scale factor (0.7 to 1.3 = 30% change)
         const breatheFactor = 1 + breatheCycle * 0.3; 
         
-        // Apply the scaling effect
+        // Apply the scaling effect with a very pronounced breathing effect
+        // Use a larger scale range (0.7 to 1.3) for more noticeable breathing
         meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
         
-        // Also adjust glow intensity based on the breathing cycle to enhance the effect
+        // Also apply a pulsing effect to the orb's position (slight motion in z-axis)
+        // This makes the breathing effect more noticeable
+        meshRef.current.position.z = breatheCycle * 0.2; // Move slightly in z-direction
+        
+        // Try to adjust any shader uniforms that might be available
         if (materialRef.current && 'uniforms' in materialRef.current) {
-          const glowIntensity = 0.5 + breatheCycle * 0.3; // Oscillate between 0.2 and 0.8
-          (materialRef.current as THREE.ShaderMaterial).uniforms.glowIntensity = { value: glowIntensity };
+          try {
+            // Attempt to modify any shader uniforms that might affect the appearance
+            const material = materialRef.current as THREE.ShaderMaterial;
+            
+            if (material.uniforms.glowIntensity !== undefined) {
+              material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
+            }
+            
+            if (material.uniforms.intensity !== undefined) {
+              material.uniforms.intensity.value = 0.5 + breatheCycle * 0.3;
+            }
+            
+            // Update opacity to create a pulsing effect
+            if (material.uniforms.opacity !== undefined) {
+              material.uniforms.opacity.value = 0.8 + breatheCycle * 0.2;
+            }
+          } catch (e) {
+            // Silently catch errors if uniforms don't exist
+          }
         }
       }
     }

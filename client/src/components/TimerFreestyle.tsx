@@ -253,7 +253,10 @@ const TimerFreestyle: React.FC = () => {
                  minHeight: '400px',
                  transition: 'background-color 0.5s ease' 
                }}>
-            <div className={`orb-container orb-content w-80 h-80 rounded-full relative flex items-center justify-center ${shouldApplyAnimation(typedKasina) ? getAnimationClass(typedKasina) : ''}`} 
+            <div 
+                 className={`orb-container orb-content w-80 h-80 rounded-full relative flex items-center justify-center 
+                   ${shouldApplyAnimation(typedKasina) ? getAnimationClass(typedKasina) : ''}
+                   ${typedKasina === KASINA_TYPES.SPACE ? 'kasina-space-breathe-effect' : ''}`} 
                  style={{ 
                    backgroundColor: getColorForKasina(typedKasina),
                    border: `3px solid ${getColorForKasina(typedKasina)}`,

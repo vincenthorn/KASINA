@@ -194,7 +194,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 // Create a wrapper for the orb to ensure it stays centered regardless of animations
                 return orb ? (
                   <div 
-                    className="orb-wrapper" 
+                    className={`orb-wrapper ${selectedKasina === 'space' ? 'kasina-space-breathe-effect' : ''}`}
                     style={{
                       position: 'fixed',
                       top: '50%',
