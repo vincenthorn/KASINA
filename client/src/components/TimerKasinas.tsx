@@ -25,6 +25,9 @@ const TimerKasinas: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<string>("simple");
   const [elapsedTime, setElapsedTime] = useState(0);
   
+  // Add a unique key for the orb rendering to force re-initialization when needed
+  const [orbKey, setOrbKey] = useState<string>(() => `kasina-orb-${Date.now()}`);
+  
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
   
@@ -64,6 +67,11 @@ const TimerKasinas: React.FC = () => {
       // Re-initialize the kasina selection to ensure we get a fresh orb
       const currentKasina = selectedKasina;
       console.log(`Re-initializing kasina orb from ${currentKasina}`);
+      
+      // Generate a new orbKey to force a complete re-initialization of the ThreeJS canvas
+      const newOrbKey = `kasina-orb-${Date.now()}`;
+      setOrbKey(newOrbKey);
+      console.log(`Generated new orbKey: ${newOrbKey}`);
       
       // Force a re-render of the kasina by briefly setting it to a different value and back
       // This is more reliable than relying on the key prop alone
@@ -524,7 +532,7 @@ const TimerKasinas: React.FC = () => {
             <div className="w-full h-full" style={{ minHeight: '400px' }}>
               {/* Added key to force re-render when the component updates */}
               <KasinaOrb 
-                key={`kasina-preview-${selectedKasina}-${Date.now()}`}
+                key={orbKey}
                 type={typedKasina} 
                 remainingTime={timeRemaining} 
               />
