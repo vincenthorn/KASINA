@@ -20,7 +20,18 @@ export const useFocusMode = create<FocusModeState>((set, get) => ({
     // Remove body class to avoid CSS conflicts with our dialog approach
     document.body.classList.remove('focus-mode-body');
     document.body.classList.remove('cursor-none');
-    set({ isFocusModeActive: false });
+    
+    // Ensure clean state for future focus mode activations
+    console.log("Disabling focus mode and cleaning up state");
+    
+    // Set state after a tiny delay to ensure React has time to process
+    // This helps prevent issues with re-rendering
+    setTimeout(() => {
+      set({ isFocusModeActive: false });
+      
+      // Log confirmation of state update
+      console.log("Focus mode state updated to:", false);
+    }, 10);
   },
   
   toggleFocusMode: () => {

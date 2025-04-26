@@ -66,6 +66,13 @@ const TimerKasinas: React.FC = () => {
     // For fully completed timers, use the originally set duration (custom or preset)
     // For manually stopped timers, use the elapsed time
     const durationToSave = duration || 60; // Use the duration that was set, or default to 60s
+    
+    // Log the exact value being used for saving
+    console.log("DURATION DETAILS:");
+    console.log("- Original duration from useSimpleTimer store:", duration, "seconds");
+    console.log("- Duration being used for saving:", durationToSave, "seconds");
+    
+    // Always round up to the nearest minute for consistent storage
     const roundedDuration = roundUpToNearestMinute(durationToSave);
     
     console.log("TIMER COMPLETION - Duration values:");

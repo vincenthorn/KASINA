@@ -646,6 +646,17 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
   const { gl, camera } = useThree();
   const { selectedKasina } = useKasina();
   
+  // Debug mount/unmount for troubleshooting
+  useEffect(() => {
+    console.log("Scene component mounted with kasina:", selectedKasina);
+    
+    // Make sure to clean up WebGL resources properly when scene unmounts
+    return () => {
+      console.log("Scene component unmounted, releasing resources");
+      gl.renderLists.dispose();
+    };
+  }, []);
+  
   // Set the background color based on the selected kasina
   useEffect(() => {
     const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
@@ -717,8 +728,18 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
     if (type) {
       const kasinaStore = useKasina.getState();
       kasinaStore.setSelectedKasina(type);
+      console.log("KasinaOrb: Setting kasina type to", type);
     }
   }, [type]);
+  
+  // When component mounts or unmounts, log for debugging
+  useEffect(() => {
+    console.log("KasinaOrb component mounted with type:", type);
+    
+    return () => {
+      console.log("KasinaOrb component unmounted, had type:", type);
+    };
+  }, []);
   
   // Get the background color for the selected kasina
   const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";

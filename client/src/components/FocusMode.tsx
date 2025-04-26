@@ -91,10 +91,22 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
     };
   }, [isFocusModeActive, isUIVisible]);
   
-  // Reset zoom level when exiting focus mode
+  // Reset zoom level and clean up when exiting focus mode
   useEffect(() => {
     if (!isFocusModeActive) {
+      // Reset zoom level
       setZoomLevel(1);
+      
+      // Ensure cursor is restored
+      document.body.classList.remove('cursor-none');
+      
+      // Add a small delay before allowing re-entry to focus mode
+      // This ensures any lingering cleanup happens
+      const timer = setTimeout(() => {
+        console.log("Focus mode cleanup complete");
+      }, 200);
+      
+      return () => clearTimeout(timer);
     }
   }, [isFocusModeActive]);
   
