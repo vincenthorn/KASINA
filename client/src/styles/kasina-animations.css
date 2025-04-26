@@ -33,8 +33,8 @@
   height: 200%;
   opacity: 0.7;
   animation: 
-    water-color-morph 30s infinite alternate ease-in-out,
-    water-move 25s infinite linear;
+    water-color-morph 150s infinite alternate ease-in-out,
+    water-move 125s infinite linear;
   transform-origin: center;
 }
 
@@ -50,12 +50,12 @@
   background: 
     radial-gradient(
       circle, 
-      rgba(255, 255, 255, 0.2) 0%, 
-      rgba(255, 255, 255, 0.1) 30%, 
+      rgba(255, 255, 255, 0.15) 0%, 
+      rgba(255, 255, 255, 0.08) 30%, 
       transparent 70%
     );
-  opacity: 0.3;
-  animation: water-surface 25s infinite linear;
+  opacity: 0.25;
+  animation: water-surface 125s infinite linear;
   pointer-events: none;
 }
 
@@ -83,116 +83,241 @@
   }
 }
 
-/* Color morphing animation for water */
+/* Color morphing animation for water - extremely gradual with many shades of blue */
 @keyframes water-color-morph {
   0% {
     background: radial-gradient(circle, #00b8ff 0%, #0077cc 50%, #005599 100%);
     filter: brightness(1) saturate(1) contrast(1);
     transform: scale(1);
   }
-  10% {
-    background: radial-gradient(circle, #00b0f5 0%, #0074c8 50%, #005090 100%);
+  4% {
+    background: radial-gradient(circle, #00b4fc 0%, #0075c9 50%, #005496 100%);
+    filter: brightness(0.995) saturate(1.005) contrast(1.003);
+    transform: scale(1.0005);
+  }
+  8% {
+    background: radial-gradient(circle, #00b0f8 0%, #0074c6 50%, #005393 100%);
+    filter: brightness(0.99) saturate(1.01) contrast(1.005);
+    transform: scale(1.001);
+  }
+  12% {
+    background: radial-gradient(circle, #00aaf4 0%, #0072c3 50%, #005290 100%);
+    filter: brightness(0.985) saturate(1.015) contrast(1.008);
+    transform: scale(1.0015);
+  }
+  16% {
+    background: radial-gradient(circle, #00a4f0 0%, #0070c0 50%, #00518d 100%);
     filter: brightness(0.98) saturate(1.02) contrast(1.01);
     transform: scale(1.002);
   }
   20% {
-    background: radial-gradient(circle, #0099ff 0%, #0066cc 50%, #004488 100%);
-    filter: brightness(0.96) saturate(1.05) contrast(1.02);
-    transform: scale(1.005);
+    background: radial-gradient(circle, #009eeb 0%, #006ebd 50%, #00508a 100%);
+    filter: brightness(0.975) saturate(1.025) contrast(1.015);
+    transform: scale(1.0025);
   }
-  30% {
-    background: radial-gradient(circle, #00abff 0%, #0070dd 50%, #004d99 100%);
-    filter: brightness(1.02) saturate(0.98) contrast(0.99);
-    transform: scale(0.998);
-  }
-  40% {
-    background: radial-gradient(circle, #00ccff 0%, #0088dd 50%, #0055aa 100%);
-    filter: brightness(1.05) saturate(0.95) contrast(0.97);
-    transform: scale(0.995);
-  }
-  50% {
-    background: radial-gradient(circle, #0077ff 0%, #0055dd 50%, #0033aa 100%);
-    filter: brightness(0.97) saturate(1.08) contrast(1.04);
-    transform: scale(1.008);
-  }
-  60% {
-    background: radial-gradient(circle, #1a8eff 0%, #1166dd 50%, #0044aa 100%);
-    filter: brightness(1) saturate(1.02) contrast(1.02);
+  24% {
+    background: radial-gradient(circle, #0098e7 0%, #006cba 50%, #004f87 100%);
+    filter: brightness(0.97) saturate(1.03) contrast(1.02);
     transform: scale(1.003);
   }
-  70% {
-    background: radial-gradient(circle, #33aaff 0%, #2288cc 50%, #006699 100%);
-    filter: brightness(1.03) saturate(0.97) contrast(1);
+  28% {
+    background: radial-gradient(circle, #0092e3 0%, #006ab7 50%, #004e84 100%);
+    filter: brightness(0.98) saturate(1.025) contrast(1.015);
+    transform: scale(1.0025);
+  }
+  32% {
+    background: radial-gradient(circle, #008cdf 0%, #0068b4 50%, #004d81 100%);
+    filter: brightness(0.99) saturate(1.02) contrast(1.01);
+    transform: scale(1.002);
+  }
+  36% {
+    background: radial-gradient(circle, #0086db 0%, #0066b1 50%, #004c7e 100%);
+    filter: brightness(1) saturate(1.015) contrast(1.005);
+    transform: scale(1.001);
+  }
+  40% {
+    background: radial-gradient(circle, #0080d7 0%, #0064ae 50%, #004b7b 100%);
+    filter: brightness(1.01) saturate(1.01) contrast(1);
     transform: scale(1);
   }
-  80% {
-    background: radial-gradient(circle, #1a99ee 0%, #1177bb 50%, #005588 100%);
-    filter: brightness(0.99) saturate(1) contrast(1.01);
-    transform: scale(0.997);
+  44% {
+    background: radial-gradient(circle, #007ad3 0%, #0062ab 50%, #004a78 100%);
+    filter: brightness(1.005) saturate(1.015) contrast(1.005);
+    transform: scale(0.9995);
   }
-  90% {
-    background: radial-gradient(circle, #0066aa 0%, #004488 50%, #003366 100%);
-    filter: brightness(0.95) saturate(1.03) contrast(1.03);
-    transform: scale(0.994);
+  48% {
+    background: radial-gradient(circle, #0074cf 0%, #0060a8 50%, #004975 100%);
+    filter: brightness(1) saturate(1.02) contrast(1.01);
+    transform: scale(0.999);
+  }
+  52% {
+    background: radial-gradient(circle, #006ecb 0%, #005ea5 50%, #004872 100%);
+    filter: brightness(0.995) saturate(1.025) contrast(1.015);
+    transform: scale(0.9985);
+  }
+  56% {
+    background: radial-gradient(circle, #0068c7 0%, #005ca2 50%, #00476f 100%);
+    filter: brightness(0.99) saturate(1.03) contrast(1.02);
+    transform: scale(0.998);
+  }
+  60% {
+    background: radial-gradient(circle, #0062c3 0%, #005a9f 50%, #00466c 100%);
+    filter: brightness(0.995) saturate(1.025) contrast(1.015);
+    transform: scale(0.9985);
+  }
+  64% {
+    background: radial-gradient(circle, #005cbf 0%, #00589c 50%, #004569 100%);
+    filter: brightness(1) saturate(1.02) contrast(1.01);
+    transform: scale(0.999);
+  }
+  68% {
+    background: radial-gradient(circle, #0056bb 0%, #005699 50%, #004466 100%);
+    filter: brightness(1.005) saturate(1.015) contrast(1.005);
+    transform: scale(0.9995);
+  }
+  72% {
+    background: radial-gradient(circle, #0050b7 0%, #005496 50%, #004363 100%);
+    filter: brightness(1.01) saturate(1.01) contrast(1);
+    transform: scale(1);
+  }
+  76% {
+    background: radial-gradient(circle, #005ab7 0%, #005796 50%, #004563 100%);
+    filter: brightness(1.005) saturate(1.005) contrast(0.995);
+    transform: scale(1.0005);
+  }
+  80% {
+    background: radial-gradient(circle, #0064b7 0%, #005a96 50%, #004763 100%);
+    filter: brightness(1) saturate(1) contrast(0.99);
+    transform: scale(1.001);
+  }
+  84% {
+    background: radial-gradient(circle, #006eb7 0%, #005d96 50%, #004963 100%);
+    filter: brightness(0.995) saturate(0.995) contrast(0.985);
+    transform: scale(1.0015);
+  }
+  88% {
+    background: radial-gradient(circle, #0078b7 0%, #006096 50%, #004b63 100%);
+    filter: brightness(0.99) saturate(0.99) contrast(0.98);
+    transform: scale(1.002);
+  }
+  92% {
+    background: radial-gradient(circle, #0082b7 0%, #006396 50%, #004d63 100%);
+    filter: brightness(0.995) saturate(0.995) contrast(0.985);
+    transform: scale(1.0015);
+  }
+  96% {
+    background: radial-gradient(circle, #008cb7 0%, #006696 50%, #004f63 100%);
+    filter: brightness(1) saturate(1) contrast(0.99);
+    transform: scale(1.001);
   }
   100% {
-    background: radial-gradient(circle, #0088cc 0%, #006699 50%, #004466 100%);
+    background: radial-gradient(circle, #0096b7 0%, #006996 50%, #005163 100%);
     filter: brightness(1) saturate(1) contrast(1);
     transform: scale(1);
   }
 }
 
-/* Water surface rippling animation - very slow and gradual */
+/* Water surface rippling animation - extremely slow and subtle */
 @keyframes water-surface {
   0% {
     transform: rotate(0deg) scale(1) translateX(0px);
     opacity: 0.2;
     filter: blur(0px);
   }
+  5% {
+    transform: rotate(18deg) scale(1.01) translateX(0.5px);
+    opacity: 0.205;
+    filter: blur(0.1px);
+  }
   10% {
-    transform: rotate(36deg) scale(1.02) translateX(1px);
-    opacity: 0.22;
+    transform: rotate(36deg) scale(1.015) translateX(0.75px);
+    opacity: 0.21;
+    filter: blur(0.15px);
+  }
+  15% {
+    transform: rotate(54deg) scale(1.02) translateX(1px);
+    opacity: 0.215;
     filter: blur(0.2px);
   }
   20% {
-    transform: rotate(72deg) scale(1.04) translateX(2px);
-    opacity: 0.24;
-    filter: blur(0.4px);
+    transform: rotate(72deg) scale(1.025) translateX(1.25px);
+    opacity: 0.22;
+    filter: blur(0.25px);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.03) translateX(1.5px);
+    opacity: 0.225;
+    filter: blur(0.3px);
   }
   30% {
-    transform: rotate(108deg) scale(1.06) translateX(3px);
-    opacity: 0.26;
-    filter: blur(0.6px);
+    transform: rotate(108deg) scale(1.035) translateX(1.75px);
+    opacity: 0.23;
+    filter: blur(0.35px);
   }
-  40% {
-    transform: rotate(144deg) scale(1.08) translateX(2px);
-    opacity: 0.28;
-    filter: blur(0.8px);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.1) translateX(0px);
-    opacity: 0.3;
-    filter: blur(1px);
-  }
-  60% {
-    transform: rotate(216deg) scale(1.08) translateX(-2px);
-    opacity: 0.28;
-    filter: blur(0.8px);
-  }
-  70% {
-    transform: rotate(252deg) scale(1.06) translateX(-3px);
-    opacity: 0.26;
-    filter: blur(0.6px);
-  }
-  80% {
-    transform: rotate(288deg) scale(1.04) translateX(-2px);
-    opacity: 0.24;
+  35% {
+    transform: rotate(126deg) scale(1.04) translateX(1.5px);
+    opacity: 0.235;
     filter: blur(0.4px);
   }
-  90% {
-    transform: rotate(324deg) scale(1.02) translateX(-1px);
+  40% {
+    transform: rotate(144deg) scale(1.045) translateX(1.25px);
+    opacity: 0.24;
+    filter: blur(0.45px);
+  }
+  45% {
+    transform: rotate(162deg) scale(1.05) translateX(0.75px);
+    opacity: 0.245;
+    filter: blur(0.5px);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.055) translateX(0px);
+    opacity: 0.25;
+    filter: blur(0.55px);
+  }
+  55% {
+    transform: rotate(198deg) scale(1.05) translateX(-0.75px);
+    opacity: 0.245;
+    filter: blur(0.5px);
+  }
+  60% {
+    transform: rotate(216deg) scale(1.045) translateX(-1.25px);
+    opacity: 0.24;
+    filter: blur(0.45px);
+  }
+  65% {
+    transform: rotate(234deg) scale(1.04) translateX(-1.5px);
+    opacity: 0.235;
+    filter: blur(0.4px);
+  }
+  70% {
+    transform: rotate(252deg) scale(1.035) translateX(-1.75px);
+    opacity: 0.23;
+    filter: blur(0.35px);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.03) translateX(-1.5px);
+    opacity: 0.225;
+    filter: blur(0.3px);
+  }
+  80% {
+    transform: rotate(288deg) scale(1.025) translateX(-1.25px);
     opacity: 0.22;
+    filter: blur(0.25px);
+  }
+  85% {
+    transform: rotate(306deg) scale(1.02) translateX(-1px);
+    opacity: 0.215;
     filter: blur(0.2px);
+  }
+  90% {
+    transform: rotate(324deg) scale(1.015) translateX(-0.75px);
+    opacity: 0.21;
+    filter: blur(0.15px);
+  }
+  95% {
+    transform: rotate(342deg) scale(1.01) translateX(-0.5px);
+    opacity: 0.205;
+    filter: blur(0.1px);
   }
   100% {
     transform: rotate(360deg) scale(1) translateX(0px);
