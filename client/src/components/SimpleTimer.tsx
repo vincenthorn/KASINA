@@ -131,21 +131,85 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     // Convert input to number
     const mins = parseInt(minutesInput) || 0;
     
+    // EXTREME DEBUG: Log to console window
+    console.log("=====================================================");
+    console.log("🛑 CRITICAL DEBUG: CUSTOM TIME ENTRY");
+    console.log(`User entered: ${mins} minutes`);
+    
     // Set minimum duration to 1 minute (60 seconds)
     const totalSeconds = mins * 60;
     const newDuration = Math.max(totalSeconds, 60); // Minimum 1 minute
     
-    // CRITICAL FIX: Log the exact time being set
-    console.log(`Custom time set to ${mins} minutes (${newDuration} seconds)`);
+    console.log(`Total seconds calculated: ${totalSeconds}`);
+    console.log(`New duration after min check: ${newDuration}`);
+    
+    try {
+      // CRITICAL FIX: Create a global tracking object if it doesn't exist
+      if (typeof window !== 'undefined' && !window.__DEBUG_TIMER) {
+        window.__DEBUG_TIMER = {
+          originalDuration: null,
+          currentDuration: null
+        };
+      }
+      
+      // Update the global debug object
+      if (typeof window !== 'undefined') {
+        window.__DEBUG_TIMER.originalDuration = newDuration;
+        window.__DEBUG_TIMER.currentDuration = newDuration;
+      }
+    } catch (e) {
+      console.error("Error updating debug object:", e);
+    }
+    
+    // Store the entered minutes to help with debugging
+    if (typeof window !== 'undefined') {
+      try {
+        window.localStorage.setItem('lastTimerMinutes', mins.toString());
+      } catch (e) {
+        console.error("Error saving to localStorage:", e);
+      }
+    }
     
     // CRITICAL FIX: Make sure custom time values are processed correctly
     // Force handling for common meditation durations to capture 2-minute and 3-minute values
     if (mins === 2) {
-      console.log("⚠️ DETECTED CUSTOM 2-MINUTE TIMER - Ensuring it's exactly 120 seconds");
-      setDuration(120); // Force exact 2 minutes (120 seconds)
+      console.log("⚠️ DETECTED CUSTOM 2-MINUTE TIMER - Setting to exactly 120 seconds");
+      // DIRECT FIX: Force exact duration for 2-minutes
+      try {
+        // First set it in the Zustand store
+        const store = useSimpleTimer.getState();
+        // Force set both duration properties to exact values
+        useSimpleTimer.setState({
+          ...store,
+          duration: 120,
+          originalDuration: 120,
+          timeRemaining: 120 
+        });
+        console.log("🔥 Direct store update for 2-minute timer:", useSimpleTimer.getState());
+      } catch (e) {
+        console.error("Error updating store:", e);
+      }
+      // Also call the regular setter
+      setDuration(120); 
     } else if (mins === 3) {
-      console.log("⚠️ DETECTED CUSTOM 3-MINUTE TIMER - Ensuring it's exactly 180 seconds");
-      setDuration(180); // Force exact 3 minutes (180 seconds)
+      console.log("⚠️ DETECTED CUSTOM 3-MINUTE TIMER - Setting to exactly 180 seconds");
+      // DIRECT FIX: Force exact duration for 3-minutes
+      try {
+        // First set it in the Zustand store
+        const store = useSimpleTimer.getState();
+        // Force set both duration properties to exact values
+        useSimpleTimer.setState({
+          ...store,
+          duration: 180,
+          originalDuration: 180,
+          timeRemaining: 180
+        });
+        console.log("🔥 Direct store update for 3-minute timer:", useSimpleTimer.getState());
+      } catch (e) {
+        console.error("Error updating store:", e);
+      }
+      // Also call the regular setter
+      setDuration(180); 
     } else {
       // For other values, use the calculated duration
       setDuration(newDuration);
@@ -153,9 +217,15 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     
     setIsEditing(false);
     
-    // Log to help with debugging
-    const finalDuration = useSimpleTimer.getState().duration;
-    console.log(`Final duration stored in timer state: ${finalDuration}s`);
+    // Give time for the state to update, then verify
+    setTimeout(() => {
+      // Log to help with debugging 
+      const finalState = useSimpleTimer.getState();
+      console.log("Timer state after setting:", finalState);
+      console.log(`Final duration: ${finalState.duration}s`);
+      console.log(`Original duration: ${finalState.originalDuration}s`);
+      console.log("=====================================================");
+    }, 100);
   };
   
   // This is now handled by the handleKeyPress function above

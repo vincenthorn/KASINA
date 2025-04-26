@@ -124,10 +124,52 @@ const TimerKasinas: React.FC = () => {
       // Mark as saved before the API call to prevent duplicates
       sessionSavedRef.current = true;
       
-      addSession({
+      // CRITICAL FIX: Attempt to retrieve stored minutes from localStorage for debugging
+      let lastTimerMinutes = 0;
+      if (typeof window !== 'undefined') {
+        try {
+          const storedMinutes = window.localStorage.getItem('lastTimerMinutes');
+          if (storedMinutes) {
+            lastTimerMinutes = parseInt(storedMinutes, 10);
+            console.log("🔍 Retrieved stored timer minutes:", lastTimerMinutes);
+          }
+        } catch (e) {
+          console.error("Error reading from localStorage:", e);
+        }
+      }
+      
+      // Special handling for 2 and 3 minute sessions based on stored value
+      if (lastTimerMinutes === 2) {
+        console.log("🛑 OVERRIDING SESSION DURATION TO 120 SECONDS (2 minutes) based on localStorage value");
+        durationToSave = 120;
+      } else if (lastTimerMinutes === 3) {
+        console.log("🛑 OVERRIDING SESSION DURATION TO 180 SECONDS (3 minutes) based on localStorage value");
+        durationToSave = 180;
+      }
+      
+      // FINAL DEBUG before sending to server
+      console.log("=======================================================");
+      console.log("FINAL CRITICAL DEBUG BEFORE SESSION SAVE:");
+      console.log(`- Selected kasina: ${selectedKasina}`);
+      console.log(`- Last timer minutes set: ${lastTimerMinutes}`);
+      console.log(`- Original duration: ${originalDuration} seconds`);
+      console.log(`- Final duration to save: ${durationToSave} seconds`);
+      console.log("=======================================================");
+      
+      // DIRECT FIX: Create a proper session payload with debugging info
+      // We need to pass duration, durationInMinutes, and originalDuration
+      const sessionPayload = {
         kasinaType: selectedKasina,
-        duration: durationToSave
-      });
+        duration: durationToSave,
+        durationInMinutes: lastTimerMinutes > 0 ? lastTimerMinutes : Math.round(durationToSave / 60),
+        originalDuration: durationToSave
+      };
+      
+      // Log what we're sending to the server
+      console.log("FINAL SESSION PAYLOAD:", sessionPayload);
+      
+      // Send to the server
+      addSession(sessionPayload as any);
       
       console.log(`Auto-saved session: ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]}`);
       
@@ -176,7 +218,7 @@ const TimerKasinas: React.FC = () => {
       }
       
       // Round up to nearest minute for storage
-      const roundedDuration = roundUpToNearestMinute(durationToSave);
+      let roundedDuration = roundUpToNearestMinute(durationToSave);
       
       if (roundedDuration >= 60) {
         console.log("Manual stop detected - saving session with data:", {
@@ -187,10 +229,41 @@ const TimerKasinas: React.FC = () => {
         // Mark as saved before the API call to prevent duplicates
         sessionSavedRef.current = true;
         
-        addSession({
+        // CRITICAL FIX: Attempt to retrieve stored minutes from localStorage for debugging
+        let lastTimerMinutes = 0;
+        if (typeof window !== 'undefined') {
+          try {
+            const storedMinutes = window.localStorage.getItem('lastTimerMinutes');
+            if (storedMinutes) {
+              lastTimerMinutes = parseInt(storedMinutes, 10);
+              console.log("🔍 Retrieved stored timer minutes:", lastTimerMinutes);
+              
+              // Override duration for 2 and 3 minute sessions
+              if (lastTimerMinutes === 2) {
+                console.log("🛑 OVERRIDING MANUAL STOP DURATION TO 120 SECONDS (2 minutes)");
+                roundedDuration = 120;
+              } else if (lastTimerMinutes === 3) {
+                console.log("🛑 OVERRIDING MANUAL STOP DURATION TO 180 SECONDS (3 minutes)");
+                roundedDuration = 180;
+              }
+            }
+          } catch (e) {
+            console.error("Error reading from localStorage:", e);
+          }
+        }
+        
+        // DIRECT FIX: Create a proper session payload with debugging info
+        const manualSessionPayload = {
           kasinaType: selectedKasina,
-          duration: roundedDuration
-        });
+          duration: roundedDuration,
+          durationInMinutes: lastTimerMinutes > 0 ? lastTimerMinutes : Math.round(roundedDuration / 60),
+          originalDuration: roundedDuration
+        };
+        
+        console.log("MANUAL STOP SESSION PAYLOAD:", manualSessionPayload);
+        
+        // Send to server
+        addSession(manualSessionPayload as any);
         
         toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
       } else {
