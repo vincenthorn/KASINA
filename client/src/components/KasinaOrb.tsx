@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 import { useKasina } from "../lib/stores/useKasina";
-import { KASINA_TYPES, KASINA_COLORS } from "../lib/constants";
+import { KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from "../lib/constants";
 import { KasinaType } from "../lib/types";
 
 // Shader materials for the elemental kasinas
@@ -152,7 +152,7 @@ const earthShader = {
 const spaceShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#000033") }
+    color: { value: new THREE.Color("#000000") } // Black color for the inverted space orb
   },
   vertexShader: `
     varying vec2 vUv;
@@ -174,15 +174,19 @@ const spaceShader = {
       vec2 uv = vUv;
       vec3 baseColor = color;
       
-      // Stars
-      float stars = step(0.98, rand(floor(uv * 100.0)));
-      stars += step(0.995, rand(floor(uv * 200.0 + time * 0.1)));
-      
-      // Center glow
+      // Center dark effect for black orb
       float d = length(uv - vec2(0.5, 0.5));
-      float glow = 0.1 / (d * 5.0);
       
-      vec3 finalColor = baseColor + vec3(stars) + vec3(0.1, 0.2, 0.5) * glow;
+      // Subtle purple edge glow for the black orb
+      float edgeGlow = smoothstep(0.45, 0.5, d);
+      vec3 edgeColor = vec3(0.16, 0.0, 0.33); // Dark purple tint
+      
+      // Add very subtle ripple effect
+      float ripple = sin(d * 20.0 - time * 0.2) * 0.02;
+      float intensity = smoothstep(0.0, 0.5, d + ripple);
+      
+      // Mix with a subtle deep purple at the edges
+      vec3 finalColor = mix(baseColor, edgeColor, intensity * edgeGlow);
       gl_FragColor = vec4(finalColor, 1.0);
     }
   `
@@ -280,11 +284,13 @@ const DynamicOrb: React.FC = () => {
 // Scene setup component
 const Scene: React.FC<{ enableZoom?: boolean }> = ({ enableZoom = false }) => {
   const { gl, camera } = useThree();
+  const { selectedKasina } = useKasina();
   
-  // Clear the background to pure black
+  // Set the background color based on the selected kasina
   useEffect(() => {
-    gl.setClearColor(new THREE.Color("#000000"), 1);
-  }, [gl]);
+    const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
+    gl.setClearColor(new THREE.Color(bgColor), 1);
+  }, [gl, selectedKasina]);
 
   // Add camera ref to work with zoom 
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
@@ -341,6 +347,9 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   speed,
   complexity
 }) => {
+  // Get access to the current selectedKasina
+  const { selectedKasina } = useKasina();
+  
   // If type is provided, update the selected kasina in the store
   useEffect(() => {
     if (type) {
@@ -349,8 +358,14 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
     }
   }, [type]);
   
+  // Get the background color for the selected kasina
+  const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
+  
   return (
-    <div className="w-full h-full bg-black orb-content">
+    <div 
+      className="w-full h-full orb-content"
+      style={{ backgroundColor: bgColor }}
+    >
       <Canvas>
         <Scene enableZoom={enableZoom} />
       </Canvas>

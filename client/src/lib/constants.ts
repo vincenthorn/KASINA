@@ -50,7 +50,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.AIR]: "#1a4b75",   // Darker sky blue (changed from steel blue)
   [KASINA_TYPES.FIRE]: "#000000",  // Black (changed from deep dark red)
   [KASINA_TYPES.EARTH]: "#2E1A00", // Deep dark earth brown
-  [KASINA_TYPES.SPACE]: "#000000", // Black
+  [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)
   [KASINA_TYPES.LIGHT]: "#000000"  // Pure black
 };
 
