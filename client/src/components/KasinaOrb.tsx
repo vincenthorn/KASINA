@@ -49,8 +49,10 @@ const fireShader = {
   },
   vertexShader: `
     varying vec2 vUv;
+    varying vec3 vPosition;
     void main() {
       vUv = uv;
+      vPosition = position;
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -59,39 +61,70 @@ const fireShader = {
     uniform vec3 color;
     uniform float opacity;
     varying vec2 vUv;
+    varying vec3 vPosition;
     
-    // Improved noise function for more flame-like appearance
-    float noise(vec2 p) {
-      return sin(p.x * 10.0) * sin(p.y * 10.0);
+    // Improved Perlin-like noise without visible patterns
+    float hash(float n) {
+      return fract(sin(n) * 43758.5453);
     }
     
-    // Flame value calculation
-    float flame(vec2 uv, float time) {
-      // Distance from center
-      float d = length(uv - vec2(0.5, 0.5));
+    float noise(vec3 x) {
+      // The noise function returns a value in the range -1.0 -> 1.0
+      vec3 p = floor(x);
+      vec3 f = fract(x);
+      f = f * f * (3.0 - 2.0 * f);
       
-      // Create baseline pulsing using sine wave
-      float pulseFactor = (sin(time * 0.8) * 0.5 + 0.5) * 0.7; // 0.0 to 0.7 range
+      float n = p.x + p.y * 57.0 + p.z * 113.0;
+      return mix(
+        mix(
+          mix(hash(n), hash(n + 1.0), f.x),
+          mix(hash(n + 57.0), hash(n + 58.0), f.x),
+          f.y),
+        mix(
+          mix(hash(n + 113.0), hash(n + 114.0), f.x),
+          mix(hash(n + 170.0), hash(n + 171.0), f.x),
+          f.y),
+        f.z);
+    }
+    
+    vec3 sphericalToCartesian(float radius, float polar, float azimuthal) {
+      return vec3(
+        radius * sin(polar) * cos(azimuthal),
+        radius * sin(polar) * sin(azimuthal),
+        radius * cos(polar)
+      );
+    }
+    
+    // Flame value calculation without seams
+    float flame(vec3 pos, float time) {
+      // Convert position to spherical coordinates to ensure smooth noise across sphere
+      float radius = length(pos);
+      float theta = acos(pos.z / radius);
+      float phi = atan(pos.y, pos.x);
       
-      // Base flame value
-      float flameVal = 1.0 - d * 2.0;
-      
-      // Add noise for flame texture
+      // Generate seamless noise based on spherical coordinates
       float noiseVal = 0.0;
-      for(float i = 0.0; i < 3.0; i++) {
-        noiseVal += noise(uv * (3.0 + i) + vec2(time * 0.1 + i * 0.3, time * 0.05)) * (0.3 - i * 0.1);
+      
+      // Use 3D noise over spherical coordinates to avoid seams
+      vec3 noiseCoord = vec3(radius, theta * 10.0, phi * 10.0);
+      
+      // Create multi-layered noise
+      for(float i = 1.0; i < 4.0; i++) {
+        float scale = pow(2.0, i);
+        float intensity = pow(0.5, i);
+        noiseVal += noise(noiseCoord * scale + time * 0.1 * vec3(1.0, 2.0, 1.0) * (0.5 + 0.5 * sin(time * 0.2 * i))) * intensity;
       }
       
-      // Combine flame base with noise and pulse
-      return clamp(flameVal + noiseVal * 0.6 + pulseFactor, 0.0, 1.0);
+      // Create very gentle pulsing using sine wave (much less intense)
+      float pulseFactor = (sin(time * 0.4) * 0.5 + 0.5) * 0.15; // Only 0.0 to 0.15 range = very subtle
+      
+      // Combine flame base with noise and subtle pulse
+      return clamp(0.5 + noiseVal * 0.3 + pulseFactor, 0.0, 1.0);
     }
     
     void main() {
-      vec2 uv = vUv;
-      float d = length(uv - vec2(0.5, 0.5));
-      
-      // Get flame value
-      float flameIntensity = flame(uv, time);
+      // Use position for 3D noise calculation to avoid seams
+      float flameIntensity = flame(vPosition, time);
       
       // Base orange color
       vec3 baseColor = color; // Orange
@@ -102,17 +135,17 @@ const fireShader = {
       // White color for highest intensity
       vec3 whiteColor = vec3(1.0, 1.0, 1.0); // Pure white
       
-      // Mix colors based on flame intensity
+      // Mix colors based on flame intensity - use narrower ranges for more subtle transitions
       vec3 finalColor;
       if (flameIntensity > 0.85) {
         // Highest intensity - blend between yellow and white
         finalColor = mix(yellowColor, whiteColor, (flameIntensity - 0.85) / 0.15);
-      } else if (flameIntensity > 0.5) {
+      } else if (flameIntensity > 0.6) {
         // Medium intensity - blend between orange and yellow
-        finalColor = mix(baseColor, yellowColor, (flameIntensity - 0.5) / 0.35);
+        finalColor = mix(baseColor, yellowColor, (flameIntensity - 0.6) / 0.25);
       } else {
         // Lower intensity - pure orange base color
-        finalColor = baseColor * flameIntensity;
+        finalColor = baseColor * (0.7 + flameIntensity * 0.3); // Keep minimum brightness
       }
       
       // Output final color with opacity
@@ -317,12 +350,13 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         
         // Use cubic-bezier-like timing function for smoother animation
         // Different timing for each kasina type
-        let t, easeValue, breatheCycle, breatheFactor;
+        let breatheCycle = 0;
+        let breatheFactor = 1;
 
         if (selectedKasina === KASINA_TYPES.SPACE) {
           // Space kasina: Subtle 10-second breathing cycle
-          t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
-          easeValue = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+          const t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
+          const easeValue = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
           breatheCycle = Math.sin(easeValue * Math.PI);
           
           // Extremely subtle scale factor (0.98 to 1.02 = 4% change, matching CSS animation)
@@ -336,7 +370,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         } 
         else if (selectedKasina === KASINA_TYPES.FIRE) {
           // Fire kasina: More rapid 4-second breathing cycle with flame-like pulsation
-          t = time % 4 / 4; // Normalized time in the cycle (0-1) - 4 second cycle
+          const t = time % 4 / 4; // Normalized time in the cycle (0-1) - 4 second cycle
           
           // A more asymmetric easing function to mimic flame behavior
           // Quick expansion, slower contraction
@@ -346,14 +380,15 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
             
           breatheCycle = Math.pow(fireEase, 1.2); // Power for more fire-like behavior
           
-          // More pronounced scale factor for fire (0.85 to 1.15 = 30% change)
-          breatheFactor = 0.85 + breatheCycle * 0.3;
+          // MUCH more subtle scale factor for fire (0.97 to 1.03 = 6% change)
+          // This is important to make it feel like normal flame pulsation and not expansion
+          breatheFactor = 0.97 + breatheCycle * 0.06;
           
-          // Apply the fire pulsing effect
+          // Apply the fire pulsing effect - very subtle
           meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
           
-          // Add slight flame-like wobble
-          const wobble = Math.sin(time * 3.0) * 0.03;
+          // Add extremely slight flame-like wobble
+          const wobble = Math.sin(time * 2.0) * 0.01; // Reduced to 1% wobble
           meshRef.current.rotation.z = wobble;
         }
         
@@ -385,7 +420,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
                 // This enhances the shader's built-in color blending
                 const baseColor = new THREE.Color("#ff6600"); // Base orange
                 const peakColor = new THREE.Color("#ffcc00"); // Peak yellow
-                material.uniforms.color.value.copy(baseColor).lerp(peakColor, breatheCycle * 0.7);
+                material.uniforms.color.value.copy(baseColor).lerp(peakColor, breatheCycle * 0.5);
               }
             }
           } catch (e) {
