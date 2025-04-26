@@ -68,8 +68,10 @@ const TimerKasinas: React.FC = () => {
     const durationToSave = duration || 60; // Use the duration that was set, or default to 60s
     const roundedDuration = roundUpToNearestMinute(durationToSave);
     
-    console.log("Original duration:", durationToSave, "seconds");
-    console.log("Rounded duration for saving:", roundedDuration, "seconds");
+    console.log("TIMER COMPLETION - Duration values:");
+    console.log("- Original duration setting:", duration, "seconds");
+    console.log("- Duration to save:", durationToSave, "seconds");
+    console.log("- Rounded duration for saving:", roundedDuration, "seconds");
     
     // Only save if there was actual meditation time
     if (roundedDuration > 0) {

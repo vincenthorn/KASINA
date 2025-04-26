@@ -135,10 +135,13 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     const totalSeconds = mins * 60;
     const newDuration = Math.max(totalSeconds, 60); // Minimum 1 minute
     
-    // Update timer
+    // Update timer with the proper duration in seconds
     console.log(`Custom time set to ${mins} minutes (${newDuration} seconds)`);
     setDuration(newDuration);
     setIsEditing(false);
+    
+    // Log to help with debugging
+    console.log(`Duration after setting: ${newDuration}s`);
   };
   
   // This is now handled by the handleKeyPress function above
