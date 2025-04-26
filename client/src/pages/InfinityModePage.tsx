@@ -138,7 +138,7 @@ const InfinityMode = () => {
               <Button 
                 variant="outline" 
                 size="sm"
-                onClick={() => navigate('/freestyle')}
+                onClick={() => navigate('/kasinas')}
               >
                 Switch to Timed
               </Button>

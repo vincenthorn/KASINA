@@ -68,7 +68,7 @@ function App() {
               }
             />
             <Route
-              path="/freestyle"
+              path="/kasinas"
               element={
                 <AuthenticatedRoute>
                   <FreestylePage />
