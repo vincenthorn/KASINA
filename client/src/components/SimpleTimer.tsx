@@ -30,7 +30,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   
   // Set initial duration if provided
   useEffect(() => {
+    console.log("SimpleTimer useEffect - initialDuration:", initialDuration, "current duration:", duration);
     if (initialDuration !== duration) {
+      console.log("Setting duration to:", initialDuration);
       setDuration(initialDuration);
     }
   }, [initialDuration, duration, setDuration]);

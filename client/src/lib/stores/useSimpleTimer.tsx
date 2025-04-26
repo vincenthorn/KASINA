@@ -25,6 +25,7 @@ export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
   lastStartedAt: null,
   
   setDuration: (duration: number | null) => {
+    console.log("useSimpleTimer - Setting duration to:", duration);
     set({ 
       duration, 
       timeRemaining: duration,
