@@ -75,11 +75,11 @@ const TimerKasinas: React.FC = () => {
     // For fully completed timers, use the originally set duration (custom or preset)
     // For manually stopped timers, use the elapsed time
     
-    // CRITICAL FIX: Get the duration directly from the store to ensure accuracy
+    // CRITICAL FIX: Get the ORIGINAL duration directly from the store via the new method
     const storeState = useSimpleTimer.getState();
-    // CRITICAL FIX: Always use the original duration that was set
+    // CRITICAL FIX: Always use the original duration that was set via the dedicated method
     // This ensures 2-minute timers save as 2 minutes, etc.
-    const originalDuration = storeState.duration;
+    const originalDuration = storeState.getOriginalDuration();
     
     // Force log values to console for debugging
     console.log("SUPER CRITICAL DEBUG INFO:");
@@ -156,9 +156,9 @@ const TimerKasinas: React.FC = () => {
       // Determine which duration to save based on completion percentage
       // If user completed more than 90% of the meditation, use the full duration
       
-      // CRITICAL FIX: Get the duration directly from the store to ensure accuracy
+      // CRITICAL FIX: Get the ORIGINAL duration value from the store to ensure correct time
       const storeState = useSimpleTimer.getState();
-      const actualDuration = storeState.duration;
+      const actualDuration = storeState.getOriginalDuration();
       
       const completionPercentage = elapsed / (actualDuration || 60) * 100;
       let durationToSave = elapsed;
