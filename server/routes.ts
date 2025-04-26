@@ -305,28 +305,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // Log the incoming data to help debug duration issues
     console.log("Incoming session data:", req.body);
     
-    // CRITICAL FIX: Ensure duration is correctly processed for 2-minute and 3-minute sessions
-    let duration = req.body.duration;
+    // CRITICAL FIX: Create a safe copy of the request body we can modify
+    const safeBody = { ...req.body };
     
-    // Explicitly check for common values we know are problematic (120 and 180 seconds)
-    // and force them to be saved correctly
-    const originalDuration = req.body.originalDuration || req.body.duration;
+    // DIRECT FIX for 2-minute timers: Check if the request is a 2-minute timer
+    // This is the most direct way to catch this specific case
+    if (safeBody.originalDuration === 120 || 
+        safeBody.durationInMinutes === 2 ||
+        (safeBody.kasinaName && safeBody.kasinaName.includes('2-minute'))) {
+      
+      console.log("🔥 DIRECT OVERRIDE: This is a 2-minute session - force setting to 120 seconds");
+      safeBody.duration = 120;
+    }
+    
+    // Similar direct fix for 3-minute timers
+    if (safeBody.originalDuration === 180 || 
+        safeBody.durationInMinutes === 3 ||
+        (safeBody.kasinaName && safeBody.kasinaName.includes('3-minute'))) {
+      
+      console.log("🔥 DIRECT OVERRIDE: This is a 3-minute session - force setting to 180 seconds");
+      safeBody.duration = 180;
+    }
+    
+    // Now proceed with normal validation using our safe copy
+    let duration = safeBody.duration;
+    
+    // Get the original duration value if present
+    const originalDuration = safeBody.originalDuration || safeBody.duration;
     console.log("Original duration from client:", originalDuration);
     
     // Make sure duration is a number (handle string values like "120")
     if (typeof duration === 'string') {
       duration = parseInt(duration, 10);
-    }
-    
-    // HARDCODED FIX: If the kasinaName contains information about the original duration
-    // in minutes, use that as a source of truth
-    const kasinaName = req.body.kasinaName || '';
-    if (kasinaName.includes('2 minute') || kasinaName.includes('2-minute')) {
-      console.log("Found 2-minute reference in kasinaName, overriding duration to 120 seconds");
-      duration = 120;
-    } else if (kasinaName.includes('3 minute') || kasinaName.includes('3-minute')) {
-      console.log("Found 3-minute reference in kasinaName, overriding duration to 180 seconds");
-      duration = 180;
     }
     
     // If we still don't have a valid number, set a default
@@ -335,7 +345,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       duration = 60; // Default to 1 minute
     }
     
-    // SERVER OVERRIDE - THIS IS A DIRECT SOLUTION
     // If duration is very small (less than 10), it was likely meant to be in minutes
     // Convert it to seconds (60 seconds per minute)
     if (duration > 0 && duration < 10) {
@@ -343,8 +352,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       duration = duration * 60;
     }
     
-    // SPECIAL CASE - 2/3 minute session handling
-    // Force common meditation durations to correct values
+    // Force common meditation durations to exact values for consistency
     if (duration >= 58 && duration <= 62) {
       console.log("Detected ~1 minute session");
       duration = 60; // Exactly 1 minute
@@ -356,10 +364,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
       duration = 180; // Exactly 3 minutes
     }
     
+    // FINAL VALIDATION: Make one last check for 2-minute and 3-minute sessions based on minutes
+    // This is a final safety check in case all other checks somehow missed it
+    if (Math.round(duration / 60) === 2) {
+      console.log("⚠️ Final check caught a 2-minute session - forcing to exactly 120 seconds");
+      duration = 120;
+    } else if (Math.round(duration / 60) === 3) {
+      console.log("⚠️ Final check caught a 3-minute session - forcing to exactly 180 seconds");
+      duration = 180;
+    }
+    
+    // Format the name to include the duration in minutes
+    let minutes = Math.round(duration / 60);
+    const kasinaName = safeBody.kasinaName || '';
+    const updatedKasinaName = kasinaName.replace(/\(\d+-minute\)/, `(${minutes}-minute)`);
+    
     // Include user email in the session (merging req.body first, then overriding email)
     const session = {
       id: Date.now().toString(),
-      ...req.body,
+      ...req.body, // Original data for reference
+      kasinaName: updatedKasinaName, // Use the correctly formatted name
       duration, // Use our validated duration
       userEmail: req.session.user.email // Override any userEmail sent from client
     };
@@ -368,6 +392,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     console.log("Final session data to save:", {
       id: session.id,
       kasinaType: session.kasinaType,
+      kasinaName: session.kasinaName,
       duration: session.duration, // This should now be correctly set
       userEmail: session.userEmail
     });
