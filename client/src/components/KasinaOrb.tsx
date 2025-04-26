@@ -4,27 +4,7 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 import { useKasina } from "../lib/stores/useKasina";
 import { KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from "../lib/constants";
-import { KasinaType } from "../lib/types";
-
-// Utility function to ensure a valid KasinaType
-// Uses a type assertion that is safe because we're checking against valid values
-const ensureValidKasinaType = (type: any): KasinaType => {
-  // If type is missing or empty, return WHITE
-  if (!type || (typeof type === 'string' && type.trim().length === 0)) {
-    return KASINA_TYPES.WHITE;
-  }
-  
-  // Get all valid kasina types
-  const validKasinaTypes = Object.values(KASINA_TYPES);
-  
-  // Check if the provided type is valid
-  if (validKasinaTypes.includes(type)) {
-    return type;
-  }
-  
-  // Fallback to WHITE if invalid
-  return KASINA_TYPES.WHITE;
-};
+import { KasinaType, ensureValidKasinaType } from "../lib/types";
 
 // Shader materials for the elemental kasinas
 const waterShader = {
