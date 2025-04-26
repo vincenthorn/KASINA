@@ -155,7 +155,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         <Button 
           variant="outline" 
-          onClick={() => setDuration(300)}
+          onClick={() => {
+            console.log("Setting duration to 300 seconds (5 minutes)");
+            setDuration(300);
+          }}
           disabled={isRunning}
           className={duration === 300 ? "border-2 border-blue-500" : ""}
           size="sm"
