@@ -760,29 +760,34 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
   
-  // If type is provided, update the selected kasina in the store
+  // If type is provided, use it directly without updating the global store
+  // This prevents cascading updates when we're just displaying a preview
+  const effectiveType = type || selectedKasina;
+  
+  // Only update the store if explicitly requested (and not in the focus mode)
   useEffect(() => {
-    if (type) {
+    if (type && !enableZoom) {
       const kasinaStore = useKasina.getState();
       kasinaStore.setSelectedKasina(type);
       console.log("KasinaOrb: Setting kasina type to", type);
     }
-  }, [type]);
+  }, [type, enableZoom]);
   
   // Reset internal orb state when component remounts 
   // This helps ensure the preview orb is always fresh after a session
   useEffect(() => {
-    console.log("KasinaOrb component mounted with type:", type || selectedKasina);
+    console.log("KasinaOrb component mounted with type:", effectiveType);
     
     // Implement cleanup that runs when component unmounts
     return () => {
-      console.log("KasinaOrb component unmounted, had type:", type || selectedKasina);
+      console.log("KasinaOrb component unmounted, had type:", effectiveType);
     };
   }, []);
   
   // Ensure we have a valid kasina type for the background
-  const safeKasinaType = selectedKasina && selectedKasina.trim().length > 0 
-    ? selectedKasina as KasinaType 
+  // Use the effectiveType that we defined above to avoid dependency on global state
+  const safeKasinaType = effectiveType && effectiveType.trim().length > 0 
+    ? effectiveType as KasinaType 
     : KASINA_TYPES.WHITE;
     
   // Get the background color for the selected kasina
