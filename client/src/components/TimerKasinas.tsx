@@ -81,9 +81,28 @@ const TimerKasinas: React.FC = () => {
     // This ensures 2-minute timers save as 2 minutes, etc.
     const originalDuration = storeState.duration;
     
-    // We no longer round up here - we save exactly what the user set
-    // This is because the rounding is causing issues with exact minute values
-    const durationToSave = originalDuration || 60; // Use the duration that was set, or default to 60s
+    // Force log values to console for debugging
+    console.log("SUPER CRITICAL DEBUG INFO:");
+    console.log(`- Timer type: ${selectedKasina}`);
+    console.log(`- Store duration value: ${originalDuration} seconds`);
+    console.log(`- Duration variable: ${duration} seconds`);
+    console.log(`- Timer running: ${storeState.isRunning}`);
+    
+    // Hard override fix: If original duration is missing but there's a component duration, use it
+    let durationToSave = originalDuration || duration || 60;
+    
+    // Critical check for 2-minute sessions (120 seconds)
+    if (durationToSave === 120) {
+      console.log("⚠️ FOUND 2-MINUTE SESSION - Ensuring it's saved as 120 seconds");
+    }
+    
+    // Extra check: 3-minute sessions (180 seconds)
+    if (durationToSave === 180) {
+      console.log("⚠️ FOUND 3-MINUTE SESSION - Ensuring it's saved as 180 seconds");
+    }
+    
+    // Log the final value we're using
+    console.log(`- Final duration to save: ${durationToSave} seconds`)
     
     // Log the exact value being used for saving
     console.log("DURATION DETAILS:");

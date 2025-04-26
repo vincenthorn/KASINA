@@ -640,5 +640,21 @@
     "duration": 60,
     "timestamp": "2025-04-26T19:15:24.589Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745695328671",
+    "kasinaType": "space",
+    "kasinaName": "Space",
+    "duration": 60,
+    "timestamp": "2025-04-26T19:22:08.508Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745695463270",
+    "kasinaType": "earth",
+    "kasinaName": "Earth",
+    "duration": 60,
+    "timestamp": "2025-04-26T19:24:23.078Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]
