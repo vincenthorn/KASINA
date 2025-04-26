@@ -46,3 +46,20 @@ export const formatTime = (seconds: number): string => {
   
   return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 };
+
+// Round up to the nearest minute (e.g., 59 seconds becomes 60 seconds / 1 minute)
+export const roundUpToNearestMinute = (seconds: number): number => {
+  if (seconds <= 0) return 0;
+  
+  // If there are any seconds, round up to the next full minute
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  
+  if (remainingSeconds > 0) {
+    // Round up to the next minute
+    return (minutes + 1) * 60;
+  }
+  
+  // Return unchanged if already at a full minute
+  return seconds;
+};

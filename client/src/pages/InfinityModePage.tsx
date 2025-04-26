@@ -7,7 +7,7 @@ import { useKasina } from '../lib/stores/useKasina';
 import { useAuth } from '../lib/stores/useAuth';
 import { KasinaType, getOrbConfig } from '../lib/types';
 import { KASINA_NAMES } from '../lib/constants';
-import { formatTime } from '../lib/utils';
+import { formatTime, roundUpToNearestMinute } from '../lib/utils';
 
 import { Button } from '../components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';

@@ -9,7 +9,7 @@ import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
 import FocusMode from './FocusMode';
 import KasinaOrb from './KasinaOrb';
-import { formatTime } from '../lib/utils';
+import { formatTime, roundUpToNearestMinute } from '../lib/utils';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
@@ -36,8 +36,21 @@ const TimerFreestyle: React.FC = () => {
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
     
-    // Show toast notification
-    toast.success(`You completed a ${formatTime(elapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation.`);
+    // Automatically save the session with rounded duration
+    const roundedElapsedTime = roundUpToNearestMinute(elapsedTime);
+    
+    // Only save if there was actual meditation time
+    if (roundedElapsedTime > 0) {
+      addSession({
+        kasinaType: selectedKasina,
+        duration: roundedElapsedTime
+      });
+      
+      console.log(`Auto-saved session: ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]}`);
+    }
+    
+    // Show toast notification with rounded time
+    toast.success(`You completed a ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
   };
   
   // Track timer status for saving
@@ -48,15 +61,18 @@ const TimerFreestyle: React.FC = () => {
   // Set up a timer ref to track duration
   const timerDurationRef = useRef<HTMLDivElement>(null);
   
-  // Save session to history
+  // Save session to history (manual save button)
   const saveSession = () => {
     if (elapsedTime > 0) {
+      // Round up time to nearest minute for consistency
+      const roundedElapsedTime = roundUpToNearestMinute(elapsedTime);
+      
       addSession({
         kasinaType: selectedKasina,
-        duration: elapsedTime
+        duration: roundedElapsedTime
       });
       
-      toast.success(`Your ${formatTime(elapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation has been saved.`);
+      toast.success(`Your ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation has been saved.`);
       
       // Reset elapsed time
       setElapsedTime(0);
