@@ -26,7 +26,7 @@ const TimerKasinas: React.FC = () => {
   const [elapsedTime, setElapsedTime] = useState(0);
   
   // Add a unique key for the orb rendering to force re-initialization when needed
-  const [orbKey, setOrbKey] = useState<string>(() => `kasina-orb-${Date.now()}`);
+  const [orbKey, setOrbKey] = useState<string>(() => `kasina-orb-initial-${Date.now()}`);
   
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
@@ -46,6 +46,13 @@ const TimerKasinas: React.FC = () => {
     // When user selects a different kasina, reset the saved flag
     sessionSavedRef.current = false;
     console.log("Resetting session saved flag - kasina changed to", selectedKasina);
+    
+    // Generate a new orbKey for the kasina change to ensure fresh rendering
+    if (selectedKasina && selectedKasina.trim().length > 0) {
+      const newOrbKey = `kasina-orb-${Date.now()}-changed-to-${selectedKasina}`;
+      setOrbKey(newOrbKey);
+      console.log(`Kasina type changed, new orbKey: ${newOrbKey}`);
+    }
   }, [selectedKasina]);
   
   // Handle timer completion
@@ -231,7 +238,18 @@ const TimerKasinas: React.FC = () => {
     // Handle manual stop (when remaining is not 0 but we got a final update)
     // This condition detects when user manually stops the timer
     if (remaining !== null && remaining !== 0 && elapsed > 0) {
-      // Skip if we already saved this session 
+      // Always reset the focus mode and orb, even if we've already saved the session
+      console.log("Manual stop detected - preparing orb reset");
+      
+      // Exit focus mode
+      disableFocusMode();
+      
+      // Generate a new orbKey to force a complete re-initialization of the ThreeJS canvas
+      const newOrbKey = `kasina-orb-${Date.now()}-manual`;
+      setOrbKey(newOrbKey);
+      console.log(`Generated new orbKey for manual stop: ${newOrbKey}`);
+            
+      // Skip further session saving if we've already saved it
       if (sessionSavedRef.current) {
         console.log("Session already saved, skipping additional save");
         return;
@@ -345,6 +363,12 @@ const TimerKasinas: React.FC = () => {
   // Handle timer start to enable focus mode
   const handleTimerStart = () => {
     console.log("Timer started - activating focus mode");
+    
+    // Generate a new orbKey for the session start to ensure fresh rendering
+    const newOrbKey = `kasina-orb-${Date.now()}-start`;
+    setOrbKey(newOrbKey);
+    console.log(`New session started with orbKey: ${newOrbKey}`);
+    
     enableFocusMode();
   };
   
