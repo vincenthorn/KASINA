@@ -6,6 +6,7 @@ import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { KASINA_BACKGROUNDS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
+import KasinaOrb from './KasinaOrb';
 import { Dialog, DialogContent } from './ui/dialog';
 
 interface FocusModeProps {
@@ -186,7 +187,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             </div>
           </div>
           
-          {/* Render only the orb from the children */}
+          {/* Render the KasinaOrb component directly */}
           <div className="orb-container-wrapper" style={{
             position: 'absolute',
             top: 0,
@@ -200,66 +201,23 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             height: '100%',
             overflow: 'hidden'
           }}>
-            {React.Children.map(children, (child) => {
-              if (React.isValidElement(child)) {
-                // Find and extract only the .orb-container element
-                const findOrb = (element: React.ReactElement): React.ReactElement | null => {
-                  if (element.props && element.props.className && 
-                      typeof element.props.className === 'string' && 
-                      element.props.className.includes('orb-container')) {
-                    return element;
-                  }
-                  
-                  if (element.props && element.props.children) {
-                    if (Array.isArray(element.props.children)) {
-                      for (const child of element.props.children) {
-                        if (React.isValidElement(child)) {
-                          const found = findOrb(child);
-                          if (found) return found;
-                        }
-                      }
-                    } else if (React.isValidElement(element.props.children)) {
-                      return findOrb(element.props.children);
-                    }
-                  }
-                  
-                  return null;
-                };
-                
-                const orb = findOrb(child);
-                // Create a wrapper for the orb to ensure it stays centered regardless of animations
-                return orb ? (
-                  <div 
-                    className={`orb-wrapper ${selectedKasina === 'space' ? 'kasina-space-breathe-effect' : ''}`}
-                    style={{
-                      position: 'relative',
-                      width: `${300 * zoomLevel}px`,
-                      height: `${300 * zoomLevel}px`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      zIndex: 10,
-                      borderRadius: '50%'
-                    }}
-                  >
-                    {React.cloneElement(orb, {
-                      className: `${orb.props.className} fixed-orb`,
-                      style: {
-                        ...orb.props.style,
-                        width: '100%',
-                        height: '100%',
-                        position: 'relative',
-                        top: 'auto',
-                        left: 'auto',
-                        transform: 'none',
-                        transition: 'width 0.2s ease, height 0.2s ease'
-                      }
-                    })}
-                  </div>
-                ) : null;
-              }
-              return null;
-            })}
+            <div 
+              style={{
+                position: 'relative',
+                width: `${300 * zoomLevel}px`,
+                height: `${300 * zoomLevel}px`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                zIndex: 10
+              }}
+            >
+              <KasinaOrb
+                type={selectedKasina as KasinaType}
+                enableZoom={true}
+                remainingTime={timerState.timeRemaining}
+              />
+            </div>
           </div>
           
           {/* Timer display - visible on mouse movement */}
