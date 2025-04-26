@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 
@@ -267,17 +265,14 @@ const InfinityMode = () => {
           
           {/* Canvas */}
           <div className="flex-1 relative">
-            <Canvas>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} intensity={0.8} />
-              <KasinaOrb
-                type={typedKasina}
-                color={orbConfig.color}
-                speed={orbConfig.speed}
-                complexity={orbConfig.complexity}
-              />
-              <OrbitControls enableZoom={false} enablePan={false} />
-            </Canvas>
+            <KasinaOrb
+              type={typedKasina}
+              color={orbConfig.color}
+              speed={orbConfig.speed}
+              complexity={orbConfig.complexity}
+              enableZoom={true}
+              remainingTime={null} 
+            />
           </div>
         </div>
       </div>
