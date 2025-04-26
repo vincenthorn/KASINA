@@ -648,9 +648,14 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
 };
 
 // Scene setup component
-const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> = ({ 
+const Scene: React.FC<{ 
+  enableZoom?: boolean, 
+  remainingTime?: number | null,
+  type?: KasinaType
+}> = ({ 
   enableZoom = false,
-  remainingTime = null
+  remainingTime = null,
+  type
 }) => {
   const { gl, camera } = useThree();
   const { selectedKasina } = useKasina();
@@ -686,11 +691,12 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
       console.log("Scene component unmounted, releasing resources");
       cleanupWebGL();
     };
-  }, []);
+  }, [gl, camera]); // Added gl and camera as dependencies to avoid stale references
   
   // Safety check: ensure we always have a valid kasina type for background color
-  const safeKasinaType = selectedKasina && selectedKasina.trim().length > 0 
-    ? selectedKasina as KasinaType 
+  // Prefer the prop type that was passed directly over the global state
+  const safeKasinaType = (type || selectedKasina) && (type || selectedKasina).trim().length > 0 
+    ? (type || selectedKasina) as KasinaType 
     : KASINA_TYPES.WHITE;
   
   // Set the background color based on the selected kasina
@@ -698,7 +704,7 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
     const bgColor = KASINA_BACKGROUNDS[safeKasinaType] || "#000000";
     gl.setClearColor(new THREE.Color(bgColor), 1);
     console.log(`Set scene background to: ${bgColor} for kasina: ${safeKasinaType}`);
-  }, [gl, selectedKasina, safeKasinaType]);
+  }, [gl, safeKasinaType]);
 
   // Add camera ref to work with zoom 
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
@@ -726,7 +732,10 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
       <pointLight position={cameraLight} intensity={0.8} distance={10} />
-      <DynamicOrb remainingTime={remainingTime} />
+      <DynamicOrb 
+        kasinaType={safeKasinaType}
+        remainingTime={remainingTime} 
+      />
       <OrbitControls 
         enableZoom={enableZoom} 
         enablePan={false} 
@@ -800,7 +809,11 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
       data-kasina-type={safeKasinaType}
     >
       <Canvas>
-        <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
+        <Scene 
+          type={safeKasinaType} 
+          enableZoom={enableZoom} 
+          remainingTime={remainingTime} 
+        />
       </Canvas>
     </div>
   );
