@@ -302,12 +302,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
       return res.status(401).json({ message: "Authentication required" });
     }
     
+    // Log the incoming data to help debug duration issues
+    console.log("Incoming session data:", req.body);
+    
+    // Fix for the duration bug - ensure it's stored as a number
+    let duration = req.body.duration;
+    
+    // Make sure duration is a number (handle string values like "120")
+    if (typeof duration === 'string') {
+      duration = parseInt(duration, 10);
+    }
+    
+    // If we still don't have a valid number, set a default
+    if (isNaN(duration)) {
+      console.warn("Invalid duration received:", req.body.duration);
+      duration = 60; // Default to 1 minute
+    }
+    
     // Include user email in the session (merging req.body first, then overriding email)
     const session = {
       id: Date.now().toString(),
       ...req.body,
+      duration, // Use our validated duration
       userEmail: req.session.user.email // Override any userEmail sent from client
     };
+    
+    // Log the finalized session data
+    console.log("Final session data to save:", {
+      id: session.id,
+      kasinaType: session.kasinaType,
+      duration: session.duration,
+      userEmail: session.userEmail
+    });
     
     sessions.push(session);
     

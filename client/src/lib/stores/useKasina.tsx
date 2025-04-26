@@ -33,12 +33,28 @@ export const useKasina = create<KasinaState>((set, get) => ({
   saveSession: async (session) => {
     try {
       console.log("Saving session:", session);
+
+      // CRITICAL FIX: Make sure duration is a valid number in seconds
+      let duration = session.duration;
+      
+      // Convert to number if it's a string
+      if (typeof duration === 'string') {
+        duration = parseInt(duration, 10);
+      }
+      
+      // If value is very small (like 1 or 2), it might be in minutes - convert to seconds
+      if (duration > 0 && duration < 10) {
+        console.log(`CRITICAL: Converting small duration ${duration} to seconds (${duration * 60}s)`);
+        duration = duration * 60;
+      }
+      
+      console.log("saveSession - Duration to save:", duration, "seconds");
       
       // Format the session data
       const sessionData = {
         kasinaType: session.kasinaType,
         kasinaName: KASINA_NAMES[session.kasinaType] || session.kasinaType,
-        duration: session.duration,
+        duration: duration, // Use our validated duration
         timestamp: new Date().toISOString(),
         // The userEmail will be set by the server based on the authenticated user
       };
@@ -84,12 +100,30 @@ export const useKasina = create<KasinaState>((set, get) => ({
   
   // Alias for saveSession to maintain compatibility with TimerKasinas component
   addSession: async (session) => {
+    // CRITICAL FIX: Make sure duration is passed as a number
+    // and convert it to seconds if it's in minutes
+    let duration = session.duration;
+    
+    // If we get a string, convert it to a number
+    if (typeof duration === 'string') {
+      duration = parseInt(duration, 10);
+    }
+    
+    // If it's a small number like 1 or 2, it might be in minutes instead of seconds
+    // Ensure we always store seconds
+    if (duration > 0 && duration < 10) {
+      console.log(`CRITICAL: Converting small duration value ${duration} to seconds (${duration * 60}s)`);
+      duration = duration * 60;
+    }
+    
+    console.log("addSession - Final duration value to save:", duration, "seconds");
+    
     // Just delegate to saveSession - this is for backwards compatibility
     const { saveSession } = get();
     // Cast to any to avoid type issues - we know these values are compatible
     return saveSession({
       kasinaType: session.kasinaType,
-      duration: session.duration,
+      duration: duration, // Use our validated duration
       date: new Date()
     } as any);
   }

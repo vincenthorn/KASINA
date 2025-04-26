@@ -624,5 +624,21 @@
     "duration": 60,
     "timestamp": "2025-04-26T17:50:50.022Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745694751302",
+    "kasinaType": "air",
+    "kasinaName": "Air",
+    "duration": 60,
+    "timestamp": "2025-04-26T19:12:31.058Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745694925044",
+    "kasinaType": "air",
+    "kasinaName": "Air",
+    "duration": 60,
+    "timestamp": "2025-04-26T19:15:24.589Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]
