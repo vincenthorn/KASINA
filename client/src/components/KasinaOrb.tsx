@@ -44,7 +44,7 @@ const waterShader = {
 const fireShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#ff3300") },
+    color: { value: new THREE.Color("#ff6600") }, // Fiery orange base color
     opacity: { value: 1.0 }
   },
   vertexShader: `
@@ -57,23 +57,66 @@ const fireShader = {
   fragmentShader: `
     uniform float time;
     uniform vec3 color;
+    uniform float opacity;
     varying vec2 vUv;
     
+    // Improved noise function for more flame-like appearance
     float noise(vec2 p) {
       return sin(p.x * 10.0) * sin(p.y * 10.0);
+    }
+    
+    // Flame value calculation
+    float flame(vec2 uv, float time) {
+      // Distance from center
+      float d = length(uv - vec2(0.5, 0.5));
+      
+      // Create baseline pulsing using sine wave
+      float pulseFactor = (sin(time * 0.8) * 0.5 + 0.5) * 0.7; // 0.0 to 0.7 range
+      
+      // Base flame value
+      float flameVal = 1.0 - d * 2.0;
+      
+      // Add noise for flame texture
+      float noiseVal = 0.0;
+      for(float i = 0.0; i < 3.0; i++) {
+        noiseVal += noise(uv * (3.0 + i) + vec2(time * 0.1 + i * 0.3, time * 0.05)) * (0.3 - i * 0.1);
+      }
+      
+      // Combine flame base with noise and pulse
+      return clamp(flameVal + noiseVal * 0.6 + pulseFactor, 0.0, 1.0);
     }
     
     void main() {
       vec2 uv = vUv;
       float d = length(uv - vec2(0.5, 0.5));
       
-      float f = 0.0;
-      for(float i = 0.0; i < 3.0; i++) {
-        f += noise(uv * 2.5 + vec2(0.0, time * 0.1 + i * 0.5)) * (1.0 - d);
+      // Get flame value
+      float flameIntensity = flame(uv, time);
+      
+      // Base orange color
+      vec3 baseColor = color; // Orange
+      
+      // Yellow color for mid-intensity
+      vec3 yellowColor = vec3(1.0, 0.9, 0.2); // Bright yellow
+      
+      // White color for highest intensity
+      vec3 whiteColor = vec3(1.0, 1.0, 1.0); // Pure white
+      
+      // Mix colors based on flame intensity
+      vec3 finalColor;
+      if (flameIntensity > 0.85) {
+        // Highest intensity - blend between yellow and white
+        finalColor = mix(yellowColor, whiteColor, (flameIntensity - 0.85) / 0.15);
+      } else if (flameIntensity > 0.5) {
+        // Medium intensity - blend between orange and yellow
+        finalColor = mix(baseColor, yellowColor, (flameIntensity - 0.5) / 0.35);
+      } else {
+        // Lower intensity - pure orange base color
+        finalColor = baseColor * flameIntensity;
       }
       
-      vec3 finalColor = mix(color, vec3(1.0, 0.7, 0.3), f * (1.0 - d) * 2.0);
-      gl_FragColor = vec4(finalColor, 1.0);
+      // Output final color with opacity
+      gl_FragColor = vec4(finalColor, opacity);
     }
   `
 };
@@ -267,26 +310,52 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         // Log the shrinking effect (for debugging)
         // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)}`);
       } 
-      // Normal breathing effect for Space kasina when not in end-of-session shrinking
-      else if (selectedKasina === KASINA_TYPES.SPACE && (remainingTime === null || remainingTime > 30)) {
+      // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
+      else if ((selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.FIRE) && 
+              (remainingTime === null || remainingTime > 30)) {
         const time = clock.getElapsedTime();
         
-        // Use cubic-bezier-like timing function to make the breathing more pronounced
-        // and have a deliberate pause at the peak of expansion
-        const t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
-        const easeInOutQuad = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-        const breatheCycle = Math.sin(easeInOutQuad * Math.PI);
-        
-        // Extremely subtle scale factor (0.98 to 1.02 = 4% change, matching CSS animation)
-        const breatheFactor = 1 + breatheCycle * 0.04; 
-        
-        // Apply a micro-subtle scaling effect for the Space kasina's breathing
-        // Use a minimal 4% scale range (0.98 to 1.02) for an almost imperceptible effect
-        meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
-        
-        // Apply an extremely subtle pulsing effect to the orb's position (very slight motion in z-axis)
-        // This makes the breathing effect more natural and 3D-like but almost imperceptible
-        meshRef.current.position.z = breatheCycle * 0.05; // Minimal movement in z-direction
+        // Use cubic-bezier-like timing function for smoother animation
+        // Different timing for each kasina type
+        let t, easeValue, breatheCycle, breatheFactor;
+
+        if (selectedKasina === KASINA_TYPES.SPACE) {
+          // Space kasina: Subtle 10-second breathing cycle
+          t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
+          easeValue = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+          breatheCycle = Math.sin(easeValue * Math.PI);
+          
+          // Extremely subtle scale factor (0.98 to 1.02 = 4% change, matching CSS animation)
+          breatheFactor = 1 + breatheCycle * 0.04; 
+          
+          // Apply a micro-subtle scaling effect
+          meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
+          
+          // Apply an extremely subtle pulsing effect to the orb's position
+          meshRef.current.position.z = breatheCycle * 0.05; // Minimal movement in z-direction
+        } 
+        else if (selectedKasina === KASINA_TYPES.FIRE) {
+          // Fire kasina: More rapid 4-second breathing cycle with flame-like pulsation
+          t = time % 4 / 4; // Normalized time in the cycle (0-1) - 4 second cycle
+          
+          // A more asymmetric easing function to mimic flame behavior
+          // Quick expansion, slower contraction
+          const fireEase = t < 0.3 
+            ? t / 0.3 // Fast rise (0-0.3 of cycle)
+            : 1.0 - ((t - 0.3) / 0.7); // Slower fall (0.3-1.0 of cycle)
+            
+          breatheCycle = Math.pow(fireEase, 1.2); // Power for more fire-like behavior
+          
+          // More pronounced scale factor for fire (0.85 to 1.15 = 30% change)
+          breatheFactor = 0.85 + breatheCycle * 0.3;
+          
+          // Apply the fire pulsing effect
+          meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
+          
+          // Add slight flame-like wobble
+          const wobble = Math.sin(time * 3.0) * 0.03;
+          meshRef.current.rotation.z = wobble;
+        }
         
         // Try to adjust any shader uniforms that might be available
         if (materialRef.current && 'uniforms' in materialRef.current) {
@@ -294,17 +363,30 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
             // Attempt to modify any shader uniforms that might affect the appearance
             const material = materialRef.current as THREE.ShaderMaterial;
             
-            if (material.uniforms.glowIntensity !== undefined) {
-              material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
+            if (selectedKasina === KASINA_TYPES.SPACE) {
+              if (material.uniforms.glowIntensity !== undefined) {
+                material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
+              }
+              
+              if (material.uniforms.intensity !== undefined) {
+                material.uniforms.intensity.value = 0.5 + breatheCycle * 0.3;
+              }
+              
+              // Update opacity to create a pulsing effect
+              if (material.uniforms.opacity !== undefined) {
+                material.uniforms.opacity.value = 0.8 + breatheCycle * 0.2;
+              }
             }
-            
-            if (material.uniforms.intensity !== undefined) {
-              material.uniforms.intensity.value = 0.5 + breatheCycle * 0.3;
-            }
-            
-            // Update opacity to create a pulsing effect
-            if (material.uniforms.opacity !== undefined) {
-              material.uniforms.opacity.value = 0.8 + breatheCycle * 0.2;
+            else if (selectedKasina === KASINA_TYPES.FIRE) {
+              // Fire-specific adjustments to shader uniforms
+              // Flame color pulsation
+              if (material.uniforms.color !== undefined) {
+                // Transition from orange to yellow-white at peak intensity
+                // This enhances the shader's built-in color blending
+                const baseColor = new THREE.Color("#ff6600"); // Base orange
+                const peakColor = new THREE.Color("#ffcc00"); // Peak yellow
+                material.uniforms.color.value.copy(baseColor).lerp(peakColor, breatheCycle * 0.7);
+              }
             }
           } catch (e) {
             // Silently catch errors if uniforms don't exist
