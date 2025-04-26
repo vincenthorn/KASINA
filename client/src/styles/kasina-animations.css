@@ -590,14 +590,15 @@
 .space-animation {
   animation: 
     space-pulse 15s infinite alternate,
-    space-breathe 15s infinite ease-in-out; /* Add expansion/contraction over 15s */
+    space-breathe 15s infinite cubic-bezier(0.4, 0, 0.6, 1); /* Slower, more deliberate expansion/contraction */
   /* Outer purple glow */
-  box-shadow: 0 0 35px rgba(51, 0, 102, 0.7);
+  box-shadow: 0 0 40px rgba(51, 0, 102, 0.8); /* Enhanced glow */
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow expansion to be visible beyond boundaries */
   /* Purple background with slightly smoother shade */
   background-color: #2a0055;
   transform-origin: center; /* Ensure expansion happens from center */
+  will-change: transform; /* Optimize for animation performance */
 }
 
 .space-animation::before {
@@ -610,7 +611,11 @@
   /* Black center with very slight dark purple gradient for depth */
   background: radial-gradient(ellipse at center, #000000 0%, #0a0011 60%, #110022 100%);
   opacity: 0.95;
-  animation: space-nebula 30s infinite linear;
+  animation: 
+    space-nebula 30s infinite linear,
+    space-breathe 15s infinite cubic-bezier(0.4, 0, 0.6, 1); /* Match parent animation timing */
+  transform-origin: center;
+  will-change: transform;
 }
 
 .space-animation::after {
@@ -647,7 +652,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2); /* Expand to 120% (20% growth) */
+    transform: scale(1.25); /* Expand to 125% (25% growth) to make it more noticeable */
   }
   100% {
     transform: scale(1);
@@ -656,15 +661,15 @@
 
 @keyframes space-nebula {
   0% {
-    transform: rotate(0deg) scale(1);
+    transform: rotate(0deg);
     opacity: 0.98;
   }
   50% {
-    transform: rotate(180deg) scale(1.05);
+    transform: rotate(180deg);
     opacity: 0.95;
   }
   100% {
-    transform: rotate(360deg) scale(1);
+    transform: rotate(360deg);
     opacity: 0.98;
   }
 }

@@ -240,8 +240,24 @@ const DynamicOrb: React.FC = () => {
       // Add expansion/contraction breathing effect for space kasina (15s cycle)
       if (selectedKasina === KASINA_TYPES.SPACE) {
         const time = clock.getElapsedTime();
-        const breatheFactor = Math.sin(time * (Math.PI / 7.5)) * 0.2 + 1; // 15 sec cycle (7.5 * 2), oscillate between 0.8 and 1.2 (20% expansion/contraction)
+        
+        // Use cubic-bezier-like timing function to make the breathing more pronounced
+        // and have a deliberate pause at the peak of expansion
+        const t = time % 15 / 15; // Normalized time in the cycle (0-1)
+        const easeInOutQuad = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        const breatheCycle = Math.sin(easeInOutQuad * Math.PI);
+        
+        // Slightly larger scale factor (0.7 to 1.3 = 30% change)
+        const breatheFactor = 1 + breatheCycle * 0.3; 
+        
+        // Apply the scaling effect
         meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
+        
+        // Also adjust glow intensity based on the breathing cycle to enhance the effect
+        if (materialRef.current && 'uniforms' in materialRef.current) {
+          const glowIntensity = 0.5 + breatheCycle * 0.3; // Oscillate between 0.2 and 0.8
+          (materialRef.current as THREE.ShaderMaterial).uniforms.glowIntensity = { value: glowIntensity };
+        }
       }
     }
     
