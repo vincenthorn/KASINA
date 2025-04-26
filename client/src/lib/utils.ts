@@ -51,15 +51,20 @@ export const formatTime = (seconds: number): string => {
 export const roundUpToNearestMinute = (seconds: number): number => {
   if (seconds <= 0) return 0;
   
-  // If there are any seconds, round up to the next full minute
+  // CRITICAL FIX: More explicit handling for exact minute values
+  // If the seconds value is exactly a multiple of 60 (a whole number of minutes)
+  if (seconds % 60 === 0) {
+    console.log(`UTILS: Keeping exact minute value: ${seconds} seconds = ${seconds/60} minutes`);
+    return seconds; // Return unchanged
+  }
+  
+  // Otherwise round up to the next full minute
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
   
-  if (remainingSeconds > 0) {
-    // Round up to the next minute
-    return (minutes + 1) * 60;
-  }
+  // Always round up when there are remaining seconds
+  const roundedSeconds = (minutes + 1) * 60;
+  console.log(`UTILS: Rounding ${seconds} seconds (${minutes}m ${remainingSeconds}s) up to ${roundedSeconds} seconds (${roundedSeconds/60}m)`);
   
-  // Return unchanged if already at a full minute
-  return seconds;
+  return roundedSeconds;
 };

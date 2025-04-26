@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom utility classes for Kasina app */
+.force-reinit {
+  /* Force a render with a brief visual indication */
+  animation: quick-pulse 0.2s ease-in-out;
+}
+
+@keyframes quick-pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -49,8 +49,28 @@ const TimerKasinas: React.FC = () => {
   const handleTimerComplete = () => {
     console.log("Timer completed", { elapsedTime, alreadySaved: sessionSavedRef.current, duration });
     
-    // Disable focus mode when timer completes
-    disableFocusMode();
+    // CRITICAL FIX: Handle focus mode exit properly
+    console.log("Timer completed, scheduling focus mode exit and orb reinit");
+    
+    // Delay focus mode exit slightly to ensure proper cleanup
+    setTimeout(() => {
+      disableFocusMode();
+      
+      // Force a re-render of the KasinaOrb component
+      const orbElement = document.querySelector('.orb-content');
+      if (orbElement) {
+        console.log("Found orb element, forcing re-render");
+        // Add and remove a class to trigger a style recalculation
+        orbElement.classList.add('force-reinit');
+        
+        // Remove it after a brief delay
+        setTimeout(() => {
+          orbElement.classList.remove('force-reinit');
+        }, 50);
+      } else {
+        console.log("No orb element found to reinitialize");
+      }
+    }, 100);
     
     // Show feedback
     setShowConfetti(true);
