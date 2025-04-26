@@ -10,33 +10,111 @@ import { KasinaType } from "../lib/types";
 const waterShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#0099ff") },
+    color: { value: new THREE.Color("#0077cc") }, // Base water color
     opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
+    varying vec3 vPosition;
     void main() {
       vUv = uv;
+      vPosition = position;
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
   fragmentShader: `
     uniform float time;
     uniform vec3 color;
+    uniform float opacity;
     varying vec2 vUv;
+    varying vec3 vPosition;
     
-    void main() {
-      vec2 p = -1.0 + 2.0 * vUv;
-      float a = time * 0.1;
-      float d = 0.0;
+    // Hash function for noise generation
+    float hash(float n) {
+      return fract(sin(n) * 43758.5453);
+    }
+    
+    // 3D noise function for seamless water effect
+    float noise(vec3 x) {
+      vec3 p = floor(x);
+      vec3 f = fract(x);
+      f = f * f * (3.0 - 2.0 * f);
       
-      for(float i = 1.0; i < 5.0; i++) {
-        float t = a + i * 1.5;
-        d += sin(t + i * p.x) * sin(t + i * p.y);
+      float n = p.x + p.y * 57.0 + p.z * 113.0;
+      return mix(
+        mix(
+          mix(hash(n), hash(n + 1.0), f.x),
+          mix(hash(n + 57.0), hash(n + 58.0), f.x),
+          f.y),
+        mix(
+          mix(hash(n + 113.0), hash(n + 114.0), f.x),
+          mix(hash(n + 170.0), hash(n + 171.0), f.x),
+          f.y),
+        f.z);
+    }
+    
+    // Flow function for water-like movement
+    float flow(vec3 p, float time) {
+      float n = 0.0;
+      
+      // Convert to spherical coordinates for seamless sphere mapping
+      float radius = length(p);
+      float theta = acos(p.z / radius);
+      float phi = atan(p.y, p.x);
+      
+      // Layer different noise frequencies for water depth effect
+      for (float i = 1.0; i <= 4.0; i++) {
+        float speed = 0.2 - 0.05 * i; // Different speeds for each layer
+        float scale = pow(2.0, i - 1.0);
+        float intensity = pow(0.5, i); // Diminishing intensity for higher frequencies
+        
+        // Animate noise in spherical coordinates for natural water flow
+        vec3 q = vec3(
+          phi * 3.0 * scale,
+          theta * 3.0 * scale,
+          radius * scale + time * speed
+        );
+        
+        n += noise(q) * intensity;
       }
       
-      vec3 finalColor = vec3(color.r + 0.2 * sin(d), color.g + 0.2 * sin(d), color.b + 0.2 * sin(d + 0.5));
-      gl_FragColor = vec4(finalColor, 1.0);
+      return n * 0.65; // Scale to appropriate range
+    }
+    
+    void main() {
+      // Get dynamic fluid motion based on position and time
+      float flowValue = flow(vPosition, time);
+      
+      // Create multiple water shades based on flow value
+      vec3 deepBlue = vec3(0.0, 0.3, 0.6);      // Deep ocean blue
+      vec3 mediumBlue = vec3(0.0, 0.5, 0.8);    // Medium water blue
+      vec3 lightBlue = vec3(0.4, 0.7, 0.9);     // Light water blue
+      vec3 tropicalBlue = vec3(0.0, 0.8, 1.0);  // Tropical water blue
+      
+      // Map flow value to colors for fluid transitions
+      vec3 waterColor;
+      if (flowValue < 0.3) {
+        float t = flowValue / 0.3;
+        waterColor = mix(deepBlue, mediumBlue, t);
+      } else if (flowValue < 0.6) {
+        float t = (flowValue - 0.3) / 0.3;
+        waterColor = mix(mediumBlue, lightBlue, t);
+      } else {
+        float t = (flowValue - 0.6) / 0.4;
+        waterColor = mix(lightBlue, tropicalBlue, t);
+      }
+      
+      // Add subtle wave highlights and reflections
+      float highlight = pow(max(0.0, sin(flowValue * 10.0)), 5.0) * 0.15;
+      
+      // Add high-frequency ripple detail
+      float ripple = sin(vPosition.x * 20.0 + time) * sin(vPosition.y * 20.0 + time) * 0.02;
+      
+      // Combine for final water effect
+      vec3 finalColor = waterColor + highlight + ripple;
+      
+      // Apply base color influence and opacity
+      gl_FragColor = vec4(finalColor, opacity);
     }
   `
 };
