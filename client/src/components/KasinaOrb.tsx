@@ -243,15 +243,15 @@ const DynamicOrb: React.FC = () => {
         
         // Use cubic-bezier-like timing function to make the breathing more pronounced
         // and have a deliberate pause at the peak of expansion
-        const t = time % 15 / 15; // Normalized time in the cycle (0-1)
+        const t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
         const easeInOutQuad = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
         const breatheCycle = Math.sin(easeInOutQuad * Math.PI);
         
-        // Extremely subtle scale factor (0.96 to 1.04 = 8% change, matching CSS animation)
-        const breatheFactor = 1 + breatheCycle * 0.08; 
+        // Extremely subtle scale factor (0.98 to 1.02 = 4% change, matching CSS animation)
+        const breatheFactor = 1 + breatheCycle * 0.04; 
         
-        // Apply a very subtle scaling effect for the Space kasina's breathing
-        // Use a minimal 8% scale range (0.96 to 1.04) for a barely perceptible effect
+        // Apply a micro-subtle scaling effect for the Space kasina's breathing
+        // Use a minimal 4% scale range (0.98 to 1.02) for an almost imperceptible effect
         meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
         
         // Apply an extremely subtle pulsing effect to the orb's position (very slight motion in z-axis)

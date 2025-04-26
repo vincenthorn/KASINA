@@ -649,13 +649,13 @@
   }
 }
 
-/* Space expansion/contraction breathing effect - 15 seconds cycle */
+/* Space expansion/contraction breathing effect - 10 seconds cycle */
 @keyframes space-breathe {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.08); /* Further reduced to just 8% growth - very subtle */
+    transform: scale(1.04); /* Extremely reduced to just 4% growth - barely noticeable */
   }
   100% {
     transform: scale(1);
@@ -664,7 +664,7 @@
 
 /* Special class to apply directly to elements in focus mode for guaranteed animation */
 .kasina-space-breathe-effect {
-  animation: space-breathe 15s infinite cubic-bezier(0.4, 0, 0.6, 1) !important;
+  animation: space-breathe 10s infinite cubic-bezier(0.4, 0, 0.6, 1) !important;
   transform-origin: center !important;
   will-change: transform !important;
   border-radius: 50% !important; /* Ensure it stays circular */
