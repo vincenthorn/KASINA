@@ -545,7 +545,7 @@
 /* Earth kasina animation - deep terracotta with subtle pulsing */
 .earth-animation {
   animation: earth-pulse 12s infinite ease-in-out;
-  box-shadow: 0 0 20px rgba(200, 78, 34, 0.7);
+  box-shadow: 0 0 20px rgba(153, 51, 0, 0.6);
   position: relative;
   overflow: hidden;
 }
@@ -557,7 +557,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle, #e86433 0%, #c84e22 50%, #a23618 100%);
+  background: radial-gradient(circle, #cc6633 0%, #993300 50%, #662200 100%);
   opacity: 0.8;
   animation: earth-texture 30s infinite linear;
 }
