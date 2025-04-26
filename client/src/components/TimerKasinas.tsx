@@ -13,7 +13,7 @@ import { formatTime, roundUpToNearestMinute } from '../lib/utils';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
-const TimerFreestyle: React.FC = () => {
+const TimerKasinas: React.FC = () => {
   const { selectedKasina, setSelectedKasina, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const { timeRemaining } = useSimpleTimer();
@@ -312,4 +312,4 @@ const TimerFreestyle: React.FC = () => {
   );
 };
 
-export default TimerFreestyle;
+export default TimerKasinas;

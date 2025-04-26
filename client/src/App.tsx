@@ -8,7 +8,7 @@ import { ColorProvider } from "./lib/contexts/ColorContext";
 
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import FreestylePage from "./pages/FreestylePage";
+import KasinasPage from "./pages/KasinasPage";
 import RecordingPage from "./pages/RecordingPage";
 import MeditationPage from "./pages/MeditationPage";
 import ReflectionPage from "./pages/ReflectionPage";
@@ -71,7 +71,7 @@ function App() {
               path="/kasinas"
               element={
                 <AuthenticatedRoute>
-                  <FreestylePage />
+                  <KasinasPage />
                 </AuthenticatedRoute>
               }
             />
