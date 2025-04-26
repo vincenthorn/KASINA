@@ -41,6 +41,7 @@ interface SimpleTimerState {
 export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
   duration: 60, // Default to 60 seconds (1 minute)
   originalDuration: 60, // Store the original setting
+  durationInMinutes: 1, // Store the minutes directly
   isRunning: false,
   elapsedTime: 0,
   timeRemaining: 60,
@@ -55,10 +56,15 @@ export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
       window.__DEBUG_TIMER.currentDuration = duration;
     }
     
-    // Store both the current and original duration
+    // Calculate minutes from seconds
+    const minutes = duration !== null ? Math.round(duration / 60) : null;
+    console.log(`Setting durationInMinutes to ${minutes} (from ${duration} seconds)`);
+    
+    // Store the complete duration information
     set({ 
       duration, 
       originalDuration: duration, // CRITICAL: Store original value
+      durationInMinutes: minutes, // CRITICAL: Track minutes explicitly
       timeRemaining: duration,
       elapsedTime: 0
     });
@@ -89,12 +95,13 @@ export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
   },
   
   resetTimer: () => {
-    const { duration } = get();
+    const { duration, durationInMinutes } = get();
     set({ 
       isRunning: false,
       timeRemaining: duration,
       elapsedTime: 0,
-      lastStartedAt: null
+      lastStartedAt: null,
+      // No need to reset duration-related values as they stay the same on reset
     });
   },
   
@@ -128,6 +135,7 @@ export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
     set({
       duration: null,
       originalDuration: null,
+      durationInMinutes: null,
       timeRemaining: null,
       elapsedTime: 0
     });

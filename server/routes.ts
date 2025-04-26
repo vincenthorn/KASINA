@@ -337,10 +337,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     }
     
-    // STEP 3: Use explicitly provided duration in minutes
-    else if (durationInMinutes > 0) {
-      console.log(`💡 Using explicitly provided minutes: ${durationInMinutes} minutes`);
+    // STEP 3: Use explicitly provided duration in minutes - HIGHEST PRIORITY AFTER NAME MATCH
+    // This is a reliable source of truth since it's set directly from user input
+    if (durationInMinutes > 0) { 
+      console.log(`🔥 Using explicitly provided minutes: ${durationInMinutes} minutes`);
+      // Override final duration to exactly match what the user entered
       finalDuration = durationInMinutes * 60; // Convert to seconds
+      console.log(`💡 Correcting to exactly ${durationInMinutes} minutes (${finalDuration}s)`);
     }
     
     // STEP 4: Use original duration if it's valid and different
