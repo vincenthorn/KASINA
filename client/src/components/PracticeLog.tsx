@@ -44,24 +44,38 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
   }
 
   return (
-    <Card className="bg-gray-900 border-gray-700">
-      <CardHeader>
-        <CardTitle className="text-white">Practice Log</CardTitle>
+    <Card className="bg-gray-900 border-gray-700 shadow-xl">
+      <CardHeader className="border-b border-gray-700 pb-4">
+        <CardTitle className="text-white flex items-center">
+          <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          Practice Log
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-1">
+        <div className="space-y-3">
           {sortedSessions.map((session) => (
             <div 
               key={session.id} 
-              className="flex items-center p-3 bg-gray-800 rounded-lg"
+              className="flex items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors rounded-lg border border-gray-700"
             >
-              <div className="text-2xl mr-3" title={session.kasinaName}>
+              <div 
+                className="text-3xl mr-4 bg-gray-700 p-2 rounded-full flex items-center justify-center h-12 w-12" 
+                title={`${session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina`}
+              >
                 {getKasinaEmoji(session.kasinaType)}
               </div>
               <div className="flex-1">
-                <div className="flex justify-between">
-                  <h3 className="text-white font-medium">{session.kasinaName}</h3>
-                  <span className="text-gray-400 text-sm">{formatTime(session.duration)}</span>
+                <div className="flex justify-between items-center">
+                  <h3 className="text-white font-semibold text-lg">
+                    {/* Extract just the kasina type and add "Kasina" after it */}
+                    {session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} <span className="text-indigo-300">Kasina</span>
+                  </h3>
+                  <span className="text-white font-semibold bg-indigo-700 hover:bg-indigo-600 px-3 py-1.5 rounded-md text-base flex items-center shadow-sm transition-colors">
+                    <span className="font-mono">{Math.round(session.duration / 60)}</span>
+                    <span className="ml-0.5">min</span>
+                  </span>
                 </div>
                 <p className="text-gray-500 text-sm">{format(new Date(session.timestamp), 'PPp')}</p>
               </div>
