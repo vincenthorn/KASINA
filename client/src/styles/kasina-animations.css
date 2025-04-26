@@ -33,8 +33,8 @@
   height: 200%;
   opacity: 0.7;
   animation: 
-    water-color-morph 15s infinite alternate,
-    water-move 20s infinite linear;
+    water-color-morph 30s infinite alternate ease-in-out,
+    water-move 25s infinite linear;
   transform-origin: center;
 }
 
@@ -55,7 +55,7 @@
       transparent 70%
     );
   opacity: 0.3;
-  animation: water-surface 12s infinite linear;
+  animation: water-surface 25s infinite linear;
   pointer-events: none;
 }
 
@@ -90,30 +90,50 @@
     filter: brightness(1) saturate(1) contrast(1);
     transform: scale(1);
   }
-  16.67% {
-    background: radial-gradient(circle, #0099ff 0%, #0066cc 50%, #004488 100%);
-    filter: brightness(0.9) saturate(1.1) contrast(1.05);
-    transform: scale(1.01);
+  10% {
+    background: radial-gradient(circle, #00b0f5 0%, #0074c8 50%, #005090 100%);
+    filter: brightness(0.98) saturate(1.02) contrast(1.01);
+    transform: scale(1.002);
   }
-  33.33% {
+  20% {
+    background: radial-gradient(circle, #0099ff 0%, #0066cc 50%, #004488 100%);
+    filter: brightness(0.96) saturate(1.05) contrast(1.02);
+    transform: scale(1.005);
+  }
+  30% {
+    background: radial-gradient(circle, #00abff 0%, #0070dd 50%, #004d99 100%);
+    filter: brightness(1.02) saturate(0.98) contrast(0.99);
+    transform: scale(0.998);
+  }
+  40% {
     background: radial-gradient(circle, #00ccff 0%, #0088dd 50%, #0055aa 100%);
-    filter: brightness(1.1) saturate(0.9) contrast(0.95);
-    transform: scale(0.99);
+    filter: brightness(1.05) saturate(0.95) contrast(0.97);
+    transform: scale(0.995);
   }
   50% {
     background: radial-gradient(circle, #0077ff 0%, #0055dd 50%, #0033aa 100%);
-    filter: brightness(0.95) saturate(1.2) contrast(1.1);
-    transform: scale(1.02);
+    filter: brightness(0.97) saturate(1.08) contrast(1.04);
+    transform: scale(1.008);
   }
-  66.67% {
+  60% {
+    background: radial-gradient(circle, #1a8eff 0%, #1166dd 50%, #0044aa 100%);
+    filter: brightness(1) saturate(1.02) contrast(1.02);
+    transform: scale(1.003);
+  }
+  70% {
     background: radial-gradient(circle, #33aaff 0%, #2288cc 50%, #006699 100%);
-    filter: brightness(1.05) saturate(0.95) contrast(1);
+    filter: brightness(1.03) saturate(0.97) contrast(1);
     transform: scale(1);
   }
-  83.33% {
+  80% {
+    background: radial-gradient(circle, #1a99ee 0%, #1177bb 50%, #005588 100%);
+    filter: brightness(0.99) saturate(1) contrast(1.01);
+    transform: scale(0.997);
+  }
+  90% {
     background: radial-gradient(circle, #0066aa 0%, #004488 50%, #003366 100%);
-    filter: brightness(0.9) saturate(1.1) contrast(1.05);
-    transform: scale(0.98);
+    filter: brightness(0.95) saturate(1.03) contrast(1.03);
+    transform: scale(0.994);
   }
   100% {
     background: radial-gradient(circle, #0088cc 0%, #006699 50%, #004466 100%);
@@ -122,27 +142,57 @@
   }
 }
 
-/* Water surface rippling animation */
+/* Water surface rippling animation - very slow and gradual */
 @keyframes water-surface {
   0% {
     transform: rotate(0deg) scale(1) translateX(0px);
     opacity: 0.2;
     filter: blur(0px);
   }
-  25% {
-    transform: rotate(90deg) scale(1.05) translateX(3px);
-    opacity: 0.3;
-    filter: blur(0.5px);
+  10% {
+    transform: rotate(36deg) scale(1.02) translateX(1px);
+    opacity: 0.22;
+    filter: blur(0.2px);
+  }
+  20% {
+    transform: rotate(72deg) scale(1.04) translateX(2px);
+    opacity: 0.24;
+    filter: blur(0.4px);
+  }
+  30% {
+    transform: rotate(108deg) scale(1.06) translateX(3px);
+    opacity: 0.26;
+    filter: blur(0.6px);
+  }
+  40% {
+    transform: rotate(144deg) scale(1.08) translateX(2px);
+    opacity: 0.28;
+    filter: blur(0.8px);
   }
   50% {
     transform: rotate(180deg) scale(1.1) translateX(0px);
-    opacity: 0.4;
+    opacity: 0.3;
     filter: blur(1px);
   }
-  75% {
-    transform: rotate(270deg) scale(1.05) translateX(-3px);
-    opacity: 0.3;
-    filter: blur(0.5px);
+  60% {
+    transform: rotate(216deg) scale(1.08) translateX(-2px);
+    opacity: 0.28;
+    filter: blur(0.8px);
+  }
+  70% {
+    transform: rotate(252deg) scale(1.06) translateX(-3px);
+    opacity: 0.26;
+    filter: blur(0.6px);
+  }
+  80% {
+    transform: rotate(288deg) scale(1.04) translateX(-2px);
+    opacity: 0.24;
+    filter: blur(0.4px);
+  }
+  90% {
+    transform: rotate(324deg) scale(1.02) translateX(-1px);
+    opacity: 0.22;
+    filter: blur(0.2px);
   }
   100% {
     transform: rotate(360deg) scale(1) translateX(0px);
