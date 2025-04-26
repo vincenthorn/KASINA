@@ -599,6 +599,7 @@
   background-color: #2a0055;
   transform-origin: center; /* Ensure expansion happens from center */
   will-change: transform; /* Optimize for animation performance */
+  border-radius: 50% !important; /* Always maintain circular shape */
 }
 
 .space-animation::before {
@@ -616,6 +617,7 @@
     space-breathe 15s infinite cubic-bezier(0.4, 0, 0.6, 1); /* Match parent animation timing */
   transform-origin: center;
   will-change: transform;
+  border-radius: 50%; /* Keep pseudo-element circular too */
 }
 
 .space-animation::after {
@@ -629,6 +631,7 @@
   background-image: none;
   opacity: 0;
   animation: none;
+  border-radius: 50%; /* Keep circular */
 }
 
 @keyframes space-pulse {
@@ -664,6 +667,7 @@
   animation: space-breathe 15s infinite cubic-bezier(0.4, 0, 0.6, 1) !important;
   transform-origin: center !important;
   will-change: transform !important;
+  border-radius: 50% !important; /* Ensure it stays circular */
 }
 
 @keyframes space-nebula {

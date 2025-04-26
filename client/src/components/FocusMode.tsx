@@ -119,7 +119,8 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           style={{ 
             width: '100vw',
             backgroundColor: getBackgroundColor(),
-            transition: 'background-color 0.5s ease'
+            transition: 'background-color 0.5s ease',
+            position: 'relative' /* Added to ensure absolute positioning of children works properly */
           }}
         >
           {/* Exit button - visible on mouse movement */}
@@ -196,7 +197,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                   <div 
                     className={`orb-wrapper ${selectedKasina === 'space' ? 'kasina-space-breathe-effect' : ''}`}
                     style={{
-                      position: 'fixed',
+                      position: 'absolute',
                       top: '50%',
                       left: '50%',
                       transform: 'translate(-50%, -50%)',
@@ -205,7 +206,8 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      zIndex: 10
+                      zIndex: 10,
+                      borderRadius: '50%'
                     }}
                   >
                     {React.cloneElement(orb, {

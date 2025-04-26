@@ -247,16 +247,16 @@ const DynamicOrb: React.FC = () => {
         const easeInOutQuad = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
         const breatheCycle = Math.sin(easeInOutQuad * Math.PI);
         
-        // Slightly larger scale factor (0.7 to 1.3 = 30% change)
-        const breatheFactor = 1 + breatheCycle * 0.3; 
+        // Subtle scale factor (0.9 to 1.1 = 20% change, which is more natural)
+        const breatheFactor = 1 + breatheCycle * 0.2; 
         
-        // Apply the scaling effect with a very pronounced breathing effect
-        // Use a larger scale range (0.7 to 1.3) for more noticeable breathing
+        // Apply a more moderate scaling effect for the Space kasina's breathing
+        // Use a scale range of 20% (0.9 to 1.1) which is noticeable but not too extreme
         meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
         
-        // Also apply a pulsing effect to the orb's position (slight motion in z-axis)
-        // This makes the breathing effect more noticeable
-        meshRef.current.position.z = breatheCycle * 0.2; // Move slightly in z-direction
+        // Apply a subtle pulsing effect to the orb's position (slight motion in z-axis)
+        // This makes the breathing effect more natural and 3D-like
+        meshRef.current.position.z = breatheCycle * 0.1; // Subtle movement in z-direction
         
         // Try to adjust any shader uniforms that might be available
         if (materialRef.current && 'uniforms' in materialRef.current) {
