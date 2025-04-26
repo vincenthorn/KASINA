@@ -161,58 +161,54 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       console.error("Error updating debug object:", e);
     }
     
-    // Store the entered minutes to help with debugging
+    // CRITICAL FIX: Always store the entered minutes to help with debugging
     if (typeof window !== 'undefined') {
       try {
+        console.log(`🔥 Storing custom time value in localStorage: ${mins} minutes`);
         window.localStorage.setItem('lastTimerMinutes', mins.toString());
       } catch (e) {
         console.error("Error saving to localStorage:", e);
       }
     }
     
-    // CRITICAL FIX: Make sure custom time values are processed correctly
-    // Force handling for common meditation durations to capture 2-minute and 3-minute values
-    if (mins === 2) {
-      console.log("⚠️ DETECTED CUSTOM 2-MINUTE TIMER - Setting to exactly 120 seconds");
-      // DIRECT FIX: Force exact duration for 2-minutes
+    // UNIVERSAL FIX FOR ALL CUSTOM TIME VALUES
+    // Apply direct Zustand store update for ALL custom time values
+    try {
+      // First get the store state
+      const store = useSimpleTimer.getState();
+      
+      // Force set all duration properties to exact values
+      useSimpleTimer.setState({
+        ...store,
+        duration: newDuration,
+        originalDuration: newDuration,
+        timeRemaining: newDuration,
+        durationInMinutes: mins // Add this property to track minutes directly
+      });
+      
+      console.log(`🔥 Direct store update for ${mins}-minute timer:`, useSimpleTimer.getState());
+    } catch (e) {
+      console.error("Error updating store:", e);
+    }
+    
+    // Also call the regular setter
+    setDuration(newDuration);
+    
+    // Send a DOM custom event to notify any other components that need to know about this change
+    if (typeof window !== 'undefined') {
       try {
-        // First set it in the Zustand store
-        const store = useSimpleTimer.getState();
-        // Force set both duration properties to exact values
-        useSimpleTimer.setState({
-          ...store,
-          duration: 120,
-          originalDuration: 120,
-          timeRemaining: 120 
+        const event = new CustomEvent('custom-timer-set', { 
+          detail: { 
+            minutes: mins,
+            seconds: newDuration,
+            timestamp: Date.now()
+          } 
         });
-        console.log("🔥 Direct store update for 2-minute timer:", useSimpleTimer.getState());
+        window.dispatchEvent(event);
+        console.log(`🔊 Dispatched custom-timer-set event: ${mins} minutes`);
       } catch (e) {
-        console.error("Error updating store:", e);
+        console.error("Error dispatching custom event:", e);
       }
-      // Also call the regular setter
-      setDuration(120); 
-    } else if (mins === 3) {
-      console.log("⚠️ DETECTED CUSTOM 3-MINUTE TIMER - Setting to exactly 180 seconds");
-      // DIRECT FIX: Force exact duration for 3-minutes
-      try {
-        // First set it in the Zustand store
-        const store = useSimpleTimer.getState();
-        // Force set both duration properties to exact values
-        useSimpleTimer.setState({
-          ...store,
-          duration: 180,
-          originalDuration: 180,
-          timeRemaining: 180
-        });
-        console.log("🔥 Direct store update for 3-minute timer:", useSimpleTimer.getState());
-      } catch (e) {
-        console.error("Error updating store:", e);
-      }
-      // Also call the regular setter
-      setDuration(180); 
-    } else {
-      // For other values, use the calculated duration
-      setDuration(newDuration);
     }
     
     setIsEditing(false);
@@ -224,6 +220,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       console.log("Timer state after setting:", finalState);
       console.log(`Final duration: ${finalState.duration}s`);
       console.log(`Original duration: ${finalState.originalDuration}s`);
+      console.log(`Duration in minutes: ${finalState.durationInMinutes}`);
       console.log("=====================================================");
     }, 100);
   };

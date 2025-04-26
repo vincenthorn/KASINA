@@ -22,6 +22,7 @@ if (typeof window !== 'undefined') {
 interface SimpleTimerState {
   duration: number | null; // in seconds, null means infinity (count up)
   originalDuration: number | null; // Store the originally set duration for reference
+  durationInMinutes: number | null; // Store the original input in minutes for accurate tracking
   isRunning: boolean;
   elapsedTime: number;
   timeRemaining: number | null;

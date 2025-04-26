@@ -676,5 +676,21 @@
     "durationInMinutes": 1,
     "timestamp": "2025-04-26T19:41:18.973Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745697319297",
+    "kasinaType": "yellow",
+    "kasinaName": "Yellow (2-minute)",
+    "duration": 120,
+    "timestamp": "2025-04-26T19:55:19.056Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745697582274",
+    "kasinaType": "water",
+    "kasinaName": "Water (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-26T19:59:42.031Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]

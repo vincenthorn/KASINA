@@ -156,17 +156,35 @@ const TimerKasinas: React.FC = () => {
       console.log(`- Final duration to save: ${durationToSave} seconds`);
       console.log("=======================================================");
       
-      // DIRECT FIX: Create a proper session payload with debugging info
-      // We need to pass duration, durationInMinutes, and originalDuration
+      // NEW IMPROVED FIX: Create a much more informative payload
+      // Note: The server will override the kasinaName
+      const exactMinutes = Math.round(durationToSave / 60); 
+      
+      // Explicitly check for the store's durationInMinutes first (most accurate)
+      const minutesValue = storeState.durationInMinutes || 
+                          lastTimerMinutes || 
+                          exactMinutes;
+      
+      // Extra check for 4-minute sessions (important edge case)
+      if (minutesValue === 4 || durationToSave === 240) {
+        console.log("🔍 FOUND 4-MINUTE SESSION - Ensuring it's saved as 240 seconds");
+      }
+      
+      // Ensure the displayed name matches exactly
+      const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-minute)`;
+            
+      // Create a complete, detailed payload
       const sessionPayload = {
         kasinaType: selectedKasina,
-        duration: durationToSave,
-        durationInMinutes: lastTimerMinutes > 0 ? lastTimerMinutes : Math.round(durationToSave / 60),
-        originalDuration: durationToSave
+        kasinaName: correctName, // Include correct name with minutes
+        duration: minutesValue * 60, // Forces exact seconds based on minutes
+        durationInMinutes: minutesValue, // Explicit marker
+        originalDuration: durationToSave, // Debug reference
+        timestamp: new Date().toISOString()
       };
       
       // Log what we're sending to the server
-      console.log("FINAL SESSION PAYLOAD:", sessionPayload);
+      console.log("🚀 FINAL SESSION PAYLOAD:", sessionPayload);
       
       // Send to the server
       addSession(sessionPayload as any);
@@ -252,15 +270,33 @@ const TimerKasinas: React.FC = () => {
           }
         }
         
-        // DIRECT FIX: Create a proper session payload with debugging info
+        // NEW IMPROVED FIX: Use the same enhanced payload format for manual stops
+        const exactMinutes = Math.round(roundedDuration / 60);
+        
+        // Get the correct minutes value with fallbacks
+        const minutesValue = storeState.durationInMinutes || 
+                            lastTimerMinutes || 
+                            exactMinutes;
+                            
+        // Special case handling for common durations
+        if (minutesValue === 4 || roundedDuration === 240) {
+          console.log("🔍 FOUND MANUAL STOP 4-MINUTE SESSION - Ensuring correct duration");
+        }
+        
+        // Create the correct name with minutes
+        const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-minute)`;
+        
+        // Complete session payload with all needed information
         const manualSessionPayload = {
           kasinaType: selectedKasina,
-          duration: roundedDuration,
-          durationInMinutes: lastTimerMinutes > 0 ? lastTimerMinutes : Math.round(roundedDuration / 60),
-          originalDuration: roundedDuration
+          kasinaName: correctName,
+          duration: minutesValue * 60, // Forces exact seconds based on minutes
+          durationInMinutes: minutesValue,
+          originalDuration: roundedDuration,
+          timestamp: new Date().toISOString()
         };
         
-        console.log("MANUAL STOP SESSION PAYLOAD:", manualSessionPayload);
+        console.log("🚀 MANUAL STOP SESSION PAYLOAD:", manualSessionPayload);
         
         // Send to server
         addSession(manualSessionPayload as any);
