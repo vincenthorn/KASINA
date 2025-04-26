@@ -52,9 +52,10 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       const newZoom = Math.max(minZoom, Math.min(maxZoom, zoomLevel + delta));
       setZoomLevel(newZoom);
       
-      // Show UI when zooming
-      setLastActivity(Date.now());
-      setIsUIVisible(true);
+      // Do not show UI when just scrolling/zooming
+      // UI should only be shown on actual mouse movement
+      // setLastActivity(Date.now());
+      // setIsUIVisible(true);
     }
   };
   
@@ -140,7 +141,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             <Button 
               variant="outline" 
               size="sm" 
-              onClick={disableFocusMode}
+              onClick={(e) => {
+                // Don't treat this as normal mouse movement
+                e.stopPropagation();
+                disableFocusMode();
+              }}
               className="border-gray-700 text-gray-300 hover:bg-gray-900"
             >
               <Minimize2 className="h-4 w-4 mr-1" />
@@ -154,7 +159,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           >
             <div className="bg-black/50 text-white text-sm px-3 py-1 rounded-md border border-gray-800 flex items-center gap-2">
               <button 
-                onClick={() => setZoomLevel(Math.max(minZoom, zoomLevel - zoomSpeed * 3))}
+                onClick={(e) => {
+                  // Don't treat this as normal mouse movement
+                  e.stopPropagation();
+                  setZoomLevel(Math.max(minZoom, zoomLevel - zoomSpeed * 3));
+                }}
                 className="hover:bg-gray-700 rounded p-1 transition-colors"
                 disabled={zoomLevel <= minZoom}
               >
@@ -164,7 +173,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               <span className="min-w-[60px] text-center">{Math.round(zoomLevel * 100)}%</span>
               
               <button 
-                onClick={() => setZoomLevel(Math.min(maxZoom, zoomLevel + zoomSpeed * 3))}
+                onClick={(e) => {
+                  // Don't treat this as normal mouse movement
+                  e.stopPropagation();
+                  setZoomLevel(Math.min(maxZoom, zoomLevel + zoomSpeed * 3));
+                }}
                 className="hover:bg-gray-700 rounded p-1 transition-colors"
                 disabled={zoomLevel >= maxZoom}
               >
@@ -303,9 +316,22 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 };
                 
                 const timerButtons = findTimerButtons(child);
-                return timerButtons ? React.cloneElement(timerButtons, {
-                  className: `${timerButtons.props.className} timer-buttons-focus`
-                }) : null;
+                // Clone and add special class + stop propagation for buttons
+                if (!timerButtons) return null;
+                
+                // Deep clone to add event handlers to the inner buttons
+                const clonedButtons = React.cloneElement(timerButtons, {
+                  className: `${timerButtons.props.className} timer-buttons-focus`,
+                  // For the timer buttons container
+                  onClick: (e: React.MouseEvent) => {
+                    e.stopPropagation();
+                    if (timerButtons.props.onClick) {
+                      timerButtons.props.onClick(e);
+                    }
+                  }
+                });
+                
+                return clonedButtons;
               }
               return null;
             })}
