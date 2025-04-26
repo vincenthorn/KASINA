@@ -308,92 +308,90 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // CRITICAL FIX: Create a safe copy of the request body we can modify
     const safeBody = { ...req.body };
     
-    // DIRECT FIX for 2-minute timers: Check if the request is a 2-minute timer
-    // This is the most direct way to catch this specific case
-    if (safeBody.originalDuration === 120 || 
-        safeBody.durationInMinutes === 2 ||
-        (safeBody.kasinaName && safeBody.kasinaName.includes('2-minute'))) {
-      
-      console.log("🔥 DIRECT OVERRIDE: This is a 2-minute session - force setting to 120 seconds");
-      safeBody.duration = 120;
+    // EXTREMELY AGGRESSIVE FIX FOR 2-MINUTE SESSIONS
+    // Check if this is a 2-minute session by examining all possible indicators
+    const kasinaName = (safeBody.kasinaName || '').toLowerCase();
+    const duration = typeof safeBody.duration === 'number' ? safeBody.duration : 
+                    parseInt(safeBody.duration, 10) || 0;
+    const originalDuration = safeBody.originalDuration || 0;
+    const durationInMinutes = safeBody.durationInMinutes || 0;
+    
+    console.log("CRITICAL DURATION DEBUG:");
+    console.log("1. Kasina Name:", kasinaName);
+    console.log("2. Raw Duration:", safeBody.duration);
+    console.log("3. Parsed Duration:", duration);
+    console.log("4. Original Duration:", originalDuration);
+    console.log("5. Duration in Minutes:", durationInMinutes);
+    console.log("6. Minutes Rounded:", Math.round(duration/60));
+    
+    // DIRECT FIX: Insert 2-minute override
+    let finalDuration = duration; // Default to original value
+    
+    // THE DEFINITIVE 2-MINUTE FIX
+    // If ANY sign points to this being a 2-minute session, make it exactly 120 seconds
+    if (
+      // Explicit indicators
+      durationInMinutes === 2 || 
+      originalDuration === 120 ||
+      kasinaName.includes('2-minute') ||
+      kasinaName.includes('2 minute') ||
+      // Duration indicators
+      duration === 120 ||
+      (duration >= 115 && duration <= 125) ||
+      Math.round(duration/60) === 2
+    ) {
+      console.log("💥 CRITICAL OVERRIDE: Forcing 2-minute session to exactly 120 seconds");
+      finalDuration = 120;
     }
     
-    // Similar direct fix for 3-minute timers
-    if (safeBody.originalDuration === 180 || 
-        safeBody.durationInMinutes === 3 ||
-        (safeBody.kasinaName && safeBody.kasinaName.includes('3-minute'))) {
-      
-      console.log("🔥 DIRECT OVERRIDE: This is a 3-minute session - force setting to 180 seconds");
-      safeBody.duration = 180;
+    // Similar aggressive fix for 3-minute sessions 
+    else if (
+      // Explicit indicators
+      durationInMinutes === 3 || 
+      originalDuration === 180 ||
+      kasinaName.includes('3-minute') ||
+      kasinaName.includes('3 minute') ||
+      // Duration indicators
+      duration === 180 ||
+      (duration >= 175 && duration <= 185) ||
+      Math.round(duration/60) === 3
+    ) {
+      console.log("💥 CRITICAL OVERRIDE: Forcing 3-minute session to exactly 180 seconds");
+      finalDuration = 180;
     }
     
-    // Now proceed with normal validation using our safe copy
-    let duration = safeBody.duration;
-    
-    // Get the original duration value if present
-    const originalDuration = safeBody.originalDuration || safeBody.duration;
-    console.log("Original duration from client:", originalDuration);
-    
-    // Make sure duration is a number (handle string values like "120")
-    if (typeof duration === 'string') {
-      duration = parseInt(duration, 10);
+    // Validate finalDuration is sensible
+    if (isNaN(finalDuration) || finalDuration <= 0) {
+      console.warn("Invalid duration, defaulting to 60 seconds");
+      finalDuration = 60;
     }
     
-    // If we still don't have a valid number, set a default
-    if (isNaN(duration)) {
-      console.warn("Invalid duration received:", req.body.duration);
-      duration = 60; // Default to 1 minute
-    }
+    // Format the name to include the CORRECT duration in minutes
+    const minutes = Math.round(finalDuration / 60);
     
-    // If duration is very small (less than 10), it was likely meant to be in minutes
-    // Convert it to seconds (60 seconds per minute)
-    if (duration > 0 && duration < 10) {
-      console.log(`Converting minute value ${duration} to seconds (${duration * 60}s)`);
-      duration = duration * 60;
-    }
+    // Determine the kasina type for the name
+    const kasinaType = safeBody.kasinaType || '';
     
-    // Force common meditation durations to exact values for consistency
-    if (duration >= 58 && duration <= 62) {
-      console.log("Detected ~1 minute session");
-      duration = 60; // Exactly 1 minute
-    } else if (duration >= 118 && duration <= 122) {
-      console.log("Detected ~2 minute session - FIXING to 120 seconds");
-      duration = 120; // Exactly 2 minutes
-    } else if (duration >= 178 && duration <= 182) {
-      console.log("Detected ~3 minute session - FIXING to 180 seconds");
-      duration = 180; // Exactly 3 minutes
-    }
+    // Create a completely new name to be absolutely certain
+    const correctKasinaName = `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-minute)`;
     
-    // FINAL VALIDATION: Make one last check for 2-minute and 3-minute sessions based on minutes
-    // This is a final safety check in case all other checks somehow missed it
-    if (Math.round(duration / 60) === 2) {
-      console.log("⚠️ Final check caught a 2-minute session - forcing to exactly 120 seconds");
-      duration = 120;
-    } else if (Math.round(duration / 60) === 3) {
-      console.log("⚠️ Final check caught a 3-minute session - forcing to exactly 180 seconds");
-      duration = 180;
-    }
-    
-    // Format the name to include the duration in minutes
-    let minutes = Math.round(duration / 60);
-    const kasinaName = safeBody.kasinaName || '';
-    const updatedKasinaName = kasinaName.replace(/\(\d+-minute\)/, `(${minutes}-minute)`);
-    
-    // Include user email in the session (merging req.body first, then overriding email)
+    // Final record to save
     const session = {
       id: Date.now().toString(),
-      ...req.body, // Original data for reference
-      kasinaName: updatedKasinaName, // Use the correctly formatted name
-      duration, // Use our validated duration
+      kasinaType: safeBody.kasinaType,
+      kasinaName: correctKasinaName, // Always use our corrected name
+      duration: finalDuration, // Use our validated duration
+      timestamp: safeBody.timestamp || new Date().toISOString(),
       userEmail: req.session.user.email // Override any userEmail sent from client
     };
     
     // Log the finalized session data
-    console.log("Final session data to save:", {
+    console.log("🔍 Final session data to save:", {
       id: session.id,
       kasinaType: session.kasinaType,
       kasinaName: session.kasinaName,
-      duration: session.duration, // This should now be correctly set
+      duration: session.duration,
+      timestamp: session.timestamp,
       userEmail: session.userEmail
     });
     
@@ -401,7 +399,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     
     // Save to file
     saveDataToFile(sessionsFilePath, sessions);
-    console.log(`Saved session for ${req.session.user.email}, total sessions: ${sessions.length}`);
+    console.log(`✅ Saved session for ${req.session.user.email}, total sessions: ${sessions.length}`);
     
     res.status(201).json(session);
   });
