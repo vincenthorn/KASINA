@@ -16,6 +16,7 @@ import AdminPage from "./pages/AdminPage";
 
 import NotFound from "./pages/not-found";
 
+// Base authenticated route for any logged in user
 function AuthenticatedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, checkAuthStatus } = useAuth();
 
@@ -25,6 +26,27 @@ function AuthenticatedRoute({ children }: { children: React.ReactNode }) {
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
+  }
+
+  return <>{children}</>;
+}
+
+// Special route that requires admin access
+function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, email, checkAuthStatus } = useAuth();
+
+  useEffect(() => {
+    checkAuthStatus();
+  }, [checkAuthStatus]);
+
+  // Check if user is authenticated and is an admin
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
+  
+  // Redirect non-admin users to home page
+  if (email !== "admin@kasina.app") {
+    return <Navigate to="/" />;
   }
 
   return <>{children}</>;
@@ -56,17 +78,17 @@ function App() {
             <Route
               path="/recording"
               element={
-                <AuthenticatedRoute>
+                <AdminOnlyRoute>
                   <RecordingPage />
-                </AuthenticatedRoute>
+                </AdminOnlyRoute>
               }
             />
             <Route
               path="/meditation"
               element={
-                <AuthenticatedRoute>
+                <AdminOnlyRoute>
                   <MeditationPage />
-                </AuthenticatedRoute>
+                </AdminOnlyRoute>
               }
             />
             <Route
@@ -80,9 +102,9 @@ function App() {
             <Route
               path="/admin"
               element={
-                <AuthenticatedRoute>
+                <AdminOnlyRoute>
                   <AdminPage />
-                </AuthenticatedRoute>
+                </AdminOnlyRoute>
               }
             />
 

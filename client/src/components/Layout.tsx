@@ -22,13 +22,23 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     return location.pathname === path;
   };
 
-  // Nav items configuration - updated order to match HomePage
-  const navItems = [
+  // Base navigation items that all users can see
+  const baseNavItems = [
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/freestyle", label: "Freestyle", icon: <Flame className="w-5 h-5" /> },
+    { path: "/reflection", label: "Reflection", icon: <BarChart className="w-5 h-5" /> },
+  ];
+  
+  // Admin-only navigation items
+  const adminNavItems = [
     { path: "/meditation", label: "Meditation", icon: <BookOpen className="w-5 h-5" /> },
     { path: "/recording", label: "Recording", icon: <Video className="w-5 h-5" /> },
-    { path: "/reflection", label: "Reflection", icon: <BarChart className="w-5 h-5" /> },
+  ];
+  
+  // Combine items based on user role
+  const navItems = [
+    ...baseNavItems,
+    ...(isAdmin ? adminNavItems : [])
   ];
   
   // Admin nav item (only shown to admin users)
