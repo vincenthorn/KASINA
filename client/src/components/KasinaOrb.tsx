@@ -458,15 +458,24 @@ const lightShader = {
 };
 
 // Dynamic Orb component with shader materials
-const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime = null }) => {
+const DynamicOrb: React.FC<{ 
+  kasinaType?: KasinaType;
+  remainingTime?: number | null 
+}> = ({ 
+  kasinaType,
+  remainingTime = null 
+}) => {
+  // Only use global state as a fallback if no type is provided directly
   const { selectedKasina } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
   
   // Safety check: ensure we always have a valid kasina type
   // This helps prevent rendering issues during state transitions
-  const safeKasinaType = selectedKasina && selectedKasina.trim().length > 0 
-    ? selectedKasina as KasinaType 
+  // Prefer the directly passed prop over global state
+  const typeStr = kasinaType || selectedKasina;
+  const safeKasinaType: KasinaType = typeStr && typeStr.trim().length > 0 
+    ? typeStr as KasinaType 
     : KASINA_TYPES.WHITE;
   
   useFrame(({ clock }) => {
@@ -695,8 +704,9 @@ const Scene: React.FC<{
   
   // Safety check: ensure we always have a valid kasina type for background color
   // Prefer the prop type that was passed directly over the global state
-  const safeKasinaType = (type || selectedKasina) && (type || selectedKasina).trim().length > 0 
-    ? (type || selectedKasina) as KasinaType 
+  const typeStr = type || selectedKasina;
+  const safeKasinaType: KasinaType = typeStr && typeStr.trim().length > 0 
+    ? typeStr as KasinaType 
     : KASINA_TYPES.WHITE;
   
   // Set the background color based on the selected kasina
@@ -795,7 +805,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   
   // Ensure we have a valid kasina type for the background
   // Use the effectiveType that we defined above to avoid dependency on global state
-  const safeKasinaType = effectiveType && effectiveType.trim().length > 0 
+  const safeKasinaType: KasinaType = effectiveType && effectiveType.trim().length > 0 
     ? effectiveType as KasinaType 
     : KASINA_TYPES.WHITE;
     
