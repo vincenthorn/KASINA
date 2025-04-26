@@ -284,14 +284,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
-  // Sessions routes
+  // Sessions routes - protected by authentication
   app.get("/api/sessions", (req, res) => {
-    res.json(sessions);
+    if (!req.session?.user?.email) {
+      return res.status(401).json({ message: "Authentication required" });
+    }
+    
+    // Filter sessions by user email
+    const userEmail = req.session.user.email;
+    const userSessions = sessions.filter(session => session.userEmail === userEmail);
+    
+    res.json(userSessions);
   });
   
   app.post("/api/sessions", (req, res) => {
+    if (!req.session?.user?.email) {
+      return res.status(401).json({ message: "Authentication required" });
+    }
+    
+    // Include user email in the session
     const session = {
       id: Date.now().toString(),
+      userEmail: req.session.user.email,
       ...req.body
     };
     
@@ -299,7 +313,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     
     // Save to file
     saveDataToFile(sessionsFilePath, sessions);
-    console.log(`Saved session, total sessions: ${sessions.length}`);
+    console.log(`Saved session for ${req.session.user.email}, total sessions: ${sessions.length}`);
     
     res.status(201).json(session);
   });

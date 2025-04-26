@@ -39,6 +39,7 @@ const ReflectionPage: React.FC = () => {
       console.log("================================");
       console.log("REFRESHING SESSIONS");
       console.log("Refresh counter:", refreshCounter);
+      console.log("Current user:", email);
       console.log("================================");
       
       // Get local sessions first - prioritize these
@@ -53,10 +54,17 @@ const ReflectionPage: React.FC = () => {
             console.log("Parsed local sessions:", localSessions);
             
             if (Array.isArray(localSessions) && localSessions.length > 0) {
+              // Filter to only include sessions for the current user (or sessions with no user)
+              const userSessions = localSessions.filter(session => 
+                !session.userEmail || // Include orphaned sessions with no user
+                session.userEmail === email // Include sessions for current user
+              );
+              
               // Ensure all sessions have kasinaName
-              const formattedLocalSessions = localSessions.map(session => ({
+              const formattedLocalSessions = userSessions.map(session => ({
                 ...session,
-                kasinaName: session.kasinaName || KASINA_NAMES[session.kasinaType] || session.kasinaType
+                kasinaName: session.kasinaName || KASINA_NAMES[session.kasinaType] || session.kasinaType,
+                userEmail: email // Assign current user to orphaned sessions
               }));
               
               combinedSessions = [...formattedLocalSessions];
@@ -80,24 +88,26 @@ const ReflectionPage: React.FC = () => {
         console.error("Error accessing localStorage:", localError);
       }
       
-      // Now try to get server sessions
-      try {
-        const response = await apiRequest("GET", "/api/sessions", undefined);
-        const serverSessions = await response.json();
-        console.log("Fetched server sessions:", serverSessions);
-        
-        if (Array.isArray(serverSessions) && serverSessions.length > 0) {
-          // Avoid duplicates by checking IDs
-          const existingIds = new Set(combinedSessions.map(s => s.id));
-          const uniqueServerSessions = serverSessions.filter(s => !existingIds.has(s.id));
+      // Now try to get server sessions - these will already be filtered by user
+      if (email) {
+        try {
+          const response = await apiRequest("GET", "/api/sessions", undefined);
+          const serverSessions = await response.json();
+          console.log("Fetched server sessions:", serverSessions);
           
-          if (uniqueServerSessions.length > 0) {
-            combinedSessions = [...combinedSessions, ...uniqueServerSessions];
-            console.log("Added server sessions:", uniqueServerSessions.length);
+          if (Array.isArray(serverSessions) && serverSessions.length > 0) {
+            // Avoid duplicates by checking IDs
+            const existingIds = new Set(combinedSessions.map(s => s.id));
+            const uniqueServerSessions = serverSessions.filter(s => !existingIds.has(s.id));
+            
+            if (uniqueServerSessions.length > 0) {
+              combinedSessions = [...combinedSessions, ...uniqueServerSessions];
+              console.log("Added server sessions:", uniqueServerSessions.length);
+            }
           }
+        } catch (error) {
+          console.warn("Failed to fetch sessions from server:", error);
         }
-      } catch (error) {
-        console.warn("Failed to fetch sessions from server:", error);
       }
       
       // Sort sessions by timestamp (newest first)
@@ -112,8 +122,14 @@ const ReflectionPage: React.FC = () => {
       setIsLoading(false);
     };
 
-    fetchSessions();
-  }, [refreshCounter]);
+    // Only fetch sessions if a user is logged in
+    if (email) {
+      fetchSessions();
+    } else {
+      setIsLoading(false);
+      setSessions([]);
+    }
+  }, [refreshCounter, email]);
 
   const clearLocalSessions = () => {
     if (window.confirm("Are you sure you want to clear your locally stored sessions? This can't be undone.")) {
