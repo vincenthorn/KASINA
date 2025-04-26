@@ -191,19 +191,38 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 };
                 
                 const orb = findOrb(child);
-                return orb ? React.cloneElement(orb, {
-                  className: `${orb.props.className} fixed-orb`,
-                  style: {
-                    ...orb.props.style,
-                    width: `${300 * zoomLevel}px`,
-                    height: `${300 * zoomLevel}px`,
-                    position: 'fixed',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    transition: 'width 0.2s ease, height 0.2s ease'
-                  }
-                }) : null;
+                // Create a wrapper for the orb to ensure it stays centered regardless of animations
+                return orb ? (
+                  <div 
+                    className="orb-wrapper" 
+                    style={{
+                      position: 'fixed',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      width: `${300 * zoomLevel}px`,
+                      height: `${300 * zoomLevel}px`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      zIndex: 10
+                    }}
+                  >
+                    {React.cloneElement(orb, {
+                      className: `${orb.props.className} fixed-orb`,
+                      style: {
+                        ...orb.props.style,
+                        width: '100%',
+                        height: '100%',
+                        position: 'relative',
+                        top: 'auto',
+                        left: 'auto',
+                        transform: 'none',
+                        transition: 'width 0.2s ease, height 0.2s ease'
+                      }
+                    })}
+                  </div>
+                ) : null;
               }
               return null;
             })}

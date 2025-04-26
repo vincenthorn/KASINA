@@ -1,5 +1,21 @@
 /* Kasina orb animations */
 
+/* Fixed orb in focus mode */
+.fixed-orb {
+  transform: none !important;
+  animation-name: none !important;
+}
+
+.fixed-orb::before,
+.fixed-orb::after {
+  animation-play-state: running !important;
+}
+
+/* Orb wrapper to ensure proper centering */
+.orb-wrapper {
+  transform-style: preserve-3d;
+}
+
 /* Water kasina animation - liquid blue water that changes gradually */
 .water-animation {
   animation: water-pulse 8s infinite alternate;
