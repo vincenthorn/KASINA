@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Button } from './ui/button';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useFocusMode } from '../lib/stores/useFocusMode';
+import { Input } from './ui/input';
 
 interface SimpleTimerProps {
   initialDuration?: number | null; // in seconds, null means infinity (count up)
@@ -27,6 +28,13 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     resetTimer,
     tick
   } = useSimpleTimer();
+  
+  // State for editable timer
+  const [isEditing, setIsEditing] = useState(false);
+  const [minutesInput, setMinutesInput] = useState('');
+  const [secondsInput, setSecondsInput] = useState('');
+  const minutesInputRef = useRef<HTMLInputElement>(null);
+  const secondsInputRef = useRef<HTMLInputElement>(null);
   
   // Set initial duration if provided and only when the component first mounts
   useEffect(() => {
@@ -93,13 +101,102 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
   
+  // Toggle edit mode
+  const startEditing = () => {
+    if (isRunning) return; // Don't allow editing while timer is running
+    
+    // Initialize the input fields with current duration
+    const mins = Math.floor((duration || 0) / 60);
+    const secs = (duration || 0) % 60;
+    setMinutesInput(mins.toString());
+    setSecondsInput(secs.toString().padStart(2, '0'));
+    
+    setIsEditing(true);
+    
+    // Focus the minutes input after rendering
+    setTimeout(() => {
+      if (minutesInputRef.current) {
+        minutesInputRef.current.focus();
+        minutesInputRef.current.select();
+      }
+    }, 50);
+  };
+  
+  // Handle saving the edited time
+  const handleSaveTime = () => {
+    // Convert inputs to numbers
+    const mins = parseInt(minutesInput) || 0;
+    const secs = parseInt(secondsInput) || 0;
+    
+    // Calculate total seconds
+    const totalSeconds = (mins * 60) + secs;
+    
+    // Set minimum duration to 1 second
+    const newDuration = Math.max(totalSeconds, 1);
+    
+    // Update timer
+    console.log(`Custom time set to ${mins}:${secs.toString().padStart(2, '0')} (${newDuration} seconds)`);
+    setDuration(newDuration);
+    setIsEditing(false);
+  };
+  
+  // Handle key press events in the inputs
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSaveTime();
+    } else if (e.key === 'Escape') {
+      setIsEditing(false);
+    }
+  };
+  
   return (
     <div className="flex flex-col items-center space-y-4">
-      <div className="text-3xl font-mono text-white">
-        {timeRemaining === null ? 
-          formatTime(elapsedTime) : 
-          formatTime(timeRemaining)}
-      </div>
+      {isEditing ? (
+        <div className="flex items-center space-x-1 text-white">
+          <Input
+            ref={minutesInputRef}
+            type="text"
+            value={minutesInput}
+            onChange={(e) => setMinutesInput(e.target.value.replace(/[^0-9]/g, ''))}
+            onKeyDown={handleKeyPress}
+            className="w-16 text-center font-mono text-white bg-gray-800 focus:ring-blue-500"
+            maxLength={3}
+            placeholder="00"
+          />
+          <span className="text-xl font-mono">:</span>
+          <Input
+            ref={secondsInputRef}
+            type="text"
+            value={secondsInput}
+            onChange={(e) => {
+              const value = e.target.value.replace(/[^0-9]/g, '');
+              setSecondsInput(value.length > 0 ? value : '00');
+            }}
+            onKeyDown={handleKeyPress}
+            className="w-16 text-center font-mono text-white bg-gray-800 focus:ring-blue-500"
+            maxLength={2}
+            placeholder="00"
+            onBlur={() => {
+              // Format seconds with leading zero
+              const value = parseInt(secondsInput) || 0;
+              setSecondsInput(value.toString().padStart(2, '0'));
+            }}
+          />
+          <Button size="sm" variant="outline" onClick={handleSaveTime} className="ml-2">
+            Set
+          </Button>
+        </div>
+      ) : (
+        <div 
+          className="text-3xl font-mono text-white cursor-pointer hover:text-blue-400 transition-colors"
+          onClick={() => !isRunning && startEditing()}
+          title={isRunning ? "Cannot edit while timer is running" : "Click to edit timer"}
+        >
+          {timeRemaining === null ? 
+            formatTime(elapsedTime) : 
+            formatTime(timeRemaining)}
+        </div>
+      )}
       
       {/* Timer status - Include data attribute for tracking completed duration */}
       <div 
@@ -249,6 +346,16 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           size="sm"
         >
           60:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => startEditing()}
+          disabled={isRunning}
+          className="col-span-4 mt-2"
+          size="sm"
+        >
+          Custom Time
         </Button>
       </div>
     </div>
