@@ -568,5 +568,13 @@
     "duration": 60,
     "timestamp": "2025-04-26T17:15:19.682Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745688162114",
+    "kasinaType": "water",
+    "kasinaName": "Water",
+    "duration": 60,
+    "timestamp": "2025-04-26T17:22:41.978Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]

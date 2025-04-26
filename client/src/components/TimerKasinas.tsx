@@ -16,7 +16,7 @@ import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 const TimerKasinas: React.FC = () => {
   const { selectedKasina, setSelectedKasina, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
-  const { timeRemaining } = useSimpleTimer();
+  const { timeRemaining, duration } = useSimpleTimer();
   
   // Add this ref to prevent multiple session saves
   const sessionSavedRef = useRef(false);
@@ -47,7 +47,7 @@ const TimerKasinas: React.FC = () => {
   
   // Handle timer completion
   const handleTimerComplete = () => {
-    console.log("Timer completed", { elapsedTime, alreadySaved: sessionSavedRef.current });
+    console.log("Timer completed", { elapsedTime, alreadySaved: sessionSavedRef.current, duration });
     
     // Disable focus mode when timer completes
     disableFocusMode();
@@ -62,15 +62,20 @@ const TimerKasinas: React.FC = () => {
       return;
     }
     
-    // Automatically save the session with rounded duration
-    const roundedElapsedTime = roundUpToNearestMinute(elapsedTime);
-    console.log("Rounded elapsed time:", roundedElapsedTime);
+    // Determine which duration to use for saving the session
+    // For fully completed timers, use the originally set duration (custom or preset)
+    // For manually stopped timers, use the elapsed time
+    const durationToSave = duration || 60; // Use the duration that was set, or default to 60s
+    const roundedDuration = roundUpToNearestMinute(durationToSave);
+    
+    console.log("Original duration:", durationToSave, "seconds");
+    console.log("Rounded duration for saving:", roundedDuration, "seconds");
     
     // Only save if there was actual meditation time
-    if (roundedElapsedTime > 0) {
+    if (roundedDuration > 0) {
       console.log("Saving session with data:", {
         kasinaType: selectedKasina,
-        duration: roundedElapsedTime
+        duration: roundedDuration
       });
       
       // Mark as saved before the API call to prevent duplicates
@@ -78,22 +83,22 @@ const TimerKasinas: React.FC = () => {
       
       addSession({
         kasinaType: selectedKasina,
-        duration: roundedElapsedTime
+        duration: roundedDuration
       });
       
-      console.log(`Auto-saved session: ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]}`);
+      console.log(`Auto-saved session: ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]}`);
       
       // Show toast notification with rounded time
-      toast.success(`You completed a ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
+      toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
     } else {
-      console.warn("Not saving session because roundedElapsedTime is 0");
+      console.warn("Not saving session because roundedDuration is 0");
       toast.error("Session too short to save - minimum recordable time is 1 minute");
     }
   };
   
   // Track timer status for saving
   const handleStatusUpdate = (remaining: number | null, elapsed: number) => {
-    console.log("Timer update:", { remaining, elapsed, alreadySaved: sessionSavedRef.current });
+    console.log("Timer update:", { remaining, elapsed, duration, alreadySaved: sessionSavedRef.current });
     setElapsedTime(elapsed);
     
     // Handle manual stop (when remaining is not 0 but we got a final update)
@@ -105,14 +110,28 @@ const TimerKasinas: React.FC = () => {
         return;
       }
       
-      // This happens when the user manually stops the timer
-      // Let's save the session if it's at least 1 minute long
-      const roundedElapsedTime = roundUpToNearestMinute(elapsed);
+      // Determine which duration to save based on completion percentage
+      // If user completed more than 90% of the meditation, use the full duration
+      const completionPercentage = elapsed / (duration || 60) * 100;
+      let durationToSave = elapsed;
       
-      if (roundedElapsedTime >= 60) {
+      console.log(`Completion: ${completionPercentage.toFixed(1)}%`);
+      
+      if (completionPercentage >= 90) {
+        // If they were very close to finishing, count it as a full session
+        durationToSave = duration || 60;
+        console.log("Manual stop near completion - using full duration:", durationToSave);
+      } else {
+        console.log("Manual stop - using actual elapsed time:", elapsed);
+      }
+      
+      // Round up to nearest minute for storage
+      const roundedDuration = roundUpToNearestMinute(durationToSave);
+      
+      if (roundedDuration >= 60) {
         console.log("Manual stop detected - saving session with data:", {
           kasinaType: selectedKasina,
-          duration: roundedElapsedTime
+          duration: roundedDuration
         });
         
         // Mark as saved before the API call to prevent duplicates
@@ -120,10 +139,10 @@ const TimerKasinas: React.FC = () => {
         
         addSession({
           kasinaType: selectedKasina,
-          duration: roundedElapsedTime
+          duration: roundedDuration
         });
         
-        toast.success(`You completed a ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
+        toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
       } else {
         console.warn("Session too short to save - needs at least 1 minute");
         if (elapsed > 0) {
