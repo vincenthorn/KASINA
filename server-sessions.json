@@ -592,5 +592,29 @@
     "duration": 60,
     "timestamp": "2025-04-26T17:41:32.449Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745689705137",
+    "kasinaType": "red",
+    "kasinaName": "Red",
+    "duration": 60,
+    "timestamp": "2025-04-26T17:48:25.005Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745689758364",
+    "kasinaType": "red",
+    "kasinaName": "Red",
+    "duration": 60,
+    "timestamp": "2025-04-26T17:49:18.226Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745689775350",
+    "kasinaType": "red",
+    "kasinaName": "Red",
+    "duration": 60,
+    "timestamp": "2025-04-26T17:49:35.225Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]

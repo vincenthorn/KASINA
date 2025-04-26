@@ -56,20 +56,9 @@ const TimerKasinas: React.FC = () => {
     setTimeout(() => {
       disableFocusMode();
       
-      // Force a re-render of the KasinaOrb component
-      const orbElement = document.querySelector('.orb-content');
-      if (orbElement) {
-        console.log("Found orb element, forcing re-render");
-        // Add and remove a class to trigger a style recalculation
-        orbElement.classList.add('force-reinit');
-        
-        // Remove it after a brief delay
-        setTimeout(() => {
-          orbElement.classList.remove('force-reinit');
-        }, 50);
-      } else {
-        console.log("No orb element found to reinitialize");
-      }
+      // Instead of forcing a DOM-based re-render, we'll use React's state management
+      // to properly handle component re-rendering without visual artifacts
+      console.log("Allowing React to handle re-rendering naturally");
     }, 100);
     
     // Show feedback

@@ -741,10 +741,6 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
   
-  // Add a key based on all important props to ensure full re-rendering when needed
-  // This is critical for proper functioning when returning from focus mode
-  const instanceKey = `kasina-orb-${type || selectedKasina}-${enableZoom ? 'zoom' : 'nozoom'}-${Date.now()}`;
-  
   // If type is provided, update the selected kasina in the store
   useEffect(() => {
     if (type) {
@@ -758,12 +754,6 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   useEffect(() => {
     console.log("KasinaOrb component mounted with type:", type || selectedKasina);
     
-    // Force a re-render after focus mode exits by adding a class and removing it
-    document.body.classList.add('kasina-reinit');
-    setTimeout(() => {
-      document.body.classList.remove('kasina-reinit');
-    }, 50);
-    
     return () => {
       console.log("KasinaOrb component unmounted, had type:", type || selectedKasina);
     };
@@ -776,7 +766,6 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
     <div 
       className="w-full h-full orb-content"
       style={{ backgroundColor: bgColor }}
-      key={instanceKey}
     >
       <Canvas>
         <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
