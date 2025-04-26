@@ -5,6 +5,7 @@ import PracticeLog from "../components/PracticeLog";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
 import { toast } from "sonner";
+import { useAuth } from "../lib/stores/useAuth";
 
 interface Session {
   id: string;
@@ -17,6 +18,10 @@ interface Session {
 const ReflectionPage: React.FC = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { email } = useAuth();
+  
+  // Check if user is admin
+  const isAdmin = email === 'admin@kasina.app';
 
   // Disable caching in useEffect by using a refresh counter
   const [refreshCounter, setRefreshCounter] = useState(0);
@@ -121,79 +126,83 @@ const ReflectionPage: React.FC = () => {
     <Layout>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-white">Practice Reflection</h1>
-        <div className="flex gap-2">
-          <button 
-            onClick={refresh}
-            className="text-xs text-blue-500 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
-          >
-            Refresh Data
-          </button>
-          {/* Only show in development environment - hidden in production */}
-          {process.env.NODE_ENV === 'development' && (
+        
+        {/* Only show admin buttons if user is admin */}
+        {isAdmin && (
+          <div className="flex gap-2">
             <button 
-              onClick={() => {
-                // Ask which kasina type to test with
-                const kasinaType = prompt("Enter kasina type to test (e.g., fire, water, blue):", "");
-                if (!kasinaType) return;
-                
-                // Ask for duration
-                const durationInput = prompt("Enter duration in seconds:", "60");
-                const duration = parseInt(durationInput || "60", 10);
-                
-                try {
-                  // Test direct localStorage access with user specified values
-                  const testSession = {
-                    id: Date.now().toString(),
-                    kasinaType: kasinaType, 
-                    kasinaName: KASINA_NAMES[kasinaType] || kasinaType, 
-                    duration: duration,
-                    timestamp: new Date().toISOString()
-                  };
-                  
-                  // Try to get existing sessions
-                  let existingSessions = [];
-                  try {
-                    const storedSessions = window.localStorage.getItem("sessions");
-                    if (storedSessions) {
-                      existingSessions = JSON.parse(storedSessions);
-                      if (!Array.isArray(existingSessions)) {
-                        console.error("Stored sessions is not an array:", existingSessions);
-                        existingSessions = [];
-                      }
-                    }
-                  } catch (e) {
-                    console.error("Error reading from localStorage:", e);
-                  }
-                  
-                  // Add test session
-                  existingSessions.push(testSession);
-                  
-                  // Write back to localStorage
-                  window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
-                  
-                  // Verify it got saved
-                  const verification = window.localStorage.getItem("sessions");
-                  console.log("LOCAL STORAGE TEST - Saved sessions:", verification);
-                  
-                  toast.success(`Test ${kasinaType} session added (${duration}s)`);
-                  refresh();
-                } catch (e) {
-                  console.error("LocalStorage test failed:", e);
-                  toast.error("LocalStorage test failed: " + e);
-                }
-              }}
-              className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
+              onClick={refresh}
+              className="text-xs text-blue-500 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
             >
-              Debug Storage
+              Refresh Data
             </button>
-          )}
-          <button 
-            onClick={clearLocalSessions}
-            className="text-xs text-red-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
-          >
-            Clear Local Data
-          </button>
-        </div>
+            {/* Only show in development environment - hidden in production */}
+            {process.env.NODE_ENV === 'development' && (
+              <button 
+                onClick={() => {
+                  // Ask which kasina type to test with
+                  const kasinaType = prompt("Enter kasina type to test (e.g., fire, water, blue):", "");
+                  if (!kasinaType) return;
+                  
+                  // Ask for duration
+                  const durationInput = prompt("Enter duration in seconds:", "60");
+                  const duration = parseInt(durationInput || "60", 10);
+                  
+                  try {
+                    // Test direct localStorage access with user specified values
+                    const testSession = {
+                      id: Date.now().toString(),
+                      kasinaType: kasinaType, 
+                      kasinaName: KASINA_NAMES[kasinaType] || kasinaType, 
+                      duration: duration,
+                      timestamp: new Date().toISOString()
+                    };
+                    
+                    // Try to get existing sessions
+                    let existingSessions = [];
+                    try {
+                      const storedSessions = window.localStorage.getItem("sessions");
+                      if (storedSessions) {
+                        existingSessions = JSON.parse(storedSessions);
+                        if (!Array.isArray(existingSessions)) {
+                          console.error("Stored sessions is not an array:", existingSessions);
+                          existingSessions = [];
+                        }
+                      }
+                    } catch (e) {
+                      console.error("Error reading from localStorage:", e);
+                    }
+                    
+                    // Add test session
+                    existingSessions.push(testSession);
+                    
+                    // Write back to localStorage
+                    window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
+                    
+                    // Verify it got saved
+                    const verification = window.localStorage.getItem("sessions");
+                    console.log("LOCAL STORAGE TEST - Saved sessions:", verification);
+                    
+                    toast.success(`Test ${kasinaType} session added (${duration}s)`);
+                    refresh();
+                  } catch (e) {
+                    console.error("LocalStorage test failed:", e);
+                    toast.error("LocalStorage test failed: " + e);
+                  }
+                }}
+                className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
+              >
+                Debug Storage
+              </button>
+            )}
+            <button 
+              onClick={clearLocalSessions}
+              className="text-xs text-red-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
+            >
+              Clear Local Data
+            </button>
+          </div>
+        )}
       </div>
       
       {isLoading ? (

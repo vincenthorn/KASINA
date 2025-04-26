@@ -33,5 +33,12 @@
     "kasinaName": "Red",
     "duration": 30,
     "timestamp": "2025-04-25T19:44:57.311Z"
+  },
+  {
+    "id": "1745640347959",
+    "kasinaType": "fire",
+    "kasinaName": "Fire",
+    "duration": 59,
+    "timestamp": "2025-04-26T04:05:47.812Z"
   }
 ]
