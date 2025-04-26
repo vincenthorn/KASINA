@@ -91,12 +91,20 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
     };
   }, [isFocusModeActive, isUIVisible]);
   
-  // Reset zoom level when exiting focus mode
+  // Reset zoom level when exiting focus mode or during final animation
   useEffect(() => {
     if (!isFocusModeActive) {
       setZoomLevel(1);
     }
   }, [isFocusModeActive]);
+  
+  // Lock and reset zoom during final animation
+  useEffect(() => {
+    // If we're in the final 30 seconds, force reset zoom to default (1.0)
+    if (timerState.timeRemaining !== null && timerState.timeRemaining <= 30) {
+      setZoomLevel(1);
+    }
+  }, [timerState.timeRemaining]);
   
   return (
     <>
@@ -203,6 +211,45 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           </div>
           
           {/* Render the KasinaOrb component directly */}
+          {/* Add an extra overlay that prevents any interaction during final animation */}
+          {timerState.timeRemaining !== null && timerState.timeRemaining <= 30 && (
+            <div 
+              className="animation-lock-overlay" 
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: '100vw',
+                height: '100vh',
+                zIndex: 1000,
+                cursor: 'not-allowed',
+                background: 'transparent'
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+              }}
+              onWheel={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+              }}
+              onTouchMove={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+              }}
+              onMouseDown={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+              }}
+            />
+          )}
+          
           <div className="orb-container-wrapper" style={{
             position: 'absolute',
             top: 0,
