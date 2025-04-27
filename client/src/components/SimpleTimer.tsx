@@ -163,7 +163,8 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       timerStartedAtRef.current = null;
     }
     
-    let intervalId: ReturnType<typeof setInterval> | null = null;
+    // Use NodeJS.Timeout type for both interval IDs
+    let intervalId: NodeJS.Timeout | null = null;
     
     if (isRunning) {
       // Create completion sentinel to prevent multiple completion events
@@ -177,7 +178,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       
       // Set up a validation interval that runs more frequently
       // This will proactively fix timer issues before they cause problems
-      const validationIntervalId = window.setInterval(() => {
+      const validationIntervalId: NodeJS.Timeout = window.setInterval(() => {
         // Check and repair the timer state if needed
         const result = useSimpleTimer.getState().validateTimerState();
         if (!result) {
@@ -293,17 +294,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 realTotalElapsed = calculatedElapsed;
               }
               
-              // Enhanced validity checks - SIGNIFICANTLY RELAXED FOR STABILITY
-              // Check 1: timer is at zero in the store OR very close to zero
-              // Check 2: session not already completed (using ref for persistence)
-              // REMOVED the elapsedTime > 10 check as it was preventing short sessions
-              // REMOVED the realTotalElapsed > 10 check as it was preventing short sessions
-              if ((currentState.timeRemaining === 0 || currentState.timeRemaining < 3) && 
-                  !sessionCompletedRef.current) {
-                
-                // Log the relaxed validation
-                console.log("TIMER TERMINATION: Using relaxed validation criteria", {
-                  timeRemaining: currentState.timeRemaining,
+              // ULTRA SIMPLIFIED VALIDATION
+              // Just complete when there's meaningful elapsed time and session not already marked complete
+              if (!sessionCompletedRef.current && currentState.elapsedTime > 5) {
+                console.log("TIMER VALIDATION: Simplified validation only checking if we have elapsed time", {
                   elapsedTime: currentState.elapsedTime,
                   realElapsedTime: realTotalElapsed
                 });

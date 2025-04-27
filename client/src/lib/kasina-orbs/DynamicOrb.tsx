@@ -306,7 +306,12 @@ const DynamicOrb: React.FC<DynamicOrbProps> = ({
   useFrame(({ clock }) => {
     if (!meshRef.current) return;
     
-    // Gentle rotation
+    // CRITICAL LOGGING: Add debug information about disableBreathing status
+    if (clock.getElapsedTime() % 10 < 0.1) {
+      console.log(`DynamicOrb breathing status check: type=${kasinaType}, disableBreathing=${disableBreathing}, remainingTime=${remainingTime}`);
+    }
+    
+    // Gentle rotation - always apply regardless of breathing state
     meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
     
     // Enhanced shrinking effect for end of session with extra safeguards
