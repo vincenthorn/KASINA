@@ -141,7 +141,7 @@ const ReflectionPage: React.FC = () => {
   return (
     <Layout>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-white">Practice Reflection</h1>
+        <h1 className="text-2xl font-bold text-white">Reflection</h1>
         
         {/* Only show admin buttons if user is admin */}
         {isAdmin && (
