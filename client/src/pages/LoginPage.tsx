@@ -14,11 +14,11 @@ const LoginPage: React.FC = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <div className="py-8 px-4 flex flex-col items-center">
-        <div className="text-center mb-6 mt-6">
+        <div className="text-center mb-8 mt-12">
           <Logo size="large" />
         </div>
         
-        <div className="mb-8">
+        <div className="mb-10 w-full max-w-md flex justify-center">
           <LoginForm />
         </div>
         
