@@ -258,10 +258,11 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
                     ${isTimerVisible || !isRunning ? 'opacity-100' : 'opacity-0'}`}
       >
         {/* Timer display with pulse animation for countdown */}
-        <div className="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800">
-          <Timer className="h-4 w-4 text-gray-400" />
+        <div className={`bg-black/60 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800
+                     ${timeRemaining <= 10 && timeRemaining > 0 ? 'border-white/50' : 'border-gray-800'}`}>
+          <Timer className={`h-4 w-4 ${timeRemaining <= 10 && timeRemaining > 0 ? 'text-white' : 'text-gray-400'}`} />
           <div className={`text-xl font-mono white-kasina-final-countdown 
-                           ${timeRemaining <= 10 && timeRemaining > 0 ? 'pulse-animation' : ''}`}>
+                           ${timeRemaining <= 10 && timeRemaining > 0 ? 'white-kasina-timer-emphasis' : ''}`}>
             {formatTime(timeRemaining)}
           </div>
         </div>
@@ -303,19 +304,21 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
     <div 
       className={`flex flex-col items-center space-y-4 transition-opacity duration-1000`}
     >
-      <div className={`text-3xl font-mono text-white white-kasina-final-countdown ${timeRemaining <= 10 && timeRemaining > 0 ? 'pulse-animation' : ''}`}>
+      <div className={`text-3xl font-mono text-white white-kasina-final-countdown 
+                       ${timeRemaining <= 10 && timeRemaining > 0 ? 'white-kasina-timer-emphasis' : ''}`}>
         {formatTime(timeRemaining)}
       </div>
       
-      <div className="text-xs text-gray-300">
+      <div className={`text-xs ${timeRemaining <= 10 && timeRemaining > 0 ? 'text-white' : 'text-gray-300'}`}>
         {`Remaining: ${formatTime(timeRemaining)} / ${formatTime(60)}`}
       </div>
       
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 mt-2">
         <Button 
           variant={isRunning ? "destructive" : "default"} 
           onClick={handleStartStop}
-          className="w-20 focus-mode-exempt"
+          className="w-24 focus-mode-exempt"
+          size="sm"
         >
           {isRunning ? 'Stop' : 'Start'}
         </Button>
@@ -325,13 +328,17 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
           onClick={handleReset}
           disabled={isRunning}
           className="w-20 focus-mode-exempt"
+          size="sm"
         >
           Reset
         </Button>
       </div>
       
-      <div className="text-xs text-gray-400 mt-2">
-        💡 Special 1-minute timer for White Kasina
+      <div className={`text-xs ${fadeOutIntensity > 0 ? 'text-white' : 'text-gray-400'} mt-2 ${fadeOutIntensity > 0.5 ? 'white-kasina-timer-emphasis' : ''}`}>
+        {fadeOutIntensity > 0 
+          ? `💡 White kasina fadeout in progress (${Math.round(fadeOutIntensity * 100)}%)`
+          : '💡 Special 1-minute timer for White Kasina'
+        }
       </div>
     </div>
   );

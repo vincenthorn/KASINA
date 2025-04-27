@@ -93,3 +93,41 @@ canvas {
   color: white;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
+
+/* White kasina fadeout effect */
+@keyframes white-kasina-fadeout {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+}
+
+.white-kasina-fadeout {
+  animation: white-kasina-fadeout 10s ease-in forwards;
+  transform-origin: center;
+}
+
+/* Timer emphasis during fade */
+@keyframes timer-pulse {
+  0% {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+}
+
+/* Animation for timer during final countdown */
+.white-kasina-timer-emphasis {
+  animation: timer-pulse 1.5s ease-in-out infinite;
+}
