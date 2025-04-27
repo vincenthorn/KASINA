@@ -368,15 +368,39 @@ const TimerKasinas: React.FC = () => {
     // Set the valid session flag to false until we've been running at least 10 seconds
     setValidSession(false);
     
-    // Set a timeout to mark the session as valid after it has run for 10 seconds
-    // This ensures we don't consider very brief sessions that end quickly
-    setTimeout(() => {
-      // Only mark as valid if timer is still running
-      if (useSimpleTimer.getState().isRunning) {
-        console.log("⏱️ Session has been running for 10+ seconds - marking as valid");
-        setValidSession(true);
+    // CRITICAL FIX: Create an interval to check for session validity continuously
+    // This handles cases where React might remount the component during the session
+    const sessionValidityCheckId = setInterval(() => {
+      const timerState = useSimpleTimer.getState();
+      
+      // Check if timer has been running for a meaningful amount of time (5+ seconds)
+      if (timerState.isRunning && timerState.elapsedTime >= 5) {
+        // If we've been running for at least 5 seconds, mark the session as valid
+        if (!validSession) {
+          console.log("⏱️ Session has been running for 5+ seconds - marking as valid", {
+            elapsedTime: timerState.elapsedTime,
+            startTime: sessionStartTimeRef.current,
+            realElapsed: sessionStartTimeRef.current ? 
+              Math.floor((Date.now() - sessionStartTimeRef.current) / 1000) : 0
+          });
+          
+          setValidSession(true);
+        }
       }
-    }, 10000);
+    }, 1000); // Check every second
+    
+    // Store the interval ID for cleanup
+    const validityIntervalRef = useRef<number | null>(null);
+    validityIntervalRef.current = sessionValidityCheckId;
+    
+    // Make sure to clean up the interval on component unmount
+    useEffect(() => {
+      return () => {
+        if (validityIntervalRef.current) {
+          clearInterval(validityIntervalRef.current);
+        }
+      };
+    }, []);
     
     // Record when focus mode was enabled
     focusModeEnabledAtRef.current = Date.now();
