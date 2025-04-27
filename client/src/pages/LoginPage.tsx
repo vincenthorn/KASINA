@@ -34,6 +34,14 @@ const LoginPage: React.FC = () => {
               <span>Kasina meditation mode with 10 visual orbs + practice timer</span>
             </div>
             <div className="flex items-start">
+              <span className="mr-2">🔴</span>
+              <span>Train with 4 Color Orbs: White, Yellow, Red, & Blue</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-2">🌎</span>
+              <span>Practice with 6 Elemental Orbs: Earth, Water, Fire, Air, Space, & Light</span>
+            </div>
+            <div className="flex items-start">
               <span className="mr-2">📊</span>
               <span>Visualize your practice history with kasina breakdowns</span>
             </div>
