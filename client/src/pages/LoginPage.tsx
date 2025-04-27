@@ -16,6 +16,40 @@ const LoginPage: React.FC = () => {
       <div className="text-center mb-8">
         <Logo size="large" />
       </div>
+      
+      <div className="text-center mb-8 max-w-2xl">
+        <p className="text-gray-200 mb-6">
+          KASINA is a 3D visual meditation tool for those ready to deepen their concentration with a visual object. 
+          Inspired by ancient kasina practices, reimagined for the modern meditator.
+        </p>
+        
+        <div className="space-y-2 text-left mx-auto max-w-md mb-6 text-gray-300">
+          <div className="flex items-start">
+            <span className="mr-2">🔲</span>
+            <span>Freestyle kasina mode with 10 orbs + practice timer</span>
+          </div>
+          <div className="flex items-start">
+            <span className="mr-2">📊</span>
+            <span>Visualize your practice history with color + elemental breakdowns</span>
+          </div>
+          <div className="flex items-start">
+            <span className="mr-2">🎙</span>
+            <span>Record & share your own guided visual meditations (coming soon)</span>
+          </div>
+          <div className="flex items-start">
+            <span className="mr-2">🧘‍♀️</span>
+            <span>Access curated teachings & community-contributed sessions (coming soon)</span>
+          </div>
+        </div>
+        
+        <div className="text-indigo-400 text-sm font-medium">
+          Who it's for:
+          <div className="mt-1 text-gray-400">
+            Jhāna nerds • Meditation teachers • Contemplative techies
+          </div>
+        </div>
+      </div>
+      
       <LoginForm />
     </div>
   );
