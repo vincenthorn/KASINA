@@ -14,6 +14,15 @@ import { formatTime, roundUpToNearestMinute } from '../lib/utils';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
+// TypeScript declaration for the debug property
+declare global {
+  interface Window {
+    __WHITE_KASINA_DEBUG?: {
+      addEvent: (event: string) => void;
+    };
+  }
+}
+
 const TimerKasinas: React.FC = () => {
   const { selectedKasina, setSelectedKasina, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
