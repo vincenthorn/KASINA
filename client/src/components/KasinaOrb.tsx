@@ -498,24 +498,57 @@ const DynamicOrb: React.FC<{
           // White kasina uses a special fadeout that is controlled separately from timer
           const fadeLevel = 1 - fadeOutIntensity; // 1 = fully visible, 0 = fully faded
           
-          // Log the fadeout effect
-          if (fadeOutIntensity >= 0.5) {
+          // Log the fadeout effect for debugging
+          if (fadeOutIntensity >= 0.2 && Math.floor(fadeOutIntensity * 10) % 2 === 0) {
             console.log(`🌟 WHITE KASINA ORB FADEOUT: ${Math.round(fadeOutIntensity * 100)}% fade intensity`);
           }
           
-          // Apply the fade to the material
+          // Apply fade to white for standard material
           if ('opacity' in materialRef.current) {
-            (materialRef.current as THREE.MeshBasicMaterial).opacity = fadeLevel;
+            // Apply opacity fade
+            (materialRef.current as THREE.MeshBasicMaterial).opacity = fadeLevel * 0.7 + 0.3; // Never go below 30% opacity
             (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
-          } else if ('uniforms' in materialRef.current && 
-                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
-            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = fadeLevel;
-            (materialRef.current as THREE.ShaderMaterial).transparent = true;
+            
+            // Create fade to white effect (gradually brighten to pure white)
+            // Start with the original white color and gradually increase brightness
+            const originalColor = new THREE.Color(KASINA_COLORS[safeKasinaType]);
+            const pureWhite = new THREE.Color(1, 1, 1);
+            
+            // Blend between original white and pure bright white
+            const resultColor = originalColor.clone().lerp(pureWhite, fadeOutIntensity);
+            (materialRef.current as THREE.MeshBasicMaterial).color = resultColor;
+            
+            // Add slight emissive glow for brightness effect
+            (materialRef.current as THREE.MeshBasicMaterial).emissive = new THREE.Color(1, 1, 1).multiplyScalar(fadeOutIntensity * 0.5);
+          } 
+          // Apply fade for shader materials 
+          else if ('uniforms' in materialRef.current) {
+            const material = materialRef.current as THREE.ShaderMaterial;
+            
+            // Set base opacity
+            if (material.uniforms.opacity) {
+              material.uniforms.opacity.value = fadeLevel * 0.7 + 0.3; // Never go below 30% opacity
+              material.transparent = true;
+            }
+            
+            // Adjust color to pure white for shaders
+            if (material.uniforms.color) {
+              // Create a whiter/brighter version
+              const originalColor = material.uniforms.color.value.clone();
+              const brightWhite = new THREE.Color(1, 1, 1);
+              material.uniforms.color.value.copy(originalColor).lerp(brightWhite, fadeOutIntensity);
+            }
           }
           
-          // Add slight shrink for additional effect
-          const shrinkLevel = 1 - (fadeOutIntensity * 0.3); // Shrink to 70% at most
-          meshRef.current.scale.set(shrinkLevel, shrinkLevel, shrinkLevel);
+          // Add slight expansion effect (opposite of shrink - white kasina actually expands as it fades)
+          const expandLevel = 1 + (fadeOutIntensity * 0.2); // Expand to 120% at most
+          meshRef.current.scale.set(expandLevel, expandLevel, expandLevel);
+          
+          // Add a subtle pulse effect during the fadeout
+          const pulseAmount = Math.sin(clock.getElapsedTime() * 4) * 0.05 * fadeOutIntensity;
+          meshRef.current.scale.x += pulseAmount;
+          meshRef.current.scale.y += pulseAmount;
+          meshRef.current.scale.z += pulseAmount;
         }
       }
       // Standard fadeout for all other kasinas - Shrinking effect for end of session 
