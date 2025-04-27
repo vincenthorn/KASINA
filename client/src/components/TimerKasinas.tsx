@@ -18,12 +18,22 @@ const TimerKasinas: React.FC = () => {
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const { timeRemaining, duration } = useSimpleTimer();
   
-  // Add this ref to prevent multiple session saves
+  // Add this ref to prevent multiple session saves - with more robust tracking
   const sessionSavedRef = useRef(false);
+  
+  // Add a global variable to track the time when the session started
+  // This allows us to absolutely verify how long the session has been running
+  const sessionStartTimeRef = useRef<number | null>(null);
+  
+  // Track when focus mode was last enabled
+  const focusModeEnabledAtRef = useRef<number | null>(null);
   
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedTab, setSelectedTab] = useState<string>("simple");
   const [elapsedTime, setElapsedTime] = useState(0);
+  
+  // Add state to track if we're in a valid session
+  const [validSession, setValidSession] = useState(false);
   
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
@@ -45,9 +55,38 @@ const TimerKasinas: React.FC = () => {
     console.log("Resetting session saved flag - kasina changed to", selectedKasina);
   }, [selectedKasina]);
   
-  // Handle timer completion
+  // Handle timer completion with robust validity checks
   const handleTimerComplete = () => {
-    console.log("Timer completed", { elapsedTime, alreadySaved: sessionSavedRef.current, duration });
+    console.log("Timer completion triggered", { 
+      elapsedTime, 
+      alreadySaved: sessionSavedRef.current, 
+      duration,
+      sessionStart: sessionStartTimeRef.current,
+      validSession
+    });
+    
+    // Calculate real elapsed time based on session start timestamp
+    let realElapsedTime = 0;
+    if (sessionStartTimeRef.current) {
+      realElapsedTime = Math.floor((Date.now() - sessionStartTimeRef.current) / 1000);
+      console.log(`Real elapsed time based on timestamps: ${realElapsedTime} seconds`);
+    }
+    
+    // PRIMARY SAFETY CHECK: Only proceed if we have been running for at least 10 seconds
+    // This prevents premature completion events
+    if (realElapsedTime < 10) {
+      console.error("❌ CRITICAL SAFETY - Timer completion triggered too early!", {
+        realElapsedTime,
+        startTime: sessionStartTimeRef.current
+      });
+      return; // Exit immediately, don't process this completion
+    }
+    
+    // Additional check to prevent sessions marked as invalid from completing
+    if (!validSession) {
+      console.warn("⚠️ Session not marked as valid - ignoring completion event");
+      return;
+    }
     
     // CRITICAL FIX: Handle focus mode exit properly
     console.log("Timer completed, scheduling focus mode exit and orb reinit");
@@ -322,6 +361,29 @@ const TimerKasinas: React.FC = () => {
   // Handle timer start to enable focus mode
   const handleTimerStart = () => {
     console.log("Timer started - activating focus mode");
+    
+    // Record the exact timestamp when the session starts for accurate tracking
+    sessionStartTimeRef.current = Date.now();
+    
+    // Set the valid session flag to false until we've been running at least 10 seconds
+    setValidSession(false);
+    
+    // Set a timeout to mark the session as valid after it has run for 10 seconds
+    // This ensures we don't consider very brief sessions that end quickly
+    setTimeout(() => {
+      // Only mark as valid if timer is still running
+      if (useSimpleTimer.getState().isRunning) {
+        console.log("⏱️ Session has been running for 10+ seconds - marking as valid");
+        setValidSession(true);
+      }
+    }, 10000);
+    
+    // Record when focus mode was enabled
+    focusModeEnabledAtRef.current = Date.now();
+    
+    // Clear saved flag when starting a new session
+    sessionSavedRef.current = false;
+    
     enableFocusMode();
   };
   
