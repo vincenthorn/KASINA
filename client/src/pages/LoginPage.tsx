@@ -31,15 +31,15 @@ const LoginPage: React.FC = () => {
           <div className="space-y-2 text-left mb-6 text-gray-300 text-lg">
             <div className="flex items-start">
               <span className="mr-2">🔲</span>
-              <span>Kasina mode with 10 visual orbs & meditation timer</span>
+              <span>Kasina mode with 10 visual orbs plus meditation timer</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">🔴</span>
-              <span>Train with 4 Color Orbs: White, Yellow, Red, & Blue</span>
+              <span>4 Color Orbs: White, Yellow, Red, & Blue</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">🌎</span>
-              <span>Practice with 6 Elemental Orbs: Earth, Water, Fire, Air, Space, & Light</span>
+              <span>6 Elemental Orbs: Earth, Water, Fire, Air, Space, & Light</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">📊</span>
@@ -47,11 +47,11 @@ const LoginPage: React.FC = () => {
             </div>
             <div className="flex items-start">
               <span className="mr-2">🧘‍♀️</span>
-              <span>Access community-generated guided meditations <span className="text-indigo-400 ml-1 text-base font-medium">COMING SOON</span></span>
+              <span>Access community-generated guided meditations COMING SOON</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">🎙</span>
-              <span>Record & share your own guided visual meditations <span className="text-indigo-400 ml-1 text-base font-medium">COMING SOON</span></span>
+              <span>Record & share your own guided visual meditations COMING SOON</span>
             </div>
           </div>
         </div>
