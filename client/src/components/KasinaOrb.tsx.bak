@@ -475,9 +475,6 @@ const DynamicOrb: React.FC<{
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
   
-  // Get the kasina type (either from prop or from store)
-  const kasinaType = type || selectedKasina;
-  
   useFrame(({ clock }) => {
     if (meshRef.current) {
       // Gentle rotation
@@ -496,6 +493,8 @@ const DynamicOrb: React.FC<{
         // For color kasinas, only shrink without changing opacity
         if (materialRef.current) {
           // Check if this is an elemental kasina (shader material) or color kasina (basic material)
+          // Use type prop if provided, otherwise fall back to selectedKasina from store
+          const kasinaType = type || selectedKasina;
           const isElementalKasina = [
             KASINA_TYPES.WATER, 
             KASINA_TYPES.AIR, 
@@ -520,10 +519,16 @@ const DynamicOrb: React.FC<{
             }
           }
         }
+        
+        // Log the shrinking effect (for debugging)
+        // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)} (of 60s fade)`);
       } 
       // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
-      else if ((kasinaType === KASINA_TYPES.SPACE || kasinaType === KASINA_TYPES.FIRE) && 
-              (remainingTime === null || remainingTime > 60)) {
+      else {
+        // Use type prop if provided, otherwise fall back to selectedKasina from store
+        const kasinaType = type || selectedKasina;
+        if ((kasinaType === KASINA_TYPES.SPACE || kasinaType === KASINA_TYPES.FIRE) && 
+            (remainingTime === null || remainingTime > 60)) {
         const time = clock.getElapsedTime();
         
         // Use cubic-bezier-like timing function for smoother animation
@@ -531,7 +536,7 @@ const DynamicOrb: React.FC<{
         let breatheCycle = 0;
         let breatheFactor = 1;
 
-        if (kasinaType === KASINA_TYPES.SPACE) {
+        if (selectedKasina === KASINA_TYPES.SPACE) {
           // Space kasina: Subtle 10-second breathing cycle
           const t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
           const easeValue = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
@@ -546,7 +551,7 @@ const DynamicOrb: React.FC<{
           // Apply an extremely subtle pulsing effect to the orb's position
           meshRef.current.position.z = breatheCycle * 0.05; // Minimal movement in z-direction
         } 
-        else if (kasinaType === KASINA_TYPES.FIRE) {
+        else if (selectedKasina === KASINA_TYPES.FIRE) {
           // Fire kasina: More rapid 4-second breathing cycle with flame-like pulsation
           const t = time % 4 / 4; // Normalized time in the cycle (0-1) - 4 second cycle
           
@@ -576,7 +581,7 @@ const DynamicOrb: React.FC<{
             // Attempt to modify any shader uniforms that might affect the appearance
             const material = materialRef.current as THREE.ShaderMaterial;
             
-            if (kasinaType === KASINA_TYPES.SPACE) {
+            if (selectedKasina === KASINA_TYPES.SPACE) {
               if (material.uniforms.glowIntensity !== undefined) {
                 material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
               }
@@ -590,7 +595,7 @@ const DynamicOrb: React.FC<{
                 material.uniforms.opacity.value = 0.8 + breatheCycle * 0.2;
               }
             }
-            else if (kasinaType === KASINA_TYPES.FIRE) {
+            else if (selectedKasina === KASINA_TYPES.FIRE) {
               // Fire-specific adjustments to shader uniforms
               // Flame color pulsation
               if (material.uniforms.color !== undefined) {
@@ -630,6 +635,8 @@ const DynamicOrb: React.FC<{
   });
 
   const getShaderMaterial = () => {
+    // Use type prop if provided, otherwise fall back to selectedKasina from store
+    const kasinaType = type || selectedKasina;
     switch (kasinaType) {
       case KASINA_TYPES.WATER:
         return new THREE.ShaderMaterial({...waterShader, transparent: true});
@@ -658,7 +665,7 @@ const DynamicOrb: React.FC<{
       meshRef.current.material = material;
       materialRef.current = material;
     }
-  }, [kasinaType, color, speed, complexity]);
+  }, [selectedKasina, type, color, speed, complexity]);
 
   return (
     <mesh ref={meshRef}>
