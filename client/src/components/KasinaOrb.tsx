@@ -468,12 +468,20 @@ const DynamicOrb: React.FC<{
   // Only use global state as a fallback if no type is provided directly
   const { selectedKasina } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
+  
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
   
   // Safety check: ensure we always have a valid kasina type
   // This helps prevent rendering issues during state transitions
   // Prefer the directly passed prop over global state and use our utility function
   const safeKasinaType: KasinaType = ensureValidKasinaType(kasinaType || selectedKasina);
+  
+  // Debug for white kasina orb
+  useEffect(() => {
+    if (safeKasinaType === 'white') {
+      console.log("WHITE KASINA ORB: Rendering white kasina at", new Date().toISOString());
+    }
+  }, [safeKasinaType]);
   
   useFrame(({ clock }) => {
     if (meshRef.current) {

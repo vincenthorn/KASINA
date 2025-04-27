@@ -5,7 +5,7 @@ import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { KASINA_BACKGROUNDS } from '../lib/constants';
-import { KasinaType } from '../lib/types';
+import { KasinaType, ensureValidKasinaType } from '../lib/types';
 import KasinaOrb from './KasinaOrb';
 import { Dialog, DialogContent } from './ui/dialog';
 
@@ -35,7 +35,9 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   
   // Get the background color for the selected kasina
   const getBackgroundColor = () => {
-    return KASINA_BACKGROUNDS[selectedKasina as KasinaType] || '#000000';
+    // Use our validation utility to ensure a valid kasina type
+    const safeKasinaType = ensureValidKasinaType(selectedKasina);
+    return KASINA_BACKGROUNDS[safeKasinaType] || '#000000';
   };
   
   // Handle mouse movement to show UI temporarily
@@ -241,7 +243,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             >
               <KasinaOrb
                 key={`focus-mode-orb-${selectedKasina}-${timerState.isRunning ? 'running' : 'stopped'}`}
-                type={selectedKasina as KasinaType}
+                type={ensureValidKasinaType(selectedKasina)}
                 enableZoom={true}
                 remainingTime={timerState.timeRemaining}
               />

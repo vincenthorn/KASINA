@@ -28,8 +28,15 @@ const TimerKasinas: React.FC = () => {
   // Add a unique key for the orb rendering to force re-initialization when needed
   const [orbKey, setOrbKey] = useState<string>(() => `kasina-orb-initial-${Date.now()}`);
   
-  // Convert selectedKasina to KasinaType
-  const typedKasina = selectedKasina as KasinaType;
+  // Convert selectedKasina to KasinaType using our validation utility
+  const typedKasina = ensureValidKasinaType(selectedKasina);
+  
+  // Debug log for white kasina sessions
+  useEffect(() => {
+    if (typedKasina === 'white') {
+      console.log("WHITE KASINA DEBUG: Selected white kasina at", new Date().toISOString());
+    }
+  }, [typedKasina]);
   
   // Reset session saved flag when the component mounts
   useEffect(() => {
