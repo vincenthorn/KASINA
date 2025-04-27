@@ -7,44 +7,71 @@ let globalTimeRemaining = 60;
 let globalTimerActive = false;
 let updateHandlers: Array<(time: number, active: boolean) => void> = [];
 
-// Function to update all instances
+// Function to update all instances - but only show on kasinas page
 export const updateWhiteKasinaTimer = (timeRemaining: number, active: boolean) => {
+  // Update global state values
   globalTimeRemaining = timeRemaining;
   globalTimerActive = active;
-  // Call all update handlers
-  updateHandlers.forEach(handler => handler(timeRemaining, active));
+  
+  // Only show the timer if we're on the kasinas page
+  if (typeof window !== 'undefined' && window.location.pathname.includes('/kasinas')) {
+    // Call all update handlers 
+    updateHandlers.forEach(handler => handler(timeRemaining, active));
+  } else {
+    console.log("WhiteKasinaTimer: Not showing timer (not on kasinas page)");
+  }
 };
 
 /**
  * A component that creates a timer overlay portal - guaranteed to be 
  * displayed over everything else regardless of focus mode
+ * 
+ * This overlay will ONLY be rendered on the kasinas page.
  */
 const WhiteKasinaOverlay: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(globalTimeRemaining);
   const [isActive, setIsActive] = useState(globalTimerActive);
+  const [isOnKasinasPage, setIsOnKasinasPage] = useState(false);
 
   useEffect(() => {
-    // Create a update handler
-    const handleUpdate = (time: number, active: boolean) => {
-      setTimeRemaining(time);
-      setIsActive(active);
-    };
+    // Only mount if we're on the kasinas page
+    if (typeof window !== 'undefined') {
+      const checkPath = () => {
+        const currentPath = window.location.pathname;
+        const onKasinasPage = currentPath.includes('/kasinas');
+        console.log("WhiteKasinaOverlay path check:", { currentPath, onKasinasPage });
+        setIsOnKasinasPage(onKasinasPage);
+      };
+      
+      // Check initial path
+      checkPath();
+      
+      // Create a update handler for timer changes
+      const handleUpdate = (time: number, active: boolean) => {
+        setTimeRemaining(time);
+        setIsActive(active);
+      };
 
-    // Register this component as a handler
-    updateHandlers.push(handleUpdate);
+      // Register this component as a handler
+      updateHandlers.push(handleUpdate);
 
-    // Set as mounted to render the portal
-    setMounted(true);
+      // Set as mounted to render the portal
+      setMounted(true);
+      
+      // Listen for route changes
+      const interval = setInterval(checkPath, 1000);
 
-    // Cleanup
-    return () => {
-      updateHandlers = updateHandlers.filter(h => h !== handleUpdate);
-    };
+      // Cleanup
+      return () => {
+        updateHandlers = updateHandlers.filter(h => h !== handleUpdate);
+        clearInterval(interval);
+      };
+    }
   }, []);
 
-  // Don't render anything server-side
-  if (!mounted) return null;
+  // Don't render anything server-side or when not on kasinas page
+  if (!mounted || !isOnKasinasPage) return null;
 
   // Create a portal that attaches directly to the body
   return createPortal(
