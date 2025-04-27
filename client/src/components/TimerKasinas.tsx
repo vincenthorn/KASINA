@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
@@ -15,7 +14,6 @@ import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
 const TimerKasinas: React.FC = () => {
-  const navigate = useNavigate();
   const { selectedKasina, setSelectedKasina, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const { timeRemaining, duration } = useSimpleTimer();
@@ -196,12 +194,6 @@ const TimerKasinas: React.FC = () => {
       
       // Show toast notification with exact time
       toast.success(`You completed a ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
-      
-      // Redirect to reflection page after a short delay
-      setTimeout(() => {
-        console.log("Redirecting to reflection page");
-        navigate('/reflection');
-      }, 1500);
     } else {
       console.warn("Not saving session because duration is 0");
       toast.error("Session too short to save - minimum recordable time is 1 minute");
@@ -312,12 +304,6 @@ const TimerKasinas: React.FC = () => {
         addSession(manualSessionPayload as any);
         
         toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
-        
-        // Redirect to reflection page after a short delay
-        setTimeout(() => {
-          console.log("Redirecting to reflection page after manual stop");
-          navigate('/reflection');
-        }, 1500);
       } else {
         console.warn("Session too short to save - needs at least 1 minute");
         if (elapsed > 0) {
