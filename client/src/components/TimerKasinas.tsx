@@ -369,6 +369,15 @@ const TimerKasinas: React.FC = () => {
           console.log("🔍 FOUND MANUAL STOP 4-MINUTE SESSION - Ensuring correct duration");
         }
         
+        // CRITICAL FIX FOR WHITE KASINA: Force 1-minute session for white kasina
+        let correctedMinutesValue = minutesValue; // Create mutable copy
+        if (selectedKasina === KASINA_TYPES.WHITE && correctedMinutesValue === 2) {
+          console.log("🔍 FOUND WHITE KASINA 2-MINUTE SESSION - Correcting to 1 minute");
+          // Override to 1 minute (60 seconds)
+          roundedDuration = 60;
+          correctedMinutesValue = 1;
+        }
+        
         // Create the correct name with proper pluralization
         const minuteText = minutesValue === 1 ? "minute" : "minutes";
         const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-${minuteText})`;
@@ -412,6 +421,21 @@ const TimerKasinas: React.FC = () => {
     if (typedKasina === 'white') {
       console.log("WHITE KASINA SESSION: Starting timer via handleTimerStart at", new Date().toISOString());
       console.log("WHITE KASINA SESSION: Current timer state:", useSimpleTimer.getState());
+      
+      // CRITICAL FIX: Check if white kasina has the correct duration
+      const currentState = useSimpleTimer.getState();
+      if (currentState.duration !== 60) {
+        console.log(`🚨 WHITE KASINA FIX: Detected incorrect duration ${currentState.duration}s - fixing to 60s`);
+        
+        // Force update to 60 seconds (1 minute)
+        useSimpleTimer.setState({
+          ...currentState,
+          duration: 60,
+          originalDuration: 60,
+          timeRemaining: 60,
+          durationInMinutes: 1
+        });
+      }
     }
     
     // Generate a new orbKey for the session start to ensure fresh rendering
@@ -427,6 +451,20 @@ const TimerKasinas: React.FC = () => {
       // Add a brief delay to check timer state after setup
       setTimeout(() => {
         console.log("WHITE KASINA SESSION: Timer state 100ms after start:", useSimpleTimer.getState());
+        
+        // Double-check that the fix took effect
+        const stateAfterDelay = useSimpleTimer.getState();
+        if (stateAfterDelay.duration !== 60) {
+          console.log("🔄 SECOND WHITE KASINA FIX: Still incorrect duration, fixing again");
+          
+          useSimpleTimer.setState({
+            ...stateAfterDelay,
+            duration: 60,
+            originalDuration: 60,
+            timeRemaining: 60,
+            durationInMinutes: 1
+          });
+        }
       }, 100);
     }
   };
