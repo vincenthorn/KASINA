@@ -4,16 +4,55 @@
  * and guarantees timer visibility while still allowing auto-hide
  */
 
+console.log("[White Kasina] Script loaded - initializing");
+
 // Create temporary placeholders
 window.whiteKasinaTimer = {
-  start: function() { console.log("[White Kasina] Placeholder start called"); },
+  start: function() { 
+    console.log("[White Kasina] Placeholder start called - initializing real timer"); 
+    // Force initialization now if called before ready
+    initializeTimer();
+  },
   stop: function() { console.log("[White Kasina] Placeholder stop called"); },
-  setTime: function() { console.log("[White Kasina] Placeholder setTime called"); }
+  setTime: function(t) { console.log("[White Kasina] Placeholder setTime called with time:", t); }
 };
 
+// Track initialization
+let isInitialized = false;
+let initializationTimeout = null;
+
+// Schedule initialization for when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("[White Kasina] DOM loaded, initializing timer...");
+  initializeTimer();
+});
+
+// Also try to initialize after a delay as a fallback
+initializationTimeout = setTimeout(function() {
+  console.log("[White Kasina] Delayed initialization");
+  initializeTimer();
+}, 1000);
+
 // Main implementation
-setTimeout(function() {
-  console.log("[White Kasina] Timer script initializing");
+function initializeTimer() {
+  if (isInitialized) {
+    console.log("[White Kasina] Timer already initialized, skipping");
+    return;
+  }
+  
+  // Prevent multiple inits
+  isInitialized = true;
+  
+  // Clear pending timeout
+  if (initializationTimeout) {
+    clearTimeout(initializationTimeout);
+    initializationTimeout = null;
+  }
+  
+  console.log("[White Kasina] Timer script initializing NOW");
+  
+  // Force a delay to ensure DOM is ready
+  setTimeout(function() {
   
   (function() {
     // Private variables
@@ -23,6 +62,9 @@ setTimeout(function() {
     let time = 60;
     let active = false;
     let lastInteractionTime = Date.now();
+    
+    // Debug flag - prints extra logging
+    const DEBUG = true;
     
     // DOM Setup - Create a fixed timer element that floats above everything
     function setupTimerElement() {
@@ -204,22 +246,28 @@ setTimeout(function() {
     
     // PUBLIC: Start the timer
     function startTimer() {
-      // Only start if we're on the kasinas page
-      if (!window.location.pathname.includes('/kasinas')) {
-        console.log("[White Kasina] Not starting timer - not on kasinas page");
-        return;
-      }
+      console.log("[White Kasina] startTimer called with pathname:", window.location.pathname);
+      
+      // We'll start regardless of URL since React will call this only when appropriate
+      console.log("[White Kasina] FORCING TIMER START - URL check disabled");
       
       // Make sure DOM elements exist
       setupTimerElement();
       setupEventListeners();
       
-      console.log("[White Kasina] Starting timer");
+      console.log("[White Kasina] Starting timer - setting active=true");
       
       // Reset state
       active = true;
       time = 60;
       lastInteractionTime = Date.now();
+      
+      // Force debug output of element
+      if (timerElement) {
+        console.log("[White Kasina] Timer element exists:", timerElement.className);
+      } else {
+        console.log("[White Kasina] Timer element is null!");
+      }
       
       // Update display
       if (timerElement) {
@@ -236,13 +284,21 @@ setTimeout(function() {
       }
       
       // Start countdown
+      console.log("[White Kasina] Setting up countdown interval");
       countdownInterval = setInterval(function() {
+        // Decrement time
         time--;
+        console.log("[White Kasina] Countdown tick:", time);
         
         if (timerElement) {
           // Update display
           const textEl = document.getElementById('white-kasina-timer-text');
-          if (textEl) textEl.textContent = formatTime(time);
+          if (textEl) {
+            textEl.textContent = formatTime(time);
+            console.log("[White Kasina] Updated text to:", formatTime(time));
+          } else {
+            console.log("[White Kasina] Text element not found!");
+          }
           
           // Handle final countdown
           if (time <= 10 && time > 0) {
@@ -332,4 +388,5 @@ setTimeout(function() {
     // Log completion for debugging
     console.log("[White Kasina] Timer implementation ready");
   })();
-}, 500);
+  }, 50); // Short delay to ensure DOM is loaded
+}
