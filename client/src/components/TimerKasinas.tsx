@@ -365,27 +365,23 @@ const TimerKasinas: React.FC = () => {
     // Record the exact timestamp when the session starts for accurate tracking
     sessionStartTimeRef.current = Date.now();
     
-    // Set the valid session flag to false until we've been running at least 10 seconds
-    setValidSession(false);
+    // CRITICAL FIX: Always mark session as valid from the beginning
+    // This prevents issues where the timer completes before the validity check passes
+    setValidSession(true);
+    console.log("✅ Immediately marking session as valid to prevent premature termination issues");
     
-    // CRITICAL FIX: Create an interval to check for session validity continuously
-    // This handles cases where React might remount the component during the session
+    // Keep a validity check to ensure continued session integrity
     const sessionValidityCheckId = setInterval(() => {
       const timerState = useSimpleTimer.getState();
       
-      // Check if timer has been running for a meaningful amount of time (5+ seconds)
-      if (timerState.isRunning && timerState.elapsedTime >= 5) {
-        // If we've been running for at least 5 seconds, mark the session as valid
-        if (!validSession) {
-          console.log("⏱️ Session has been running for 5+ seconds - marking as valid", {
-            elapsedTime: timerState.elapsedTime,
-            startTime: sessionStartTimeRef.current,
-            realElapsed: sessionStartTimeRef.current ? 
-              Math.floor((Date.now() - sessionStartTimeRef.current) / 1000) : 0
-          });
-          
-          setValidSession(true);
-        }
+      // Log periodic verification that session remains valid
+      if (timerState.isRunning && timerState.elapsedTime % 5 === 0) {
+        console.log("⏱️ Session validation check - still running", {
+          elapsedTime: timerState.elapsedTime,
+          startTime: sessionStartTimeRef.current,
+          realElapsed: sessionStartTimeRef.current ? 
+            Math.floor((Date.now() - sessionStartTimeRef.current) / 1000) : 0
+        });
       }
     }, 1000); // Check every second
     

@@ -110,6 +110,17 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
     }
   }, [isFocusModeActive]);
   
+  // Added to debug/trace for focus mode
+  useEffect(() => {
+    if (isFocusModeActive) {
+      console.log("🔍 FOCUS MODE ACTIVATED", {
+        selectedKasina,
+        timeRemaining: timerState.timeRemaining,
+        isRunning: timerState.isRunning
+      });
+    }
+  }, [isFocusModeActive, selectedKasina, timerState.timeRemaining, timerState.isRunning]);
+
   return (
     <>
       <div className="relative">
@@ -139,7 +150,12 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       <Dialog 
         open={isFocusModeActive} 
         onOpenChange={(open) => {
-          if (!open) disableFocusMode();
+          if (!open) {
+            console.log("Focus mode dialog closed");
+            disableFocusMode();
+          } else {
+            console.log("Focus mode dialog opened");
+          }
         }}
       >
         <DialogContent 

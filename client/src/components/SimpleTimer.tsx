@@ -235,9 +235,25 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         }
         
         // Check for completion - only if timer is at 0 and we haven't already completed
+        // Add additional logging to track the timer state when completion is being checked
+        console.log("⏱️ Timer check:", { 
+          timeRemaining, 
+          elapsedTime, 
+          hasCompleted, 
+          realElapsedTime 
+        });
+        
         if (timeRemaining === 0 && !hasCompleted) {
           // Set the completion sentinel for this interval
           hasCompleted = true;
+          
+          // CRITICAL LOG: Report timer completion being triggered
+          console.log("🏁 TIMER COMPLETION TRIGGERED!", {
+            timeRemaining,
+            elapsedTime,
+            realElapsedTime,
+            timestamp: new Date().toISOString()
+          });
           
           // Clear the validation interval since we're completing
           clearInterval(validationIntervalId);
@@ -298,7 +314,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               // Check 2: session not already completed (using ref for persistence)
               // REMOVED the elapsedTime > 10 check as it was preventing short sessions
               // REMOVED the realTotalElapsed > 10 check as it was preventing short sessions
-              if ((currentState.timeRemaining === 0 || currentState.timeRemaining < 3) && 
+              if ((currentState.timeRemaining === 0 || (currentState.timeRemaining !== null && currentState.timeRemaining < 3)) && 
                   !sessionCompletedRef.current) {
                 
                 // Log the relaxed validation
@@ -356,7 +372,8 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       const validationIntervalRef = { current: validationIntervalId };
       
       // Assign the interval ID to the variable used for cleanup
-      intervalId = newIntervalId;
+      // Cast to NodeJS.Timeout to satisfy TypeScript
+      intervalId = newIntervalId as unknown as NodeJS.Timeout;
       
       // Clean up both intervals
       return () => {
