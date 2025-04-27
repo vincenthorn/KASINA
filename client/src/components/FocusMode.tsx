@@ -229,6 +229,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             overflow: 'hidden'
           }}>
             <div 
+              className="kasina-orb-container"
               style={{
                 position: 'relative',
                 width: `${300 * zoomLevel}px`,

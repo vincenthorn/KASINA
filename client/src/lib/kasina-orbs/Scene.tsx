@@ -59,10 +59,15 @@ const Scene: React.FC<SceneProps> = ({
     }
   }, [enableZoom]);
 
-  // Update light position to follow camera
+  // Update light position to follow camera and handle remaining time
   useFrame(() => {
     if (cameraRef.current) {
       setCameraLight(cameraRef.current.position.clone());
+      
+      // Log remaining time changes during the final minute to help debug issues
+      if (remainingTime !== null && remainingTime <= 60 && remainingTime % 5 === 0) {
+        console.log(`Scene - Remaining time update: ${remainingTime}s`);
+      }
     }
   });
 

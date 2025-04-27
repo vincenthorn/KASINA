@@ -93,17 +93,28 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             
             // Then call the completion handler
             if (onComplete) {
-              // Add an additional safeguard - only call onComplete if the timer is still at zero
-              // and we're still running (not stopped by user during the delay)
-              if (useSimpleTimer.getState().timeRemaining === 0 && 
-                  useSimpleTimer.getState().isRunning) {
+              // Add multiple safeguards - only call onComplete if conditions are correct
+              const currentState = useSimpleTimer.getState();
+              
+              // Check 1: timer is at zero
+              // Check 2: timer is still running
+              // Check 3: we've been running for at least 5 seconds
+              if (currentState.timeRemaining === 0 && 
+                  currentState.isRunning &&
+                  currentState.elapsedTime > 5) {
+                console.log("All completion checks passed - executing completion handler");
+                console.log(`Elapsed time: ${currentState.elapsedTime}s`);
                 onComplete();
               } else {
-                console.log("Skipping completion handler - timer state changed during delay");
+                console.log("Skipping completion handler - checks failed:", {
+                  timeRemaining: currentState.timeRemaining,
+                  isRunning: currentState.isRunning,
+                  elapsedTime: currentState.elapsedTime
+                });
               }
             }
             // Note: Focus mode disable happens in the other useEffect
-          }, 500);
+          }, 800); // Increased from 500ms to 800ms to allow for orb animation
         }
       }, 1000);
     }

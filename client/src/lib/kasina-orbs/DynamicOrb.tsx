@@ -307,15 +307,19 @@ const DynamicOrb: React.FC<DynamicOrbProps> = ({
     // Gentle rotation
     meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
     
-    // Shrinking effect for end of session
+    // Improved shrinking effect for end of session
     if (remainingTime !== null && remainingTime <= 60) {
-      // Calculate scale factor
-      const endingScale = remainingTime / 60;
+      // Calculate an improved scale factor with a minimum size to prevent complete disappearance
+      // This creates a smooth shrinking effect but ensures the orb doesn't get too small
+      const minScale = 0.05; // Minimum scale to keep orb visible
+      const endingScale = minScale + (remainingTime / 60) * (1 - minScale);
       
-      // Apply the scale
+      console.log(`Remaining: ${remainingTime}s, scale: ${endingScale.toFixed(3)}`);
+      
+      // Apply the scale with subtle ease-out effect to make it smooth
       meshRef.current.scale.set(endingScale, endingScale, endingScale);
       
-      // Apply opacity for elemental kasinas
+      // Apply opacity for elemental kasinas - also keep minimum opacity
       if (materialRef.current) {
         const isElemental = [
           KASINA_TYPES.WATER, 
@@ -326,8 +330,12 @@ const DynamicOrb: React.FC<DynamicOrbProps> = ({
           KASINA_TYPES.LIGHT
         ].includes(kasinaType);
         
+        // Keep higher minimum opacity value so it doesn't completely disappear
+        const minOpacity = 0.1;
+        const endingOpacity = minOpacity + (remainingTime / 60) * (1 - minOpacity);
+        
         if (isElemental && 'uniforms' in materialRef.current) {
-          (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingScale;
+          (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingOpacity;
           (materialRef.current as THREE.ShaderMaterial).transparent = true;
         }
       }
