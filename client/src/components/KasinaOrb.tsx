@@ -656,9 +656,20 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
 };
 
 // Scene setup component
-const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> = ({ 
+const Scene: React.FC<{ 
+  enableZoom?: boolean, 
+  remainingTime?: number | null,
+  type?: KasinaType,
+  color?: string,
+  speed?: number,
+  complexity?: number
+}> = ({ 
   enableZoom = false,
-  remainingTime = null
+  remainingTime = null,
+  type,
+  color,
+  speed,
+  complexity
 }) => {
   const { gl, camera } = useThree();
   const { selectedKasina } = useKasina();
@@ -724,7 +735,13 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
       <pointLight position={cameraLight} intensity={0.8} distance={10} />
-      <DynamicOrb remainingTime={remainingTime} />
+      <DynamicOrb 
+        remainingTime={remainingTime} 
+        type={type}
+        color={color}
+        speed={speed}
+        complexity={complexity}
+      />
       <OrbitControls 
         enableZoom={enableZoom} 
         enablePan={false} 
@@ -785,7 +802,14 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
       style={{ backgroundColor: bgColor }}
     >
       <Canvas>
-        <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
+        <Scene 
+          enableZoom={enableZoom} 
+          remainingTime={remainingTime}
+          type={type}
+          color={color}
+          speed={speed}
+          complexity={complexity}
+        />
       </Canvas>
     </div>
   );
