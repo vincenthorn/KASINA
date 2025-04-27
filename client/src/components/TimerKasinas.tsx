@@ -380,7 +380,7 @@ const TimerKasinas: React.FC = () => {
                 <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
                 
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                  <h3 className="font-medium col-span-2">Color Kasinas</h3>
+                  <h3 className="font-medium col-span-2">4 Color Orbs: White, Yellow, Red, & Blue</h3>
                   <Button
                     variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
@@ -429,7 +429,7 @@ const TimerKasinas: React.FC = () => {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <h3 className="font-medium col-span-2">Element Kasinas</h3>
+                  <h3 className="font-medium col-span-2">6 Elemental Orbs: Earth, Water, Fire, Air, Space, & Light</h3>
                   
                   <Button
                     variant={selectedKasina === KASINA_TYPES.WATER ? "default" : "outline"}
