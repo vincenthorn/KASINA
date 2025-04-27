@@ -37,7 +37,19 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const getBackgroundColor = () => {
     // Use our validation utility to ensure a valid kasina type
     const safeKasinaType = ensureValidKasinaType(selectedKasina);
-    return KASINA_BACKGROUNDS[safeKasinaType] || '#000000';
+    const backgroundColor = KASINA_BACKGROUNDS[safeKasinaType] || '#000000';
+    
+    // Debug for white kasina
+    if (safeKasinaType === 'white') {
+      console.log("WHITE KASINA SESSION: getBackgroundColor called");
+      console.log("WHITE KASINA SESSION: Background color for white kasina:", backgroundColor);
+      
+      if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+        window.__WHITE_KASINA_DEBUG.addEvent(`Background color for white kasina: ${backgroundColor}`);
+      }
+    }
+    
+    return backgroundColor;
   };
   
   // Handle mouse movement to show UI temporarily
@@ -95,6 +107,27 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   
   // Reset zoom level and clean up when exiting focus mode
   useEffect(() => {
+    // Debug for white kasina focus mode changes
+    if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+      window.__WHITE_KASINA_DEBUG.addEvent(`Focus mode state changed: ${isFocusModeActive ? 'ACTIVE' : 'INACTIVE'}`);
+      
+      // Add selected kasina info to help with debugging
+      const kasina = useKasina.getState().selectedKasina;
+      if (kasina === 'white') {
+        console.log(`WHITE KASINA SESSION: Focus mode ${isFocusModeActive ? 'ENTERED' : 'EXITED'} at ${new Date().toISOString()}`);
+        window.__WHITE_KASINA_DEBUG.addEvent(`WHITE KASINA: Focus mode ${isFocusModeActive ? 'ENTERED' : 'EXITED'}`);
+        
+        // Log timer state at the same time
+        const timer = useSimpleTimer.getState();
+        console.log("WHITE KASINA SESSION: Timer state during focus mode change:", {
+          isRunning: timer.isRunning,
+          timeRemaining: timer.timeRemaining,
+          duration: timer.duration,
+          elapsedTime: timer.elapsedTime
+        });
+      }
+    }
+    
     if (!isFocusModeActive) {
       // Reset zoom level
       setZoomLevel(1);
@@ -106,6 +139,14 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       // This ensures any lingering cleanup happens
       const timer = setTimeout(() => {
         console.log("Focus mode cleanup complete");
+        
+        // Debug for white kasina
+        if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+          const kasina = useKasina.getState().selectedKasina;
+          if (kasina === 'white') {
+            window.__WHITE_KASINA_DEBUG.addEvent(`Focus mode cleanup complete`);
+          }
+        }
       }, 200);
       
       return () => clearTimeout(timer);
@@ -141,6 +182,23 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       <Dialog 
         open={isFocusModeActive} 
         onOpenChange={(open) => {
+          // Debug dialog open/close events for white kasina
+          if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+            const kasina = useKasina.getState().selectedKasina;
+            if (kasina === 'white') {
+              console.log(`WHITE KASINA SESSION: Dialog onOpenChange called with open=${open}`);
+              window.__WHITE_KASINA_DEBUG.addEvent(`Dialog onOpenChange: open=${open}`);
+              
+              // If we're closing (open=false), this is critical for debugging the 2-second issue
+              if (!open) {
+                console.log("⚠️ WHITE KASINA ISSUE: Dialog closing triggered at", new Date().toISOString());
+                console.log("⚠️ WHITE KASINA ISSUE - Current timer state:", useSimpleTimer.getState());
+                
+                window.__WHITE_KASINA_DEBUG.addEvent("⚠️ CRITICAL: Dialog closing triggered");
+              }
+            }
+          }
+          
           if (!open) disableFocusMode();
         }}
       >
@@ -166,6 +224,25 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               onClick={(e) => {
                 // Don't treat this as normal mouse movement
                 e.stopPropagation();
+                
+                // Debug for white kasina exit button
+                if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+                  const kasina = useKasina.getState().selectedKasina;
+                  if (kasina === 'white') {
+                    console.log("WHITE KASINA SESSION: Exit button clicked at", new Date().toISOString());
+                    window.__WHITE_KASINA_DEBUG.addEvent("User clicked Exit button");
+                    
+                    // Log timer state
+                    const timer = useSimpleTimer.getState();
+                    console.log("WHITE KASINA SESSION: Timer state at exit button click:", {
+                      isRunning: timer.isRunning,
+                      timeRemaining: timer.timeRemaining,
+                      duration: timer.duration,
+                      elapsedTime: timer.elapsedTime
+                    });
+                  }
+                }
+                
                 disableFocusMode();
               }}
               className="border-gray-700 text-gray-300 hover:bg-gray-900"

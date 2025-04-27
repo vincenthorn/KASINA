@@ -242,11 +242,41 @@ const TimerKasinas: React.FC = () => {
     console.log("Timer update:", { remaining, elapsed, duration, alreadySaved: sessionSavedRef.current });
     setElapsedTime(elapsed);
     
+    // Special debug for white kasina
+    if (typedKasina === 'white') {
+      console.log("WHITE KASINA SESSION: Status update in handleStatusUpdate at", new Date().toISOString());
+      console.log("WHITE KASINA SESSION: ", { remaining, elapsed, duration, alreadySaved: sessionSavedRef.current });
+      
+      if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+        window.__WHITE_KASINA_DEBUG.addEvent(`Status update: remaining=${remaining}, elapsed=${elapsed}`);
+      }
+      
+      // Check if the elapsed time is very short (around 2 seconds) which is our issue
+      if (elapsed === 2 && remaining !== null && remaining !== 0) {
+        console.log("⚠️ WHITE KASINA ISSUE DETECTED: Timer stopping at 2 seconds");
+        if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+          window.__WHITE_KASINA_DEBUG.addEvent("⚠️ CRITICAL: 2-second early termination detected");
+          
+          // Get additional state info for debugging
+          const timerState = useSimpleTimer.getState();
+          console.log("⚠️ WHITE KASINA ISSUE - Timer state:", timerState);
+          console.log("⚠️ WHITE KASINA ISSUE - Focus mode:", useFocusMode.getState());
+        }
+      }
+    }
+    
     // Handle manual stop (when remaining is not 0 but we got a final update)
     // This condition detects when user manually stops the timer
     if (remaining !== null && remaining !== 0 && elapsed > 0) {
       // Always reset the focus mode and orb, even if we've already saved the session
       console.log("Manual stop detected - preparing orb reset");
+      
+      if (typedKasina === 'white') {
+        console.log("WHITE KASINA SESSION: Manual stop detected");
+        if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+          window.__WHITE_KASINA_DEBUG.addEvent("Manual stop detected");
+        }
+      }
       
       // Exit focus mode
       disableFocusMode();
@@ -259,6 +289,13 @@ const TimerKasinas: React.FC = () => {
       // Skip further session saving if we've already saved it
       if (sessionSavedRef.current) {
         console.log("Session already saved, skipping additional save");
+        
+        if (typedKasina === 'white') {
+          console.log("WHITE KASINA SESSION: Session already saved, skipping");
+          if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+            window.__WHITE_KASINA_DEBUG.addEvent("Session already saved, skipping");
+          }
+        }
         return;
       }
       
