@@ -371,12 +371,27 @@ const TimerKasinas: React.FC = () => {
   const handleTimerStart = () => {
     console.log("Timer started - activating focus mode");
     
+    // Special debug for white kasina sessions
+    if (typedKasina === 'white') {
+      console.log("WHITE KASINA SESSION: Starting timer via handleTimerStart at", new Date().toISOString());
+      console.log("WHITE KASINA SESSION: Current timer state:", useSimpleTimer.getState());
+    }
+    
     // Generate a new orbKey for the session start to ensure fresh rendering
     const newOrbKey = `kasina-orb-${Date.now()}-start`;
     setOrbKey(newOrbKey);
     console.log(`New session started with orbKey: ${newOrbKey}`);
     
     enableFocusMode();
+    
+    // Additional debug for white kasina after focus mode enabled
+    if (typedKasina === 'white') {
+      console.log("WHITE KASINA SESSION: Focus mode enabled in handleTimerStart");
+      // Add a brief delay to check timer state after setup
+      setTimeout(() => {
+        console.log("WHITE KASINA SESSION: Timer state 100ms after start:", useSimpleTimer.getState());
+      }, 100);
+    }
   };
   
   // Helper function to get the appropriate color for the selected kasina

@@ -7,14 +7,41 @@ declare global {
       originalDuration: number | null;
       currentDuration: number | null;
     };
+    __WHITE_KASINA_DEBUG: {
+      timestamps: {
+        time: string;
+        event: string;
+        duration: number | null;
+        isRunning: boolean;
+        remainingTime: number | null;
+      }[];
+      addEvent: (event: string) => void;
+    };
   }
 }
 
-// Initialize global debug object
+// Initialize global debug objects
 if (typeof window !== 'undefined') {
   window.__DEBUG_TIMER = {
     originalDuration: null,
     currentDuration: null
+  };
+  
+  // Special debug object for white kasina timer issues
+  window.__WHITE_KASINA_DEBUG = {
+    timestamps: [],
+    addEvent: function(event: string) {
+      // We'll get the timer state when the method is called
+      // to avoid circular reference issues
+      this.timestamps.push({
+        time: new Date().toISOString(),
+        event: event,
+        duration: null, // Will be filled in when called
+        isRunning: false,
+        remainingTime: null
+      });
+      console.log(`WHITE KASINA DEBUG: ${event} at ${new Date().toISOString()}`);
+    }
   };
 }
 
@@ -110,6 +137,20 @@ export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
     
     if (!isRunning) return;
     
+    // Debug for white kasina
+    if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+      // Check if this is exactly 2 seconds elapsed
+      if (elapsedTime === 2) {
+        window.__WHITE_KASINA_DEBUG.addEvent("2 seconds elapsed");
+        console.log("WHITE KASINA DEBUG: 2 second mark - timer state:", {
+          isRunning,
+          timeRemaining,
+          duration,
+          elapsedTime
+        });
+      }
+    }
+    
     // Update elapsed time (for both countdown and count-up)
     set({ elapsedTime: elapsedTime + 1 });
     
@@ -117,8 +158,20 @@ export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
     if (timeRemaining !== null) {
       const newTime = timeRemaining - 1;
       
+      // Debug for white kasina near completion
+      if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+        if (newTime === 2) {
+          window.__WHITE_KASINA_DEBUG.addEvent("Approaching timer end - 2 seconds remaining");
+        }
+      }
+      
       // Stop at zero
       if (newTime <= 0) {
+        // Debug for white kasina completion
+        if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+          window.__WHITE_KASINA_DEBUG.addEvent("Timer reached zero");
+        }
+        
         set({
           isRunning: false,
           timeRemaining: 0,

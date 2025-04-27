@@ -63,6 +63,11 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     let intervalId: number | null = null;
     
     if (isRunning) {
+      // Debug for white kasina
+      if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+        window.__WHITE_KASINA_DEBUG.addEvent(`SimpleTimer detected running timer with ${timeRemaining}s remaining`);
+      }
+      
       intervalId = window.setInterval(() => {
         tick();
         
@@ -73,22 +78,44 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         // Check for completion
         if (timeRemaining === 0) {
+          // Debug for white kasina completion
+          if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+            window.__WHITE_KASINA_DEBUG.addEvent("SimpleTimer detected timer completion (timeRemaining=0)");
+          }
+          
           // Always send the final update right before completion
           if (onUpdate) {
             onUpdate(0, elapsedTime);
           }
           
           // Then call the completion handler
-          if (onComplete) onComplete();
+          if (onComplete) {
+            // Debug for white kasina completion handler
+            if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+              window.__WHITE_KASINA_DEBUG.addEvent("SimpleTimer calling onComplete handler");
+            }
+            
+            onComplete();
+          }
           // Note: Focus mode disable happens in the other useEffect
         }
       }, 1000);
+    } else {
+      // Debug when timer is not running
+      if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+        window.__WHITE_KASINA_DEBUG.addEvent(`SimpleTimer - timer not running, timeRemaining=${timeRemaining}s`);
+      }
     }
     
     // Cleanup
     return () => {
       if (intervalId) {
         window.clearInterval(intervalId);
+        
+        // Debug interval cleanup
+        if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
+          window.__WHITE_KASINA_DEBUG.addEvent("SimpleTimer cleared interval");
+        }
       }
     };
   }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate]);
