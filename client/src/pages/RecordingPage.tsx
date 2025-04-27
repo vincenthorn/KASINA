@@ -324,7 +324,11 @@ const RecordingPage: React.FC = () => {
           
           {/* Full screen orb */}
           <div className="w-full h-full bg-black rounded-lg overflow-hidden">
-            <KasinaOrb enableZoom={true} />
+            <KasinaOrb 
+              enableZoom={true}
+              type={selectedKasina as KasinaType} 
+              color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
+            />
             
             {/* Recording control panel for focus mode */}
             <div className={`
@@ -390,7 +394,11 @@ const RecordingPage: React.FC = () => {
             
             {/* Right: Kasina Orb */}
             <div className="lg:col-span-2 h-96 bg-black rounded-lg overflow-hidden">
-              <KasinaOrb enableZoom={false} />
+              <KasinaOrb 
+                enableZoom={false}
+                type={selectedKasina as KasinaType} 
+                color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
+              />
             </div>
           </div>
         </TabsContent>
