@@ -601,6 +601,7 @@ const TimerKasinas: React.FC = () => {
                 color={KASINA_COLORS[typedKasina] || "#FFFFFF"}
                 speed={0.5}
                 complexity={2}
+                disableBreathing={true} // Disable breathing animations in preview pane
               />
             </div>
           </div>

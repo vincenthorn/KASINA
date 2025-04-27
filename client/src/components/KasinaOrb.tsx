@@ -785,6 +785,7 @@ const Scene: React.FC<{
         color={color}
         speed={speed}
         complexity={complexity}
+        disableBreathing={disableBreathing}
       />
       <OrbitControls 
         enableZoom={enableZoom} 
@@ -807,6 +808,7 @@ interface KasinaOrbProps {
   complexity?: number;   // Detail level for the orb
   remainingTime?: number | null; // Remaining time in seconds, used for end-session effects
   key?: string;          // A unique key to prevent unmounting during animations
+  disableBreathing?: boolean; // Option to disable breathing animations (for preview)
 }
 
 const KasinaOrb: React.FC<KasinaOrbProps> = ({ 
@@ -815,7 +817,8 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   color,
   speed,
   complexity,
-  remainingTime = null
+  remainingTime = null,
+  disableBreathing = false
 }) => {
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
@@ -855,6 +858,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
           color={color}
           speed={speed}
           complexity={complexity}
+          disableBreathing={disableBreathing}
         />
       </Canvas>
     </div>
