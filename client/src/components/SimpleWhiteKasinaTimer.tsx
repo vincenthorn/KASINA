@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { formatTime } from '@/lib/utils';
@@ -29,6 +29,9 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const isFocusMode = useFocusMode(state => state.isFocusModeActive);
   
+  // Track if we're in the final countdown for timer visibility
+  const isInFinalCountdown = timeRemaining <= 10 && timeRemaining > 0;
+  
   // Handle mouse movement to show/hide timer
   useEffect(() => {
     // Don't do anything if timer is not running
@@ -38,6 +41,16 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
     
     // Force timer to be visible initially
     setIsVisible(true);
+    
+    // Schedule initial auto-hide if not in final countdown
+    if (!isInFinalCountdown) {
+      hideTimeoutRef.current = setTimeout(() => {
+        if (isRunning && !isInFinalCountdown) {
+          console.log("Initial auto-hide after 2s");
+          setIsVisible(false);
+        }
+      }, 2000);
+    }
     
     // Handle mouse movement
     const handleMouseMove = (e: MouseEvent) => {
@@ -51,10 +64,11 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
         // Clear any existing timeout
         if (hideTimeoutRef.current) {
           clearTimeout(hideTimeoutRef.current);
+          hideTimeoutRef.current = null;
         }
         
         // Don't auto-hide during final 10 seconds
-        if (timeRemaining <= 10) return;
+        if (isInFinalCountdown) return;
         
         // Set timeout to hide timer after inactivity
         hideTimeoutRef.current = setTimeout(() => {
@@ -74,10 +88,11 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
       // Clear any existing timeout
       if (hideTimeoutRef.current) {
         clearTimeout(hideTimeoutRef.current);
+        hideTimeoutRef.current = null;
       }
       
       // Don't auto-hide during final 10 seconds
-      if (timeRemaining <= 10) return;
+      if (isInFinalCountdown) return;
       
       // Set timeout to hide timer after inactivity
       hideTimeoutRef.current = setTimeout(() => {
@@ -100,13 +115,23 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
         hideTimeoutRef.current = null;
       }
     };
-  }, [isRunning, timeRemaining]);
+  }, [isRunning, isInFinalCountdown]);
   
-  // Set up the timer countdown
+  // Enable focus mode when timer starts
   useEffect(() => {
     if (isRunning) {
-      console.log("White Kasina timer starting");
+      console.log("White Kasina timer starting, enabling focus mode");
       enableFocusMode();
+    } else if (!isRunning && timeRemaining <= 0) {
+      console.log("White Kasina timer stopped, disabling focus mode");
+      disableFocusMode();
+    }
+  }, [isRunning, timeRemaining, enableFocusMode, disableFocusMode]);
+  
+  // Set up the timer countdown (separate from focus mode effect)
+  useEffect(() => {
+    if (isRunning) {
+      console.log("White Kasina timer interval starting");
       
       // Create interval to update time
       intervalRef.current = setInterval(() => {
@@ -146,7 +171,7 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
         onFadeOutChange(0);
       }
     }
-  }, [isRunning, enableFocusMode, onFadeOutChange]);
+  }, [isRunning, onFadeOutChange]);
   
   // Handle timer completion
   useEffect(() => {
@@ -169,9 +194,10 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
     }
   }, [timeRemaining, isRunning, disableFocusMode, onComplete]);
   
-  // Handle start/stop
-  const handleStartStop = () => {
+  // Handle start/stop with useCallback to prevent recreating on each render
+  const handleStartStop = useCallback(() => {
     if (isRunning) {
+      console.log("Stopping white kasina timer via button");
       // Stop timer
       setIsRunning(false);
       disableFocusMode();
@@ -189,16 +215,18 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
         onComplete();
       }
     } else {
+      console.log("Starting white kasina timer via button");
       // Start timer
       setTimeRemaining(60);
       setElapsedTime(0);
       completedRef.current = false;
       setIsRunning(true);
     }
-  };
+  }, [isRunning, elapsedTime, disableFocusMode, onComplete]);
   
-  // Handle reset
-  const handleReset = () => {
+  // Handle reset with useCallback
+  const handleReset = useCallback(() => {
+    console.log("Resetting white kasina timer");
     setTimeRemaining(60);
     setElapsedTime(0);
     completedRef.current = false;
@@ -210,7 +238,17 @@ const SimpleWhiteKasinaTimer: React.FC<SimpleWhiteKasinaTimerProps> = ({
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-  };
+  }, [disableFocusMode]);
+  
+  // Log state for debugging
+  console.log("SimpleWhiteKasinaTimer state:", {
+    isRunning,
+    timeRemaining,
+    isVisible,
+    isFocusMode,
+    isInFinalCountdown,
+    fadeOutIntensity
+  });
   
   // Focus mode version of the timer
   if (isFocusMode) {
