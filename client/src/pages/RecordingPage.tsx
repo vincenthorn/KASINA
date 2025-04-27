@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import KasinaOrb from "../components/KasinaOrb";
+import { KasinaType } from "../lib/types";
+import { KASINA_COLORS } from "../lib/constants";
 import RecordingControls from "../components/RecordingControls";
 import RecordingList from "../components/RecordingList";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
