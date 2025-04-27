@@ -186,7 +186,8 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       }, 500); // Check twice per second
       
       // Main timer tick interval 
-      intervalId = window.setInterval(() => {
+      // Correcting type issue for intervalId
+      const newIntervalId = window.setInterval(() => {
         // Add debugging before tick to catch any issues
         debug.log(TIMER_COMPONENT_ID, 'Tick start', { 
           timeRemaining, 
@@ -348,6 +349,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       
       // Store the validation interval ID so we can clean it up
       const validationIntervalRef = { current: validationIntervalId };
+      
+      // Assign the interval ID to the variable used for cleanup
+      intervalId = newIntervalId;
       
       // Clean up both intervals
       return () => {

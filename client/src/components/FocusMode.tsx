@@ -247,6 +247,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
                 speed={0.5}
                 complexity={2}
+                disableBreathing={false} // Enable breathing in focus mode for meditation
               />
             </div>
           </div>
