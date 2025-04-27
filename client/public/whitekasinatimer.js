@@ -2,6 +2,8 @@
  * ULTRA DIRECT timer injection script for white kasina.
  * This runs completely outside of React to ensure visibility regardless of focus mode.
  * We're using the most direct approach possible to ensure the timer is visible.
+ * 
+ * This timer will ONLY appear during an active white kasina session.
  */
 
 (function() {
@@ -20,6 +22,13 @@
       const mins = Math.floor(seconds / 60);
       const secs = seconds % 60;
       return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    },
+    
+    // Check if we're in a kasina session page
+    isOnKasinaPage: function() {
+      // Only show on paths that indicate we're on the kasina page
+      const currentPath = window.location.pathname;
+      return currentPath.includes('/kasinas');
     },
     
     // Create the timer DOM elements
@@ -96,9 +105,30 @@
       console.log("WHITE KASINA TIMER: Created timer element", timer);
     },
     
-    // Start the timer
+    // Start the timer - only if we're on the kasina page
     start: function() {
       console.log("WHITE KASINA TIMER: Starting");
+      
+      // Only create and show if we're on kasina page
+      if (!this.isOnKasinaPage()) {
+        console.log("WHITE KASINA TIMER: Not on kasina page, timer suppressed");
+        return;
+      }
+      
+      // Check if we're in a white kasina session (look for DOM indicators)
+      const isWhiteKasina = document.querySelector('.white-kasina-final-countdown') !== null ||
+                          document.querySelector('.white-kasina-timer-emphasis') !== null ||
+                          // Look for white orb in the DOM
+                          document.body.innerHTML.toLowerCase().includes('white kasina') ||
+                          // Check URL for white kasina indicators
+                          window.location.href.toLowerCase().includes('white');
+      
+      if (!isWhiteKasina) {
+        console.log("WHITE KASINA TIMER: Not in a white kasina session, timer suppressed");
+        return;
+      }
+      
+      // Create the timer element if needed
       this.createTimer();
       this.active = true;
       this.seconds = 60;
@@ -166,6 +196,11 @@
     setTime: function(seconds) {
       this.seconds = seconds;
       
+      // Only update display if we're on a kasina page
+      if (!this.isOnKasinaPage()) {
+        return;
+      }
+      
       if (this.timerElement) {
         const textElement = this.timerElement.querySelector('#ultra-direct-timer-text');
         if (textElement) {
@@ -181,8 +216,8 @@
     }
   };
   
-  // Initialize immediately
-  DirectWhiteKasinaTimer.createTimer();
+  // Initialize only when needed to be less intrusive
+  // DirectWhiteKasinaTimer.createTimer();
   
   // Add to window.whiteKasinaTimer for compatibility with existing code
   window.whiteKasinaTimer = {
@@ -191,6 +226,26 @@
     setTime: function(seconds) { DirectWhiteKasinaTimer.setTime(seconds); }
   };
   
+  // Listen for URL changes to hide/show timer appropriately
+  let lastUrl = window.location.href;
+  
+  // Hide timer when navigating away from kasina page
+  const checkForUrlChanges = () => {
+    const currentUrl = window.location.href;
+    if (currentUrl !== lastUrl) {
+      console.log("WHITE KASINA TIMER: URL changed", currentUrl);
+      lastUrl = currentUrl;
+      
+      // If we're not on a kasina page anymore, hide the timer
+      if (!DirectWhiteKasinaTimer.isOnKasinaPage()) {
+        DirectWhiteKasinaTimer.stop();
+      }
+    }
+  };
+  
+  // Check for URL changes every second
+  setInterval(checkForUrlChanges, 1000);
+  
   // For debugging - make the timer visible on double-Escape key press
   document.addEventListener('keydown', function(e) {
     // Double escape key check
@@ -198,10 +253,17 @@
       const now = Date.now();
       if (!window.lastEscapeTime || now - window.lastEscapeTime < 500) {
         // Double escape pressed - toggle the timer manually for debugging
-        if (DirectWhiteKasinaTimer.timerElement) {
-          if (DirectWhiteKasinaTimer.timerElement.classList.contains('visible')) {
-            DirectWhiteKasinaTimer.timerElement.classList.remove('visible');
+        // But only on kasina pages
+        if (DirectWhiteKasinaTimer.isOnKasinaPage()) {
+          if (DirectWhiteKasinaTimer.timerElement) {
+            if (DirectWhiteKasinaTimer.timerElement.classList.contains('visible')) {
+              DirectWhiteKasinaTimer.timerElement.classList.remove('visible');
+            } else {
+              DirectWhiteKasinaTimer.timerElement.classList.add('visible');
+            }
           } else {
+            // Create timer if it doesn't exist
+            DirectWhiteKasinaTimer.createTimer();
             DirectWhiteKasinaTimer.timerElement.classList.add('visible');
           }
         }
