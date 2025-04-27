@@ -737,48 +737,61 @@ const TimerKasinas: React.FC = () => {
             <TabsContent value="simple" className="space-y-4">
               <Card>
                 <CardContent className="pt-6">
+                  {/* Render debug message so it doesn't trigger React node error */}
+                  <div className="hidden">
+                    {(() => { 
+                      console.log("Current kasina type:", typedKasina, "is white?", typedKasina === 'white');
+                      return null;
+                    })()}
+                  </div>
+                  
                   {/* NEW IMPROVED TIMER: Using SimpleWhiteKasinaTimer for better reliability */}
                   {typedKasina === 'white' ? (
-                    <SimpleWhiteKasinaTimer
-                      onComplete={() => {
-                        console.log("WHITE KASINA DEDICATED TIMER COMPLETED");
-                        // Create manually formatted payload with exactly 1 minute duration
-                        if (!sessionSavedRef.current) {
-                          sessionSavedRef.current = true;
-                          
-                          const manualSessionPayload = {
-                            kasinaType: 'white',
-                            kasinaName: 'White (1-minute)',
-                            duration: 60, // Exactly 60 seconds (1 minute)
-                            durationInMinutes: 1,
-                            originalDuration: 60,
-                            timestamp: new Date().toISOString()
-                          };
-                          
-                          // Log what we're sending to the server
-                          console.log("🚀 WHITE KASINA SPECIAL SESSION PAYLOAD:", manualSessionPayload);
-                          
-                          // Send to the server
-                          addSession(manualSessionPayload as any);
-                          
-                          // Disable focus mode with a small delay to allow proper cleanup
-                          setTimeout(() => {
-                            disableFocusMode();
-                          }, 100);
-                          
-                          // Show notification 
-                          toast.success(`You completed a 1:00 White kasina meditation. Session saved.`);
-                          
-                          // Generate a new orbKey for the kasina change to ensure fresh rendering
-                          const newOrbKey = `kasina-orb-${Date.now()}-whitedone`;
-                          setOrbKey(newOrbKey);
-                        }
-                      }}
-                      onFadeOutChange={(intensity: number) => {
-                        console.log(`Setting white kasina fadeout intensity to ${intensity}`);
-                        setWhiteFadeOutIntensity(intensity);
-                      }}
-                    />
+                    <div className="flex flex-col items-center space-y-4">
+                      <div className="text-2xl text-white">White Kasina Timer</div>
+                      <div className="mt-4">
+                        <SimpleWhiteKasinaTimer
+                          onComplete={() => {
+                            console.log("WHITE KASINA DEDICATED TIMER COMPLETED");
+                            // Create manually formatted payload with exactly 1 minute duration
+                            if (!sessionSavedRef.current) {
+                              sessionSavedRef.current = true;
+                              
+                              const manualSessionPayload = {
+                                kasinaType: 'white',
+                                kasinaName: 'White (1-minute)',
+                                duration: 60, // Exactly 60 seconds (1 minute)
+                                durationInMinutes: 1,
+                                originalDuration: 60,
+                                timestamp: new Date().toISOString()
+                              };
+                              
+                              // Log what we're sending to the server
+                              console.log("🚀 WHITE KASINA SPECIAL SESSION PAYLOAD:", manualSessionPayload);
+                              
+                              // Send to the server
+                              addSession(manualSessionPayload as any);
+                              
+                              // Disable focus mode with a small delay to allow proper cleanup
+                              setTimeout(() => {
+                                disableFocusMode();
+                              }, 100);
+                              
+                              // Show notification 
+                              toast.success(`You completed a 1:00 White kasina meditation. Session saved.`);
+                              
+                              // Generate a new orbKey for the kasina change to ensure fresh rendering
+                              const newOrbKey = `kasina-orb-${Date.now()}-whitedone`;
+                              setOrbKey(newOrbKey);
+                            }
+                          }}
+                          onFadeOutChange={(intensity: number) => {
+                            console.log(`Setting white kasina fadeout intensity to ${intensity}`);
+                            setWhiteFadeOutIntensity(intensity);
+                          }}
+                        />
+                      </div>
+                    </div>
                   ) : (
                     <SimpleTimer
                       onComplete={handleTimerComplete}
