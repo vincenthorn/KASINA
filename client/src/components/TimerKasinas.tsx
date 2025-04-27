@@ -580,7 +580,7 @@ const TimerKasinas: React.FC = () => {
                   <Button
                     variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
-                    className="w-full"
+                    className={`w-full ${selectedKasina === KASINA_TYPES.WHITE ? 'white-kasina-selected' : ''}`}
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.WHITE ? KASINA_COLORS.white : 'transparent',
                       color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
