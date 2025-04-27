@@ -31,15 +31,15 @@ const LoginPage: React.FC = () => {
           <div className="space-y-2 text-left mb-6 text-gray-300 text-lg">
             <div className="flex items-start">
               <span className="mr-2">🔲</span>
-              <span>Kasina mode with 10 visual kasinas & meditation timer</span>
+              <span>Kasina mode with 10 visual orbs & meditation timer</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">🔴</span>
-              <span>Train with 4 Color Kasinas: White, Yellow, Red, & Blue</span>
+              <span>Train with 4 Color Orbs: White, Yellow, Red, & Blue</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">🌎</span>
-              <span>Practice with 6 Elemental Kasinas: Earth, Water, Fire, Air, Space, & Light</span>
+              <span>Practice with 6 Elemental Orbs: Earth, Water, Fire, Air, Space, & Light</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">📊</span>
