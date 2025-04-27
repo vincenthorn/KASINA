@@ -10,6 +10,7 @@ import KasinaOrb from './KasinaOrb';
 import SimpleWhiteKasinaTimer from './SimpleWhiteKasinaTimer';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
+import { KASINA_TYPES, KASINA_NAMES, KASINA_COLORS, KASINA_BACKGROUNDS, KASINA_EMOJIS } from '../lib/constants';
 
 const TimerKasinasSimplified: React.FC = () => {
   const { selectedKasina, setSelectedKasina, addSession } = useKasina();
@@ -75,20 +76,91 @@ const TimerKasinasSimplified: React.FC = () => {
     console.log("Timer update:", { remaining, elapsed });
   };
   
+  // Function to get the color for a kasina type
+  const getColorForKasina = (type: KasinaType): string => {
+    return KASINA_COLORS[type] || 'text-white';
+  };
+  
+  // Function to get the background for a kasina type
+  const getBackgroundForKasina = (type: KasinaType): string => {
+    return KASINA_BACKGROUNDS[type] || 'bg-black';
+  };
+  
+  // Get all kasina types
+  const kasinaTypes = Object.values(KASINA_TYPES);
+  
   return (
     <FocusMode>
       <div className="min-h-screen p-6">
         <h1 className="text-2xl font-bold mb-6">Kasina Meditation</h1>
         
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Orb column */}
-          <div className="flex-1 relative flex items-center justify-center">
-            <KasinaOrb 
-              key={orbKey}
-              type={typedKasina} 
-              remainingTime={timeRemaining}
-              fadeOutIntensity={typedKasina === 'white' ? whiteFadeOutIntensity : 0}
-            />
+          {/* Left column - Kasina Selection */}
+          <div className="flex-1 flex flex-col">
+            <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
+            
+            {/* Color kasinas */}
+            <div className="mb-4">
+              <h3 className="text-sm font-semibold mb-2 text-gray-400">Color Kasinas</h3>
+              <div className="grid grid-cols-2 gap-2">
+                {['white', 'blue', 'red', 'yellow'].map((type) => (
+                  <button
+                    key={type}
+                    onClick={() => setSelectedKasina(type)}
+                    className={`p-3 rounded-lg flex items-center justify-between ${
+                      selectedKasina === type
+                        ? 'ring-2 ring-white ring-opacity-70'
+                        : ''
+                    } ${getBackgroundForKasina(type as KasinaType)}`}
+                  >
+                    <span className={getColorForKasina(type as KasinaType)}>
+                      {KASINA_NAMES[type]} {KASINA_EMOJIS[type]}
+                    </span>
+                    <span className="text-xs bg-black bg-opacity-30 px-2 py-1 rounded-full">
+                      1-min
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            {/* Elemental kasinas */}
+            <div>
+              <h3 className="text-sm font-semibold mb-2 text-gray-400">Elemental Kasinas</h3>
+              <div className="grid grid-cols-2 gap-2">
+                {['water', 'air', 'fire', 'earth', 'space', 'light'].map((type) => (
+                  <button
+                    key={type}
+                    onClick={() => setSelectedKasina(type)}
+                    className={`p-3 rounded-lg flex items-center justify-between ${
+                      selectedKasina === type
+                        ? 'ring-2 ring-white ring-opacity-70'
+                        : ''
+                    } ${getBackgroundForKasina(type as KasinaType)}`}
+                  >
+                    <span className={getColorForKasina(type as KasinaType)}>
+                      {KASINA_NAMES[type]} {KASINA_EMOJIS[type]}
+                    </span>
+                    <span className="text-xs bg-black bg-opacity-30 px-2 py-1 rounded-full">
+                      1-min
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Right column - Kasina Orb */}
+          <div className="flex-1 relative flex items-center justify-center rounded-lg" 
+               style={{ minHeight: '400px' }}>
+            <div className="w-full h-full" style={{ minHeight: '400px' }}>
+              <KasinaOrb 
+                key={orbKey}
+                type={typedKasina} 
+                remainingTime={timeRemaining}
+                fadeOutIntensity={typedKasina === 'white' ? whiteFadeOutIntensity : 0}
+              />
+            </div>
           </div>
         </div>
         
@@ -111,9 +183,9 @@ const TimerKasinasSimplified: React.FC = () => {
                   
                   {/* Timer component selection based on kasina type */}
                   {typedKasina === 'white' ? (
-                    <div className="flex flex-col items-center space-y-4">
-                      <div className="text-2xl text-white">White Kasina Timer</div>
-                      <div className="mt-4">
+                    <div className="flex flex-col items-center space-y-4 p-4 bg-gray-800 rounded-lg border border-white/20">
+                      <div className="text-2xl text-white mb-2">White Kasina Timer</div>
+                      <div className="p-4 bg-gray-900 rounded-lg border border-gray-700 w-full max-w-md">
                         <SimpleWhiteKasinaTimer
                           onComplete={() => {
                             console.log("WHITE KASINA DEDICATED TIMER COMPLETED");
