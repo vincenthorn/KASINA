@@ -144,6 +144,12 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         duration,
         timeRemaining 
       });
+      
+      // Set the component ID in global debug tracking
+      if (typeof window !== 'undefined') {
+        window.__DEBUG_TIMER.mountedComponentId = TIMER_COMPONENT_ID;
+        window.__DEBUG_TIMER.timerStartTime = Date.now();
+      }
     }
     
     // When timer stops running, clear start time
@@ -157,7 +163,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       timerStartedAtRef.current = null;
     }
     
-    let intervalId: number | null = null;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
     
     if (isRunning) {
       // Create completion sentinel to prevent multiple completion events
@@ -169,6 +175,17 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         sessionCompleted: sessionCompletedRef.current 
       });
       
+      // Set up a validation interval that runs more frequently
+      // This will proactively fix timer issues before they cause problems
+      const validationIntervalId = window.setInterval(() => {
+        // Check and repair the timer state if needed
+        const result = useSimpleTimer.getState().validateTimerState();
+        if (!result) {
+          debug.log(TIMER_COMPONENT_ID, 'Timer validation detected and fixed issues');
+        }
+      }, 500); // Check twice per second
+      
+      // Main timer tick interval 
       intervalId = window.setInterval(() => {
         tick();
         
@@ -176,6 +193,12 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         let realElapsedTime = 0;
         if (timerStartedAtRef.current) {
           realElapsedTime = Math.floor((Date.now() - timerStartedAtRef.current) / 1000);
+        }
+        
+        // Update the global debug tracking
+        if (typeof window !== 'undefined') {
+          window.__DEBUG_TIMER.lastTickTime = Date.now();
+          window.__DEBUG_TIMER.currentDuration = timeRemaining;
         }
         
         // Log timer state every 10 seconds, or when close to completion
@@ -198,6 +221,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         if (timeRemaining === 0 && !hasCompleted) {
           // Set the completion sentinel for this interval
           hasCompleted = true;
+          
+          // Clear the validation interval since we're completing
+          clearInterval(validationIntervalId);
           
           // Always send the final update right before completion
           if (onUpdate) {
@@ -228,13 +254,26 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             
             // Then call the completion handler
             if (onComplete) {
-              // Add even more safeguards to prevent premature completion
+              // Get the latest timer state from the store
               const currentState = useSimpleTimer.getState();
               
               // Check real time elapsed from our timestamp tracking
               let realTotalElapsed = 0;
               if (timerStartedAtRef.current) {
                 realTotalElapsed = Math.floor((Date.now() - timerStartedAtRef.current) / 1000);
+              }
+              
+              // CRITICAL NEW CHECK: Use the timestamps from the timer store
+              // These are more reliable as they persist even if the component remounts
+              if (currentState.globalStartTime) {
+                const calculatedElapsed = Math.floor((Date.now() - currentState.globalStartTime) / 1000);
+                debug.log(TIMER_COMPONENT_ID, 'Using global time tracking', {
+                  globalStartTime: new Date(currentState.globalStartTime).toISOString(),
+                  calculatedElapsed,
+                  storeElapsedTime: currentState.elapsedTime  
+                });
+                // This is the most reliable measure of elapsed time
+                realTotalElapsed = calculatedElapsed;
               }
               
               // Enhanced validity checks
@@ -290,16 +329,30 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           }, 1500); // 1.5 seconds to allow enough time for orb animation
         }
       }, 1000);
+      
+      // Store the validation interval ID so we can clean it up
+      const validationIntervalRef = { current: validationIntervalId };
+      
+      // Clean up both intervals
+      return () => {
+        if (intervalId) {
+          debug.log(TIMER_COMPONENT_ID, 'Clearing timer interval', {
+            isRunning,
+            sessionCompleted: sessionCompletedRef.current
+          });
+          clearInterval(intervalId);
+        }
+        
+        if (validationIntervalRef.current) {
+          clearInterval(validationIntervalRef.current);
+        }
+      };
     }
     
-    // Cleanup
+    // Cleanup for non-running state
     return () => {
       if (intervalId) {
-        debug.log(TIMER_COMPONENT_ID, 'Clearing timer interval', {
-          isRunning,
-          sessionCompleted: sessionCompletedRef.current
-        });
-        window.clearInterval(intervalId);
+        clearInterval(intervalId);
       }
     };
   }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate, duration]);
@@ -359,7 +412,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       if (typeof window !== 'undefined' && !window.__DEBUG_TIMER) {
         window.__DEBUG_TIMER = {
           originalDuration: null,
-          currentDuration: null
+          currentDuration: null,
+          timerStartTime: null,
+          lastTickTime: null,
+          mountedComponentId: null
         };
       }
       
@@ -367,6 +423,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       if (typeof window !== 'undefined') {
         window.__DEBUG_TIMER.originalDuration = newDuration;
         window.__DEBUG_TIMER.currentDuration = newDuration;
+        window.__DEBUG_TIMER.mountedComponentId = TIMER_COMPONENT_ID;
       }
     } catch (e) {
       console.error("Error updating debug object:", e);

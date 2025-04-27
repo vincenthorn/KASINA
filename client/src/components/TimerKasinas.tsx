@@ -390,7 +390,8 @@ const TimerKasinas: React.FC = () => {
     }, 1000); // Check every second
     
     // Store the interval ID for cleanup
-    const validityIntervalRef = useRef<number | null>(null);
+    // Define the correct type for the interval ID
+    const validityIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
     validityIntervalRef.current = sessionValidityCheckId;
     
     // Make sure to clean up the interval on component unmount
