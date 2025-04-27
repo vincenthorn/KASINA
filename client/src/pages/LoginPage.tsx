@@ -12,45 +12,48 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center p-4 overflow-auto py-8">
-      <div className="text-center mb-8 mt-[60px]">
-        <Logo size="large" />
-      </div>
-      
-      <div className="text-center mb-8 max-w-2xl">
-        <p className="text-gray-200 mb-6 px-[60px] text-justify">
-          KASINA is a 3D visual meditation tool for those ready to deepen their concentration with a visual object. 
-          Inspired by ancient kasina practices, reimagined for the modern meditator.
-        </p>
+    <div className="bg-gray-900 text-white overflow-y-auto min-h-screen">
+      <div className="container mx-auto px-4 py-8 flex flex-col items-center">
+        <div className="text-center mb-8 mt-8">
+          <Logo size="large" />
+        </div>
         
-        <div className="space-y-2 text-left mx-auto max-w-md mb-6 text-gray-300">
-          <div className="flex items-start">
-            <span className="mr-2">🔲</span>
-            <span>Freestyle kasina mode with 10 orbs + practice timer</span>
+        <div className="text-center mb-8 max-w-2xl">
+          <p className="text-gray-200 mb-6 px-4 md:px-8 text-justify">
+            KASINA is a 3D visual meditation tool for those ready to deepen their concentration with a visual object. 
+            Inspired by ancient kasina practices, reimagined for the modern meditator.
+          </p>
+          
+          <div className="space-y-2 text-left mx-auto max-w-md mb-6 text-gray-300 px-4">
+            <div className="flex items-start">
+              <span className="mr-2">🔲</span>
+              <span>Freestyle kasina mode with 10 orbs + practice timer</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-2">📊</span>
+              <span>Visualize your practice history with kasina breakdowns</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-2">🎙</span>
+              <span>Record & share your own guided visual meditations (coming soon)</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-2">🧘‍♀️</span>
+              <span>Access curated & community-generated guided meditations (coming soon)</span>
+            </div>
           </div>
-          <div className="flex items-start">
-            <span className="mr-2">📊</span>
-            <span>Visualize your practice history with kasina breakdowns</span>
-          </div>
-          <div className="flex items-start">
-            <span className="mr-2">🎙</span>
-            <span>Record & share your own guided visual meditations (coming soon)</span>
-          </div>
-          <div className="flex items-start">
-            <span className="mr-2">🧘‍♀️</span>
-            <span>Access curated & community-generated guided meditations (coming soon)</span>
+          
+          <div className="text-indigo-400 text-base mb-8">
+            Who it's for:
+            <div className="mt-1 text-gray-400">
+              Jhāna nerds • Meditation teachers • Contemplative techies
+            </div>
           </div>
         </div>
         
-        <div className="text-indigo-400 text-base">
-          Who it's for:
-          <div className="mt-1 text-gray-400">
-            Jhāna nerds • Meditation teachers • Contemplative techies
-          </div>
-        </div>
+        <LoginForm />
+        <div className="h-8"></div> {/* Bottom spacing */}
       </div>
-      
-      <LoginForm />
     </div>
   );
 };
