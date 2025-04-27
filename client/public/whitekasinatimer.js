@@ -69,58 +69,81 @@ setTimeout(function() {
       
       // Handle mouse movement to show the timer and then hide after inactivity
       setupInactivityTracking: function() {
-        // Clear any existing handler
-        document.removeEventListener('mousemove', this.handleMouseMove);
-        document.removeEventListener('keydown', this.handleKeyPress);
+        // Safety check - don't setup if not on kasinas page
+        if (!window.location.pathname.includes('/kasinas')) {
+          return;
+        }
+        
+        // Clear any existing handler to avoid duplicates
+        if (this.mouseHandler) {
+          document.removeEventListener('mousemove', this.mouseHandler);
+          this.mouseHandler = null;
+        }
+        
+        if (this.keyHandler) {
+          document.removeEventListener('keydown', this.keyHandler);
+          this.keyHandler = null;
+        }
         
         // Store reference to 'this' for event handlers
         const self = this;
 
-        // Handle mouse movement
-        this.handleMouseMove = function() {
-          // Update last activity timestamp
-          self.lastMouseMoveTime = Date.now();
+        // Create handler functions with proper binding
+        this.mouseHandler = function(e) {
+          // Log mouse activity
+          console.log("MOUSE MOVEMENT DETECTED - showing timer", { x: e.clientX, y: e.clientY });
           
-          // Show the timer
-          if (self.timerElement && self.active) {
-            self.timerElement.classList.add('visible');
-          }
-          
-          // Clear any existing timeout
-          if (self.inactivityTimeout) {
-            clearTimeout(self.inactivityTimeout);
-          }
-          
-          // Set timeout to hide the timer after inactivity
-          // Don't hide during final 10 seconds countdown
-          self.inactivityTimeout = setTimeout(function() {
+          // Make sure user is actually moving mouse (not just a system event)
+          if (Math.abs(e.movementX) > 0 || Math.abs(e.movementY) > 0) {
+            // Update last activity timestamp
+            self.lastMouseMoveTime = Date.now();
+            
+            // Always show the timer on mouse movement
             if (self.timerElement && self.active) {
-              // Never hide during final countdown
-              if (self.seconds <= 10 && self.seconds > 0) {
-                // Keep visible
-                console.log("WHITE KASINA TIMER: Keeping visible during final countdown");
-              } else {
-                // Hide normally after inactivity timeout
-                self.timerElement.classList.remove('visible');
-                console.log("WHITE KASINA TIMER: Hiding after inactivity");
-              }
+              self.timerElement.classList.add('visible');
+              self.timerElement.classList.remove('fade-out');
             }
-          }, self.visibilityTimeoutDuration);
+            
+            // Clear any existing timeout
+            if (self.inactivityTimeout) {
+              clearTimeout(self.inactivityTimeout);
+              self.inactivityTimeout = null;
+            }
+            
+            // Set timeout to hide the timer after inactivity
+            self.inactivityTimeout = setTimeout(function() {
+              if (self.timerElement && self.active) {
+                // Never hide during final countdown
+                if (self.seconds <= 10 && self.seconds > 0) {
+                  console.log("WHITE KASINA TIMER: Keep visible (final countdown)");
+                } else {
+                  // Force hide with a CSS class
+                  self.timerElement.classList.add('fade-out');
+                  self.timerElement.classList.remove('visible');
+                  console.log("WHITE KASINA TIMER: Hiding after mouse inactivity");
+                }
+              }
+            }, self.visibilityTimeoutDuration);
+          }
         };
         
-        // Handle keyboard input
-        this.handleKeyPress = function() {
+        // Create keyboard handler
+        this.keyHandler = function(e) {
+          console.log("KEY PRESSED - showing timer", { key: e.key });
+          
           // Update last activity timestamp
           self.lastMouseMoveTime = Date.now();
           
-          // Show the timer
+          // Show the timer immediately
           if (self.timerElement && self.active) {
             self.timerElement.classList.add('visible');
+            self.timerElement.classList.remove('fade-out');
           }
           
           // Clear any existing timeout
           if (self.inactivityTimeout) {
             clearTimeout(self.inactivityTimeout);
+            self.inactivityTimeout = null;
           }
           
           // Set timeout to hide the timer after inactivity
@@ -128,22 +151,33 @@ setTimeout(function() {
             if (self.timerElement && self.active) {
               // Never hide during final countdown
               if (self.seconds <= 10 && self.seconds > 0) {
-                // Keep visible
-                console.log("WHITE KASINA TIMER: Keeping visible during final countdown");
+                console.log("WHITE KASINA TIMER: Keep visible (final countdown)");
               } else {
-                // Hide normally
+                // Force hide with CSS
+                self.timerElement.classList.add('fade-out');
                 self.timerElement.classList.remove('visible');
-                console.log("WHITE KASINA TIMER: Hiding after key press inactivity");
+                console.log("WHITE KASINA TIMER: Hiding after key inactivity");
               }
             }
           }, self.visibilityTimeoutDuration);
         };
         
         // Add event listeners
-        document.addEventListener('mousemove', this.handleMouseMove);
-        document.addEventListener('keydown', this.handleKeyPress);
+        document.addEventListener('mousemove', this.mouseHandler);
+        document.addEventListener('keydown', this.keyHandler);
         
-        console.log("WHITE KASINA TIMER: Inactivity tracking set up");
+        // Add an automatic hide when the timer starts
+        setTimeout(function() {
+          if (self.timerElement && self.active) {
+            if (self.seconds > 10) { // Only hide if not in final countdown
+              self.timerElement.classList.add('fade-out');
+              self.timerElement.classList.remove('visible');
+              console.log("WHITE KASINA TIMER: Auto-hiding at start");
+            }
+          }
+        }, self.visibilityTimeoutDuration);
+        
+        console.log("WHITE KASINA TIMER: Enhanced inactivity tracking set up");
       },
       
       // Create the timer DOM elements
@@ -171,17 +205,24 @@ setTimeout(function() {
             align-items: center;
             gap: 15px;
             opacity: 0;
-            transition: opacity 0.3s, border-color 0.3s;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease, border-color 0.3s;
             pointer-events: none;
           }
           
           #ultra-direct-timer.visible {
             opacity: 1;
+            visibility: visible;
           }
           
           #ultra-direct-timer.final-countdown {
             border-color: white;
             animation: timer-pulse 1s infinite;
+          }
+          
+          #ultra-direct-timer.fade-out {
+            opacity: 0;
+            visibility: hidden;
           }
           
           @keyframes timer-pulse {
