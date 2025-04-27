@@ -216,11 +216,15 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
       console.log("🕒 WHITE KASINA TIMER: Starting timer");
       enableFocusMode();
       
-      // Update both timer displays - old one for backward compatibility
+      // Update all timer versions - ordered from oldest to newest
       updateGlobalTimerState({ isRunning: true });
-      
-      // Update the React portal-based timer (this is what will actually work in focus mode)
       updateWhiteKasinaTimer(timeRemaining, true);
+      
+      // Also start our latest native timer implementation
+      if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
+        console.log("🕒 Starting native timer from useEffect");
+        window.whiteKasinaTimer.start();
+      }
       
       // Make the old overlay visible too for backward compatibility
       const overlay = document.getElementById('global-white-kasina-overlay');
@@ -239,9 +243,14 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
           const newTime = prev - 1;
           console.log(`🕒 WHITE KASINA TIMER: ${newTime}s remaining`);
           
-          // Update both timer displays
+          // Update all timer displays
           updateGlobalTimerState({ timeRemaining: newTime });
           updateWhiteKasinaTimer(newTime, true);
+          
+          // Update the native timer too
+          if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
+            window.whiteKasinaTimer.setTime(newTime);
+          }
           
           // Add pulse animation to both timer versions
           if (newTime <= 10 && newTime > 0) {
@@ -273,11 +282,21 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
           window.clearInterval(intervalRef.current);
           intervalRef.current = null;
         }
+        
+        // Also stop the native timer when cleaning up
+        if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
+          window.whiteKasinaTimer.stop();
+        }
       };
     } else {
-      // Update both timer displays when not running
+      // Update all timer displays when not running
       updateGlobalTimerState({ isRunning: false });
       updateWhiteKasinaTimer(timeRemaining, false);
+      
+      // Also stop the native timer
+      if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
+        window.whiteKasinaTimer.stop();
+      }
     }
   }, [isRunning, enableFocusMode, timeRemaining]);
   
@@ -317,6 +336,12 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
         intervalRef.current = null;
       }
       
+      // Also stop the native timer script
+      if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
+        console.log("⏹️ WHITE KASINA TIMER: Stopping native timer");
+        window.whiteKasinaTimer.stop();
+      }
+      
       // Call the completion handler if we're past 90% completion
       const completionPercentage = (elapsedTime / 60) * 100;
       console.log(`⏹️ WHITE KASINA TIMER: Completion percentage: ${completionPercentage.toFixed(1)}%`);
@@ -333,6 +358,12 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
       setElapsedTime(0);
       completedRef.current = false;
       setIsRunning(true);
+      
+      // Also start the native timer script
+      if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
+        console.log("▶️ WHITE KASINA TIMER: Starting native timer");
+        window.whiteKasinaTimer.start();
+      }
     }
   };
   
@@ -349,6 +380,12 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
     if (intervalRef.current) {
       window.clearInterval(intervalRef.current);
       intervalRef.current = null;
+    }
+    
+    // Also stop the native timer script
+    if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
+      console.log("🔄 WHITE KASINA TIMER: Stopping native timer");
+      window.whiteKasinaTimer.stop();
     }
   };
   
