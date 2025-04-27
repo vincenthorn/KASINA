@@ -8,7 +8,7 @@ import { KasinaType } from '../lib/types';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
 import FocusMode from './FocusMode';
-import KasinaOrb from '../lib/kasina-orbs/KasinaOrb';
+import KasinaOrb from './KasinaOrb';
 import { formatTime, roundUpToNearestMinute } from '../lib/utils';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';

@@ -187,6 +187,14 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       
       // Main timer tick interval 
       intervalId = window.setInterval(() => {
+        // Add debugging before tick to catch any issues
+        debug.log(TIMER_COMPONENT_ID, 'Tick start', { 
+          timeRemaining, 
+          elapsedTime, 
+          isRunning,
+          now: new Date().toISOString()
+        });
+        
         tick();
         
         // Calculate real elapsed time based on timestamp
@@ -194,6 +202,14 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         if (timerStartedAtRef.current) {
           realElapsedTime = Math.floor((Date.now() - timerStartedAtRef.current) / 1000);
         }
+        
+        // Add debugging after tick to see if the timer state is correct
+        debug.log(TIMER_COMPONENT_ID, 'Tick complete', { 
+          timeRemaining: useSimpleTimer.getState().timeRemaining, 
+          elapsedTime: useSimpleTimer.getState().elapsedTime, 
+          isRunning: useSimpleTimer.getState().isRunning,
+          realElapsedTime
+        });
         
         // Update the global debug tracking
         if (typeof window !== 'undefined') {
