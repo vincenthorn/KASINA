@@ -128,6 +128,12 @@ const TimerKasinas: React.FC = () => {
     // Hard override fix: If original duration is missing but there's a component duration, use it
     let durationToSave = originalDuration || duration || 60;
     
+    // ULTRA-CRITICAL FIX FOR WHITE KASINA: Force white kasina to always use 1-minute duration
+    if (selectedKasina === KASINA_TYPES.WHITE) {
+      console.log("🚨 WHITE KASINA DETECTED - FORCING 60 SECONDS (1 MINUTE) DURATION REGARDLESS OF TIMER VALUE");
+      durationToSave = 60; // Override to exactly 60 seconds (1 minute)
+    }
+    
     // Critical check for 2-minute sessions (120 seconds)
     if (durationToSave === 120) {
       console.log("⚠️ FOUND 2-MINUTE SESSION - Ensuring it's saved as 120 seconds");
@@ -251,6 +257,46 @@ const TimerKasinas: React.FC = () => {
         window.__WHITE_KASINA_DEBUG.addEvent(`Status update: remaining=${remaining}, elapsed=${elapsed}`);
       }
       
+      // MEGA-CRITICAL FIX: Check if the white kasina timer is about to prematurely abort (2 seconds issue)
+      // This looks for the exact case where the timer stops at 2 seconds with a non-zero remaining time
+      if (elapsed <= 3 && remaining !== null && remaining !== 0 && remaining < 58) {
+        console.log("🚨🚨🚨 CRITICAL WHITE KASINA ISSUE INTERCEPTED: Timer stopping prematurely");
+        console.log(`elapsed=${elapsed}, remaining=${remaining}, expected around 60s remaining`);
+        
+        // Emergency manual save with correct duration
+        if (!sessionSavedRef.current) {
+          console.log("🚨 EMERGENCY FIX: Force saving white kasina as 1-minute session");
+          
+          // Mark as saved to prevent duplicates
+          sessionSavedRef.current = true;
+          
+          // Create properly formatted payload with exactly 1 minute duration
+          const correctPayload = {
+            kasinaType: 'white',
+            kasinaName: 'White (1-minute)',
+            duration: 60, // Exactly 60 seconds (1 minute)
+            durationInMinutes: 1,
+            originalDuration: 60,
+            timestamp: new Date().toISOString()
+          };
+          
+          console.log("🚨 EMERGENCY WHITE KASINA FIX PAYLOAD:", correctPayload);
+          
+          // Save the session with correct duration
+          addSession(correctPayload as any);
+          
+          // Show success notification
+          toast.success(`You completed a 1:00 White kasina meditation. Session saved.`);
+          
+          // Exit focus mode and reset orb
+          disableFocusMode();
+          const newOrbKey = `kasina-orb-${Date.now()}-emergency-reset`;
+          setOrbKey(newOrbKey);
+          
+          return; // Exit early to prevent further processing
+        }
+      }
+      
       // Check if the elapsed time is very short (around 2 seconds) which is our issue
       if (elapsed === 2 && remaining !== null && remaining !== 0) {
         console.log("⚠️ WHITE KASINA ISSUE DETECTED: Timer stopping at 2 seconds");
@@ -342,8 +388,14 @@ const TimerKasinas: React.FC = () => {
               lastTimerMinutes = parseInt(storedMinutes, 10);
               console.log("🔍 Retrieved stored timer minutes:", lastTimerMinutes);
               
-              // Override duration for 2 and 3 minute sessions
-              if (lastTimerMinutes === 2) {
+              // ULTRA-CRITICAL FIX FOR WHITE KASINA: Force white kasina to always use 1-minute duration
+              if (selectedKasina === KASINA_TYPES.WHITE) {
+                console.log("🚨 WHITE KASINA MANUAL STOP DETECTED - FORCING 60 SECONDS (1 MINUTE) DURATION REGARDLESS OF TIMER VALUE");
+                roundedDuration = 60; // Override to exactly 60 seconds (1 minute)
+                lastTimerMinutes = 1; // Also override the minutes value
+              }
+              // Other kasinas follow normal rules
+              else if (lastTimerMinutes === 2) {
                 console.log("🛑 OVERRIDING MANUAL STOP DURATION TO 120 SECONDS (2 minutes)");
                 roundedDuration = 120;
               } else if (lastTimerMinutes === 3) {

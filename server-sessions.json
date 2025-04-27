@@ -732,5 +732,69 @@
     "duration": 120,
     "timestamp": "2025-04-27T00:21:33.456Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745713652329",
+    "kasinaType": "yellow",
+    "kasinaName": "Yellow (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:27:32.141Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745713716475",
+    "kasinaType": "white",
+    "kasinaName": "White (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:28:36.284Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745713836440",
+    "kasinaType": "yellow",
+    "kasinaName": "Yellow (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:30:36.286Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745713836449",
+    "kasinaType": "white",
+    "kasinaName": "White (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:30:36.286Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745713890445",
+    "kasinaType": "yellow",
+    "kasinaName": "Yellow (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:31:30.288Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745713890473",
+    "kasinaType": "white",
+    "kasinaName": "White (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:31:30.288Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745713927438",
+    "kasinaType": "white",
+    "kasinaName": "White (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:32:07.287Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745713927485",
+    "kasinaType": "yellow",
+    "kasinaName": "Yellow (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:32:07.287Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]
