@@ -4,6 +4,10 @@ import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { formatTime } from '../lib/utils';
 import { Input } from './ui/input';
+import debug from '../lib/debugging';
+
+// Define a unique ID for this component instance to track across re-renders
+const TIMER_COMPONENT_ID = `SimpleTimer_${Date.now()}`;
 
 interface SimpleTimerProps {
   initialDuration?: number | null; // in seconds, null means infinity (count up)
@@ -39,6 +43,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   // This prevents multiple completion events firing
   const sessionCompletedRef = useRef(false);
   
+  // CRITICAL FIX: Add a ref to track if the component has unmounted
+  // This will prevent the completion handler from firing after component unmount
+  const isUnmountedRef = useRef(false);
+  
   // Set initial duration if provided and only when the component first mounts
   useEffect(() => {
     console.log("SimpleTimer useEffect - initialDuration:", initialDuration, "current duration:", duration);
@@ -62,25 +70,133 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     }
   }, [isRunning, elapsedTime > 0]); // Only run when running state changes or when we go from 0 to >0 time
   
-  // Timer logic - separated from focus mode logic
+  // Create a timer start timestamp ref to track real elapsed time
+  const timerStartedAtRef = useRef<number | null>(null);
+  const completionTimeoutRef = useRef<number | null>(null);
+  
+  // Create a ref to track the real elapsed time separately from the store
+  // This helps detect if the timer is being completed too early
+  const realElapsedTimeRef = useRef(0);
+  const realElapsedTimeIntervalRef = useRef<number | null>(null);
+  
+  // Reset tracking on component mount and handle unmount properly
   useEffect(() => {
+    // Reset the unmount flag when component mounts
+    isUnmountedRef.current = false;
+    
+    debug.log(TIMER_COMPONENT_ID, 'Component mounted', { props: { initialDuration, hasComplete: !!onComplete } });
+    
+    // Set up real-time elapsed time tracking (independent of the timer state)
+    // This becomes our ground truth for how long the component has been mounted
+    realElapsedTimeRef.current = 0; 
+    const realTimeInterval = window.setInterval(() => {
+      realElapsedTimeRef.current += 1;
+      
+      // Log real elapsed time every 10 seconds for debugging
+      if (realElapsedTimeRef.current % 10 === 0) {
+        debug.log(TIMER_COMPONENT_ID, 'Real elapsed time tracking', {
+          realSeconds: realElapsedTimeRef.current,
+          timerRunning: isRunning,
+          timerElapsed: elapsedTime
+        });
+      }
+    }, 1000);
+    
+    realElapsedTimeIntervalRef.current = realTimeInterval;
+    
+    // On unmount, clear any pending timeouts to prevent stale completions
+    return () => {
+      // Set the unmount flag to true
+      isUnmountedRef.current = true;
+      
+      debug.log(TIMER_COMPONENT_ID, 'Component unmounting', { 
+        completionTimeoutId: completionTimeoutRef.current,
+        timerRunning: isRunning,
+        elapsedTime,
+        realElapsedTime: realElapsedTimeRef.current
+      });
+      
+      // Clear all timeouts to prevent stale completions
+      if (completionTimeoutRef.current) {
+        window.clearTimeout(completionTimeoutRef.current);
+        completionTimeoutRef.current = null;
+      }
+      
+      // Clear the real time tracking interval
+      if (realElapsedTimeIntervalRef.current) {
+        window.clearInterval(realElapsedTimeIntervalRef.current);
+        realElapsedTimeIntervalRef.current = null;
+      }
+      
+      // Reset timer refs
+      sessionCompletedRef.current = false;
+      timerStartedAtRef.current = null;
+    };
+  }, []);
+  
+  // Timer logic - separated from focus mode logic, with enhanced debugging
+  useEffect(() => {
+    // When timer starts running, record start time
+    if (isRunning && !timerStartedAtRef.current) {
+      timerStartedAtRef.current = Date.now();
+      debug.log(TIMER_COMPONENT_ID, 'Timer started', { 
+        startTime: timerStartedAtRef.current,
+        duration,
+        timeRemaining 
+      });
+    }
+    
+    // When timer stops running, clear start time
+    if (!isRunning && timerStartedAtRef.current) {
+      debug.log(TIMER_COMPONENT_ID, 'Timer stopped', { 
+        startTime: timerStartedAtRef.current,
+        elapsedMs: Date.now() - timerStartedAtRef.current,
+        elapsedTime,
+        timeRemaining
+      });
+      timerStartedAtRef.current = null;
+    }
+    
     let intervalId: number | null = null;
     
     if (isRunning) {
       // Create completion sentinel to prevent multiple completion events
       let hasCompleted = false;
       
+      debug.log(TIMER_COMPONENT_ID, 'Setting up timer interval', { 
+        duration, 
+        timeRemaining,
+        sessionCompleted: sessionCompletedRef.current 
+      });
+      
       intervalId = window.setInterval(() => {
         tick();
+        
+        // Calculate real elapsed time based on timestamp
+        let realElapsedTime = 0;
+        if (timerStartedAtRef.current) {
+          realElapsedTime = Math.floor((Date.now() - timerStartedAtRef.current) / 1000);
+        }
+        
+        // Log timer state every 10 seconds, or when close to completion
+        if (realElapsedTime % 10 === 0 || (timeRemaining && timeRemaining <= 5)) {
+          debug.log(TIMER_COMPONENT_ID, 'Timer tick', { 
+            timeRemaining, 
+            elapsedTime,
+            realElapsedTime,
+            startedAt: timerStartedAtRef.current,
+            sessionCompleted: sessionCompletedRef.current
+          });
+        }
         
         // Update parent component with current timer status
         if (onUpdate) {
           onUpdate(timeRemaining, elapsedTime);
         }
         
-        // Check for completion
+        // Check for completion - only if timer is at 0 and we haven't already completed
         if (timeRemaining === 0 && !hasCompleted) {
-          // Set the completion sentinel
+          // Set the completion sentinel for this interval
           hasCompleted = true;
           
           // Always send the final update right before completion
@@ -88,46 +204,90 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             onUpdate(0, elapsedTime);
           }
           
-          console.log("Timer reached zero - scheduling completion event");
+          debug.log(TIMER_COMPONENT_ID, 'Timer reached zero - scheduling completion', {
+            realElapsedTime,
+            elapsedTime,
+            duration,
+            sessionCompleted: sessionCompletedRef.current
+          });
           
           // IMPORTANT: First give the orb time to show its shrinking animation
           // We'll use a longer delay to ensure the orb has enough time to animate
-          setTimeout(() => {
-            console.log("Executing timer completion handler after delay");
+          if (completionTimeoutRef.current) {
+            window.clearTimeout(completionTimeoutRef.current);
+          }
+          
+          completionTimeoutRef.current = window.setTimeout(() => {
+            // CRITICAL: Check if component has been unmounted before executing completion logic
+            if (isUnmountedRef.current) {
+              debug.log(TIMER_COMPONENT_ID, 'Initial completion check aborted - component unmounted');
+              return; // Don't proceed if component unmounted
+            }
+            
+            debug.log(TIMER_COMPONENT_ID, 'Executing timer completion after delay');
             
             // Then call the completion handler
             if (onComplete) {
               // Add even more safeguards to prevent premature completion
               const currentState = useSimpleTimer.getState();
               
-              // Check 1: timer is at zero
-              // Check 2: timer has been running for at least 10 seconds (minimum)
+              // Check real time elapsed from our timestamp tracking
+              let realTotalElapsed = 0;
+              if (timerStartedAtRef.current) {
+                realTotalElapsed = Math.floor((Date.now() - timerStartedAtRef.current) / 1000);
+              }
+              
+              // Enhanced validity checks
+              // Check 1: timer is at zero in the store
+              // Check 2: timer has been running for at least 10 seconds (minimum) according to our real-time tracking
               // Check 3: session not already completed (using ref for persistence)
+              // Check 4: elapsed time in store is reasonable (>10 seconds)
               if (currentState.timeRemaining === 0 && 
-                  currentState.elapsedTime > 10 &&
-                  !sessionCompletedRef.current) {
+                  realTotalElapsed > 10 &&
+                  !sessionCompletedRef.current &&
+                  currentState.elapsedTime > 10) {
                 
                 // Mark session as completed using the ref for persistence
                 sessionCompletedRef.current = true;
                 
-                console.log("All completion checks passed - executing completion handler");
-                console.log(`Elapsed time: ${currentState.elapsedTime}s`);
+                debug.log(TIMER_COMPONENT_ID, 'All completion checks passed - executing handler', {
+                  storeElapsedTime: currentState.elapsedTime,
+                  realElapsedTime: realTotalElapsed,
+                  sessionCompleted: sessionCompletedRef.current
+                });
                 
                 // Final delay before completion to ensure animation has time to finish
-                setTimeout(() => {
-                  console.log("Final completion trigger after animation delay");
+                const finalTimeout = window.setTimeout(() => {
+                  // CRITICAL: Check if component has been unmounted before calling completion
+                  if (isUnmountedRef.current) {
+                    debug.log(TIMER_COMPONENT_ID, 'COMPLETION PREVENTED - Component unmounted', {
+                      realElapsedTime: Math.floor((Date.now() - (timerStartedAtRef.current || 0)) / 1000)
+                    });
+                    return; // Don't proceed if component unmounted
+                  }
+                  
+                  debug.log(TIMER_COMPONENT_ID, 'FINAL COMPLETION TRIGGER', {
+                    realElapsedTime: Math.floor((Date.now() - (timerStartedAtRef.current || 0)) / 1000),
+                    isUnmounted: isUnmountedRef.current
+                  });
+                  
+                  // Call completion handler from props
                   onComplete();
                 }, 500);
+                
+                // Store the timeout ID so we can clear it if needed
+                completionTimeoutRef.current = finalTimeout;
               } else {
-                console.log("Skipping completion handler - checks failed:", {
+                debug.log(TIMER_COMPONENT_ID, 'Skipping completion - validity checks failed', {
                   timeRemaining: currentState.timeRemaining,
-                  elapsedTime: currentState.elapsedTime,
+                  realElapsedTime: realTotalElapsed,
+                  storeElapsedTime: currentState.elapsedTime,
                   alreadyCompleted: sessionCompletedRef.current
                 });
               }
             }
             // Note: Focus mode disable happens in the other useEffect
-          }, 1500); // Increased to 1.5 seconds to allow enough time for orb animation
+          }, 1500); // 1.5 seconds to allow enough time for orb animation
         }
       }, 1000);
     }
@@ -135,10 +295,14 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     // Cleanup
     return () => {
       if (intervalId) {
+        debug.log(TIMER_COMPONENT_ID, 'Clearing timer interval', {
+          isRunning,
+          sessionCompleted: sessionCompletedRef.current
+        });
         window.clearInterval(intervalId);
       }
     };
-  }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate]);
+  }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate, duration]);
   
   // Using formatTime imported from utils
   
