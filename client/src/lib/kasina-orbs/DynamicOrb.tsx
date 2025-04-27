@@ -287,6 +287,7 @@ interface DynamicOrbProps {
   color?: string;
   speed?: number;
   complexity?: number;
+  disableBreathing?: boolean; // Option to disable breathing animations for preview mode
 }
 
 const DynamicOrb: React.FC<DynamicOrbProps> = ({
@@ -294,7 +295,8 @@ const DynamicOrb: React.FC<DynamicOrbProps> = ({
   kasinaType,
   color,
   speed = 0.5,
-  complexity = 2
+  complexity = 2,
+  disableBreathing = false
 }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
@@ -377,8 +379,8 @@ const DynamicOrb: React.FC<DynamicOrbProps> = ({
         }
       }
     } 
-    // Special breathing effects
-    else if ((kasinaType === KASINA_TYPES.SPACE || kasinaType === KASINA_TYPES.FIRE)) {
+    // Special breathing effects (only if breathing is not disabled)
+    else if (!disableBreathing && (kasinaType === KASINA_TYPES.SPACE || kasinaType === KASINA_TYPES.FIRE)) {
       const time = clock.getElapsedTime();
       let breatheFactor = 1;
       
