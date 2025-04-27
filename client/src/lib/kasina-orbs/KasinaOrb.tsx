@@ -41,8 +41,8 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
       style={{ backgroundColor: bgColor }}
     >
       <Canvas
-        // Add key to force remounting when type changes
-        key={`kasina-orb-${type}-${Date.now()}`}
+        // Use a stable key based only on type to prevent unnecessary remounting
+        key={`kasina-orb-${type}`}
         dpr={[1, 2]} // Optimize rendering for better performance
         linear // Use linear color space for more accurate colors
         frameloop="always" // Always run animation frame
