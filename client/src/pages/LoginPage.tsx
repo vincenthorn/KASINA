@@ -39,11 +39,11 @@ const LoginPage: React.FC = () => {
             </div>
             <div className="flex items-start">
               <span className="mr-2">🎙</span>
-              <span>Record & share your own guided visual meditations (coming soon)</span>
+              <span>Record & share your own guided kasina meditations (coming soon...)</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">🧘‍♀️</span>
-              <span>Access curated & community-generated guided meditations (coming soon)</span>
+              <span>Access community-generated guided kasina meditations (coming soon...)</span>
             </div>
           </div>
         </div>
