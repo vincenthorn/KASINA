@@ -163,8 +163,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       timerStartedAtRef.current = null;
     }
     
-    // Use any type for both interval IDs to bypass TypeScript errors
-    let intervalId: any = null;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
     
     if (isRunning) {
       // Create completion sentinel to prevent multiple completion events
@@ -178,8 +177,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       
       // Set up a validation interval that runs more frequently
       // This will proactively fix timer issues before they cause problems
-      // Use any type to bypass the TypeScript error
-      const validationIntervalId: any = window.setInterval(() => {
+      const validationIntervalId = window.setInterval(() => {
         // Check and repair the timer state if needed
         const result = useSimpleTimer.getState().validateTimerState();
         if (!result) {
@@ -188,8 +186,8 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       }, 500); // Check twice per second
       
       // Main timer tick interval 
-      // Use any type to bypass TypeScript errors
-      const newIntervalId: any = window.setInterval(() => {
+      // Correcting type issue for intervalId
+      const newIntervalId = window.setInterval(() => {
         // Add debugging before tick to catch any issues
         debug.log(TIMER_COMPONENT_ID, 'Tick start', { 
           timeRemaining, 
@@ -295,10 +293,17 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 realTotalElapsed = calculatedElapsed;
               }
               
-              // ULTRA SIMPLIFIED VALIDATION
-              // Just complete when there's meaningful elapsed time and session not already marked complete
-              if (!sessionCompletedRef.current && currentState.elapsedTime > 5) {
-                console.log("TIMER VALIDATION: Simplified validation only checking if we have elapsed time", {
+              // Enhanced validity checks - SIGNIFICANTLY RELAXED FOR STABILITY
+              // Check 1: timer is at zero in the store OR very close to zero
+              // Check 2: session not already completed (using ref for persistence)
+              // REMOVED the elapsedTime > 10 check as it was preventing short sessions
+              // REMOVED the realTotalElapsed > 10 check as it was preventing short sessions
+              if ((currentState.timeRemaining === 0 || currentState.timeRemaining < 3) && 
+                  !sessionCompletedRef.current) {
+                
+                // Log the relaxed validation
+                console.log("TIMER TERMINATION: Using relaxed validation criteria", {
+                  timeRemaining: currentState.timeRemaining,
                   elapsedTime: currentState.elapsedTime,
                   realElapsedTime: realTotalElapsed
                 });
