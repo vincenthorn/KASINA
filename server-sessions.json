@@ -56,5 +56,13 @@
     "duration": 59,
     "timestamp": "2025-04-26T04:58:40.703Z",
     "userEmail": "admin@kasina.app"
+  },
+  {
+    "id": "1745762606384",
+    "kasinaType": "white",
+    "kasinaName": "White (2-minutes)",
+    "duration": 120,
+    "timestamp": "2025-04-27T14:03:26.310Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]
