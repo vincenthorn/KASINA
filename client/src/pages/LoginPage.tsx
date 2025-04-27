@@ -18,6 +18,10 @@ const LoginPage: React.FC = () => {
           <Logo size="large" />
         </div>
         
+        <div className="mb-8">
+          <LoginForm />
+        </div>
+        
         <div className="text-center mb-6 max-w-xl">
           <p className="text-gray-200 mb-6 text-justify">
             KASINA is a 3D visual meditation tool for those ready to deepen their concentration with a visual object. 
@@ -51,7 +55,6 @@ const LoginPage: React.FC = () => {
           </div>
         </div>
         
-        <LoginForm />
         <div className="h-8"></div> {/* Bottom spacing */}
       </div>
     </div>
