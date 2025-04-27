@@ -463,13 +463,15 @@ const DynamicOrb: React.FC<{
   type?: KasinaType,
   color?: string,
   speed?: number,
-  complexity?: number
+  complexity?: number,
+  disableBreathing?: boolean // Add option to disable breathing animations
 }> = ({ 
   remainingTime = null,
   type,
   color,
   speed = 0.5,
-  complexity = 2
+  complexity = 2,
+  disableBreathing = false // Default to enabling breathing
 }) => {
   const { selectedKasina } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
@@ -522,7 +524,9 @@ const DynamicOrb: React.FC<{
         }
       } 
       // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
-      else if ((kasinaType === KASINA_TYPES.SPACE || kasinaType === KASINA_TYPES.FIRE) && 
+      // Only apply breathing if not disabled
+      else if (!disableBreathing && 
+              (kasinaType === KASINA_TYPES.SPACE || kasinaType === KASINA_TYPES.FIRE) && 
               (remainingTime === null || remainingTime > 60)) {
         const time = clock.getElapsedTime();
         
@@ -674,14 +678,16 @@ const Scene: React.FC<{
   type?: KasinaType,
   color?: string,
   speed?: number,
-  complexity?: number
+  complexity?: number,
+  disableBreathing?: boolean
 }> = ({ 
   enableZoom = false,
   remainingTime = null,
   type,
   color,
   speed,
-  complexity
+  complexity,
+  disableBreathing = false
 }) => {
   const { gl, camera } = useThree();
   const { selectedKasina } = useKasina();
