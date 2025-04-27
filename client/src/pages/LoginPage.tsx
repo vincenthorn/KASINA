@@ -31,7 +31,7 @@ const LoginPage: React.FC = () => {
           <div className="space-y-2 text-left mb-6 text-gray-300">
             <div className="flex items-start">
               <span className="mr-2">🔲</span>
-              <span>Freestyle kasina mode with 10 orbs + practice timer</span>
+              <span>Kasina meditation mode with 10 visual orbs + practice timer</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">📊</span>
