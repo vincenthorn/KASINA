@@ -379,15 +379,15 @@ const TimerKasinas: React.FC = () => {
         }
         
         // Create the correct name with proper pluralization
-        const minuteText = minutesValue === 1 ? "minute" : "minutes";
-        const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-${minuteText})`;
+        const minuteText = correctedMinutesValue === 1 ? "minute" : "minutes";
+        const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${correctedMinutesValue}-${minuteText})`;
         
         // Complete session payload with all needed information
         const manualSessionPayload = {
           kasinaType: selectedKasina,
           kasinaName: correctName,
-          duration: minutesValue * 60, // Forces exact seconds based on minutes
-          durationInMinutes: minutesValue,
+          duration: correctedMinutesValue * 60, // Forces exact seconds based on minutes
+          durationInMinutes: correctedMinutesValue,
           originalDuration: roundedDuration,
           timestamp: new Date().toISOString()
         };
