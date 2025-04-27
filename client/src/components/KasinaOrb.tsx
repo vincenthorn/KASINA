@@ -477,15 +477,32 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         // Apply the shrinking scale
         meshRef.current.scale.set(endingScale, endingScale, endingScale);
         
-        // Optional: make the orb fade out as well
+        // For elemental kasinas, fade out as well as shrink
+        // For color kasinas, only shrink without changing opacity
         if (materialRef.current) {
-          if ('opacity' in materialRef.current) {
-            (materialRef.current as THREE.MeshBasicMaterial).opacity = endingScale;
-            (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
-          } else if ('uniforms' in materialRef.current && 
-                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
-            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingScale;
-            (materialRef.current as THREE.ShaderMaterial).transparent = true;
+          // Check if this is an elemental kasina (shader material) or color kasina (basic material)
+          const isElementalKasina = [
+            KASINA_TYPES.WATER, 
+            KASINA_TYPES.AIR, 
+            KASINA_TYPES.FIRE, 
+            KASINA_TYPES.EARTH, 
+            KASINA_TYPES.SPACE, 
+            KASINA_TYPES.LIGHT
+          ].includes(selectedKasina as KasinaType);
+          
+          // Only fade elemental kasinas, not color kasinas
+          if (isElementalKasina) {
+            if ('uniforms' in materialRef.current && 
+                (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
+              (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingScale;
+              (materialRef.current as THREE.ShaderMaterial).transparent = true;
+            }
+          } else {
+            // For color kasinas, we keep opacity at 1.0 (fully visible)
+            // This ensures they only shrink but don't fade/darken
+            if ('opacity' in materialRef.current) {
+              (materialRef.current as THREE.MeshBasicMaterial).opacity = 1.0;
+            }
           }
         }
         
