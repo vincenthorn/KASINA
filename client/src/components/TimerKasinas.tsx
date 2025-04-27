@@ -511,6 +511,8 @@ const TimerKasinas: React.FC = () => {
                 type={typedKasina} 
                 remainingTime={timeRemaining}
                 color={KASINA_COLORS[typedKasina] || "#FFFFFF"}
+                speed={0.5}
+                complexity={2}
               />
             </div>
           </div>

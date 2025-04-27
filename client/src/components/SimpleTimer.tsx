@@ -78,9 +78,13 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             onUpdate(0, elapsedTime);
           }
           
-          // Then call the completion handler
-          if (onComplete) onComplete();
-          // Note: Focus mode disable happens in the other useEffect
+          // Force a small delay before completion to allow render cycles to complete
+          // This fixes the issue where the session completes too quickly before rendering
+          setTimeout(() => {
+            // Then call the completion handler
+            if (onComplete) onComplete();
+            // Note: Focus mode disable happens in the other useEffect
+          }, 100);
         }
       }, 1000);
     }

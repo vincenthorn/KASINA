@@ -244,6 +244,8 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 enableZoom={true}
                 remainingTime={timerState.timeRemaining}
                 color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
+                speed={0.5}
+                complexity={2}
               />
             </div>
           </div>
