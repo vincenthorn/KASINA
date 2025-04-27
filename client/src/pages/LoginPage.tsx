@@ -14,7 +14,7 @@ const LoginPage: React.FC = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <div className="py-8 px-4 flex flex-col items-center">
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 mt-6">
           <Logo size="large" />
         </div>
         
@@ -43,7 +43,7 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
           
-          <div className="text-indigo-400 text-lg mb-6">
+          <div className="text-indigo-400 text-lg mb-3">
             Who it's for:
             <div className="mt-1 text-gray-300 text-lg font-medium">
               Jhāna nerds • Meditation teachers • Contemplative techies
