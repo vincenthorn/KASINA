@@ -63,6 +63,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     let intervalId: number | null = null;
     
     if (isRunning) {
+      // Create completion sentinel to prevent multiple completion events
+      let hasCompleted = false;
+      
       intervalId = window.setInterval(() => {
         tick();
         
@@ -72,19 +75,35 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         }
         
         // Check for completion
-        if (timeRemaining === 0) {
+        if (timeRemaining === 0 && !hasCompleted) {
+          // Set the completion sentinel
+          hasCompleted = true;
+          
           // Always send the final update right before completion
           if (onUpdate) {
             onUpdate(0, elapsedTime);
           }
           
-          // Force a small delay before completion to allow render cycles to complete
-          // This fixes the issue where the session completes too quickly before rendering
+          console.log("Timer reached zero - scheduling completion event");
+          
+          // Force a significant delay (500ms) before calling the completion handler
+          // This ensures the orb has time to render the shrinking effect
           setTimeout(() => {
+            console.log("Executing timer completion handler after delay");
+            
             // Then call the completion handler
-            if (onComplete) onComplete();
+            if (onComplete) {
+              // Add an additional safeguard - only call onComplete if the timer is still at zero
+              // and we're still running (not stopped by user during the delay)
+              if (useSimpleTimer.getState().timeRemaining === 0 && 
+                  useSimpleTimer.getState().isRunning) {
+                onComplete();
+              } else {
+                console.log("Skipping completion handler - timer state changed during delay");
+              }
+            }
             // Note: Focus mode disable happens in the other useEffect
-          }, 100);
+          }, 500);
         }
       }, 1000);
     }
