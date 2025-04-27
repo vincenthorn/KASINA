@@ -9,6 +9,7 @@ import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
 import FocusMode from './FocusMode';
 import KasinaOrb from './KasinaOrb';
+import WhiteKasinaTimer from './WhiteKasinaTimer';
 import { formatTime, roundUpToNearestMinute } from '../lib/utils';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
@@ -723,10 +724,48 @@ const TimerKasinas: React.FC = () => {
             <TabsContent value="simple" className="space-y-4">
               <Card>
                 <CardContent className="pt-6">
-                  <SimpleTimer
-                    onComplete={handleTimerComplete}
-                    onUpdate={handleStatusUpdate}
-                  />
+                  {/* SPECIAL FIX: Use a completely separate component for white kasina */}
+                  {typedKasina === 'white' ? (
+                    <WhiteKasinaTimer
+                      onComplete={() => {
+                        console.log("WHITE KASINA DEDICATED TIMER COMPLETED");
+                        // Create manually formatted payload with exactly 1 minute duration
+                        if (!sessionSavedRef.current) {
+                          sessionSavedRef.current = true;
+                          
+                          const manualSessionPayload = {
+                            kasinaType: 'white',
+                            kasinaName: 'White (1-minute)',
+                            duration: 60, // Exactly 60 seconds (1 minute)
+                            durationInMinutes: 1,
+                            originalDuration: 60,
+                            timestamp: new Date().toISOString()
+                          };
+                          
+                          // Log what we're sending to the server
+                          console.log("🚀 WHITE KASINA SPECIAL SESSION PAYLOAD:", manualSessionPayload);
+                          
+                          // Send to the server
+                          addSession(manualSessionPayload as any);
+                          
+                          // Disable focus mode
+                          disableFocusMode();
+                          
+                          // Show notification 
+                          toast.success(`You completed a 1:00 White kasina meditation. Session saved.`);
+                          
+                          // Generate a new orbKey for the kasina change to ensure fresh rendering
+                          const newOrbKey = `kasina-orb-${Date.now()}-whitedone`;
+                          setOrbKey(newOrbKey);
+                        }
+                      }}
+                    />
+                  ) : (
+                    <SimpleTimer
+                      onComplete={handleTimerComplete}
+                      onUpdate={handleStatusUpdate}
+                    />
+                  )}
                   <div ref={timerDurationRef} className="hidden simple-timer-duration"></div>
                 </CardContent>
               </Card>
