@@ -222,15 +222,56 @@ const ReflectionPage: React.FC = () => {
       </div>
       
       {isLoading ? (
-        <div className="text-center py-10">
-          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-indigo-500 mx-auto"></div>
-          <p className="text-gray-400 mt-4">Loading your practice data...</p>
+        <div className="text-center py-16 px-6 bg-gradient-to-b from-gray-900 to-gray-800 rounded-xl border border-gray-700 shadow-xl">
+          <div className="mb-6 flex items-center justify-center">
+            <div className="relative">
+              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-indigo-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center text-indigo-400">
+                <svg className="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <h3 className="text-2xl font-semibold text-white mb-3">Loading Your Reflection</h3>
+          <p className="text-gray-300">Preparing your meditation insights and practice data...</p>
         </div>
       ) : sessions.length === 0 ? (
-        <div className="text-center py-10 bg-gray-900 rounded-lg">
-          <div className="text-6xl mb-4">📊</div>
-          <h3 className="text-xl font-semibold text-white mb-2">No meditation sessions recorded yet</h3>
-          <p className="text-gray-400">Complete a meditation session in Kasinas mode to start tracking your practice.</p>
+        <div className="text-center py-16 px-6 bg-gradient-to-b from-gray-900 to-gray-800 rounded-xl border border-gray-700 shadow-xl">
+          <div className="mb-6 relative">
+            <div className="inline-flex items-center justify-center p-6 bg-indigo-900/30 rounded-full mb-2 backdrop-blur-sm">
+              <svg className="w-16 h-16 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            {/* Decorative elements */}
+            <div className="absolute top-0 -right-4 w-4 h-4 bg-blue-400 rounded-full animate-pulse opacity-60"></div>
+            <div className="absolute -bottom-2 -left-6 w-6 h-6 bg-indigo-500 rounded-full animate-pulse opacity-40" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute top-1/2 right-5 w-3 h-3 bg-purple-400 rounded-full animate-pulse opacity-60" style={{ animationDelay: '0.8s' }}></div>
+          </div>
+          
+          <h3 className="text-2xl font-semibold text-white mb-4">Your Journey Awaits</h3>
+          
+          <div className="max-w-md mx-auto">
+            <p className="text-gray-300 mb-6">Complete your first meditation session in Kasinas mode to begin tracking your practice and visualizing your progress.</p>
+            
+            <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 mb-6">
+              <h4 className="font-medium text-indigo-300 mb-2">What You'll See Here:</h4>
+              <ul className="text-gray-400 text-sm space-y-2 text-left list-disc list-inside">
+                <li>Visual charts of your meditation history</li>
+                <li>Detailed practice logs for each session</li>
+                <li>Distribution of time spent with each kasina</li>
+                <li>Insights into your meditation patterns</li>
+              </ul>
+            </div>
+            
+            <a href="/kasinas" className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-indigo-600/20">
+              <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+              </svg>
+              Start Meditating
+            </a>
+          </div>
         </div>
       ) : (
         <div className="space-y-8">
