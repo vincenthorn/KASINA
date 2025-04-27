@@ -38,12 +38,12 @@ const LoginPage: React.FC = () => {
               <span>Visualize your practice history with kasina breakdowns</span>
             </div>
             <div className="flex items-start">
-              <span className="mr-2">🎙</span>
-              <span>Record & share your own guided kasina meditations (coming soon...)</span>
-            </div>
-            <div className="flex items-start">
               <span className="mr-2">🧘‍♀️</span>
               <span>Access community-generated guided kasina meditations (coming soon...)</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-2">🎙</span>
+              <span>Record & share your own guided visual meditations (coming soon...)</span>
             </div>
           </div>
         </div>
