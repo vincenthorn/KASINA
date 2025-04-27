@@ -709,14 +709,14 @@ const Scene: React.FC<{
   
   // Safety check: ensure we always have a valid kasina type for background color
   // Prefer the prop type that was passed directly over the global state
-  const safeKasinaType: KasinaType = ensureValidKasinaType(type || selectedKasina);
+  const safeSceneKasinaType: KasinaType = ensureValidKasinaType(type || selectedKasina);
   
   // Set the background color based on the selected kasina
   useEffect(() => {
-    const bgColor = KASINA_BACKGROUNDS[safeKasinaType] || "#000000";
+    const bgColor = KASINA_BACKGROUNDS[safeSceneKasinaType] || "#000000";
     gl.setClearColor(new THREE.Color(bgColor), 1);
-    console.log(`Set scene background to: ${bgColor} for kasina: ${safeKasinaType}`);
-  }, [gl, safeKasinaType]);
+    console.log(`Set scene background to: ${bgColor} for kasina: ${safeSceneKasinaType}`);
+  }, [gl, safeSceneKasinaType]);
 
   // Add camera ref to work with zoom 
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
@@ -745,7 +745,7 @@ const Scene: React.FC<{
       <pointLight position={[10, 10, 10]} intensity={0.5} />
       <pointLight position={cameraLight} intensity={0.8} distance={10} />
       <DynamicOrb 
-        kasinaType={safeKasinaType}
+        kasinaType={safeSceneKasinaType}
         remainingTime={remainingTime} 
       />
       <OrbitControls 
