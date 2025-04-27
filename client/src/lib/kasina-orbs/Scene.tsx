@@ -13,6 +13,7 @@ interface SceneProps {
   color?: string;
   speed?: number;
   complexity?: number;
+  disableBreathing?: boolean; // Option to disable breathing animations
 }
 
 const Scene: React.FC<SceneProps> = ({
@@ -21,7 +22,8 @@ const Scene: React.FC<SceneProps> = ({
   kasinaType,
   color,
   speed = 0.5,
-  complexity = 2
+  complexity = 2,
+  disableBreathing = false
 }) => {
   const { gl } = useThree();
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
@@ -111,6 +113,7 @@ const Scene: React.FC<SceneProps> = ({
         color={color}
         speed={speed}
         complexity={complexity}
+        disableBreathing={disableBreathing}
       />
       
       <OrbitControls

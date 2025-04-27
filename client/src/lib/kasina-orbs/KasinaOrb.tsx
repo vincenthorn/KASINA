@@ -12,6 +12,7 @@ interface KasinaOrbProps {
   speed?: number;
   complexity?: number;
   remainingTime?: number | null;
+  disableBreathing?: boolean; // Option to disable breathing animations for preview mode
 }
 
 const KasinaOrb: React.FC<KasinaOrbProps> = ({
@@ -20,7 +21,8 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   color,
   speed = 0.5,
   complexity = 2,
-  remainingTime = null
+  remainingTime = null,
+  disableBreathing = false
 }) => {
   console.log("KasinaOrb rendering with type:", type, "color:", color);
   
@@ -54,6 +56,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
           color={color}
           speed={speed}
           complexity={complexity}
+          disableBreathing={disableBreathing}
         />
       </Canvas>
     </div>
