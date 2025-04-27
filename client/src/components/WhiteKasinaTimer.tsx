@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { formatTime } from '../lib/utils';
 import { useFocusMode } from '../lib/stores/useFocusMode';
+import { useKasina } from '../lib/stores/useKasina';
 
 interface WhiteKasinaTimerProps {
   onComplete: () => void;
@@ -26,7 +27,42 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
   // Get focus mode functions
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   
-  // Set up the timer interval
+  // Track whether to show or hide the timer based on mouse movement
+  const [isTimerVisible, setIsTimerVisible] = useState(true);
+  const visibilityTimeoutRef = useRef<number | null>(null);
+  
+  // Handle mouse movement to show/hide timer in focus mode
+  useEffect(() => {
+    const handleMouseMove = () => {
+      // Always show the timer when mouse moves
+      setIsTimerVisible(true);
+      
+      // Clear any existing timeout
+      if (visibilityTimeoutRef.current) {
+        window.clearTimeout(visibilityTimeoutRef.current);
+      }
+      
+      // Set a new timeout to hide the timer
+      if (isRunning) {
+        visibilityTimeoutRef.current = window.setTimeout(() => {
+          setIsTimerVisible(false);
+        }, 3000); // Hide after 3 seconds of inactivity
+      }
+    };
+    
+    // Add event listener for mouse movement
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (visibilityTimeoutRef.current) {
+        window.clearTimeout(visibilityTimeoutRef.current);
+      }
+    };
+  }, [isRunning]);
+  
+  // Set up the timer interval with fade-out effect
   useEffect(() => {
     if (isRunning) {
       console.log("🕒 WHITE KASINA TIMER: Starting timer");
@@ -42,6 +78,19 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
         setTimeRemaining(prev => {
           const newTime = prev - 1;
           console.log(`🕒 WHITE KASINA TIMER: ${newTime}s remaining`);
+          
+          // Special handling for final 10 seconds - fade effect
+          if (newTime <= 10 && newTime > 0) {
+            // Force timer to be visible during final countdown
+            setIsTimerVisible(true);
+            
+            // Add visual indicator for countdown
+            const timerElement = document.querySelector('.white-kasina-final-countdown');
+            if (timerElement) {
+              timerElement.className = 'white-kasina-final-countdown pulse-animation';
+            }
+          }
+          
           return newTime;
         });
         
@@ -129,8 +178,11 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
   };
   
   return (
-    <div className="flex flex-col items-center space-y-4">
-      <div className="text-3xl font-mono text-white">
+    <div 
+      className={`flex flex-col items-center space-y-4 transition-opacity duration-1000 ${isTimerVisible || !isRunning ? 'opacity-100' : 'opacity-0'}`}
+      style={{ pointerEvents: isTimerVisible || !isRunning ? 'auto' : 'none' }}
+    >
+      <div className={`text-3xl font-mono text-white white-kasina-final-countdown ${timeRemaining <= 10 && timeRemaining > 0 ? 'pulse-animation' : ''}`}>
         {formatTime(timeRemaining)}
       </div>
       
@@ -160,6 +212,8 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
       <div className="text-xs text-gray-400 mt-2">
         💡 Special 1-minute timer for White Kasina
       </div>
+      
+      {/* CSS animations are defined globally in CSS */}
     </div>
   );
 };
