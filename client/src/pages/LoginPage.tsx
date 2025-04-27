@@ -28,6 +28,13 @@ const LoginPage: React.FC = () => {
             Inspired by ancient kasina practices, reimagined for the modern meditator.
           </p>
           
+          <div className="text-indigo-400 text-lg mb-6">
+            Who it's for:
+            <div className="mt-1 text-gray-300 text-lg font-medium">
+              Jhāna nerds • Meditation teachers • Contemplative techies
+            </div>
+          </div>
+          
           <div className="space-y-2 text-left mb-6 text-gray-300">
             <div className="flex items-start">
               <span className="mr-2">🔲</span>
@@ -44,13 +51,6 @@ const LoginPage: React.FC = () => {
             <div className="flex items-start">
               <span className="mr-2">🧘‍♀️</span>
               <span>Access curated & community-generated guided meditations (coming soon)</span>
-            </div>
-          </div>
-          
-          <div className="text-indigo-400 text-lg mb-3">
-            Who it's for:
-            <div className="mt-1 text-gray-300 text-lg font-medium">
-              Jhāna nerds • Meditation teachers • Contemplative techies
             </div>
           </div>
         </div>
