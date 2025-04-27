@@ -427,6 +427,94 @@ export async function registerRoutes(app: Express): Promise<Server> {
     communityVideos.push(video);
     res.status(201).json(video);
   });
+  
+  // Route to clean test data (temporary convenience route)
+  app.get("/api/clean-test-data/:email", (req, res) => {
+    try {
+      const { email } = req.params;
+      if (!email) {
+        return res.status(400).json({ message: "Email parameter is required" });
+      }
+      
+      const normalizedEmail = email.trim().toLowerCase();
+      
+      // Only allow specific test accounts to be cleaned
+      const allowedTestAccounts = ["carlgregg@gmail.com", "test@example.com"];
+      if (!allowedTestAccounts.includes(normalizedEmail)) {
+        return res.status(403).json({ 
+          message: "This operation is only allowed for designated test accounts" 
+        });
+      }
+      
+      // Find the number of sessions before deletion
+      const beforeCount = sessions.length;
+      
+      // Filter out sessions for the specified user
+      const updatedSessions = sessions.filter(session => session.userEmail !== normalizedEmail);
+      
+      // Calculate how many sessions were removed
+      const removedCount = beforeCount - updatedSessions.length;
+      
+      // Update the sessions array
+      sessions.splice(0, sessions.length, ...updatedSessions);
+      
+      // Save the updated sessions to file
+      saveDataToFile(sessionsFilePath, sessions);
+      
+      console.log(`✅ Cleaned ${removedCount} test sessions for user ${normalizedEmail}`);
+      
+      return res.status(200).json({
+        message: `Successfully removed ${removedCount} sessions for user ${normalizedEmail}`,
+        removedCount
+      });
+    } catch (error) {
+      console.error("Error cleaning test data:", error);
+      return res.status(500).json({
+        message: "Failed to clean test data",
+        error: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
+  // Delete all sessions for a specific user (admin only)
+  app.delete("/api/admin/user-sessions/:email", isAdmin, (req, res) => {
+    try {
+      const { email } = req.params;
+      if (!email) {
+        return res.status(400).json({ message: "Email parameter is required" });
+      }
+      
+      const normalizedEmail = email.trim().toLowerCase();
+      
+      // Find the number of sessions before deletion
+      const beforeCount = sessions.length;
+      
+      // Filter out sessions for the specified user
+      const updatedSessions = sessions.filter(session => session.userEmail !== normalizedEmail);
+      
+      // Calculate how many sessions were removed
+      const removedCount = beforeCount - updatedSessions.length;
+      
+      // Update the sessions array
+      sessions.splice(0, sessions.length, ...updatedSessions);
+      
+      // Save the updated sessions to file
+      saveDataToFile(sessionsFilePath, sessions);
+      
+      console.log(`✅ Removed ${removedCount} sessions for user ${normalizedEmail}`);
+      
+      return res.status(200).json({
+        message: `Successfully removed ${removedCount} sessions for user ${normalizedEmail}`,
+        removedCount
+      });
+    } catch (error) {
+      console.error("Error deleting user sessions:", error);
+      return res.status(500).json({
+        message: "Failed to delete user sessions",
+        error: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
 
   const httpServer = createServer(app);
 
