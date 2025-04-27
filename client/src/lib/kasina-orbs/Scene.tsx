@@ -60,13 +60,34 @@ const Scene: React.FC<SceneProps> = ({
   }, [enableZoom]);
 
   // Update light position to follow camera and handle remaining time
-  useFrame(() => {
+  useFrame(({ clock }) => {
     if (cameraRef.current) {
       setCameraLight(cameraRef.current.position.clone());
       
       // Log remaining time changes during the final minute to help debug issues
-      if (remainingTime !== null && remainingTime <= 60 && remainingTime % 5 === 0) {
-        console.log(`Scene - Remaining time update: ${remainingTime}s`);
+      if (remainingTime !== null && remainingTime <= 60) {
+        // Log more frequently for better debugging
+        if (remainingTime % 5 === 0 || remainingTime < 10) {
+          console.log(`Scene - Remaining time update: ${remainingTime}s`);
+        }
+        
+        // Apply scaling effect based on remaining time 
+        // This ensures the orb shrinks smoothly even if updates are delayed
+        const orbScale = Math.max(0.05, remainingTime / 60);
+        
+        // Apply gentle pulse during shrinking
+        const pulseAmount = 0.03;
+        const pulseSpeed = 3.0;
+        const pulseEffect = Math.sin(clock.getElapsedTime() * pulseSpeed) * pulseAmount;
+        
+        // Calculate final scale with pulse
+        const finalScale = orbScale + (pulseEffect * orbScale);
+        
+        // Update any scale-based effects here
+        if (remainingTime <= 5) {
+          // Extra animation effects for final few seconds
+          console.log(`Final countdown: ${remainingTime}s - Scale: ${finalScale.toFixed(2)}`);
+        }
       }
     }
   });

@@ -307,17 +307,54 @@ const DynamicOrb: React.FC<DynamicOrbProps> = ({
     // Gentle rotation
     meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
     
-    // Improved shrinking effect for end of session
+    // Enhanced shrinking effect for end of session with extra safeguards
     if (remainingTime !== null && remainingTime <= 60) {
-      // Calculate an improved scale factor with a minimum size to prevent complete disappearance
-      // This creates a smooth shrinking effect but ensures the orb doesn't get too small
-      const minScale = 0.05; // Minimum scale to keep orb visible
-      const endingScale = minScale + (remainingTime / 60) * (1 - minScale);
-      
-      console.log(`Remaining: ${remainingTime}s, scale: ${endingScale.toFixed(3)}`);
-      
-      // Apply the scale with subtle ease-out effect to make it smooth
-      meshRef.current.scale.set(endingScale, endingScale, endingScale);
+      try {
+        // Calculate an improved scale factor with a minimum size to prevent complete disappearance
+        // This creates a smooth shrinking effect but ensures the orb doesn't get too small
+        const minScale = 0.05; // Minimum scale to keep orb visible
+        
+        // Create more natural easing for scale reduction with an eased curve
+        const normalizedTime = remainingTime / 60; // 0 to 1
+        const easeOutValue = Math.sin(normalizedTime * Math.PI / 2); // Ease out sine (starts fast, ends slow)
+        const endingScale = minScale + easeOutValue * (1 - minScale);
+        
+        // Add subtle pulse during shrinking for more visual interest
+        const pulseAmount = 0.03; 
+        const pulseSpeed = 3.0;
+        const pulseEffect = Math.sin(clock.getElapsedTime() * pulseSpeed) * pulseAmount;
+        
+        // Final scale with pulse
+        const finalScale = endingScale + (pulseEffect * endingScale);
+        
+        // Log important time points for debugging
+        if (remainingTime % 5 === 0 || remainingTime < 10) {
+          console.log(`DynamicOrb - Remaining: ${remainingTime}s, scale: ${finalScale.toFixed(3)}`);
+        }
+        
+        // Apply the scale with subtle ease-out effect to make it smooth
+        meshRef.current.scale.set(finalScale, finalScale, finalScale);
+        
+        // Handle material opacity for elemental kasinas
+        if (materialRef.current && 'uniforms' in materialRef.current) {
+          const material = materialRef.current as THREE.ShaderMaterial;
+          if (material.uniforms && material.uniforms.opacity) {
+            // Fade opacity in last 30 seconds but keep it visible
+            const minOpacity = 0.1;
+            const opacityValue = remainingTime < 30 ? 
+              minOpacity + (remainingTime / 30) * (1 - minOpacity) : 1.0;
+            
+            material.uniforms.opacity.value = opacityValue;
+          }
+        }
+      } catch (err) {
+        // Safety fallback if any error occurs in animation
+        console.error("Error in orb animation:", err);
+        
+        // Apply a simple fallback scale to keep the orb visible
+        const fallbackScale = Math.max(0.1, remainingTime / 60);
+        meshRef.current.scale.set(fallbackScale, fallbackScale, fallbackScale);
+      }
       
       // Apply opacity for elemental kasinas - also keep minimum opacity
       if (materialRef.current) {

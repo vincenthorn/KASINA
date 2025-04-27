@@ -35,6 +35,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   const [minutesInput, setMinutesInput] = useState('');
   const minutesInputRef = useRef<HTMLInputElement>(null);
   
+  // Add a ref to track if the session completion handler has already been called
+  // This prevents multiple completion events firing
+  const sessionCompletedRef = useRef(false);
+  
   // Set initial duration if provided and only when the component first mounts
   useEffect(() => {
     console.log("SimpleTimer useEffect - initialDuration:", initialDuration, "current duration:", duration);
@@ -86,35 +90,44 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           
           console.log("Timer reached zero - scheduling completion event");
           
-          // Force a significant delay (500ms) before calling the completion handler
-          // This ensures the orb has time to render the shrinking effect
+          // IMPORTANT: First give the orb time to show its shrinking animation
+          // We'll use a longer delay to ensure the orb has enough time to animate
           setTimeout(() => {
             console.log("Executing timer completion handler after delay");
             
             // Then call the completion handler
             if (onComplete) {
-              // Add multiple safeguards - only call onComplete if conditions are correct
+              // Add even more safeguards to prevent premature completion
               const currentState = useSimpleTimer.getState();
               
               // Check 1: timer is at zero
-              // Check 2: timer is still running
-              // Check 3: we've been running for at least 5 seconds
+              // Check 2: timer has been running for at least 10 seconds (minimum)
+              // Check 3: session not already completed (using ref for persistence)
               if (currentState.timeRemaining === 0 && 
-                  currentState.isRunning &&
-                  currentState.elapsedTime > 5) {
+                  currentState.elapsedTime > 10 &&
+                  !sessionCompletedRef.current) {
+                
+                // Mark session as completed using the ref for persistence
+                sessionCompletedRef.current = true;
+                
                 console.log("All completion checks passed - executing completion handler");
                 console.log(`Elapsed time: ${currentState.elapsedTime}s`);
-                onComplete();
+                
+                // Final delay before completion to ensure animation has time to finish
+                setTimeout(() => {
+                  console.log("Final completion trigger after animation delay");
+                  onComplete();
+                }, 500);
               } else {
                 console.log("Skipping completion handler - checks failed:", {
                   timeRemaining: currentState.timeRemaining,
-                  isRunning: currentState.isRunning,
-                  elapsedTime: currentState.elapsedTime
+                  elapsedTime: currentState.elapsedTime,
+                  alreadyCompleted: sessionCompletedRef.current
                 });
               }
             }
             // Note: Focus mode disable happens in the other useEffect
-          }, 800); // Increased from 500ms to 800ms to allow for orb animation
+          }, 1500); // Increased to 1.5 seconds to allow enough time for orb animation
         }
       }, 1000);
     }
@@ -329,6 +342,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             resetTimer();
             // Safe to call directly since Reset is only clicked once
             disableFocusMode();
+            // Reset the completion flag when the timer is reset
+            sessionCompletedRef.current = false;
+            console.log("Timer reset - completion flag cleared");
           }}
           disabled={isRunning}
           className="w-20 focus-mode-exempt"
