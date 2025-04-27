@@ -70,7 +70,7 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
                 <div className="flex justify-between items-center">
                   <h3 className="text-white font-semibold text-lg">
                     {/* Extract just the kasina type and add "Kasina" after it */}
-                    {session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} <span className="text-indigo-300">Kasina</span>
+                    {session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina
                   </h3>
                   <span className="text-white font-semibold bg-indigo-700 hover:bg-indigo-600 px-3 py-1.5 rounded-md text-base flex items-center shadow-sm transition-colors">
                     <span className="font-mono">{Math.round(session.duration / 60)}</span>
