@@ -29,32 +29,47 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
   // Get focus mode functions
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   
+  // Check if focus mode is active
+  const isFocusMode = useFocusMode(state => state.isFocusModeActive);
+  
   // Track whether to show or hide the timer based on mouse movement
   const [isTimerVisible, setIsTimerVisible] = useState(true);
   const visibilityTimeoutRef = useRef<number | null>(null);
   
+  // Track fadeout effect for the orb at the end of the session
+  const [fadeOutIntensity, setFadeOutIntensity] = useState(0); // 0 = no fade, 1 = completely faded
+  
   // Handle mouse movement to show/hide timer in focus mode
   useEffect(() => {
+    // Log setup of event handlers for debugging
+    console.log("Setting up mouse move handlers for white kasina timer", { isFocusMode, isRunning });
+    
     const handleMouseMove = (e: MouseEvent) => {
+      // Debug any mouse movement
+      console.log("WhiteKasinaTimer - Mouse moved", { 
+        x: e.clientX, 
+        y: e.clientY,
+        isTimerCurrentlyVisible: isTimerVisible
+      });
+      
       // Always show the timer when mouse moves
       setIsTimerVisible(true);
       
       // Clear any existing timeout
       if (visibilityTimeoutRef.current) {
         window.clearTimeout(visibilityTimeoutRef.current);
+        visibilityTimeoutRef.current = null;
       }
       
-      // Track significant mouse movement for better UX
-      const lastPos = { x: e.clientX, y: e.clientY };
-      
-      // Set a new timeout to hide the timer
-      if (isRunning) {
+      // Only set timeout to hide if we're in focus mode and the timer is running
+      if (isFocusMode && isRunning) {
         visibilityTimeoutRef.current = window.setTimeout(() => {
           // Special case: Keep timer visible if we're in final 10 seconds
-          if (timeRemaining <= 10) {
+          if (timeRemaining <= 10 && timeRemaining > 0) {
             console.log("Keeping timer visible during final countdown (10s)");
             setIsTimerVisible(true);
           } else {
+            console.log("Hiding timer after inactivity timeout");
             setIsTimerVisible(false);
           }
         }, 3000); // Hide after 3 seconds of inactivity
@@ -62,18 +77,22 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
     };
     
     // Handle any keypress
-    const handleKeyPress = () => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      console.log("WhiteKasinaTimer - Key pressed", { key: e.key });
+      
       // Show timer on any key press
       setIsTimerVisible(true);
       
       // Clear existing timeout
       if (visibilityTimeoutRef.current) {
         window.clearTimeout(visibilityTimeoutRef.current);
+        visibilityTimeoutRef.current = null;
       }
       
-      // Set a new timeout to hide the timer
-      if (isRunning && timeRemaining > 10) {
+      // Only set timeout to hide if we're in focus mode and the timer is running
+      if (isFocusMode && isRunning && timeRemaining > 10) {
         visibilityTimeoutRef.current = window.setTimeout(() => {
+          console.log("Hiding timer after key press timeout");
           setIsTimerVisible(false);
         }, 3000);
       }
@@ -89,9 +108,10 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
       window.removeEventListener('keydown', handleKeyPress);
       if (visibilityTimeoutRef.current) {
         window.clearTimeout(visibilityTimeoutRef.current);
+        visibilityTimeoutRef.current = null;
       }
     };
-  }, [isRunning, timeRemaining]);
+  }, [isRunning, timeRemaining, isTimerVisible, isFocusMode]);
   
   // Set up the timer interval with fade-out effect
   useEffect(() => {
@@ -208,12 +228,6 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
     }
   };
   
-  // Check if focus mode is active
-  const isFocusMode = useFocusMode(state => state.isFocusModeActive);
-  
-  // Track fadeout effect for the orb at the end of the session
-  const [fadeOutIntensity, setFadeOutIntensity] = useState(0); // 0 = no fade, 1 = completely faded
-  
   // Setup fadeout effect
   useEffect(() => {
     // Only apply fadeout during last 10 seconds
@@ -254,14 +268,17 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
     // Special focus mode timer display
     return (
       <div 
-        className={`fixed top-16 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 
+        className={`fixed top-16 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-[9999] 
                     ${isTimerVisible || !isRunning ? 'opacity-100' : 'opacity-0'}`}
+        onMouseEnter={() => setIsTimerVisible(true)}
+        onClick={() => setIsTimerVisible(true)}
       >
         {/* Timer display with pulse animation for countdown */}
-        <div className={`bg-black/60 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800
-                     ${timeRemaining <= 10 && timeRemaining > 0 ? 'border-white/50' : 'border-gray-800'}`}>
-          <Timer className={`h-4 w-4 ${timeRemaining <= 10 && timeRemaining > 0 ? 'text-white' : 'text-gray-400'}`} />
-          <div className={`text-xl font-mono white-kasina-final-countdown 
+        <div className={`bg-black/80 text-white px-6 py-3 rounded-full flex items-center gap-3 border 
+                     shadow-lg shadow-black/30
+                     ${timeRemaining <= 10 && timeRemaining > 0 ? 'border-white/80 border-2' : 'border-gray-700'}`}>
+          <Timer className={`h-5 w-5 ${timeRemaining <= 10 && timeRemaining > 0 ? 'text-white' : 'text-gray-300'}`} />
+          <div className={`text-2xl font-mono white-kasina-final-countdown 
                            ${timeRemaining <= 10 && timeRemaining > 0 ? 'white-kasina-timer-emphasis' : ''}`}>
             {formatTime(timeRemaining)}
           </div>
