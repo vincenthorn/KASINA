@@ -9,7 +9,7 @@ import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
 import FocusMode from './FocusMode';
 import KasinaOrb from './KasinaOrb';
-import WhiteKasinaTimer from './WhiteKasinaTimer';
+import SimpleWhiteKasinaTimer from './SimpleWhiteKasinaTimer';
 import { formatTime, roundUpToNearestMinute } from '../lib/utils';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
@@ -728,9 +728,9 @@ const TimerKasinas: React.FC = () => {
             <TabsContent value="simple" className="space-y-4">
               <Card>
                 <CardContent className="pt-6">
-                  {/* SPECIAL FIX: Use a completely separate component for white kasina */}
+                  {/* NEW IMPROVED TIMER: Using SimpleWhiteKasinaTimer for better reliability */}
                   {typedKasina === 'white' ? (
-                    <WhiteKasinaTimer
+                    <SimpleWhiteKasinaTimer
                       onComplete={() => {
                         console.log("WHITE KASINA DEDICATED TIMER COMPLETED");
                         // Create manually formatted payload with exactly 1 minute duration
@@ -765,7 +765,7 @@ const TimerKasinas: React.FC = () => {
                           setOrbKey(newOrbKey);
                         }
                       }}
-                      onFadeOutChange={(intensity) => {
+                      onFadeOutChange={(intensity: number) => {
                         console.log(`Setting white kasina fadeout intensity to ${intensity}`);
                         setWhiteFadeOutIntensity(intensity);
                       }}
