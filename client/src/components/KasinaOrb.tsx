@@ -518,25 +518,44 @@ const DynamicOrb: React.FC<{
             const resultColor = originalColor.clone().lerp(pureWhite, fadeOutIntensity);
             (materialRef.current as THREE.MeshBasicMaterial).color = resultColor;
             
-            // Add slight emissive glow for brightness effect
-            (materialRef.current as THREE.MeshBasicMaterial).emissive = new THREE.Color(1, 1, 1).multiplyScalar(fadeOutIntensity * 0.5);
+            // Add slight emissive glow for brightness effect - if supported
+            try {
+              // Need to check if material has emissive property (MeshStandardMaterial does, MeshBasicMaterial doesn't)
+              const basicMaterial = materialRef.current as any;
+              if (basicMaterial.emissive) {
+                basicMaterial.emissive = new THREE.Color(1, 1, 1).multiplyScalar(fadeOutIntensity * 0.5);
+              }
+            } catch (error) {
+              // Silently catch errors if emissive is not supported
+            }
           } 
           // Apply fade for shader materials 
           else if ('uniforms' in materialRef.current) {
-            const material = materialRef.current as THREE.ShaderMaterial;
-            
-            // Set base opacity
-            if (material.uniforms.opacity) {
-              material.uniforms.opacity.value = fadeLevel * 0.7 + 0.3; // Never go below 30% opacity
-              material.transparent = true;
-            }
-            
-            // Adjust color to pure white for shaders
-            if (material.uniforms.color) {
-              // Create a whiter/brighter version
-              const originalColor = material.uniforms.color.value.clone();
-              const brightWhite = new THREE.Color(1, 1, 1);
-              material.uniforms.color.value.copy(originalColor).lerp(brightWhite, fadeOutIntensity);
+            try {
+              const material = materialRef.current as THREE.ShaderMaterial;
+              
+              // Set base opacity - with careful null checking
+              if (material.uniforms && material.uniforms.opacity !== undefined && 
+                  material.uniforms.opacity !== null) {
+                material.uniforms.opacity.value = fadeLevel * 0.7 + 0.3; // Never go below 30% opacity
+                material.transparent = true;
+              }
+              
+              // Adjust color to pure white for shaders - with careful null checking
+              if (material.uniforms && material.uniforms.color !== undefined && 
+                  material.uniforms.color !== null &&
+                  material.uniforms.color.value !== undefined) {
+                try {
+                  // Create a whiter/brighter version
+                  const originalColor = material.uniforms.color.value.clone();
+                  const brightWhite = new THREE.Color(1, 1, 1);
+                  material.uniforms.color.value.copy(originalColor).lerp(brightWhite, fadeOutIntensity);
+                } catch (colorError) {
+                  console.log("White kasina: Error applying color fade", colorError);
+                }
+              }
+            } catch (error) {
+              console.log("White kasina: Error accessing shader properties", error);
             }
           }
           
@@ -562,13 +581,19 @@ const DynamicOrb: React.FC<{
         
         // Optional: make the orb fade out as well
         if (materialRef.current) {
-          if ('opacity' in materialRef.current) {
-            (materialRef.current as THREE.MeshBasicMaterial).opacity = endingScale;
-            (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
-          } else if ('uniforms' in materialRef.current && 
-                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
-            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingScale;
-            (materialRef.current as THREE.ShaderMaterial).transparent = true;
+          try {
+            if ('opacity' in materialRef.current) {
+              (materialRef.current as THREE.MeshBasicMaterial).opacity = endingScale;
+              (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
+            } else if ('uniforms' in materialRef.current) {
+              const material = materialRef.current as THREE.ShaderMaterial;
+              if (material.uniforms && material.uniforms.opacity) {
+                material.uniforms.opacity.value = endingScale;
+                material.transparent = true;
+              }
+            }
+          } catch (error) {
+            console.log("Error applying standard fadeout", error);
           }
         }
         
@@ -631,28 +656,32 @@ const DynamicOrb: React.FC<{
             const material = materialRef.current as THREE.ShaderMaterial;
             
             if (safeKasinaType === KASINA_TYPES.SPACE) {
-              if (material.uniforms.glowIntensity !== undefined) {
+              if (material.uniforms && material.uniforms.glowIntensity !== undefined) {
                 material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
               }
               
-              if (material.uniforms.intensity !== undefined) {
+              if (material.uniforms && material.uniforms.intensity !== undefined) {
                 material.uniforms.intensity.value = 0.5 + breatheCycle * 0.3;
               }
               
               // Update opacity to create a pulsing effect
-              if (material.uniforms.opacity !== undefined) {
+              if (material.uniforms && material.uniforms.opacity !== undefined) {
                 material.uniforms.opacity.value = 0.8 + breatheCycle * 0.2;
               }
             }
             else if (safeKasinaType === KASINA_TYPES.FIRE) {
               // Fire-specific adjustments to shader uniforms
               // Flame color pulsation
-              if (material.uniforms.color !== undefined) {
-                // Transition from orange to yellow-white at peak intensity
-                // This enhances the shader's built-in color blending
-                const baseColor = new THREE.Color("#ff6600"); // Base orange
-                const peakColor = new THREE.Color("#ffcc00"); // Peak yellow
-                material.uniforms.color.value.copy(baseColor).lerp(peakColor, breatheCycle * 0.5);
+              if (material.uniforms && material.uniforms.color !== undefined && material.uniforms.color.value) {
+                try {
+                  // Transition from orange to yellow-white at peak intensity
+                  // This enhances the shader's built-in color blending
+                  const baseColor = new THREE.Color("#ff6600"); // Base orange
+                  const peakColor = new THREE.Color("#ffcc00"); // Peak yellow
+                  material.uniforms.color.value.copy(baseColor).lerp(peakColor, breatheCycle * 0.5);
+                } catch (colorError) {
+                  // Silently handle any color operation errors
+                }
               }
             }
           } catch (e) {
@@ -667,11 +696,17 @@ const DynamicOrb: React.FC<{
         
         // Reset opacity if needed
         if (materialRef.current) {
-          if ('opacity' in materialRef.current) {
-            (materialRef.current as THREE.MeshBasicMaterial).opacity = 1;
-          } else if ('uniforms' in materialRef.current && 
-                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
-            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = 1;
+          try {
+            if ('opacity' in materialRef.current) {
+              (materialRef.current as THREE.MeshBasicMaterial).opacity = 1;
+            } else if ('uniforms' in materialRef.current) {
+              const material = materialRef.current as THREE.ShaderMaterial;
+              if (material.uniforms && material.uniforms.opacity) {
+                material.uniforms.opacity.value = 1;
+              }
+            }
+          } catch (error) {
+            // Silently ignore opacity errors
           }
         }
       }
@@ -679,7 +714,14 @@ const DynamicOrb: React.FC<{
     
     // Update time uniform for shader materials
     if (materialRef.current && 'uniforms' in materialRef.current) {
-      (materialRef.current as THREE.ShaderMaterial).uniforms.time.value = clock.getElapsedTime();
+      try {
+        const material = materialRef.current as THREE.ShaderMaterial;
+        if (material.uniforms && material.uniforms.time) {
+          material.uniforms.time.value = clock.getElapsedTime();
+        }
+      } catch (error) {
+        // Silently ignore errors with shader uniforms
+      }
     }
   });
 
