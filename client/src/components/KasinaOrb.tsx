@@ -559,15 +559,15 @@ const DynamicOrb: React.FC<{
             }
           }
           
-          // Add slight expansion effect (opposite of shrink - white kasina actually expands as it fades)
-          const expandLevel = 1 + (fadeOutIntensity * 0.2); // Expand to 120% at most
-          meshRef.current.scale.set(expandLevel, expandLevel, expandLevel);
+          // Make the orb progressively smaller until it disappears
+          const shrinkLevel = 1 - (fadeOutIntensity * 0.95); // Shrink down to 5% of original size
           
-          // Add a subtle pulse effect during the fadeout
-          const pulseAmount = Math.sin(clock.getElapsedTime() * 4) * 0.05 * fadeOutIntensity;
-          meshRef.current.scale.x += pulseAmount;
-          meshRef.current.scale.y += pulseAmount;
-          meshRef.current.scale.z += pulseAmount;
+          // Add a subtle pulse effect during the fadeout that diminishes as the orb shrinks
+          const pulseAmount = Math.sin(clock.getElapsedTime() * 4) * 0.03 * (1 - fadeOutIntensity);
+          const finalScale = shrinkLevel + pulseAmount;
+          
+          // Apply final scaling
+          meshRef.current.scale.set(finalScale, finalScale, finalScale);
         }
       }
       // Standard fadeout for all other kasinas - Shrinking effect for end of session 
