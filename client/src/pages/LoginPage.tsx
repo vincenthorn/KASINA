@@ -46,13 +46,6 @@ const LoginPage: React.FC = () => {
               <span>Access curated & community-generated guided meditations (coming soon)</span>
             </div>
           </div>
-          
-          <div className="text-indigo-400 text-lg mb-3">
-            Who it's for:
-            <div className="mt-1 text-gray-300 text-lg font-medium">
-              Jhāna nerds • Meditation teachers • Contemplative techies
-            </div>
-          </div>
         </div>
         
         <div className="h-8"></div> {/* Bottom spacing */}
