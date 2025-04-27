@@ -688,32 +688,56 @@ const Scene: React.FC<{
   
   // Debug mount/unmount for troubleshooting
   useEffect(() => {
-    console.log("Scene component mounted with kasina:", selectedKasina);
+    // For debugging - add a timestamp identifier to track this effect's lifecycle
+    const mountTimestamp = Date.now();
+    console.log(`Scene component ${mountTimestamp} mounted with kasina:`, selectedKasina);
     
-    // Helper function to clean up WebGL resources
+    // Flag to track if this specific instance has been cleaned up
+    // This prevents race conditions with React's concurrent rendering
+    let hasBeenCleanedUp = false;
+    
+    // Store an unmount flag
+    let isUnmounting = false;
+    
+    // Helper function to clean up WebGL resources - MODIFIED to be safer
     const cleanupWebGL = () => {
+      // Prevent double cleanup
+      if (hasBeenCleanedUp) {
+        console.log(`Scene cleanup ${mountTimestamp} already performed - skipping`);
+        return;
+      }
+      
       try {
-        // Clear any render lists
-        gl.renderLists.dispose();
+        // Mark as cleaned up first to prevent duplicates
+        hasBeenCleanedUp = true;
         
-        // Reset renderer state to avoid memory leaks
-        gl.info.reset();
+        // Log the cleanup for debugging
+        console.log(`Scene component ${mountTimestamp} cleaning up, unmounting: ${isUnmounting}`);
         
-        // Force garbage collection hint (though browser decides when to run GC)
-        if (typeof window !== 'undefined' && window.gc) {
-          window.gc();
+        // Don't reset the renderer state or renderLists during React rendering cycles
+        // This has been causing the premature completion issues
+        
+        // Only clean up when the component is actually unmounting
+        if (isUnmounting) {
+          // Do minimal cleanup that won't interfere with concurrent renders
+          // Note: gl.info.reset() and renderLists.dispose() can cause issues during React's rendering
+          console.log(`Scene component ${mountTimestamp} performing unmount cleanup`);
         }
       } catch (err) {
-        console.error("Error cleaning up WebGL resources", err);
+        console.error(`Error cleaning up WebGL resources for ${mountTimestamp}:`, err);
       }
     };
     
     // Make sure to clean up WebGL resources properly when scene unmounts
     return () => {
-      console.log("Scene component unmounted, releasing resources");
+      // Set the unmounting flag to true to indicate this is a real unmount
+      isUnmounting = true;
+      console.log(`Scene component ${mountTimestamp} unmounting`);
+      
+      // Only do minimal cleanup on unmount to avoid breaking animations
       cleanupWebGL();
     };
-  }, []);
+  }, [selectedKasina]);
   
   // Set the background color based on the selected kasina or type prop
   useEffect(() => {
@@ -776,6 +800,7 @@ interface KasinaOrbProps {
   speed?: number;        // Animation speed
   complexity?: number;   // Detail level for the orb
   remainingTime?: number | null; // Remaining time in seconds, used for end-session effects
+  key?: string;          // A unique key to prevent unmounting during animations
 }
 
 const KasinaOrb: React.FC<KasinaOrbProps> = ({ 

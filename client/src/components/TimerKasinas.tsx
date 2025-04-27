@@ -570,6 +570,7 @@ const TimerKasinas: React.FC = () => {
                style={{ minHeight: '400px' }}>
             <div className="w-full h-full" style={{ minHeight: '400px' }}>
               <KasinaOrb 
+                key="persistent-kasina-orb" 
                 type={typedKasina} 
                 remainingTime={timeRemaining}
                 color={KASINA_COLORS[typedKasina] || "#FFFFFF"}
