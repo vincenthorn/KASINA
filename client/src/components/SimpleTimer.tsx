@@ -84,6 +84,20 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     // Reset the unmount flag when component mounts
     isUnmountedRef.current = false;
     
+    // CRITICAL FIX: Always reset the session completion flag on mount
+    sessionCompletedRef.current = false;
+    
+    // Enhanced logging for better debugging
+    console.log("🔵 SimpleTimer INITIALIZATION", { 
+      componentId: TIMER_COMPONENT_ID, 
+      initialDuration,
+      hasCompletionHandler: !!onComplete,
+      isRunning,
+      duration,
+      timeRemaining,
+      sessionCompleted: sessionCompletedRef.current
+    });
+    
     debug.log(TIMER_COMPONENT_ID, 'Component mounted', { props: { initialDuration, hasComplete: !!onComplete } });
     
     // Set up real-time elapsed time tracking (independent of the timer state)
@@ -94,6 +108,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       
       // Log real elapsed time every 10 seconds for debugging
       if (realElapsedTimeRef.current % 10 === 0) {
+        console.log("⏱️ TIMER RUNTIME:", realElapsedTimeRef.current, "seconds");
         debug.log(TIMER_COMPONENT_ID, 'Real elapsed time tracking', {
           realSeconds: realElapsedTimeRef.current,
           timerRunning: isRunning,
