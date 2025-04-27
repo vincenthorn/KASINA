@@ -278,21 +278,29 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
   if (isFocusMode) {
     // Special focus mode timer display
     return (
-      <div
-        className={`fixed top-0 left-0 w-full h-12 bg-gradient-to-b from-black/80 to-transparent transition-opacity duration-300 z-[9999] 
-                    flex justify-center items-center
-                    ${isTimerVisible || !isRunning ? 'opacity-100' : 'opacity-0'}`}
-        onMouseEnter={() => setIsTimerVisible(true)}
-        onClick={() => setIsTimerVisible(true)}
-      >
-        {/* Large, ultra-visible timer display that spans the width of the screen */}
-        <div className={`px-8 py-2 rounded-full flex items-center gap-3 
-                     shadow-lg shadow-black/30 mx-auto
-                     ${timeRemaining <= 10 && timeRemaining > 0 ? 'bg-white/20 border-white border-2' : 'bg-black/70 border border-gray-700'}`}>
-          <Timer className={`h-5 w-5 ${timeRemaining <= 10 && timeRemaining > 0 ? 'text-white' : 'text-gray-300'}`} />
-          <div className={`text-3xl font-mono white-kasina-final-countdown font-bold
-                           ${timeRemaining <= 10 && timeRemaining > 0 ? 'text-white white-kasina-timer-emphasis' : 'text-white'}`}>
-            {formatTime(timeRemaining)}
+      <>
+        {/* Fixed timer display at the very top of screen */}
+        <div
+          className="fixed inset-0 z-[9999] pointer-events-none"
+          style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}
+        >
+          {/* Timer container with high contrast to ensure visibility */}
+          <div 
+            className="w-full py-4 bg-gradient-to-b from-black/60 to-transparent 
+                      flex justify-center items-center"
+            style={{ position: 'absolute', top: 0, width: '100%' }}
+          >
+            {/* Timer display - ALWAYS visible regardless of mouse movement */}
+            <div className={`px-6 py-2 rounded-full flex items-center gap-3 pointer-events-auto
+                          shadow-lg shadow-black/30
+                          ${timeRemaining <= 10 && timeRemaining > 0 
+                            ? 'bg-white/20 border-white border-2 animate-pulse' 
+                            : 'bg-black/80 border border-gray-600'}`}>
+              <Timer className="h-5 w-5 text-white" />
+              <div className="text-3xl font-mono text-white font-bold">
+                {formatTime(timeRemaining)}
+              </div>
+            </div>
           </div>
         </div>
         
@@ -324,7 +332,7 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
             💡 Special 1-minute White Kasina timer
           </div>
         </div>
-      </div>
+      </>
     );
   }
   
