@@ -7,13 +7,14 @@ import { Timer } from 'lucide-react';
 
 interface WhiteKasinaTimerProps {
   onComplete: () => void;
+  onFadeOutChange?: (intensity: number) => void;
 }
 
 /**
  * A completely standalone timer implementation specifically for white kasina meditation.
  * This bypasses all normal timer logic to ensure 1-minute white kasina sessions work correctly.
  */
-const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
+const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeOutChange }) => {
   // State variables to avoid Zustand completely
   const [isRunning, setIsRunning] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(60); // Always 60 seconds (1 minute)
@@ -34,7 +35,7 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
   
   // Handle mouse movement to show/hide timer in focus mode
   useEffect(() => {
-    const handleMouseMove = () => {
+    const handleMouseMove = (e: MouseEvent) => {
       // Always show the timer when mouse moves
       setIsTimerVisible(true);
       
@@ -43,25 +44,54 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
         window.clearTimeout(visibilityTimeoutRef.current);
       }
       
+      // Track significant mouse movement for better UX
+      const lastPos = { x: e.clientX, y: e.clientY };
+      
       // Set a new timeout to hide the timer
       if (isRunning) {
         visibilityTimeoutRef.current = window.setTimeout(() => {
-          setIsTimerVisible(false);
+          // Special case: Keep timer visible if we're in final 10 seconds
+          if (timeRemaining <= 10) {
+            console.log("Keeping timer visible during final countdown (10s)");
+            setIsTimerVisible(true);
+          } else {
+            setIsTimerVisible(false);
+          }
         }, 3000); // Hide after 3 seconds of inactivity
       }
     };
     
-    // Add event listener for mouse movement
+    // Handle any keypress
+    const handleKeyPress = () => {
+      // Show timer on any key press
+      setIsTimerVisible(true);
+      
+      // Clear existing timeout
+      if (visibilityTimeoutRef.current) {
+        window.clearTimeout(visibilityTimeoutRef.current);
+      }
+      
+      // Set a new timeout to hide the timer
+      if (isRunning && timeRemaining > 10) {
+        visibilityTimeoutRef.current = window.setTimeout(() => {
+          setIsTimerVisible(false);
+        }, 3000);
+      }
+    };
+    
+    // Add event listeners
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('keydown', handleKeyPress);
     
     // Clean up
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('keydown', handleKeyPress);
       if (visibilityTimeoutRef.current) {
         window.clearTimeout(visibilityTimeoutRef.current);
       }
     };
-  }, [isRunning]);
+  }, [isRunning, timeRemaining]);
   
   // Set up the timer interval with fade-out effect
   useEffect(() => {
@@ -194,7 +224,12 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
       
       console.log(`🌟 WHITE KASINA FADEOUT: ${Math.round(intensity * 100)}% intensity`);
       
-      // Trigger class updates for the orb
+      // Call the parent component's callback to update the orb fadeout
+      if (onFadeOutChange) {
+        onFadeOutChange(intensity);
+      }
+      
+      // Trigger class updates for the orb (as backup)
       const orbElement = document.querySelector('.kasina-orb-element');
       if (orbElement) {
         // Add a data attribute to the orb to signal the fade level (0-100)
@@ -207,8 +242,13 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
       // Reset fade intensity when not in final countdown
       setFadeOutIntensity(0);
       document.documentElement.style.setProperty('--white-fade-intensity', '0');
+      
+      // Call the parent component's callback to reset fadeout
+      if (onFadeOutChange) {
+        onFadeOutChange(0);
+      }
     }
-  }, [isRunning, timeRemaining]);
+  }, [isRunning, timeRemaining, onFadeOutChange]);
   
   if (isFocusMode) {
     // Special focus mode timer display

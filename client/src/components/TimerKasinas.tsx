@@ -29,6 +29,9 @@ const TimerKasinas: React.FC = () => {
   // Add a unique key for the orb rendering to force re-initialization when needed
   const [orbKey, setOrbKey] = useState<string>(() => `kasina-orb-initial-${Date.now()}`);
   
+  // Track fadeout effect for white kasina
+  const [whiteFadeOutIntensity, setWhiteFadeOutIntensity] = useState(0);
+  
   // Convert selectedKasina to KasinaType using our validation utility
   const typedKasina = ensureValidKasinaType(selectedKasina);
   
@@ -708,7 +711,8 @@ const TimerKasinas: React.FC = () => {
               <KasinaOrb 
                 key={orbKey}
                 type={typedKasina} 
-                remainingTime={timeRemaining} 
+                remainingTime={timeRemaining}
+                fadeOutIntensity={typedKasina === 'white' ? whiteFadeOutIntensity : 0}
               />
             </div>
           </div>
@@ -760,6 +764,10 @@ const TimerKasinas: React.FC = () => {
                           const newOrbKey = `kasina-orb-${Date.now()}-whitedone`;
                           setOrbKey(newOrbKey);
                         }
+                      }}
+                      onFadeOutChange={(intensity) => {
+                        console.log(`Setting white kasina fadeout intensity to ${intensity}`);
+                        setWhiteFadeOutIntensity(intensity);
                       }}
                     />
                   ) : (
