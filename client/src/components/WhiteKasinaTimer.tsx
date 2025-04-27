@@ -4,6 +4,7 @@ import { formatTime } from '../lib/utils';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
 import { Timer } from 'lucide-react';
+import { updateWhiteKasinaTimer } from './WhiteKasinaOverlay';
 
 interface WhiteKasinaTimerProps {
   onComplete: () => void;
@@ -215,10 +216,13 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
       console.log("🕒 WHITE KASINA TIMER: Starting timer");
       enableFocusMode();
       
-      // Update the global timer state to show it's running
+      // Update both timer displays - old one for backward compatibility
       updateGlobalTimerState({ isRunning: true });
       
-      // Make the overlay visible
+      // Update the React portal-based timer (this is what will actually work in focus mode)
+      updateWhiteKasinaTimer(timeRemaining, true);
+      
+      // Make the old overlay visible too for backward compatibility
       const overlay = document.getElementById('global-white-kasina-overlay');
       if (overlay) {
         overlay.style.opacity = '1';
@@ -235,20 +239,19 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
           const newTime = prev - 1;
           console.log(`🕒 WHITE KASINA TIMER: ${newTime}s remaining`);
           
-          // Update the global timer display
+          // Update both timer displays
           updateGlobalTimerState({ timeRemaining: newTime });
+          updateWhiteKasinaTimer(newTime, true);
           
-          // Add pulse animation to global timer in final 10 seconds
+          // Add pulse animation to both timer versions
           if (newTime <= 10 && newTime > 0) {
+            // Old timer
             const timerContainer = document.getElementById('global-white-kasina-timer-container');
             if (timerContainer) {
               timerContainer.style.border = '2px solid white';
               timerContainer.style.animation = 'pulse 1s infinite';
             }
-          }
-          
-          // Special handling for final 10 seconds - fade effect
-          if (newTime <= 10 && newTime > 0) {
+            
             // Force timer to be visible during final countdown
             setIsTimerVisible(true);
             
@@ -272,10 +275,11 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
         }
       };
     } else {
-      // Update the global timer state when not running
+      // Update both timer displays when not running
       updateGlobalTimerState({ isRunning: false });
+      updateWhiteKasinaTimer(timeRemaining, false);
     }
-  }, [isRunning, enableFocusMode]);
+  }, [isRunning, enableFocusMode, timeRemaining]);
   
   // Handle timer completion
   useEffect(() => {
