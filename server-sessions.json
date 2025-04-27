@@ -812,5 +812,13 @@
     "duration": 60,
     "timestamp": "2025-04-27T00:41:03.856Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745714706070",
+    "kasinaType": "white",
+    "kasinaName": "White (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-27T00:45:05.861Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]

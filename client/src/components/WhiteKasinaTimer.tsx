@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { formatTime } from '../lib/utils';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
+import { Timer } from 'lucide-react';
 
 interface WhiteKasinaTimerProps {
   onComplete: () => void;
@@ -177,10 +178,90 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
     }
   };
   
+  // Check if focus mode is active
+  const isFocusMode = useFocusMode(state => state.isFocusModeActive);
+  
+  // Track fadeout effect for the orb at the end of the session
+  const [fadeOutIntensity, setFadeOutIntensity] = useState(0); // 0 = no fade, 1 = completely faded
+  
+  // Setup fadeout effect
+  useEffect(() => {
+    // Only apply fadeout during last 10 seconds
+    if (isRunning && timeRemaining <= 10 && timeRemaining > 0) {
+      // Calculate fade intensity: 0 at 10 seconds, 1 at 0 seconds
+      const intensity = (10 - timeRemaining) / 10;
+      setFadeOutIntensity(intensity);
+      
+      console.log(`🌟 WHITE KASINA FADEOUT: ${Math.round(intensity * 100)}% intensity`);
+      
+      // Trigger class updates for the orb
+      const orbElement = document.querySelector('.kasina-orb-element');
+      if (orbElement) {
+        // Add a data attribute to the orb to signal the fade level (0-100)
+        orbElement.setAttribute('data-fade-level', Math.round(intensity * 100).toString());
+        
+        // Also set a CSS variable for animation effects
+        document.documentElement.style.setProperty('--white-fade-intensity', intensity.toString());
+      }
+    } else if (!isRunning || timeRemaining > 10) {
+      // Reset fade intensity when not in final countdown
+      setFadeOutIntensity(0);
+      document.documentElement.style.setProperty('--white-fade-intensity', '0');
+    }
+  }, [isRunning, timeRemaining]);
+  
+  if (isFocusMode) {
+    // Special focus mode timer display
+    return (
+      <div 
+        className={`fixed top-16 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 
+                    ${isTimerVisible || !isRunning ? 'opacity-100' : 'opacity-0'}`}
+      >
+        {/* Timer display with pulse animation for countdown */}
+        <div className="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800">
+          <Timer className="h-4 w-4 text-gray-400" />
+          <div className={`text-xl font-mono white-kasina-final-countdown 
+                           ${timeRemaining <= 10 && timeRemaining > 0 ? 'pulse-animation' : ''}`}>
+            {formatTime(timeRemaining)}
+          </div>
+        </div>
+        
+        {/* Fixed controls at bottom of screen */}
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          <div className="flex space-x-2 mb-2">
+            <Button 
+              variant={isRunning ? "destructive" : "default"} 
+              onClick={handleStartStop}
+              className="w-24 focus-mode-exempt"
+              size="sm"
+            >
+              {isRunning ? 'Stop Timer' : 'Start Timer'}
+            </Button>
+            
+            {!isRunning && (
+              <Button 
+                variant="outline" 
+                onClick={handleReset}
+                className="w-20 focus-mode-exempt"
+                size="sm"
+              >
+                Reset
+              </Button>
+            )}
+          </div>
+          
+          <div className="text-xs text-gray-400 bg-black/30 px-3 py-1 rounded-full">
+            💡 Special 1-minute White Kasina timer
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+  // Regular timer display (for non-focus mode)
   return (
     <div 
-      className={`flex flex-col items-center space-y-4 transition-opacity duration-1000 ${isTimerVisible || !isRunning ? 'opacity-100' : 'opacity-0'}`}
-      style={{ pointerEvents: isTimerVisible || !isRunning ? 'auto' : 'none' }}
+      className={`flex flex-col items-center space-y-4 transition-opacity duration-1000`}
     >
       <div className={`text-3xl font-mono text-white white-kasina-final-countdown ${timeRemaining <= 10 && timeRemaining > 0 ? 'pulse-animation' : ''}`}>
         {formatTime(timeRemaining)}
@@ -212,8 +293,6 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete }) => {
       <div className="text-xs text-gray-400 mt-2">
         💡 Special 1-minute timer for White Kasina
       </div>
-      
-      {/* CSS animations are defined globally in CSS */}
     </div>
   );
 };
