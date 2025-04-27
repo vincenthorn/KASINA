@@ -61,19 +61,17 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
         visibilityTimeoutRef.current = null;
       }
       
-      // Only set timeout to hide if we're in focus mode and the timer is running
-      if (isFocusMode && isRunning) {
-        visibilityTimeoutRef.current = window.setTimeout(() => {
-          // Special case: Keep timer visible if we're in final 10 seconds
-          if (timeRemaining <= 10 && timeRemaining > 0) {
-            console.log("Keeping timer visible during final countdown (10s)");
-            setIsTimerVisible(true);
-          } else {
-            console.log("Hiding timer after inactivity timeout");
-            setIsTimerVisible(false);
-          }
-        }, 3000); // Hide after 3 seconds of inactivity
-      }
+      // Set timeout to hide after inactivity (for all modes)
+      visibilityTimeoutRef.current = window.setTimeout(() => {
+        // Special case: Keep timer visible if we're in final 10 seconds
+        if (timeRemaining <= 10 && timeRemaining > 0) {
+          console.log("Keeping timer visible during final countdown (10s)");
+          setIsTimerVisible(true);
+        } else {
+          console.log("Hiding timer after inactivity timeout");
+          setIsTimerVisible(false);
+        }
+      }, 3000); // Hide after 3 seconds of inactivity
     };
     
     // Handle any keypress
@@ -89,13 +87,17 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
         visibilityTimeoutRef.current = null;
       }
       
-      // Only set timeout to hide if we're in focus mode and the timer is running
-      if (isFocusMode && isRunning && timeRemaining > 10) {
-        visibilityTimeoutRef.current = window.setTimeout(() => {
+      // Set timeout to hide after inactivity (for all modes)
+      visibilityTimeoutRef.current = window.setTimeout(() => {
+        // Special case: Keep timer visible during final countdown
+        if (timeRemaining <= 10 && timeRemaining > 0) {
+          console.log("Keeping timer visible during final countdown (10s)");
+          setIsTimerVisible(true);
+        } else {
           console.log("Hiding timer after key press timeout");
           setIsTimerVisible(false);
-        }, 3000);
-      }
+        }
+      }, 3000);
     };
     
     // Add event listeners

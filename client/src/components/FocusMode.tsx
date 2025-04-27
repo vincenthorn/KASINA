@@ -56,6 +56,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const handleMouseMove = () => {
     setLastActivity(Date.now());
     setIsUIVisible(true);
+    
+    // Debug log for mouse movement in white kasina sessions
+    if (selectedKasina === 'white') {
+      console.log("WHITE KASINA: Mouse movement detected in FocusMode");
+    }
   };
   
   // Handle mouse wheel for zooming
@@ -329,12 +334,13 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           
           {/* Timer display - visible on mouse movement */}
           <div 
-            className={`fixed top-16 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`fixed top-16 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 ${isUIVisible || selectedKasina === 'white' ? 'opacity-100' : 'opacity-0'}`}
+            onMouseOver={() => setIsUIVisible(true)}
           >
             {/* Only show timer when it's running */}
             {timerState.isRunning && (
-              <div className="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-800">
-                <Timer className="h-4 w-4 text-gray-400" />
+              <div className="bg-black/80 text-white px-4 py-2 rounded-full flex items-center gap-2 border border-gray-700 shadow-lg">
+                <Timer className="h-4 w-4 text-gray-300" />
                 <div className="text-xl font-mono">
                   {timerState.timeRemaining !== null 
                     ? formatTime(timerState.timeRemaining) 
