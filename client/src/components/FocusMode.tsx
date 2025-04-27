@@ -6,7 +6,7 @@ import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { KASINA_BACKGROUNDS, KASINA_COLORS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
-import KasinaOrb from '../lib/kasina-orbs/KasinaOrb';
+import KasinaOrb from './KasinaOrb';
 import { Dialog, DialogContent } from './ui/dialog';
 
 interface FocusModeProps {
