@@ -312,6 +312,12 @@ const TimerKasinas: React.FC = () => {
         addSession(manualSessionPayload as any);
         
         toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
+        
+        // Redirect to reflection page after a short delay
+        setTimeout(() => {
+          console.log("Redirecting to reflection page after manual stop");
+          navigate('/reflection');
+        }, 1500);
       } else {
         console.warn("Session too short to save - needs at least 1 minute");
         if (elapsed > 0) {
