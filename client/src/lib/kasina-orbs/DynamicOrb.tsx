@@ -380,10 +380,16 @@ const DynamicOrb: React.FC<DynamicOrbProps> = ({
       }
     } 
     // Special breathing effects (only if breathing is not disabled)
-    else if (!disableBreathing && (kasinaType === KASINA_TYPES.SPACE || kasinaType === KASINA_TYPES.FIRE)) {
+    else if (!disableBreathing) {
       const time = clock.getElapsedTime();
       let breatheFactor = 1;
       
+      // Log breathing state for debugging
+      if (time % 10 < 0.1) {
+        console.log(`DynamicOrb breathing state: type=${kasinaType}, disableBreathing=${disableBreathing}`);
+      }
+      
+      // Apply different breathing patterns based on kasina type
       if (kasinaType === KASINA_TYPES.SPACE) {
         // 10-second breathing cycle
         const t = time % 10 / 10;
@@ -401,6 +407,16 @@ const DynamicOrb: React.FC<DynamicOrbProps> = ({
         const breatheCycle = Math.pow(fireEase, 1.2);
         
         breatheFactor = 0.97 + breatheCycle * 0.06;
+        meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
+      }
+      // Apply gentle breathing to all other kasina types
+      else {
+        // 8-second gentle breathing cycle
+        const t = time % 8 / 8;
+        const gentleEase = Math.sin(t * Math.PI * 2);
+        
+        // Much subtler scale factor (only 1% change)
+        breatheFactor = 1 + gentleEase * 0.01;
         meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
       }
     }

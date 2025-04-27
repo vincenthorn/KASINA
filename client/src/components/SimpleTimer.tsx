@@ -293,15 +293,20 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 realTotalElapsed = calculatedElapsed;
               }
               
-              // Enhanced validity checks
-              // Check 1: timer is at zero in the store
-              // Check 2: timer has been running for at least 10 seconds (minimum) according to our real-time tracking
-              // Check 3: session not already completed (using ref for persistence)
-              // Check 4: elapsed time in store is reasonable (>10 seconds)
-              if (currentState.timeRemaining === 0 && 
-                  realTotalElapsed > 10 &&
-                  !sessionCompletedRef.current &&
-                  currentState.elapsedTime > 10) {
+              // Enhanced validity checks - SIGNIFICANTLY RELAXED FOR STABILITY
+              // Check 1: timer is at zero in the store OR very close to zero
+              // Check 2: session not already completed (using ref for persistence)
+              // REMOVED the elapsedTime > 10 check as it was preventing short sessions
+              // REMOVED the realTotalElapsed > 10 check as it was preventing short sessions
+              if ((currentState.timeRemaining === 0 || currentState.timeRemaining < 3) && 
+                  !sessionCompletedRef.current) {
+                
+                // Log the relaxed validation
+                console.log("TIMER TERMINATION: Using relaxed validation criteria", {
+                  timeRemaining: currentState.timeRemaining,
+                  elapsedTime: currentState.elapsedTime,
+                  realElapsedTime: realTotalElapsed
+                });
                 
                 // Mark session as completed using the ref for persistence
                 sessionCompletedRef.current = true;
