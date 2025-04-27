@@ -559,11 +559,12 @@ const DynamicOrb: React.FC<{
             }
           }
           
-          // Make the orb progressively smaller until it disappears
-          const shrinkLevel = 1 - (fadeOutIntensity * 0.95); // Shrink down to 5% of original size
+          // Make the orb progressively smaller until it almost disappears
+          // Use a higher power curve to make the shrinking more dramatic at the end
+          const shrinkLevel = Math.max(0.05, 1 - Math.pow(fadeOutIntensity, 1.5)); 
           
           // Add a subtle pulse effect during the fadeout that diminishes as the orb shrinks
-          const pulseAmount = Math.sin(clock.getElapsedTime() * 4) * 0.03 * (1 - fadeOutIntensity);
+          const pulseAmount = Math.sin(clock.getElapsedTime() * 6) * 0.03 * (1 - fadeOutIntensity);
           const finalScale = shrinkLevel + pulseAmount;
           
           // Apply final scaling
