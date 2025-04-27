@@ -12,103 +12,9 @@ interface WhiteKasinaTimerProps {
 }
 
 /**
- * A completely standalone timer implementation specifically for white kasina meditation.
- * This bypasses all normal timer logic to ensure 1-minute white kasina sessions work correctly.
+ * This is now a controller component only - it handles the timer logic but
+ * the actual display is handled by the native JavaScript timer
  */
-// Create a global timer overlay for focus mode
-let globalWhiteKasinaTimerState = {
-  timeRemaining: 60,
-  isRunning: false
-};
-
-// Create a global update function
-const updateGlobalTimerState = (newState: Partial<typeof globalWhiteKasinaTimerState>) => {
-  globalWhiteKasinaTimerState = {
-    ...globalWhiteKasinaTimerState,
-    ...newState
-  };
-  
-  // Update any DOM elements
-  setTimeout(() => {
-    const timerElement = document.getElementById('global-white-kasina-timer');
-    if (timerElement) {
-      timerElement.textContent = formatTime(globalWhiteKasinaTimerState.timeRemaining);
-    }
-  }, 0);
-};
-
-// Only create the overlay element when we're on the kasinas page
-const createOverlayIfNeeded = () => {
-  // Only create when we're on the kasinas page
-  if (typeof window !== 'undefined' && 
-      window.location.pathname.includes('/kasinas') && 
-      !document.getElementById('global-white-kasina-overlay')) {
-    
-    console.log("Creating white kasina timer overlay - only on kasinas page");
-    
-    const overlayStyle = document.createElement('style');
-    overlayStyle.innerHTML = `
-      #global-white-kasina-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 50px;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 99999;
-        pointer-events: none;
-        opacity: 0; /* Start hidden */
-        transition: opacity 0.3s ease;
-      }
-      #global-white-kasina-timer-container {
-        background-color: rgba(0,0,0,0.8);
-        border-radius: 20px;
-        padding: 6px 16px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        border: 1px solid rgba(150,150,150,0.3);
-      }
-      #global-white-kasina-timer {
-        font-family: monospace;
-        font-size: 22px;
-        font-weight: bold;
-        color: white;
-      }
-      .timer-icon {
-        width: 16px;
-        height: 16px;
-        margin-right: 5px;
-        opacity: 0.8;
-      }
-    `;
-    document.head.appendChild(overlayStyle);
-    
-    const overlay = document.createElement('div');
-    overlay.id = 'global-white-kasina-overlay';
-    
-    const timerContainer = document.createElement('div');
-    timerContainer.id = 'global-white-kasina-timer-container';
-    
-    // Add a timer icon
-    const timerIcon = document.createElement('div');
-    timerIcon.className = 'timer-icon';
-    timerIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%; color: white;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>';
-    
-    const timer = document.createElement('div');
-    timer.id = 'global-white-kasina-timer';
-    timer.textContent = '01:00';
-    
-    timerContainer.appendChild(timerIcon);
-    timerContainer.appendChild(timer);
-    overlay.appendChild(timerContainer);
-    document.body.appendChild(overlay);
-  }
-}
 
 const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeOutChange }) => {
   // State variables to avoid Zustand completely
@@ -116,13 +22,7 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
   const [timeRemaining, setTimeRemaining] = useState(60); // Always 60 seconds (1 minute)
   const [elapsedTime, setElapsedTime] = useState(0);
   
-  // Check if we should create the overlay (only on kasinas page)
-  useEffect(() => {
-    // Only create DOM elements if we're on the kasinas page
-    if (typeof window !== 'undefined' && window.location.pathname.includes('/kasinas')) {
-      createOverlayIfNeeded();
-    }
-  }, []);
+  // No need to create overlays anymore - we're using native JS timer
   
   // Reference for the interval timer
   const intervalRef = useRef<number | null>(null);
@@ -234,11 +134,10 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
       console.log("🕒 WHITE KASINA TIMER: Starting timer");
       enableFocusMode();
       
-      // Update all timer versions - ordered from oldest to newest
-      updateGlobalTimerState({ isRunning: true });
+      // Only use direct JS timer now
       updateWhiteKasinaTimer(timeRemaining, true);
       
-      // Also start our latest native timer implementation
+      // Start our native timer implementation
       if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
         console.log("🕒 Starting native timer from useEffect");
         window.whiteKasinaTimer.start();
@@ -261,24 +160,16 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
           const newTime = prev - 1;
           console.log(`🕒 WHITE KASINA TIMER: ${newTime}s remaining`);
           
-          // Update all timer displays
-          updateGlobalTimerState({ timeRemaining: newTime });
+          // Only update the direct JS timer
           updateWhiteKasinaTimer(newTime, true);
           
-          // Update the native timer too
+          // Update the direct JS timer
           if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
             window.whiteKasinaTimer.setTime(newTime);
           }
           
-          // Add pulse animation to both timer versions
+          // Add pulse animation for final countdown
           if (newTime <= 10 && newTime > 0) {
-            // Old timer
-            const timerContainer = document.getElementById('global-white-kasina-timer-container');
-            if (timerContainer) {
-              timerContainer.style.border = '2px solid white';
-              timerContainer.style.animation = 'pulse 1s infinite';
-            }
-            
             // Force timer to be visible during final countdown
             setIsTimerVisible(true);
             
@@ -307,11 +198,10 @@ const WhiteKasinaTimer: React.FC<WhiteKasinaTimerProps> = ({ onComplete, onFadeO
         }
       };
     } else {
-      // Update all timer displays when not running
-      updateGlobalTimerState({ isRunning: false });
+      // Update timer display when not running  
       updateWhiteKasinaTimer(timeRemaining, false);
       
-      // Also stop the native timer
+      // Stop the native timer
       if (typeof window !== 'undefined' && window.whiteKasinaTimer) {
         window.whiteKasinaTimer.stop();
       }
