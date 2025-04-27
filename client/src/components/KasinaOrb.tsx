@@ -4,7 +4,7 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 import { useKasina } from "../lib/stores/useKasina";
 import { KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from "../lib/constants";
-import { KasinaType, ensureValidKasinaType } from "../lib/types";
+import { KasinaType } from "../lib/types";
 
 // Shader materials for the elemental kasinas
 const waterShader = {
@@ -458,121 +458,18 @@ const lightShader = {
 };
 
 // Dynamic Orb component with shader materials
-const DynamicOrb: React.FC<{ 
-  kasinaType?: KasinaType;
-  remainingTime?: number | null;
-  fadeOutIntensity?: number;
-}> = ({ 
-  kasinaType,
-  remainingTime = null,
-  fadeOutIntensity = 0
-}) => {
-  // Only use global state as a fallback if no type is provided directly
+const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime = null }) => {
   const { selectedKasina } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
-  
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
-  
-  // Safety check: ensure we always have a valid kasina type
-  // This helps prevent rendering issues during state transitions
-  // Prefer the directly passed prop over global state and use our utility function
-  const safeKasinaType: KasinaType = ensureValidKasinaType(kasinaType || selectedKasina);
-  
-  // Debug for white kasina orb
-  useEffect(() => {
-    if (safeKasinaType === 'white') {
-      console.log("WHITE KASINA ORB: Rendering white kasina at", new Date().toISOString());
-    }
-  }, [safeKasinaType]);
   
   useFrame(({ clock }) => {
     if (meshRef.current) {
       // Gentle rotation
       meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
       
-      // Special handling for White Kasina fadeout effect
-      if (safeKasinaType === 'white' && fadeOutIntensity > 0) {
-        // Apply fadeout effect
-        if (materialRef.current) {
-          // Calculate fade based on fade intensity (0-1)
-          // White kasina uses a special fadeout that is controlled separately from timer
-          const fadeLevel = 1 - fadeOutIntensity; // 1 = fully visible, 0 = fully faded
-          
-          // Log the fadeout effect for debugging
-          if (fadeOutIntensity >= 0.2 && Math.floor(fadeOutIntensity * 10) % 2 === 0) {
-            console.log(`🌟 WHITE KASINA ORB FADEOUT: ${Math.round(fadeOutIntensity * 100)}% fade intensity`);
-          }
-          
-          // Apply fade to white for standard material
-          if ('opacity' in materialRef.current) {
-            // Apply opacity fade
-            (materialRef.current as THREE.MeshBasicMaterial).opacity = fadeLevel * 0.7 + 0.3; // Never go below 30% opacity
-            (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
-            
-            // Create fade to white effect (gradually brighten to pure white)
-            // Start with the original white color and gradually increase brightness
-            const originalColor = new THREE.Color(KASINA_COLORS[safeKasinaType]);
-            const pureWhite = new THREE.Color(1, 1, 1);
-            
-            // Blend between original white and pure bright white
-            const resultColor = originalColor.clone().lerp(pureWhite, fadeOutIntensity);
-            (materialRef.current as THREE.MeshBasicMaterial).color = resultColor;
-            
-            // Add slight emissive glow for brightness effect - if supported
-            try {
-              // Need to check if material has emissive property (MeshStandardMaterial does, MeshBasicMaterial doesn't)
-              const basicMaterial = materialRef.current as any;
-              if (basicMaterial.emissive) {
-                basicMaterial.emissive = new THREE.Color(1, 1, 1).multiplyScalar(fadeOutIntensity * 0.5);
-              }
-            } catch (error) {
-              // Silently catch errors if emissive is not supported
-            }
-          } 
-          // Apply fade for shader materials 
-          else if ('uniforms' in materialRef.current) {
-            try {
-              const material = materialRef.current as THREE.ShaderMaterial;
-              
-              // Set base opacity - with careful null checking
-              if (material.uniforms && material.uniforms.opacity !== undefined && 
-                  material.uniforms.opacity !== null) {
-                material.uniforms.opacity.value = fadeLevel * 0.7 + 0.3; // Never go below 30% opacity
-                material.transparent = true;
-              }
-              
-              // Adjust color to pure white for shaders - with careful null checking
-              if (material.uniforms && material.uniforms.color !== undefined && 
-                  material.uniforms.color !== null &&
-                  material.uniforms.color.value !== undefined) {
-                try {
-                  // Create a whiter/brighter version
-                  const originalColor = material.uniforms.color.value.clone();
-                  const brightWhite = new THREE.Color(1, 1, 1);
-                  material.uniforms.color.value.copy(originalColor).lerp(brightWhite, fadeOutIntensity);
-                } catch (colorError) {
-                  console.log("White kasina: Error applying color fade", colorError);
-                }
-              }
-            } catch (error) {
-              console.log("White kasina: Error accessing shader properties", error);
-            }
-          }
-          
-          // Make the orb progressively smaller until it almost disappears
-          // Use a higher power curve to make the shrinking more dramatic at the end
-          const shrinkLevel = Math.max(0.05, 1 - Math.pow(fadeOutIntensity, 1.5)); 
-          
-          // Add a subtle pulse effect during the fadeout that diminishes as the orb shrinks
-          const pulseAmount = Math.sin(clock.getElapsedTime() * 6) * 0.03 * (1 - fadeOutIntensity);
-          const finalScale = shrinkLevel + pulseAmount;
-          
-          // Apply final scaling
-          meshRef.current.scale.set(finalScale, finalScale, finalScale);
-        }
-      }
-      // Standard fadeout for all other kasinas - Shrinking effect for end of session 
-      else if (remainingTime !== null && remainingTime <= 60) {
+      // Shrinking effect for end of session (when remaining time is <= 60 seconds)
+      if (remainingTime !== null && remainingTime <= 60) {
         // Calculate scale factor: from 1.0 (at 60s) to 0.0 (at 0s)
         // This creates a smooth shrinking effect over the last 60 seconds
         const endingScale = remainingTime / 60;
@@ -582,19 +479,13 @@ const DynamicOrb: React.FC<{
         
         // Optional: make the orb fade out as well
         if (materialRef.current) {
-          try {
-            if ('opacity' in materialRef.current) {
-              (materialRef.current as THREE.MeshBasicMaterial).opacity = endingScale;
-              (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
-            } else if ('uniforms' in materialRef.current) {
-              const material = materialRef.current as THREE.ShaderMaterial;
-              if (material.uniforms && material.uniforms.opacity) {
-                material.uniforms.opacity.value = endingScale;
-                material.transparent = true;
-              }
-            }
-          } catch (error) {
-            console.log("Error applying standard fadeout", error);
+          if ('opacity' in materialRef.current) {
+            (materialRef.current as THREE.MeshBasicMaterial).opacity = endingScale;
+            (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
+          } else if ('uniforms' in materialRef.current && 
+                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
+            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingScale;
+            (materialRef.current as THREE.ShaderMaterial).transparent = true;
           }
         }
         
@@ -602,7 +493,7 @@ const DynamicOrb: React.FC<{
         // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)} (of 60s fade)`);
       } 
       // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
-      else if ((safeKasinaType === KASINA_TYPES.SPACE || safeKasinaType === KASINA_TYPES.FIRE) && 
+      else if ((selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.FIRE) && 
               (remainingTime === null || remainingTime > 60)) {
         const time = clock.getElapsedTime();
         
@@ -611,7 +502,7 @@ const DynamicOrb: React.FC<{
         let breatheCycle = 0;
         let breatheFactor = 1;
 
-        if (safeKasinaType === KASINA_TYPES.SPACE) {
+        if (selectedKasina === KASINA_TYPES.SPACE) {
           // Space kasina: Subtle 10-second breathing cycle
           const t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
           const easeValue = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
@@ -626,7 +517,7 @@ const DynamicOrb: React.FC<{
           // Apply an extremely subtle pulsing effect to the orb's position
           meshRef.current.position.z = breatheCycle * 0.05; // Minimal movement in z-direction
         } 
-        else if (safeKasinaType === KASINA_TYPES.FIRE) {
+        else if (selectedKasina === KASINA_TYPES.FIRE) {
           // Fire kasina: More rapid 4-second breathing cycle with flame-like pulsation
           const t = time % 4 / 4; // Normalized time in the cycle (0-1) - 4 second cycle
           
@@ -656,33 +547,29 @@ const DynamicOrb: React.FC<{
             // Attempt to modify any shader uniforms that might affect the appearance
             const material = materialRef.current as THREE.ShaderMaterial;
             
-            if (safeKasinaType === KASINA_TYPES.SPACE) {
-              if (material.uniforms && material.uniforms.glowIntensity !== undefined) {
+            if (selectedKasina === KASINA_TYPES.SPACE) {
+              if (material.uniforms.glowIntensity !== undefined) {
                 material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
               }
               
-              if (material.uniforms && material.uniforms.intensity !== undefined) {
+              if (material.uniforms.intensity !== undefined) {
                 material.uniforms.intensity.value = 0.5 + breatheCycle * 0.3;
               }
               
               // Update opacity to create a pulsing effect
-              if (material.uniforms && material.uniforms.opacity !== undefined) {
+              if (material.uniforms.opacity !== undefined) {
                 material.uniforms.opacity.value = 0.8 + breatheCycle * 0.2;
               }
             }
-            else if (safeKasinaType === KASINA_TYPES.FIRE) {
+            else if (selectedKasina === KASINA_TYPES.FIRE) {
               // Fire-specific adjustments to shader uniforms
               // Flame color pulsation
-              if (material.uniforms && material.uniforms.color !== undefined && material.uniforms.color.value) {
-                try {
-                  // Transition from orange to yellow-white at peak intensity
-                  // This enhances the shader's built-in color blending
-                  const baseColor = new THREE.Color("#ff6600"); // Base orange
-                  const peakColor = new THREE.Color("#ffcc00"); // Peak yellow
-                  material.uniforms.color.value.copy(baseColor).lerp(peakColor, breatheCycle * 0.5);
-                } catch (colorError) {
-                  // Silently handle any color operation errors
-                }
+              if (material.uniforms.color !== undefined) {
+                // Transition from orange to yellow-white at peak intensity
+                // This enhances the shader's built-in color blending
+                const baseColor = new THREE.Color("#ff6600"); // Base orange
+                const peakColor = new THREE.Color("#ffcc00"); // Peak yellow
+                material.uniforms.color.value.copy(baseColor).lerp(peakColor, breatheCycle * 0.5);
               }
             }
           } catch (e) {
@@ -697,17 +584,11 @@ const DynamicOrb: React.FC<{
         
         // Reset opacity if needed
         if (materialRef.current) {
-          try {
-            if ('opacity' in materialRef.current) {
-              (materialRef.current as THREE.MeshBasicMaterial).opacity = 1;
-            } else if ('uniforms' in materialRef.current) {
-              const material = materialRef.current as THREE.ShaderMaterial;
-              if (material.uniforms && material.uniforms.opacity) {
-                material.uniforms.opacity.value = 1;
-              }
-            }
-          } catch (error) {
-            // Silently ignore opacity errors
+          if ('opacity' in materialRef.current) {
+            (materialRef.current as THREE.MeshBasicMaterial).opacity = 1;
+          } else if ('uniforms' in materialRef.current && 
+                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
+            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = 1;
           }
         }
       }
@@ -715,20 +596,12 @@ const DynamicOrb: React.FC<{
     
     // Update time uniform for shader materials
     if (materialRef.current && 'uniforms' in materialRef.current) {
-      try {
-        const material = materialRef.current as THREE.ShaderMaterial;
-        if (material.uniforms && material.uniforms.time) {
-          material.uniforms.time.value = clock.getElapsedTime();
-        }
-      } catch (error) {
-        // Silently ignore errors with shader uniforms
-      }
+      (materialRef.current as THREE.ShaderMaterial).uniforms.time.value = clock.getElapsedTime();
     }
   });
 
   const getShaderMaterial = () => {
-    // Use the safe kasina type to prevent errors during transitions
-    switch (safeKasinaType) {
+    switch (selectedKasina) {
       case KASINA_TYPES.WATER:
         return new THREE.ShaderMaterial({...waterShader, transparent: true});
       case KASINA_TYPES.FIRE:
@@ -744,7 +617,7 @@ const DynamicOrb: React.FC<{
       default:
         // For basic color kasinas
         return new THREE.MeshBasicMaterial({ 
-          color: KASINA_COLORS[safeKasinaType],
+          color: KASINA_COLORS[selectedKasina],
           transparent: true
         });
     }
@@ -755,10 +628,8 @@ const DynamicOrb: React.FC<{
       const material = getShaderMaterial();
       meshRef.current.material = material;
       materialRef.current = material;
-      
-      console.log(`Applied shader material for kasina type: ${safeKasinaType}`);
     }
-  }, [selectedKasina, safeKasinaType]);
+  }, [selectedKasina]);
 
   return (
     <mesh ref={meshRef}>
@@ -768,16 +639,9 @@ const DynamicOrb: React.FC<{
 };
 
 // Scene setup component
-const Scene: React.FC<{ 
-  enableZoom?: boolean, 
-  remainingTime?: number | null,
-  type?: KasinaType,
-  fadeOutIntensity?: number
-}> = ({ 
+const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> = ({ 
   enableZoom = false,
-  remainingTime = null,
-  type,
-  fadeOutIntensity = 0
+  remainingTime = null
 }) => {
   const { gl, camera } = useThree();
   const { selectedKasina } = useKasina();
@@ -785,10 +649,6 @@ const Scene: React.FC<{
   // Debug mount/unmount for troubleshooting
   useEffect(() => {
     console.log("Scene component mounted with kasina:", selectedKasina);
-    
-    // Reset camera position on new scene mount (helps with previews)
-    camera.position.set(0, 0, 5);
-    camera.lookAt(0, 0, 0);
     
     // Helper function to clean up WebGL resources
     const cleanupWebGL = () => {
@@ -813,18 +673,13 @@ const Scene: React.FC<{
       console.log("Scene component unmounted, releasing resources");
       cleanupWebGL();
     };
-  }, [gl, camera]); // Added gl and camera as dependencies to avoid stale references
-  
-  // Safety check: ensure we always have a valid kasina type for background color
-  // Prefer the prop type that was passed directly over the global state
-  const safeSceneKasinaType: KasinaType = ensureValidKasinaType(type || selectedKasina);
+  }, []);
   
   // Set the background color based on the selected kasina
   useEffect(() => {
-    const bgColor = KASINA_BACKGROUNDS[safeSceneKasinaType] || "#000000";
+    const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
     gl.setClearColor(new THREE.Color(bgColor), 1);
-    console.log(`Set scene background to: ${bgColor} for kasina: ${safeSceneKasinaType}`);
-  }, [gl, safeSceneKasinaType]);
+  }, [gl, selectedKasina]);
 
   // Add camera ref to work with zoom 
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
@@ -852,11 +707,7 @@ const Scene: React.FC<{
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
       <pointLight position={cameraLight} intensity={0.8} distance={10} />
-      <DynamicOrb 
-        kasinaType={safeSceneKasinaType}
-        remainingTime={remainingTime}
-        fadeOutIntensity={fadeOutIntensity}
-      />
+      <DynamicOrb remainingTime={remainingTime} />
       <OrbitControls 
         enableZoom={enableZoom} 
         enablePan={false} 
@@ -877,7 +728,6 @@ interface KasinaOrbProps {
   speed?: number;        // Animation speed
   complexity?: number;   // Detail level for the orb
   remainingTime?: number | null; // Remaining time in seconds, used for end-session effects
-  fadeOutIntensity?: number; // Value from 0-1 for white kasina fadeout effect (0 = no fade, 1 = fully faded)
 }
 
 const KasinaOrb: React.FC<KasinaOrbProps> = ({ 
@@ -886,56 +736,39 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   color,
   speed,
   complexity,
-  remainingTime = null,
-  fadeOutIntensity = 0
+  remainingTime = null
 }) => {
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
   
-  // If type is provided, use it directly without updating the global store
-  // This prevents cascading updates when we're just displaying a preview
-  const effectiveType = type || selectedKasina;
-  
-  // Only update the store if explicitly requested (and not in the focus mode)
+  // If type is provided, update the selected kasina in the store
   useEffect(() => {
-    if (type && !enableZoom) {
+    if (type) {
       const kasinaStore = useKasina.getState();
       kasinaStore.setSelectedKasina(type);
       console.log("KasinaOrb: Setting kasina type to", type);
     }
-  }, [type, enableZoom]);
+  }, [type]);
   
-  // Reset internal orb state when component remounts 
-  // This helps ensure the preview orb is always fresh after a session
+  // When component mounts or unmounts, log for debugging
   useEffect(() => {
-    console.log("KasinaOrb component mounted with type:", effectiveType);
+    console.log("KasinaOrb component mounted with type:", type || selectedKasina);
     
-    // Implement cleanup that runs when component unmounts
     return () => {
-      console.log("KasinaOrb component unmounted, had type:", effectiveType);
+      console.log("KasinaOrb component unmounted, had type:", type || selectedKasina);
     };
   }, []);
   
-  // Ensure we have a valid kasina type for the background
-  // Use the effectiveType that we defined above to avoid dependency on global state
-  const safeKasinaType: KasinaType = ensureValidKasinaType(effectiveType);
-    
   // Get the background color for the selected kasina
-  const bgColor = KASINA_BACKGROUNDS[safeKasinaType] || "#000000";
+  const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
   
   return (
     <div 
       className="w-full h-full orb-content"
       style={{ backgroundColor: bgColor }}
-      data-kasina-type={safeKasinaType}
     >
       <Canvas>
-        <Scene 
-          type={safeKasinaType} 
-          enableZoom={enableZoom} 
-          remainingTime={remainingTime}
-          fadeOutIntensity={fadeOutIntensity}
-        />
+        <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
       </Canvas>
     </div>
   );

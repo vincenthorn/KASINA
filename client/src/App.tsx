@@ -13,7 +13,6 @@ import RecordingPage from "./pages/RecordingPage";
 import MeditationPage from "./pages/MeditationPage";
 import ReflectionPage from "./pages/ReflectionPage";
 import AdminPage from "./pages/AdminPage";
-import WhiteKasinaOverlay from "./components/WhiteKasinaOverlay";
 
 import NotFound from "./pages/not-found";
 
@@ -57,9 +56,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ColorProvider>
-        {/* Global white kasina timer overlay that's always rendered */}
-        <WhiteKasinaOverlay />
-        
         <Router>
           <Routes>
             <Route path="/login" element={<LoginPage />} />

@@ -13,26 +13,6 @@ export type KasinaType =
   | "space" 
   | "light";
 
-// Utility function to validate a KasinaType
-export const isValidKasinaType = (type: any): type is KasinaType => {
-  const validTypes = [
-    'white', 'blue', 'red', 'yellow',
-    'water', 'air', 'fire', 'earth', 'space', 'light'
-  ];
-  return typeof type === 'string' && validTypes.includes(type);
-};
-
-// Utility function to ensure a valid KasinaType with a safe fallback
-export const ensureValidKasinaType = (type: any): KasinaType => {
-  // Default to white if the type is invalid or empty
-  if (!type || (typeof type === 'string' && type.trim() === '')) {
-    return 'white';
-  }
-  
-  // Return type if valid, otherwise default to white
-  return isValidKasinaType(type) ? type : 'white';
-};
-
 // Emojis for different kasina types
 export const getKasinaEmoji = (type: KasinaType): string => {
   const emojis: Record<KasinaType, string> = {

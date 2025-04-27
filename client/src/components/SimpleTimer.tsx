@@ -2,10 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Button } from './ui/button';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useFocusMode } from '../lib/stores/useFocusMode';
-import { useKasina } from '../lib/stores/useKasina';
 import { formatTime } from '../lib/utils';
 import { Input } from './ui/input';
-import { KASINA_TYPES } from '../lib/constants';
 
 interface SimpleTimerProps {
   initialDuration?: number | null; // in seconds, null means infinity (count up)
@@ -19,9 +17,6 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   onUpdate
 }) => {
   const { enableFocusMode, disableFocusMode } = useFocusMode();
-  // Get kasina type to fix the white kasina timer issue
-  const { selectedKasina } = useKasina();
-  
   // Use the Zustand store instead of local state
   const {
     duration,
@@ -43,36 +38,13 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
   // Set initial duration if provided and only when the component first mounts
   useEffect(() => {
     console.log("SimpleTimer useEffect - initialDuration:", initialDuration, "current duration:", duration);
-    console.log("Selected kasina:", selectedKasina);
-    
-    // CRITICAL FIX FOR WHITE KASINA: Force 1-minute duration (60 seconds) for white kasina
-    if (selectedKasina === KASINA_TYPES.WHITE) {
-      if (duration !== 60) {
-        console.log("🚨 FIX: Forcing white kasina duration to 60 seconds (1 minute)");
-        setDuration(60);
-        
-        // Extra safety to ensure the change is applied
-        setTimeout(() => {
-          const simpleTimerState = useSimpleTimer.getState();
-          if (simpleTimerState.duration !== 60) {
-            console.log("🔄 Second attempt to set white kasina duration to 60s");
-            useSimpleTimer.setState({
-              ...simpleTimerState,
-              duration: 60,
-              originalDuration: 60,
-              timeRemaining: 60,
-              durationInMinutes: 1
-            });
-          }
-        }, 50);
-      }
-    } 
-    // For other kasinas, use normal behavior
-    else if (duration === 60 && initialDuration !== duration) {
+    // Only set the initialDuration when the component first mounts (when duration is 60 - default value)
+    // This prevents overriding user selections when navigating between pages
+    if (duration === 60 && initialDuration !== duration) {
       console.log("Setting duration to:", initialDuration);
       setDuration(initialDuration);
     }
-  }, [initialDuration, setDuration, selectedKasina, duration]); // Added selectedKasina dependency
+  }, [initialDuration, setDuration]); // Removed duration dependency
   
   // Handle focus mode on timer start/stop
   useEffect(() => {
@@ -91,11 +63,6 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     let intervalId: number | null = null;
     
     if (isRunning) {
-      // Debug for white kasina
-      if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
-        window.__WHITE_KASINA_DEBUG.addEvent(`SimpleTimer detected running timer with ${timeRemaining}s remaining`);
-      }
-      
       intervalId = window.setInterval(() => {
         tick();
         
@@ -106,44 +73,22 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         
         // Check for completion
         if (timeRemaining === 0) {
-          // Debug for white kasina completion
-          if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
-            window.__WHITE_KASINA_DEBUG.addEvent("SimpleTimer detected timer completion (timeRemaining=0)");
-          }
-          
           // Always send the final update right before completion
           if (onUpdate) {
             onUpdate(0, elapsedTime);
           }
           
           // Then call the completion handler
-          if (onComplete) {
-            // Debug for white kasina completion handler
-            if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
-              window.__WHITE_KASINA_DEBUG.addEvent("SimpleTimer calling onComplete handler");
-            }
-            
-            onComplete();
-          }
+          if (onComplete) onComplete();
           // Note: Focus mode disable happens in the other useEffect
         }
       }, 1000);
-    } else {
-      // Debug when timer is not running
-      if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
-        window.__WHITE_KASINA_DEBUG.addEvent(`SimpleTimer - timer not running, timeRemaining=${timeRemaining}s`);
-      }
     }
     
     // Cleanup
     return () => {
       if (intervalId) {
         window.clearInterval(intervalId);
-        
-        // Debug interval cleanup
-        if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
-          window.__WHITE_KASINA_DEBUG.addEvent("SimpleTimer cleared interval");
-        }
       }
     };
   }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate]);
@@ -190,11 +135,6 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     console.log("=====================================================");
     console.log("🛑 CRITICAL DEBUG: CUSTOM TIME ENTRY");
     console.log(`User entered: ${mins} minutes`);
-    
-    // Debug for white kasina
-    if (typeof window !== 'undefined' && window.__WHITE_KASINA_DEBUG) {
-      window.__WHITE_KASINA_DEBUG.addEvent(`Custom time entry: ${mins} minutes`);
-    }
     
     // Set minimum duration to 1 minute (60 seconds)
     const totalSeconds = mins * 60;
@@ -341,33 +281,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 onUpdate(timeRemaining, elapsedTime);
               }
             } else {
-              // CRITICAL FIX: Double-check white kasina duration before starting
-              if (selectedKasina === KASINA_TYPES.WHITE && duration !== 60) {
-                console.log("🚨 FIXING WHITE KASINA DURATION BEFORE STARTING TIMER");
-                console.log(`Current duration: ${duration}s, fixing to 60s (1 minute)`);
-                
-                // First update through the normal method
-                setDuration(60);
-                
-                // Also update directly in the store for immediate effect
-                const store = useSimpleTimer.getState();
-                useSimpleTimer.setState({
-                  ...store,
-                  duration: 60,
-                  originalDuration: 60,
-                  timeRemaining: 60,
-                  durationInMinutes: 1
-                });
-                
-                // Add small delay to ensure duration is set before starting
-                setTimeout(() => {
-                  console.log("Starting white kasina timer with 60s duration");
-                  startTimer();
-                }, 50);
-              } else {
-                // Normal start for other kasinas
-                startTimer();
-              }
+              startTimer();
             }
           }}
           className="w-20 focus-mode-exempt"
