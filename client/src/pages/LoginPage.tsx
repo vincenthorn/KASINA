@@ -43,9 +43,9 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
           
-          <div className="text-indigo-400 text-base mb-6">
+          <div className="text-indigo-400 text-lg mb-6">
             Who it's for:
-            <div className="mt-1 text-gray-400">
+            <div className="mt-1 text-gray-300 text-lg font-medium">
               Jhāna nerds • Meditation teachers • Contemplative techies
             </div>
           </div>
