@@ -1,373 +1,175 @@
 /**
- * Direct timer injection script for white kasina meditation timer
- * This implements a completely separate timer that's guaranteed to be visible
- * even in focus mode, but also automatically hides after inactivity
+ * WHITE KASINA TIMER
+ * A direct JavaScript timer implementation that bypasses React
+ * and guarantees timer visibility while still allowing auto-hide
  */
 
-// Immediately create dummy placeholders to prevent runtime errors in app code
+// Create temporary placeholders
 window.whiteKasinaTimer = {
-  start: function() { console.log("WHITE KASINA TIMER: placeholder called"); },
-  stop: function() { console.log("WHITE KASINA TIMER: placeholder called"); },
-  setTime: function() { console.log("WHITE KASINA TIMER: placeholder called"); }
+  start: function() { console.log("[White Kasina] Placeholder start called"); },
+  stop: function() { console.log("[White Kasina] Placeholder stop called"); },
+  setTime: function() { console.log("[White Kasina] Placeholder setTime called"); }
 };
 
-// Delay the actual implementation to ensure DOM is ready
+// Main implementation
 setTimeout(function() {
-  // Only proceed if we're on the kasinas page
-  if (!window.location.pathname.includes('/kasinas')) {
-    console.log("WHITE KASINA TIMER: Not on kasinas page, timer not initialized");
-    return; // Exit early, not on kasinas page
-  }
+  console.log("[White Kasina] Timer script initializing");
   
-  console.log("WHITE KASINA TIMER: Initializing direct timer");
-  
-  // Create the actual timer implementation in IIFE for encapsulation
   (function() {
-    // Timer state
+    // Private variables
     let timerElement = null;
-    let timerInterval = null;
-    let inactivityTimeout = null;
+    let countdownInterval = null;
     let hideTimeout = null;
-    let isActive = false;
-    let currentSeconds = 60;
-    let lastMoveTime = Date.now();
+    let time = 60;
+    let active = false;
+    let lastInteractionTime = Date.now();
     
-    // DOM and event tracking references
-    let mouseListener = null;
-    let keyListener = null;
-    
-    // Format seconds as MM:SS
-    function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = seconds % 60;
-      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-    
-    // Create the timer DOM element with forced styling
-    function createTimerElement() {
-      if (timerElement) return; // Already created
+    // DOM Setup - Create a fixed timer element that floats above everything
+    function setupTimerElement() {
+      // Don't recreate if already exists
+      if (timerElement) return;
       
-      console.log("WHITE KASINA TIMER: Creating timer element");
-      
-      // Add CSS styles for timer with !important declarations to force precedence
+      // 1. Add CSS
       const style = document.createElement('style');
-      style.textContent = `
-        #white-kasina-direct-timer {
+      style.innerHTML = `
+        /* Timer container */
+        .white-kasina-timer {
           position: fixed !important;
           top: 20px !important;
           left: 50% !important;
           transform: translateX(-50%) !important;
-          z-index: 2147483647 !important; /* Maximum possible z-index */
-          background-color: rgba(0, 0, 0, 0.85) !important;
+          z-index: 2147483647 !important; /* Max possible z-index */
+          background: rgba(0, 0, 0, 0.8) !important;
           color: white !important;
           font-family: monospace, 'Courier New', Courier !important;
-          font-size: 30px !important;
-          padding: 8px 20px !important;
+          font-size: 24px !important;
+          padding: 8px 16px !important;
           border-radius: 50px !important;
-          border: 2px solid #666 !important;
+          border: 2px solid #555 !important;
           display: flex !important;
           align-items: center !important;
-          justify-content: center !important;
-          gap: 10px !important;
-          transition: opacity 0.4s ease, visibility 0.4s ease !important;
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.7) !important;
+          gap: 8px !important;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
           pointer-events: none !important;
           opacity: 1 !important;
-          visibility: visible !important;
+          transition: opacity 0.3s ease !important;
         }
         
-        #white-kasina-direct-timer.hidden {
+        /* Hidden state */
+        .white-kasina-timer.timer-hidden {
           opacity: 0 !important;
-          visibility: hidden !important;
         }
         
-        #white-kasina-direct-timer.countdown {
+        /* Last 10 seconds countdown special styling */
+        .white-kasina-timer.timer-countdown {
           border-color: white !important;
-          animation: wk-timer-pulse 1s infinite !important;
+          animation: kasina-timer-pulse 1s infinite !important;
         }
         
-        @keyframes wk-timer-pulse {
-          0% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.2) !important; }
-          50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5) !important; }
-          100% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.2) !important; }
+        @keyframes kasina-timer-pulse {
+          0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) !important; }
+          50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.4) !important; }
+          100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) !important; }
         }
       `;
       document.head.appendChild(style);
       
-      // Create the timer element
-      const timer = document.createElement('div');
-      timer.id = 'white-kasina-direct-timer';
-      timer.className = 'hidden'; // Start hidden
+      // 2. Create timer element
+      timerElement = document.createElement('div');
+      timerElement.className = 'white-kasina-timer timer-hidden';
       
-      // Timer icon
-      const iconSvg = `
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" 
+      // 3. Add timer icon
+      const timerIcon = document.createElement('div');
+      timerIcon.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
       `;
       
-      const icon = document.createElement('div');
-      icon.innerHTML = iconSvg;
+      // 4. Add timer text
+      const timerText = document.createElement('div');
+      timerText.id = 'white-kasina-timer-text';
+      timerText.textContent = formatTime(time);
       
-      // Timer text element
-      const timeText = document.createElement('div');
-      timeText.id = 'white-kasina-timer-text';
-      timeText.textContent = formatTime(currentSeconds);
+      // 5. Assemble and append to body
+      timerElement.appendChild(timerIcon);
+      timerElement.appendChild(timerText);
+      document.body.appendChild(timerElement);
       
-      // Assemble everything
-      timer.appendChild(icon);
-      timer.appendChild(timeText);
-      document.body.appendChild(timer);
-      
-      timerElement = timer;
+      console.log("[White Kasina] Timer element created");
     }
     
-    // Show the timer for a few seconds
-    function showTimer() {
-      if (!timerElement) createTimerElement();
-      
-      // Cancel any pending hide operations
-      if (hideTimeout) {
-        clearTimeout(hideTimeout);
-        hideTimeout = null;
-      }
-      
-      // Show timer immediately
-      timerElement.classList.remove('hidden');
-      
-      // Only auto-hide if we're not in the final countdown
-      if (currentSeconds > 10) {
-        // Set up auto-hide after inactivity
-        hideTimeout = setTimeout(function() {
-          if (timerElement && isActive) {
-            timerElement.classList.add('hidden');
-            console.log("WHITE KASINA TIMER: Auto-hiding after inactivity");
-          }
-        }, 3000); // Hide after 3 seconds of inactivity
-      }
+    // Helper: Format seconds as MM:SS
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     }
     
-    // Set up mouse and keyboard event listeners
+    // Mouse activity detector - show timer when mouse moves
     function setupEventListeners() {
-      // Clean up any existing listeners first
-      if (mouseListener) {
-        document.removeEventListener('mousemove', mouseListener);
-      }
+      console.log("[White Kasina] Setting up event listeners");
       
-      if (keyListener) {
-        document.removeEventListener('keydown', keyListener);
-      }
-      
-      // Create new listeners
-      mouseListener = function(e) {
-        // Only react to actual mouse movement
-        if (Math.abs(e.movementX) > 0 || Math.abs(e.movementY) > 0) {
-          lastMoveTime = Date.now();
-          
-          // Only show timer if it's active
-          if (isActive) {
-            showTimer();
-          }
-        }
-      };
-      
-      keyListener = function(e) {
-        // For any key press, show the timer
-        lastMoveTime = Date.now();
+      // Track mouse movement
+      document.addEventListener('mousemove', function(e) {
+        if (!active) return;
         
-        // Only show timer if it's active
-        if (isActive) {
+        // Only react to actual movement (prevent system-generated events)
+        if (Math.abs(e.movementX) > 0 || Math.abs(e.movementY) > 0) {
+          lastInteractionTime = Date.now();
           showTimer();
         }
+      });
+      
+      // Track keyboard activity
+      document.addEventListener('keydown', function(e) {
+        if (!active) return;
         
-        // Special case for Escape key double-press (debug feature)
+        // Update last interaction time
+        lastInteractionTime = Date.now();
+        showTimer();
+        
+        // Handle double-escape for debug toggle
         if (e.key === 'Escape') {
-          const now = Date.now();
-          if (window.lastEscapePress && now - window.lastEscapePress < 500) {
-            // Double Escape pressed - force toggle timer visibility
+          if (window.lastEscapeTime && Date.now() - window.lastEscapeTime < 500) {
             if (timerElement) {
-              if (timerElement.classList.contains('hidden')) {
-                timerElement.classList.remove('hidden');
-              } else {
-                timerElement.classList.add('hidden');
-              }
+              timerElement.classList.toggle('timer-hidden');
+              console.log("[White Kasina] Timer visibility toggled via Escape");
             }
           }
-          window.lastEscapePress = now;
+          window.lastEscapeTime = Date.now();
         }
-      };
+      });
       
-      // Add listeners to document
-      document.addEventListener('mousemove', mouseListener);
-      document.addEventListener('keydown', keyListener);
-      
-      console.log("WHITE KASINA TIMER: Event listeners initialized");
-    }
-    
-    // Start the timer countdown
-    function startTimer() {
-      // Only work on kasinas page
-      if (!window.location.pathname.includes('/kasinas')) {
-        console.log("WHITE KASINA TIMER: Can't start timer - not on kasinas page");
-        return;
-      }
-      
-      console.log("WHITE KASINA TIMER: Starting countdown");
-      
-      // Create UI elements if needed
-      if (!timerElement) {
-        createTimerElement();
-      }
-      
-      // Set up event listeners
-      setupEventListeners();
-      
-      // Reset state
-      isActive = true;
-      currentSeconds = 60;
-      lastMoveTime = Date.now();
-      
-      // Set initial timer text
-      if (timerElement) {
-        const textElement = document.getElementById('white-kasina-timer-text');
-        if (textElement) {
-          textElement.textContent = formatTime(currentSeconds);
-        }
+      // Check for inactivity repeatedly
+      setInterval(function() {
+        if (!active || !timerElement) return;
         
-        // Show initially, then hide after delay
-        timerElement.classList.remove('hidden', 'countdown');
+        // Don't hide during the final countdown
+        if (time <= 10 && time > 0) return;
         
-        // Set up auto-hide
-        if (hideTimeout) {
-          clearTimeout(hideTimeout);
+        // Check if we should hide the timer due to inactivity
+        const timeSinceLastInteraction = Date.now() - lastInteractionTime;
+        if (timeSinceLastInteraction > 2000) { // 2 seconds inactivity
+          timerElement.classList.add('timer-hidden');
         }
-        
-        hideTimeout = setTimeout(function() {
-          if (timerElement && isActive && currentSeconds > 10) {
-            timerElement.classList.add('hidden');
-            console.log("WHITE KASINA TIMER: Initial auto-hide");
-          }
-        }, 3000);
-      }
+      }, 500);
       
-      // Clear any existing interval
-      if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-      }
-      
-      // Start the countdown
-      timerInterval = setInterval(function() {
-        currentSeconds--;
-        
-        // Update timer text
-        if (timerElement) {
-          const textElement = document.getElementById('white-kasina-timer-text');
-          if (textElement) {
-            textElement.textContent = formatTime(currentSeconds);
-          }
-          
-          // Final 10-second countdown - always visible with effects
-          if (currentSeconds <= 10 && currentSeconds > 0) {
-            timerElement.classList.add('countdown');
-            timerElement.classList.remove('hidden');
-            console.log("WHITE KASINA TIMER: Final countdown, force visible");
-          }
-          
-          // Timer complete
-          if (currentSeconds <= 0) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-            
-            // Keep visible briefly, then clean up
-            setTimeout(function() {
-              if (timerElement) {
-                timerElement.classList.add('hidden');
-                timerElement.classList.remove('countdown');
-                isActive = false;
-              }
-            }, 3000);
-          }
-        }
-      }, 1000);
-    }
-    
-    // Stop the timer
-    function stopTimer() {
-      console.log("WHITE KASINA TIMER: Stopping timer");
-      
-      isActive = false;
-      
-      // Clear timers
-      if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-      }
-      
-      if (hideTimeout) {
-        clearTimeout(hideTimeout);
-        hideTimeout = null;
-      }
-      
-      if (inactivityTimeout) {
-        clearTimeout(inactivityTimeout);
-        inactivityTimeout = null;
-      }
-      
-      // Hide timer
-      if (timerElement) {
-        timerElement.classList.add('hidden');
-        timerElement.classList.remove('countdown');
-      }
-    }
-    
-    // Update the timer display
-    function setTimerValue(seconds) {
-      currentSeconds = seconds;
-      
-      // Update display if exists
-      if (timerElement) {
-        const textElement = document.getElementById('white-kasina-timer-text');
-        if (textElement) {
-          textElement.textContent = formatTime(seconds);
-        }
-        
-        // Show/hide based on rules
-        if (seconds <= 10 && seconds > 0) {
-          // Final countdown - always visible
-          timerElement.classList.add('countdown');
-          timerElement.classList.remove('hidden');
-        } else {
-          // Normal state - check activity
-          timerElement.classList.remove('countdown');
-          
-          const timeSinceLastMove = Date.now() - lastMoveTime;
-          if (timeSinceLastMove > 3000 && isActive) {
-            // No recent activity, hide
-            timerElement.classList.add('hidden');
-          } else {
-            // Recent activity, show
-            timerElement.classList.remove('hidden');
-          }
-        }
-      }
-    }
-    
-    // Check if URL changes to hide when navigating away
-    function setupUrlChangeMonitor() {
+      // Watch for URL changes
       let lastUrl = window.location.href;
-      
-      // Check for URL changes periodically
       setInterval(function() {
         const currentUrl = window.location.href;
-        
         if (currentUrl !== lastUrl) {
-          console.log("WHITE KASINA TIMER: URL changed", { from: lastUrl, to: currentUrl });
+          console.log("[White Kasina] URL changed, reevaluating timer", {
+            from: lastUrl,
+            to: currentUrl
+          });
+          
           lastUrl = currentUrl;
           
-          // If we navigated away from kasinas page, stop the timer
+          // Stop timer if we navigate away from kasinas page
           if (!window.location.pathname.includes('/kasinas')) {
             stopTimer();
           }
@@ -375,16 +177,159 @@ setTimeout(function() {
       }, 1000);
     }
     
-    // Set up URL monitoring
-    setupUrlChangeMonitor();
+    // Show the timer (and setup auto-hide)
+    function showTimer() {
+      if (!timerElement) setupTimerElement();
+      
+      // Immediately show timer
+      timerElement.classList.remove('timer-hidden');
+      
+      // Clear any pending hide timeouts
+      if (hideTimeout) {
+        clearTimeout(hideTimeout);
+        hideTimeout = null;
+      }
+      
+      // Don't auto-hide during final countdown
+      if (time <= 10 && time > 0) return;
+      
+      // Set up auto-hide timeout
+      hideTimeout = setTimeout(function() {
+        if (timerElement && active) {
+          timerElement.classList.add('timer-hidden');
+          console.log("[White Kasina] Auto-hiding timer after inactivity");
+        }
+      }, 2000);
+    }
     
-    // Replace dummy placeholders with actual implementations
+    // PUBLIC: Start the timer
+    function startTimer() {
+      // Only start if we're on the kasinas page
+      if (!window.location.pathname.includes('/kasinas')) {
+        console.log("[White Kasina] Not starting timer - not on kasinas page");
+        return;
+      }
+      
+      // Make sure DOM elements exist
+      setupTimerElement();
+      setupEventListeners();
+      
+      console.log("[White Kasina] Starting timer");
+      
+      // Reset state
+      active = true;
+      time = 60;
+      lastInteractionTime = Date.now();
+      
+      // Update display
+      if (timerElement) {
+        const textEl = document.getElementById('white-kasina-timer-text');
+        if (textEl) textEl.textContent = formatTime(time);
+        
+        timerElement.classList.remove('timer-hidden', 'timer-countdown');
+        showTimer();
+      }
+      
+      // Clear any existing interval
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+      }
+      
+      // Start countdown
+      countdownInterval = setInterval(function() {
+        time--;
+        
+        if (timerElement) {
+          // Update display
+          const textEl = document.getElementById('white-kasina-timer-text');
+          if (textEl) textEl.textContent = formatTime(time);
+          
+          // Handle final countdown
+          if (time <= 10 && time > 0) {
+            console.log("[White Kasina] Entering final countdown");
+            timerElement.classList.add('timer-countdown');
+            timerElement.classList.remove('timer-hidden');
+          } else {
+            timerElement.classList.remove('timer-countdown');
+          }
+          
+          // Handle completion
+          if (time <= 0) {
+            clearInterval(countdownInterval);
+            countdownInterval = null;
+            
+            console.log("[White Kasina] Timer complete");
+            
+            // Keep visible for a moment, then clean up
+            setTimeout(function() {
+              if (timerElement) {
+                timerElement.classList.add('timer-hidden');
+                timerElement.classList.remove('timer-countdown');
+                active = false;
+              }
+            }, 3000);
+          }
+        }
+      }, 1000);
+    }
+    
+    // PUBLIC: Stop the timer
+    function stopTimer() {
+      console.log("[White Kasina] Stopping timer");
+      
+      active = false;
+      
+      // Clear all timers
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+      }
+      
+      if (hideTimeout) {
+        clearTimeout(hideTimeout);
+        hideTimeout = null;
+      }
+      
+      // Hide timer element
+      if (timerElement) {
+        timerElement.classList.add('timer-hidden');
+        timerElement.classList.remove('timer-countdown');
+      }
+    }
+    
+    // PUBLIC: Update the timer value
+    function setTimerValue(seconds) {
+      time = seconds;
+      
+      if (timerElement) {
+        // Update text
+        const textEl = document.getElementById('white-kasina-timer-text');
+        if (textEl) textEl.textContent = formatTime(seconds);
+        
+        // Apply final countdown styling if needed
+        if (seconds <= 10 && seconds > 0) {
+          timerElement.classList.add('timer-countdown');
+          timerElement.classList.remove('timer-hidden');
+        } else {
+          timerElement.classList.remove('timer-countdown');
+          
+          // Check if we should be hidden due to inactivity
+          const timeSinceLastInteraction = Date.now() - lastInteractionTime;
+          if (timeSinceLastInteraction > 2000 && active) {
+            timerElement.classList.add('timer-hidden');
+          }
+        }
+      }
+    }
+    
+    // Replace the placeholders with real implementations
     window.whiteKasinaTimer = {
       start: startTimer,
       stop: stopTimer,
       setTime: setTimerValue
     };
     
-    console.log("WHITE KASINA TIMER: Full implementation loaded");
+    // Log completion for debugging
+    console.log("[White Kasina] Timer implementation ready");
   })();
-}, 500); // Delay to ensure DOM is ready
+}, 500);
