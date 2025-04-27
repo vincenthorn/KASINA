@@ -4,7 +4,7 @@ import { Maximize2, Minimize2, ZoomIn, ZoomOut, Timer } from 'lucide-react';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
-import { KASINA_BACKGROUNDS } from '../lib/constants';
+import { KASINA_BACKGROUNDS, KASINA_COLORS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import KasinaOrb from './KasinaOrb';
 import { Dialog, DialogContent } from './ui/dialog';
@@ -243,6 +243,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 type={selectedKasina as KasinaType}
                 enableZoom={true}
                 remainingTime={timerState.timeRemaining}
+                color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
               />
             </div>
           </div>
