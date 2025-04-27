@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { formatTime } from '../lib/utils';
+import { useFocusMode } from '../lib/stores/useFocusMode';
+import { useKasina } from '../lib/stores/useKasina';
 
 // Global state for the overlay
 let globalTimeRemaining = 60;
@@ -33,6 +35,28 @@ const WhiteKasinaOverlay: React.FC = () => {
   const [timeRemaining, setTimeRemaining] = useState(globalTimeRemaining);
   const [isActive, setIsActive] = useState(globalTimerActive);
   const [isOnKasinasPage, setIsOnKasinasPage] = useState(false);
+  
+  // Track mouse activity similar to FocusMode component
+  const [lastActivity, setLastActivity] = useState(Date.now());
+  const [isUIVisible, setIsUIVisible] = useState(true);
+  const timerRef = useRef<HTMLDivElement>(null);
+  
+  // Get current focus mode state to coordinate timers
+  const { isFocusModeActive } = useFocusMode();
+  const { selectedKasina } = useKasina();
+  
+  // Handle mouse movement to show UI temporarily
+  const handleMouseMove = () => {
+    if (isActive) {
+      setLastActivity(Date.now());
+      setIsUIVisible(true);
+      
+      // Debug log for mouse movement
+      if (selectedKasina === 'white') {
+        console.log("WHITE KASINA TIMER: Mouse movement detected in overlay");
+      }
+    }
+  };
 
   useEffect(() => {
     // Only mount if we're on the kasinas page
@@ -51,6 +75,12 @@ const WhiteKasinaOverlay: React.FC = () => {
       const handleUpdate = (time: number, active: boolean) => {
         setTimeRemaining(time);
         setIsActive(active);
+        
+        // Reset visibility state on timer start
+        if (active) {
+          setLastActivity(Date.now());
+          setIsUIVisible(true);
+        }
       };
 
       // Register this component as a handler
@@ -69,6 +99,44 @@ const WhiteKasinaOverlay: React.FC = () => {
       };
     }
   }, []);
+  
+  // Setup document-wide mouse move listener
+  useEffect(() => {
+    const handleDocumentMouseMove = () => {
+      if (isActive && isOnKasinasPage) {
+        setLastActivity(Date.now());
+        setIsUIVisible(true);
+      }
+    };
+    
+    // Add listener to entire document
+    document.addEventListener('mousemove', handleDocumentMouseMove);
+    
+    return () => {
+      document.removeEventListener('mousemove', handleDocumentMouseMove);
+    };
+  }, [isActive, isOnKasinasPage]);
+  
+  // Hide UI after inactivity - exactly like FocusMode does
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isActive && Date.now() - lastActivity > 2000) {
+        // Don't hide during final countdown
+        if (timeRemaining > 10) {
+          setIsUIVisible(false);
+        }
+      }
+    }, 500);
+    
+    return () => clearInterval(interval);
+  }, [isActive, lastActivity, timeRemaining]);
+  
+  // When in final countdown, always show the timer
+  useEffect(() => {
+    if (timeRemaining <= 10 && timeRemaining > 0 && isActive) {
+      setIsUIVisible(true);
+    }
+  }, [timeRemaining, isActive]);
 
   // Don't render anything server-side or when not on kasinas page
   if (!mounted || !isOnKasinasPage) return null;
@@ -76,13 +144,17 @@ const WhiteKasinaOverlay: React.FC = () => {
   // Create a portal that attaches directly to the body
   return createPortal(
     <div
+      ref={timerRef}
       className={`fixed top-0 left-0 w-full z-[100000] pointer-events-none transition-opacity duration-300 ${
         isActive ? 'opacity-100' : 'opacity-0'
       }`}
       style={{
         background: 'linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%)',
         height: '100px',
+        opacity: isUIVisible ? 1 : 0,
+        transition: 'opacity 0.3s ease'
       }}
+      onMouseMove={handleMouseMove}
     >
       <div className="h-full w-full flex justify-center items-center">
         <div 
