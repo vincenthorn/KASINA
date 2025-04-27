@@ -460,10 +460,12 @@ const lightShader = {
 // Dynamic Orb component with shader materials
 const DynamicOrb: React.FC<{ 
   kasinaType?: KasinaType;
-  remainingTime?: number | null 
+  remainingTime?: number | null;
+  fadeOutIntensity?: number;
 }> = ({ 
   kasinaType,
-  remainingTime = null 
+  remainingTime = null,
+  fadeOutIntensity = 0
 }) => {
   // Only use global state as a fallback if no type is provided directly
   const { selectedKasina } = useKasina();
@@ -488,8 +490,36 @@ const DynamicOrb: React.FC<{
       // Gentle rotation
       meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
       
-      // Shrinking effect for end of session (when remaining time is <= 60 seconds)
-      if (remainingTime !== null && remainingTime <= 60) {
+      // Special handling for White Kasina fadeout effect
+      if (safeKasinaType === 'white' && fadeOutIntensity > 0) {
+        // Apply fadeout effect
+        if (materialRef.current) {
+          // Calculate fade based on fade intensity (0-1)
+          // White kasina uses a special fadeout that is controlled separately from timer
+          const fadeLevel = 1 - fadeOutIntensity; // 1 = fully visible, 0 = fully faded
+          
+          // Log the fadeout effect
+          if (fadeOutIntensity >= 0.5) {
+            console.log(`🌟 WHITE KASINA ORB FADEOUT: ${Math.round(fadeOutIntensity * 100)}% fade intensity`);
+          }
+          
+          // Apply the fade to the material
+          if ('opacity' in materialRef.current) {
+            (materialRef.current as THREE.MeshBasicMaterial).opacity = fadeLevel;
+            (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
+          } else if ('uniforms' in materialRef.current && 
+                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
+            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = fadeLevel;
+            (materialRef.current as THREE.ShaderMaterial).transparent = true;
+          }
+          
+          // Add slight shrink for additional effect
+          const shrinkLevel = 1 - (fadeOutIntensity * 0.3); // Shrink to 70% at most
+          meshRef.current.scale.set(shrinkLevel, shrinkLevel, shrinkLevel);
+        }
+      }
+      // Standard fadeout for all other kasinas - Shrinking effect for end of session 
+      else if (remainingTime !== null && remainingTime <= 60) {
         // Calculate scale factor: from 1.0 (at 60s) to 0.0 (at 0s)
         // This creates a smooth shrinking effect over the last 60 seconds
         const endingScale = remainingTime / 60;
@@ -665,11 +695,13 @@ const DynamicOrb: React.FC<{
 const Scene: React.FC<{ 
   enableZoom?: boolean, 
   remainingTime?: number | null,
-  type?: KasinaType
+  type?: KasinaType,
+  fadeOutIntensity?: number
 }> = ({ 
   enableZoom = false,
   remainingTime = null,
-  type
+  type,
+  fadeOutIntensity = 0
 }) => {
   const { gl, camera } = useThree();
   const { selectedKasina } = useKasina();
@@ -746,7 +778,8 @@ const Scene: React.FC<{
       <pointLight position={cameraLight} intensity={0.8} distance={10} />
       <DynamicOrb 
         kasinaType={safeSceneKasinaType}
-        remainingTime={remainingTime} 
+        remainingTime={remainingTime}
+        fadeOutIntensity={fadeOutIntensity}
       />
       <OrbitControls 
         enableZoom={enableZoom} 
@@ -768,6 +801,7 @@ interface KasinaOrbProps {
   speed?: number;        // Animation speed
   complexity?: number;   // Detail level for the orb
   remainingTime?: number | null; // Remaining time in seconds, used for end-session effects
+  fadeOutIntensity?: number; // Value from 0-1 for white kasina fadeout effect (0 = no fade, 1 = fully faded)
 }
 
 const KasinaOrb: React.FC<KasinaOrbProps> = ({ 
@@ -776,7 +810,8 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   color,
   speed,
   complexity,
-  remainingTime = null
+  remainingTime = null,
+  fadeOutIntensity = 0
 }) => {
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
@@ -822,7 +857,8 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
         <Scene 
           type={safeKasinaType} 
           enableZoom={enableZoom} 
-          remainingTime={remainingTime} 
+          remainingTime={remainingTime}
+          fadeOutIntensity={fadeOutIntensity}
         />
       </Canvas>
     </div>

@@ -748,8 +748,10 @@ const TimerKasinas: React.FC = () => {
                           // Send to the server
                           addSession(manualSessionPayload as any);
                           
-                          // Disable focus mode
-                          disableFocusMode();
+                          // Disable focus mode with a small delay to allow proper cleanup
+                          setTimeout(() => {
+                            disableFocusMode();
+                          }, 100);
                           
                           // Show notification 
                           toast.success(`You completed a 1:00 White kasina meditation. Session saved.`);
