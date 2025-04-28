@@ -145,17 +145,19 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     
     try {
       // CRITICAL FIX: Create a global tracking object if it doesn't exist
-      if (typeof window !== 'undefined' && !window.__DEBUG_TIMER) {
-        window.__DEBUG_TIMER = {
-          originalDuration: null,
-          currentDuration: null
-        };
-      }
-      
-      // Update the global debug object
       if (typeof window !== 'undefined') {
-        window.__DEBUG_TIMER.originalDuration = newDuration;
-        window.__DEBUG_TIMER.currentDuration = newDuration;
+        if (!window.__DEBUG_TIMER) {
+          window.__DEBUG_TIMER = {
+            originalDuration: null,
+            currentDuration: null
+          };
+        }
+        
+        // Now it's safe to update the properties
+        if (window.__DEBUG_TIMER) {
+          window.__DEBUG_TIMER.originalDuration = newDuration;
+          window.__DEBUG_TIMER.currentDuration = newDuration;
+        }
       }
     } catch (e) {
       console.error("Error updating debug object:", e);
