@@ -12,8 +12,8 @@ const KasinasPage: React.FC = () => {
       <div className="relative">
         <TimerKasinas />
         
-        {/* Emergency Fix Toggle Button */}
-        <div className="absolute top-4 right-4">
+        {/* Emergency Fix Toggle Button - positioned to avoid overlap with Focus Mode button */}
+        <div className="absolute top-4 right-36">
           <Button 
             variant="outline" 
             size="sm"
@@ -26,7 +26,7 @@ const KasinasPage: React.FC = () => {
         
         {/* Emergency Fix Panel */}
         {showFix && (
-          <div className="fixed top-20 right-4 w-64 z-50 shadow-xl">
+          <div className="fixed top-20 right-36 w-64 z-50 shadow-xl">
             <OneMinuteFix />
           </div>
         )}
