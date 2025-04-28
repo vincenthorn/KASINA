@@ -72,5 +72,37 @@
     "duration": 60,
     "timestamp": "2025-04-28T01:02:52.166Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745802570453",
+    "kasinaType": "white",
+    "kasinaName": "White (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-28T01:09:30.307Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745802613046",
+    "kasinaType": "white",
+    "kasinaName": "White (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-28T01:10:13.016Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745802622558",
+    "kasinaType": "earth",
+    "kasinaName": "Earth (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-28T01:10:22.340Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745802651918",
+    "kasinaType": "earth",
+    "kasinaName": "Earth (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-28T01:10:51.885Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]

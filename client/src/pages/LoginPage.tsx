@@ -12,13 +12,13 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4">
-      <div className="text-center mb-8">
+    <div className="min-h-screen bg-gray-900 flex flex-col items-center py-10 px-4 overflow-auto">
+      <div className="text-center mb-8 mt-8">
         <Logo size="large" />
       </div>
       <LoginForm />
       
-      <div className="mt-10 max-w-lg text-center px-4">
+      <div className="mt-10 max-w-lg text-center px-4 mb-10">
         <p className="text-gray-300 mb-6">
           KASINA is a 3D visual meditation tool for those ready to deepen their concentration with a visual object. 
           Inspired by ancient kasina practices, reimagined for the modern meditator.
