@@ -29,7 +29,7 @@ interface SimpleTimerProps {
   onUpdate?: (remaining: number | null, elapsed: number) => void;
 }
 
-export const SimpleTimer: React.FC<SimpleTimerProps> = ({ 
+const SimpleTimer: React.FC<SimpleTimerProps> = ({ 
   initialDuration = 60, // Default to 60 seconds (1 minute)
   onComplete,
   onUpdate
@@ -82,7 +82,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       // Only disable when stopping after timer has run (not on initial load)
       disableFocusMode();
     }
-  }, [isRunning, elapsedTime > 0]); // Only run when running state changes or when we go from 0 to >0 time
+  }, [isRunning, elapsedTime, enableFocusMode, disableFocusMode]); 
   
   // Create a timer start timestamp ref to track real elapsed time
   const timerStartedAtRef = useRef<number | null>(null);
@@ -161,44 +161,57 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       sessionCompletedRef.current = false;
       timerStartedAtRef.current = null;
     };
-  }, []);
+  }, [duration, elapsedTime, initialDuration, isRunning, onComplete, timeRemaining]);
   
-  // Timer logic - separated from focus mode logic, with enhanced debugging
+  // Use a separate effect for timer start/stop to fix hooks error
   useEffect(() => {
-    // When timer starts running, record start time
-    if (isRunning && !timerStartedAtRef.current) {
-      timerStartedAtRef.current = Date.now();
-      debug.log(TIMER_COMPONENT_ID, 'Timer started', { 
-        startTime: timerStartedAtRef.current,
-        duration,
-        timeRemaining 
-      });
-      
-      // HARDCORE FIX: Store the start time on window for absolute reference
-      // This makes it impossible to lose track of when the timer started
-      if (typeof window !== 'undefined') {
-        window.__KASINA_TIMER_START = Date.now();
-        console.log("🕰️ GLOBAL TIMER START TIME SET:", window.__KASINA_TIMER_START);
+    // This effect only handles the timer start/stop timestamps
+    if (isRunning) {
+      // When timer starts running, record start time
+      if (!timerStartedAtRef.current) {
+        timerStartedAtRef.current = Date.now();
+        debug.log(TIMER_COMPONENT_ID, 'Timer started', { 
+          startTime: timerStartedAtRef.current,
+          duration,
+          timeRemaining 
+        });
+        
+        // HARDCORE FIX: Store the start time on window for absolute reference
+        // This makes it impossible to lose track of when the timer started
+        if (typeof window !== 'undefined') {
+          // Initialize before setting
+          if (!window.__KASINA_TIMER_START) {
+            window.__KASINA_TIMER_START = 0;
+          }
+          window.__KASINA_TIMER_START = Date.now();
+          console.log("🕰️ GLOBAL TIMER START TIME SET:", window.__KASINA_TIMER_START);
+        }
+        
+        // Set the component ID in global debug tracking
+        if (typeof window !== 'undefined') {
+          window.__DEBUG_TIMER.mountedComponentId = TIMER_COMPONENT_ID;
+          window.__DEBUG_TIMER.timerStartTime = Date.now();
+        }
       }
-      
-      // Set the component ID in global debug tracking
-      if (typeof window !== 'undefined') {
-        window.__DEBUG_TIMER.mountedComponentId = TIMER_COMPONENT_ID;
-        window.__DEBUG_TIMER.timerStartTime = Date.now();
+    } else {
+      // When timer stops running, clear start time but preserve the global reference
+      if (timerStartedAtRef.current) {
+        debug.log(TIMER_COMPONENT_ID, 'Timer stopped', { 
+          startTime: timerStartedAtRef.current,
+          elapsedMs: Date.now() - timerStartedAtRef.current,
+          elapsedTime,
+          timeRemaining
+        });
+        timerStartedAtRef.current = null;
       }
     }
     
-    // When timer stops running, clear start time but preserve the global reference
-    if (!isRunning && timerStartedAtRef.current) {
-      debug.log(TIMER_COMPONENT_ID, 'Timer stopped', { 
-        startTime: timerStartedAtRef.current,
-        elapsedMs: Date.now() - timerStartedAtRef.current,
-        elapsedTime,
-        timeRemaining
-      });
-      timerStartedAtRef.current = null;
-    }
-    
+    // Clear function not needed here since we're not setting up any intervals
+    return () => {};
+  }, [isRunning, duration, timeRemaining, elapsedTime]);
+  
+  // Main timer logic effect with validation
+  useEffect(() => {
     let intervalId: ReturnType<typeof setInterval> | null = null;
     
     if (isRunning) {
@@ -409,7 +422,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       
       // Assign the interval ID to the variable used for cleanup
       // Cast to NodeJS.Timeout to satisfy TypeScript
-      intervalId = newIntervalId as unknown as NodeJS.Timeout;
+      intervalId = newIntervalId as any;
       
       // Clean up both intervals
       return () => {
@@ -435,8 +448,6 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     };
   }, [isRunning, timeRemaining, elapsedTime, tick, onComplete, onUpdate, duration]);
   
-  // Using formatTime imported from utils
-  
   // Toggle edit mode
   const startEditing = () => {
     if (isRunning) return; // Don't allow editing while timer is running
@@ -447,156 +458,71 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
     
     setIsEditing(true);
     
-    // Focus the minutes input after rendering
+    // Focus the input field as soon as it's rendered
     setTimeout(() => {
       if (minutesInputRef.current) {
         minutesInputRef.current.focus();
         minutesInputRef.current.select();
       }
-    }, 50);
+    }, 100);
   };
   
-  // Handle key press events for the timer input
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    // If Enter key is pressed, save the time
-    if (e.key === 'Enter') {
-      handleSaveTime();
-    }
-    // If Escape key is pressed, cancel editing
-    else if (e.key === 'Escape') {
-      setIsEditing(false);
-    }
-  };
-  
-  // Handle saving the edited time
-  const handleSaveTime = () => {
-    // Convert input to number
-    const mins = parseInt(minutesInput) || 0;
+  // Handle form submit for custom time
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     
-    // EXTREME DEBUG: Log to console window
-    console.log("=====================================================");
-    console.log("🛑 CRITICAL DEBUG: CUSTOM TIME ENTRY");
-    console.log(`User entered: ${mins} minutes`);
+    // Parse the minutes input and convert to seconds
+    const mins = parseInt(minutesInput, 10);
     
-    // Set minimum duration to 1 minute (60 seconds)
-    const totalSeconds = mins * 60;
-    const newDuration = Math.max(totalSeconds, 60); // Minimum 1 minute
-    
-    console.log(`Total seconds calculated: ${totalSeconds}`);
-    console.log(`New duration after min check: ${newDuration}`);
-    
-    try {
-      // CRITICAL FIX: Create a global tracking object if it doesn't exist
-      if (typeof window !== 'undefined' && !window.__DEBUG_TIMER) {
-        window.__DEBUG_TIMER = {
-          originalDuration: null,
-          currentDuration: null,
-          timerStartTime: null,
-          lastTickTime: null,
-          mountedComponentId: null
-        };
-      }
+    // Validate input - must be a positive integer
+    if (isNaN(mins) || mins <= 0) {
+      console.log("Invalid input - setting to 1 minute");
+      setDuration(60); // Default to 1 minute
+    } else {
+      const newDuration = mins * 60;
+      console.log(`Setting new custom duration: ${mins} minutes (${newDuration} seconds)`);
+      setDuration(newDuration);
       
-      // Update the global debug object
-      if (typeof window !== 'undefined') {
-        window.__DEBUG_TIMER.originalDuration = newDuration;
-        window.__DEBUG_TIMER.currentDuration = newDuration;
-        window.__DEBUG_TIMER.mountedComponentId = TIMER_COMPONENT_ID;
-      }
-    } catch (e) {
-      console.error("Error updating debug object:", e);
-    }
-    
-    // CRITICAL FIX: Always store the entered minutes to help with debugging
-    if (typeof window !== 'undefined') {
+      // Store the minutes in localStorage for debugging
       try {
-        console.log(`🔥 Storing custom time value in localStorage: ${mins} minutes`);
         window.localStorage.setItem('lastTimerMinutes', mins.toString());
+        console.log("✅ Stored minutes in localStorage:", mins);
       } catch (e) {
-        console.error("Error saving to localStorage:", e);
-      }
-    }
-    
-    // UNIVERSAL FIX FOR ALL CUSTOM TIME VALUES
-    // Apply direct Zustand store update for ALL custom time values
-    try {
-      // First get the store state
-      const store = useSimpleTimer.getState();
-      
-      // Force set all duration properties to exact values
-      useSimpleTimer.setState({
-        ...store,
-        duration: newDuration,
-        originalDuration: newDuration,
-        timeRemaining: newDuration,
-        durationInMinutes: mins // Add this property to track minutes directly
-      });
-      
-      console.log(`🔥 Direct store update for ${mins}-minute timer:`, useSimpleTimer.getState());
-    } catch (e) {
-      console.error("Error updating store:", e);
-    }
-    
-    // Also call the regular setter
-    setDuration(newDuration);
-    
-    // Send a DOM custom event to notify any other components that need to know about this change
-    if (typeof window !== 'undefined') {
-      try {
-        const event = new CustomEvent('custom-timer-set', { 
-          detail: { 
-            minutes: mins,
-            seconds: newDuration,
-            timestamp: Date.now()
-          } 
-        });
-        window.dispatchEvent(event);
-        console.log(`🔊 Dispatched custom-timer-set event: ${mins} minutes`);
-      } catch (e) {
-        console.error("Error dispatching custom event:", e);
+        console.error("Failed to store minutes in localStorage:", e);
       }
     }
     
     setIsEditing(false);
-    
-    // Give time for the state to update, then verify
-    setTimeout(() => {
-      // Log to help with debugging 
-      const finalState = useSimpleTimer.getState();
-      console.log("Timer state after setting:", finalState);
-      console.log(`Final duration: ${finalState.duration}s`);
-      console.log(`Original duration: ${finalState.originalDuration}s`);
-      console.log(`Duration in minutes: ${finalState.durationInMinutes}`);
-      console.log("=====================================================");
-    }, 100);
   };
   
-  // This is now handled by the handleKeyPress function above
-  
   return (
-    <div className="flex flex-col items-center space-y-4">
+    <div>
       {isEditing ? (
-        <div className="flex items-center space-x-2 text-white">
-          <Input
-            ref={minutesInputRef}
-            type="text"
-            value={minutesInput}
-            onChange={(e) => setMinutesInput(e.target.value.replace(/[^0-9]/g, ''))}
-            onKeyDown={handleKeyPress}
-            className="w-20 text-center font-mono text-white bg-gray-800 focus:ring-blue-500"
-            maxLength={3}
-            placeholder="minutes"
-          />
-          <span className="text-sm">minutes</span>
-          <Button size="sm" variant="outline" onClick={handleSaveTime} className="ml-2">
-            Set
-          </Button>
+        <div className="mb-4">
+          <form onSubmit={handleSubmit} className="flex space-x-2">
+            <Input
+              ref={minutesInputRef}
+              value={minutesInput}
+              onChange={(e) => setMinutesInput(e.target.value)}
+              type="number"
+              min="1"
+              placeholder="Minutes"
+              className="w-24"
+            />
+            <Button type="submit">Set</Button>
+            <Button 
+              variant="outline" 
+              type="button" 
+              onClick={() => setIsEditing(false)}
+            >
+              Cancel
+            </Button>
+          </form>
         </div>
       ) : (
         <div 
-          className="text-3xl font-mono text-white cursor-pointer hover:text-blue-400 transition-colors"
-          onClick={() => !isRunning && startEditing()}
-          title={isRunning ? "Cannot edit while timer is running" : "Click to edit timer"}
+          className="mb-4 text-4xl font-bold text-center simple-timer-display"
+          style={{ lineHeight: 1.2 }}
         >
           {timeRemaining === null ? 
             formatTime(elapsedTime) : 
