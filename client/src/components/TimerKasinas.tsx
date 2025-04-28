@@ -175,10 +175,12 @@ const TimerKasinas: React.FC = () => {
       const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-${minuteText})`;
             
       // Create a complete, detailed payload
+      // For complete sessions, we still use the full original duration
+      // since the user intended to complete the full session
       const sessionPayload = {
         kasinaType: selectedKasina,
         kasinaName: correctName, // Include correct name with minutes
-        duration: minutesValue * 60, // Forces exact seconds based on minutes
+        duration: originalDuration || duration || minutesValue * 60, // Use the original duration as set
         durationInMinutes: minutesValue, // Explicit marker
         originalDuration: durationToSave, // Debug reference
         timestamp: new Date().toISOString()
@@ -292,9 +294,9 @@ const TimerKasinas: React.FC = () => {
         const manualSessionPayload = {
           kasinaType: selectedKasina,
           kasinaName: correctName,
-          duration: minutesValue * 60, // Forces exact seconds based on minutes
-          durationInMinutes: minutesValue,
-          originalDuration: roundedDuration,
+          duration: elapsed, // Use the actual elapsed time for manually stopped sessions
+          durationInMinutes: Math.ceil(elapsed / 60), // Round up to nearest minute
+          originalDuration: actualDuration, // Include the original duration that was set
           timestamp: new Date().toISOString()
         };
         
