@@ -430,7 +430,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                   window.__KASINA_DEBUG = {
                     selectedKasina,
                     startTime: Date.now(),
-                    duration
+                    duration: duration || 0
                   };
                   
                   console.log(`🔐 Stored timer debug info in window.__KASINA_DEBUG:`, window.__KASINA_DEBUG);
