@@ -38,42 +38,44 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <Card className="w-full max-w-md bg-gray-900 border-gray-700">
-      <CardHeader>
-        <CardTitle className="text-white text-center">
-          Login w/ a <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {error && (
-            <Alert variant="destructive">
-              <AlertCircle className="h-4 w-4" />
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
-          
-          <div className="space-y-2">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-gray-800 border-gray-700 text-white"
+    <div className="w-full flex justify-center">
+      <Card className="w-full max-w-md bg-gray-900 border-gray-700">
+        <CardHeader>
+          <CardTitle className="text-white text-center">
+            Login w/ a <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {error && (
+              <Alert variant="destructive">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+            
+            <div className="space-y-2">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-gray-800 border-gray-700 text-white"
+                disabled={isSubmitting}
+              />
+            </div>
+            
+            <Button 
+              type="submit" 
+              className="w-full bg-indigo-600 hover:bg-indigo-700"
               disabled={isSubmitting}
-            />
-          </div>
-          
-          <Button 
-            type="submit" 
-            className="w-full bg-indigo-600 hover:bg-indigo-700"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Checking..." : "Enter"}
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+            >
+              {isSubmitting ? "Checking..." : "Enter"}
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 
