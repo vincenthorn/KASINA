@@ -4,8 +4,71 @@ import { KASINA_TYPES } from '../lib/constants';
 import { toast } from 'sonner';
 
 /**
- * OneMinuteFix - A simple component that provides a guaranteed way to save 1-minute sessions
+ * OneMinuteFix - A simple component that provides a guaranteed way to save sessions
  * directly on the server without relying on any client-side timer logic
+ * 
+ * Also exports a utility function for direct use in other components
+ */
+
+// Export the session saving function for use in other components
+export async function guaranteedSessionSave(kasinaType: string, minutes: number = 1): Promise<boolean> {
+  try {
+    console.log(`🧿 GUARANTEED SESSION SAVE: ${kasinaType} (${minutes} minutes)`);
+    
+    // First try our direct endpoint
+    let response = await fetch('/api/direct-one-minute-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        kasinaType: kasinaType.toLowerCase(),
+        minutes: minutes
+      })
+    });
+    
+    // If that fails, try the alternate method using regular sessions endpoint with special flags
+    if (!response.ok) {
+      console.warn("⚠️ Direct endpoint failed, trying fallback...");
+      
+      // Create a fallback payload
+      const minuteText = minutes === 1 ? "minute" : "minutes";
+      const fallbackPayload = {
+        kasinaType: kasinaType.toLowerCase(),
+        kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
+        duration: minutes * 60,
+        durationInMinutes: minutes,
+        timestamp: new Date().toISOString(),
+        _directTest: true,
+        _guaranteedSession: true
+      };
+      
+      response = await fetch('/api/sessions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fallbackPayload)
+      });
+    }
+    
+    if (response.ok) {
+      console.log(`✅ SESSION SAVED: ${kasinaType} (${minutes} min)`);
+      toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+      
+      // Force refresh the sessions list
+      window.dispatchEvent(new Event('session-saved'));
+      return true;
+    } else {
+      console.error(`❌ SESSION SAVE FAILED: ${response.status}`);
+      toast.error("Failed to save session");
+      return false;
+    }
+  } catch (error) {
+    console.error(`❌ SESSION SAVE ERROR:`, error);
+    toast.error("Error saving session");
+    return false;
+  }
+}
+
+/**
+ * Component for manual session saving
  */
 const OneMinuteFix: React.FC = () => {
   const [isSaving, setIsSaving] = useState(false);
@@ -26,44 +89,13 @@ const OneMinuteFix: React.FC = () => {
     setLastSaved(Date.now());
     
     try {
-      // First try our direct emergency endpoint
-      let response = await fetch('/api/direct-one-minute-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ kasinaType: selectedKasina })
-      });
+      // Use our guaranteed session save function
+      const success = await guaranteedSessionSave(selectedKasina, 1);
       
-      // If that fails, try the alternate method using the regular sessions endpoint with special flags
-      if (!response.ok) {
-        console.warn("⚠️ Primary method failed, trying fallback method...");
-        
-        // Create a direct test payload that we know works
-        const fallbackPayload = {
-          kasinaType: selectedKasina.toLowerCase(),
-          kasinaName: `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1).toLowerCase()} (1-minute)`,
-          duration: 60, // Exactly 1 minute in seconds
-          durationInMinutes: 1,
-          timestamp: new Date().toISOString(),
-          _directTest: true, // Mark as a direct test route payload
-          _guaranteedSession: true
-        };
-        
-        response = await fetch('/api/sessions', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(fallbackPayload)
-        });
-      }
-      
-      if (response.ok) {
-        const data = await response.json();
-        console.log("✅ 1-MINUTE SESSION SAVED SUCCESSFULLY:", data);
-        toast.success(`Successfully saved 1-minute ${selectedKasina} session`);
-        
-        // Force a refresh of the sessions list
-        window.dispatchEvent(new Event('session-saved'));
+      if (success) {
+        console.log("✅ 1-MINUTE SESSION SAVED SUCCESSFULLY");
       } else {
-        console.error("❌ 1-MINUTE SESSION SAVE FAILED:", response.status);
+        console.error("❌ 1-MINUTE SESSION SAVE FAILED");
         toast.error("Failed to save session. Please try again.");
       }
     } catch (error) {
