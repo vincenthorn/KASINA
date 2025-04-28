@@ -327,29 +327,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // STEP 1: Start with the most reliable value
     let finalDuration = duration; // Default to parsed duration value
     
-    // STEP 2: Use a match in the name as an override (most explicit)
-    const minuteMatch = kasinaName.match(/(\d+)[- ]minute/);
-    if (minuteMatch && minuteMatch[1]) {
-      const extractedMinutes = parseInt(minuteMatch[1], 10);
-      if (!isNaN(extractedMinutes) && extractedMinutes > 0) {
-        console.log(`💡 Found explicit minute value in name: ${extractedMinutes} minutes`);
-        finalDuration = extractedMinutes * 60; // Convert to seconds
+    // STEP 2: Check if this is a manually stopped session
+    // If duration is significantly less than originalDuration, this was likely manually stopped
+    if (originalDuration > 0 && duration > 0 && duration < originalDuration * 0.9) {
+      console.log(`🔍 Detected manually stopped session - elapsed time: ${duration}s, original duration: ${originalDuration}s`);
+      // For manually stopped sessions, we want to use the actual elapsed time
+      finalDuration = duration;
+      console.log(`✅ Using actual elapsed time for manually stopped session: ${finalDuration}s`);
+    } else {
+      // STEP 3: For completed sessions, use the intended duration from the name or settings
+      const minuteMatch = kasinaName.match(/(\d+)[- ]minute/);
+      if (minuteMatch && minuteMatch[1]) {
+        const extractedMinutes = parseInt(minuteMatch[1], 10);
+        if (!isNaN(extractedMinutes) && extractedMinutes > 0) {
+          console.log(`💡 Found explicit minute value in name: ${extractedMinutes} minutes`);
+          finalDuration = extractedMinutes * 60; // Convert to seconds
+        }
       }
-    }
-    
-    // STEP 3: Use explicitly provided duration in minutes - HIGHEST PRIORITY AFTER NAME MATCH
-    // This is a reliable source of truth since it's set directly from user input
-    if (durationInMinutes > 0) { 
-      console.log(`🔥 Using explicitly provided minutes: ${durationInMinutes} minutes`);
-      // Override final duration to exactly match what the user entered
-      finalDuration = durationInMinutes * 60; // Convert to seconds
-      console.log(`💡 Correcting to exactly ${durationInMinutes} minutes (${finalDuration}s)`);
-    }
-    
-    // STEP 4: Use original duration if it's valid and different
-    else if (originalDuration > 0 && originalDuration !== duration) {
-      console.log(`💡 Using original duration: ${originalDuration} seconds`);
-      finalDuration = originalDuration;
+      
+      // STEP 4: Use explicitly provided duration in minutes - HIGHEST PRIORITY AFTER NAME MATCH
+      // This is a reliable source of truth since it's set directly from user input
+      if (durationInMinutes > 0) { 
+        console.log(`🔥 Using explicitly provided minutes: ${durationInMinutes} minutes`);
+        // Override final duration to exactly match what the user entered
+        finalDuration = durationInMinutes * 60; // Convert to seconds
+        console.log(`💡 Correcting to exactly ${durationInMinutes} minutes (${finalDuration}s)`);
+      }
+      
+      // STEP 5: Use original duration if it's valid and different
+      else if (originalDuration > 0 && originalDuration !== duration) {
+        console.log(`💡 Using original duration: ${originalDuration} seconds`);
+        finalDuration = originalDuration;
+      }
     }
     
     // STEP 5: For common time values, ensure they're exactly correct (1, 2, 3, 5, 10, 15, etc minutes)
