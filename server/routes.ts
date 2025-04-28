@@ -401,6 +401,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log(`- Minutes: ${durationInMinutes}`);
       console.log(`- Manual Stop: ${req.body._manualStop ? 'Yes' : 'No'}`);
       console.log(`- Test Mode: ${req.body._directTest ? 'Yes' : 'No'}`);
+      
+      // EMERGENCY DIRECT FIX: If this is a direct test payload, trust the minutes/duration 
+      // from the payload completely without any processing
+      if (req.body._directTest) {
+        console.log(`💯 EMERGENCY DIRECT TEST MODE - Trust payload completely`);
+        
+        // Get the minutes from the most reliable source
+        if (durationInMinutes > 0) {
+          console.log(`- Using explicit minutes from payload: ${durationInMinutes}`);
+          finalDuration = durationInMinutes * 60;
+        } 
+        // Otherwise use the duration directly
+        else if (duration > 0) {
+          console.log(`- Using explicit duration from payload: ${duration}s`);
+          finalDuration = duration;
+        }
+        
+        console.log(`💯 DIRECT TEST FINAL DURATION: ${finalDuration}s`);
+      }
     }
     
     // ⭐ CRITICAL FIX FOR SPACE KASINA: Add a special emergency fix for Space kasina sessions
