@@ -28,6 +28,20 @@ const TimerKasinas: React.FC = () => {
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
   
+  // Special debug for Yellow Kasina to identify selection issues
+  useEffect(() => {
+    if (selectedKasina === KASINA_TYPES.YELLOW) {
+      console.log(`🟡 YELLOW KASINA SELECTED - Confirming state:
+      - Value: "${selectedKasina}" 
+      - Type: "${typeof selectedKasina}"
+      - Color: ${KASINA_COLORS.yellow}
+      - Emoji: ${KASINA_EMOJIS.yellow}
+      - Selected == YELLOW: ${selectedKasina === KASINA_TYPES.YELLOW ? 'MATCH' : 'MISMATCH'}
+      - Raw value: "${KASINA_TYPES.YELLOW}"
+      `);
+    }
+  }, [selectedKasina]);
+  
   // Reset session saved flag when the component mounts
   useEffect(() => {
     sessionSavedRef.current = false;
@@ -93,6 +107,14 @@ const TimerKasinas: React.FC = () => {
     
     // Hard override fix: If original duration is missing but there's a component duration, use it
     let durationToSave = originalDuration || duration || 60;
+    
+    // Special handling for Yellow kasina sessions
+    if (selectedKasina === KASINA_TYPES.YELLOW) {
+      console.log(`🟡 TIMER COMPLETE - YELLOW KASINA SESSION DETECTED:
+      - Duration to save: ${durationToSave}
+      - Selected kasina: ${selectedKasina}
+      - Timer completed normally`);
+    }
     
     // Critical check for 2-minute sessions (120 seconds)
     if (durationToSave === 120) {
@@ -270,6 +292,16 @@ const TimerKasinas: React.FC = () => {
       
       // Round up to nearest minute for storage
       let roundedDuration = roundUpToNearestMinute(durationToSave);
+      
+      // Special handling for Yellow kasina sessions on manual stop
+      if (selectedKasina === KASINA_TYPES.YELLOW) {
+        console.log(`🟡 YELLOW KASINA MANUALLY STOPPED:
+        - Selected kasina: ${selectedKasina}
+        - Raw elapsed time: ${elapsed}s
+        - Calculated duration to save: ${durationToSave}s
+        - Rounded duration: ${roundedDuration}s
+        - Timer was manually stopped`);
+      }
       
       if (roundedDuration >= 60) {
         console.log("Manual stop detected - saving session with data:", {
