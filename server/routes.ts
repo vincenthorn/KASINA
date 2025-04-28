@@ -375,6 +375,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log(`- Test Mode: ${req.body._directTest ? 'Yes' : 'No'}`);
     }
     
+    // ⭐ CRITICAL FIX FOR SPACE KASINA: Add a special emergency fix for Space kasina sessions
+    // This is positioned right after all other force flags but before any other processing
+    // to ensure it takes priority over all other logic
+    if (normalizedType === 'space') {
+      console.log("🌟 SPACE KASINA CRITICAL FIX: Detected Space kasina, enabling special handling");
+      
+      // Log all the flags and values to debug this particular kasina
+      console.log(`🌟 SPACE KASINA VALUES: 
+        - Raw Duration: ${duration}s
+        - Minutes Value: ${durationInMinutes || Math.round(duration / 60)}
+        - Has Space Fix Flag: ${!!req.body._spaceKasinaFix}
+        - Has Force Fix Flag: ${!!req.body._forceWholeMinuteFix}
+        - Has Direct Test Flag: ${!!req.body._directTest}
+        - Has Timer Complete Flag: ${!!req.body._timerComplete}
+      `);
+      
+      // For sessions that are explicitly marked as Space kasina fix, apply special rules
+      if (req.body._spaceKasinaFix) {
+        console.log("🌟 EMERGENCY SPACE KASINA FIX ACTIVATED");
+        
+        // For 1-minute sessions, force exactly 60 seconds
+        if (durationInMinutes === 1 || duration === 60 || (duration > 31 && duration < 60)) {
+          console.log("🌟 Forcing Space kasina to exactly 60 seconds (1 minute)");
+          finalDuration = 60;
+        }
+        // For other whole-minute durations (2m, 3m, etc.), preserve exactly
+        else if (duration % 60 === 0) {
+          console.log(`🌟 Preserving whole-minute Space kasina duration: ${duration}s`);
+          finalDuration = duration;
+        }
+        // For all other durations, round to nearest minute
+        else {
+          const minutes = Math.round(duration / 60);
+          finalDuration = minutes * 60;
+          console.log(`🌟 Rounding Space kasina to ${minutes} minutes (${finalDuration}s)`);
+        }
+        
+        console.log("🌟 SPACE KASINA FINAL DURATION:", finalDuration);
+      }
+    }
+    
     // Always override with the normalized type to ensure consistency
     safeBody.kasinaType = normalizedType;
     
