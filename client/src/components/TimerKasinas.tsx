@@ -656,6 +656,63 @@ const TimerKasinas: React.FC = () => {
                     {KASINA_EMOJIS[KASINA_TYPES.LIGHT]} Light
                   </Button>
                 </div>
+                
+                {/* TEMPORARY TEST BUTTON - For direct session testing */}
+                <div className="mt-6 pt-4 border-t border-gray-700">
+                  <h3 className="font-medium mb-2">Debug Tools</h3>
+                  <Button 
+                    variant="destructive"
+                    size="sm"
+                    onClick={() => {
+                      // Create a guaranteed test session with the current kasina type
+                      const normalizedType = selectedKasina.toLowerCase();
+                      const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
+                      
+                      console.log(`🧪 TESTING DIRECT SESSION SAVE FOR ${displayName.toUpperCase()} KASINA`);
+                      
+                      // Create a test payload with guaranteed values
+                      const testPayload = {
+                        kasinaType: normalizedType,
+                        kasinaName: `${displayName} (2-minutes)`,
+                        duration: 120, // 2 minutes in seconds
+                        durationInMinutes: 2,
+                        timestamp: new Date().toISOString(),
+                        _directTest: true // Flag to identify this as a direct test
+                      };
+                      
+                      // Log the test payload
+                      console.log(`🧪 TEST PAYLOAD:`, testPayload);
+                      
+                      // Send using fetch directly
+                      fetch('/api/sessions', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(testPayload)
+                      })
+                      .then(response => {
+                        if (response.ok) {
+                          toast.success(`Test ${displayName} session saved successfully`);
+                          console.log(`✅ TEST ${displayName.toUpperCase()} SESSION SAVED SUCCESSFULLY`);
+                        } else {
+                          toast.error(`Failed to save test ${displayName} session: ${response.status}`);
+                          console.error(`Failed to save test ${displayName} session:`, response.status);
+                        }
+                        return response.json();
+                      })
+                      .then(data => {
+                        console.log("Test session response:", data);
+                      })
+                      .catch(error => {
+                        toast.error(`Error saving test ${displayName} session`);
+                        console.error(`Error saving test ${displayName} session:`, error);
+                      });
+                    }}
+                  >
+                    🧪 Save Test {selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} Session (2min)
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>

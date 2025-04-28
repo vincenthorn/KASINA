@@ -331,13 +331,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const rawKasinaType = safeBody.kasinaType || '';
     const normalizedType = rawKasinaType.toLowerCase();
     
-    // Check if this came from our direct fix
-    if (req.body._directFix) {
-      console.log(`📦 DIRECT FIX DETECTED:`);
+    // Check if this came from our direct fix or test
+    if (req.body._directFix || req.body._directTest) {
+      console.log(`📦 DIRECT ${req.body._directTest ? 'TEST' : 'FIX'} DETECTED:`);
       console.log(`- Raw Kasina Type: "${rawKasinaType}"`);
       console.log(`- Normalized Type: "${normalizedType}"`);
       console.log(`- Duration: ${duration}s`);
+      console.log(`- Minutes: ${durationInMinutes}`);
       console.log(`- Manual Stop: ${req.body._manualStop ? 'Yes' : 'No'}`);
+      console.log(`- Test Mode: ${req.body._directTest ? 'Yes' : 'No'}`);
     }
     
     // Always override with the normalized type to ensure consistency
