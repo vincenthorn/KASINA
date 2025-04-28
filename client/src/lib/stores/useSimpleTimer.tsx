@@ -156,7 +156,7 @@ export const useSimpleTimer = create<SimpleTimerState>()(
       },
       
       tick: () => {
-        const { isRunning, timeRemaining, elapsedTime, globalStartTime, expectedEndTime } = get();
+        const { isRunning, timeRemaining, elapsedTime, globalStartTime, expectedEndTime, originalDuration } = get();
         const now = Date.now();
         
         // CRITICAL FIX: Add timestamp to the last tick for validation
@@ -170,15 +170,58 @@ export const useSimpleTimer = create<SimpleTimerState>()(
         
         if (!isRunning) return;
         
+        // HARDCORE FIX: Check if we just started the timer, and ensure minimum runtime
+        if (globalStartTime !== null) {
+          const timeSinceStart = now - globalStartTime;
+          
+          // If timer has been running for less than 5 seconds, completely prevent termination
+          if (timeSinceStart < 5000) {
+            console.log(`🛡️ STARTUP PROTECTION: Timer has only been running for ${Math.floor(timeSinceStart/1000)}s - preventing any completion`);
+            
+            // Force timeRemaining to be at least 5 seconds
+            if (timeRemaining !== null && timeRemaining < 5) {
+              console.log(`🔧 FORCED CORRECTION: Resetting timeRemaining from ${timeRemaining}s to safe minimum of 5s`);
+              set({ timeRemaining: 5 });
+              // Skip the rest of this tick to prevent any potential issues
+              return;
+            }
+          }
+        }
+        
         // CRITICAL FIX: Validate time against expected end time if available
         if (expectedEndTime !== null && now >= expectedEndTime) {
-          console.log(`Timer reached expected end time (${new Date(expectedEndTime).toISOString()})`);
+          console.log(`⏰ Timer reached expected end time (${new Date(expectedEndTime).toISOString()})`);
+          
+          // Check if enough time has really elapsed
+          if (globalStartTime !== null) {
+            const totalElapsed = Math.floor((now - globalStartTime) / 1000);
+            
+            // Ensure we've actually run for at least 50% of the expected duration
+            const minimumRuntime = Math.max(10, originalDuration ? originalDuration * 0.5 : 30);
+            
+            if (totalElapsed < minimumRuntime) {
+              console.log(`⚠️ RUNTIME PROTECTION: Timer tried to complete after only ${totalElapsed}s, but minimum required is ${minimumRuntime}s - forcing continuation`);
+              
+              // Extend the expected end time by 10 seconds to ensure we have enough runtime
+              set({
+                expectedEndTime: now + 10000, // add 10 more seconds
+                timeRemaining: 10 // set remaining to 10 seconds
+              });
+              
+              // Skip the rest of this tick to prevent any potential issues
+              return;
+            }
+          }
+          
+          // Only end the timer if we've passed all the validation
           set({
             isRunning: false,
             timeRemaining: 0,
             elapsedTime: get().originalDuration || 0, // Set elapsed to the full duration
             lastStartedAt: null
           });
+          
+          console.log(`✅ TIMER COMPLETED SUCCESSFULLY after validation`);
           return;
         }
         
@@ -188,7 +231,7 @@ export const useSimpleTimer = create<SimpleTimerState>()(
           
           // Only update if the calculated time makes sense (prevent negative values)
           if (calculatedElapsed >= 0 && Math.abs(calculatedElapsed - elapsedTime) > 2) {
-            console.log(`Timer sync correction: ${elapsedTime}s → ${calculatedElapsed}s`);
+            console.log(`⚙️ Timer sync correction: ${elapsedTime}s → ${calculatedElapsed}s`);
             set({ elapsedTime: calculatedElapsed });
           } else {
             // Normal tick increment
@@ -207,7 +250,7 @@ export const useSimpleTimer = create<SimpleTimerState>()(
             
             // Only sync if there's a significant difference (>2s)
             if (Math.abs(calculatedRemaining - timeRemaining) > 2) {
-              console.log(`Remaining time sync correction: ${timeRemaining}s → ${calculatedRemaining}s`);
+              console.log(`⚙️ Remaining time sync correction: ${timeRemaining}s → ${calculatedRemaining}s`);
               set({ timeRemaining: calculatedRemaining });
             } else {
               // Normal decrement
@@ -221,8 +264,34 @@ export const useSimpleTimer = create<SimpleTimerState>()(
           
           // Check if timer has completed
           const currentRemaining = get().timeRemaining;
+          
+          // HARDCORE FIX: Additional validation before allowing timer to complete
           if (currentRemaining !== null && currentRemaining <= 0) {
-            console.log("Timer completed (reached zero)");
+            console.log("⏰ Timer potentially completed - running validation");
+            
+            // Check if we've been running long enough
+            if (globalStartTime !== null) {
+              const totalElapsed = Math.floor((now - globalStartTime) / 1000);
+              const expectedDuration = originalDuration || 60; // Default to 60s if no original duration
+              
+              // Enforce a minimum runtime of at least 50% of the expected duration (but at least 10s)
+              const minimumRuntime = Math.max(10, expectedDuration * 0.5);
+              
+              if (totalElapsed < minimumRuntime) {
+                console.log(`🛑 RUNTIME PROTECTION: Timer tried to complete after only ${totalElapsed}s, but minimum required is ${minimumRuntime}s - forcing continuation`);
+                
+                // Add 5 more seconds to the timer
+                set({
+                  timeRemaining: 5,
+                  expectedEndTime: now + 5000 // 5 more seconds
+                });
+                
+                return;
+              }
+            }
+            
+            // If we've passed all validations, allow timer to complete
+            console.log("✅ TIMER COMPLETION ALLOWED: All validation passed");
             set({
               isRunning: false,
               timeRemaining: 0,
