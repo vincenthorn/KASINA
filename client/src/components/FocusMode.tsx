@@ -257,6 +257,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               }}
             >
               <KasinaOrb
+                key={`focus-mode-orb-${selectedKasina}`} // Add unique key to force re-render
                 type={selectedKasina as KasinaType}
                 enableZoom={true}
                 remainingTime={timerState.timeRemaining}
