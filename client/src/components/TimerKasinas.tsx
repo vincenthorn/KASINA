@@ -57,6 +57,27 @@ const TimerKasinas: React.FC = () => {
     // When user selects a different kasina, reset the saved flag
     sessionSavedRef.current = false;
     console.log("Resetting session saved flag - kasina changed to", selectedKasina);
+    
+    // CRITICAL FIX: Store the selected kasina type in window.__KASINA_DEBUG
+    // This ensures proper session logging when a timer completes
+    if (typeof window !== 'undefined') {
+      try {
+        if (!window.__KASINA_DEBUG) {
+          window.__KASINA_DEBUG = {
+            selectedKasina,
+            startTime: Date.now(),
+            duration: 60 // Default value
+          };
+        } else {
+          // Update just the selectedKasina in the existing object
+          window.__KASINA_DEBUG.selectedKasina = selectedKasina;
+        }
+        
+        console.log(`🔐 Updated window.__KASINA_DEBUG with selected kasina: ${selectedKasina}`);
+      } catch (e) {
+        console.error("Error updating window.__KASINA_DEBUG:", e);
+      }
+    }
   }, [selectedKasina]);
   
   // Handle timer completion
