@@ -28,6 +28,9 @@ const TimerKasinas: React.FC = () => {
   // Track when focus mode was last enabled
   const focusModeEnabledAtRef = useRef<number | null>(null);
   
+  // Add ref for validating session integrity
+  const validityIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedTab, setSelectedTab] = useState<string>("simple");
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -381,6 +384,16 @@ const TimerKasinas: React.FC = () => {
   // Note: Manual save session functionality has been removed
   // Sessions are now saved automatically when the timer completes
   
+  // Add effect to clean up the validity check interval when component unmounts
+  useEffect(() => {
+    return () => {
+      if (validityIntervalRef.current) {
+        clearInterval(validityIntervalRef.current);
+        validityIntervalRef.current = null;
+      }
+    };
+  }, []);
+  
   // Handle timer start to enable focus mode
   const handleTimerStart = () => {
     console.log("Timer started - activating focus mode");
@@ -392,6 +405,12 @@ const TimerKasinas: React.FC = () => {
     // This prevents issues where the timer completes before the validity check passes
     setValidSession(true);
     console.log("✅ Immediately marking session as valid to prevent premature termination issues");
+    
+    // Clean up any existing interval
+    if (validityIntervalRef.current) {
+      clearInterval(validityIntervalRef.current);
+      validityIntervalRef.current = null;
+    }
     
     // Keep a validity check to ensure continued session integrity
     const sessionValidityCheckId = setInterval(() => {
@@ -408,19 +427,8 @@ const TimerKasinas: React.FC = () => {
       }
     }, 1000); // Check every second
     
-    // Store the interval ID for cleanup
-    // Define the correct type for the interval ID
-    const validityIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    // Store the interval ID in our ref for cleanup
     validityIntervalRef.current = sessionValidityCheckId;
-    
-    // Make sure to clean up the interval on component unmount
-    useEffect(() => {
-      return () => {
-        if (validityIntervalRef.current) {
-          clearInterval(validityIntervalRef.current);
-        }
-      };
-    }, []);
     
     // Record when focus mode was enabled
     focusModeEnabledAtRef.current = Date.now();
