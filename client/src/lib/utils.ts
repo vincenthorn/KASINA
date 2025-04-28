@@ -109,7 +109,7 @@ export const saveWholeMinuteSession = async (
     // Log what we're doing
     console.log(`🔥 DIRECT WHOLE-MINUTE SAVE: ${kasinaType} for ${minutes} ${minuteText}`);
     
-    // Create a payload with all the necessary data
+    // Create a payload with all the necessary data and MULTIPLE flags for detection
     const payload = {
       kasinaType: kasinaType.toLowerCase(),
       kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
@@ -118,7 +118,10 @@ export const saveWholeMinuteSession = async (
       timestamp: new Date().toISOString(),
       _forceWholeMinuteFix: true,
       _completedNaturally: completedNaturally,
-      _duration: durationInSeconds
+      _duration: durationInSeconds,
+      _universalFix: true,     // Add a universal flag for any kasina type
+      _guaranteedSession: true, // Additional flag for failsafe detection
+      _critical: true          // Critical flag to ensure highest priority
     };
     
     // Store as backup in localStorage

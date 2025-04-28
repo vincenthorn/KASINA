@@ -101,7 +101,21 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 finalDuration = 60;
               }
               
-              // CRITICAL FIX: Special handling for Space kasina sessions
+              // UNIVERSAL WHOLE-MINUTE FIX: Handle ALL kasina types
+              // First, add special handling for whole-minute durations to ensure they're saved correctly
+              if (finalDuration % 60 === 0) {
+                console.log(`🌟 UNIVERSAL WHOLE-MINUTE FIX: Detected whole-minute duration ${finalDuration}s`);
+                
+                // For 1-minute sessions, ensure they're exactly 60 seconds
+                if (minutes === 1 || finalDuration === 60) {
+                  console.log(`🌟 UNIVERSAL FIX: Setting 1-minute session to EXACTLY 60 seconds`);
+                  finalDuration = 60;
+                }
+                
+                console.log(`🌟 UNIVERSAL WHOLE-MINUTE FIX: Applied for ${minutes}-minute session`);
+              }
+              
+              // Still keep the special handling for Space kasina
               if (kasinaType.toLowerCase() === 'space') {
                 console.log(`🔮 SPACE KASINA DETECTED - Adding special emergency handling`);
                 
@@ -114,6 +128,8 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 else if (finalDuration % 60 === 0) {
                   console.log(`🔮 SPACE KASINA FIX: Preserving whole-minute duration: ${finalDuration}s`);
                 }
+                
+                // Space-specific flag will be added to payload after it's defined
               }
               
               // Special handling for 1-minute sessions - the MOST problematic duration
@@ -140,6 +156,20 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 // Add special flag for Space kasina sessions
                 _spaceKasinaFix: normalizedType === 'space'
               };
+              
+              // Add additional flags for universal whole-minute fix
+              if (finalDuration % 60 === 0) {
+                console.log(`🌟 Adding UNIVERSAL WHOLE-MINUTE flags to payload`);
+                payload._universalFix = true;
+                payload._guaranteedSession = true;
+                payload._wholeMintuteDuration = minutes;
+              }
+              
+              // Add extra flags if this is a Space kasina
+              if (normalizedType === 'space') {
+                console.log(`🔮 Adding special SPACE KASINA flags to payload`);
+                payload._spaceKasinaFix = true;
+              }
               
               console.log(`⌛ TIMER COMPLETION - Saving session:`, payload);
               

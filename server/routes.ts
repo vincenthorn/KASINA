@@ -346,23 +346,51 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // STEP 1: Start with the most reliable value
     let finalDuration = duration; // Default to parsed duration value
     
-    // CRITICAL FIX: Check for special force flag for whole-minute sessions
-    if (req.body._forceOneMinuteFix || req.body._forceWholeMinuteFix) {
-      console.log(`🔥 CRITICAL WHOLE-MINUTE SESSION FORCE FIX DETECTED`);
-      console.log(`- Kasina type: ${normalizedType}`);
-      console.log(`- Original duration: ${duration}s`);
+    // UNIVERSAL CRITICAL FIX: Check for ANY force flag for whole-minute sessions
+    // This section handles all whole-minute sessions regardless of kasina type
+    if (req.body._forceOneMinuteFix || req.body._forceWholeMinuteFix || 
+        req.body._universalFix || req.body._guaranteedSession || req.body._critical) {
+        
+      // Log with all possible details
+      console.log(`
+      🔥🔥🔥 UNIVERSAL WHOLE-MINUTE SESSION FIX DETECTED 🔥🔥🔥
+      - Kasina type: ${normalizedType}
+      - Original duration: ${duration}s
+      - Minutes value: ${durationInMinutes || Math.round(duration / 60)}
+      - Force flags: 
+        _forceOneMinuteFix: ${!!req.body._forceOneMinuteFix}
+        _forceWholeMinuteFix: ${!!req.body._forceWholeMinuteFix}
+        _universalFix: ${!!req.body._universalFix}
+        _guaranteedSession: ${!!req.body._guaranteedSession}
+        _critical: ${!!req.body._critical}
+      `);
       
-      // Force set the duration based on the flag or minutes
+      // Force set the duration based on the most reliable information
       if (req.body._forceOneMinuteFix) {
-        console.log(`- Setting duration to EXACTLY 60 seconds`);
+        console.log(`- Setting duration to EXACTLY 60 seconds (1 minute)`);
         finalDuration = 60;
-      } else if (req.body._forceWholeMinuteFix && req.body._duration) {
+      } 
+      // Use explicit duration if provided
+      else if (req.body._duration) {
         console.log(`- Setting duration to EXACTLY ${req.body._duration} seconds`);
         finalDuration = req.body._duration;
       }
+      // Use minutes value if provided (most reliable)
+      else if (durationInMinutes > 0) {
+        const exactSeconds = durationInMinutes * 60;
+        console.log(`- Setting duration to EXACTLY ${exactSeconds} seconds (${durationInMinutes} minutes)`);
+        finalDuration = exactSeconds;
+      }
+      // Fallback to rounding the duration to nearest minute
+      else {
+        const minutes = Math.round(duration / 60);
+        const exactSeconds = minutes * 60;
+        console.log(`- Setting duration to EXACTLY ${exactSeconds} seconds (${minutes} minutes)`);
+        finalDuration = exactSeconds;
+      }
       
       // Verify the fix is working
-      console.log(`✅ WHOLE-MINUTE SESSION FORCED - Final duration: ${finalDuration}s`);
+      console.log(`✅ UNIVERSAL WHOLE-MINUTE SESSION FIX - Final duration: ${finalDuration}s`);
     }
     // Check if this came from our direct fix or test
     else if (req.body._directFix || req.body._directTest) {
