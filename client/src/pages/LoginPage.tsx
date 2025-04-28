@@ -26,7 +26,7 @@ const sectionStyles = {
 const paragraphStyles = {
   color: "#d1d5db", // text-gray-300
   marginBottom: "24px",
-  fontSize: "20px", // Further increased font size
+  fontSize: "18px", // Reduced from 20px
   lineHeight: "1.7",
   maxWidth: "800px",
   margin: "0 auto 24px auto",
@@ -36,7 +36,7 @@ const paragraphStyles = {
 const listItemStyles = {
   color: "#d1d5db", // text-gray-300
   marginBottom: "16px", // Increased spacing
-  fontSize: "19px", // Further increased font size
+  fontSize: "17px", // Reduced from 19px
   lineHeight: "1.6",
   padding: "0 10px", // Add padding for smaller screens
   textAlign: "center" as const
@@ -45,7 +45,7 @@ const listItemStyles = {
 const comingSoonStyles = {
   color: "#a78bfa", // text-purple-400
   fontWeight: "bold" as const,
-  fontSize: "19px", // Match parent text size
+  fontSize: "17px", // Match parent text size
 };
 
 const LoginPage: React.FC = () => {
