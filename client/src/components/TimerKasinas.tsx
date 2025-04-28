@@ -220,8 +220,50 @@ const TimerKasinas: React.FC = () => {
       // Log what we're sending to the server
       console.log("🚀 FINAL SESSION PAYLOAD:", sessionPayload);
       
-      // Send to the server
-      addSession(sessionPayload as any);
+      // YELLOW KASINA SPECIFIC FIX - This is a special case handler for yellow kasina sessions
+      if (selectedKasina === KASINA_TYPES.YELLOW) {
+        console.log("🟡 ATTEMPTING DIRECT YELLOW KASINA FIX - MANUALLY SENDING SESSION");
+        
+        // Create a direct version of the payload specifically for yellow kasina
+        const yellowFix = {
+          kasinaType: "yellow", // Force the correct string value
+          kasinaName: `Yellow (${minutesValue}-${minuteText})`,
+          duration: durationToSave,
+          durationInMinutes: minutesValue, // Add explicit minutes value 
+          originalDuration: duration, // Include original duration
+          timestamp: new Date().toISOString(),
+          _yellowDirectFix: true // Flag for server to identify this fix
+        };
+        
+        // Log the special yellow payload
+        console.log("🟡 YELLOW KASINA DIRECT PAYLOAD:", yellowFix);
+        
+        // Send using the API directly
+        fetch('/api/sessions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(yellowFix)
+        })
+        .then(response => {
+          if (response.ok) {
+            console.log("🟡 YELLOW KASINA SESSION SAVED SUCCESSFULLY USING DIRECT METHOD");
+            toast.success(`Yellow kasina session saved successfully (${minutesValue} ${minuteText})`);
+          } else {
+            console.error("Failed to save yellow kasina session:", response.status);
+            toast.error("Failed to save yellow kasina session");
+          }
+          return response.json();
+        })
+        .catch(error => {
+          console.error("Error saving yellow kasina session:", error);
+          toast.error("Error saving yellow kasina session");
+        });
+      } else {
+        // Normal case for all other kasina types
+        addSession(sessionPayload as any);
+      }
       
       console.log(`Auto-saved session: ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]}`);
       
@@ -371,8 +413,44 @@ const TimerKasinas: React.FC = () => {
         
         console.log("🚀 MANUAL STOP SESSION PAYLOAD:", manualSessionPayload);
         
-        // Send to server
-        addSession(manualSessionPayload as any);
+        // YELLOW KASINA SPECIFIC FIX for manually stopped sessions
+        if (selectedKasina === KASINA_TYPES.YELLOW) {
+          console.log("🟡 ATTEMPTING DIRECT YELLOW KASINA MANUAL STOP FIX");
+          
+          // Create a direct version of the payload specifically for yellow kasina
+          const yellowManualFix = {
+            ...manualSessionPayload,
+            kasinaType: "yellow", // Force the correct string value
+            _yellowDirectFix: true, // Flag for server to identify this fix
+            _manualStop: true // Additional flag to show this was manually stopped
+          };
+          
+          // Log the special yellow manual stop payload
+          console.log("🟡 YELLOW KASINA DIRECT MANUAL STOP PAYLOAD:", yellowManualFix);
+          
+          // Send using the API directly
+          fetch('/api/sessions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(yellowManualFix)
+          })
+          .then(response => {
+            if (response.ok) {
+              console.log("🟡 YELLOW KASINA MANUAL STOP SESSION SAVED SUCCESSFULLY");
+            } else {
+              console.error("Failed to save yellow kasina manual stop session:", response.status);
+            }
+            return response.json();
+          })
+          .catch(error => {
+            console.error("Error saving yellow kasina manual stop session:", error);
+          });
+        } else {
+          // Normal case for all other kasina types
+          addSession(manualSessionPayload as any);
+        }
         
         toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
       } else {
