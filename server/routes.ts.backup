@@ -316,18 +316,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const originalDuration = safeBody.originalDuration || 0;
     const durationInMinutes = safeBody.durationInMinutes || 0;
     
-    // CRITICAL WHOLE-MINUTE FIX: Check for special flags for whole-minute sessions
-    // Directly handle the force flag before any other processing
-    if (req.body._forceWholeMinuteFix) {
-      console.log(`🔥 CRITICAL WHOLE-MINUTE SESSION FORCE FIX DETECTED`);
-      console.log(`- Duration from flag: ${req.body._duration || 'N/A'}`);
-      console.log(`- Minutes value: ${durationInMinutes || 'N/A'}`);
-      
-      // Get the minutes value from the most reliable source
-      const minutes = req.body._duration ? Math.round(req.body._duration / 60) : durationInMinutes;
-      console.log(`✅ WHOLE-MINUTE SESSION GUARANTEED: ${minutes} minute(s)`);
-    }
-    
     console.log("CRITICAL DURATION DEBUG:");
     console.log("1. Kasina Name:", kasinaName);
     console.log("2. Raw Duration:", safeBody.duration);

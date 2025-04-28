@@ -100,21 +100,37 @@ const TimerKasinas: React.FC = () => {
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
     
-    // CRITICAL FIX: Direct save on completion - always force a save for 1-minute timers
-    // This bypasses the regular save flow which might be failing for 1-minute sessions
-    const isOneMinute = duration === 60;
-    if (isOneMinute) {
-      console.log("🔥 CRITICAL 1-MINUTE SESSION FIX: Forcing direct API save");
+    // CRITICAL FIX: Direct save on completion for whole-number timer durations (1-min, 2-min, etc.)
+    // This is a direct bypass of the regular save flow which seems to fail for naturally completed timers
+    
+    // Check if this is a whole-number minute timer (60s, 120s, 180s, etc.)
+    const isWholeMinuteTimer = duration && duration % 60 === 0 && duration > 0;
+    const minutes = duration ? Math.round(duration / 60) : 1;
+    const minuteText = minutes === 1 ? "minute" : "minutes";
+    
+    // Log the exact timer values we're working with
+    console.log(`TIMER CHECK: duration=${duration}, isWholeMinute=${isWholeMinuteTimer}, minutes=${minutes}`);
+    
+    if (isWholeMinuteTimer) {
+      console.log(`🔥 CRITICAL WHOLE-MINUTE FIX: Forcing direct API save for ${minutes}-${minuteText} session`);
       
       // Create a guaranteed working payload with proper formatting
       const payload = {
         kasinaType: selectedKasina.toLowerCase(),
-        kasinaName: `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1).toLowerCase()} (1-minute)`,
-        duration: 60,
-        durationInMinutes: 1,
+        kasinaName: `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
+        duration: minutes * 60,
+        durationInMinutes: minutes,
         timestamp: new Date().toISOString(),
-        _forceOneMinuteFix: true
+        _forceWholeMinuteFix: true,
+        _completedNaturally: true,
+        _duration: minutes * 60
       };
+      
+      // Store as backup in localStorage
+      try {
+        localStorage.setItem('lastCompletedSession', JSON.stringify(payload));
+        console.log("💾 Saved whole-minute session data to localStorage as fallback");
+      } catch (e) { /* Ignore */ }
       
       // Direct API call to ensure it's saved
       fetch('/api/sessions', {
@@ -126,14 +142,34 @@ const TimerKasinas: React.FC = () => {
       })
       .then(response => {
         if (response.ok) {
-          console.log("✅ CRITICAL 1-MINUTE FIX: Session saved successfully");
+          console.log(`✅ CRITICAL ${minutes}-MINUTE FIX: Session saved successfully`);
           sessionSavedRef.current = true;
+          
+          // Show success toast
+          toast.success(`${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} kasina session saved (${minutes} ${minuteText})`);
         } else {
-          console.error("❌ CRITICAL 1-MINUTE FIX: Session save failed:", response.status);
+          console.error(`❌ CRITICAL ${minutes}-MINUTE FIX: Session save failed:`, response.status);
+          
+          // Try a second time with a slight variation
+          setTimeout(() => {
+            console.log("Attempting backup save method...");
+            fetch('/api/sessions', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                ...payload,
+                _backupMethod: true
+              })
+            })
+            .then(r => console.log(`Backup save ${r.ok ? 'succeeded' : 'failed'}`))
+            .catch(e => console.error("Backup save failed:", e));
+          }, 500);
         }
       })
       .catch(error => {
-        console.error("❌ CRITICAL 1-MINUTE FIX: Error saving session:", error);
+        console.error(`❌ CRITICAL ${minutes}-MINUTE FIX: Error saving session:`, error);
       });
       
       return; // Skip the normal flow since we handled it directly
