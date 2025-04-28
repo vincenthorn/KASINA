@@ -216,7 +216,25 @@ const TimerKasinas: React.FC = () => {
   
   // Track timer status for saving
   const handleStatusUpdate = (remaining: number | null, elapsed: number) => {
-    console.log("Timer update:", { remaining, elapsed, duration, alreadySaved: sessionSavedRef.current });
+    console.log("Timer update:", { 
+      kasinaType: selectedKasina,
+      remaining, 
+      elapsed, 
+      duration, 
+      alreadySaved: sessionSavedRef.current 
+    });
+    
+    // Special debug for yellow kasina sessions
+    if (selectedKasina === KASINA_TYPES.YELLOW) {
+      console.log(`🟡 YELLOW KASINA SESSION DATA:
+        - Selected Kasina: ${selectedKasina}
+        - Kasina Type: ${KASINA_TYPES.YELLOW}
+        - Elapsed Time: ${elapsed}s
+        - Duration Set: ${duration}s
+        - Already Saved: ${sessionSavedRef.current}
+        - Timer Status: ${remaining === null ? 'Counting up' : 'Counting down'}`);
+    }
+    
     setElapsedTime(elapsed);
     
     // Handle manual stop (when remaining is not 0 but we got a final update)
