@@ -6,6 +6,20 @@ import { formatTime } from '../lib/utils';
 import { Input } from './ui/input';
 import debug from '../lib/debugging';
 
+// Define type for global window properties
+declare global {
+  interface Window {
+    __DEBUG_TIMER: {
+      originalDuration: number | null;
+      currentDuration: number | null;
+      timerStartTime: number | null;
+      lastTickTime: number | null;
+      mountedComponentId: string | null;
+    };
+    __KASINA_TIMER_START: number; // Global timestamp for when the timer started
+  }
+}
+
 // Define a unique ID for this component instance to track across re-renders
 const TIMER_COMPONENT_ID = `SimpleTimer_${Date.now()}`;
 
@@ -160,6 +174,13 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         timeRemaining 
       });
       
+      // HARDCORE FIX: Store the start time on window for absolute reference
+      // This makes it impossible to lose track of when the timer started
+      if (typeof window !== 'undefined') {
+        window.__KASINA_TIMER_START = Date.now();
+        console.log("🕰️ GLOBAL TIMER START TIME SET:", window.__KASINA_TIMER_START);
+      }
+      
       // Set the component ID in global debug tracking
       if (typeof window !== 'undefined') {
         window.__DEBUG_TIMER.mountedComponentId = TIMER_COMPONENT_ID;
@@ -167,7 +188,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
       }
     }
     
-    // When timer stops running, clear start time
+    // When timer stops running, clear start time but preserve the global reference
     if (!isRunning && timerStartedAtRef.current) {
       debug.log(TIMER_COMPONENT_ID, 'Timer stopped', { 
         startTime: timerStartedAtRef.current,
@@ -606,7 +627,37 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 onUpdate(timeRemaining, elapsedTime);
               }
             } else {
+              // CRITICAL PROTECTION: Set up a minimum runtime before allowing completion
+              // This is the absolutely most direct fix for premature session termination
+              console.log("🔵 Starting timer with protection");
+              
+              // First clear any existing completion flag to be safe
+              sessionCompletedRef.current = false;
+              
+              // Set a timestamp in the timer component itself
+              // This is the most direct and reliable protection
+              timerStartedAtRef.current = Date.now();
+              console.log("⏱️ TIMER START TIMESTAMP SET:", timerStartedAtRef.current);
+              
+              // Start timer in the store
               startTimer();
+              
+              // Inform parent component and Zustand store via DOM custom event
+              // This ensures all components can synchronize with timer state
+              if (typeof window !== 'undefined') {
+                try {
+                  const event = new CustomEvent('kasina-timer-started', { 
+                    detail: { 
+                      timestamp: Date.now(),
+                      duration: duration
+                    } 
+                  });
+                  window.dispatchEvent(event);
+                  console.log("🔊 Dispatched kasina-timer-started event");
+                } catch (e) {
+                  console.error("Error dispatching custom event:", e);
+                }
+              }
             }
           }}
           className="w-20 focus-mode-exempt"

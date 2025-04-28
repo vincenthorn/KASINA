@@ -48,8 +48,24 @@ const TimerKasinas: React.FC = () => {
     setValidSession(true);
     console.log("✅ Session marked as valid on component mount");
     
+    // CRITICAL NEW FIX: Set up a listener for the custom timer-started event
+    // This ensures we capture the exact moment when a timer is started
+    const handleTimerStarted = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      console.log("🎯 Received timer-started event:", customEvent.detail);
+      
+      // Call our timer start handler
+      handleTimerStart();
+    };
+    
+    // Add the event listener
+    window.addEventListener('kasina-timer-started', handleTimerStarted);
+    
     // Reset saved flag when navigating or unmounting
     return () => {
+      // Clean up the event listener
+      window.removeEventListener('kasina-timer-started', handleTimerStarted);
+      
       sessionSavedRef.current = false;
       console.log("TimerKasinas component unmounted");
     };
