@@ -192,5 +192,21 @@
     "duration": 120,
     "timestamp": "2025-04-28T12:56:45.162Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745845443897",
+    "kasinaType": "water",
+    "kasinaName": "Water (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-28T13:04:03.524Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745845924351",
+    "kasinaType": "fire",
+    "kasinaName": "Fire (2-minutes)",
+    "duration": 120,
+    "timestamp": "2025-04-28T13:12:04.011Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]
