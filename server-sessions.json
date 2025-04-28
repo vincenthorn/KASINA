@@ -112,5 +112,13 @@
     "duration": 60,
     "timestamp": "2025-04-28T02:10:23.063Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745808082956",
+    "kasinaType": "fire",
+    "kasinaName": "Fire (5-minutes)",
+    "duration": 300,
+    "timestamp": "2025-04-28T02:41:22.784Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]
