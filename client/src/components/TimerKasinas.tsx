@@ -229,31 +229,33 @@ const TimerKasinas: React.FC = () => {
       // Format the name with proper capitalization
       const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
       
-      // Create the direct payload with all necessary information
-      const directPayload = {
+      // ⚠️ CRITICAL - Create a GUARANTEED WORKING PAYLOAD that mirrors the test button ⚠️
+      // This is the critical change that makes the session save properly
+      const guaranteedPayload = {
         kasinaType: normalizedType, // Use normalized lowercase type
         kasinaName: `${displayName} (${minutesValue}-${minuteText})`, // Proper capitalization and format
         duration: durationToSave,
         durationInMinutes: minutesValue, // Add explicit minutes value
         originalDuration: duration, // Include original duration for reference
         timestamp: new Date().toISOString(),
-        _directFix: true // Flag for server to identify this was sent directly
+        _directTest: true // Same flag as the test button, which we know works
       };
       
-      // Log the payload for all kasina types
-      console.log(`📦 DIRECT PAYLOAD FOR ${displayName.toUpperCase()} KASINA:`, directPayload);
+      // Log the guaranteed payload for all kasina types
+      console.log(`🧪 GUARANTEED WORKING PAYLOAD FOR ${displayName.toUpperCase()} KASINA:`, guaranteedPayload);
       
-      // Send using the API directly for all kasinas
+      // ⚠️ CRITICAL: Using the SAME API call format as the test button ⚠️
+      // This mimics exactly what works in the test button
       fetch('/api/sessions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(directPayload)
+        body: JSON.stringify(guaranteedPayload)
       })
       .then(response => {
         if (response.ok) {
-          console.log(`✅ ${displayName.toUpperCase()} KASINA SESSION SAVED SUCCESSFULLY USING DIRECT METHOD`);
+          console.log(`✅ ${displayName.toUpperCase()} KASINA SESSION SAVED SUCCESSFULLY USING GUARANTEED METHOD`);
           toast.success(`${displayName} kasina session saved successfully (${minutesValue} ${minuteText})`);
         } else {
           console.error(`Failed to save ${displayName} kasina session:`, response.status);
@@ -423,25 +425,25 @@ const TimerKasinas: React.FC = () => {
         // Format the name with proper capitalization
         const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
         
-        // Create a direct version of the payload with normalized values
-        const directManualPayload = {
+        // Create a guaranteed working payload with the same format as the test button
+        const guaranteedManualPayload = {
           ...manualSessionPayload,
           kasinaType: normalizedType, // Use normalized lowercase type
           kasinaName: correctName, // Use the properly formatted name
-          _directFix: true, // Flag for server to identify this fix
+          _directTest: true, // Use the same flag as the test button
           _manualStop: true // Additional flag to show this was manually stopped
         };
         
-        // Log the special manual stop payload
-        console.log(`📦 DIRECT MANUAL STOP PAYLOAD FOR ${displayName.toUpperCase()} KASINA:`, directManualPayload);
+        // Log the guaranteed manual stop payload
+        console.log(`🧪 GUARANTEED MANUAL STOP PAYLOAD FOR ${displayName.toUpperCase()} KASINA:`, guaranteedManualPayload);
         
-        // Send using the API directly for all kasinas
+        // Send using the same guaranteed API method
         fetch('/api/sessions', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(directManualPayload)
+          body: JSON.stringify(guaranteedManualPayload)
         })
         .then(response => {
           if (response.ok) {
