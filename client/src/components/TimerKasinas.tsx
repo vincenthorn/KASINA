@@ -40,11 +40,18 @@ const TimerKasinas: React.FC = () => {
   
   // Reset session saved flag when the component mounts
   useEffect(() => {
+    console.log("🔵 TimerKasinas component mounted");
     sessionSavedRef.current = false;
+    
+    // CRITICAL FIX: Immediately mark the session as valid on mount
+    // This was preventing sessions from being saved
+    setValidSession(true);
+    console.log("✅ Session marked as valid on component mount");
     
     // Reset saved flag when navigating or unmounting
     return () => {
       sessionSavedRef.current = false;
+      console.log("TimerKasinas component unmounted");
     };
   }, []);
   
