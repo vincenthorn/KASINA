@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Button } from './ui/button';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useFocusMode } from '../lib/stores/useFocusMode';
-import { formatTime } from '../lib/utils';
+import { formatTime, saveDirectTestSession } from '../lib/utils';
 import { Input } from './ui/input';
 
 interface SimpleTimerProps {
@@ -101,6 +101,40 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 finalDuration = 60;
               }
               
+              // EMERGENCY FIX: Use the direct test approach that we know works reliably
+              // This is a critical addition to ensure sessions get saved
+              
+              // First attempt an emergency direct save - this has been proven to work
+              const actualMinutes = Math.round(finalDuration / 60);
+              if (actualMinutes >= 1) {
+                console.log(`🚨 UNIVERSAL EMERGENCY FIX - Using direct test function for ${actualMinutes} minute(s)`);
+                
+                // Create a direct test payload that we know works
+                const directTestPayload = {
+                  kasinaType: kasinaType.toLowerCase(),
+                  kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1).toLowerCase()} (${actualMinutes}-${actualMinutes === 1 ? 'minute' : 'minutes'})`,
+                  duration: actualMinutes * 60,
+                  durationInMinutes: actualMinutes,
+                  timestamp: new Date().toISOString(),
+                  _directTest: true
+                };
+                
+                console.log("📋 Direct test payload:", directTestPayload);
+                
+                // Make the direct API call using fetch
+                fetch('/api/sessions', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(directTestPayload)
+                })
+                .then(response => {
+                  console.log(`🚨 Direct test save ${response.ok ? 'succeeded' : 'failed'}`);
+                })
+                .catch(error => {
+                  console.error(`🚨 Direct test save error:`, error);
+                });
+              }
+              
               // UNIVERSAL WHOLE-MINUTE FIX: Handle ALL kasina types
               // First, add special handling for whole-minute durations to ensure they're saved correctly
               if (finalDuration % 60 === 0) {
@@ -160,8 +194,11 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               // Add additional flags for universal whole-minute fix
               if (finalDuration % 60 === 0) {
                 console.log(`🌟 Adding UNIVERSAL WHOLE-MINUTE flags to payload`);
+                // @ts-ignore - These properties are used by the server but not in the type
                 payload._universalFix = true;
+                // @ts-ignore - These properties are used by the server but not in the type
                 payload._guaranteedSession = true;
+                // @ts-ignore - These properties are used by the server but not in the type
                 payload._wholeMintuteDuration = minutes;
               }
               

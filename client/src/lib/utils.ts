@@ -88,6 +88,50 @@ export const roundUpToNearestMinute = (seconds: number): number => {
   }
 };
 
+// EMERGENCY FIX: Special function that uses the test API route to directly save a session
+// This uses the special test route that we know works reliably
+export const saveDirectTestSession = async (
+  kasinaType: string,
+  minutes: number = 1,
+  isManualStop: boolean = false
+): Promise<boolean> => {
+  try {
+    const minuteText = minutes === 1 ? "minute" : "minutes";
+    console.log(`🚨 EMERGENCY DIRECT TEST SAVE: ${kasinaType} for ${minutes} ${minuteText}`);
+    
+    // Create a simple payload that mimics the test route format
+    const payload = {
+      kasinaType: kasinaType.toLowerCase(),
+      kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
+      duration: minutes * 60, // Always use exact minutes in seconds
+      durationInMinutes: minutes,
+      timestamp: new Date().toISOString(),
+      _directTest: true, // Mark as a direct test route payload
+      _manualStop: isManualStop // Indicate if this was manually stopped
+    };
+    
+    console.log("📋 Direct test payload:", payload);
+    
+    // Make the direct API call that we know works
+    const response = await fetch('/api/sessions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    
+    if (response.ok) {
+      console.log(`✅ DIRECT TEST: Session saved successfully`);
+      return true;
+    } else {
+      console.error(`❌ DIRECT TEST: Session save failed:`, response.status);
+      return false;
+    }
+  } catch (e) {
+    console.error("❌ DIRECT TEST: Error saving session:", e);
+    return false;
+  }
+};
+
 // CRITICAL FIX: Helper function to directly save whole-minute sessions
 // This bypasses the regular flow that may be failing for naturally completed sessions
 export const saveWholeMinuteSession = async (
