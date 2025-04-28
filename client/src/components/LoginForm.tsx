@@ -6,6 +6,47 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription } from "./ui/alert";
 
+// Custom styles for a larger login form
+const customCardStyles = {
+  width: "100%",
+  maxWidth: "500px", // Wider card (was max-w-md which is about 448px)
+  backgroundColor: "#111827", // bg-gray-900
+  borderColor: "#374151", // border-gray-700
+  padding: "8px",
+  borderRadius: "8px",
+  borderWidth: "1px",
+  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+};
+
+const customTitleStyles = {
+  color: "white",
+  textAlign: "center" as const,
+  fontSize: "22px", // Larger title text
+  marginBottom: "16px"
+};
+
+const customInputStyles = {
+  backgroundColor: "#1f2937", // bg-gray-800
+  borderColor: "#374151", // border-gray-700
+  color: "white",
+  fontSize: "18px", // Larger input text
+  padding: "12px 16px", // More padding
+  height: "52px", // Taller input
+  borderRadius: "6px",
+  width: "100%"
+};
+
+const customButtonStyles = {
+  width: "100%",
+  backgroundColor: "#4f46e5", // bg-indigo-600
+  color: "white",
+  fontSize: "18px", // Larger button text
+  padding: "12px 16px", // More padding
+  height: "52px", // Taller button
+  borderRadius: "6px",
+  fontWeight: "500" as const
+};
+
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -38,43 +79,47 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex justify-center">
-      <Card className="w-full max-w-md bg-gray-900 border-gray-700">
-        <CardHeader>
-          <CardTitle className="text-white text-center">
-            Use your <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account:
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="w-full flex justify-center" style={{ transform: "scale(1.1)", margin: "20px 0" }}>
+      <div style={customCardStyles}>
+        <div style={{ padding: "20px 24px 12px 24px" }}>
+          <div style={customTitleStyles}>
+            Use your <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" style={{ color: "#818cf8", textDecoration: "none" }}>contemplative.technology</a> account:
+          </div>
+        </div>
+        <div style={{ padding: "16px 24px 24px 24px" }}>
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {error && (
               <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>{error}</AlertDescription>
+                <AlertCircle className="h-5 w-5" />
+                <AlertDescription style={{ fontSize: "16px" }}>{error}</AlertDescription>
               </Alert>
             )}
             
-            <div className="space-y-2">
-              <Input
+            <div>
+              <input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-gray-800 border-gray-700 text-white"
+                style={customInputStyles}
                 disabled={isSubmitting}
               />
             </div>
             
-            <Button 
+            <button 
               type="submit" 
-              className="w-full bg-indigo-600 hover:bg-indigo-700"
+              style={{
+                ...customButtonStyles,
+                backgroundColor: isSubmitting ? "#6366f1" : "#4f46e5",
+                cursor: isSubmitting ? "not-allowed" : "pointer"
+              }}
               disabled={isSubmitting}
             >
               {isSubmitting ? "Checking..." : "Enter"}
-            </Button>
+            </button>
           </form>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };
