@@ -78,6 +78,63 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             onUpdate(0, elapsedTime);
           }
           
+          // ⚠️ CRITICAL: Explicit timer completion handler for sessions ⚠️
+          try {
+            // Get original duration that was set (should match the button)
+            const originalDuration = duration || 0;
+            console.log(`⏰ TIMER COMPLETED - Original duration: ${originalDuration}s`);
+            
+            // Calculate actual minutes (round up to match UI)
+            const minutes = Math.ceil(originalDuration / 60);
+            const minuteText = minutes === 1 ? "minute" : "minutes";
+            
+            // Get kasina type from window object - this should be reliable
+            if (window.__KASINA_DEBUG) {
+              const kasina = window.__KASINA_DEBUG;
+              const kasinaType = kasina.selectedKasina;
+              console.log(`Retrieved kasina type from debug object: ${kasinaType}`);
+              
+              // Normalize kasina type and create display name
+              const normalizedType = kasinaType.toLowerCase();
+              const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
+              
+              // Create payload with explicit minute value
+              const payload = {
+                kasinaType: normalizedType,
+                kasinaName: `${displayName} (${minutes}-${minuteText})`,
+                duration: originalDuration,
+                durationInMinutes: minutes, // This is important!
+                timestamp: new Date().toISOString(),
+                _timerComplete: true // Flag that this completed normally
+              };
+              
+              console.log(`⌛ TIMER COMPLETION - Saving session:`, payload);
+              
+              // Direct API call that bypasses any other logic
+              fetch('/api/sessions', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload)
+              })
+              .then(response => {
+                if (response.ok) {
+                  console.log(`✓ TIMER COMPLETION - Session save successful: ${displayName} (${minutes}m)`);
+                } else {
+                  console.error(`❌ TIMER COMPLETION - Session save failed: ${response.status}`);
+                }
+              })
+              .catch(error => {
+                console.error(`❌ TIMER COMPLETION - Error saving session:`, error);
+              });
+            } else {
+              console.error("❌ TIMER COMPLETION - No debug data available to save session");
+            }
+          } catch (e) {
+            console.error("❌ TIMER COMPLETION - Error in completion handler:", e);
+          }
+          
           // Then call the completion handler
           if (onComplete) onComplete();
           // Note: Focus mode disable happens in the other useEffect
@@ -290,19 +347,36 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 
                 try {
                   // Retrieve special KASINA data from window
-                  const kasina = window.__KASINA_DEBUG || {};
-                  const kasinaType = kasina.selectedKasina || 'white';
+                  const kasina = window.__KASINA_DEBUG || { selectedKasina: 'white', startTime: 0, duration: 0 };
+                  const kasinaType = kasina.selectedKasina;
                   console.log(`🧪 Retrieved kasinaType from window.__KASINA_DEBUG: ${kasinaType}`);
                   
-                  // Apply 31-second rule
+                  // Apply 31-second rule with proper minute calculation
                   let adjustedTime = elapsedTime;
+                  
+                  // Check if we have the original duration value
+                  const originalDur = duration || 0;
+                  let originalMinutesSet = Math.ceil(originalDur / 60);
+                  
                   if (elapsedTime < 60) {
-                    adjustedTime = 60; // Round up to 1 minute
+                    // Very short sessions (<1m) always round up to exactly 1 minute
+                    adjustedTime = 60;
+                    originalMinutesSet = 1;
+                  } else if (elapsedTime < originalDur && originalDur >= 120) {
+                    // If they were partway through a longer session, keep the minutes they selected
+                    console.log(`💡 Session stopped partway: ${elapsedTime}s / ${originalDur}s`);
+                    console.log(`💡 Using original minutes set: ${originalMinutesSet}m`);
+                  } else {
+                    // For everything else, calculate based on elapsed time
+                    originalMinutesSet = Math.ceil(elapsedTime / 60);
                   }
                   
-                  // Get minutes value
-                  const minutesValue = Math.ceil(adjustedTime / 60);
+                  // Get final minutes value
+                  const minutesValue = originalMinutesSet;
                   const minuteText = minutesValue === 1 ? "minute" : "minutes";
+                  
+                  // For API consistency, send the exact number of seconds too
+                  adjustedTime = minutesValue * 60;
                   
                   // Normalize kasina type
                   const normalizedType = kasinaType.toLowerCase();

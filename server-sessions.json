@@ -168,5 +168,29 @@
     "duration": 120,
     "timestamp": "2025-04-28T12:29:03.140Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745844282570",
+    "kasinaType": "water",
+    "kasinaName": "Water (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-28T12:44:42.449Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745844836922",
+    "kasinaType": "yellow",
+    "kasinaName": "Yellow (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-28T12:53:56.595Z",
+    "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745845005538",
+    "kasinaType": "yellow",
+    "kasinaName": "Yellow (2-minutes)",
+    "duration": 120,
+    "timestamp": "2025-04-28T12:56:45.162Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]
