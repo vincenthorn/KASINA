@@ -706,9 +706,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.status(201).json(video);
   });
   
-  // RELIABLE SESSION SAVING ENDPOINT - Works for any kasina type and duration
+  // GUARANTEED SESSION SAVING ENDPOINT - Works for any kasina type and duration
   app.post("/api/direct-one-minute-session", (req, res) => {
     if (!req.session?.user?.email) {
+      console.log("❌ AUTH ERROR: User not authenticated");
       return res.status(401).json({ message: "Authentication required" });
     }
     
@@ -722,6 +723,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Format with proper pluralization
       const minuteText = minutes === 1 ? "minute" : "minutes";
       
+      // Log detailed information for debugging
+      console.log(`========== GUARANTEED SESSION LOG ==========`);
+      console.log(`User: ${req.session.user.email}`);
+      console.log(`Kasina: ${kasinaType}`);
+      console.log(`Minutes: ${minutes}`);
+      console.log(`Request body:`, req.body);
+      console.log(`===========================================`);
+      
       // Create a guaranteed session
       const session = {
         id: Date.now().toString(),
@@ -732,13 +741,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         userEmail: req.session.user.email
       };
       
-      console.log(`🔐 RELIABLE SESSION LOGGING: Created ${minutes}-minute ${kasinaType} session`);
+      console.log(`🔐 GUARANTEED SESSION LOGGING: Created ${minutes}-minute ${kasinaType} session`);
       
       // Add to sessions and save to file
       sessions.push(session);
       saveDataToFile(sessionsFilePath, sessions);
       
-      console.log(`✅ RELIABLE SESSION SAVED: ${minutes}-minute ${kasinaType} session for ${req.session.user.email}`);
+      console.log(`✅ GUARANTEED SESSION SAVED: ${minutes}-minute ${kasinaType} session for ${req.session.user.email}`);
       
       return res.status(201).json({
         success: true,
@@ -746,11 +755,57 @@ export async function registerRoutes(app: Express): Promise<Server> {
         session
       });
     } catch (error) {
-      console.error("Error in reliable session save:", error);
+      console.error("⚠️ ERROR in guaranteed session save:", error);
       return res.status(500).json({ 
         success: false,
         message: "Failed to save session",
         error: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+  
+  // ULTRA RELIABLE FALLBACK ROUTE - Always works even if the client-side code has issues
+  app.get("/api/save-session/:kasinaType/:minutes", (req, res) => {
+    if (!req.session?.user?.email) {
+      console.log("❌ ULTRA FALLBACK - AUTH ERROR: User not authenticated");
+      return res.status(401).json({ message: "Authentication required" });
+    }
+    
+    try {
+      // Get parameters from URL
+      const kasinaType = req.params.kasinaType.toLowerCase();
+      const minutes = parseInt(req.params.minutes, 10) || 1;
+      
+      console.log(`🧨 ULTRA FALLBACK ROUTE CALLED - ${kasinaType} (${minutes} min)`);
+      
+      // Use the exact same logic as the main endpoint
+      const minuteText = minutes === 1 ? "minute" : "minutes";
+      
+      const session = {
+        id: Date.now().toString(),
+        kasinaType: kasinaType,
+        kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-${minuteText})`,
+        duration: minutes * 60,
+        timestamp: new Date().toISOString(),
+        userEmail: req.session.user.email
+      };
+      
+      // Add to sessions and save
+      sessions.push(session);
+      saveDataToFile(sessionsFilePath, sessions);
+      
+      console.log(`🧨 ULTRA FALLBACK: Successfully saved ${minutes}-min ${kasinaType} session`);
+      
+      return res.status(201).json({
+        success: true,
+        message: `Successfully saved session through ultra fallback route`,
+        session
+      });
+    } catch (error) {
+      console.error("❌ ULTRA FALLBACK ERROR:", error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "Failed to save session through fallback" 
       });
     }
   });
