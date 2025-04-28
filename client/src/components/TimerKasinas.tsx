@@ -176,7 +176,7 @@ const TimerKasinas: React.FC = () => {
           
         } catch (error) {
           console.error("❌ Error saving whole-minute session:", error);
-          toast.error(`Error saving session: ${error.message}`);
+          toast.error(`Error saving session. Please try again.`);
         }
       };
       

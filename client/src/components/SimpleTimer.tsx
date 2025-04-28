@@ -101,6 +101,21 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 finalDuration = 60;
               }
               
+              // CRITICAL FIX: Special handling for Space kasina sessions
+              if (kasinaType.toLowerCase() === 'space') {
+                console.log(`🔮 SPACE KASINA DETECTED - Adding special emergency handling`);
+                
+                // For 1-minute sessions, force to exactly 60 seconds
+                if (minutes === 1 || finalDuration === 60 || (finalDuration > 31 && finalDuration < 60)) {
+                  console.log(`🔮 SPACE KASINA FIX: Setting 1-minute session to EXACTLY 60 seconds`);
+                  finalDuration = 60;
+                }
+                // For whole-minute durations, preserve exactly
+                else if (finalDuration % 60 === 0) {
+                  console.log(`🔮 SPACE KASINA FIX: Preserving whole-minute duration: ${finalDuration}s`);
+                }
+              }
+              
               // Special handling for 1-minute sessions - the MOST problematic duration
               if (minutes === 1 || finalDuration === 60) {
                 console.log(`⚠️ 1-MINUTE SESSION DETECTED - Special handling enabled`);
@@ -121,7 +136,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 originalDuration: originalDuration, // For debugging
                 timestamp: new Date().toISOString(),
                 _timerComplete: true, // Flag that this completed normally
-                _guaranteed: true // Special server-side flag
+                _guaranteed: true, // Special server-side flag
+                // Add special flag for Space kasina sessions
+                _spaceKasinaFix: normalizedType === 'space'
               };
               
               console.log(`⌛ TIMER COMPLETION - Saving session:`, payload);

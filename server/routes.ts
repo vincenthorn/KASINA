@@ -378,6 +378,55 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // Always override with the normalized type to ensure consistency
     safeBody.kasinaType = normalizedType;
     
+    // CRITICAL FIX: Special handling for Space kasina sessions
+    if (normalizedType === 'space') {
+      console.log("🔮 SPACE KASINA DETECTED - Adding special handling");
+      console.log("- Original duration: " + duration + "s");
+      
+      // Always track space sessions in dedicated debug log
+      const spaceDebug = {
+        timestamp: new Date().toISOString(),
+        originalDuration: duration,
+        minutesFromPayload: durationInMinutes || Math.round(duration / 60),
+        payloadFlags: {
+          forceFix: !!req.body._forceWholeMinuteFix,
+          directTest: !!req.body._directTest,
+          directFix: !!req.body._directFix,
+          timerComplete: !!req.body._timerComplete,
+          simpleFix: !!req.body._simpleForceFix
+        }
+      };
+      
+      console.log("🔮 SPACE KASINA DEBUG:", JSON.stringify(spaceDebug));
+      
+      // Special debug mode: If we have force flags, ensure duration is set correctly
+      if (req.body._forceWholeMinuteFix || req.body._timerComplete || 
+          req.body._directTest || req.body._simpleForceFix) {
+        
+        console.log("🔮 SPACE KASINA FORCE FIX ENGAGED");
+        
+        // For special 1-minute case, force to exactly 60 seconds
+        if (durationInMinutes === 1 || duration === 60 || 
+            (duration > 31 && duration < 60)) {
+          console.log("🔮 Forcing SPACE kasina to exactly 60 seconds (1 minute)");
+          finalDuration = 60;
+        } 
+        // For whole-minute durations, preserve exactly
+        else if (duration % 60 === 0) {
+          console.log(`🔮 Preserving whole-minute SPACE kasina: ${duration}s`);
+          finalDuration = duration;
+        }
+        // In all other cases, round to nearest minute
+        else {
+          const minutes = Math.round(duration / 60);
+          finalDuration = minutes * 60;
+          console.log(`🔮 Rounding SPACE kasina to ${minutes} minutes (${finalDuration}s)`);
+        }
+        
+        console.log("🔮 SPACE KASINA FINAL DURATION:", finalDuration);
+      }
+    }
+    
     // Log for yellow kasina sessions for backward compatibility
     if (normalizedType === 'yellow' || kasinaName.includes('yellow')) {
       console.log("🟡 YELLOW KASINA SESSION PROCESSED WITH NORMALIZED TYPE");
