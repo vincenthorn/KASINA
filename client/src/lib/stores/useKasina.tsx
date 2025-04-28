@@ -110,6 +110,16 @@ export const useKasina = create<KasinaState>((set, get) => ({
     // CRITICAL FIX: Make sure duration is passed as a number
     // and convert it to seconds if it's in minutes
     let duration = session.duration;
+    const kasinaType = session.kasinaType;
+    
+    // Special debugging and handling for Yellow kasina
+    if (kasinaType === 'yellow') {
+      console.log(`🟡 YELLOW KASINA STORE PROCESSING:
+      - Original duration: ${duration}
+      - Type value: "${kasinaType}"
+      - Correct YELLOW value: "${KASINA_TYPES.YELLOW}"
+      - Session object: ${JSON.stringify(session)}`);
+    }
     
     // If we get a string, convert it to a number
     if (typeof duration === 'string') {
@@ -123,13 +133,25 @@ export const useKasina = create<KasinaState>((set, get) => ({
       duration = duration * 60;
     }
     
-    console.log("addSession - Final duration value to save:", duration, "seconds");
+    console.log("addSession - Final duration value to save:", duration, "seconds for kasina type:", kasinaType);
     
     // Just delegate to saveSession - this is for backwards compatibility
     const { saveSession } = get();
+    
+    // Special case for Yellow kasina - ensure it's properly formatted
+    // This is a direct fix for the issue with Yellow not being saved properly
+    let finalType = session.kasinaType;
+    if (finalType === 'yellow' || finalType === KASINA_TYPES.YELLOW) {
+      console.log(`🟡 YELLOW KASINA MANUAL FIX APPLIED - This should ensure Yellow sessions are saved correctly.
+      - Original type: "${finalType}"
+      - Normalized to: "yellow"
+      - Duration: ${duration} seconds`);
+      finalType = 'yellow'; // Make absolutely sure we're using the correct string value
+    }
+    
     // Cast to any to avoid type issues - we know these values are compatible
     return saveSession({
-      kasinaType: session.kasinaType,
+      kasinaType: finalType,
       duration: duration, // Use our validated duration
       date: new Date()
     } as any);
