@@ -78,7 +78,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             onUpdate(0, elapsedTime);
           }
           
-          // ⚠️ SIMPLIFIED AND RELIABLE TIMER COMPLETION HANDLER ⚠️
+          // ⚠️ ULTRA RELIABLE TIMER COMPLETION HANDLER ⚠️
           try {
             // Get original duration that was set (should match the button)
             const originalDuration = duration || 0;
@@ -88,6 +88,8 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             const minutes = Math.ceil(originalDuration / 60);
             const minuteText = minutes === 1 ? "minute" : "minutes";
             
+            console.log(`🕒 Completed timer: ${minutes} ${minuteText}`);
+            
             // Get kasina type from window object - this should be reliable
             if (window.__KASINA_DEBUG) {
               const kasina = window.__KASINA_DEBUG;
@@ -95,72 +97,84 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               console.log(`Retrieved kasina type from debug object: ${kasinaType}`);
               
               // CRITICAL: Direct session logging using our guaranteed endpoint
-              console.log(`🔐 DIRECT SESSION LOGGING: Using dedicated API endpoint for ${kasinaType}`);
+              console.log(`🔐 GUARANTEED DIRECT SESSION LOGGING: ${kasinaType} (${minutes} ${minuteText})`);
               
-              // Use our guaranteed direct endpoint
+              // Create a guaranteed payload for our reliable endpoint
+              const apiPayload = { 
+                kasinaType: kasinaType.toLowerCase(),
+                minutes: minutes
+              };
+              
+              console.log('📦 API payload:', apiPayload);
+              
+              // First attempt - Use our guaranteed direct endpoint
               fetch('/api/direct-one-minute-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                  kasinaType: kasinaType.toLowerCase(),
-                  minutes: minutes 
-                })
+                body: JSON.stringify(apiPayload)
               })
               .then(response => {
                 if (response.ok) {
-                  console.log(`✅ SESSION SAVED SUCCESSFULLY: ${kasinaType} (${minutes} minutes)`);
+                  console.log(`✅ SUCCESS! Session saved successfully: ${kasinaType} (${minutes} ${minuteText})`);
                   // Force refresh the sessions list
                   window.dispatchEvent(new Event('session-saved'));
                   return response.json();
                 } else {
-                  console.error(`❌ Session save failed: ${response.status}`);
+                  console.error(`❌ Direct endpoint failed: ${response.status}`);
                   throw new Error(`Failed to save session: ${response.status}`);
                 }
               })
               .catch(error => {
-                console.error(`❌ Error saving session:`, error);
+                console.error(`❌ Error with direct endpoint:`, error);
                 
-                // Try once more with a fallback method
-                console.log("Attempting fallback save method...");
+                // FALLBACK LOGIC - Try using the regular session endpoint
+                console.log(`☎️ Attempting fallback with regular session endpoint...`);
                 
                 // Create a guaranteed payload that will work with the regular API
                 const fallbackPayload = {
                   kasinaType: kasinaType.toLowerCase(),
-                  kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-${minutes === 1 ? 'minute' : 'minutes'})`,
+                  kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-${minuteText})`,
                   duration: minutes * 60,
                   durationInMinutes: minutes,
                   timestamp: new Date().toISOString(),
                   _directTest: true,
-                  _guaranteedSession: true
+                  _guaranteedSession: true,
+                  _timerComplete: true
                 };
                 
-                fetch('/api/sessions', {
+                return fetch('/api/sessions', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify(fallbackPayload)
                 })
                 .then(r => {
-                  console.log(`Fallback save ${r.ok ? 'succeeded' : 'failed'}`);
                   if (r.ok) {
+                    console.log(`✅ Fallback save succeeded`);
                     // Force refresh the sessions list
                     window.dispatchEvent(new Event('session-saved'));
+                  } else {
+                    console.error(`❌ Fallback also failed: ${r.status}`);
+                    throw new Error(`Both save attempts failed`);
                   }
-                })
-                .catch(e => console.error("Fallback save failed:", e));
+                });
+              })
+              .catch(e => {
+                console.error(`❌ All save attempts failed:`, e);
+                
+                // FINAL EMERGENCY FALLBACK - Save to localStorage
+                try {
+                  const sessionData = {
+                    kasinaType: kasinaType.toLowerCase(),
+                    duration: minutes * 60,
+                    timestamp: new Date().toISOString(),
+                    _emergency: true
+                  };
+                  localStorage.setItem('lastCompletedSession', JSON.stringify(sessionData));
+                  console.log("💾 Emergency backup: Session data saved to localStorage");
+                } catch (storageError) {
+                  console.error("❌ Even localStorage failed:", storageError);
+                }
               });
-              
-              // Try to save to localStorage as fallback
-              try {
-                const sessionData = {
-                  kasinaType: kasinaType.toLowerCase(),
-                  duration: minutes * 60,
-                  timestamp: new Date().toISOString()
-                };
-                localStorage.setItem('lastCompletedSession', JSON.stringify(sessionData));
-                console.log("Session data saved to localStorage as fallback");
-              } catch (e) {
-                console.error("Error saving to localStorage:", e);
-              }
             } else {
               console.error("❌ TIMER COMPLETION - No debug data available to save session");
             }

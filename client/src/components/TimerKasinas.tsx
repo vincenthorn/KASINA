@@ -90,6 +90,47 @@ const TimerKasinas: React.FC = () => {
     // Handle focus mode exit properly
     console.log("Timer completed, scheduling focus mode exit");
     
+    // GUARANTEED DIRECT SESSION SAVE
+    // This is a critical step that ensures sessions are always saved when the timer completes
+    try {
+      // Get the original duration from the timer
+      const originalDuration = duration || 0;
+      // Calculate minutes (round up to match UI expectations)
+      const minutes = Math.max(1, Math.ceil(originalDuration / 60));
+      const minuteText = minutes === 1 ? "minute" : "minutes";
+      
+      console.log(`🔥 GUARANTEED SESSION SAVE - ${minutes} ${minuteText} ${selectedKasina} kasina`);
+
+      // Direct call to our guaranteed API endpoint
+      fetch('/api/direct-one-minute-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          kasinaType: selectedKasina.toLowerCase(),
+          minutes: minutes 
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log(`✅ SUCCESS! ${minutes}-${minuteText} ${selectedKasina} session saved`);
+          toast.success(`${selectedKasina} session completed (${minutes} ${minuteText})`);
+          sessionSavedRef.current = true;
+          
+          // Force refresh the sessions list
+          window.dispatchEvent(new Event('session-saved'));
+        } else {
+          console.error(`❌ Session save failed: ${response.status}`);
+          throw new Error(`Failed to save session: ${response.status}`);
+        }
+      })
+      .catch(error => {
+        console.error(`❌ Error saving session:`, error);
+        toast.error("Failed to save session. Please try again.");
+      });
+    } catch (e) {
+      console.error("Error in guaranteed session save:", e);
+    }
+    
     // Delay focus mode exit slightly to ensure proper cleanup
     setTimeout(() => {
       disableFocusMode();
