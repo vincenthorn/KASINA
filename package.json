@@ -64,6 +64,7 @@
     "gl-matrix": "^3.4.3",
     "gsap": "^3.12.5",
     "howler": "^2.2.4",
+    "html2canvas": "^1.4.1",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.453.0",
     "matter-js": "^0.20.0",
