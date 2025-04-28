@@ -706,6 +706,49 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.status(201).json(video);
   });
   
+  // EMERGENCY FIX: Direct route to guarantee a 1-minute session save
+  app.post("/api/direct-one-minute-session", (req, res) => {
+    if (!req.session?.user?.email) {
+      return res.status(401).json({ message: "Authentication required" });
+    }
+    
+    try {
+      // Get the kasina type from the request or default to 'white'
+      const kasinaType = (req.body.kasinaType || 'white').toLowerCase();
+      
+      // Create a guaranteed 1-minute session
+      const session = {
+        id: Date.now().toString(),
+        kasinaType: kasinaType,
+        kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (1-minute)`,
+        duration: 60, // Exactly 60 seconds (1 minute)
+        timestamp: new Date().toISOString(),
+        userEmail: req.session.user.email
+      };
+      
+      console.log("🔥 EMERGENCY 1-MINUTE SESSION CREATED:", session);
+      
+      // Add to sessions and save to file
+      sessions.push(session);
+      saveDataToFile(sessionsFilePath, sessions);
+      
+      console.log(`✅ EMERGENCY FIX: Saved 1-minute ${kasinaType} session for ${req.session.user.email}`);
+      
+      return res.status(201).json({
+        success: true,
+        message: `Successfully saved 1-minute ${kasinaType} kasina session`,
+        session
+      });
+    } catch (error) {
+      console.error("Error in emergency session save:", error);
+      return res.status(500).json({ 
+        success: false,
+        message: "Failed to save emergency session",
+        error: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+  
   // Route to clean test data (temporary convenience route)
   app.get("/api/clean-test-data/:email", (req, res) => {
     try {
