@@ -94,21 +94,45 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               const kasinaType = kasina.selectedKasina;
               console.log(`Retrieved kasina type from debug object: ${kasinaType}`);
               
+              // CRITICAL FOR 1-MINUTE BUG: Make sure duration is at least 60 seconds (1 minute)
+              let finalDuration = originalDuration;
+              if (originalDuration < 60 && originalDuration >= 31) {
+                console.log(`🛠️ CRITICAL 1-MINUTE BUG FIX: Adjusting duration from ${originalDuration}s to 60s`);
+                finalDuration = 60;
+              }
+              
+              // Special handling for 1-minute sessions - the MOST problematic duration
+              if (minutes === 1 || finalDuration === 60) {
+                console.log(`⚠️ 1-MINUTE SESSION DETECTED - Special handling enabled`);
+                // Force hard-coding of 60 seconds to ensure consistency
+                finalDuration = 60;
+              }
+              
               // Normalize kasina type and create display name
               const normalizedType = kasinaType.toLowerCase();
               const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
               
-              // Create payload with explicit minute value
+              // Create payload with explicit minute value and special flags
               const payload = {
                 kasinaType: normalizedType,
                 kasinaName: `${displayName} (${minutes}-${minuteText})`,
-                duration: originalDuration,
+                duration: finalDuration,
                 durationInMinutes: minutes, // This is important!
+                originalDuration: originalDuration, // For debugging
                 timestamp: new Date().toISOString(),
-                _timerComplete: true // Flag that this completed normally
+                _timerComplete: true, // Flag that this completed normally
+                _guaranteed: true // Special server-side flag
               };
               
               console.log(`⌛ TIMER COMPLETION - Saving session:`, payload);
+              
+              // Try to save to localStorage as fallback
+              try {
+                localStorage.setItem('lastCompletedSession', JSON.stringify(payload));
+                console.log("Session data saved to localStorage as fallback");
+              } catch (e) {
+                console.error("Error saving to localStorage:", e);
+              }
               
               // Direct API call that bypasses any other logic
               fetch('/api/sessions', {
@@ -121,12 +145,34 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               .then(response => {
                 if (response.ok) {
                   console.log(`✓ TIMER COMPLETION - Session save successful: ${displayName} (${minutes}m)`);
+                  return response.json();
                 } else {
                   console.error(`❌ TIMER COMPLETION - Session save failed: ${response.status}`);
+                  throw new Error(`Failed to save session: ${response.status}`);
                 }
+              })
+              .then(data => {
+                console.log("Server response:", data);
               })
               .catch(error => {
                 console.error(`❌ TIMER COMPLETION - Error saving session:`, error);
+                
+                // Try a backup method
+                setTimeout(() => {
+                  console.log("Attempting backup save method...");
+                  fetch('/api/sessions', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      ...payload,
+                      _retryMethod: true
+                    })
+                  })
+                  .then(r => console.log(`Backup save ${r.ok ? 'succeeded' : 'failed'}`))
+                  .catch(e => console.error("Backup save failed:", e));
+                }, 500);
               });
             } else {
               console.error("❌ TIMER COMPLETION - No debug data available to save session");

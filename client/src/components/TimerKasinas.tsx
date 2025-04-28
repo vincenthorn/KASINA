@@ -100,6 +100,45 @@ const TimerKasinas: React.FC = () => {
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
     
+    // CRITICAL FIX: Direct save on completion - always force a save for 1-minute timers
+    // This bypasses the regular save flow which might be failing for 1-minute sessions
+    const isOneMinute = duration === 60;
+    if (isOneMinute) {
+      console.log("🔥 CRITICAL 1-MINUTE SESSION FIX: Forcing direct API save");
+      
+      // Create a guaranteed working payload with proper formatting
+      const payload = {
+        kasinaType: selectedKasina.toLowerCase(),
+        kasinaName: `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1).toLowerCase()} (1-minute)`,
+        duration: 60,
+        durationInMinutes: 1,
+        timestamp: new Date().toISOString(),
+        _forceOneMinuteFix: true
+      };
+      
+      // Direct API call to ensure it's saved
+      fetch('/api/sessions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log("✅ CRITICAL 1-MINUTE FIX: Session saved successfully");
+          sessionSavedRef.current = true;
+        } else {
+          console.error("❌ CRITICAL 1-MINUTE FIX: Session save failed:", response.status);
+        }
+      })
+      .catch(error => {
+        console.error("❌ CRITICAL 1-MINUTE FIX: Error saving session:", error);
+      });
+      
+      return; // Skip the normal flow since we handled it directly
+    }
+    
     // Skip if this session was already saved
     if (sessionSavedRef.current) {
       console.log("Session already saved, skipping save operation");
