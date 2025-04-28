@@ -331,8 +331,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const rawKasinaType = safeBody.kasinaType || '';
     const normalizedType = rawKasinaType.toLowerCase();
     
+    // CRITICAL FIX: Check for special 1-minute session force flag
+    if (req.body._forceOneMinuteFix) {
+      console.log(`🔥 CRITICAL 1-MINUTE SESSION FORCE FIX DETECTED`);
+      console.log(`- Kasina type: ${normalizedType}`);
+      console.log(`- Setting duration to EXACTLY 60 seconds`);
+      
+      // Force set the duration to exactly 60 seconds
+      finalDuration = 60;
+      
+      // Verify the fix is working
+      console.log(`✅ 1-MINUTE SESSION FORCED - Final duration: ${finalDuration}s`);
+    }
     // Check if this came from our direct fix or test
-    if (req.body._directFix || req.body._directTest) {
+    else if (req.body._directFix || req.body._directTest) {
       console.log(`📦 DIRECT ${req.body._directTest ? 'TEST' : 'FIX'} DETECTED:`);
       console.log(`- Raw Kasina Type: "${rawKasinaType}"`);
       console.log(`- Normalized Type: "${normalizedType}"`);
@@ -398,7 +410,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
           // CRITICAL FIX: Special handling for 1 and 2 minute values
           if (extractedMinutes === 1) {
             console.log(`🔧 Special handling for 1-minute timer`);
-            finalDuration = 60; // Force exactly 60 seconds
+            // Force exactly 60 seconds
+            finalDuration = 60; 
+            
+            // EMERGENCY FIX FOR 1-MINUTE SESSIONS
+            console.log(`🔥 EMERGENCY FIX FOR 1-MINUTE SESSION`);
+            
+            // Log a critical message to show it's being processed
+            console.log(`💯 1-MINUTE SESSION GUARANTEED:
+              - Original duration: ${duration}s
+              - Minutes from name: ${extractedMinutes}
+              - Type: ${safeBody.kasinaType}
+              - Force flag present: ${!!safeBody._forceOneMinuteFix}
+              - Final duration: ${finalDuration}s 
+              - Timestamp: ${new Date().toISOString()}
+            `);
           } 
           else if (extractedMinutes === 2) {
             console.log(`🔧 Special handling for 2-minute timer`);
