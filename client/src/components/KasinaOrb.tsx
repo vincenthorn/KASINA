@@ -257,19 +257,19 @@ const fireShader = {
       // Use 3D noise over spherical coordinates to avoid seams
       vec3 noiseCoord = vec3(radius, theta * 10.0, phi * 10.0);
       
-      // Create multi-layered noise (extremely slow animation)
+      // Create multi-layered noise (medium-slow animation)
       for(float i = 1.0; i < 4.0; i++) {
         float scale = pow(2.0, i);
-        float intensity = pow(0.5, i) * 0.5; // Reduced intensity by half
-        // Drastically reduced time factor from 0.1 to 0.025, and sine wave frequency from 0.2 to 0.05
-        noiseVal += noise(noiseCoord * scale + time * 0.025 * vec3(1.0, 2.0, 1.0) * (0.5 + 0.5 * sin(time * 0.05 * i))) * intensity;
+        float intensity = pow(0.5, i) * 0.7; // Adjusted intensity for better visibility
+        // Moderately reduced time factor from 0.1 to 0.04, and sine wave frequency from 0.2 to 0.08
+        noiseVal += noise(noiseCoord * scale + time * 0.04 * vec3(1.0, 2.0, 1.0) * (0.5 + 0.5 * sin(time * 0.08 * i))) * intensity;
       }
       
-      // Create extremely gentle pulsing using sine wave (bare minimum intensity)
-      float pulseFactor = (sin(time * 0.1) * 0.5 + 0.5) * 0.0375; // Only 0.0 to 0.0375 range - 4x less than original
+      // Create gentle pulsing using sine wave (moderate intensity)
+      float pulseFactor = (sin(time * 0.15) * 0.5 + 0.5) * 0.05; // 0.0 to 0.05 range - balanced intensity
       
-      // Combine flame base with noise and extremely subtle pulse
-      return clamp(0.5 + noiseVal * 0.1 + pulseFactor, 0.0, 1.0);
+      // Combine flame base with noise and gentle pulse
+      return clamp(0.5 + noiseVal * 0.15 + pulseFactor, 0.0, 1.0);
     }
     
     void main() {
@@ -519,8 +519,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
           meshRef.current.position.z = breatheCycle * 0.05; // Minimal movement in z-direction
         } 
         else if (selectedKasina === KASINA_TYPES.FIRE) {
-          // Fire kasina: Extremely slow 16-second breathing cycle with very subtle flame-like pulsation
-          const t = time % 16 / 16; // Normalized time in the cycle (0-1) - 16 second cycle (4x slower than original)
+          // Fire kasina: Very slow 12-second breathing cycle with subtle flame-like pulsation
+          const t = time % 12 / 12; // Normalized time in the cycle (0-1) - 12 second cycle (3x slower than original)
           
           // A more asymmetric easing function to mimic flame behavior but extremely subtle
           // Quick expansion, slower contraction 
@@ -530,15 +530,15 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
             
           breatheCycle = Math.pow(fireEase, 1.6); // Increased power for even smoother fire-like behavior
           
-          // Extremely subtle scale factor (0.9925 to 1.0075 = 1.5% change, down from 3%)
-          // This creates an almost imperceptible flame pulsation effect
-          breatheFactor = 0.9925 + breatheCycle * 0.015;
+          // Subtle scale factor (0.99 to 1.01 = 2% change, adjusted to be just noticeable)
+          // This creates a gentle flame pulsation effect that's still quite subtle
+          breatheFactor = 0.99 + breatheCycle * 0.02;
           
           // Apply the very subtle fire pulsing effect
           meshRef.current.scale.set(breatheFactor, breatheFactor, breatheFactor);
           
-          // Add barely perceptible flame-like wobble
-          const wobble = Math.sin(time * 0.5) * 0.0025; // Reduced frequency (1.0 to 0.5) and amplitude (0.005 to 0.0025)
+          // Add subtle flame-like wobble
+          const wobble = Math.sin(time * 0.5) * 0.004; // Slightly increased amplitude while keeping lower frequency
           meshRef.current.rotation.z = wobble;
         }
         
