@@ -8,7 +8,7 @@ import LoginForm from "../components/LoginForm";
 const pageStyles = {
   minHeight: "100vh", // Use viewport height instead of 100%
   backgroundColor: "#111827", // bg-gray-900
-  padding: "60px 20px 20px 20px", // Reduced bottom padding from 60px to 20px
+  padding: "110px 20px 20px 20px", // Increased top padding from 60px to 110px (added 50px)
   overflowY: "auto" as const, // Force scrolling
   position: "absolute" as const, // Take it out of the normal flow
   top: 0,
