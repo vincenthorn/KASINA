@@ -117,8 +117,14 @@ const TimerKasinas: React.FC = () => {
     console.log("- Original duration setting:", duration, "seconds");
     console.log("- Exact duration to save:", durationToSave, "seconds");
     
-    // Only save if there was actual meditation time
-    if (durationToSave > 0) {
+    // Only save if there was actual meditation time (at least 31 seconds)
+    if (durationToSave >= 31) {
+      // Apply the 31-second rule: sessions between 31-59 seconds should round up to 1 minute
+      if (durationToSave < 60) {
+        console.log(`📊 Rounding up completed session duration from ${durationToSave}s to 60s (1 minute) - special 31s rule`);
+        durationToSave = 60;
+      }
+      
       console.log("Saving session with data:", {
         kasinaType: selectedKasina,
         duration: durationToSave
@@ -296,12 +302,19 @@ const TimerKasinas: React.FC = () => {
         const minuteText = minutesValue === 1 ? "minute" : "minutes";
         const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-${minuteText})`;
         
+        // For sessions between 31-59 seconds, ensure they round up to 1 minute
+        let adjustedDuration = elapsed;
+        if (elapsed >= 31 && elapsed < 60) {
+          console.log(`📊 Rounding up session duration from ${elapsed}s to 60s (1 minute) - special 31s rule`);
+          adjustedDuration = 60;
+        }
+        
         // Complete session payload with all needed information
         const manualSessionPayload = {
           kasinaType: selectedKasina,
           kasinaName: correctName,
-          duration: elapsed, // Use the actual elapsed time for manually stopped sessions
-          durationInMinutes: Math.ceil(elapsed / 60), // Round up to nearest minute
+          duration: adjustedDuration, // Apply 31-second rule for manually stopped sessions
+          durationInMinutes: Math.ceil(adjustedDuration / 60), // Round to proper minutes
           originalDuration: actualDuration, // Include the original duration that was set
           timestamp: new Date().toISOString()
         };
