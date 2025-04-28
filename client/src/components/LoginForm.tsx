@@ -42,7 +42,7 @@ const LoginForm: React.FC = () => {
       <Card className="w-full max-w-md bg-gray-900 border-gray-700">
         <CardHeader>
           <CardTitle className="text-white text-center">
-            Login w/ a <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account
+            Use your <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account
           </CardTitle>
         </CardHeader>
         <CardContent>
