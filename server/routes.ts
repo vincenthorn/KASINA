@@ -324,22 +324,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     console.log("5. Duration in Minutes:", durationInMinutes);
     console.log("6. Minutes Rounded:", Math.round(duration/60));
     
-    // YELLOW KASINA SPECIAL HANDLING
-    // Check if this is a Yellow kasina session and log special details
-    if (safeBody.kasinaType === 'yellow' || kasinaName.includes('yellow')) {
-      console.log("🟡 YELLOW KASINA SESSION DETECTED ON SERVER:");
-      console.log("- Raw Kasina Type:", safeBody.kasinaType);
-      console.log("- Kasina Name:", safeBody.kasinaName);
-      console.log("- Duration:", duration);
-      
-      // Ensure we're using the correct type format for yellow kasina
-      safeBody.kasinaType = 'yellow';
-      console.log("- ✅ Set kasinaType to normalized value 'yellow'");
-      
-      // Check if this was from our direct fix
-      if (req.body._yellowDirectFix) {
-        console.log("- ✅ This request came from the direct yellow kasina fix");
-      }
+    // KASINA TYPE NORMALIZATION - Universal handling for all kasina types
+    // This ensures consistent casing and formatting for all kasina types
+    
+    // Get the kasina type and always convert to lowercase for consistency
+    const rawKasinaType = safeBody.kasinaType || '';
+    const normalizedType = rawKasinaType.toLowerCase();
+    
+    // Check if this came from our direct fix
+    if (req.body._directFix) {
+      console.log(`📦 DIRECT FIX DETECTED:`);
+      console.log(`- Raw Kasina Type: "${rawKasinaType}"`);
+      console.log(`- Normalized Type: "${normalizedType}"`);
+      console.log(`- Duration: ${duration}s`);
+      console.log(`- Manual Stop: ${req.body._manualStop ? 'Yes' : 'No'}`);
+    }
+    
+    // Always override with the normalized type to ensure consistency
+    safeBody.kasinaType = normalizedType;
+    
+    // Log for yellow kasina sessions for backward compatibility
+    if (normalizedType === 'yellow' || kasinaName.includes('yellow')) {
+      console.log("🟡 YELLOW KASINA SESSION PROCESSED WITH NORMALIZED TYPE");
     }
     
     // STEP 1: Start with the most reliable value

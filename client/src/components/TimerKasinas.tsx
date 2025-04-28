@@ -220,50 +220,51 @@ const TimerKasinas: React.FC = () => {
       // Log what we're sending to the server
       console.log("🚀 FINAL SESSION PAYLOAD:", sessionPayload);
       
-      // YELLOW KASINA SPECIFIC FIX - This is a special case handler for yellow kasina sessions
-      if (selectedKasina === KASINA_TYPES.YELLOW) {
-        console.log("🟡 ATTEMPTING DIRECT YELLOW KASINA FIX - MANUALLY SENDING SESSION");
-        
-        // Create a direct version of the payload specifically for yellow kasina
-        const yellowFix = {
-          kasinaType: "yellow", // Force the correct string value
-          kasinaName: `Yellow (${minutesValue}-${minuteText})`,
-          duration: durationToSave,
-          durationInMinutes: minutesValue, // Add explicit minutes value 
-          originalDuration: duration, // Include original duration
-          timestamp: new Date().toISOString(),
-          _yellowDirectFix: true // Flag for server to identify this fix
-        };
-        
-        // Log the special yellow payload
-        console.log("🟡 YELLOW KASINA DIRECT PAYLOAD:", yellowFix);
-        
-        // Send using the API directly
-        fetch('/api/sessions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(yellowFix)
-        })
-        .then(response => {
-          if (response.ok) {
-            console.log("🟡 YELLOW KASINA SESSION SAVED SUCCESSFULLY USING DIRECT METHOD");
-            toast.success(`Yellow kasina session saved successfully (${minutesValue} ${minuteText})`);
-          } else {
-            console.error("Failed to save yellow kasina session:", response.status);
-            toast.error("Failed to save yellow kasina session");
-          }
-          return response.json();
-        })
-        .catch(error => {
-          console.error("Error saving yellow kasina session:", error);
-          toast.error("Error saving yellow kasina session");
-        });
-      } else {
-        // Normal case for all other kasina types
-        addSession(sessionPayload as any);
-      }
+      // DIRECT SESSION SAVE - Improved handling for all kasina types
+      // This bypasses the store for more reliable saving
+      
+      // Ensure the kasina type is consistent
+      const normalizedType = selectedKasina.toLowerCase();
+      
+      // Format the name with proper capitalization
+      const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
+      
+      // Create the direct payload with all necessary information
+      const directPayload = {
+        kasinaType: normalizedType, // Use normalized lowercase type
+        kasinaName: `${displayName} (${minutesValue}-${minuteText})`, // Proper capitalization and format
+        duration: durationToSave,
+        durationInMinutes: minutesValue, // Add explicit minutes value
+        originalDuration: duration, // Include original duration for reference
+        timestamp: new Date().toISOString(),
+        _directFix: true // Flag for server to identify this was sent directly
+      };
+      
+      // Log the payload for all kasina types
+      console.log(`📦 DIRECT PAYLOAD FOR ${displayName.toUpperCase()} KASINA:`, directPayload);
+      
+      // Send using the API directly for all kasinas
+      fetch('/api/sessions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(directPayload)
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log(`✅ ${displayName.toUpperCase()} KASINA SESSION SAVED SUCCESSFULLY USING DIRECT METHOD`);
+          toast.success(`${displayName} kasina session saved successfully (${minutesValue} ${minuteText})`);
+        } else {
+          console.error(`Failed to save ${displayName} kasina session:`, response.status);
+          toast.error(`Failed to save ${displayName} kasina session`);
+        }
+        return response.json();
+      })
+      .catch(error => {
+        console.error(`Error saving ${displayName} kasina session:`, error);
+        toast.error(`Error saving ${displayName} kasina session`);
+      });
       
       console.log(`Auto-saved session: ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]}`);
       
@@ -413,44 +414,46 @@ const TimerKasinas: React.FC = () => {
         
         console.log("🚀 MANUAL STOP SESSION PAYLOAD:", manualSessionPayload);
         
-        // YELLOW KASINA SPECIFIC FIX for manually stopped sessions
-        if (selectedKasina === KASINA_TYPES.YELLOW) {
-          console.log("🟡 ATTEMPTING DIRECT YELLOW KASINA MANUAL STOP FIX");
-          
-          // Create a direct version of the payload specifically for yellow kasina
-          const yellowManualFix = {
-            ...manualSessionPayload,
-            kasinaType: "yellow", // Force the correct string value
-            _yellowDirectFix: true, // Flag for server to identify this fix
-            _manualStop: true // Additional flag to show this was manually stopped
-          };
-          
-          // Log the special yellow manual stop payload
-          console.log("🟡 YELLOW KASINA DIRECT MANUAL STOP PAYLOAD:", yellowManualFix);
-          
-          // Send using the API directly
-          fetch('/api/sessions', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(yellowManualFix)
-          })
-          .then(response => {
-            if (response.ok) {
-              console.log("🟡 YELLOW KASINA MANUAL STOP SESSION SAVED SUCCESSFULLY");
-            } else {
-              console.error("Failed to save yellow kasina manual stop session:", response.status);
-            }
-            return response.json();
-          })
-          .catch(error => {
-            console.error("Error saving yellow kasina manual stop session:", error);
-          });
-        } else {
-          // Normal case for all other kasina types
-          addSession(manualSessionPayload as any);
-        }
+        // DIRECT SESSION SAVE FOR MANUAL STOPS - Generalized for all kasinas
+        // This ensures all manually stopped sessions are reliably saved
+        
+        // Ensure the kasina type is consistent
+        const normalizedType = selectedKasina.toLowerCase();
+        
+        // Format the name with proper capitalization
+        const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
+        
+        // Create a direct version of the payload with normalized values
+        const directManualPayload = {
+          ...manualSessionPayload,
+          kasinaType: normalizedType, // Use normalized lowercase type
+          kasinaName: correctName, // Use the properly formatted name
+          _directFix: true, // Flag for server to identify this fix
+          _manualStop: true // Additional flag to show this was manually stopped
+        };
+        
+        // Log the special manual stop payload
+        console.log(`📦 DIRECT MANUAL STOP PAYLOAD FOR ${displayName.toUpperCase()} KASINA:`, directManualPayload);
+        
+        // Send using the API directly for all kasinas
+        fetch('/api/sessions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(directManualPayload)
+        })
+        .then(response => {
+          if (response.ok) {
+            console.log(`✅ ${displayName.toUpperCase()} MANUAL STOP SESSION SAVED SUCCESSFULLY`);
+          } else {
+            console.error(`Failed to save ${displayName} manual stop session:`, response.status);
+          }
+          return response.json();
+        })
+        .catch(error => {
+          console.error(`Error saving ${displayName} manual stop session:`, error);
+        });
         
         toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
       } else {
