@@ -256,16 +256,19 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 zIndex: 10
               }}
             >
-              <KasinaOrb
-                key={`focus-mode-orb-${selectedKasina}-${Date.now()}`} // Add unique key with timestamp to force re-render
-                type={selectedKasina as KasinaType}
-                enableZoom={true}
-                remainingTime={timerState.timeRemaining}
-                color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
-                speed={0.5}
-                complexity={2}
-                disableBreathing={false} // Enable breathing in focus mode for meditation
-              />
+              {/* CRITICAL FIX: Render Kasina orb in a container with controlled height/width */}
+              <div className="relative" style={{ height: '100%', width: '100%' }}>
+                <KasinaOrb
+                  key={`focus-mode-orb-${selectedKasina}-${Date.now()}`} // Add unique key with timestamp to force re-render
+                  type={selectedKasina as KasinaType}
+                  enableZoom={true}
+                  remainingTime={timerState.timeRemaining}
+                  color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
+                  speed={0.5}
+                  complexity={2}
+                  disableBreathing={false} // Enable breathing in focus mode for meditation
+                />
+              </div>
             </div>
           </div>
           

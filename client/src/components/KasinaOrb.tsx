@@ -868,7 +868,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
         <Scene 
           enableZoom={enableZoom} 
           remainingTime={remainingTime}
-          type={type}
+          type={kasinaType as KasinaType}
           color={color}
           speed={speed}
           complexity={complexity}
