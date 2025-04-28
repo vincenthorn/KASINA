@@ -198,7 +198,7 @@ const TimerKasinas: React.FC = () => {
       toast.success(`You completed a ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
     } else {
       console.warn("Not saving session because duration is 0");
-      toast.error("Session too short to save - minimum recordable time is 1 minute");
+      toast.error("Session too short to save - minimum recordable time is 31 seconds");
     }
   };
   
@@ -307,9 +307,9 @@ const TimerKasinas: React.FC = () => {
         
         toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
       } else {
-        console.warn("Session too short to save - needs at least 1 minute");
+        console.warn("Session too short to save - needs at least 31 seconds");
         if (elapsed > 0) {
-          toast.info("Session was too short to save - minimum is 1 minute");
+          toast.info("Session was too short to save - minimum is 31 seconds");
         }
       }
     }

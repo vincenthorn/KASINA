@@ -331,9 +331,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // If duration is significantly less than originalDuration, this was likely manually stopped
     if (originalDuration > 0 && duration > 0 && duration < originalDuration * 0.9) {
       console.log(`🔍 Detected manually stopped session - elapsed time: ${duration}s, original duration: ${originalDuration}s`);
-      // For manually stopped sessions, we want to use the actual elapsed time
-      finalDuration = duration;
-      console.log(`✅ Using actual elapsed time for manually stopped session: ${finalDuration}s`);
+      
+      // For manually stopped sessions with less than 30 seconds, don't log at all
+      if (duration < 30) {
+        console.log(`⚠️ Session too short (${duration}s) - it will not be saved`);
+        finalDuration = 0; // This will trigger the "duration too short" condition later
+      } 
+      // For sessions between 30-59 seconds, round up to 1 minute
+      else if (duration < 60) {
+        console.log(`⏱️ Rounding short session (${duration}s) up to 1 minute`);
+        finalDuration = 60;
+      }
+      // For all other durations, follow the "round to nearest minute" rule
+      else {
+        // Get the seconds portion of the time
+        const seconds = duration % 60;
+        
+        // If seconds are >= 31, round up to the next minute
+        if (seconds >= 31) {
+          const minutes = Math.floor(duration / 60) + 1;
+          finalDuration = minutes * 60;
+          console.log(`⏱️ Rounding up ${duration}s to ${minutes} minutes (${finalDuration}s)`);
+        } 
+        // Otherwise round down to the current minute
+        else {
+          const minutes = Math.floor(duration / 60);
+          finalDuration = minutes * 60;
+          console.log(`⏱️ Rounding down ${duration}s to ${minutes} minutes (${finalDuration}s)`);
+        }
+      }
     } else {
       // STEP 3: For completed sessions, use the intended duration from the name or settings
       const minuteMatch = kasinaName.match(/(\d+)[- ]minute/);
@@ -375,8 +401,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     
     // Validate finalDuration is sensible
     if (isNaN(finalDuration) || finalDuration <= 0) {
-      console.warn("Invalid duration, defaulting to 60 seconds");
-      finalDuration = 60;
+      console.warn("Session too short or invalid duration - not saving");
+      // Return a 400 response to indicate that the session is too short
+      return res.status(400).json({ 
+        message: "Session too short to save - minimum recordable time is 31 seconds",
+        error: "duration_too_short" 
+      });
     }
     
     // Format the name to include the CORRECT duration in minutes with proper pluralization

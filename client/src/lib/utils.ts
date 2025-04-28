@@ -47,24 +47,43 @@ export const formatTime = (seconds: number): string => {
   return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 };
 
-// Round up to the nearest minute (e.g., 59 seconds becomes 60 seconds / 1 minute)
+// Round up to the nearest minute using the 31-second rule
+// - Under 31 seconds: Not recorded (returns 0)
+// - Between 31-59 seconds: Round up to 1 minute (60 seconds)
+// - For > 1 minute: Round up if seconds portion is >= 31, otherwise round down
 export const roundUpToNearestMinute = (seconds: number): number => {
   if (seconds <= 0) return 0;
   
-  // CRITICAL FIX: More explicit handling for exact minute values
+  // Sessions under 31 seconds aren't logged
+  if (seconds < 31) {
+    console.log(`UTILS: Session too short (${seconds}s) - not saving`);
+    return 0;
+  }
+  
   // If the seconds value is exactly a multiple of 60 (a whole number of minutes)
   if (seconds % 60 === 0) {
     console.log(`UTILS: Keeping exact minute value: ${seconds} seconds = ${seconds/60} minutes`);
     return seconds; // Return unchanged
   }
   
-  // Otherwise round up to the next full minute
+  // For values under 60 seconds but at least 31 seconds, round up to 1 minute
+  if (seconds < 60) {
+    console.log(`UTILS: Rounding short session (${seconds}s) up to 1 minute`);
+    return 60;
+  }
+  
+  // For longer durations, round based on the seconds portion
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
   
-  // Always round up when there are remaining seconds
-  const roundedSeconds = (minutes + 1) * 60;
-  console.log(`UTILS: Rounding ${seconds} seconds (${minutes}m ${remainingSeconds}s) up to ${roundedSeconds} seconds (${roundedSeconds/60}m)`);
-  
-  return roundedSeconds;
+  // If the remaining seconds are >= 31, round up, otherwise round down
+  if (remainingSeconds >= 31) {
+    const roundedSeconds = (minutes + 1) * 60;
+    console.log(`UTILS: Rounding ${seconds}s up to ${roundedSeconds}s (${minutes + 1}m)`);
+    return roundedSeconds;
+  } else {
+    const roundedSeconds = minutes * 60;
+    console.log(`UTILS: Rounding ${seconds}s down to ${roundedSeconds}s (${minutes}m)`);
+    return roundedSeconds;
+  }
 };
