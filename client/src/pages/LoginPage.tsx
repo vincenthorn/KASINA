@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../lib/stores/useAuth";
 import Logo from "../components/Logo";
@@ -17,15 +17,7 @@ const pageStyles = {
   bottom: 0,
 };
 
-const contentStyles = {
-  maxWidth: "450px",
-  margin: "0 auto",
-  display: "flex",
-  flexDirection: "column" as const,
-  alignItems: "center",
-  gap: "24px",
-};
-
+// Shared styles that won't change with resizing
 const sectionStyles = {
   width: "100%",
   textAlign: "center" as const
@@ -33,27 +25,79 @@ const sectionStyles = {
 
 const paragraphStyles = {
   color: "#d1d5db", // text-gray-300
-  marginBottom: "16px",
-  fontSize: "16px",
-  lineHeight: "1.6"
+  marginBottom: "24px",
+  fontSize: "20px", // Further increased font size
+  lineHeight: "1.7",
+  maxWidth: "800px",
+  margin: "0 auto 24px auto",
+  padding: "0 10px", // Add some padding for smaller screens
 };
 
 const listItemStyles = {
   color: "#d1d5db", // text-gray-300
-  marginBottom: "10px",
-  fontSize: "16px",
-  lineHeight: "1.5",
-  paddingLeft: "8px",
+  marginBottom: "16px", // Increased spacing
+  fontSize: "19px", // Further increased font size
+  lineHeight: "1.6",
+  padding: "0 10px", // Add padding for smaller screens
   textAlign: "center" as const
 };
 
 const comingSoonStyles = {
   color: "#a78bfa", // text-purple-400
-  fontWeight: "bold" as const
+  fontWeight: "bold" as const,
+  fontSize: "19px", // Match parent text size
 };
 
 const LoginPage: React.FC = () => {
   const { isAuthenticated } = useAuth();
+  const [contentWidth, setContentWidth] = useState("800px");
+  
+  // Function to calculate responsive width based on screen size
+  const calculateResponsiveWidth = () => {
+    const screenWidth = window.innerWidth;
+    let newWidth;
+    
+    if (screenWidth < 640) {
+      newWidth = "95%"; // Mobile - almost full width
+    } else if (screenWidth < 1024) {
+      newWidth = "75%"; // Tablet - 75% width
+    } else if (screenWidth < 1440) {
+      newWidth = "60%"; // Small desktop - 60% width
+    } else {
+      newWidth = "800px"; // Large desktop - fixed max width
+    }
+    
+    setContentWidth(newWidth);
+  };
+  
+  // Initialize width on first render and add resize listener
+  useEffect(() => {
+    // Set initial width
+    calculateResponsiveWidth();
+    
+    // Set up resize listener
+    const handleResize = () => {
+      calculateResponsiveWidth();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    // Clean up event listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
+  // Calculate content styles with the current width
+  const contentStyles = {
+    width: "100%",
+    maxWidth: contentWidth,
+    margin: "0 auto",
+    display: "flex",
+    flexDirection: "column" as const,
+    alignItems: "center",
+    gap: "32px", // Increased spacing between sections
+  };
 
   if (isAuthenticated) {
     return <Navigate to="/" />;
