@@ -4,6 +4,7 @@ import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { formatTime, saveDirectTestSession } from '../lib/utils';
 import { Input } from './ui/input';
+import { guaranteedSessionSave } from './OneMinuteFix';
 
 interface SimpleTimerProps {
   initialDuration?: number | null; // in seconds, null means infinity (count up)
@@ -96,85 +97,37 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               const kasinaType = kasina.selectedKasina;
               console.log(`Retrieved kasina type from debug object: ${kasinaType}`);
               
-              // CRITICAL: Direct session logging using our guaranteed endpoint
-              console.log(`🔐 GUARANTEED DIRECT SESSION LOGGING: ${kasinaType} (${minutes} ${minuteText})`);
+              // USE OUR UNIFIED GUARANTEEDSESSIONSAVE UTILITY
+              console.log(`🧿 TIMER COMPLETED: Using guaranteedSessionSave for ${kasinaType} (${minutes} min)`);
               
-              // Create a guaranteed payload for our reliable endpoint
-              const apiPayload = { 
-                kasinaType: kasinaType.toLowerCase(),
-                minutes: minutes
-              };
-              
-              console.log('📦 API payload:', apiPayload);
-              
-              // First attempt - Use our guaranteed direct endpoint
-              fetch('/api/direct-one-minute-session', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(apiPayload)
-              })
-              .then(response => {
-                if (response.ok) {
-                  console.log(`✅ SUCCESS! Session saved successfully: ${kasinaType} (${minutes} ${minuteText})`);
-                  // Force refresh the sessions list
-                  window.dispatchEvent(new Event('session-saved'));
-                  return response.json();
-                } else {
-                  console.error(`❌ Direct endpoint failed: ${response.status}`);
-                  throw new Error(`Failed to save session: ${response.status}`);
-                }
-              })
-              .catch(error => {
-                console.error(`❌ Error with direct endpoint:`, error);
-                
-                // FALLBACK LOGIC - Try using the regular session endpoint
-                console.log(`☎️ Attempting fallback with regular session endpoint...`);
-                
-                // Create a guaranteed payload that will work with the regular API
-                const fallbackPayload = {
-                  kasinaType: kasinaType.toLowerCase(),
-                  kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-${minuteText})`,
-                  duration: minutes * 60,
-                  durationInMinutes: minutes,
-                  timestamp: new Date().toISOString(),
-                  _directTest: true,
-                  _guaranteedSession: true,
-                  _timerComplete: true
-                };
-                
-                return fetch('/api/sessions', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(fallbackPayload)
-                })
-                .then(r => {
-                  if (r.ok) {
-                    console.log(`✅ Fallback save succeeded`);
-                    // Force refresh the sessions list
-                    window.dispatchEvent(new Event('session-saved'));
+              // Use our guaranteed session save utility
+              guaranteedSessionSave(kasinaType, minutes)
+                .then(success => {
+                  if (success) {
+                    console.log(`✅ TIMER COMPLETE: Session saved successfully via guarantee utility`);
+                    // No need to dispatch event - utility handles it
                   } else {
-                    console.error(`❌ Fallback also failed: ${r.status}`);
-                    throw new Error(`Both save attempts failed`);
+                    console.error(`❌ TIMER COMPLETE: Session save failed`);
+                    // The utility handles error messaging
+                  }
+                })
+                .catch(error => {
+                  console.error(`❌ TIMER COMPLETE: Error saving session:`, error);
+                  
+                  // EMERGENCY FALLBACK - Save to localStorage as last resort
+                  try {
+                    const sessionData = {
+                      kasinaType: kasinaType.toLowerCase(),
+                      duration: minutes * 60,
+                      timestamp: new Date().toISOString(),
+                      _emergency: true
+                    };
+                    localStorage.setItem('lastCompletedSession', JSON.stringify(sessionData));
+                    console.log("💾 Emergency backup: Session data saved to localStorage");
+                  } catch (storageError) {
+                    console.error("❌ Even localStorage failed:", storageError);
                   }
                 });
-              })
-              .catch(e => {
-                console.error(`❌ All save attempts failed:`, e);
-                
-                // FINAL EMERGENCY FALLBACK - Save to localStorage
-                try {
-                  const sessionData = {
-                    kasinaType: kasinaType.toLowerCase(),
-                    duration: minutes * 60,
-                    timestamp: new Date().toISOString(),
-                    _emergency: true
-                  };
-                  localStorage.setItem('lastCompletedSession', JSON.stringify(sessionData));
-                  console.log("💾 Emergency backup: Session data saved to localStorage");
-                } catch (storageError) {
-                  console.error("❌ Even localStorage failed:", storageError);
-                }
-              });
             } else {
               console.error("❌ TIMER COMPLETION - No debug data available to save session");
             }
@@ -429,38 +382,20 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                   const normalizedType = kasinaType.toLowerCase();
                   const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
                   
-                  // Create test-like payload that we know works
-                  const testPayload = {
-                    kasinaType: normalizedType,
-                    kasinaName: `${displayName} (${minutesValue}-${minuteText})`,
-                    duration: adjustedTime,
-                    durationInMinutes: minutesValue,
-                    timestamp: new Date().toISOString(),
-                    _directTest: true,
-                    _manualStop: true
-                  };
+                  console.log(`⏱️ MANUAL TIMER STOP - Using guaranteed save for ${kasinaType} (${minutesValue} min)`);
                   
-                  console.log(`🧪 EMERGENCY MANUAL STOP SAVE:`, testPayload);
-                  
-                  // Use the test button approach that we know works
-                  fetch('/api/sessions', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(testPayload)
-                  })
-                  .then(response => {
-                    if (response.ok) {
-                      console.log(`✓ EMERGENCY MANUAL STOP SAVE SUCCESSFUL - ${displayName} kasina (${minutesValue}m)`);
-                      // Skip toast to avoid duplicate notifications
-                    } else {
-                      console.error(`Failed emergency save: ${response.status}`);
-                    }
-                  })
-                  .catch(error => {
-                    console.error(`Error in emergency save:`, error);
-                  });
+                  // Use our single guaranteedSessionSave utility for consistent behavior
+                  guaranteedSessionSave(kasinaType, minutesValue)
+                    .then(success => {
+                      if (success) {
+                        console.log(`✅ MANUAL STOP: Session saved successfully`);
+                      } else {
+                        console.error(`❌ MANUAL STOP: Session save failed`);
+                      }
+                    })
+                    .catch(error => {
+                      console.error(`❌ MANUAL STOP: Error in session save:`, error);
+                    });
                 } catch (e) {
                   console.error(`Failed to execute emergency save:`, e);
                 }
