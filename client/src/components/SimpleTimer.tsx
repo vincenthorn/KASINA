@@ -276,11 +276,93 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             // Just start/stop the timer, focus mode is managed in the useEffect
             if (isRunning) {
               stopTimer();
+              
               // Ensure we send a final update when user stops the timer manually
               if (onUpdate) {
                 onUpdate(timeRemaining, elapsedTime);
               }
+              
+              // ⚠️ CRITICAL: Force save kasinaType when manual stop happens ⚠️
+              if (elapsedTime >= 31) {
+                console.log(`⚠️ MANUAL TIMER STOP DETECTED - Elapsed time: ${elapsedTime}s`);
+                
+                try {
+                  // Retrieve special KASINA data from window
+                  const kasina = window.__KASINA_DEBUG || {};
+                  const kasinaType = kasina.selectedKasina || 'white';
+                  console.log(`🧪 Retrieved kasinaType from window.__KASINA_DEBUG: ${kasinaType}`);
+                  
+                  // Apply 31-second rule
+                  let adjustedTime = elapsedTime;
+                  if (elapsedTime < 60) {
+                    adjustedTime = 60; // Round up to 1 minute
+                  }
+                  
+                  // Get minutes value
+                  const minutesValue = Math.ceil(adjustedTime / 60);
+                  const minuteText = minutesValue === 1 ? "minute" : "minutes";
+                  
+                  // Normalize kasina type
+                  const normalizedType = kasinaType.toLowerCase();
+                  const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
+                  
+                  // Create test-like payload that we know works
+                  const testPayload = {
+                    kasinaType: normalizedType,
+                    kasinaName: `${displayName} (${minutesValue}-${minuteText})`,
+                    duration: adjustedTime,
+                    durationInMinutes: minutesValue,
+                    timestamp: new Date().toISOString(),
+                    _directTest: true,
+                    _manualStop: true
+                  };
+                  
+                  console.log(`🧪 EMERGENCY MANUAL STOP SAVE:`, testPayload);
+                  
+                  // Use the test button approach that we know works
+                  fetch('/api/sessions', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testPayload)
+                  })
+                  .then(response => {
+                    if (response.ok) {
+                      console.log(`✓ EMERGENCY MANUAL STOP SAVE SUCCESSFUL - ${displayName} kasina (${minutesValue}m)`);
+                      // Skip toast to avoid duplicate notifications
+                    } else {
+                      console.error(`Failed emergency save: ${response.status}`);
+                    }
+                  })
+                  .catch(error => {
+                    console.error(`Error in emergency save:`, error);
+                  });
+                } catch (e) {
+                  console.error(`Failed to execute emergency save:`, e);
+                }
+              }
             } else {
+              // ⚠️ CRITICAL: Store current kasina type in window when starting ⚠️
+              try {
+                // Create a global tracking object on window for emergency recovery
+                if (typeof window !== 'undefined') {
+                  // Get current kasina type from document if possible
+                  const selectedKasinaElement = document.querySelector('[data-selected-kasina]');
+                  const selectedKasina = selectedKasinaElement?.getAttribute('data-selected-kasina') || 'white';
+                  
+                  window.__KASINA_DEBUG = {
+                    selectedKasina,
+                    startTime: Date.now(),
+                    duration
+                  };
+                  
+                  console.log(`🔐 Stored timer debug info in window.__KASINA_DEBUG:`, window.__KASINA_DEBUG);
+                }
+              } catch (e) {
+                console.error("Error storing debug info:", e);
+              }
+              
               startTimer();
             }
           }}

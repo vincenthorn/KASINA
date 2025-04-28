@@ -66,23 +66,20 @@ const TimerKasinas: React.FC = () => {
     // Reset notification flags on complete
     tooShortNotifiedRef.current = false;
     
-    // CRITICAL FIX: Handle focus mode exit properly
-    console.log("Timer completed, scheduling focus mode exit and orb reinit");
+    // Handle focus mode exit properly
+    console.log("Timer completed, scheduling focus mode exit");
     
     // Delay focus mode exit slightly to ensure proper cleanup
     setTimeout(() => {
       disableFocusMode();
-      
-      // Instead of forcing a DOM-based re-render, we'll use React's state management
-      // to properly handle component re-rendering without visual artifacts
-      console.log("Allowing React to handle re-rendering naturally");
+      console.log("Focus mode disabled");
     }, 100);
     
-    // Show feedback
+    // Show confetti feedback
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
     
-    // Only proceed if we haven't already saved this session
+    // Skip if this session was already saved
     if (sessionSavedRef.current) {
       console.log("Session already saved, skipping save operation");
       return;
@@ -528,7 +525,7 @@ const TimerKasinas: React.FC = () => {
   
   return (
     <FocusMode>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8" data-selected-kasina={selectedKasina}>
         <h1 className="text-3xl font-bold mb-6">Kasinas</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
