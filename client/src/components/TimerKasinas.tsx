@@ -9,7 +9,7 @@ import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
 import FocusMode from './FocusMode';
 import KasinaOrb from './KasinaOrb';
-import { formatTime, roundUpToNearestMinute } from '../lib/utils';
+import { formatTime, roundUpToNearestMinute, saveWholeMinuteSession } from '../lib/utils';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
@@ -114,63 +114,74 @@ const TimerKasinas: React.FC = () => {
     if (isWholeMinuteTimer) {
       console.log(`🔥 CRITICAL WHOLE-MINUTE FIX: Forcing direct API save for ${minutes}-${minuteText} session`);
       
-      // Create a guaranteed working payload with proper formatting
-      const payload = {
-        kasinaType: selectedKasina.toLowerCase(),
-        kasinaName: `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
-        duration: minutes * 60,
-        durationInMinutes: minutes,
-        timestamp: new Date().toISOString(),
-        _forceWholeMinuteFix: true,
-        _completedNaturally: true,
-        _duration: minutes * 60
+      // Create a whole-minute session with built-in fallback for all whole-minute durations
+      const handleWholeMinuteSession = async () => {
+        try {
+          console.log(`DIRECT WHOLE-MINUTE SAVE: ${selectedKasina} for ${minutes} ${minuteText}`);
+          
+          // Create a guaranteed working payload
+          const payload = {
+            kasinaType: selectedKasina.toLowerCase(),
+            kasinaName: `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
+            duration: minutes * 60,
+            durationInMinutes: minutes,
+            timestamp: new Date().toISOString(),
+            _forceWholeMinuteFix: true,
+            _completedNaturally: true,
+            _duration: minutes * 60
+          };
+          
+          // Store as backup in localStorage
+          try {
+            localStorage.setItem('lastCompletedSession', JSON.stringify(payload));
+            console.log("💾 Saved whole-minute session data to localStorage as fallback");
+          } catch (e) { /* Ignore */ }
+          
+          // First attempt - direct API call
+          const response = await fetch('/api/sessions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          
+          if (response.ok) {
+            console.log(`✅ WHOLE-MINUTE FIX: ${minutes}-${minuteText} session saved successfully`);
+            sessionSavedRef.current = true;
+            toast.success(`${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} kasina session saved (${minutes} ${minuteText})`);
+            return;
+          } 
+          
+          // If first attempt failed, try again with a slightly different payload
+          console.log("First attempt failed, trying backup method...");
+          const backupResponse = await fetch('/api/sessions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ...payload,
+              _backupMethod: true,
+              timestamp: new Date().toISOString() // Update timestamp
+            })
+          });
+          
+          if (backupResponse.ok) {
+            console.log("✅ Backup save succeeded");
+            sessionSavedRef.current = true;
+            toast.success(`${selectedKasina} session saved using fallback method`);
+            return;
+          }
+          
+          // Both attempts failed, log error
+          console.error("❌ All save attempts failed");
+          toast.error(`Failed to save session. Please try again.`);
+          
+        } catch (error) {
+          console.error("❌ Error saving whole-minute session:", error);
+          toast.error(`Error saving session: ${error.message}`);
+        }
       };
       
-      // Store as backup in localStorage
-      try {
-        localStorage.setItem('lastCompletedSession', JSON.stringify(payload));
-        console.log("💾 Saved whole-minute session data to localStorage as fallback");
-      } catch (e) { /* Ignore */ }
-      
-      // Direct API call to ensure it's saved
-      fetch('/api/sessions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(response => {
-        if (response.ok) {
-          console.log(`✅ CRITICAL ${minutes}-MINUTE FIX: Session saved successfully`);
-          sessionSavedRef.current = true;
-          
-          // Show success toast
-          toast.success(`${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} kasina session saved (${minutes} ${minuteText})`);
-        } else {
-          console.error(`❌ CRITICAL ${minutes}-MINUTE FIX: Session save failed:`, response.status);
-          
-          // Try a second time with a slight variation
-          setTimeout(() => {
-            console.log("Attempting backup save method...");
-            fetch('/api/sessions', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                ...payload,
-                _backupMethod: true
-              })
-            })
-            .then(r => console.log(`Backup save ${r.ok ? 'succeeded' : 'failed'}`))
-            .catch(e => console.error("Backup save failed:", e));
-          }, 500);
-        }
-      })
-      .catch(error => {
-        console.error(`❌ CRITICAL ${minutes}-MINUTE FIX: Error saving session:`, error);
-      });
+      // Execute the function
+      handleWholeMinuteSession();
       
       return; // Skip the normal flow since we handled it directly
     }

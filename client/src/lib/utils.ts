@@ -87,3 +87,90 @@ export const roundUpToNearestMinute = (seconds: number): number => {
     return roundedSeconds;
   }
 };
+
+// CRITICAL FIX: Helper function to directly save whole-minute sessions
+// This bypasses the regular flow that may be failing for naturally completed sessions
+export const saveWholeMinuteSession = async (
+  kasinaType: string, 
+  durationInSeconds: number, 
+  completedNaturally = true
+): Promise<boolean> => {
+  try {
+    // Ensure we have valid inputs
+    if (!kasinaType || !durationInSeconds) {
+      console.error("Invalid inputs for saveWholeMinuteSession", { kasinaType, durationInSeconds });
+      return false;
+    }
+    
+    // Calculate minutes
+    const minutes = Math.round(durationInSeconds / 60);
+    const minuteText = minutes === 1 ? "minute" : "minutes";
+    
+    // Log what we're doing
+    console.log(`🔥 DIRECT WHOLE-MINUTE SAVE: ${kasinaType} for ${minutes} ${minuteText}`);
+    
+    // Create a payload with all the necessary data
+    const payload = {
+      kasinaType: kasinaType.toLowerCase(),
+      kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
+      duration: durationInSeconds,
+      durationInMinutes: minutes,
+      timestamp: new Date().toISOString(),
+      _forceWholeMinuteFix: true,
+      _completedNaturally: completedNaturally,
+      _duration: durationInSeconds
+    };
+    
+    // Store as backup in localStorage
+    try {
+      localStorage.setItem('lastCompletedSession', JSON.stringify(payload));
+      console.log("💾 Saved whole-minute session data to localStorage as fallback");
+    } catch (e) { /* Ignore */ }
+    
+    // Make the direct API call
+    const response = await fetch('/api/sessions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    });
+    
+    if (response.ok) {
+      console.log(`✅ WHOLE-MINUTE FIX: ${minutes}-${minuteText} session saved successfully`);
+      return true;
+    } else {
+      console.error(`❌ WHOLE-MINUTE FIX: Session save failed:`, response.status);
+      
+      // Try a second time with a slight variation
+      try {
+        console.log("Attempting backup save method...");
+        const backupResponse = await fetch('/api/sessions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...payload,
+            _backupMethod: true,
+            timestamp: new Date().toISOString() // Update timestamp for the retry
+          })
+        });
+        
+        if (backupResponse.ok) {
+          console.log("✅ Backup save succeeded");
+          return true;
+        } else {
+          console.error("❌ Backup save failed:", backupResponse.status);
+        }
+      } catch (e) {
+        console.error("Error during backup save:", e);
+      }
+      
+      return false;
+    }
+  } catch (error) {
+    console.error(`❌ WHOLE-MINUTE FIX: Error saving session:`, error);
+    return false;
+  }
+};
