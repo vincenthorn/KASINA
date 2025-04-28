@@ -823,6 +823,20 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
   
+  // CRITICAL FIX: Add a forced re-render mechanism
+  const [forceRender, setForceRender] = useState(0);
+  
+  // Force a re-render when the component mounts in focus mode
+  useEffect(() => {
+    // This forces a refresh of the Three.js scene when shown in focus mode
+    console.log("🔄 KasinaOrb mounted/updated - forcing canvas refresh");
+    const timer = setTimeout(() => {
+      setForceRender(prev => prev + 1);
+    }, 100); // Small delay to ensure DOM is ready
+    
+    return () => clearTimeout(timer);
+  }, [type, enableZoom]);
+  
   // If type is provided, update the selected kasina in the store
   useEffect(() => {
     if (type) {
@@ -850,7 +864,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
       className="w-full h-full orb-content"
       style={{ backgroundColor: bgColor }}
     >
-      <Canvas>
+      <Canvas key={`canvas-${kasinaType}-${forceRender}`}>
         <Scene 
           enableZoom={enableZoom} 
           remainingTime={remainingTime}

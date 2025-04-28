@@ -57,6 +57,9 @@ const SimpleTimer: React.FC<SimpleTimerProps> = ({
   // This prevents multiple completion events firing
   const sessionCompletedRef = useRef(false);
   
+  // Add a ref to track if we're in the protection period where completion should be blocked
+  const protectionPeriodActiveRef = useRef(true);
+  
   // CRITICAL FIX: Add a ref to track if the component has unmounted
   // This will prevent the completion handler from firing after component unmount
   const isUnmountedRef = useRef(false);
@@ -363,9 +366,11 @@ const SimpleTimer: React.FC<SimpleTimerProps> = ({
               // Check 2: session not already completed (using ref for persistence)
               // Check 3: Add a minimum elapsed time requirement to prevent very short sessions
               // Check 4: Use the realTotalElapsed as an absolute source of truth
+              // Check 5: Protection period must be over
               if ((currentState.timeRemaining === 0 || (currentState.timeRemaining !== null && currentState.timeRemaining < 3)) && 
                   !sessionCompletedRef.current &&
-                  realTotalElapsed >= 30) { // Require at least 30 seconds of real elapsed time
+                  realTotalElapsed >= 30 && 
+                  !protectionPeriodActiveRef.current) { // Protection period must have ended
                 
                 // Log the enhanced validation
                 console.log("TIMER TERMINATION: Using enhanced validation criteria", {
@@ -558,7 +563,7 @@ const SimpleTimer: React.FC<SimpleTimerProps> = ({
             } else {
               // CRITICAL PROTECTION: Set up a minimum runtime before allowing completion
               // This is the absolutely most direct fix for premature session termination
-              console.log("🔵 Starting timer with protection");
+              console.log("🔵 Starting timer with MAXIMUM protection");
               
               // First clear any existing completion flag to be safe
               sessionCompletedRef.current = false;
@@ -567,6 +572,14 @@ const SimpleTimer: React.FC<SimpleTimerProps> = ({
               // This is the most direct and reliable protection
               timerStartedAtRef.current = Date.now();
               console.log("⏱️ TIMER START TIMESTAMP SET:", timerStartedAtRef.current);
+              
+              // EXTREME FIX: Explicitly block any completion for the first 45 seconds
+              // This is a hard-stop safety measure to prevent premature completion
+              protectionPeriodActiveRef.current = true; // Start with protection active
+              setTimeout(() => {
+                protectionPeriodActiveRef.current = false; // Disable protection after timeout
+                console.log("🛡️ Timer completion protection period has ended - now allowing completion");
+              }, 45000); // 45 second protection
               
               // Start timer in the store
               startTimer();
