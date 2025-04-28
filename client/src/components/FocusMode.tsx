@@ -6,7 +6,7 @@ import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { KASINA_BACKGROUNDS, KASINA_COLORS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
-import KasinaOrb from './KasinaOrb';
+import FocusModeOrb from './FocusModeOrb'; // Use specialized orb component for focus mode
 import { Dialog, DialogContent } from './ui/dialog';
 
 interface FocusModeProps {
@@ -258,15 +258,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             >
               {/* CRITICAL FIX: Render Kasina orb in a container with controlled height/width */}
               <div className="relative" style={{ height: '100%', width: '100%' }}>
-                <KasinaOrb
-                  key={`focus-mode-orb-${selectedKasina}-${Date.now()}`} // Add unique key with timestamp to force re-render
+                <FocusModeOrb
+                  key={`focus-mode-orb-${selectedKasina}-${Date.now()}`}
                   type={selectedKasina as KasinaType}
-                  enableZoom={true}
-                  remainingTime={timerState.timeRemaining}
                   color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
-                  speed={0.5}
-                  complexity={2}
-                  disableBreathing={false} // Enable breathing in focus mode for meditation
+                  remainingTime={timerState.timeRemaining}
                 />
               </div>
             </div>
