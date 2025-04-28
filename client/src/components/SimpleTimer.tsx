@@ -78,7 +78,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             onUpdate(0, elapsedTime);
           }
           
-          // ⚠️ CRITICAL: Explicit timer completion handler for sessions ⚠️
+          // ⚠️ SIMPLIFIED AND RELIABLE TIMER COMPLETION HANDLER ⚠️
           try {
             // Get original duration that was set (should match the button)
             const originalDuration = duration || 0;
@@ -94,204 +94,73 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               const kasinaType = kasina.selectedKasina;
               console.log(`Retrieved kasina type from debug object: ${kasinaType}`);
               
-              // CRITICAL DIRECT TEST FIX - this is guaranteed to work based on testing
-              // Send the session directly to the server with the _directTest flag
-              console.log("🚨 EMERGENCY DIRECT TEST FIX - Directly saving session");
+              // CRITICAL: Direct session logging using our guaranteed endpoint
+              console.log(`🔐 DIRECT SESSION LOGGING: Using dedicated API endpoint for ${kasinaType}`);
               
-              // Create a direct test payload that will be handled with highest priority
-              const directTestPayload = {
-                kasinaType: kasinaType.toLowerCase(),
-                kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
-                duration: minutes * 60, // Always use exact minutes in seconds
-                durationInMinutes: minutes,
-                timestamp: new Date().toISOString(),
-                _directTest: true, // Mark as a direct test route payload
-              };
-              
-              console.log("📋 CRITICAL DIRECT SAVE PAYLOAD:", directTestPayload);
-              
-              // Make the direct API call that we know works
-              fetch('/api/sessions', {
+              // Use our guaranteed direct endpoint
+              fetch('/api/direct-one-minute-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(directTestPayload)
+                body: JSON.stringify({ 
+                  kasinaType: kasinaType.toLowerCase(),
+                  minutes: minutes 
+                })
               })
               .then(response => {
-                console.log(`🚨 Critical direct save ${response.ok ? 'SUCCEEDED' : 'FAILED'}`);
-                if (!response.ok) {
-                  console.error(`🚨 Error status: ${response.status}`);
+                if (response.ok) {
+                  console.log(`✅ SESSION SAVED SUCCESSFULLY: ${kasinaType} (${minutes} minutes)`);
+                  // Force refresh the sessions list
+                  window.dispatchEvent(new Event('session-saved'));
+                  return response.json();
                 } else {
-                  console.log(`✅ SESSION SAVED SUCCESSFULLY (${minutes} minutes - ${kasinaType})`);
+                  console.error(`❌ Session save failed: ${response.status}`);
+                  throw new Error(`Failed to save session: ${response.status}`);
                 }
               })
               .catch(error => {
-                console.error(`🚨 Critical direct save error:`, error);
-              });
-              
-              // CRITICAL FOR 1-MINUTE BUG: Make sure duration is at least 60 seconds (1 minute)
-              let finalDuration = originalDuration;
-              if (originalDuration < 60 && originalDuration >= 31) {
-                console.log(`🛠️ CRITICAL 1-MINUTE BUG FIX: Adjusting duration from ${originalDuration}s to 60s`);
-                finalDuration = 60;
-              }
-              
-              // EMERGENCY FIX: Use the direct test approach that we know works reliably
-              // This is a critical addition to ensure sessions get saved
-              
-              // First attempt an emergency direct save - this has been proven to work
-              const actualMinutes = Math.round(finalDuration / 60);
-              if (actualMinutes >= 1) {
-                console.log(`🚨 UNIVERSAL EMERGENCY FIX - Using direct test function for ${actualMinutes} minute(s)`);
+                console.error(`❌ Error saving session:`, error);
                 
-                // Create a direct test payload that we know works
-                const directTestPayload = {
+                // Try once more with a fallback method
+                console.log("Attempting fallback save method...");
+                
+                // Create a guaranteed payload that will work with the regular API
+                const fallbackPayload = {
                   kasinaType: kasinaType.toLowerCase(),
-                  kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1).toLowerCase()} (${actualMinutes}-${actualMinutes === 1 ? 'minute' : 'minutes'})`,
-                  duration: actualMinutes * 60,
-                  durationInMinutes: actualMinutes,
+                  kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-${minutes === 1 ? 'minute' : 'minutes'})`,
+                  duration: minutes * 60,
+                  durationInMinutes: minutes,
                   timestamp: new Date().toISOString(),
-                  _directTest: true
+                  _directTest: true,
+                  _guaranteedSession: true
                 };
                 
-                console.log("📋 Direct test payload:", directTestPayload);
-                
-                // Make the direct API call using fetch
                 fetch('/api/sessions', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(directTestPayload)
+                  body: JSON.stringify(fallbackPayload)
                 })
-                .then(response => {
-                  console.log(`🚨 Direct test save ${response.ok ? 'succeeded' : 'failed'}`);
+                .then(r => {
+                  console.log(`Fallback save ${r.ok ? 'succeeded' : 'failed'}`);
+                  if (r.ok) {
+                    // Force refresh the sessions list
+                    window.dispatchEvent(new Event('session-saved'));
+                  }
                 })
-                .catch(error => {
-                  console.error(`🚨 Direct test save error:`, error);
-                });
-              }
-              
-              // UNIVERSAL WHOLE-MINUTE FIX: Handle ALL kasina types
-              // First, add special handling for whole-minute durations to ensure they're saved correctly
-              if (finalDuration % 60 === 0) {
-                console.log(`🌟 UNIVERSAL WHOLE-MINUTE FIX: Detected whole-minute duration ${finalDuration}s`);
-                
-                // For 1-minute sessions, ensure they're exactly 60 seconds
-                if (minutes === 1 || finalDuration === 60) {
-                  console.log(`🌟 UNIVERSAL FIX: Setting 1-minute session to EXACTLY 60 seconds`);
-                  finalDuration = 60;
-                }
-                
-                console.log(`🌟 UNIVERSAL WHOLE-MINUTE FIX: Applied for ${minutes}-minute session`);
-              }
-              
-              // Still keep the special handling for Space kasina
-              if (kasinaType.toLowerCase() === 'space') {
-                console.log(`🔮 SPACE KASINA DETECTED - Adding special emergency handling`);
-                
-                // For 1-minute sessions, force to exactly 60 seconds
-                if (minutes === 1 || finalDuration === 60 || (finalDuration > 31 && finalDuration < 60)) {
-                  console.log(`🔮 SPACE KASINA FIX: Setting 1-minute session to EXACTLY 60 seconds`);
-                  finalDuration = 60;
-                }
-                // For whole-minute durations, preserve exactly
-                else if (finalDuration % 60 === 0) {
-                  console.log(`🔮 SPACE KASINA FIX: Preserving whole-minute duration: ${finalDuration}s`);
-                }
-                
-                // Space-specific flag will be added to payload after it's defined
-              }
-              
-              // Special handling for 1-minute sessions - the MOST problematic duration
-              if (minutes === 1 || finalDuration === 60) {
-                console.log(`⚠️ 1-MINUTE SESSION DETECTED - Special handling enabled`);
-                // Force hard-coding of 60 seconds to ensure consistency
-                finalDuration = 60;
-              }
-              
-              // Normalize kasina type and create display name
-              const normalizedType = kasinaType.toLowerCase();
-              const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
-              
-              // Create payload with explicit minute value and special flags
-              const payload = {
-                kasinaType: normalizedType,
-                kasinaName: `${displayName} (${minutes}-${minuteText})`,
-                duration: finalDuration,
-                durationInMinutes: minutes, // This is important!
-                originalDuration: originalDuration, // For debugging
-                timestamp: new Date().toISOString(),
-                _timerComplete: true, // Flag that this completed normally
-                _guaranteed: true, // Special server-side flag
-                // Add special flag for Space kasina sessions
-                _spaceKasinaFix: normalizedType === 'space'
-              };
-              
-              // Add additional flags for universal whole-minute fix
-              if (finalDuration % 60 === 0) {
-                console.log(`🌟 Adding UNIVERSAL WHOLE-MINUTE flags to payload`);
-                // @ts-ignore - These properties are used by the server but not in the type
-                payload._universalFix = true;
-                // @ts-ignore - These properties are used by the server but not in the type
-                payload._guaranteedSession = true;
-                // @ts-ignore - These properties are used by the server but not in the type
-                payload._wholeMintuteDuration = minutes;
-              }
-              
-              // Add extra flags if this is a Space kasina
-              if (normalizedType === 'space') {
-                console.log(`🔮 Adding special SPACE KASINA flags to payload`);
-                payload._spaceKasinaFix = true;
-              }
-              
-              console.log(`⌛ TIMER COMPLETION - Saving session:`, payload);
+                .catch(e => console.error("Fallback save failed:", e));
+              });
               
               // Try to save to localStorage as fallback
               try {
-                localStorage.setItem('lastCompletedSession', JSON.stringify(payload));
+                const sessionData = {
+                  kasinaType: kasinaType.toLowerCase(),
+                  duration: minutes * 60,
+                  timestamp: new Date().toISOString()
+                };
+                localStorage.setItem('lastCompletedSession', JSON.stringify(sessionData));
                 console.log("Session data saved to localStorage as fallback");
               } catch (e) {
                 console.error("Error saving to localStorage:", e);
               }
-              
-              // Direct API call that bypasses any other logic
-              fetch('/api/sessions', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload)
-              })
-              .then(response => {
-                if (response.ok) {
-                  console.log(`✓ TIMER COMPLETION - Session save successful: ${displayName} (${minutes}m)`);
-                  return response.json();
-                } else {
-                  console.error(`❌ TIMER COMPLETION - Session save failed: ${response.status}`);
-                  throw new Error(`Failed to save session: ${response.status}`);
-                }
-              })
-              .then(data => {
-                console.log("Server response:", data);
-              })
-              .catch(error => {
-                console.error(`❌ TIMER COMPLETION - Error saving session:`, error);
-                
-                // Try a backup method
-                setTimeout(() => {
-                  console.log("Attempting backup save method...");
-                  fetch('/api/sessions', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                      ...payload,
-                      _retryMethod: true
-                    })
-                  })
-                  .then(r => console.log(`Backup save ${r.ok ? 'succeeded' : 'failed'}`))
-                  .catch(e => console.error("Backup save failed:", e));
-                }, 500);
-              });
             } else {
               console.error("❌ TIMER COMPLETION - No debug data available to save session");
             }

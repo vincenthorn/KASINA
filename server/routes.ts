@@ -706,7 +706,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.status(201).json(video);
   });
   
-  // EMERGENCY FIX: Direct route to guarantee a 1-minute session save
+  // RELIABLE SESSION SAVING ENDPOINT - Works for any kasina type and duration
   app.post("/api/direct-one-minute-session", (req, res) => {
     if (!req.session?.user?.email) {
       return res.status(401).json({ message: "Authentication required" });
@@ -716,34 +716,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get the kasina type from the request or default to 'white'
       const kasinaType = (req.body.kasinaType || 'white').toLowerCase();
       
-      // Create a guaranteed 1-minute session
+      // Get minutes from request or default to 1
+      const minutes = parseInt(req.body.minutes, 10) || 1;
+      
+      // Format with proper pluralization
+      const minuteText = minutes === 1 ? "minute" : "minutes";
+      
+      // Create a guaranteed session
       const session = {
         id: Date.now().toString(),
         kasinaType: kasinaType,
-        kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (1-minute)`,
-        duration: 60, // Exactly 60 seconds (1 minute)
+        kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-${minuteText})`,
+        duration: minutes * 60, // Convert minutes to seconds
         timestamp: new Date().toISOString(),
         userEmail: req.session.user.email
       };
       
-      console.log("🔥 EMERGENCY 1-MINUTE SESSION CREATED:", session);
+      console.log(`🔐 RELIABLE SESSION LOGGING: Created ${minutes}-minute ${kasinaType} session`);
       
       // Add to sessions and save to file
       sessions.push(session);
       saveDataToFile(sessionsFilePath, sessions);
       
-      console.log(`✅ EMERGENCY FIX: Saved 1-minute ${kasinaType} session for ${req.session.user.email}`);
+      console.log(`✅ RELIABLE SESSION SAVED: ${minutes}-minute ${kasinaType} session for ${req.session.user.email}`);
       
       return res.status(201).json({
         success: true,
-        message: `Successfully saved 1-minute ${kasinaType} kasina session`,
+        message: `Successfully saved ${minutes}-minute ${kasinaType} kasina session`,
         session
       });
     } catch (error) {
-      console.error("Error in emergency session save:", error);
+      console.error("Error in reliable session save:", error);
       return res.status(500).json({ 
         success: false,
-        message: "Failed to save emergency session",
+        message: "Failed to save session",
         error: error instanceof Error ? error.message : "Unknown error"
       });
     }
