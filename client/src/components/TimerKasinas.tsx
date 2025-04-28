@@ -49,6 +49,9 @@ const TimerKasinas: React.FC = () => {
   const handleTimerComplete = () => {
     console.log("Timer completed", { elapsedTime, alreadySaved: sessionSavedRef.current, duration });
     
+    // Reset notification flags on complete
+    tooShortNotifiedRef.current = false;
+    
     // CRITICAL FIX: Handle focus mode exit properly
     console.log("Timer completed, scheduling focus mode exit and orb reinit");
     
@@ -202,6 +205,9 @@ const TimerKasinas: React.FC = () => {
     }
   };
   
+  // Track if we've already shown a "too short" notification
+  const tooShortNotifiedRef = useRef(false);
+  
   // Track timer status for saving
   const handleStatusUpdate = (remaining: number | null, elapsed: number) => {
     console.log("Timer update:", { remaining, elapsed, duration, alreadySaved: sessionSavedRef.current });
@@ -211,8 +217,8 @@ const TimerKasinas: React.FC = () => {
     // This condition detects when user manually stops the timer
     if (remaining !== null && remaining !== 0 && elapsed > 0) {
       // Skip if we already saved this session 
-      if (sessionSavedRef.current) {
-        console.log("Session already saved, skipping additional save");
+      if (sessionSavedRef.current || tooShortNotifiedRef.current) {
+        console.log("Session already saved or notification already shown, skipping");
         return;
       }
       
@@ -308,7 +314,9 @@ const TimerKasinas: React.FC = () => {
         toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
       } else {
         console.warn("Session too short to save - needs at least 31 seconds");
-        if (elapsed > 0) {
+        if (elapsed > 0 && !tooShortNotifiedRef.current) {
+          // Set flag to prevent multiple notifications 
+          tooShortNotifiedRef.current = true;
           toast.info("Session was too short to save - minimum is 31 seconds");
         }
       }
@@ -324,6 +332,9 @@ const TimerKasinas: React.FC = () => {
   // Handle timer start to enable focus mode
   const handleTimerStart = () => {
     console.log("Timer started - activating focus mode");
+    // Reset notification flags when a new timer starts
+    tooShortNotifiedRef.current = false;
+    sessionSavedRef.current = false;
     enableFocusMode();
   };
   
