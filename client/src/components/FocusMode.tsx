@@ -4,9 +4,9 @@ import { Maximize2, Minimize2, ZoomIn, ZoomOut, Timer } from 'lucide-react';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
-import { KASINA_BACKGROUNDS, KASINA_COLORS } from '../lib/constants';
+import { KASINA_BACKGROUNDS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
-import FocusModeOrb from './FocusModeOrb'; // Use specialized orb component for focus mode
+import KasinaOrb from './KasinaOrb';
 import { Dialog, DialogContent } from './ui/dialog';
 
 interface FocusModeProps {
@@ -110,17 +110,6 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
     }
   }, [isFocusModeActive]);
   
-  // Added to debug/trace for focus mode
-  useEffect(() => {
-    if (isFocusModeActive) {
-      console.log("🔍 FOCUS MODE ACTIVATED", {
-        selectedKasina,
-        timeRemaining: timerState.timeRemaining,
-        isRunning: timerState.isRunning
-      });
-    }
-  }, [isFocusModeActive, selectedKasina, timerState.timeRemaining, timerState.isRunning]);
-
   return (
     <>
       <div className="relative">
@@ -150,12 +139,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       <Dialog 
         open={isFocusModeActive} 
         onOpenChange={(open) => {
-          if (!open) {
-            console.log("Focus mode dialog closed");
-            disableFocusMode();
-          } else {
-            console.log("Focus mode dialog opened");
-          }
+          if (!open) disableFocusMode();
         }}
       >
         <DialogContent 
@@ -245,7 +229,6 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             overflow: 'hidden'
           }}>
             <div 
-              className="kasina-orb-container"
               style={{
                 position: 'relative',
                 width: `${300 * zoomLevel}px`,
@@ -256,15 +239,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 zIndex: 10
               }}
             >
-              {/* CRITICAL FIX: Render Kasina orb in a container with controlled height/width */}
-              <div className="relative" style={{ height: '100%', width: '100%' }}>
-                <FocusModeOrb
-                  key={`focus-mode-orb-${selectedKasina}-${Date.now()}`}
-                  type={selectedKasina as KasinaType}
-                  color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
-                  remainingTime={timerState.timeRemaining}
-                />
-              </div>
+              <KasinaOrb
+                type={selectedKasina as KasinaType}
+                enableZoom={true}
+                remainingTime={timerState.timeRemaining}
+              />
             </div>
           </div>
           

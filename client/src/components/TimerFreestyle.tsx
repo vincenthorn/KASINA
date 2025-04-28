@@ -271,8 +271,7 @@ const TimerFreestyle: React.FC = () => {
             <div className="w-full h-full" style={{ minHeight: '400px' }}>
               <KasinaOrb 
                 type={typedKasina} 
-                remainingTime={timeRemaining}
-                disableBreathing={true} // Disable breathing animations in preview pane
+                remainingTime={timeRemaining} 
               />
             </div>
           </div>

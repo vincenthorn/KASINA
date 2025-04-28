@@ -458,27 +458,10 @@ const lightShader = {
 };
 
 // Dynamic Orb component with shader materials
-const DynamicOrb: React.FC<{ 
-  remainingTime?: number | null,
-  type?: KasinaType,
-  color?: string,
-  speed?: number,
-  complexity?: number,
-  disableBreathing?: boolean // Add option to disable breathing animations
-}> = ({ 
-  remainingTime = null,
-  type,
-  color,
-  speed = 0.5,
-  complexity = 2,
-  disableBreathing = false // Default to enabling breathing
-}) => {
+const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime = null }) => {
   const { selectedKasina } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
-  
-  // Get the kasina type (either from prop or from store)
-  const kasinaType = type || selectedKasina;
   
   useFrame(({ clock }) => {
     if (meshRef.current) {
@@ -494,39 +477,23 @@ const DynamicOrb: React.FC<{
         // Apply the shrinking scale
         meshRef.current.scale.set(endingScale, endingScale, endingScale);
         
-        // For elemental kasinas, fade out as well as shrink
-        // For color kasinas, only shrink without changing opacity
+        // Optional: make the orb fade out as well
         if (materialRef.current) {
-          // Check if this is an elemental kasina (shader material) or color kasina (basic material)
-          const isElementalKasina = [
-            KASINA_TYPES.WATER, 
-            KASINA_TYPES.AIR, 
-            KASINA_TYPES.FIRE, 
-            KASINA_TYPES.EARTH, 
-            KASINA_TYPES.SPACE, 
-            KASINA_TYPES.LIGHT
-          ].includes(kasinaType as KasinaType);
-          
-          // Only fade elemental kasinas, not color kasinas
-          if (isElementalKasina) {
-            if ('uniforms' in materialRef.current && 
-                (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
-              (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingScale;
-              (materialRef.current as THREE.ShaderMaterial).transparent = true;
-            }
-          } else {
-            // For color kasinas, we keep opacity at 1.0 (fully visible)
-            // This ensures they only shrink but don't fade/darken
-            if ('opacity' in materialRef.current) {
-              (materialRef.current as THREE.MeshBasicMaterial).opacity = 1.0;
-            }
+          if ('opacity' in materialRef.current) {
+            (materialRef.current as THREE.MeshBasicMaterial).opacity = endingScale;
+            (materialRef.current as THREE.MeshBasicMaterial).transparent = true;
+          } else if ('uniforms' in materialRef.current && 
+                    (materialRef.current as THREE.ShaderMaterial).uniforms.opacity) {
+            (materialRef.current as THREE.ShaderMaterial).uniforms.opacity.value = endingScale;
+            (materialRef.current as THREE.ShaderMaterial).transparent = true;
           }
         }
+        
+        // Log the shrinking effect (for debugging)
+        // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)} (of 60s fade)`);
       } 
       // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
-      // Only apply breathing if not disabled
-      else if (!disableBreathing && 
-              (kasinaType === KASINA_TYPES.SPACE || kasinaType === KASINA_TYPES.FIRE) && 
+      else if ((selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.FIRE) && 
               (remainingTime === null || remainingTime > 60)) {
         const time = clock.getElapsedTime();
         
@@ -535,7 +502,7 @@ const DynamicOrb: React.FC<{
         let breatheCycle = 0;
         let breatheFactor = 1;
 
-        if (kasinaType === KASINA_TYPES.SPACE) {
+        if (selectedKasina === KASINA_TYPES.SPACE) {
           // Space kasina: Subtle 10-second breathing cycle
           const t = time % 10 / 10; // Normalized time in the cycle (0-1) - 10 second cycle
           const easeValue = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
@@ -550,7 +517,7 @@ const DynamicOrb: React.FC<{
           // Apply an extremely subtle pulsing effect to the orb's position
           meshRef.current.position.z = breatheCycle * 0.05; // Minimal movement in z-direction
         } 
-        else if (kasinaType === KASINA_TYPES.FIRE) {
+        else if (selectedKasina === KASINA_TYPES.FIRE) {
           // Fire kasina: More rapid 4-second breathing cycle with flame-like pulsation
           const t = time % 4 / 4; // Normalized time in the cycle (0-1) - 4 second cycle
           
@@ -580,7 +547,7 @@ const DynamicOrb: React.FC<{
             // Attempt to modify any shader uniforms that might affect the appearance
             const material = materialRef.current as THREE.ShaderMaterial;
             
-            if (kasinaType === KASINA_TYPES.SPACE) {
+            if (selectedKasina === KASINA_TYPES.SPACE) {
               if (material.uniforms.glowIntensity !== undefined) {
                 material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
               }
@@ -594,7 +561,7 @@ const DynamicOrb: React.FC<{
                 material.uniforms.opacity.value = 0.8 + breatheCycle * 0.2;
               }
             }
-            else if (kasinaType === KASINA_TYPES.FIRE) {
+            else if (selectedKasina === KASINA_TYPES.FIRE) {
               // Fire-specific adjustments to shader uniforms
               // Flame color pulsation
               if (material.uniforms.color !== undefined) {
@@ -634,7 +601,7 @@ const DynamicOrb: React.FC<{
   });
 
   const getShaderMaterial = () => {
-    switch (kasinaType) {
+    switch (selectedKasina) {
       case KASINA_TYPES.WATER:
         return new THREE.ShaderMaterial({...waterShader, transparent: true});
       case KASINA_TYPES.FIRE:
@@ -650,7 +617,7 @@ const DynamicOrb: React.FC<{
       default:
         // For basic color kasinas
         return new THREE.MeshBasicMaterial({ 
-          color: color || KASINA_COLORS[kasinaType] || "#FFFFFF",
+          color: KASINA_COLORS[selectedKasina],
           transparent: true
         });
     }
@@ -662,7 +629,7 @@ const DynamicOrb: React.FC<{
       meshRef.current.material = material;
       materialRef.current = material;
     }
-  }, [kasinaType, color, speed, complexity]);
+  }, [selectedKasina]);
 
   return (
     <mesh ref={meshRef}>
@@ -672,86 +639,47 @@ const DynamicOrb: React.FC<{
 };
 
 // Scene setup component
-const Scene: React.FC<{ 
-  enableZoom?: boolean, 
-  remainingTime?: number | null,
-  type?: KasinaType,
-  color?: string,
-  speed?: number,
-  complexity?: number,
-  disableBreathing?: boolean
-}> = ({ 
+const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> = ({ 
   enableZoom = false,
-  remainingTime = null,
-  type,
-  color,
-  speed,
-  complexity,
-  disableBreathing = false
+  remainingTime = null
 }) => {
   const { gl, camera } = useThree();
   const { selectedKasina } = useKasina();
   
   // Debug mount/unmount for troubleshooting
   useEffect(() => {
-    // For debugging - add a timestamp identifier to track this effect's lifecycle
-    const mountTimestamp = Date.now();
-    console.log(`Scene component ${mountTimestamp} mounted with kasina:`, selectedKasina);
+    console.log("Scene component mounted with kasina:", selectedKasina);
     
-    // Flag to track if this specific instance has been cleaned up
-    // This prevents race conditions with React's concurrent rendering
-    let hasBeenCleanedUp = false;
-    
-    // Store an unmount flag
-    let isUnmounting = false;
-    
-    // Helper function to clean up WebGL resources - MODIFIED to be safer
+    // Helper function to clean up WebGL resources
     const cleanupWebGL = () => {
-      // Prevent double cleanup
-      if (hasBeenCleanedUp) {
-        console.log(`Scene cleanup ${mountTimestamp} already performed - skipping`);
-        return;
-      }
-      
       try {
-        // Mark as cleaned up first to prevent duplicates
-        hasBeenCleanedUp = true;
+        // Clear any render lists
+        gl.renderLists.dispose();
         
-        // Log the cleanup for debugging
-        console.log(`Scene component ${mountTimestamp} cleaning up, unmounting: ${isUnmounting}`);
+        // Reset renderer state to avoid memory leaks
+        gl.info.reset();
         
-        // Don't reset the renderer state or renderLists during React rendering cycles
-        // This has been causing the premature completion issues
-        
-        // Only clean up when the component is actually unmounting
-        if (isUnmounting) {
-          // Do minimal cleanup that won't interfere with concurrent renders
-          // Note: gl.info.reset() and renderLists.dispose() can cause issues during React's rendering
-          console.log(`Scene component ${mountTimestamp} performing unmount cleanup`);
+        // Force garbage collection hint (though browser decides when to run GC)
+        if (typeof window !== 'undefined' && window.gc) {
+          window.gc();
         }
       } catch (err) {
-        console.error(`Error cleaning up WebGL resources for ${mountTimestamp}:`, err);
+        console.error("Error cleaning up WebGL resources", err);
       }
     };
     
     // Make sure to clean up WebGL resources properly when scene unmounts
     return () => {
-      // Set the unmounting flag to true to indicate this is a real unmount
-      isUnmounting = true;
-      console.log(`Scene component ${mountTimestamp} unmounting`);
-      
-      // Only do minimal cleanup on unmount to avoid breaking animations
+      console.log("Scene component unmounted, releasing resources");
       cleanupWebGL();
     };
-  }, [selectedKasina]);
+  }, []);
   
-  // Set the background color based on the selected kasina or type prop
+  // Set the background color based on the selected kasina
   useEffect(() => {
-    // Use type prop if provided, otherwise fall back to selectedKasina from store
-    const kasinaType = type || selectedKasina;
-    const bgColor = KASINA_BACKGROUNDS[kasinaType as KasinaType] || "#000000";
+    const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
     gl.setClearColor(new THREE.Color(bgColor), 1);
-  }, [gl, selectedKasina, type]);
+  }, [gl, selectedKasina]);
 
   // Add camera ref to work with zoom 
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
@@ -779,14 +707,7 @@ const Scene: React.FC<{
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
       <pointLight position={cameraLight} intensity={0.8} distance={10} />
-      <DynamicOrb 
-        remainingTime={remainingTime} 
-        type={type}
-        color={color}
-        speed={speed}
-        complexity={complexity}
-        disableBreathing={disableBreathing}
-      />
+      <DynamicOrb remainingTime={remainingTime} />
       <OrbitControls 
         enableZoom={enableZoom} 
         enablePan={false} 
@@ -807,8 +728,6 @@ interface KasinaOrbProps {
   speed?: number;        // Animation speed
   complexity?: number;   // Detail level for the orb
   remainingTime?: number | null; // Remaining time in seconds, used for end-session effects
-  key?: string;          // A unique key to prevent unmounting during animations
-  disableBreathing?: boolean; // Option to disable breathing animations (for preview)
 }
 
 const KasinaOrb: React.FC<KasinaOrbProps> = ({ 
@@ -817,25 +736,10 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   color,
   speed,
   complexity,
-  remainingTime = null,
-  disableBreathing = false
+  remainingTime = null
 }) => {
   // Get access to the current selectedKasina
   const { selectedKasina } = useKasina();
-  
-  // CRITICAL FIX: Add a forced re-render mechanism
-  const [forceRender, setForceRender] = useState(0);
-  
-  // Force a re-render when the component mounts in focus mode
-  useEffect(() => {
-    // This forces a refresh of the Three.js scene when shown in focus mode
-    console.log("🔄 KasinaOrb mounted/updated - forcing canvas refresh");
-    const timer = setTimeout(() => {
-      setForceRender(prev => prev + 1);
-    }, 100); // Small delay to ensure DOM is ready
-    
-    return () => clearTimeout(timer);
-  }, [type, enableZoom]);
   
   // If type is provided, update the selected kasina in the store
   useEffect(() => {
@@ -855,25 +759,16 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
     };
   }, []);
   
-  // Get the background color for the selected kasina or the type prop
-  const kasinaType = type || selectedKasina;
-  const bgColor = KASINA_BACKGROUNDS[kasinaType as KasinaType] || "#000000";
+  // Get the background color for the selected kasina
+  const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
   
   return (
     <div 
       className="w-full h-full orb-content"
       style={{ backgroundColor: bgColor }}
     >
-      <Canvas key={`canvas-${kasinaType}-${forceRender}`}>
-        <Scene 
-          enableZoom={enableZoom} 
-          remainingTime={remainingTime}
-          type={kasinaType as KasinaType}
-          color={color}
-          speed={speed}
-          complexity={complexity}
-          disableBreathing={disableBreathing}
-        />
+      <Canvas>
+        <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
       </Canvas>
     </div>
   );

@@ -18,59 +18,23 @@ const TimerKasinas: React.FC = () => {
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const { timeRemaining, duration } = useSimpleTimer();
   
-  // Add this ref to prevent multiple session saves - with more robust tracking
+  // Add this ref to prevent multiple session saves
   const sessionSavedRef = useRef(false);
-  
-  // Add a global variable to track the time when the session started
-  // This allows us to absolutely verify how long the session has been running
-  const sessionStartTimeRef = useRef<number | null>(null);
-  
-  // Track when focus mode was last enabled
-  const focusModeEnabledAtRef = useRef<number | null>(null);
-  
-  // Add ref for validating session integrity
-  const validityIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedTab, setSelectedTab] = useState<string>("simple");
   const [elapsedTime, setElapsedTime] = useState(0);
-  
-  // Add state to track if we're in a valid session
-  const [validSession, setValidSession] = useState(false);
   
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
   
   // Reset session saved flag when the component mounts
   useEffect(() => {
-    console.log("🔵 TimerKasinas component mounted");
     sessionSavedRef.current = false;
-    
-    // CRITICAL FIX: Immediately mark the session as valid on mount
-    // This was preventing sessions from being saved
-    setValidSession(true);
-    console.log("✅ Session marked as valid on component mount");
-    
-    // CRITICAL NEW FIX: Set up a listener for the custom timer-started event
-    // This ensures we capture the exact moment when a timer is started
-    const handleTimerStarted = (event: Event) => {
-      const customEvent = event as CustomEvent;
-      console.log("🎯 Received timer-started event:", customEvent.detail);
-      
-      // Call our timer start handler
-      handleTimerStart();
-    };
-    
-    // Add the event listener
-    window.addEventListener('kasina-timer-started', handleTimerStarted);
     
     // Reset saved flag when navigating or unmounting
     return () => {
-      // Clean up the event listener
-      window.removeEventListener('kasina-timer-started', handleTimerStarted);
-      
       sessionSavedRef.current = false;
-      console.log("TimerKasinas component unmounted");
     };
   }, []);
   
@@ -81,38 +45,9 @@ const TimerKasinas: React.FC = () => {
     console.log("Resetting session saved flag - kasina changed to", selectedKasina);
   }, [selectedKasina]);
   
-  // Handle timer completion with robust validity checks
+  // Handle timer completion
   const handleTimerComplete = () => {
-    console.log("Timer completion triggered", { 
-      elapsedTime, 
-      alreadySaved: sessionSavedRef.current, 
-      duration,
-      sessionStart: sessionStartTimeRef.current,
-      validSession
-    });
-    
-    // Calculate real elapsed time based on session start timestamp
-    let realElapsedTime = 0;
-    if (sessionStartTimeRef.current) {
-      realElapsedTime = Math.floor((Date.now() - sessionStartTimeRef.current) / 1000);
-      console.log(`Real elapsed time based on timestamps: ${realElapsedTime} seconds`);
-    }
-    
-    // PRIMARY SAFETY CHECK: Only proceed if we have been running for at least 10 seconds
-    // This prevents premature completion events
-    if (realElapsedTime < 10) {
-      console.error("❌ CRITICAL SAFETY - Timer completion triggered too early!", {
-        realElapsedTime,
-        startTime: sessionStartTimeRef.current
-      });
-      return; // Exit immediately, don't process this completion
-    }
-    
-    // Additional check to prevent sessions marked as invalid from completing
-    if (!validSession) {
-      console.warn("⚠️ Session not marked as valid - ignoring completion event");
-      return;
-    }
+    console.log("Timer completed", { elapsedTime, alreadySaved: sessionSavedRef.current, duration });
     
     // CRITICAL FIX: Handle focus mode exit properly
     console.log("Timer completed, scheduling focus mode exit and orb reinit");
@@ -384,58 +319,9 @@ const TimerKasinas: React.FC = () => {
   // Note: Manual save session functionality has been removed
   // Sessions are now saved automatically when the timer completes
   
-  // Add effect to clean up the validity check interval when component unmounts
-  useEffect(() => {
-    return () => {
-      if (validityIntervalRef.current) {
-        clearInterval(validityIntervalRef.current);
-        validityIntervalRef.current = null;
-      }
-    };
-  }, []);
-  
   // Handle timer start to enable focus mode
   const handleTimerStart = () => {
     console.log("Timer started - activating focus mode");
-    
-    // Record the exact timestamp when the session starts for accurate tracking
-    sessionStartTimeRef.current = Date.now();
-    
-    // CRITICAL FIX: Always mark session as valid from the beginning
-    // This prevents issues where the timer completes before the validity check passes
-    setValidSession(true);
-    console.log("✅ Immediately marking session as valid to prevent premature termination issues");
-    
-    // Clean up any existing interval
-    if (validityIntervalRef.current) {
-      clearInterval(validityIntervalRef.current);
-      validityIntervalRef.current = null;
-    }
-    
-    // Keep a validity check to ensure continued session integrity
-    const sessionValidityCheckId = setInterval(() => {
-      const timerState = useSimpleTimer.getState();
-      
-      // Log periodic verification that session remains valid
-      if (timerState.isRunning && timerState.elapsedTime % 5 === 0) {
-        console.log("⏱️ Session validation check - still running", {
-          elapsedTime: timerState.elapsedTime,
-          startTime: sessionStartTimeRef.current,
-          realElapsed: sessionStartTimeRef.current ? 
-            Math.floor((Date.now() - sessionStartTimeRef.current) / 1000) : 0
-        });
-      }
-    }, 1000); // Check every second
-    
-    // Store the interval ID in our ref for cleanup
-    validityIntervalRef.current = sessionValidityCheckId;
-    
-    // Record when focus mode was enabled
-    focusModeEnabledAtRef.current = Date.now();
-    
-    // Clear saved flag when starting a new session
-    sessionSavedRef.current = false;
-    
     enableFocusMode();
   };
   
@@ -494,7 +380,7 @@ const TimerKasinas: React.FC = () => {
                 <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
                 
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                  <h3 className="font-medium col-span-2">Color Kasinas:</h3>
+                  <h3 className="font-medium col-span-2">Color Kasinas</h3>
                   <Button
                     variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
@@ -543,7 +429,7 @@ const TimerKasinas: React.FC = () => {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <h3 className="font-medium col-span-2">Elemental Kasinas:</h3>
+                  <h3 className="font-medium col-span-2">Element Kasinas</h3>
                   
                   <Button
                     variant={selectedKasina === KASINA_TYPES.WATER ? "default" : "outline"}
@@ -622,13 +508,8 @@ const TimerKasinas: React.FC = () => {
                style={{ minHeight: '400px' }}>
             <div className="w-full h-full" style={{ minHeight: '400px' }}>
               <KasinaOrb 
-                key="persistent-kasina-orb" 
                 type={typedKasina} 
-                remainingTime={timeRemaining}
-                color={KASINA_COLORS[typedKasina] || "#FFFFFF"}
-                speed={0.5}
-                complexity={2}
-                disableBreathing={true} // Disable breathing animations in preview pane
+                remainingTime={timeRemaining} 
               />
             </div>
           </div>

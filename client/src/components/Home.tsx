@@ -15,7 +15,7 @@ const Home = () => {
     {
       title: "Kasinas",
       icon: <PlayCircle className="h-12 w-12 mb-4 text-blue-500" />,
-      description: "Kasina mode with 10 visual orbs plus meditation timer",
+      description: "Choose from 10 orbs and meditate with timer controls",
       path: "/kasinas"
     },
     {

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import KasinaOrb from "../components/KasinaOrb";
-import { KasinaType } from "../lib/types";
-import { KASINA_COLORS } from "../lib/constants";
 import RecordingControls from "../components/RecordingControls";
 import RecordingList from "../components/RecordingList";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
@@ -324,11 +322,7 @@ const RecordingPage: React.FC = () => {
           
           {/* Full screen orb */}
           <div className="w-full h-full bg-black rounded-lg overflow-hidden">
-            <KasinaOrb 
-              enableZoom={true}
-              type={selectedKasina as KasinaType} 
-              color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
-            />
+            <KasinaOrb enableZoom={true} />
             
             {/* Recording control panel for focus mode */}
             <div className={`
@@ -394,11 +388,7 @@ const RecordingPage: React.FC = () => {
             
             {/* Right: Kasina Orb */}
             <div className="lg:col-span-2 h-96 bg-black rounded-lg overflow-hidden">
-              <KasinaOrb 
-                enableZoom={false}
-                type={selectedKasina as KasinaType} 
-                color={KASINA_COLORS[selectedKasina as KasinaType] || "#FFFFFF"}
-              />
+              <KasinaOrb enableZoom={false} />
             </div>
           </div>
         </TabsContent>
