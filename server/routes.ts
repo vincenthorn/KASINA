@@ -20,22 +20,18 @@ declare module "express-session" {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Define paths to whitelist CSV files
-const substackWhitelistPath = path.join(__dirname, "../substack-whitelist.csv");
-const friendWhitelistPath = path.join(__dirname, "../friend-whitelist.csv");
-const whitelistPath = path.join(__dirname, "../whitelist.csv"); // Keep original for compatibility
+// Define path to whitelist CSV file
+const whitelistPath = path.join(__dirname, "../whitelist.csv");
 
-// Helper to read whitelist from a specific file
-async function readWhitelistFile(filePath: string): Promise<string[]> {
+// Helper to read whitelist CSV
+async function readWhitelist(): Promise<string[]> {
   try {
-    // If file doesn't exist, create empty file
-    if (!fs.existsSync(filePath)) {
-      fs.writeFileSync(filePath, "email\n", "utf-8");
-      console.log(`Created empty whitelist at ${filePath}`);
-      return [];
+    // If whitelist doesn't exist, create empty file
+    if (!fs.existsSync(whitelistPath)) {
+      fs.writeFileSync(whitelistPath, "email\ntest@example.com\nuser@kasina.app\n", "utf-8");
     }
     
-    const data = await fs.promises.readFile(filePath, "utf-8");
+    const data = await fs.promises.readFile(whitelistPath, "utf-8");
     
     // Parse CSV (simple implementation for basic CSV)
     const emails = data
@@ -45,42 +41,9 @@ async function readWhitelistFile(filePath: string): Promise<string[]> {
     
     return emails;
   } catch (error) {
-    console.error(`Error reading whitelist from ${filePath}:`, error);
-    return [];
-  }
-}
-
-// Helper to read combined whitelist
-async function readWhitelist(): Promise<string[]> {
-  try {
-    // Ensure the main whitelist exists (for backward compatibility)
-    if (!fs.existsSync(whitelistPath)) {
-      fs.writeFileSync(whitelistPath, "email\ntest@example.com\nuser@kasina.app\n", "utf-8");
-    }
-    
-    // Get emails from both sources
-    const substackEmails = await readWhitelistFile(substackWhitelistPath);
-    const friendEmails = await readWhitelistFile(friendWhitelistPath);
-    const mainEmails = await readWhitelistFile(whitelistPath);
-    
-    // Combine all lists and remove duplicates
-    const allEmails = [...substackEmails, ...friendEmails, ...mainEmails];
-    const uniqueEmails = [...new Set(allEmails)];
-    
-    // Always include these essential accounts
-    const essentialAccounts = ["admin@kasina.app", "user@kasina.app"];
-    
-    // Make sure essential accounts are always included
-    for (const account of essentialAccounts) {
-      if (!uniqueEmails.includes(account)) {
-        uniqueEmails.push(account);
-      }
-    }
-    
-    return uniqueEmails;
-  } catch (error) {
-    console.error("Error reading whitelists:", error);
-    return ["admin@kasina.app", "user@kasina.app"]; // Ensure essential accounts always have access
+    console.error("Error reading whitelist:", error);
+    // Return a sample list for testing when file can't be read
+    return ["test@example.com", "user@kasina.app"];
   }
 }
 
@@ -376,179 +339,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   );
   
-  // Helper function to update Substack whitelist
-  async function updateSubstackWhitelist(csvBuffer: Buffer): Promise<string[]> {
-    // Essential accounts that must always be preserved
-    const essentialAccounts = ["admin@kasina.app", "user@kasina.app"];
-    
-    // Process CSV and extract emails
-    const extractedEmails = await extractEmailsFromCSV(csvBuffer);
-    
-    // Read existing Substack whitelist
-    const existingEmails = await readWhitelistFile(substackWhitelistPath);
-    
-    // Combine and remove duplicates
-    let combinedEmails = [...new Set([...existingEmails, ...extractedEmails])];
-    
-    // Write updated list back to Substack whitelist file
-    await fs.promises.writeFile(
-      substackWhitelistPath, 
-      "email\n" + combinedEmails.join("\n"), 
-      "utf-8"
-    );
-    
-    // Update the combined whitelist by re-reading all sources
-    const allWhitelistedEmails = await readWhitelist();
-    
-    return combinedEmails;
-  }
-  
-  // Helper function to update Friend whitelist
-  async function updateFriendWhitelist(csvBuffer: Buffer): Promise<string[]> {
-    // Essential accounts that must always be preserved
-    const essentialAccounts = ["admin@kasina.app", "user@kasina.app"];
-    
-    // Process CSV and extract emails
-    const extractedEmails = await extractEmailsFromCSV(csvBuffer);
-    
-    // Read existing Friend whitelist
-    const existingEmails = await readWhitelistFile(friendWhitelistPath);
-    
-    // Combine and remove duplicates
-    let combinedEmails = [...new Set([...existingEmails, ...extractedEmails])];
-    
-    // Write updated list back to Friend whitelist file
-    await fs.promises.writeFile(
-      friendWhitelistPath, 
-      "email\n" + combinedEmails.join("\n"), 
-      "utf-8"
-    );
-    
-    // Update the combined whitelist by re-reading all sources
-    const allWhitelistedEmails = await readWhitelist();
-    
-    return combinedEmails;
-  }
-  
-  // Helper to extract emails from CSV buffer
-  async function extractEmailsFromCSV(csvBuffer: Buffer): Promise<string[]> {
-    // Parse CSV data
-    const records = parse(csvBuffer, {
-      columns: true,
-      skip_empty_lines: true,
-      trim: true,
-    });
-    
-    if (!records || records.length === 0) {
-      throw new Error("No data found in the CSV file");
-    }
-    
-    // Determine which column contains emails
-    const firstRecord = records[0];
-    const possibleEmailColumns = [
-      "Email", "email", "EmailAddress", "Email Address", 
-      "email_address", "e-mail", "User Email"
-    ];
-    
-    let emailColumnName: string | null = null;
-    
-    // Find the first column that exists in the record
-    for (const colName of possibleEmailColumns) {
-      if (firstRecord[colName] !== undefined) {
-        emailColumnName = colName;
-        break;
-      }
-    }
-    
-    // If no email column found, look for any column that might contain an email
-    if (!emailColumnName) {
-      for (const key of Object.keys(firstRecord)) {
-        const value = firstRecord[key];
-        if (typeof value === 'string' && value.includes('@')) {
-          emailColumnName = key;
-          break;
-        }
-      }
-    }
-    
-    if (!emailColumnName) {
-      throw new Error("Could not find email column in the CSV file");
-    }
-    
-    console.log(`Using column "${emailColumnName}" for emails`);
-    
-    // Extract emails from the parsed data
-    const emails = records
-      .filter((record: any) => record[emailColumnName])
-      .map((record: any) => String(record[emailColumnName]).trim().toLowerCase());
-    
-    // Check if there are any emails in the data
-    if (emails.length === 0) {
-      throw new Error("No valid email addresses found in the CSV file");
-    }
-    
-    return emails;
-  }
-
-  // Substack CSV Upload endpoint
-  app.post(
-    "/api/admin/upload-substack", 
-    isAdmin,
-    upload.single("csv"), 
-    async (req, res) => {
-      try {
-        // Check if file was provided
-        if (!req.file) {
-          return res.status(400).json({ message: "No CSV file uploaded" });
-        }
-        
-        // Process the uploaded CSV for Substack
-        const emails = await updateSubstackWhitelist(req.file.buffer);
-        
-        return res.status(200).json({ 
-          message: "Substack whitelist updated successfully", 
-          count: emails.length 
-        });
-      } catch (error) {
-        console.error("Error processing Substack upload:", error);
-        return res.status(500).json({ 
-          message: "Failed to process the Substack CSV file",
-          error: error instanceof Error ? error.message : "Unknown error" 
-        });
-      }
-    }
-  );
-  
-  // Friend CSV Upload endpoint
-  app.post(
-    "/api/admin/upload-friend", 
-    isAdmin,
-    upload.single("csv"), 
-    async (req, res) => {
-      try {
-        // Check if file was provided
-        if (!req.file) {
-          return res.status(400).json({ message: "No CSV file uploaded" });
-        }
-        
-        // Process the uploaded CSV for Friend list
-        const emails = await updateFriendWhitelist(req.file.buffer);
-        
-        return res.status(200).json({ 
-          message: "Friend whitelist updated successfully", 
-          count: emails.length 
-        });
-      } catch (error) {
-        console.error("Error processing Friend upload:", error);
-        return res.status(500).json({ 
-          message: "Failed to process the Friend CSV file",
-          error: error instanceof Error ? error.message : "Unknown error" 
-        });
-      }
-    }
-  );
-  
-  // Legacy CSV Upload endpoint (for backward compatibility)
+  // CSV Upload endpoint
   app.post(
     "/api/admin/upload-whitelist", 
     isAdmin,
@@ -560,7 +351,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           return res.status(400).json({ message: "No CSV file uploaded" });
         }
         
-        // Process the uploaded CSV using the legacy method
+        // Process the uploaded CSV
         const emails = await updateWhitelistFromCSV(req.file.buffer);
         
         return res.status(200).json({ 
