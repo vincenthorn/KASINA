@@ -92,16 +92,21 @@ const Reflection = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row justify-between items-start mb-8">
-        <div>
-          <h1 className="text-3xl font-bold mb-2">Reflection</h1>
-          <p className="text-gray-400">
-            Analyze your meditation patterns and progress
-          </p>
+        <div className="flex items-center">
+          <div className="h-12 w-12 bg-indigo-600/20 rounded-full flex items-center justify-center mr-4 shadow-lg shadow-indigo-900/20">
+            <span className="text-2xl">🧘</span>
+          </div>
+          <div>
+            <h1 className="text-3xl font-bold mb-2 text-white">Reflection</h1>
+            <p className="text-gray-400">
+              Analyze your meditation patterns and progress
+            </p>
+          </div>
         </div>
         
         <div className="mt-4 md:mt-0">
           <Select value={timeFilter} onValueChange={(value: 'week' | 'month' | 'all') => setTimeFilter(value)}>
-            <SelectTrigger className="w-36">
+            <SelectTrigger className="w-36 bg-gray-800 border-gray-700">
               <SelectValue placeholder="Time Range" />
             </SelectTrigger>
             <SelectContent>
@@ -157,7 +162,7 @@ const Reflection = () => {
                       innerRadius={60}
                       dataKey="value"
                       labelLine={false}
-                      label={({ name, emoji, percent }) => `${emoji} ${(percent * 100).toFixed(0)}%`}
+                      label={({ emoji, percent }) => `${emoji} ${(percent * 100).toFixed(0)}%`}
                     >
                       {pieData.map((_, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -165,7 +170,17 @@ const Reflection = () => {
                     </Pie>
                     <Tooltip
                       formatter={(value: number) => [formatTime(value), 'Duration']}
-                      labelFormatter={(name) => name.charAt(0).toUpperCase() + name.slice(1)}
+                      labelFormatter={(name, entry) => {
+                        const dataEntry = pieData.find(item => item.name === name);
+                        return dataEntry ? `${dataEntry.emoji} ${dataEntry.displayName} Kasina` : name;
+                      }}
+                      contentStyle={{ 
+                        backgroundColor: '#1F2937', 
+                        borderColor: '#4B5563',
+                        borderRadius: '0.375rem',
+                        padding: '0.75rem',
+                        color: 'white'
+                      }}
                     />
                   </PieChart>
                 </ResponsiveContainer>
@@ -207,10 +222,14 @@ const Reflection = () => {
                       >
                         <td className="py-3 px-4">{formatDate(session.date)}</td>
                         <td className="py-3 px-4">
-                          <span className="mr-2">{getKasinaEmoji(session.kasinaType)}</span>
-                          {session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)}
+                          <span className="mr-2">{KASINA_EMOJIS[session.kasinaType] || '🧿'}</span>
+                          {KASINA_NAMES[session.kasinaType] || session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina
                         </td>
-                        <td className="py-3 px-4">{formatTime(session.duration)}</td>
+                        <td className="py-3 px-4">
+                          <span className="px-3 py-1 bg-indigo-600/30 text-indigo-200 rounded-full text-sm font-medium">
+                            {formatTime(session.duration)}
+                          </span>
+                        </td>
                       </tr>
                     ))}
                 </tbody>
