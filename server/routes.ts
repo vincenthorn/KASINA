@@ -281,10 +281,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
           }
         }
         
+        // Get sessions data from the storage file
+        let allSessions = [];
+        try {
+          // Try to load sessions directly from file if needed
+          if (!Array.isArray(sessions) || sessions.length === 0) {
+            const sessionsPath = path.join(process.cwd(), 'sessions.json');
+            if (fs.existsSync(sessionsPath)) {
+              const sessionsData = await fs.promises.readFile(sessionsPath, 'utf-8');
+              allSessions = JSON.parse(sessionsData);
+              console.log(`Loaded ${allSessions.length} sessions directly from file`);
+            }
+          } else {
+            allSessions = sessions;
+          }
+        } catch (err) {
+          console.error("Error loading sessions from file:", err);
+          allSessions = [];
+        }
+        
         // Calculate total practice time per user
         const userPracticeTimes: Record<string, number> = {};
         
-        for (const session of sessions) {
+        for (const session of allSessions) {
           if (session.userEmail) {
             const email = session.userEmail.toLowerCase();
             // Add duration in seconds to user's total
