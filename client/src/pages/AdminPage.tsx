@@ -247,7 +247,6 @@ const AdminPage: React.FC = () => {
                   <table className="min-w-full text-sm text-white">
                     <thead>
                       <tr className="border-b border-gray-700">
-                        <th className="px-4 py-3 text-left font-medium">Full Name</th>
                         <th className="px-4 py-3 text-left font-medium">Email Address</th>
                         <th className="px-4 py-3 text-left font-medium">Practice Time</th>
                       </tr>
@@ -255,9 +254,6 @@ const AdminPage: React.FC = () => {
                     <tbody>
                       {members.slice(0, displayCount).map((member, index) => (
                         <tr key={member.email} className="border-b border-gray-700 hover:bg-gray-700/50 transition-colors">
-                          <td className="px-4 py-3">
-                            {member.name || "—"}
-                          </td>
                           <td className="px-4 py-3">
                             {member.email}
                           </td>
