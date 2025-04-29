@@ -187,17 +187,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // Create a unique key for this session save request
     const minutes = Math.ceil(duration / 60);
     const cacheKey = `${userEmail}:${kasinaType}:${minutes}`;
+    
+    // Also create a more general key just for this user and kasina type
+    // This helps prevent very closely timed duplicates (within 3 seconds)
+    const shortCacheKey = `${userEmail}:${kasinaType}`;
+    
     const now = Date.now();
     
-    // Check if we've processed this exact session recently
+    // Check if we've processed this exact session recently (within 10 seconds)
     const lastSaveTime = sessionDedupeCache.get(cacheKey);
     if (lastSaveTime && (now - lastSaveTime < 10000)) {
       console.log(`🛑 SERVER DEDUPE: Prevented duplicate session save for ${cacheKey} (${Math.round((now - lastSaveTime)/1000)}s ago)`);
       return true;
     }
     
-    // If not a duplicate, add to cache
+    // Also check if we've just processed ANY session of this type for this user (within 3 seconds)
+    // This helps catch multiple closely timed submissions through different routes
+    const lastTypeTime = sessionDedupeCache.get(shortCacheKey);
+    if (lastTypeTime && (now - lastTypeTime < 3000)) {
+      console.log(`🛑 STRICT DEDUPE: Prevented closely timed session of same type (${Math.round((now - lastTypeTime)/1000)}s ago)`);
+      return true;
+    }
+    
+    // If not a duplicate, add to both caches
     sessionDedupeCache.set(cacheKey, now);
+    sessionDedupeCache.set(shortCacheKey, now);
     
     // Clean up old cache entries
     for (const [key, timestamp] of sessionDedupeCache.entries()) {

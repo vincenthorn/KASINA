@@ -10,10 +10,11 @@ import { toast } from 'sonner';
  * Also exports a utility function for direct use in other components
  */
 
-// Global cache map to track recently saved sessions and prevent duplicates
+// Global cache maps to track recently saved sessions and prevent duplicates
 type SessionKey = string;
 type TimestampMs = number;
 const recentlySavedSessions = new Map<SessionKey, TimestampMs>();
+const recentNotifications = new Map<string, TimestampMs>();
 
 // Export the session saving function for use in other components
 export async function guaranteedSessionSave(kasinaType: string, minutes: number = 1): Promise<boolean> {
@@ -97,10 +98,35 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       });
     }
     
+    // Global notification tracking to prevent duplicate notifications
+    const notificationKey = `toast_${normalizedType}`;
+    const showNotification = (): void => {
+      // Only show a notification if we haven't shown one for this kasina type recently (within 3 seconds)
+      const now = Date.now();
+      const lastNotification = recentNotifications.get(notificationKey);
+      if (lastNotification && (now - lastNotification < 3000)) {
+        console.log(`🔔 DUPLICATE NOTIFICATION PREVENTED: Already notified about ${normalizedType} ${Math.round((now - lastNotification)/1000)}s ago`);
+        return;
+      }
+      
+      // Show a notification and record it to prevent duplicates
+      toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+      recentNotifications.set(notificationKey, now);
+      
+      // Clean up old notification records (older than 10 seconds)
+      for (const [key, timestamp] of recentNotifications.entries()) {
+        if (now - timestamp > 10000) {
+          recentNotifications.delete(key);
+        }
+      }
+    };
+    
     // Success case - either the direct endpoint or fallback worked
     if (response.ok) {
       console.log(`✅ SESSION SAVED: ${normalizedType} (${minutes} min)`);
-      toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+      
+      // Show a notification (with duplicate prevention)
+      showNotification();
       
       // Force refresh the sessions list
       window.dispatchEvent(new Event('session-saved'));
@@ -114,8 +140,8 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       const emergencyBeacon = new Image();
       emergencyBeacon.src = `${beaconUrl}?emergency=true&time=${Date.now()}`;
       
-      // Show a success anyway because the beacon likely worked
-      toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+      // Show a notification (with duplicate prevention)
+      showNotification();
       
       // Force refresh after a delay since the beacon might take time
       setTimeout(() => {
@@ -135,8 +161,18 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       finalBeacon.src = `/api/save-session/${urlSafe}/${minutes}?emergency=final&time=${Date.now()}`;
       console.log(`🧨 CRITICAL RECOVERY: Final beacon method attempted`);
       
-      // Show a success message since the emergency beacon might work
-      toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+      // Use the same notification system with duplicate prevention
+      const notificationKey = `toast_${kasinaType.toLowerCase().trim()}`;
+      const now = Date.now();
+      const lastNotification = recentNotifications.get(notificationKey);
+      
+      if (!lastNotification || (now - lastNotification > 3000)) {
+        // Only show if we haven't shown a notification for this type recently
+        toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+        recentNotifications.set(notificationKey, now);
+      } else {
+        console.log(`🔔 ERROR HANDLER: Prevented duplicate notification for ${kasinaType}`);
+      }
       
       setTimeout(() => {
         window.dispatchEvent(new Event('session-saved'));
