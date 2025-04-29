@@ -848,7 +848,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
         userEmail: req.session.user.email
       };
       
-      // Add to sessions and save
+      // Check if this is a duplicate session
+      if (isDuplicateSession(req.session.user.email, kasinaType, minutes * 60)) {
+        console.log(`⚠️ FALLBACK DUPLICATE DETECTED: Not saving duplicate ${kasinaType} (${minutes}min) session`);
+        
+        // Return success but inform client it was deduplicated
+        return res.status(200).json({
+          success: true,
+          message: `Duplicate fallback session detected - not saved again`,
+          session: {
+            ...session,
+            _deduplicated: true
+          }
+        });
+      }
+      
+      // Not a duplicate, proceed with saving
       sessions.push(session);
       saveDataToFile(sessionsFilePath, sessions);
       
