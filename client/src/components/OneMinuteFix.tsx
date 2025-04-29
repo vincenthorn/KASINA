@@ -157,11 +157,16 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       // Use our centralized notification manager to prevent duplicates
       const notificationKey = `toast_${kasinaType.toLowerCase().trim()}`;
       
-      if (notificationManager.shouldShowNotification(notificationKey)) {
-        // Only show if the notification is not in cooldown
-        toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+      // Only show notification if requested
+      if (showNotification) {
+        if (notificationManager.shouldShowNotification(notificationKey)) {
+          // Only show if the notification is not in cooldown
+          toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+        } else {
+          console.log(`🔔 ERROR HANDLER: Prevented duplicate notification for ${kasinaType}`);
+        }
       } else {
-        console.log(`🔔 ERROR HANDLER: Prevented duplicate notification for ${kasinaType}`);
+        console.log(`🔔 SILENT MODE: Notification suppressed for ${kasinaType}`);
       }
       
       setTimeout(() => {

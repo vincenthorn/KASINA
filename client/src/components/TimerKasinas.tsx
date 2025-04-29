@@ -127,7 +127,7 @@ const TimerKasinas: React.FC = () => {
           
           // First, use our reliable guaranteedSessionSave utility to show exactly one notification
           // This also handles all the complicated notification and deduplication logic for us
-          const savedSuccessfully = await guaranteedSessionSave(selectedKasina, minutes, false); // silent=false
+          const savedSuccessfully = await guaranteedSessionSave(selectedKasina, minutes, true); // true = show notification
           
           // If the guaranteed method worked, we're done
           if (savedSuccessfully) {
@@ -216,7 +216,7 @@ const TimerKasinas: React.FC = () => {
     // Call our guaranteed save utility
     console.log(`🧿 NON-WHOLE-MINUTE: Using guaranteedSessionSave for ${selectedKasina} (${minutesValue} min)`);
     
-    guaranteedSessionSave(selectedKasina, minutesValue)
+    guaranteedSessionSave(selectedKasina, minutesValue, true) // true = show notification
       .then(success => {
         if (success) {
           console.log(`✅ NON-WHOLE-MINUTE: Session saved successfully`);
@@ -264,8 +264,8 @@ const TimerKasinas: React.FC = () => {
       
       console.log(`⚡ FORCE-STOP: Saving ${selectedKasina} session (${minutes} ${minuteText})`);
       
-      // Use our guaranteed session save utility
-      guaranteedSessionSave(selectedKasina, minutes)
+      // Use our guaranteed session save utility with explicit notification control
+      guaranteedSessionSave(selectedKasina, minutes, true) // true = show notification
         .then(success => {
           if (success) {
             console.log(`✅ FORCE-STOP: Session saved successfully`);
@@ -441,7 +441,7 @@ const TimerKasinas: React.FC = () => {
         // Use our unified guaranteedSessionSave utility for consistency
         console.log(`🧿 MANUAL STOP: Using guaranteedSessionSave for ${displayName} (${minutesValue} min)`);
         
-        guaranteedSessionSave(selectedKasina, minutesValue)
+        guaranteedSessionSave(selectedKasina, minutesValue, true) // true = show notification
           .then(success => {
             if (success) {
               console.log(`✅ MANUAL STOP: Session saved successfully`);
@@ -685,7 +685,7 @@ const TimerKasinas: React.FC = () => {
                       // Use our unified guaranteedSessionSave utility
                       console.log(`🧿 TEST BUTTON: Using guaranteedSessionSave for ${selectedKasina} (2 min)`);
                       
-                      guaranteedSessionSave(selectedKasina, 2)
+                      guaranteedSessionSave(selectedKasina, 2, true) // true = show notification
                         .then(success => {
                           if (success) {
                             toast.success(`Test ${displayName} session saved successfully`);
