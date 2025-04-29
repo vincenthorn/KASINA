@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import { KASINA_TYPES } from '../lib/constants';
+import { KASINA_TYPES, KASINA_EMOJIS } from '../lib/constants';
 import { toast } from 'sonner';
 import notificationManager from '../lib/notificationManager';
 
@@ -109,7 +109,10 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
         // Use our centralized notification manager to prevent duplicates
         if (notificationManager.shouldShowNotification(notificationKey)) {
           // Only show the notification if it's not in cooldown
-          toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+          // Get proper emoji and capitalized kasina name
+          const emoji = KASINA_EMOJIS[normalizedType] || '🧿';
+          const kasinaName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
+          toast.success(`${emoji} ${kasinaName} Kasina: ${minutes} ${minutes === 1 ? "minute" : "minutes"} complete`);
         }
       }
     };

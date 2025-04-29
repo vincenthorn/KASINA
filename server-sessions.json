@@ -360,5 +360,13 @@
     "duration": 120,
     "timestamp": "2025-04-29T04:47:53.976Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745902636523",
+    "kasinaType": "space",
+    "kasinaName": "Space (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-29T04:57:16.523Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]
