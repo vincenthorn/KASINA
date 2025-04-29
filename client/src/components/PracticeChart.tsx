@@ -47,15 +47,12 @@ const ActiveShape = (props: any) => {
 
   return (
     <g>
-      <text x={cx} y={cy - 10} dy={8} textAnchor="middle" fill="#fff" fontSize={14}>
-        {payload.emoji} {payload.displayName}
+      {/* Just display a large emoji in the center */}
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#fff" fontSize={36}>
+        {payload.emoji}
       </text>
-      <text x={cx} y={cy + 15} dy={8} textAnchor="middle" fill="#e0e0e0" fontSize={14}>
-        {formatTime(value)}
-      </text>
-      <text x={cx} y={cy + 35} dy={8} textAnchor="middle" fill="#a0a0a0" fontSize={12}>
-        {`${(percent * 100).toFixed(0)}%`}
-      </text>
+      
+      {/* Enhanced sectors with glow effect */}
       <Sector
         cx={cx}
         cy={cy}
@@ -311,24 +308,34 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
             </div>
             
             <div className="flex flex-wrap gap-2 mt-4 justify-center">
-              {chartData.map((entry) => (
-                <div 
-                  key={entry.name} 
-                  className={`flex items-center p-1 px-2 rounded-full transition-colors
-                    ${activeIndex !== null && chartData[activeIndex]?.name === entry.name
-                      ? 'bg-gray-700' 
-                      : 'bg-gray-800 hover:bg-gray-700'}`}
-                  onClick={() => {
-                    const index = chartData.findIndex(item => item.name === entry.name);
-                    setActiveIndex(activeIndex === index ? null : index);
-                  }}
-                  style={{cursor: 'pointer'}}
-                >
-                  <span className="mr-1">{entry.emoji}</span>
-                  <span className="text-sm text-gray-300">{entry.displayName}</span>
-                  <span className="ml-1.5 text-xs text-gray-400">{formatTime(entry.value)}</span>
-                </div>
-              ))}
+              {chartData.map((entry, i) => {
+                const isActive = activeIndex !== null && chartData[activeIndex]?.name === entry.name;
+                return (
+                  <div 
+                    key={entry.name} 
+                    className={`flex items-center p-1 px-2 rounded-full transition-all
+                      ${isActive
+                        ? 'bg-gray-700 border border-gray-500 shadow-lg scale-110' 
+                        : 'bg-gray-800 hover:bg-gray-700 border border-transparent'}`}
+                    onClick={() => {
+                      const index = chartData.findIndex(item => item.name === entry.name);
+                      setActiveIndex(activeIndex === index ? null : index);
+                    }}
+                    style={{
+                      cursor: 'pointer',
+                      boxShadow: isActive ? `0 0 8px ${entry.color}40` : 'none'
+                    }}
+                  >
+                    <span className="mr-1 text-lg">{entry.emoji}</span>
+                    <span className={`text-sm ${isActive ? 'text-white font-medium' : 'text-gray-300'}`}>
+                      {entry.displayName}
+                    </span>
+                    <span className={`ml-1.5 text-xs ${isActive ? 'text-gray-200' : 'text-gray-400'}`}>
+                      {formatTime(entry.value)}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
             
             {chartMode === 'overview' && (
