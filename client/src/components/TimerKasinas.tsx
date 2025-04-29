@@ -585,7 +585,7 @@ const TimerKasinas: React.FC = () => {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <h3 className="font-medium col-span-2">Element Kasinas</h3>
+                  <h3 className="font-medium col-span-2">Elemental Kasinas</h3>
                   
                   <Button
                     variant={selectedKasina === KASINA_TYPES.WATER ? "default" : "outline"}
@@ -656,54 +656,7 @@ const TimerKasinas: React.FC = () => {
                   </Button>
                 </div>
                 
-                {/* TEMPORARY TEST BUTTON - For direct session testing */}
-                <div className="mt-6 pt-4 border-t border-gray-700">
-                  <h3 className="font-medium mb-2">Debug Tools</h3>
-                  <Button 
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => {
-                      // Create a guaranteed test session with the current kasina type
-                      const normalizedType = selectedKasina.toLowerCase();
-                      const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
-                      
-                      console.log(`🧪 TESTING DIRECT SESSION SAVE FOR ${displayName.toUpperCase()} KASINA`);
-                      
-                      // Create a test payload with guaranteed values
-                      const testPayload = {
-                        kasinaType: normalizedType,
-                        kasinaName: `${displayName} (2-minutes)`,
-                        duration: 120, // 2 minutes in seconds
-                        durationInMinutes: 2,
-                        timestamp: new Date().toISOString(),
-                        _directTest: true // Flag to identify this as a direct test
-                      };
-                      
-                      // Log the test payload
-                      console.log(`🧪 TEST PAYLOAD:`, testPayload);
-                      
-                      // Use our unified guaranteedSessionSave utility
-                      console.log(`🧿 TEST BUTTON: Using guaranteedSessionSave for ${selectedKasina} (2 min)`);
-                      
-                      guaranteedSessionSave(selectedKasina, 2, true) // true = show notification
-                        .then(success => {
-                          if (success) {
-                            toast.success(`Test ${displayName} session saved successfully`);
-                            console.log(`✅ TEST BUTTON: Session saved successfully`);
-                          } else {
-                            toast.error(`Failed to save test ${displayName} session`);
-                            console.error(`❌ TEST BUTTON: Session save failed`);
-                          }
-                        })
-                        .catch(error => {
-                          toast.error(`Error saving test ${displayName} session`);
-                          console.error(`❌ TEST BUTTON: Error saving session:`, error);
-                        });
-                    }}
-                  >
-                    🧪 Save Test {selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} Session (2min)
-                  </Button>
-                </div>
+                {/* Debug tools removed - no longer needed */}
               </CardContent>
             </Card>
           </div>
