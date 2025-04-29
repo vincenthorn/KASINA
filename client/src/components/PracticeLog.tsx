@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { format } from "date-fns";
 import { useKasina } from "../lib/stores/useKasina";
+import { Button } from "./ui/button";
 
 interface Session {
   id: string;
@@ -15,8 +16,15 @@ interface PracticeLogProps {
   sessions: Session[];
 }
 
+// Initial number of sessions to display
+const INITIAL_DISPLAY_COUNT = 5;
+// Number of additional sessions to load when "Load More" is clicked
+const LOAD_INCREMENT = 5;
+
 const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
   const { getKasinaEmoji } = useKasina();
+  // State to track how many sessions to display
+  const [displayCount, setDisplayCount] = useState(INITIAL_DISPLAY_COUNT);
 
   // Format time display
   const formatTime = (seconds: number) => {
@@ -29,6 +37,17 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
   const sortedSessions = [...sessions].sort(
     (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
   );
+
+  // Function to load more sessions
+  const handleLoadMore = () => {
+    setDisplayCount(prevCount => prevCount + LOAD_INCREMENT);
+  };
+
+  // Get only the sessions to be displayed
+  const sessionsToDisplay = sortedSessions.slice(0, displayCount);
+  
+  // Determine if there are more sessions to load
+  const hasMoreSessions = displayCount < sortedSessions.length;
 
   if (sortedSessions.length === 0) {
     return (
@@ -55,7 +74,7 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {sortedSessions.map((session) => (
+          {sessionsToDisplay.map((session) => (
             <div 
               key={session.id} 
               className="flex items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors rounded-lg border border-gray-700"
@@ -85,6 +104,24 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
               </div>
             </div>
           ))}
+          
+          {hasMoreSessions && (
+            <div className="pt-4 text-center">
+              <Button 
+                onClick={handleLoadMore}
+                variant="outline"
+                className="bg-gray-800 hover:bg-gray-700 text-gray-300 border-gray-600 transition-colors"
+              >
+                Load More ({sortedSessions.length - displayCount} remaining)
+              </Button>
+            </div>
+          )}
+          
+          {!hasMoreSessions && sortedSessions.length > INITIAL_DISPLAY_COUNT && (
+            <p className="text-center text-gray-500 text-sm pt-4">
+              Showing all {sortedSessions.length} sessions
+            </p>
+          )}
         </div>
       </CardContent>
     </Card>
