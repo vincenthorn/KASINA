@@ -344,9 +344,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         </div>
       ) : (
         <div 
-          className="text-3xl font-mono text-white cursor-pointer hover:text-blue-400 transition-colors"
+          className="text-5xl font-mono font-bold text-white cursor-pointer hover:text-blue-400 transition-colors text-center my-4"
           onClick={() => !isRunning && startEditing()}
           title={isRunning ? "Cannot edit while timer is running" : "Click to edit timer"}
+          style={{ minHeight: '80px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         >
           {timeRemaining === null ? 
             formatTime(elapsedTime) : 
@@ -461,7 +462,11 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               startTimer();
             }
           }}
-          className="w-20 focus-mode-exempt"
+          className={`w-24 h-10 text-lg font-semibold focus-mode-exempt ${isRunning ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'}`}
+          style={{ 
+            boxShadow: isRunning ? 'none' : '0 0 10px rgba(59, 130, 246, 0.5)',
+            transition: 'all 0.2s ease-in-out'
+          }}
         >
           {isRunning ? 'Stop' : 'Start'}
         </Button>
@@ -474,7 +479,11 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             disableFocusMode();
           }}
           disabled={isRunning}
-          className="w-20 focus-mode-exempt"
+          className="w-24 h-10 text-lg font-semibold focus-mode-exempt"
+          style={{ 
+            border: '2px solid #4b5563',
+            transition: 'all 0.2s ease-in-out'
+          }}
         >
           Reset
         </Button>
