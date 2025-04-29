@@ -676,13 +676,14 @@ const TimerKasinas: React.FC = () => {
         {/* Timer Controls - Below kasina selection and orb */}
         <div className="mt-8">
           <Tabs value={selectedTab} onValueChange={setSelectedTab}>
-            <TabsList className="grid w-full grid-cols-1">
+            <TabsList className="grid w-full grid-cols-1 hidden">
               <TabsTrigger value="simple">Timer</TabsTrigger>
             </TabsList>
             
             <TabsContent value="simple" className="space-y-4">
               <Card>
                 <CardContent className="pt-6">
+                  <h3 className="text-center text-lg font-medium mb-4 text-white">Timer</h3>
                   <SimpleTimer
                     onComplete={handleTimerComplete}
                     onUpdate={handleStatusUpdate}
