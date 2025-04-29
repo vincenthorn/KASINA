@@ -176,13 +176,24 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
     return [];
   }, [sessions, chartMode]);
 
+  // Track if we should show tooltips
+  const [showTooltips, setShowTooltips] = useState(true);
+  
   // Handle pie sector click
   const handlePieClick = (data: any, index: number) => {
     if (chartMode === 'overview') {
       // When in overview mode, clicking navigates to detailed view
       const category = data.category;
+      
+      // Temporarily disable tooltips during transition
+      setShowTooltips(false);
       setChartMode(category as ChartMode);
       setActiveIndex(null);
+      
+      // Re-enable tooltips after a short delay
+      setTimeout(() => {
+        setShowTooltips(true);
+      }, 500);
     } else {
       // In detailed view, clicking toggles the active section
       setActiveIndex(activeIndex === index ? null : index);
@@ -201,8 +212,15 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
 
   // Return to overview mode
   const handleBackToOverview = () => {
+    // Temporarily disable tooltips during transition
+    setShowTooltips(false);
     setChartMode('overview');
     setActiveIndex(null);
+    
+    // Re-enable tooltips after a short delay
+    setTimeout(() => {
+      setShowTooltips(true);
+    }, 500);
   };
 
   // Custom tooltip for the chart
@@ -299,7 +317,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                     />
                   ))}
                 </Pie>
-                <Tooltip content={<CustomTooltip />} />
+                {showTooltips && <Tooltip content={<CustomTooltip />} />}
               </PieChart>
             </ResponsiveContainer>
           </div>
