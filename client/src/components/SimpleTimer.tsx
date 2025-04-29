@@ -72,6 +72,43 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           onUpdate(timeRemaining, elapsedTime);
         }
         
+        // CRITICAL SOLUTION: Force-stop the timer 1 second before completion
+        // This ensures the manual stop logic is triggered which seems more reliable
+        if (timeRemaining === 1 && duration && duration > 30) {
+          console.log("⚡ CRITICAL FIX: Force-stopping timer 1 second before completion");
+          
+          // Force-stop the timer
+          stopTimer();
+          
+          // Get kasina type from the debug object
+          if (window.__KASINA_DEBUG) {
+            const kasina = window.__KASINA_DEBUG;
+            const kasinaType = kasina.selectedKasina;
+            
+            // Calculate minutes (rounded up)
+            const minutes = Math.ceil(duration / 60);
+            
+            console.log(`⚡ AUTO-STOPPING: Using guaranteed save for ${kasinaType} (${minutes} min)`);
+            
+            // Use our unified guaranteedSessionSave utility
+            guaranteedSessionSave(kasinaType, minutes)
+              .then(success => {
+                if (success) {
+                  console.log(`✅ EARLY STOP: Session saved successfully`);
+                } else {
+                  console.error(`❌ EARLY STOP: Session save failed`);
+                }
+              });
+              
+            // Call completion handler after a brief delay
+            setTimeout(() => {
+              if (onComplete) onComplete();
+            }, 100);
+          }
+          
+          return; // Skip the rest of the interval logic
+        }
+        
         // Check for completion
         if (timeRemaining === 0) {
           // Always send the final update right before completion
