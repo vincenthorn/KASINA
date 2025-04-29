@@ -312,5 +312,13 @@
     "duration": 60,
     "timestamp": "2025-04-29T04:04:37.935Z",
     "userEmail": "carlgregg@gmail.com"
+  },
+  {
+    "id": "1745899914200",
+    "kasinaType": "earth",
+    "kasinaName": "Earth (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-04-29T04:11:54.200Z",
+    "userEmail": "carlgregg@gmail.com"
   }
 ]

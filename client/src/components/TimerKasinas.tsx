@@ -458,6 +458,9 @@ const TimerKasinas: React.FC = () => {
             setTimeout(() => {
               disableFocusMode();
             }, 200);
+            
+            // Note: No toast notification here - the guaranteedSessionSave function
+            // will show exactly one toast notification already
           } else {
             console.error(`❌ FORCE-STOP: Session save failed`);
           }
@@ -630,7 +633,8 @@ const TimerKasinas: React.FC = () => {
             console.error(`❌ MANUAL STOP: Error saving session:`, error);
           });
         
-        toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
+        // Note: No toast notification here - guaranteedSessionSave will show one already
+        // This prevents duplicate toast notifications
       } else {
         console.warn("Session too short to save - needs at least 31 seconds");
         if (elapsed > 0 && !tooShortNotifiedRef.current) {

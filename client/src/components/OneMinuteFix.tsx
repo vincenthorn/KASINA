@@ -30,6 +30,15 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
     const lastSaved = recentlySavedSessions.get(sessionKey);
     if (lastSaved && (now - lastSaved < 10000)) {
       console.log(`🛑 DUPLICATE PREVENTION: ${normalizedType} (${minutes}min) was just saved ${Math.round((now - lastSaved)/1000)}s ago`);
+      
+      // Important: Don't show another toast notification for duplicates
+      // This prevents multiple notifications for the same session
+      
+      // Still force a session list refresh
+      setTimeout(() => {
+        window.dispatchEvent(new Event('session-saved'));
+      }, 1000);
+      
       return true; // Return success without saving again
     }
     
