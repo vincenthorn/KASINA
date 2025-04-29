@@ -1,8 +1,21 @@
-import React, { useMemo } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
+import React, { useMemo, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui/card";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from "recharts";
 import { useKasina } from "../lib/stores/useKasina";
-import { KASINA_NAMES, KASINA_COLORS } from "../lib/constants";
+import { KASINA_NAMES, KASINA_COLORS, KASINA_EMOJIS } from "../lib/constants";
+import { Button } from './ui/button';
+
+// Define chart data types and categories
+type ChartMode = 'overview' | 'color' | 'elemental';
+type ChartDataItem = {
+  name: string;
+  value: number;
+  emoji: string;
+  displayName: string;
+  color: string;
+  category?: 'color' | 'elemental';
+  kasinaType?: string;
+};
 
 interface PracticeChartProps {
   sessions: {
@@ -14,35 +27,63 @@ interface PracticeChartProps {
   }[];
 }
 
-const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
-  const { getKasinaColor } = useKasina();
-
-  const chartData = useMemo(() => {
-    if (!sessions || sessions.length === 0) {
-      return [];
+// Component for the active segment in the chart
+const ActiveShape = (props: any) => {
+  const { 
+    cx, cy, innerRadius, outerRadius, startAngle, endAngle, 
+    fill, payload, percent, value 
+  } = props;
+  
+  // Format time for display
+  const formatTime = (seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`;
     }
+    return `${minutes}m`;
+  };
 
-    // Group by kasina type and sum durations
-    const durationsMap = sessions.reduce((acc, session) => {
-      const { kasinaType, duration } = session;
-      if (!acc[kasinaType]) {
-        acc[kasinaType] = 0;
-      }
-      acc[kasinaType] += duration;
-      return acc;
-    }, {} as Record<string, number>);
+  return (
+    <g>
+      <text x={cx} y={cy - 10} dy={8} textAnchor="middle" fill="#fff" fontSize={14}>
+        {payload.emoji} {payload.displayName}
+      </text>
+      <text x={cx} y={cy + 15} dy={8} textAnchor="middle" fill="#e0e0e0" fontSize={14}>
+        {formatTime(value)}
+      </text>
+      <text x={cx} y={cy + 35} dy={8} textAnchor="middle" fill="#a0a0a0" fontSize={12}>
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius + 10}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+      />
+      <Sector
+        cx={cx}
+        cy={cy}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        innerRadius={innerRadius - 3}
+        outerRadius={innerRadius - 1}
+        fill={fill}
+      />
+    </g>
+  );
+};
 
-    // Convert to array for chart
-    return Object.entries(durationsMap).map(([kasinaType, duration]) => ({
-      kasinaType,
-      kasinaName: KASINA_NAMES[kasinaType] || kasinaType,
-      minutes: Math.round(duration / 60),
-      duration,
-      color: getKasinaColor(kasinaType)
-    }));
-  }, [sessions, getKasinaColor]);
+const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
+  // State for tracking active section and chart mode
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [chartMode, setChartMode] = useState<ChartMode>('overview');
 
-  // Calculate total time
+  // Calculate total time spent
   const totalTimeInSeconds = useMemo(() => {
     return sessions.reduce((total, session) => total + session.duration, 0);
   }, [sessions]);
@@ -58,23 +99,128 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
     return `${minutes}m`;
   };
 
+  // Process chart data based on current view mode
+  const chartData = useMemo(() => {
+    if (!sessions || sessions.length === 0) return [];
+    
+    // Group the kasina types into "color" and "elemental" categories
+    const colorKasinas = ['white', 'blue', 'red', 'yellow'];
+    const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
+    
+    // Prepare data based on current mode
+    if (chartMode === 'overview') {
+      // Create overview data (Color vs Elemental)
+      const colorTotal = sessions
+        .filter(s => colorKasinas.includes(s.kasinaType))
+        .reduce((sum, s) => sum + s.duration, 0);
+        
+      const elementalTotal = sessions
+        .filter(s => elementalKasinas.includes(s.kasinaType))
+        .reduce((sum, s) => sum + s.duration, 0);
+        
+      return [
+        {
+          name: 'color',
+          value: colorTotal,
+          emoji: '🎨',
+          displayName: 'Color Kasinas',
+          color: '#6366f1',
+          category: 'color' as const
+        },
+        {
+          name: 'elemental',
+          value: elementalTotal,
+          emoji: '✨',
+          displayName: 'Elemental Kasinas',
+          color: '#3b82f6',
+          category: 'elemental' as const
+        }
+      ].filter(item => item.value > 0);
+      
+    } else if (chartMode === 'color') {
+      // Show detailed breakdown of color kasinas
+      return colorKasinas
+        .map(type => {
+          const totalTime = sessions
+            .filter(s => s.kasinaType === type)
+            .reduce((sum, s) => sum + s.duration, 0);
+            
+          return {
+            name: type,
+            kasinaType: type,
+            value: totalTime,
+            emoji: KASINA_EMOJIS[type] || '⚪',
+            displayName: KASINA_NAMES[type] || type,
+            color: KASINA_COLORS[type] || '#ffffff'
+          };
+        })
+        .filter(item => item.value > 0);
+        
+    } else if (chartMode === 'elemental') {
+      // Show detailed breakdown of elemental kasinas
+      return elementalKasinas
+        .map(type => {
+          const totalTime = sessions
+            .filter(s => s.kasinaType === type)
+            .reduce((sum, s) => sum + s.duration, 0);
+            
+          return {
+            name: type,
+            kasinaType: type,
+            value: totalTime,
+            emoji: KASINA_EMOJIS[type] || '✨',
+            displayName: KASINA_NAMES[type] || type,
+            color: KASINA_COLORS[type] || '#ffffff'
+          };
+        })
+        .filter(item => item.value > 0);
+    }
+    
+    return [];
+  }, [sessions, chartMode]);
+
+  // Handle pie sector click
+  const handlePieClick = (data: any, index: number) => {
+    if (chartMode === 'overview') {
+      // When in overview mode, clicking navigates to detailed view
+      const category = data.category;
+      setChartMode(category as ChartMode);
+      setActiveIndex(null);
+    } else {
+      // In detailed view, clicking toggles the active section
+      setActiveIndex(activeIndex === index ? null : index);
+    }
+  };
+  
+  // Return to overview mode
+  const handleBackToOverview = () => {
+    setChartMode('overview');
+    setActiveIndex(null);
+  };
+
   // Custom tooltip for the chart
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
         <div className="bg-gray-800 p-3 rounded shadow text-white border border-gray-700">
-          <p className="font-semibold">{data.kasinaName}</p>
-          <p className="text-sm">{formatTime(data.duration)}</p>
-          <p className="text-xs text-gray-400">
-            {Math.round((data.duration / totalTimeInSeconds) * 100)}% of total
+          <p className="font-semibold">
+            {data.emoji} {data.displayName}
           </p>
+          <p className="text-sm">{formatTime(data.value)}</p>
+          <p className="text-xs text-gray-400">
+            {Math.round((data.value / totalTimeInSeconds) * 100)}% of total
+          </p>
+          {chartMode === 'overview' && (
+            <p className="text-xs text-blue-300 mt-2">Click to see details</p>
+          )}
         </div>
       );
     }
     return null;
   };
 
+  // Empty state
   if (chartData.length === 0) {
     return (
       <Card className="bg-gray-900 border-gray-700">
@@ -93,12 +239,35 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
 
   return (
     <Card className="bg-gray-900 border-gray-700">
-      <CardHeader>
-        <CardTitle className="text-white">Practice Overview</CardTitle>
+      <CardHeader className="flex flex-row items-center justify-between">
+        <div>
+          <CardTitle className="text-white">
+            {chartMode === 'overview' 
+              ? 'Practice Overview' 
+              : chartMode === 'color' 
+                ? 'Color Kasinas' 
+                : 'Elemental Kasinas'}
+          </CardTitle>
+          {chartMode !== 'overview' && (
+            <CardDescription className="text-gray-400">
+              Click segments for details or return to overview
+            </CardDescription>
+          )}
+        </div>
+        {chartMode !== 'overview' && (
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={handleBackToOverview}
+            className="text-sm bg-gray-800 hover:bg-gray-700 border-gray-600"
+          >
+            Back to Overview
+          </Button>
+        )}
       </CardHeader>
       <CardContent className="p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="h-64">
+          <div className="h-72">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -106,12 +275,21 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                   cx="50%"
                   cy="50%"
                   outerRadius={80}
-                  innerRadius={40}
-                  dataKey="duration"
+                  innerRadius={chartMode === 'overview' ? 30 : 40}
+                  dataKey="value"
                   labelLine={false}
+                  activeIndex={activeIndex !== null ? activeIndex : undefined}
+                  activeShape={ActiveShape}
+                  onClick={handlePieClick}
+                  cursor="pointer"
                 >
                   {chartData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
+                    <Cell 
+                      key={`cell-${index}`} 
+                      fill={entry.color} 
+                      style={{filter: activeIndex === index ? "brightness(1.2)" : "none"}}
+                      className="hover:opacity-90 transition-opacity"
+                    />
                   ))}
                 </Pie>
                 <Tooltip content={<CustomTooltip />} />
@@ -125,19 +303,39 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
               <p className="text-3xl font-bold text-white mt-1">
                 {formatTime(totalTimeInSeconds)}
               </p>
+              <p className="text-sm text-gray-500 mt-1">
+                {chartMode !== 'overview' 
+                  ? `Viewing ${chartMode === 'color' ? 'Color' : 'Elemental'} Kasinas` 
+                  : 'Overview of all sessions'}
+              </p>
             </div>
             
             <div className="flex flex-wrap gap-2 mt-4 justify-center">
               {chartData.map((entry) => (
-                <div key={entry.kasinaType} className="flex items-center">
-                  <div 
-                    className="w-3 h-3 rounded-full mr-1"
-                    style={{ backgroundColor: entry.color }}
-                  ></div>
-                  <span className="text-sm text-gray-300">{entry.kasinaName}</span>
+                <div 
+                  key={entry.name} 
+                  className={`flex items-center p-1 px-2 rounded-full transition-colors
+                    ${activeIndex !== null && chartData[activeIndex]?.name === entry.name
+                      ? 'bg-gray-700' 
+                      : 'bg-gray-800 hover:bg-gray-700'}`}
+                  onClick={() => {
+                    const index = chartData.findIndex(item => item.name === entry.name);
+                    setActiveIndex(activeIndex === index ? null : index);
+                  }}
+                  style={{cursor: 'pointer'}}
+                >
+                  <span className="mr-1">{entry.emoji}</span>
+                  <span className="text-sm text-gray-300">{entry.displayName}</span>
+                  <span className="ml-1.5 text-xs text-gray-400">{formatTime(entry.value)}</span>
                 </div>
               ))}
             </div>
+            
+            {chartMode === 'overview' && (
+              <p className="text-center text-xs text-blue-300 mt-4">
+                Click on a section to see detailed breakdown
+              </p>
+            )}
           </div>
         </div>
       </CardContent>
