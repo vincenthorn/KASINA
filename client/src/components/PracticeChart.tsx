@@ -47,18 +47,36 @@ const ActiveShape = (props: any) => {
 
   return (
     <g>
-      {/* Just display a large emoji in the center with improved centering */}
+      {/* Background circle for the emoji */}
+      <circle 
+        cx={cx} 
+        cy={cy} 
+        r={innerRadius - 5} 
+        fill="#111827" 
+      />
+      
+      {/* Display emoji in the center */}
       <text 
         x={cx} 
-        y={cy} 
-        dy={8} 
+        y={cy - 5} 
         textAnchor="middle" 
         dominantBaseline="central"
         fill="#fff" 
-        fontSize={38}
-        fontFamily="sans-serif"
+        fontSize={30}
       >
         {payload.emoji}
+      </text>
+      
+      {/* Display percentage below emoji */}
+      <text 
+        x={cx} 
+        y={cy + 15} 
+        textAnchor="middle" 
+        dominantBaseline="central"
+        fill="#6b7280" 
+        fontSize={12}
+      >
+        {Math.round((value / props.totalValue) * 100)}%
       </text>
       
       {/* Enhanced sectors with glow effect */}
@@ -309,11 +327,11 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                   cx="50%"
                   cy="50%"
                   outerRadius={80}
-                  innerRadius={40}
+                  innerRadius={chartMode === 'overview' ? 30 : 40}
                   dataKey="value"
                   labelLine={false}
                   activeIndex={activeIndex !== null ? activeIndex : undefined}
-                  activeShape={ActiveShape}
+                  activeShape={(props) => <ActiveShape {...props} totalValue={currentViewTotalTime} />}
                   onClick={handlePieClick}
                   cursor="pointer"
                 >
@@ -326,30 +344,6 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                     />
                   ))}
                 </Pie>
-                
-                {/* Add center emoji for overview */}
-                {chartMode === 'overview' && activeIndex === null && (
-                  <g>
-                    <circle 
-                      cx="50%" 
-                      cy="50%" 
-                      r="38" 
-                      fill="#1e1e2e" 
-                      stroke="#303040"
-                      strokeWidth="1"
-                    />
-                    <text 
-                      x="50%" 
-                      y="50%" 
-                      textAnchor="middle" 
-                      dominantBaseline="central"
-                      fill="#fff" 
-                      fontSize="38"
-                    >
-                      🧘
-                    </text>
-                  </g>
-                )}
                 
                 {showTooltips && <Tooltip content={<CustomTooltip />} />}
               </PieChart>
@@ -394,6 +388,16 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                     </span>
                     <span className={`ml-1.5 text-xs ${isActive ? 'text-gray-200' : 'text-gray-400'}`}>
                       {formatTime(entry.value)}
+                      {chartMode !== 'overview' && (
+                        <span className="ml-1 text-gray-400">
+                          ({Math.round((entry.value / currentViewTotalTime) * 100)}%)
+                        </span>
+                      )}
+                      {chartMode === 'overview' && (
+                        <span className="ml-1 text-gray-400">
+                          ({Math.round((entry.value / totalTimeInSeconds) * 100)}%)
+                        </span>
+                      )}
                     </span>
                   </div>
                 );
