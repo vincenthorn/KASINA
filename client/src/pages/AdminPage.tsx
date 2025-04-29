@@ -135,7 +135,7 @@ const AdminPage: React.FC = () => {
       const formData = new FormData();
       formData.append("csv", substackFile);
       
-      const response = await fetch("/api/admin/upload-whitelist", {
+      const response = await fetch("/api/admin/upload-substack", {
         method: "POST",
         body: formData,
       });
@@ -145,7 +145,7 @@ const AdminPage: React.FC = () => {
       }
       
       const data = await response.json();
-      toast.success(`Successfully updated whitelist with ${data.count} emails from Substack`);
+      toast.success(`Successfully updated Substack whitelist with ${data.count} emails`);
       setSubstackFile(null);
       setSubstackPreviewData([]);
       
@@ -174,7 +174,7 @@ const AdminPage: React.FC = () => {
       const formData = new FormData();
       formData.append("csv", friendFile);
       
-      const response = await fetch("/api/admin/upload-whitelist", {
+      const response = await fetch("/api/admin/upload-friend", {
         method: "POST",
         body: formData,
       });
@@ -184,7 +184,7 @@ const AdminPage: React.FC = () => {
       }
       
       const data = await response.json();
-      toast.success(`Successfully updated whitelist with ${data.count} emails from Friends list`);
+      toast.success(`Successfully updated Friend whitelist with ${data.count} emails`);
       setFriendFile(null);
       setFriendPreviewData([]);
       
