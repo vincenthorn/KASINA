@@ -249,7 +249,7 @@ const AdminPage: React.FC = () => {
                       <tr className="border-b border-gray-700">
                         <th className="px-4 py-3 text-left font-medium">Full Name</th>
                         <th className="px-4 py-3 text-left font-medium">Email Address</th>
-                        <th className="px-4 py-3 text-left font-medium">All-Time Practice</th>
+                        <th className="px-4 py-3 text-left font-medium">Practice Time</th>
                       </tr>
                     </thead>
                     <tbody>
