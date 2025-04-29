@@ -28,7 +28,7 @@ const Login = () => {
       if (success) {
         navigate("/");
       } else {
-        toast.error("Access denied. This email is not on the whitelist.");
+        toast.error("Become a premium member of contemplative.technology for access.");
       }
     } catch (error) {
       toast.error("Login failed. Please try again.");

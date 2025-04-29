@@ -299,7 +299,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       } else {
         return res.status(403).json({ 
-          message: "Access denied. Your email is not on the whitelist." 
+          message: "Become a premium member of contemplative.technology for access." 
         });
       }
     } catch (error) {
