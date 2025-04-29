@@ -164,7 +164,11 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       if (showNotification) {
         if (notificationManager.shouldShowNotification(notificationKey)) {
           // Only show if the notification is not in cooldown
-          toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+          // Get proper emoji and capitalized kasina name
+          const normalizedType = kasinaType.toLowerCase().trim();
+          const emoji = KASINA_EMOJIS[normalizedType] || '🧿';
+          const kasinaName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
+          toast.success(`${emoji} ${kasinaName} Kasina: ${minutes} ${minutes === 1 ? "minute" : "minutes"} complete`);
         } else {
           console.log(`🔔 ERROR HANDLER: Prevented duplicate notification for ${kasinaType}`);
         }
