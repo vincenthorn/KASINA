@@ -4,6 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { useKasina } from "../lib/stores/useKasina";
 import { getKasinaEmoji, KasinaSession, KasinaType } from "../lib/types";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { KASINA_EMOJIS, KASINA_NAMES } from "../lib/constants";
 
 const Reflection = () => {
   const { sessions } = useKasina();
@@ -51,7 +52,8 @@ const Reflection = () => {
       .map(([type, duration]) => ({
         name: type,
         value: duration,
-        emoji: getKasinaEmoji(type as KasinaType),
+        emoji: KASINA_EMOJIS[type] || '🧿',
+        displayName: KASINA_NAMES[type] || type.charAt(0).toUpperCase() + type.slice(1),
       }));
     
     const totalDuration = chartData.reduce((sum, item) => sum + item.value, 0);
