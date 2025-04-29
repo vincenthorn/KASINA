@@ -80,7 +80,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [chartMode, setChartMode] = useState<ChartMode>('overview');
 
-  // Calculate total time spent
+  // Calculate total time spent for all sessions
   const totalTimeInSeconds = useMemo(() => {
     return sessions.reduce((total, session) => total + session.duration, 0);
   }, [sessions]);
@@ -189,6 +189,16 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
     }
   };
   
+  // Calculate total time for the current category view
+  const currentViewTotalTime = useMemo(() => {
+    if (chartMode === 'overview') {
+      return totalTimeInSeconds;
+    } 
+    
+    // For color or elemental view, sum up the time from the current chart data
+    return chartData.reduce((total, item) => total + item.value, 0);
+  }, [chartMode, chartData, totalTimeInSeconds]);
+
   // Return to overview mode
   const handleBackToOverview = () => {
     setChartMode('overview');
@@ -206,7 +216,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
           </p>
           <p className="text-sm">{formatTime(data.value)}</p>
           <p className="text-xs text-gray-400">
-            {Math.round((data.value / totalTimeInSeconds) * 100)}% of total
+            {Math.round((data.value / currentViewTotalTime) * 100)}% of total
           </p>
           {chartMode === 'overview' && (
             <p className="text-xs text-blue-300 mt-2">Click to see details</p>
@@ -298,7 +308,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
             <div className="text-center">
               <h3 className="text-lg text-gray-400">Total Meditation Time</h3>
               <p className="text-3xl font-bold text-white mt-1">
-                {formatTime(totalTimeInSeconds)}
+                {formatTime(currentViewTotalTime)}
               </p>
               <p className="text-sm text-gray-500 mt-1">
                 {chartMode !== 'overview' 
