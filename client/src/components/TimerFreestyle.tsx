@@ -50,23 +50,12 @@ const TimerFreestyle: React.FC = () => {
       console.log(`Auto-saved session: ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]}`);
     }
     
-    // Show toast notification using our notification tracking system
-    // Get the global notification tracker from OneMinuteFix
+    // Show toast notification with our centralized notification manager
     const notificationKey = `toast_${selectedKasina.toLowerCase()}`;
-    const now = Date.now();
     
-    // Check if we've shown a notification for this kasina type recently
-    const lastNotification = (window as any).__KASINA_NOTIFICATIONS?.get?.(notificationKey);
-    if (lastNotification && (now - lastNotification < 3000)) {
-      console.log(`🔔 DUPLICATE NOTIFICATION PREVENTED: Already notified about ${selectedKasina} ${Math.round((now - lastNotification)/1000)}s ago`);
-    } else {
-      // Show and track the notification
+    // Prevent duplicate notifications using our manager
+    if (notificationManager.shouldShowNotification(notificationKey)) {
       toast.success(`You completed a ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
-      
-      // Use global tracking if available, otherwise just show the notification
-      if ((window as any).__KASINA_NOTIFICATIONS) {
-        (window as any).__KASINA_NOTIFICATIONS.set(notificationKey, now);
-      }
     }
   };
   
@@ -89,22 +78,12 @@ const TimerFreestyle: React.FC = () => {
         duration: roundedElapsedTime
       });
       
-      // Show toast notification using our notification tracking system
+      // Show toast notification with our centralized notification manager
       const notificationKey = `toast_${selectedKasina.toLowerCase()}`;
-      const now = Date.now();
       
-      // Check if we've shown a notification for this kasina type recently
-      const lastNotification = (window as any).__KASINA_NOTIFICATIONS?.get?.(notificationKey);
-      if (lastNotification && (now - lastNotification < 3000)) {
-        console.log(`🔔 DUPLICATE NOTIFICATION PREVENTED: Already notified about ${selectedKasina} ${Math.round((now - lastNotification)/1000)}s ago`);
-      } else {
-        // Show and track the notification
+      // Prevent duplicate notifications using our manager
+      if (notificationManager.shouldShowNotification(notificationKey)) {
         toast.success(`Your ${formatTime(roundedElapsedTime)} ${KASINA_NAMES[selectedKasina]} kasina meditation has been saved.`);
-        
-        // Use global tracking if available, otherwise just show the notification
-        if ((window as any).__KASINA_NOTIFICATIONS) {
-          (window as any).__KASINA_NOTIFICATIONS.set(notificationKey, now);
-        }
       }
       
       // Reset elapsed time

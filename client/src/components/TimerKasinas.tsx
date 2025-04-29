@@ -13,6 +13,7 @@ import { formatTime, roundUpToNearestMinute, saveWholeMinuteSession } from '../l
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { guaranteedSessionSave } from './OneMinuteFix';
+import notificationManager from '../lib/notificationManager';
 
 const TimerKasinas: React.FC = () => {
   const { selectedKasina, setSelectedKasina, addSession } = useKasina();
