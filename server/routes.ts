@@ -311,6 +311,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
           }
         }
         
+        // Calculate total network time (all users combined)
+        let totalPracticeTimeSeconds = 0;
+        Object.values(userPracticeTimes).forEach(time => {
+          totalPracticeTimeSeconds += time;
+        });
+        
+        // Format the total time into hours and minutes
+        const totalHours = Math.floor(totalPracticeTimeSeconds / 3600);
+        const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
+        const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
+        
         // Build the member list with all data
         const members = whitelistEmails.map(email => {
           const practiceDuration = userPracticeTimes[email.toLowerCase()] || 0;
@@ -327,7 +338,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         
         return res.status(200).json({ 
           members,
-          total: members.length
+          total: members.length,
+          totalPracticeTimeSeconds,
+          totalPracticeTimeFormatted
         });
       } catch (error) {
         console.error("Error retrieving whitelist data:", error);

@@ -12,7 +12,7 @@ import { Button } from "../components/ui/button";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
 import { Navigate } from "react-router-dom";
-import { Loader2 } from "lucide-react";
+import { Loader2, Clock, Users } from "lucide-react";
 
 // Define type for member data
 interface Member {
@@ -29,6 +29,7 @@ const AdminPage: React.FC = () => {
   const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState(false);
   const [displayCount, setDisplayCount] = useState(10); // Initially show 10 members
+  const [totalPracticeTime, setTotalPracticeTime] = useState<string>('0h 0m');
   const { email, isAuthenticated } = useAuth();
   
   // List of admin emails
@@ -57,6 +58,11 @@ const AdminPage: React.FC = () => {
       
       const data = await response.json();
       setMembers(data.members);
+      
+      // Save the total practice time
+      if (data.totalPracticeTimeFormatted) {
+        setTotalPracticeTime(data.totalPracticeTimeFormatted);
+      }
     } catch (error) {
       console.error("Error fetching whitelist data:", error);
       toast.error("Failed to load whitelist data");
@@ -152,6 +158,27 @@ const AdminPage: React.FC = () => {
   return (
     <Layout>
       <h1 className="text-2xl font-bold text-white mb-6">Admin Dashboard</h1>
+      
+      {/* Total Network Time Card */}
+      <div className="mb-8 bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg p-6 shadow-lg">
+        <div className="flex flex-col items-center">
+          <div className="flex items-center gap-2 mb-2">
+            <Clock className="h-5 w-5 text-indigo-300" />
+            <h2 className="text-xl font-bold text-white">Total Network Meditation Time</h2>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-purple-200">
+              {totalPracticeTime}
+            </div>
+          </div>
+          <div className="flex items-center gap-2 mt-2 text-indigo-200">
+            <Users className="h-4 w-4" />
+            <p className="text-center">
+              Combined practice time of all community members
+            </p>
+          </div>
+        </div>
+      </div>
       
       <div className="space-y-6">
         {/* Upload card */}
