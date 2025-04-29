@@ -67,15 +67,20 @@ async function readWhitelist(): Promise<string[]> {
     const allEmails = [...substackEmails, ...friendEmails, ...mainEmails];
     const uniqueEmails = [...new Set(allEmails)];
     
-    // Make sure admin is always included
-    if (!uniqueEmails.includes("admin@kasina.app")) {
-      uniqueEmails.push("admin@kasina.app");
+    // Always include these essential accounts
+    const essentialAccounts = ["admin@kasina.app", "user@kasina.app"];
+    
+    // Make sure essential accounts are always included
+    for (const account of essentialAccounts) {
+      if (!uniqueEmails.includes(account)) {
+        uniqueEmails.push(account);
+      }
     }
     
     return uniqueEmails;
   } catch (error) {
     console.error("Error reading whitelists:", error);
-    return ["admin@kasina.app"]; // Ensure admin always has access
+    return ["admin@kasina.app", "user@kasina.app"]; // Ensure essential accounts always have access
   }
 }
 
@@ -373,6 +378,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Helper function to update Substack whitelist
   async function updateSubstackWhitelist(csvBuffer: Buffer): Promise<string[]> {
+    // Essential accounts that must always be preserved
+    const essentialAccounts = ["admin@kasina.app", "user@kasina.app"];
+    
     // Process CSV and extract emails
     const extractedEmails = await extractEmailsFromCSV(csvBuffer);
     
@@ -380,7 +388,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const existingEmails = await readWhitelistFile(substackWhitelistPath);
     
     // Combine and remove duplicates
-    const combinedEmails = [...new Set([...existingEmails, ...extractedEmails])];
+    let combinedEmails = [...new Set([...existingEmails, ...extractedEmails])];
     
     // Write updated list back to Substack whitelist file
     await fs.promises.writeFile(
@@ -397,6 +405,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Helper function to update Friend whitelist
   async function updateFriendWhitelist(csvBuffer: Buffer): Promise<string[]> {
+    // Essential accounts that must always be preserved
+    const essentialAccounts = ["admin@kasina.app", "user@kasina.app"];
+    
     // Process CSV and extract emails
     const extractedEmails = await extractEmailsFromCSV(csvBuffer);
     
@@ -404,7 +415,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const existingEmails = await readWhitelistFile(friendWhitelistPath);
     
     // Combine and remove duplicates
-    const combinedEmails = [...new Set([...existingEmails, ...extractedEmails])];
+    let combinedEmails = [...new Set([...existingEmails, ...extractedEmails])];
     
     // Write updated list back to Friend whitelist file
     await fs.promises.writeFile(
