@@ -239,6 +239,87 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   };
   
+  // Get whitelist with member data
+  app.get(
+    "/api/admin/whitelist",
+    isAdmin,
+    async (req, res) => {
+      try {
+        // Read whitelist from CSV
+        const whitelistEmails = await readWhitelist();
+        
+        // Read raw CSV data to get full names when available
+        const csvData = fs.existsSync(whitelistPath) 
+          ? await fs.promises.readFile(whitelistPath, "utf-8") 
+          : "";
+        
+        // Parse CSV to extract names and emails
+        const lines = csvData.split("\n").filter(line => line.trim());
+        const headers = lines[0].split(",");
+        
+        // Find the email and name column indexes
+        const emailColIndex = headers.findIndex(h => 
+          h.toLowerCase().includes("email"));
+        const nameColIndex = headers.findIndex(h => 
+          h.toLowerCase() === "name" || h.toLowerCase().includes("full") || h.toLowerCase().includes("first"));
+        
+        // Map of email to name from CSV
+        const nameMap: Record<string, string> = {};
+        
+        // Parse CSV data if it has proper headers
+        if (emailColIndex >= 0) {
+          for (let i = 1; i < lines.length; i++) {
+            const values = lines[i].split(",");
+            if (values.length > emailColIndex) {
+              const email = values[emailColIndex].trim().toLowerCase();
+              // Add name if found, otherwise leave blank
+              const name = nameColIndex >= 0 && values.length > nameColIndex 
+                ? values[nameColIndex].trim() 
+                : "";
+              nameMap[email] = name;
+            }
+          }
+        }
+        
+        // Calculate total practice time per user
+        const userPracticeTimes: Record<string, number> = {};
+        
+        for (const session of sessions) {
+          if (session.userEmail) {
+            const email = session.userEmail.toLowerCase();
+            // Add duration in seconds to user's total
+            userPracticeTimes[email] = (userPracticeTimes[email] || 0) + (session.duration || 0);
+          }
+        }
+        
+        // Build the member list with all data
+        const members = whitelistEmails.map(email => {
+          const practiceDuration = userPracticeTimes[email.toLowerCase()] || 0;
+          const hours = Math.floor(practiceDuration / 3600);
+          const minutes = Math.floor((practiceDuration % 3600) / 60);
+          
+          return {
+            email: email,
+            name: nameMap[email.toLowerCase()] || "",
+            practiceTimeSeconds: practiceDuration,
+            practiceTimeFormatted: `${hours}h ${minutes}m`
+          };
+        });
+        
+        return res.status(200).json({ 
+          members,
+          total: members.length
+        });
+      } catch (error) {
+        console.error("Error retrieving whitelist data:", error);
+        return res.status(500).json({ 
+          message: "Failed to retrieve whitelist data",
+          error: error instanceof Error ? error.message : "Unknown error" 
+        });
+      }
+    }
+  );
+  
   // CSV Upload endpoint
   app.post(
     "/api/admin/upload-whitelist", 
