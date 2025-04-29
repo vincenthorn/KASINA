@@ -178,6 +178,37 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Server-side deduplication cache for session saves (10-second window)
+  // This prevents duplicate sessions from being saved when multiple requests arrive in quick succession
+  const sessionDedupeCache = new Map<string, number>();
+  
+  // Function to check if a session save request is a duplicate
+  const isDuplicateSession = (userEmail: string, kasinaType: string, duration: number): boolean => {
+    // Create a unique key for this session save request
+    const minutes = Math.ceil(duration / 60);
+    const cacheKey = `${userEmail}:${kasinaType}:${minutes}`;
+    const now = Date.now();
+    
+    // Check if we've processed this exact session recently
+    const lastSaveTime = sessionDedupeCache.get(cacheKey);
+    if (lastSaveTime && (now - lastSaveTime < 10000)) {
+      console.log(`🛑 SERVER DEDUPE: Prevented duplicate session save for ${cacheKey} (${Math.round((now - lastSaveTime)/1000)}s ago)`);
+      return true;
+    }
+    
+    // If not a duplicate, add to cache
+    sessionDedupeCache.set(cacheKey, now);
+    
+    // Clean up old cache entries
+    for (const [key, timestamp] of sessionDedupeCache.entries()) {
+      if (now - timestamp > 60000) { // Older than 1 minute
+        sessionDedupeCache.delete(key);
+      }
+    }
+    
+    return false;
+  };
+  
   // Admin routes - restricted to admin users
   const adminEmails = ["admin@kasina.app"];
   
@@ -680,6 +711,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       userEmail: session.userEmail
     });
     
+    // Check if this is a duplicate session save
+    if (isDuplicateSession(req.session.user.email, session.kasinaType, session.duration)) {
+      console.log(`⚠️ DUPLICATE SESSION DETECTED: Not saving duplicate ${session.kasinaType} (${Math.round(session.duration/60)}min) session`);
+      
+      // Return success but inform client it was deduplicated
+      return res.status(200).json({
+        ...session,
+        _deduplicated: true,
+        message: "Session detected as duplicate and not saved again"
+      });
+    }
+    
     sessions.push(session);
     
     // Save to file
@@ -743,7 +786,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       console.log(`🔐 GUARANTEED SESSION LOGGING: Created ${minutes}-minute ${kasinaType} session`);
       
-      // Add to sessions and save to file
+      // Check if this is a duplicate session save
+      if (isDuplicateSession(req.session.user.email, kasinaType, minutes * 60)) {
+        console.log(`⚠️ DUPLICATE SESSION DETECTED: Not saving duplicate ${kasinaType} (${minutes}min) session`);
+        
+        // Return success but inform client it was deduplicated
+        return res.status(200).json({
+          success: true,
+          message: `Duplicate session detected - not saved again`,
+          session: {
+            ...session,
+            _deduplicated: true
+          }
+        });
+      }
+      
+      // Not a duplicate, proceed with saving
       sessions.push(session);
       saveDataToFile(sessionsFilePath, sessions);
       
