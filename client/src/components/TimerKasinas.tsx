@@ -125,6 +125,19 @@ const TimerKasinas: React.FC = () => {
         try {
           console.log(`DIRECT WHOLE-MINUTE SAVE: ${selectedKasina} for ${minutes} ${minuteText}`);
           
+          // First, use our reliable guaranteedSessionSave utility to show exactly one notification
+          // This also handles all the complicated notification and deduplication logic for us
+          const savedSuccessfully = await guaranteedSessionSave(selectedKasina, minutes, false); // silent=false
+          
+          // If the guaranteed method worked, we're done
+          if (savedSuccessfully) {
+            console.log("✅ Session saved via guaranteedSessionSave utility");
+            return;
+          }
+          
+          // If guaranteedSessionSave failed, try our legacy backup methods
+          // But DON'T show any toast notifications from here - they should only come from guaranteedSessionSave
+          
           // Create a guaranteed working payload
           const payload = {
             kasinaType: selectedKasina.toLowerCase(),
@@ -143,7 +156,7 @@ const TimerKasinas: React.FC = () => {
             console.log("💾 Saved whole-minute session data to localStorage as fallback");
           } catch (e) { /* Ignore */ }
           
-          // First attempt - direct API call
+          // First attempt - direct API call (no toast here - already shown by guaranteedSessionSave)
           const response = await fetch('/api/sessions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -153,7 +166,6 @@ const TimerKasinas: React.FC = () => {
           if (response.ok) {
             console.log(`✅ WHOLE-MINUTE FIX: ${minutes}-${minuteText} session saved successfully`);
             sessionSavedRef.current = true;
-            toast.success(`${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} kasina session saved (${minutes} ${minuteText})`);
             return;
           } 
           
@@ -172,17 +184,16 @@ const TimerKasinas: React.FC = () => {
           if (backupResponse.ok) {
             console.log("✅ Backup save succeeded");
             sessionSavedRef.current = true;
-            toast.success(`${selectedKasina} session saved using fallback method`);
             return;
           }
           
           // Both attempts failed, log error
           console.error("❌ All save attempts failed");
-          toast.error(`Failed to save session. Please try again.`);
+          // No toast notification here - guaranteedSessionSave already showed one
           
         } catch (error) {
           console.error("❌ Error saving whole-minute session:", error);
-          toast.error(`Error saving session. Please try again.`);
+          // No toast notification here - guaranteedSessionSave already showed one
         }
       };
       
@@ -217,145 +228,7 @@ const TimerKasinas: React.FC = () => {
         console.error(`❌ NON-WHOLE-MINUTE: Error saving session:`, error);
       });
       
-    return; // Exit the function
-    
-    // Only save if there was actual meditation time (at least 31 seconds)
-    if (durationToSave >= 31) {
-      // Apply the 31-second rule: sessions between 31-59 seconds should round up to 1 minute
-      if (durationToSave < 60) {
-        console.log(`📊 Rounding up completed session duration from ${durationToSave}s to 60s (1 minute) - special 31s rule`);
-        durationToSave = 60;
-      }
-      
-      console.log("Saving session with data:", {
-        kasinaType: selectedKasina,
-        duration: durationToSave
-      });
-      
-      // Mark as saved before the API call to prevent duplicates
-      sessionSavedRef.current = true;
-      
-      // CRITICAL FIX: Attempt to retrieve stored minutes from localStorage for debugging
-      let lastTimerMinutes = 0;
-      if (typeof window !== 'undefined') {
-        try {
-          const storedMinutes = window.localStorage.getItem('lastTimerMinutes');
-          if (storedMinutes) {
-            lastTimerMinutes = parseInt(storedMinutes, 10);
-            console.log("🔍 Retrieved stored timer minutes:", lastTimerMinutes);
-          }
-        } catch (e) {
-          console.error("Error reading from localStorage:", e);
-        }
-      }
-      
-      // Special handling for 2 and 3 minute sessions based on stored value
-      if (lastTimerMinutes === 2) {
-        console.log("🛑 OVERRIDING SESSION DURATION TO 120 SECONDS (2 minutes) based on localStorage value");
-        durationToSave = 120;
-      } else if (lastTimerMinutes === 3) {
-        console.log("🛑 OVERRIDING SESSION DURATION TO 180 SECONDS (3 minutes) based on localStorage value");
-        durationToSave = 180;
-      }
-      
-      // FINAL DEBUG before sending to server
-      console.log("=======================================================");
-      console.log("FINAL CRITICAL DEBUG BEFORE SESSION SAVE:");
-      console.log(`- Selected kasina: ${selectedKasina}`);
-      console.log(`- Last timer minutes set: ${lastTimerMinutes}`);
-      console.log(`- Original duration: ${originalDuration} seconds`);
-      console.log(`- Final duration to save: ${durationToSave} seconds`);
-      console.log("=======================================================");
-      
-      // NEW IMPROVED FIX: Create a much more informative payload
-      // Note: The server will override the kasinaName
-      const exactMinutes = Math.round(durationToSave / 60); 
-      
-      // Explicitly check for the store's durationInMinutes first (most accurate)
-      const minutesValue = storeState.durationInMinutes || 
-                          lastTimerMinutes || 
-                          exactMinutes;
-      
-      // Extra check for 4-minute sessions (important edge case)
-      if (minutesValue === 4 || durationToSave === 240) {
-        console.log("🔍 FOUND 4-MINUTE SESSION - Ensuring it's saved as 240 seconds");
-      }
-      
-      // Ensure the displayed name matches exactly with proper pluralization
-      const minuteText = minutesValue === 1 ? "minute" : "minutes";
-      const correctName = `${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} (${minutesValue}-${minuteText})`;
-            
-      // Create a complete, detailed payload
-      // For complete sessions, we still use the full original duration
-      // since the user intended to complete the full session
-      const sessionPayload = {
-        kasinaType: selectedKasina,
-        kasinaName: correctName, // Include correct name with minutes
-        duration: originalDuration || duration || minutesValue * 60, // Use the original duration as set
-        durationInMinutes: minutesValue, // Explicit marker
-        originalDuration: durationToSave, // Debug reference
-        timestamp: new Date().toISOString()
-      };
-      
-      // Log what we're sending to the server
-      console.log("🚀 FINAL SESSION PAYLOAD:", sessionPayload);
-      
-      // DIRECT SESSION SAVE - Improved handling for all kasina types
-      // This bypasses the store for more reliable saving
-      
-      // Ensure the kasina type is consistent
-      const normalizedType = selectedKasina.toLowerCase();
-      
-      // Format the name with proper capitalization
-      const displayName = normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1);
-      
-      // ⚠️ CRITICAL - Create a GUARANTEED WORKING PAYLOAD that mirrors the test button ⚠️
-      // This is the critical change that makes the session save properly
-      const guaranteedPayload = {
-        kasinaType: normalizedType, // Use normalized lowercase type
-        kasinaName: `${displayName} (${minutesValue}-${minuteText})`, // Proper capitalization and format
-        duration: durationToSave,
-        durationInMinutes: minutesValue, // Add explicit minutes value
-        originalDuration: duration, // Include original duration for reference
-        timestamp: new Date().toISOString(),
-        _directTest: true // Same flag as the test button, which we know works
-      };
-      
-      // Log the guaranteed payload for all kasina types
-      console.log(`🧪 GUARANTEED WORKING PAYLOAD FOR ${displayName.toUpperCase()} KASINA:`, guaranteedPayload);
-      
-      // ⚠️ CRITICAL: Using the SAME API call format as the test button ⚠️
-      // This mimics exactly what works in the test button
-      fetch('/api/sessions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(guaranteedPayload)
-      })
-      .then(response => {
-        if (response.ok) {
-          console.log(`✅ ${displayName.toUpperCase()} KASINA SESSION SAVED SUCCESSFULLY USING GUARANTEED METHOD`);
-          toast.success(`${displayName} kasina session saved successfully (${minutesValue} ${minuteText})`);
-        } else {
-          console.error(`Failed to save ${displayName} kasina session:`, response.status);
-          toast.error(`Failed to save ${displayName} kasina session`);
-        }
-        return response.json();
-      })
-      .catch(error => {
-        console.error(`Error saving ${displayName} kasina session:`, error);
-        toast.error(`Error saving ${displayName} kasina session`);
-      });
-      
-      console.log(`Auto-saved session: ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]}`);
-      
-      // Note: No toast notification here - the guaranteedSessionSave function
-      // will handle showing exactly one toast notification
-    } else {
-      console.warn("Not saving session because duration is 0");
-      toast.error("Session too short to save - minimum recordable time is 31 seconds");
-    }
+    return; // Exit the function - we're relying on guaranteedSessionSave for all saving
   };
   
   // Track if we've already shown a "too short" notification

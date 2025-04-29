@@ -18,7 +18,7 @@ const recentlySavedSessions = new Map<SessionKey, TimestampMs>();
 const recentNotifications = new Map<string, TimestampMs>();
 
 // Export the session saving function for use in other components
-export async function guaranteedSessionSave(kasinaType: string, minutes: number = 1): Promise<boolean> {
+export async function guaranteedSessionSave(kasinaType: string, minutes: number = 1, showNotification: boolean = true): Promise<boolean> {
   try {
     // Normalize kasina type for consistent caching
     const normalizedType = kasinaType.toLowerCase().trim();
@@ -101,11 +101,16 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
     
     // Global notification tracking to prevent duplicate notifications
     const notificationKey = `toast_${normalizedType}`;
-    const showNotification = (): void => {
-      // Use our centralized notification manager to prevent duplicates
-      if (notificationManager.shouldShowNotification(notificationKey)) {
-        // Only show the notification if it's not in cooldown
-        toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+    
+    // Function to display a notification only if showNotification param is true
+    const displayNotification = (): void => {
+      // Only show notifications if explicitly requested
+      if (showNotification) {
+        // Use our centralized notification manager to prevent duplicates
+        if (notificationManager.shouldShowNotification(notificationKey)) {
+          // Only show the notification if it's not in cooldown
+          toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+        }
       }
     };
     
@@ -113,8 +118,8 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
     if (response.ok) {
       console.log(`✅ SESSION SAVED: ${normalizedType} (${minutes} min)`);
       
-      // Show a notification (with duplicate prevention)
-      showNotification();
+      // Show a notification only if requested
+      displayNotification();
       
       // Force refresh the sessions list
       window.dispatchEvent(new Event('session-saved'));
@@ -128,8 +133,8 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       const emergencyBeacon = new Image();
       emergencyBeacon.src = `${beaconUrl}?emergency=true&time=${Date.now()}`;
       
-      // Show a notification (with duplicate prevention)
-      showNotification();
+      // Show a notification only if requested
+      displayNotification();
       
       // Force refresh after a delay since the beacon might take time
       setTimeout(() => {
