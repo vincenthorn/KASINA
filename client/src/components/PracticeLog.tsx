@@ -67,19 +67,21 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
                 {getKasinaEmoji(session.kasinaType)}
               </div>
               <div className="flex-1">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-white font-semibold text-lg my-0">
-                    {/* Extract just the kasina type and add "Kasina" after it */}
-                    {session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina
-                  </h3>
-                  <div className="flex items-center h-full">
-                    <span className="text-white font-semibold bg-indigo-700 hover:bg-indigo-600 px-4 py-1 rounded-full text-base flex items-center justify-center shadow-sm transition-colors min-w-[65px]">
+                <div className="flex justify-between">
+                  <div>
+                    <h3 className="text-white font-semibold text-lg leading-tight">
+                      {/* Extract just the kasina type and add "Kasina" after it */}
+                      {session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina
+                    </h3>
+                    <p className="text-gray-500 text-sm mt-1">{format(new Date(session.timestamp), 'PPp')}</p>
+                  </div>
+                  <div className="self-center">
+                    <span className="text-white font-semibold bg-indigo-700 hover:bg-indigo-600 px-4 py-1.5 rounded-full text-base inline-flex items-center justify-center shadow-sm transition-colors min-w-[65px]">
                       <span className="font-mono">{Math.round(session.duration / 60)}</span>
                       <span className="ml-0.5">min</span>
                     </span>
                   </div>
                 </div>
-                <p className="text-gray-500 text-sm">{format(new Date(session.timestamp), 'PPp')}</p>
               </div>
             </div>
           ))}
