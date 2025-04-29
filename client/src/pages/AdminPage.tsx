@@ -23,9 +23,17 @@ interface Member {
 }
 
 const AdminPage: React.FC = () => {
-  const [file, setFile] = useState<File | null>(null);
-  const [uploading, setUploading] = useState(false);
-  const [previewData, setPreviewData] = useState<Record<string, string>[]>([]);
+  // Substack upload state
+  const [substackFile, setSubstackFile] = useState<File | null>(null);
+  const [substackUploading, setSubstackUploading] = useState(false);
+  const [substackPreviewData, setSubstackPreviewData] = useState<Record<string, string>[]>([]);
+  
+  // Friend upload state
+  const [friendFile, setFriendFile] = useState<File | null>(null);
+  const [friendUploading, setFriendUploading] = useState(false);
+  const [friendPreviewData, setFriendPreviewData] = useState<Record<string, string>[]>([]);
+  
+  // Member list state
   const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState(false);
   const [displayCount, setDisplayCount] = useState(10); // Initially show 10 members
@@ -65,53 +73,67 @@ const AdminPage: React.FC = () => {
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Handle Substack file change
+  const handleSubstackFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
-      setFile(selectedFile);
-      
-      // Preview the CSV file
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const text = event.target?.result as string;
-        const lines = text.split("\n");
-        const headers = lines[0].split(",");
-        
-        const data = [];
-        // Only show first 5 rows for preview
-        const previewRows = Math.min(lines.length - 1, 5);
-        
-        for (let i = 1; i <= previewRows; i++) {
-          if (lines[i].trim()) {
-            const values = lines[i].split(",");
-            const row: Record<string, string> = {};
-            
-            headers.forEach((header, index) => {
-              row[header] = values[index] || "";
-            });
-            
-            data.push(row);
-          }
-        }
-        
-        setPreviewData(data);
-      };
-      
-      reader.readAsText(selectedFile);
+      setSubstackFile(selectedFile);
+      previewCSVFile(selectedFile, setSubstackPreviewData);
     }
   };
+  
+  // Handle Friend file change
+  const handleFriendFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      setFriendFile(selectedFile);
+      previewCSVFile(selectedFile, setFriendPreviewData);
+    }
+  };
+  
+  // Common function to preview CSV file
+  const previewCSVFile = (file: File, setPreviewData: React.Dispatch<React.SetStateAction<Record<string, string>[]>>) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const text = event.target?.result as string;
+      const lines = text.split("\n");
+      const headers = lines[0].split(",");
+      
+      const data = [];
+      // Only show first 5 rows for preview
+      const previewRows = Math.min(lines.length - 1, 5);
+      
+      for (let i = 1; i <= previewRows; i++) {
+        if (lines[i].trim()) {
+          const values = lines[i].split(",");
+          const row: Record<string, string> = {};
+          
+          headers.forEach((header, index) => {
+            row[header] = values[index] || "";
+          });
+          
+          data.push(row);
+        }
+      }
+      
+      setPreviewData(data);
+    };
+    
+    reader.readAsText(file);
+  };
 
-  const handleUpload = async () => {
-    if (!file) {
-      toast.error("Please select a CSV file first");
+  // Handle Substack upload
+  const handleSubstackUpload = async () => {
+    if (!substackFile) {
+      toast.error("Please select a Substack CSV file first");
       return;
     }
 
-    setUploading(true);
+    setSubstackUploading(true);
     
     try {
       const formData = new FormData();
-      formData.append("csv", file);
+      formData.append("csv", substackFile);
       
       const response = await fetch("/api/admin/upload-whitelist", {
         method: "POST",
@@ -123,19 +145,58 @@ const AdminPage: React.FC = () => {
       }
       
       const data = await response.json();
-      toast.success(`Successfully updated whitelist with ${data.count} emails`);
-      setFile(null);
-      setPreviewData([]);
+      toast.success(`Successfully updated whitelist with ${data.count} emails from Substack`);
+      setSubstackFile(null);
+      setSubstackPreviewData([]);
       
       // Refresh whitelist data after successful upload
       setTimeout(() => {
         fetchWhitelistData();
       }, 1000);
     } catch (error) {
-      console.error("Failed to upload whitelist:", error);
-      toast.error("Failed to upload whitelist CSV");
+      console.error("Failed to upload Substack whitelist:", error);
+      toast.error("Failed to upload Substack CSV");
     } finally {
-      setUploading(false);
+      setSubstackUploading(false);
+    }
+  };
+  
+  // Handle Friend upload
+  const handleFriendUpload = async () => {
+    if (!friendFile) {
+      toast.error("Please select a Friend CSV file first");
+      return;
+    }
+
+    setFriendUploading(true);
+    
+    try {
+      const formData = new FormData();
+      formData.append("csv", friendFile);
+      
+      const response = await fetch("/api/admin/upload-whitelist", {
+        method: "POST",
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        throw new Error("Upload failed");
+      }
+      
+      const data = await response.json();
+      toast.success(`Successfully updated whitelist with ${data.count} emails from Friends list`);
+      setFriendFile(null);
+      setFriendPreviewData([]);
+      
+      // Refresh whitelist data after successful upload
+      setTimeout(() => {
+        fetchWhitelistData();
+      }, 1000);
+    } catch (error) {
+      console.error("Failed to upload Friends whitelist:", error);
+      toast.error("Failed to upload Friends CSV");
+    } finally {
+      setFriendUploading(false);
     }
   };
 
@@ -154,75 +215,148 @@ const AdminPage: React.FC = () => {
       <h1 className="text-2xl font-bold text-white mb-6">Admin Dashboard</h1>
       
       <div className="space-y-6">
-        {/* Upload card */}
-        <Card className="bg-gray-800 border-gray-700">
-          <CardHeader>
-            <CardTitle className="text-white">Upload User Whitelist</CardTitle>
-            <CardDescription className="text-gray-400">
-              Upload a new CSV file with approved user emails. This will replace the existing whitelist.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex flex-col space-y-2">
-                <label htmlFor="csv-upload" className="text-white font-medium">
-                  CSV File
-                </label>
-                <input
-                  id="csv-upload"
-                  type="file"
-                  accept=".csv"
-                  onChange={handleFileChange}
-                  className="p-2 rounded bg-gray-700 text-white"
-                />
-                <p className="text-sm text-gray-400">
-                  The CSV file should include an "Email" column with user email addresses.
-                </p>
-              </div>
-              
-              {previewData.length > 0 && (
-                <div className="space-y-2">
-                  <h3 className="text-white font-medium">Preview:</h3>
-                  <div className="overflow-x-auto">
-                    <table className="min-w-full text-sm text-white">
-                      <thead>
-                        <tr className="border-b border-gray-700">
-                          {Object.keys(previewData[0]).slice(0, 3).map((header) => (
-                            <th key={header} className="px-4 py-2 text-left">
-                              {header}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {previewData.map((row, index) => (
-                          <tr key={index} className="border-b border-gray-700">
-                            {Object.entries(row).slice(0, 3).map(([key, value]) => (
-                              <td key={key} className="px-4 py-2">
-                                {String(value)}
-                              </td>
+        {/* Upload cards - Two column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Substack Upload Card */}
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white">Substack Upload</CardTitle>
+              <CardDescription className="text-gray-400">
+                Upload a new CSV file exported from Substack with subscriber emails.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex flex-col space-y-2">
+                  <label htmlFor="substack-upload" className="text-white font-medium">
+                    Substack CSV File
+                  </label>
+                  <input
+                    id="substack-upload"
+                    type="file"
+                    accept=".csv"
+                    onChange={handleSubstackFileChange}
+                    className="p-2 rounded bg-gray-700 text-white"
+                  />
+                  <p className="text-sm text-gray-400">
+                    The Substack export should include an "Email" column with subscriber addresses.
+                  </p>
+                </div>
+                
+                {substackPreviewData.length > 0 && (
+                  <div className="space-y-2">
+                    <h3 className="text-white font-medium">Preview:</h3>
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full text-sm text-white">
+                        <thead>
+                          <tr className="border-b border-gray-700">
+                            {Object.keys(substackPreviewData[0]).slice(0, 3).map((header) => (
+                              <th key={header} className="px-4 py-2 text-left">
+                                {header}
+                              </th>
                             ))}
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                    <p className="text-sm text-gray-400 mt-2">
-                      Showing preview of first {previewData.length} rows and first 3 columns.
-                    </p>
+                        </thead>
+                        <tbody>
+                          {substackPreviewData.map((row: Record<string, string>, index: number) => (
+                            <tr key={index} className="border-b border-gray-700">
+                              {Object.entries(row).slice(0, 3).map(([key, value]) => (
+                                <td key={key} className="px-4 py-2">
+                                  {String(value)}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                      <p className="text-sm text-gray-400 mt-2">
+                        Showing preview of first {substackPreviewData.length} rows and first 3 columns.
+                      </p>
+                    </div>
                   </div>
+                )}
+                
+                <Button
+                  onClick={handleSubstackUpload}
+                  disabled={!substackFile || substackUploading}
+                  className="w-full"
+                >
+                  {substackUploading ? "Uploading..." : "Upload Substack List"}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Friend Upload Card */}
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white">Friend Upload</CardTitle>
+              <CardDescription className="text-gray-400">
+                Upload a CSV file with friend email addresses to add to the whitelist.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex flex-col space-y-2">
+                  <label htmlFor="friend-upload" className="text-white font-medium">
+                    Friend CSV File
+                  </label>
+                  <input
+                    id="friend-upload"
+                    type="file"
+                    accept=".csv"
+                    onChange={handleFriendFileChange}
+                    className="p-2 rounded bg-gray-700 text-white"
+                  />
+                  <p className="text-sm text-gray-400">
+                    CSV should include an "Email" column with friend email addresses.
+                  </p>
                 </div>
-              )}
-              
-              <Button
-                onClick={handleUpload}
-                disabled={!file || uploading}
-                className="w-full"
-              >
-                {uploading ? "Uploading..." : "Upload and Update Whitelist"}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+                
+                {friendPreviewData.length > 0 && (
+                  <div className="space-y-2">
+                    <h3 className="text-white font-medium">Preview:</h3>
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full text-sm text-white">
+                        <thead>
+                          <tr className="border-b border-gray-700">
+                            {Object.keys(friendPreviewData[0]).slice(0, 3).map((header) => (
+                              <th key={header} className="px-4 py-2 text-left">
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {friendPreviewData.map((row: Record<string, string>, index: number) => (
+                            <tr key={index} className="border-b border-gray-700">
+                              {Object.entries(row).slice(0, 3).map(([key, value]) => (
+                                <td key={key} className="px-4 py-2">
+                                  {String(value)}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                      <p className="text-sm text-gray-400 mt-2">
+                        Showing preview of first {friendPreviewData.length} rows and first 3 columns.
+                      </p>
+                    </div>
+                  </div>
+                )}
+                
+                <Button
+                  onClick={handleFriendUpload}
+                  disabled={!friendFile || friendUploading}
+                  className="w-full"
+                >
+                  {friendUploading ? "Uploading..." : "Upload Friend List"}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
         
         {/* Member list card */}
         <Card className="bg-gray-800 border-gray-700">
