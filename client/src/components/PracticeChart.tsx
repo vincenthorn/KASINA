@@ -58,25 +58,13 @@ const ActiveShape = (props: any) => {
       {/* Display emoji in the center */}
       <text 
         x={cx} 
-        y={cy - 5} 
+        y={cy} 
         textAnchor="middle" 
         dominantBaseline="central"
         fill="#fff" 
         fontSize={30}
       >
         {payload.emoji}
-      </text>
-      
-      {/* Display percentage below emoji */}
-      <text 
-        x={cx} 
-        y={cy + 15} 
-        textAnchor="middle" 
-        dominantBaseline="central"
-        fill="#6b7280" 
-        fontSize={12}
-      >
-        {Math.round((value / props.totalValue) * 100)}%
       </text>
       
       {/* Enhanced sectors with glow effect */}
@@ -388,16 +376,6 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                     </span>
                     <span className={`ml-1.5 text-xs ${isActive ? 'text-gray-200' : 'text-gray-400'}`}>
                       {formatTime(entry.value)}
-                      {chartMode !== 'overview' && (
-                        <span className="ml-1 text-gray-400">
-                          ({Math.round((entry.value / currentViewTotalTime) * 100)}%)
-                        </span>
-                      )}
-                      {chartMode === 'overview' && (
-                        <span className="ml-1 text-gray-400">
-                          ({Math.round((entry.value / totalTimeInSeconds) * 100)}%)
-                        </span>
-                      )}
                     </span>
                   </div>
                 );
