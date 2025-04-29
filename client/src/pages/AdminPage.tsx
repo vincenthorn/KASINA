@@ -12,7 +12,7 @@ import { Button } from "../components/ui/button";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
 import { Navigate } from "react-router-dom";
-import { Loader2, Clock, Users } from "lucide-react";
+import { Loader2, Clock, Users, Upload } from "lucide-react";
 
 // Define type for member data
 interface Member {
@@ -182,17 +182,22 @@ const AdminPage: React.FC = () => {
       
       <div className="space-y-6">
         {/* Upload card */}
-        <Card className="bg-gray-800 border-gray-700">
-          <CardHeader>
-            <CardTitle className="text-white">Upload User Whitelist</CardTitle>
-            <CardDescription className="text-gray-400">
+        <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-purple-900/10 pointer-events-none"></div>
+          <CardHeader className="relative">
+            <CardTitle className="text-white flex items-center gap-2">
+              <Users className="h-5 w-5 text-indigo-400" />
+              Upload User Whitelist
+            </CardTitle>
+            <CardDescription className="text-indigo-200">
               Upload a new CSV file with approved user emails. This will replace the existing whitelist.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div className="flex flex-col space-y-2">
-                <label htmlFor="csv-upload" className="text-white font-medium">
+                <label htmlFor="csv-upload" className="text-white font-medium flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-indigo-400" />
                   CSV File
                 </label>
                 <input
@@ -200,22 +205,25 @@ const AdminPage: React.FC = () => {
                   type="file"
                   accept=".csv"
                   onChange={handleFileChange}
-                  className="p-2 rounded bg-gray-700 text-white"
+                  className="p-2 rounded bg-gray-700/60 text-white border border-indigo-900/40 focus:border-indigo-500 focus:outline-none"
                 />
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-indigo-200/80">
                   The CSV file should include an "Email" column with user email addresses.
                 </p>
               </div>
               
               {previewData.length > 0 && (
                 <div className="space-y-2">
-                  <h3 className="text-white font-medium">Preview:</h3>
-                  <div className="overflow-x-auto">
+                  <h3 className="text-white font-medium flex items-center gap-2 mb-2">
+                    <Users className="h-4 w-4 text-indigo-400" />
+                    CSV Preview:
+                  </h3>
+                  <div className="overflow-x-auto rounded-lg border border-indigo-900/20">
                     <table className="min-w-full text-sm text-white">
                       <thead>
-                        <tr className="border-b border-gray-700">
+                        <tr className="border-b border-indigo-900/30 bg-gray-800/70">
                           {Object.keys(previewData[0]).slice(0, 3).map((header) => (
-                            <th key={header} className="px-4 py-2 text-left">
+                            <th key={header} className="px-4 py-2 text-left font-medium text-indigo-200">
                               {header}
                             </th>
                           ))}
@@ -223,7 +231,7 @@ const AdminPage: React.FC = () => {
                       </thead>
                       <tbody>
                         {previewData.map((row, index) => (
-                          <tr key={index} className="border-b border-gray-700">
+                          <tr key={index} className="border-b border-indigo-900/20 hover:bg-indigo-900/10">
                             {Object.entries(row).slice(0, 3).map(([key, value]) => (
                               <td key={key} className="px-4 py-2">
                                 {String(value)}
@@ -233,7 +241,7 @@ const AdminPage: React.FC = () => {
                         ))}
                       </tbody>
                     </table>
-                    <p className="text-sm text-gray-400 mt-2">
+                    <p className="text-sm text-indigo-200/80 p-2 bg-gray-800/30">
                       Showing preview of first {previewData.length} rows and first 3 columns.
                     </p>
                   </div>
@@ -243,19 +251,33 @@ const AdminPage: React.FC = () => {
               <Button
                 onClick={handleUpload}
                 disabled={!file || uploading}
-                className="w-full"
+                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-0"
               >
-                {uploading ? "Uploading..." : "Upload and Update Whitelist"}
+                {uploading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Uploading...
+                  </>
+                ) : (
+                  <>
+                    <Upload className="h-4 w-4 mr-2" />
+                    Upload and Update Whitelist
+                  </>
+                )}
               </Button>
             </div>
           </CardContent>
         </Card>
         
         {/* Member list card */}
-        <Card className="bg-gray-800 border-gray-700">
-          <CardHeader>
-            <CardTitle className="text-white">Whitelist Member Data</CardTitle>
-            <CardDescription className="text-gray-400">
+        <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-indigo-900/10 pointer-events-none"></div>
+          <CardHeader className="relative">
+            <CardTitle className="text-white flex items-center gap-2">
+              <Clock className="h-5 w-5 text-indigo-400" />
+              Whitelist Member Data
+            </CardTitle>
+            <CardDescription className="text-indigo-200">
               Member list with names, email addresses, and all-time practice duration.
             </CardDescription>
           </CardHeader>
@@ -270,25 +292,25 @@ const AdminPage: React.FC = () => {
               </div>
             ) : (
               <div className="space-y-4">
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto rounded-lg border border-indigo-900/20">
                   <table className="min-w-full text-sm text-white">
                     <thead>
-                      <tr className="border-b border-gray-700">
-                        <th className="px-4 py-3 text-left font-medium">Full Name</th>
-                        <th className="px-4 py-3 text-left font-medium">Email Address</th>
-                        <th className="px-4 py-3 text-left font-medium">All-Time Practice</th>
+                      <tr className="border-b border-indigo-900/30 bg-gray-800/70">
+                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Full Name</th>
+                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Email Address</th>
+                        <th className="px-4 py-3 text-left font-medium text-indigo-200">All-Time Practice</th>
                       </tr>
                     </thead>
                     <tbody>
                       {members.slice(0, displayCount).map((member, index) => (
-                        <tr key={member.email} className="border-b border-gray-700 hover:bg-gray-700/50 transition-colors">
+                        <tr key={member.email} className="border-b border-indigo-900/20 hover:bg-indigo-900/10 transition-colors">
                           <td className="px-4 py-3">
                             {member.name || "—"}
                           </td>
                           <td className="px-4 py-3">
                             {member.email}
                           </td>
-                          <td className="px-4 py-3">
+                          <td className="px-4 py-3 font-medium text-indigo-200">
                             {member.practiceTimeFormatted}
                           </td>
                         </tr>
@@ -301,7 +323,7 @@ const AdminPage: React.FC = () => {
                   <div className="flex justify-center mt-4">
                     <Button 
                       variant="outline"
-                      className="bg-gray-700 hover:bg-gray-600 text-white"
+                      className="bg-gradient-to-r from-indigo-700/80 to-purple-700/80 hover:from-indigo-600 hover:to-purple-600 text-white border-indigo-500/30"
                       onClick={handleLoadMore}
                     >
                       Load More ({members.length - displayCount} remaining)
@@ -309,14 +331,14 @@ const AdminPage: React.FC = () => {
                   </div>
                 )}
                 
-                <div className="text-center text-sm text-gray-400 mt-2">
+                <div className="text-center text-sm text-indigo-200/80 mt-2">
                   Showing {Math.min(displayCount, members.length)} of {members.length} members
                 </div>
                 
                 <div className="flex justify-end mt-4">
                   <Button 
                     variant="outline"
-                    className="bg-indigo-700 hover:bg-indigo-600 text-white"
+                    className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-indigo-500/30"
                     onClick={refreshData}
                     disabled={loading}
                   >
@@ -325,7 +347,12 @@ const AdminPage: React.FC = () => {
                         <Loader2 className="h-4 w-4 mr-2 animate-spin" />
                         Refreshing...
                       </>
-                    ) : "Refresh Data"}
+                    ) : (
+                      <>
+                        <Clock className="h-4 w-4 mr-2" />
+                        Refresh Data
+                      </>
+                    )}
                   </Button>
                 </div>
               </div>
