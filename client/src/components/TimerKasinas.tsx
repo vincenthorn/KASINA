@@ -92,33 +92,9 @@ const TimerKasinas: React.FC = () => {
     // Handle focus mode exit properly
     console.log("Timer completed, scheduling focus mode exit");
     
-    // GUARANTEED SESSION SAVE USING OUR UNIFIED UTILITY FUNCTION
-    // This ensures sessions are properly saved in a consistent way
-    try {
-      // Get the original duration from the timer
-      const originalDuration = duration || 0;
-      // Calculate minutes (round up to match UI expectations)
-      const minutes = Math.max(1, Math.ceil(originalDuration / 60));
-      
-      console.log(`🧿 TIMER COMPLETED: Using guaranteedSessionSave for ${selectedKasina} (${minutes} min)`);
-      sessionSavedRef.current = true; // Mark as saved to prevent duplicates
-      
-      // Use our guaranteed session save utility
-      guaranteedSessionSave(selectedKasina, minutes)
-        .then(success => {
-          if (success) {
-            console.log(`✅ TIMER COMPLETE: Session saved successfully`);
-          } else {
-            // Toast is already shown by the utility
-            console.error(`❌ TIMER COMPLETE: Session save failed`);
-          }
-        })
-        .catch(error => {
-          console.error(`❌ TIMER COMPLETE: Error saving session:`, error);
-        });
-    } catch (e) {
-      console.error("❌ TIMER COMPLETE: Error in guaranteed session save:", e);
-    }
+    // Note: Session saving is handled by the specialized handlers below
+    // We'll either use guaranteedSessionSave OR handleWholeMinuteSession but not both
+    sessionSavedRef.current = true; // Mark as already saved to prevent duplicates
     
     // Delay focus mode exit slightly to ensure proper cleanup
     setTimeout(() => {
@@ -216,62 +192,32 @@ const TimerKasinas: React.FC = () => {
       return; // Skip the normal flow since we handled it directly
     }
     
-    // Skip if this session was already saved
-    if (sessionSavedRef.current) {
-      console.log("Session already saved, skipping save operation");
-      return;
-    }
+    // For non-whole-minute timers, use our guaranteedSessionSave utility
+    // which has comprehensive duplicate prevention built in
     
-    // Determine which duration to use for saving the session
-    // For fully completed timers, use the originally set duration (custom or preset)
-    // For manually stopped timers, use the elapsed time
+    console.log("📌 Using guaranteedSessionSave as fallback for non-whole-minute timer");
     
-    // CRITICAL FIX: Get the ORIGINAL duration directly from the store via the new method
+    // Get timer information
     const storeState = useSimpleTimer.getState();
-    // CRITICAL FIX: Always use the original duration that was set via the dedicated method
-    // This ensures 2-minute timers save as 2 minutes, etc.
-    const originalDuration = storeState.getOriginalDuration();
+    const originalDuration = storeState.getOriginalDuration() || duration || 60;
+    const minutesValue = Math.ceil(originalDuration / 60);
     
-    // Force log values to console for debugging
-    console.log("SUPER CRITICAL DEBUG INFO:");
-    console.log(`- Timer type: ${selectedKasina}`);
-    console.log(`- Store duration value: ${originalDuration} seconds`);
-    console.log(`- Duration variable: ${duration} seconds`);
-    console.log(`- Timer running: ${storeState.isRunning}`);
+    // Call our guaranteed save utility
+    console.log(`🧿 NON-WHOLE-MINUTE: Using guaranteedSessionSave for ${selectedKasina} (${minutesValue} min)`);
     
-    // Hard override fix: If original duration is missing but there's a component duration, use it
-    let durationToSave = originalDuration || duration || 60;
-    
-    // Special handling for Yellow kasina sessions
-    if (selectedKasina === KASINA_TYPES.YELLOW) {
-      console.log(`🟡 TIMER COMPLETE - YELLOW KASINA SESSION DETECTED:
-      - Duration to save: ${durationToSave}
-      - Selected kasina: ${selectedKasina}
-      - Timer completed normally`);
-    }
-    
-    // Critical check for 2-minute sessions (120 seconds)
-    if (durationToSave === 120) {
-      console.log("⚠️ FOUND 2-MINUTE SESSION - Ensuring it's saved as 120 seconds");
-    }
-    
-    // Extra check: 3-minute sessions (180 seconds)
-    if (durationToSave === 180) {
-      console.log("⚠️ FOUND 3-MINUTE SESSION - Ensuring it's saved as 180 seconds");
-    }
-    
-    // Log the final value we're using
-    console.log(`- Final duration to save: ${durationToSave} seconds`)
-    
-    // Log the exact value being used for saving
-    console.log("DURATION DETAILS:");
-    console.log("- Local duration variable:", duration, "seconds");
-    console.log("- Store original duration value:", originalDuration, "seconds");
-    console.log("- Duration being saved (exact):", durationToSave, "seconds");
-    
-    console.log("TIMER COMPLETION - Duration values:");
-    console.log("- Original duration setting:", duration, "seconds");
-    console.log("- Exact duration to save:", durationToSave, "seconds");
+    guaranteedSessionSave(selectedKasina, minutesValue)
+      .then(success => {
+        if (success) {
+          console.log(`✅ NON-WHOLE-MINUTE: Session saved successfully`);
+        } else {
+          console.error(`❌ NON-WHOLE-MINUTE: Session save failed`);
+        }
+      })
+      .catch(error => {
+        console.error(`❌ NON-WHOLE-MINUTE: Error saving session:`, error);
+      });
+      
+    return; // Exit the function
     
     // Only save if there was actual meditation time (at least 31 seconds)
     if (durationToSave >= 31) {
