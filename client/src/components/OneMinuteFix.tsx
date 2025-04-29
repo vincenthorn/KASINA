@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { KASINA_TYPES } from '../lib/constants';
 import { toast } from 'sonner';
+import notificationManager from '../lib/notificationManager';
 
 /**
  * OneMinuteFix - A simple component that provides a guaranteed way to save sessions
@@ -101,23 +102,10 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
     // Global notification tracking to prevent duplicate notifications
     const notificationKey = `toast_${normalizedType}`;
     const showNotification = (): void => {
-      // Only show a notification if we haven't shown one for this kasina type recently (within 3 seconds)
-      const now = Date.now();
-      const lastNotification = recentNotifications.get(notificationKey);
-      if (lastNotification && (now - lastNotification < 3000)) {
-        console.log(`🔔 DUPLICATE NOTIFICATION PREVENTED: Already notified about ${normalizedType} ${Math.round((now - lastNotification)/1000)}s ago`);
-        return;
-      }
-      
-      // Show a notification and record it to prevent duplicates
-      toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
-      recentNotifications.set(notificationKey, now);
-      
-      // Clean up old notification records (older than 10 seconds)
-      for (const [key, timestamp] of recentNotifications.entries()) {
-        if (now - timestamp > 10000) {
-          recentNotifications.delete(key);
-        }
+      // Use our centralized notification manager to prevent duplicates
+      if (notificationManager.shouldShowNotification(notificationKey)) {
+        // Only show the notification if it's not in cooldown
+        toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
       }
     };
     
@@ -161,15 +149,12 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       finalBeacon.src = `/api/save-session/${urlSafe}/${minutes}?emergency=final&time=${Date.now()}`;
       console.log(`🧨 CRITICAL RECOVERY: Final beacon method attempted`);
       
-      // Use the same notification system with duplicate prevention
+      // Use our centralized notification manager to prevent duplicates
       const notificationKey = `toast_${kasinaType.toLowerCase().trim()}`;
-      const now = Date.now();
-      const lastNotification = recentNotifications.get(notificationKey);
       
-      if (!lastNotification || (now - lastNotification > 3000)) {
-        // Only show if we haven't shown a notification for this type recently
+      if (notificationManager.shouldShowNotification(notificationKey)) {
+        // Only show if the notification is not in cooldown
         toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
-        recentNotifications.set(notificationKey, now);
       } else {
         console.log(`🔔 ERROR HANDLER: Prevented duplicate notification for ${kasinaType}`);
       }

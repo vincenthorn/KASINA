@@ -12,6 +12,7 @@ import KasinaOrb from './KasinaOrb';
 import { formatTime, roundUpToNearestMinute } from '../lib/utils';
 import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
+import notificationManager from '../lib/notificationManager';
 
 const TimerFreestyle: React.FC = () => {
   const { selectedKasina, setSelectedKasina, addSession } = useKasina();
