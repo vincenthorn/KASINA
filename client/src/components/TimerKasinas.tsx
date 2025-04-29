@@ -403,8 +403,8 @@ const TimerKasinas: React.FC = () => {
       
       console.log(`Auto-saved session: ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]}`);
       
-      // Show toast notification with exact time
-      toast.success(`You completed a ${formatTime(durationToSave)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
+      // Note: No toast notification here - the guaranteedSessionSave function
+      // will handle showing exactly one toast notification
     } else {
       console.warn("Not saving session because duration is 0");
       toast.error("Session too short to save - minimum recordable time is 31 seconds");
