@@ -424,6 +424,51 @@ const TimerKasinas: React.FC = () => {
       alreadySaved: sessionSavedRef.current 
     });
     
+    // CRITICAL SOLUTION: Force-stop timer at 1 second remaining
+    // This is the key fix to ensure sessions are properly saved
+    if (remaining === 1 && !sessionSavedRef.current && duration && duration > 30) {
+      console.log("⚡ CRITICAL FIX: Force-stopping timer at 1 second remaining");
+      
+      // Mark session as already saved to prevent duplicates
+      sessionSavedRef.current = true;
+      
+      // Get store access for direct control
+      const storeState = useSimpleTimer.getState();
+      
+      // Force stop the timer to trigger manual save logic
+      storeState.stopTimer();
+      
+      // Calculate minutes (round up to match UI expectations)
+      const minutes = Math.max(1, Math.ceil(duration / 60));
+      const minuteText = minutes === 1 ? "minute" : "minutes";
+      
+      console.log(`⚡ FORCE-STOP: Saving ${selectedKasina} session (${minutes} ${minuteText})`);
+      
+      // Use our guaranteed session save utility
+      guaranteedSessionSave(selectedKasina, minutes)
+        .then(success => {
+          if (success) {
+            console.log(`✅ FORCE-STOP: Session saved successfully`);
+            
+            // Show completion confetti
+            setShowConfetti(true);
+            setTimeout(() => setShowConfetti(false), 5000);
+            
+            // Disable focus mode after a slight delay
+            setTimeout(() => {
+              disableFocusMode();
+            }, 200);
+          } else {
+            console.error(`❌ FORCE-STOP: Session save failed`);
+          }
+        })
+        .catch(error => {
+          console.error(`❌ FORCE-STOP: Error saving session:`, error);
+        });
+        
+      return; // Skip the rest of the update logic
+    }
+    
     // Special debug for yellow kasina sessions
     if (selectedKasina === KASINA_TYPES.YELLOW) {
       console.log(`🟡 YELLOW KASINA SESSION DATA:
@@ -570,25 +615,20 @@ const TimerKasinas: React.FC = () => {
         // Log the guaranteed manual stop payload
         console.log(`🧪 GUARANTEED MANUAL STOP PAYLOAD FOR ${displayName.toUpperCase()} KASINA:`, guaranteedManualPayload);
         
-        // Send using the same guaranteed API method
-        fetch('/api/sessions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(guaranteedManualPayload)
-        })
-        .then(response => {
-          if (response.ok) {
-            console.log(`✅ ${displayName.toUpperCase()} MANUAL STOP SESSION SAVED SUCCESSFULLY`);
-          } else {
-            console.error(`Failed to save ${displayName} manual stop session:`, response.status);
-          }
-          return response.json();
-        })
-        .catch(error => {
-          console.error(`Error saving ${displayName} manual stop session:`, error);
-        });
+        // Use our unified guaranteedSessionSave utility for consistency
+        console.log(`🧿 MANUAL STOP: Using guaranteedSessionSave for ${displayName} (${minutesValue} min)`);
+        
+        guaranteedSessionSave(selectedKasina, minutesValue)
+          .then(success => {
+            if (success) {
+              console.log(`✅ MANUAL STOP: Session saved successfully`);
+            } else {
+              console.error(`❌ MANUAL STOP: Session save failed`);
+            }
+          })
+          .catch(error => {
+            console.error(`❌ MANUAL STOP: Error saving session:`, error);
+          });
         
         toast.success(`You completed a ${formatTime(roundedDuration)} ${KASINA_NAMES[selectedKasina]} kasina meditation. Session saved.`);
       } else {
@@ -818,31 +858,23 @@ const TimerKasinas: React.FC = () => {
                       // Log the test payload
                       console.log(`🧪 TEST PAYLOAD:`, testPayload);
                       
-                      // Send using fetch directly
-                      fetch('/api/sessions', {
-                        method: 'POST',
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(testPayload)
-                      })
-                      .then(response => {
-                        if (response.ok) {
-                          toast.success(`Test ${displayName} session saved successfully`);
-                          console.log(`✅ TEST ${displayName.toUpperCase()} SESSION SAVED SUCCESSFULLY`);
-                        } else {
-                          toast.error(`Failed to save test ${displayName} session: ${response.status}`);
-                          console.error(`Failed to save test ${displayName} session:`, response.status);
-                        }
-                        return response.json();
-                      })
-                      .then(data => {
-                        console.log("Test session response:", data);
-                      })
-                      .catch(error => {
-                        toast.error(`Error saving test ${displayName} session`);
-                        console.error(`Error saving test ${displayName} session:`, error);
-                      });
+                      // Use our unified guaranteedSessionSave utility
+                      console.log(`🧿 TEST BUTTON: Using guaranteedSessionSave for ${selectedKasina} (2 min)`);
+                      
+                      guaranteedSessionSave(selectedKasina, 2)
+                        .then(success => {
+                          if (success) {
+                            toast.success(`Test ${displayName} session saved successfully`);
+                            console.log(`✅ TEST BUTTON: Session saved successfully`);
+                          } else {
+                            toast.error(`Failed to save test ${displayName} session`);
+                            console.error(`❌ TEST BUTTON: Session save failed`);
+                          }
+                        })
+                        .catch(error => {
+                          toast.error(`Error saving test ${displayName} session`);
+                          console.error(`❌ TEST BUTTON: Error saving session:`, error);
+                        });
                     }}
                   >
                     🧪 Save Test {selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} Session (2min)
