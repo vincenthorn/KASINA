@@ -10,16 +10,47 @@ import { toast } from 'sonner';
  * Also exports a utility function for direct use in other components
  */
 
+// Global cache map to track recently saved sessions and prevent duplicates
+type SessionKey = string;
+type TimestampMs = number;
+const recentlySavedSessions = new Map<SessionKey, TimestampMs>();
+
 // Export the session saving function for use in other components
 export async function guaranteedSessionSave(kasinaType: string, minutes: number = 1): Promise<boolean> {
   try {
-    console.log(`🧿 GUARANTEED SESSION SAVE: ${kasinaType} (${minutes} minutes)`);
+    // Normalize kasina type for consistent caching
+    const normalizedType = kasinaType.toLowerCase().trim();
+    
+    // Create a unique key for this specific session
+    const sessionKey = `${normalizedType}_${minutes}`;
+    const now = Date.now();
+    
+    // Check if we've saved this exact session recently (within the last 10 seconds)
+    // This prevents duplicate saves when multiple completion methods fire simultaneously
+    const lastSaved = recentlySavedSessions.get(sessionKey);
+    if (lastSaved && (now - lastSaved < 10000)) {
+      console.log(`🛑 DUPLICATE PREVENTION: ${normalizedType} (${minutes}min) was just saved ${Math.round((now - lastSaved)/1000)}s ago`);
+      return true; // Return success without saving again
+    }
+    
+    // Mark this session as saved immediately, before making any requests
+    // This prevents race conditions where multiple save calls happen in parallel
+    recentlySavedSessions.set(sessionKey, now);
+    
+    // Clean up old cache entries (anything older than 1 minute)
+    for (const [key, timestamp] of recentlySavedSessions.entries()) {
+      if (now - timestamp > 60000) {
+        recentlySavedSessions.delete(key);
+      }
+    }
+    
+    console.log(`🧿 GUARANTEED SESSION SAVE: ${normalizedType} (${minutes} minutes)`);
     
     // ULTRA RELIABLE SOLUTION: Use multiple save methods simultaneously 
     // Create an image beacon to save via GET request (extremely reliable)
     // This will work even when regular POST requests might fail
     const imgBeacon = new Image();
-    const beaconUrl = `/api/save-session/${encodeURIComponent(kasinaType.toLowerCase())}/${minutes}`;
+    const beaconUrl = `/api/save-session/${encodeURIComponent(normalizedType)}/${minutes}`;
     imgBeacon.src = beaconUrl;
     console.log(`📡 Emergency beacon created: ${beaconUrl}`);
     
@@ -28,7 +59,7 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        kasinaType: kasinaType.toLowerCase(),
+        kasinaType: normalizedType,
         minutes: minutes
       })
     });
@@ -40,13 +71,14 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       // Create a fallback payload
       const minuteText = minutes === 1 ? "minute" : "minutes";
       const fallbackPayload = {
-        kasinaType: kasinaType.toLowerCase(),
-        kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1).toLowerCase()} (${minutes}-${minuteText})`,
+        kasinaType: normalizedType,
+        kasinaName: `${normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1)} (${minutes}-${minuteText})`,
         duration: minutes * 60,
         durationInMinutes: minutes,
         timestamp: new Date().toISOString(),
         _directTest: true,
-        _guaranteedSession: true
+        _guaranteedSession: true,
+        _preventDuplicate: true
       };
       
       response = await fetch('/api/sessions', {
@@ -58,8 +90,8 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
     
     // Success case - either the direct endpoint or fallback worked
     if (response.ok) {
-      console.log(`✅ SESSION SAVED: ${kasinaType} (${minutes} min)`);
-      toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+      console.log(`✅ SESSION SAVED: ${normalizedType} (${minutes} min)`);
+      toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
       
       // Force refresh the sessions list
       window.dispatchEvent(new Event('session-saved'));
@@ -74,7 +106,7 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
       emergencyBeacon.src = `${beaconUrl}?emergency=true&time=${Date.now()}`;
       
       // Show a success anyway because the beacon likely worked
-      toast.success(`${kasinaType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
+      toast.success(`${normalizedType} session completed (${minutes} ${minutes === 1 ? "minute" : "minutes"})`);
       
       // Force refresh after a delay since the beacon might take time
       setTimeout(() => {
@@ -90,7 +122,7 @@ export async function guaranteedSessionSave(kasinaType: string, minutes: number 
     // Even in the case of a complete failure, try one final beacon request
     try {
       const finalBeacon = new Image();
-      const urlSafe = encodeURIComponent(kasinaType.toLowerCase());
+      const urlSafe = encodeURIComponent(kasinaType.toLowerCase().trim());
       finalBeacon.src = `/api/save-session/${urlSafe}/${minutes}?emergency=final&time=${Date.now()}`;
       console.log(`🧨 CRITICAL RECOVERY: Final beacon method attempted`);
       
