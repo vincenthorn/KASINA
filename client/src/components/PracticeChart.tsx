@@ -47,8 +47,17 @@ const ActiveShape = (props: any) => {
 
   return (
     <g>
-      {/* Just display a large emoji in the center */}
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#fff" fontSize={36}>
+      {/* Just display a large emoji in the center with improved centering */}
+      <text 
+        x={cx} 
+        y={cy} 
+        dy={8} 
+        textAnchor="middle" 
+        dominantBaseline="central"
+        fill="#fff" 
+        fontSize={38}
+        fontFamily="sans-serif"
+      >
         {payload.emoji}
       </text>
       
@@ -300,7 +309,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                   cx="50%"
                   cy="50%"
                   outerRadius={80}
-                  innerRadius={chartMode === 'overview' ? 30 : 40}
+                  innerRadius={40}
                   dataKey="value"
                   labelLine={false}
                   activeIndex={activeIndex !== null ? activeIndex : undefined}
@@ -317,6 +326,31 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                     />
                   ))}
                 </Pie>
+                
+                {/* Add center emoji for overview */}
+                {chartMode === 'overview' && activeIndex === null && (
+                  <g>
+                    <circle 
+                      cx="50%" 
+                      cy="50%" 
+                      r="38" 
+                      fill="#1e1e2e" 
+                      stroke="#303040"
+                      strokeWidth="1"
+                    />
+                    <text 
+                      x="50%" 
+                      y="50%" 
+                      textAnchor="middle" 
+                      dominantBaseline="central"
+                      fill="#fff" 
+                      fontSize="38"
+                    >
+                      🧘
+                    </text>
+                  </g>
+                )}
+                
                 {showTooltips && <Tooltip content={<CustomTooltip />} />}
               </PieChart>
             </ResponsiveContainer>
