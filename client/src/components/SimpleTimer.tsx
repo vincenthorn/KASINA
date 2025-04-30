@@ -142,7 +142,13 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                 .then(success => {
                   if (success) {
                     console.log(`✅ TIMER COMPLETE: Session saved successfully via guarantee utility`);
-                    // No need to dispatch event - utility handles it
+                    
+                    // After successfully saving, reset and set default duration (1 minute)
+                    setTimeout(() => {
+                      console.log(`⟲ Resetting timer to default duration (60s) after completion`);
+                      resetTimer();
+                      setDuration(60);
+                    }, 500);
                   } else {
                     console.error(`❌ TIMER COMPLETE: Session save failed`);
                     // The utility handles error messaging
@@ -443,6 +449,15 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                     .then(success => {
                       if (success) {
                         console.log(`✅ MANUAL STOP: Session saved successfully`);
+                        
+                        // Reset the timer after successfully saving the session
+                        resetTimer();
+                        
+                        // Restore the default duration (1 minute)
+                        setTimeout(() => {
+                          console.log(`⟲ Resetting timer to default duration (60s)`);
+                          setDuration(60);
+                        }, 300);
                       } else {
                         console.error(`❌ MANUAL STOP: Session save failed`);
                       }
