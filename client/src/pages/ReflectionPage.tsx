@@ -140,7 +140,7 @@ const ReflectionPage: React.FC = () => {
   };
 
   return (
-    <Layout>
+    <Layout fullWidth={true}>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-white">Reflection</h1>
 
