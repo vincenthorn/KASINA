@@ -164,7 +164,7 @@ const AdminPage: React.FC = () => {
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-2 mb-2">
             <Clock className="h-5 w-5 text-indigo-300" />
-            <h2 className="text-xl font-bold text-white">Total Network Meditation Time</h2>
+            <h2 className="text-xl font-bold text-white">Total Practice Time</h2>
           </div>
           <div className="flex items-center gap-2">
             <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-purple-200">
