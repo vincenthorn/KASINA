@@ -389,26 +389,40 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                   const kasinaType = kasina.selectedKasina;
                   console.log(`🧪 Retrieved kasinaType from window.__KASINA_DEBUG: ${kasinaType}`);
                   
-                  // Apply 31-second rule with proper minute calculation
+                  // Apply minute rounding logic with 30-second threshold
                   let adjustedTime = elapsedTime;
                   
                   // Check if we have the original duration value
                   const originalDur = duration || 0;
-                  let originalMinutesSet = Math.ceil(originalDur / 60);
                   
-                  if (elapsedTime < 60) {
-                    // Very short sessions (<1m) always round up to exactly 1 minute
+                  // Calculate minutes using floor, and only round up if seconds >= 30
+                  const minutes = Math.floor(elapsedTime / 60);
+                  const seconds = elapsedTime % 60;
+                  let originalMinutesSet = seconds >= 30 ? minutes + 1 : minutes;
+                  
+                  // Special handling for very short sessions
+                  if (elapsedTime < 30) {
+                    // Sessions under 30 seconds don't get saved
+                    console.log(`⚠️ Session too short (${elapsedTime}s) to save`);
+                    adjustedTime = 0;
+                    originalMinutesSet = 0;
+                  } else if (elapsedTime < 60) {
+                    // Sessions between 30-59 seconds round up to exactly 1 minute
+                    console.log(`💡 Short session (${elapsedTime}s): rounding to 1 minute`);
                     adjustedTime = 60;
                     originalMinutesSet = 1;
-                  } else if (elapsedTime < originalDur && originalDur >= 120) {
-                    // If they were partway through a longer session, use the ACTUAL elapsed time
+                  } else if (elapsedTime < originalDur) {
+                    // For longer sessions, apply the 30-second threshold rule
                     console.log(`💡 Session stopped partway: ${elapsedTime}s / ${originalDur}s`);
-                    // Fix: Use elapsed time minutes instead of original minutes
-                    originalMinutesSet = Math.ceil(elapsedTime / 60);
+                    console.log(`💡 Minutes: ${minutes}, Seconds: ${seconds}`);
+                    
+                    if (seconds >= 30) {
+                      console.log(`💡 Rounding up to ${originalMinutesSet} minutes (>${minutes}m 30s)`);
+                    } else {
+                      console.log(`💡 Keeping at ${originalMinutesSet} minutes (<${minutes}m 30s)`);
+                    }
+                    
                     console.log(`💡 Using actual elapsed time: ${originalMinutesSet}m (was originally set to ${Math.ceil(originalDur / 60)}m)`);
-                  } else {
-                    // For everything else, calculate based on elapsed time
-                    originalMinutesSet = Math.ceil(elapsedTime / 60);
                   }
                   
                   // Get final minutes value

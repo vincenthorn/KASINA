@@ -392,5 +392,13 @@
     "duration": 300,
     "timestamp": "2025-04-30T01:38:59.346Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746027516882",
+    "kasinaType": "red",
+    "kasinaName": "Red (3-minutes)",
+    "duration": 180,
+    "timestamp": "2025-04-30T15:38:36.882Z",
+    "userEmail": "user@kasina.app"
   }
 ]

@@ -712,22 +712,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
         console.log(`⏱️ Rounding short session (${duration}s) up to 1 minute`);
         finalDuration = 60;
       }
-      // For all other durations, follow the "round to nearest minute" rule
+      // For all other durations, follow the "30-second threshold" rule
       else {
         // Get the seconds portion of the time
         const seconds = duration % 60;
+        const minutes = Math.floor(duration / 60);
         
-        // If seconds are >= 31, round up to the next minute
-        if (seconds >= 31) {
-          const minutes = Math.floor(duration / 60) + 1;
-          finalDuration = minutes * 60;
-          console.log(`⏱️ Rounding up ${duration}s to ${minutes} minutes (${finalDuration}s)`);
+        // If seconds are >= 30 (not 31), round up to the next minute
+        if (seconds >= 30) {
+          const roundedMinutes = minutes + 1;
+          finalDuration = roundedMinutes * 60;
+          console.log(`⏱️ Rounding up ${duration}s to ${roundedMinutes} minutes (${minutes}m ${seconds}s → ${finalDuration}s)`);
         } 
         // Otherwise round down to the current minute
         else {
-          const minutes = Math.floor(duration / 60);
           finalDuration = minutes * 60;
-          console.log(`⏱️ Rounding down ${duration}s to ${minutes} minutes (${finalDuration}s)`);
+          console.log(`⏱️ Rounding down ${duration}s to ${minutes} minutes (${minutes}m ${seconds}s → ${finalDuration}s)`);
         }
       }
       
@@ -829,7 +829,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.warn("Session too short or invalid duration - not saving");
       // Return a 400 response to indicate that the session is too short
       return res.status(400).json({ 
-        message: "Session too short to save - minimum recordable time is 31 seconds",
+        message: "Session too short to save - minimum recordable time is 30 seconds",
         error: "duration_too_short" 
       });
     }
