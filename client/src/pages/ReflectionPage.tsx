@@ -20,13 +20,13 @@ const ReflectionPage: React.FC = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { email } = useAuth();
-  
+
   // Check if user is admin
   const isAdmin = email === 'admin@kasina.app';
 
   // Disable caching in useEffect by using a refresh counter
   const [refreshCounter, setRefreshCounter] = useState(0);
-  
+
   const refresh = () => {
     setRefreshCounter(prev => prev + 1);
     toast.info("Refreshing sessions...");
@@ -36,41 +36,41 @@ const ReflectionPage: React.FC = () => {
     const fetchSessions = async () => {
       setIsLoading(true);
       let combinedSessions: Session[] = [];
-      
+
       console.log("================================");
       console.log("REFRESHING SESSIONS");
       console.log("Refresh counter:", refreshCounter);
       console.log("Current user:", email);
       console.log("================================");
-      
+
       // Get local sessions first - prioritize these
       try {
         // Force direct window reference to avoid any scope issues
         const localStorageSessions = window.localStorage.getItem("sessions");
         console.log("Raw localStorage value:", localStorageSessions);
-        
+
         if (localStorageSessions) {
           try {
             const localSessions = JSON.parse(localStorageSessions);
             console.log("Parsed local sessions:", localSessions);
-            
+
             if (Array.isArray(localSessions) && localSessions.length > 0) {
               // Filter to only include sessions for the current user (or sessions with no user)
               const userSessions = localSessions.filter(session => 
                 !session.userEmail || // Include orphaned sessions with no user
                 session.userEmail === email // Include sessions for current user
               );
-              
+
               // Ensure all sessions have kasinaName
               const formattedLocalSessions = userSessions.map(session => ({
                 ...session,
                 kasinaName: session.kasinaName || KASINA_NAMES[session.kasinaType] || session.kasinaType,
                 userEmail: email // Assign current user to orphaned sessions
               }));
-              
+
               combinedSessions = [...formattedLocalSessions];
               console.log("Added local sessions:", formattedLocalSessions.length);
-              
+
               // Show notification if we found sessions
               if (formattedLocalSessions.length > 0) {
                 toast.success(`Found ${formattedLocalSessions.length} sessions in local storage`);
@@ -88,19 +88,19 @@ const ReflectionPage: React.FC = () => {
       } catch (localError) {
         console.error("Error accessing localStorage:", localError);
       }
-      
+
       // Now try to get server sessions - these will already be filtered by user
       if (email) {
         try {
           const response = await apiRequest("GET", "/api/sessions", undefined);
           const serverSessions = await response.json();
           console.log("Fetched server sessions:", serverSessions);
-          
+
           if (Array.isArray(serverSessions) && serverSessions.length > 0) {
             // Avoid duplicates by checking IDs
             const existingIds = new Set(combinedSessions.map(s => s.id));
             const uniqueServerSessions = serverSessions.filter(s => !existingIds.has(s.id));
-            
+
             if (uniqueServerSessions.length > 0) {
               combinedSessions = [...combinedSessions, ...uniqueServerSessions];
               console.log("Added server sessions:", uniqueServerSessions.length);
@@ -110,15 +110,15 @@ const ReflectionPage: React.FC = () => {
           console.warn("Failed to fetch sessions from server:", error);
         }
       }
-      
+
       // Sort sessions by timestamp (newest first)
       combinedSessions.sort((a, b) => {
         return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
       });
-      
+
       console.log("Final combined sessions:", combinedSessions);
       console.log("================================");
-      
+
       setSessions(combinedSessions);
       setIsLoading(false);
     };
@@ -143,7 +143,7 @@ const ReflectionPage: React.FC = () => {
     <Layout>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-white">Reflection</h1>
-        
+
         {/* Only show admin buttons if user is admin */}
         {isAdmin && (
           <div className="flex gap-2">
@@ -160,11 +160,11 @@ const ReflectionPage: React.FC = () => {
                   // Ask which kasina type to test with
                   const kasinaType = prompt("Enter kasina type to test (e.g., fire, water, blue):", "");
                   if (!kasinaType) return;
-                  
+
                   // Ask for duration
                   const durationInput = prompt("Enter duration in seconds:", "60");
                   const duration = parseInt(durationInput || "60", 10);
-                  
+
                   try {
                     // Test direct localStorage access with user specified values
                     const testSession = {
@@ -174,7 +174,7 @@ const ReflectionPage: React.FC = () => {
                       duration: duration,
                       timestamp: new Date().toISOString()
                     };
-                    
+
                     // Try to get existing sessions
                     let existingSessions = [];
                     try {
@@ -189,17 +189,17 @@ const ReflectionPage: React.FC = () => {
                     } catch (e) {
                       console.error("Error reading from localStorage:", e);
                     }
-                    
+
                     // Add test session
                     existingSessions.push(testSession);
-                    
+
                     // Write back to localStorage
                     window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
-                    
+
                     // Verify it got saved
                     const verification = window.localStorage.getItem("sessions");
                     console.log("LOCAL STORAGE TEST - Saved sessions:", verification);
-                    
+
                     toast.success(`Test ${kasinaType} session added (${duration}s)`);
                     refresh();
                   } catch (e) {
@@ -221,9 +221,10 @@ const ReflectionPage: React.FC = () => {
           </div>
         )}
       </div>
-      
+
       {isLoading ? (
-        <div className="text-center py-16 px-6 bg-gradient-to-b from-gray-900 to-gray-800 rounded-xl border border-gray-700 shadow-xl">
+        <div className="text-center py-16 px-6 bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-xl rounded-xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-purple-900/10 pointer-events-none rounded-xl"></div>
           <div className="mb-6 flex items-center justify-center">
             <div className="relative">
               <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-indigo-500"></div>
@@ -238,7 +239,8 @@ const ReflectionPage: React.FC = () => {
           <p className="text-gray-300">Preparing your meditation insights and practice data...</p>
         </div>
       ) : sessions.length === 0 ? (
-        <div className="text-center py-16 px-6 bg-gradient-to-b from-gray-900 to-gray-800 rounded-xl border border-gray-700 shadow-xl">
+        <div className="text-center py-16 px-6 bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-xl rounded-xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-purple-900/10 pointer-events-none rounded-xl"></div>
           <div className="mb-6 relative">
             <div className="inline-flex items-center justify-center p-6 bg-indigo-900/30 rounded-full mb-2 backdrop-blur-sm">
               <svg className="w-16 h-16 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -247,12 +249,12 @@ const ReflectionPage: React.FC = () => {
             </div>
 
           </div>
-          
+
           <h3 className="text-2xl font-semibold text-white mb-4">Your Journey Awaits</h3>
-          
+
           <div className="max-w-md mx-auto">
             <p className="text-gray-300 mb-6">Complete your first meditation session in Kasinas mode to begin tracking your practice and visualizing your progress.</p>
-            
+
             <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 mb-6">
               <h4 className="font-medium text-indigo-300 mb-2">What You'll See Here:</h4>
               <ul className="text-gray-400 text-sm space-y-2 text-left list-disc list-inside">
@@ -262,7 +264,7 @@ const ReflectionPage: React.FC = () => {
                 <li>Insights into your meditation patterns</li>
               </ul>
             </div>
-            
+
             <Link to="/kasinas" className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-indigo-600/20">
               <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
