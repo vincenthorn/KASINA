@@ -531,10 +531,9 @@ const TimerKasinas: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left column - Kasina Selection */}
           <div className="space-y-6">
-            <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-purple-900/10 pointer-events-none"></div>
-              <CardContent className="pt-6 relative">
-                <h2 className="text-xl font-semibold mb-4 text-white">Select Kasina</h2>
+            <Card>
+              <CardContent className="pt-6">
+                <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
                 
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <h3 className="font-medium col-span-2">Color Kasinas</h3>
