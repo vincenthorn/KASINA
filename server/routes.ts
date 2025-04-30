@@ -26,9 +26,12 @@ const whitelistPath = path.join(__dirname, "../whitelist.csv");
 // Helper to read whitelist CSV
 async function readWhitelist(): Promise<string[]> {
   try {
-    // If whitelist doesn't exist, create empty file
+    // Define protected emails that are always included
+    const protectedEmails = ["admin@kasina.app", "user@kasina.app"];
+    
+    // If whitelist doesn't exist, create empty file with protected emails
     if (!fs.existsSync(whitelistPath)) {
-      fs.writeFileSync(whitelistPath, "email\ntest@example.com\nuser@kasina.app\n", "utf-8");
+      fs.writeFileSync(whitelistPath, `email\nadmin@kasina.app\nuser@kasina.app\n`, "utf-8");
     }
     
     const data = await fs.promises.readFile(whitelistPath, "utf-8");
@@ -39,11 +42,14 @@ async function readWhitelist(): Promise<string[]> {
       .map(line => line.trim())
       .filter(line => line && !line.startsWith("#") && line !== "email"); // Skip header and comments
     
-    return emails;
+    // Always ensure protected emails are included
+    const allEmails = Array.from(new Set([...emails, ...protectedEmails]));
+    
+    return allEmails;
   } catch (error) {
     console.error("Error reading whitelist:", error);
-    // Return a sample list for testing when file can't be read
-    return ["test@example.com", "user@kasina.app"];
+    // Return protected emails as fallback when file can't be read
+    return ["admin@kasina.app", "user@kasina.app"];
   }
 }
 
@@ -92,6 +98,9 @@ const upload = multer({
 // Helper function to write whitelist from CSV data
 async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
   try {
+    // Define protected emails that should never be removed from whitelist
+    const protectedEmails = ["admin@kasina.app", "user@kasina.app"];
+    
     // Parse CSV data
     const records = parse(csvData, {
       columns: true,
@@ -148,6 +157,9 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
       throw new Error("No valid email addresses found in the CSV file");
     }
     
+    // Always ensure protected emails are included
+    const emailsWithProtected = [...emails, ...protectedEmails];
+    
     // Get existing whitelist to preserve user data
     let existingEmails: string[] = [];
     try {
@@ -158,8 +170,11 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
       console.warn("Could not read existing whitelist, creating new file");
     }
     
-    // Combine existing and new emails, removing duplicates
-    const combinedEmails = Array.from(new Set([...existingEmails, ...emails])) as string[];
+    // We don't merge all emails anymore - we use ONLY the uploaded ones plus protected emails
+    // This is a change from the previous behavior that preserved all existing emails
+    const combinedEmails = Array.from(new Set(emailsWithProtected)) as string[];
+    
+    console.log(`Whitelist update: ${emails.length} emails in CSV, ${combinedEmails.length} after adding protected accounts`);
     
     // Create a header row and add emails
     const csvContent = [

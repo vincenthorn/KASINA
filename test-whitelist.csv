@@ -1,5 +1,3 @@
-Email,Name,Active
-admin@kasina.app,Admin User,Yes
-test@example.com,Test User,Yes
-user@kasina.app,Regular User,Yes
-developer@kasina.app,Developer,Yes
+email,name
+test1@test.com,Test User 1
+test2@test.com,Test User 2
