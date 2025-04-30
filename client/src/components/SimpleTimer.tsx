@@ -401,9 +401,11 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                     adjustedTime = 60;
                     originalMinutesSet = 1;
                   } else if (elapsedTime < originalDur && originalDur >= 120) {
-                    // If they were partway through a longer session, keep the minutes they selected
+                    // If they were partway through a longer session, use the ACTUAL elapsed time
                     console.log(`💡 Session stopped partway: ${elapsedTime}s / ${originalDur}s`);
-                    console.log(`💡 Using original minutes set: ${originalMinutesSet}m`);
+                    // Fix: Use elapsed time minutes instead of original minutes
+                    originalMinutesSet = Math.ceil(elapsedTime / 60);
+                    console.log(`💡 Using actual elapsed time: ${originalMinutesSet}m (was originally set to ${Math.ceil(originalDur / 60)}m)`);
                   } else {
                     // For everything else, calculate based on elapsed time
                     originalMinutesSet = Math.ceil(elapsedTime / 60);

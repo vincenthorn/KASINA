@@ -698,6 +698,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     if (originalDuration > 0 && duration > 0 && duration < originalDuration * 0.9) {
       console.log(`🔍 Detected manually stopped session - elapsed time: ${duration}s, original duration: ${originalDuration}s`);
       
+      // Manual stop flag for clarity in logs
+      const isManualStop = true;
+      safeBody._manualStop = true;
+      
       // For manually stopped sessions with less than 30 seconds, don't log at all
       if (duration < 30) {
         console.log(`⚠️ Session too short (${duration}s) - it will not be saved`);
@@ -725,6 +729,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
           finalDuration = minutes * 60;
           console.log(`⏱️ Rounding down ${duration}s to ${minutes} minutes (${finalDuration}s)`);
         }
+      }
+      
+      console.log(`📝 MANUAL STOP: Using actual elapsed time, not originally scheduled time`);
+      
+      // Add special logging to show what we would have used in the old logic
+      if (originalDuration >= 120) {
+        const originalMinutes = Math.ceil(originalDuration / 60);
+        const actualMinutes = Math.ceil(finalDuration / 60);
+        console.log(`📊 Session duration: ${actualMinutes}m instead of originally scheduled ${originalMinutes}m`);
       }
     } else {
       // STEP 3: For completed sessions, use the intended duration from the name or settings
