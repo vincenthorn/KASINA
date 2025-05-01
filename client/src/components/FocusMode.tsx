@@ -113,22 +113,6 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   return (
     <>
       <div className="relative">
-        {/* Focus mode toggle button */}
-        <div className="absolute top-4 right-4 z-10">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={isFocusModeActive ? disableFocusMode : enableFocusMode}
-          >
-            {isFocusModeActive ? (
-              <Minimize2 className="h-4 w-4 mr-1" />
-            ) : (
-              <Maximize2 className="h-4 w-4 mr-1" />
-            )}
-            {isFocusModeActive ? 'Exit Focus Mode' : 'Enter Focus Mode'}
-          </Button>
-        </div>
-        
         {/* Main content - always visible */}
         <div>
           {children}
