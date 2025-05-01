@@ -416,5 +416,61 @@
     "duration": 120,
     "timestamp": "2025-04-30T16:15:21.096Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746031119616",
+    "kasinaType": "white",
+    "kasinaName": "White (5-minutes)",
+    "duration": 300,
+    "timestamp": "2025-04-30T16:38:39.616Z",
+    "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746042521104",
+    "kasinaType": "red",
+    "kasinaName": "Red (5-minutes)",
+    "duration": 300,
+    "timestamp": "2025-04-30T19:48:41.104Z",
+    "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746043302388",
+    "kasinaType": "yellow",
+    "kasinaName": "Yellow (5-minutes)",
+    "duration": 300,
+    "timestamp": "2025-04-30T20:01:42.388Z",
+    "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746047133261",
+    "kasinaType": "red",
+    "kasinaName": "Red (5-minutes)",
+    "duration": 300,
+    "timestamp": "2025-04-30T21:05:33.261Z",
+    "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746047463105",
+    "kasinaType": "red",
+    "kasinaName": "Red (3-minutes)",
+    "duration": 180,
+    "timestamp": "2025-04-30T21:11:03.105Z",
+    "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746047601134",
+    "kasinaType": "red",
+    "kasinaName": "Red (2-minutes)",
+    "duration": 120,
+    "timestamp": "2025-04-30T21:13:21.134Z",
+    "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746048174167",
+    "kasinaType": "fire",
+    "kasinaName": "Fire (5-minutes)",
+    "duration": 300,
+    "timestamp": "2025-04-30T21:22:54.167Z",
+    "userEmail": "user@kasina.app"
   }
 ]

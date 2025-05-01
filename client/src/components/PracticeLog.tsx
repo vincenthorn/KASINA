@@ -74,36 +74,38 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {sessionsToDisplay.map((session) => (
-            <div 
-              key={session.id} 
-              className="flex items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors rounded-lg border border-gray-700"
-            >
+          {/* For desktop, use a grid layout to show sessions side by side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {sessionsToDisplay.map((session) => (
               <div 
-                className="text-3xl mr-4 bg-gray-700 p-2 rounded-full flex items-center justify-center h-12 w-12" 
-                title={`${session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina`}
+                key={session.id} 
+                className="flex items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors rounded-lg border border-gray-700"
               >
-                {getKasinaEmoji(session.kasinaType)}
-              </div>
-              <div className="flex-1">
-                <div className="flex justify-between">
-                  <div>
-                    <h3 className="text-white font-semibold text-lg leading-tight">
-                      {/* Extract just the kasina type and add "Kasina" after it */}
-                      {session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina
-                    </h3>
-                    <p className="text-gray-500 text-sm mt-1">{format(new Date(session.timestamp), 'PPp')}</p>
-                  </div>
-                  <div className="self-center">
-                    <span className="text-white font-semibold bg-indigo-700 hover:bg-indigo-600 px-4 py-1.5 rounded-full text-base inline-flex items-center justify-center shadow-sm transition-colors min-w-[65px]">
-                      <span className="font-mono">{Math.round(session.duration / 60)}</span>
-                      <span className="ml-0.5">min</span>
-                    </span>
+                <div 
+                  className="text-3xl mr-4 bg-gray-700 p-2 rounded-full flex items-center justify-center h-12 w-12 flex-shrink-0" 
+                  title={`${session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina`}
+                >
+                  {getKasinaEmoji(session.kasinaType)}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-center flex-wrap">
+                    <div className="mr-2">
+                      <h3 className="text-white font-semibold text-lg leading-tight truncate">
+                        {session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina
+                      </h3>
+                      <p className="text-gray-500 text-sm mt-0.5">{format(new Date(session.timestamp), 'PPp')}</p>
+                    </div>
+                    <div className="mt-1">
+                      <span className="text-white font-semibold bg-indigo-700 hover:bg-indigo-600 px-4 py-1 rounded-full text-base inline-flex items-center justify-center shadow-sm transition-colors min-w-[60px]">
+                        <span className="font-mono">{Math.round(session.duration / 60)}</span>
+                        <span className="ml-0.5">min</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
           
           {hasMoreSessions && (
             <div className="pt-4 text-center">
