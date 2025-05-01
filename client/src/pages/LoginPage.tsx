@@ -119,7 +119,9 @@ const LoginPage: React.FC = () => {
         {/* Description Section */}
         <div style={sectionStyles}>
           <p style={paragraphStyles}>
-            KASINA is a 3D visual meditation tool for those ready to deepen their concentration with a visual object. 
+            KASINA is a 3D visual meditation tool for those ready to deepen their concentration with a visual object.
+          </p>
+          <p style={paragraphStyles}>
             Inspired by ancient kasina practices, reimagined for the modern meditator.
           </p>
           
