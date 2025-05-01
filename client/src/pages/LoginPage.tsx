@@ -123,17 +123,22 @@ const LoginPage: React.FC = () => {
             Inspired by ancient kasina practices, reimagined for the modern meditator.
           </p>
           
+          {/* "Featuring" header */}
+          <p style={{
+            color: "#f9fafb", 
+            fontSize: "20px", 
+            fontWeight: "bold",
+            marginBottom: "20px",
+            textAlign: "center"
+          }}>
+            Featuring:
+          </p>
+          
           <div>
             <p style={listItemStyles}>🔲 Kasina mode with 10 visual orbs plus meditation timer</p>
             <p style={listItemStyles}>🔴 4 Color Orbs: White, Yellow, Red, &amp; Blue</p>
             <p style={listItemStyles}>🌎 6 Elemental Orbs: Earth, Water, Fire, Air, Space, &amp; Light</p>
-            <p style={listItemStyles}>📊 Visualize your meditation history with practice breakdowns</p>
-            <p style={listItemStyles}>
-              🧘‍♀️ Access community-generated guided meditations <span style={comingSoonStyles}>COMING SOON</span>
-            </p>
-            <p style={listItemStyles} className="mb-0">
-              🎙 Record &amp; share your own guided visual meditations <span style={comingSoonStyles}>COMING SOON</span>
-            </p>
+            <p style={listItemStyles} className="mb-0">📊 Visualize your meditation history with practice breakdowns</p>
           </div>
         </div>
       </div>
