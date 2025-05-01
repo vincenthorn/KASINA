@@ -361,7 +361,7 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         </div>
       )}
       
-      {/* Timer status - Hidden for data tracking purposes only */}
+      {/* Timer status - Include data attribute for tracking completed duration but hide visually */}
       <div 
         className="hidden simple-timer-duration"
         data-duration={elapsedTime}
