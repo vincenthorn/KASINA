@@ -528,10 +528,10 @@ const TimerKasinas: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-4 py-6 lg:py-8" data-selected-kasina={selectedKasina}>
         <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Kasinas</h1>
         
-        {/* Responsive layout with improved flexibility for large screens */}
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-          {/* Left column - Kasina Selection */}
-          <div className="lg:w-[350px] xl:w-[400px] space-y-6">
+        {/* Complete layout redesign with better breakpoints for all screen sizes */}
+        <div className="flex flex-col xl:flex-row gap-6 xl:gap-8">
+          {/* Left column - Kasina Selection - Uses more specific breakpoints */}
+          <div className="w-full xl:w-[350px] 2xl:w-[400px] space-y-6">
             <Card className="shadow-lg">
               <CardContent className="pt-6">
                 <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
@@ -672,8 +672,8 @@ const TimerKasinas: React.FC = () => {
               </CardContent>
             </Card>
             
-            {/* Move the timer to the left column on desktop for better layout */}
-            <div className="lg:block">
+            {/* Timer on desktop only - hidden on mobile and tablet */}
+            <div className="hidden xl:block">
               <Card className="shadow-lg">
                 <CardContent className="pt-6">
                   <h3 className="text-center text-lg font-medium mb-4 text-white">Timer</h3>
@@ -687,36 +687,33 @@ const TimerKasinas: React.FC = () => {
             </div>
           </div>
           
-          {/* Right column - Kasina Orb - Takes more space on desktop */}
+          {/* Right column - Kasina Orb */}
           <div className="flex-1 flex items-center justify-center rounded-lg bg-gray-900/20 shadow-lg">
-            <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]">
-              <KasinaOrb 
-                type={typedKasina} 
-                remainingTime={timeRemaining} 
-              />
+            {/* Added aspect-ratio container to maintain proper proportions */}
+            <div className="relative w-full max-w-[800px] mx-auto">
+              {/* This padding-top trick maintains a perfect square aspect ratio */}
+              <div className="pb-[100%] w-full"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <KasinaOrb 
+                  type={typedKasina} 
+                  remainingTime={timeRemaining} 
+                />
+              </div>
             </div>
           </div>
         </div>
         
-        {/* Timer on mobile only - stays at bottom */}
-        <div className="mt-6 lg:hidden">
-          <Tabs value={selectedTab} onValueChange={setSelectedTab}>
-            <TabsList className="grid w-full grid-cols-1 hidden">
-              <TabsTrigger value="simple">Timer</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="simple" className="space-y-4">
-              <Card className="shadow-lg">
-                <CardContent className="pt-6">
-                  <h3 className="text-center text-lg font-medium mb-4 text-white">Timer</h3>
-                  <SimpleTimer
-                    onComplete={handleTimerComplete}
-                    onUpdate={handleStatusUpdate}
-                  />
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
+        {/* Timer on mobile and tablet only - hidden on desktop */}
+        <div className="mt-6 xl:hidden">
+          <Card className="shadow-lg">
+            <CardContent className="pt-6">
+              <h3 className="text-center text-lg font-medium mb-4 text-white">Timer</h3>
+              <SimpleTimer
+                onComplete={handleTimerComplete}
+                onUpdate={handleStatusUpdate}
+              />
+            </CardContent>
+          </Card>
         </div>
       </div>
     </FocusMode>
