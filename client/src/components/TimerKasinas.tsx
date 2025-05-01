@@ -525,163 +525,156 @@ const TimerKasinas: React.FC = () => {
   
   return (
     <FocusMode>
-      <div className="container mx-auto px-4 py-8" data-selected-kasina={selectedKasina}>
-        <h1 className="text-3xl font-bold mb-6">Kasinas</h1>
+      <div className="max-w-[1600px] mx-auto px-4 py-6 lg:py-8" data-selected-kasina={selectedKasina}>
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Kasinas</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Responsive layout with improved flexibility for large screens */}
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Left column - Kasina Selection */}
-          <div className="space-y-6">
-            <Card>
+          <div className="lg:w-[350px] xl:w-[400px] space-y-6">
+            <Card className="shadow-lg">
               <CardContent className="pt-6">
                 <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
                 
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <h3 className="font-medium col-span-2">Color Kasinas</h3>
+                {/* Color Kasinas with better mobile spacing */}
+                <div className="grid grid-cols-2 gap-3 md:gap-4 mb-5">
+                  <h3 className="font-medium col-span-2 text-base md:text-lg">Color Kasinas</h3>
+                  
+                  {/* White Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.WHITE ? KASINA_COLORS.white : 'transparent',
                       color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.WHITE]} White
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.WHITE]}</span> White
                   </Button>
                   
+                  {/* Blue Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.BLUE ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.BLUE)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.BLUE ? KASINA_COLORS.blue : 'transparent' 
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.BLUE]} Blue
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.BLUE]}</span> Blue
                   </Button>
                   
+                  {/* Red Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.RED ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.RED)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.RED ? KASINA_COLORS.red : 'transparent' 
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.RED]} Red
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.RED]}</span> Red
                   </Button>
                   
+                  {/* Yellow Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.YELLOW ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.YELLOW)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.YELLOW ? KASINA_COLORS.yellow : 'transparent',
                       color: selectedKasina === KASINA_TYPES.YELLOW ? 'black' : 'white'
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.YELLOW]} Yellow
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.YELLOW]}</span> Yellow
                   </Button>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4">
-                  <h3 className="font-medium col-span-2">Elemental Kasinas</h3>
+                {/* Elemental Kasinas with better mobile spacing */}
+                <div className="grid grid-cols-2 gap-3 md:gap-4">
+                  <h3 className="font-medium col-span-2 text-base md:text-lg">Elemental Kasinas</h3>
                   
+                  {/* Water Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.WATER ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.WATER)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.WATER ? KASINA_COLORS.water : 'transparent' 
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.WATER]} Water
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.WATER]}</span> Water
                   </Button>
                   
+                  {/* Fire Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.FIRE ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.FIRE)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.FIRE ? KASINA_COLORS.fire : 'transparent' 
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.FIRE]} Fire
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.FIRE]}</span> Fire
                   </Button>
                   
+                  {/* Air Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.AIR ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.AIR)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.AIR ? KASINA_COLORS.air : 'transparent',
                       color: selectedKasina === KASINA_TYPES.AIR ? 'black' : 'white'
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.AIR]} Air
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.AIR]}</span> Air
                   </Button>
                   
+                  {/* Earth Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.EARTH ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.EARTH)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.EARTH ? KASINA_COLORS.earth : 'transparent' 
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.EARTH]} Earth
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.EARTH]}</span> Earth
                   </Button>
                   
+                  {/* Space Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.SPACE ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.SPACE)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.SPACE ? KASINA_COLORS.space : 'transparent' 
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.SPACE]} Space
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.SPACE]}</span> Space
                   </Button>
                   
+                  {/* Light Kasina button */}
                   <Button
                     variant={selectedKasina === KASINA_TYPES.LIGHT ? "default" : "outline"}
                     onClick={() => setSelectedKasina(KASINA_TYPES.LIGHT)}
-                    className="w-full"
+                    className="w-full h-14 md:h-16 text-sm md:text-base"
                     style={{ 
                       backgroundColor: selectedKasina === KASINA_TYPES.LIGHT ? KASINA_COLORS.light : 'transparent',
                       color: selectedKasina === KASINA_TYPES.LIGHT ? 'black' : 'white'
                     }}
                   >
-                    {KASINA_EMOJIS[KASINA_TYPES.LIGHT]} Light
+                    <span className="mr-2 text-lg">{KASINA_EMOJIS[KASINA_TYPES.LIGHT]}</span> Light
                   </Button>
                 </div>
-                
-                {/* Debug tools removed - no longer needed */}
               </CardContent>
             </Card>
-          </div>
-          
-          {/* Right column - Kasina Orb */}
-          <div className="flex-1 relative flex items-center justify-center rounded-lg" 
-               style={{ minHeight: '400px' }}>
-            <div className="w-full h-full" style={{ minHeight: '400px' }}>
-              <KasinaOrb 
-                type={typedKasina} 
-                remainingTime={timeRemaining} 
-              />
-            </div>
-          </div>
-        </div>
-        
-        {/* Timer Controls - Below kasina selection and orb */}
-        <div className="mt-8">
-          <Tabs value={selectedTab} onValueChange={setSelectedTab}>
-            <TabsList className="grid w-full grid-cols-1 hidden">
-              <TabsTrigger value="simple">Timer</TabsTrigger>
-            </TabsList>
             
-            <TabsContent value="simple" className="space-y-4">
-              <Card>
+            {/* Move the timer to the left column on desktop for better layout */}
+            <div className="lg:block">
+              <Card className="shadow-lg">
                 <CardContent className="pt-6">
                   <h3 className="text-center text-lg font-medium mb-4 text-white">Timer</h3>
                   <SimpleTimer
@@ -691,8 +684,37 @@ const TimerKasinas: React.FC = () => {
                   <div ref={timerDurationRef} className="hidden simple-timer-duration"></div>
                 </CardContent>
               </Card>
-              
-              {/* Sessions are now saved automatically when the timer completes */}
+            </div>
+          </div>
+          
+          {/* Right column - Kasina Orb - Takes more space on desktop */}
+          <div className="flex-1 flex items-center justify-center rounded-lg bg-gray-900/20 shadow-lg">
+            <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]">
+              <KasinaOrb 
+                type={typedKasina} 
+                remainingTime={timeRemaining} 
+              />
+            </div>
+          </div>
+        </div>
+        
+        {/* Timer on mobile only - stays at bottom */}
+        <div className="mt-6 lg:hidden">
+          <Tabs value={selectedTab} onValueChange={setSelectedTab}>
+            <TabsList className="grid w-full grid-cols-1 hidden">
+              <TabsTrigger value="simple">Timer</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="simple" className="space-y-4">
+              <Card className="shadow-lg">
+                <CardContent className="pt-6">
+                  <h3 className="text-center text-lg font-medium mb-4 text-white">Timer</h3>
+                  <SimpleTimer
+                    onComplete={handleTimerComplete}
+                    onUpdate={handleStatusUpdate}
+                  />
+                </CardContent>
+              </Card>
             </TabsContent>
           </Tabs>
         </div>
