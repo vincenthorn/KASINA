@@ -138,8 +138,8 @@ const LoginPage: React.FC = () => {
           
           <div>
             <p style={listItemStyles}>⏱️ 🧘‍♀️ Kasina mode with 10 visual orbs plus meditation timer</p>
-            <p style={listItemStyles}>🔲 4 Color Orbs: ⚪ 🟡 🔴 🔵</p>
-            <p style={listItemStyles}>🔸 6 Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</p>
+            <p style={listItemStyles}>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</p>
+            <p style={listItemStyles}>6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</p>
             <p style={listItemStyles} className="mb-0">📊 📈 Visualize your meditation history with practice breakdowns</p>
           </div>
         </div>
