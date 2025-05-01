@@ -535,14 +535,17 @@ const TimerKasinas: React.FC = () => {
         <div className="flex flex-col gap-6">
           {/* Row 1: Kasina visualization (rectangular on desktop, square on mobile) */}
           <div className="w-full">
-            <Card className="shadow-lg overflow-hidden bg-gray-900/20">
+            <Card className="shadow-lg overflow-hidden p-0" 
+                  style={{ 
+                    backgroundColor: KASINA_BACKGROUNDS[typedKasina] || "#000000" 
+                  }}>
               <div className="relative w-full">
                 {/* On large screens - 16:9 aspect ratio for rectangular layout */}
                 <div className="hidden md:block pb-[56.25%] w-full"></div>
                 {/* On mobile - square aspect ratio */}
                 <div className="md:hidden pb-[100%] w-full"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-full h-full max-w-[1200px] mx-auto">
+                  <div className="w-full h-full">
                     <KasinaOrb 
                       type={typedKasina} 
                       remainingTime={timeRemaining} 

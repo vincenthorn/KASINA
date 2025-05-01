@@ -764,10 +764,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
   
   return (
-    <div 
-      className="w-full h-full orb-content"
-      style={{ backgroundColor: bgColor }}
-    >
+    <div className="w-full h-full orb-content">
       <Canvas>
         <Scene enableZoom={enableZoom} remainingTime={remainingTime} />
       </Canvas>
