@@ -62,7 +62,7 @@ const ActiveShape = (props: any) => {
         textAnchor="middle" 
         dominantBaseline="central"
         fill="#fff" 
-        fontSize={30}
+        fontSize={innerRadius * 0.8}
       >
         {payload.emoji}
       </text>
@@ -309,15 +309,15 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
         {/* Improved responsive layout for better desktop experience */}
         <div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
           {/* Chart container - larger on desktop */}
-          <div className="w-full lg:w-1/2 h-80 lg:h-96 flex items-center justify-center">
+          <div className="w-full lg:w-1/2 h-80 lg:h-[450px] flex items-center justify-center">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={chartData}
                   cx="50%"
                   cy="50%"
-                  outerRadius={90}
-                  innerRadius={chartMode === 'overview' ? 35 : 45}
+                  outerRadius={activeIndex !== null ? 120 : 110}
+                  innerRadius={chartMode === 'overview' ? 50 : 60}
                   dataKey="value"
                   labelLine={false}
                   activeIndex={activeIndex !== null ? activeIndex : undefined}
@@ -343,11 +343,11 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
           {/* Statistics and legend - more space on desktop */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
             <div className="text-center lg:text-left">
-              <h3 className="text-lg text-gray-400">Total Meditation Time</h3>
-              <p className="text-4xl font-bold text-white mt-1">
+              <h3 className="text-lg md:text-xl text-gray-400">Total Meditation Time</h3>
+              <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-1">
                 {formatTime(currentViewTotalTime)}
               </p>
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm md:text-base text-gray-500 mt-1">
                 {chartMode !== 'overview' 
                   ? `Viewing ${chartMode === 'color' ? 'Color' : 'Elemental'} Kasinas` 
                   : 'Overview of all sessions'}
@@ -360,7 +360,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                 return (
                   <div 
                     key={entry.name} 
-                    className={`flex items-center p-2 px-3 rounded-full transition-all
+                    className={`flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full transition-all
                       ${isActive
                         ? 'bg-gray-700 border border-gray-500 shadow-lg scale-110' 
                         : 'bg-gray-800 hover:bg-gray-700 border border-transparent'}`}
@@ -373,11 +373,11 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
                       boxShadow: isActive ? `0 0 8px ${entry.color}40` : 'none'
                     }}
                   >
-                    <span className="mr-2 text-xl">{entry.emoji}</span>
-                    <span className={`text-sm ${isActive ? 'text-white font-medium' : 'text-gray-300'}`}>
+                    <span className="mr-2 text-xl md:text-2xl">{entry.emoji}</span>
+                    <span className={`text-sm md:text-base ${isActive ? 'text-white font-medium' : 'text-gray-300'}`}>
                       {entry.displayName}
                     </span>
-                    <span className={`ml-2 text-xs ${isActive ? 'text-gray-200' : 'text-gray-400'}`}>
+                    <span className={`ml-2 text-xs md:text-sm ${isActive ? 'text-gray-200' : 'text-gray-400'}`}>
                       {formatTime(entry.value)}
                     </span>
                   </div>

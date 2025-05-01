@@ -480,5 +480,13 @@
     "duration": 60,
     "timestamp": "2025-05-01T02:57:56.172Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1746071659512",
+    "kasinaType": "space",
+    "kasinaName": "Space (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-01T03:54:19.512Z",
+    "userEmail": "user@kasina.app"
   }
 ]
