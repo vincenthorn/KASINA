@@ -125,7 +125,7 @@ const LoginPage: React.FC = () => {
           
           {/* "Featuring" header */}
           <p style={{
-            color: "#c4b5fd", /* A nice purple shade */
+            color: "#9d64ff", /* A darker purple shade */
             fontSize: "20px", 
             fontWeight: "bold",
             marginBottom: "20px",
