@@ -361,9 +361,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
         </div>
       )}
       
-      {/* Timer status - Include data attribute for tracking completed duration */}
+      {/* Timer status - Include data attribute for tracking completed duration but hide visually */}
       <div 
-        className="text-xs text-gray-300 simple-timer-duration"
+        className="hidden simple-timer-duration"
         data-duration={elapsedTime}
         data-time-remaining={timeRemaining}
       >
@@ -372,6 +372,124 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           : `Remaining: ${formatTime(timeRemaining)} / ${formatTime(duration || 0)}`}
       </div>
       
+      {/* Grid of preset times */}
+      <div className="grid grid-cols-4 gap-2 mt-4 w-full">
+        <Button 
+          variant="outline" 
+          onClick={() => {
+            console.log("Setting duration to 60 seconds (1 minute)");
+            setDuration(60);
+          }}
+          disabled={isRunning}
+          className={duration === 60 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          1:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => {
+            console.log("Setting duration to 300 seconds (5 minutes)");
+            setDuration(300);
+          }}
+          disabled={isRunning}
+          className={duration === 300 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          5:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => {
+            console.log("Setting duration to 600 seconds (10 minutes)");
+            setDuration(600);
+          }}
+          disabled={isRunning}
+          className={duration === 600 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          10:00
+        </Button>
+
+        <Button 
+          variant="outline" 
+          onClick={() => {
+            console.log("Setting duration to 900 seconds (15 minutes)");
+            setDuration(900);
+          }}
+          disabled={isRunning}
+          className={duration === 900 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          15:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => {
+            console.log("Setting duration to 1200 seconds (20 minutes)");
+            setDuration(1200);
+          }}
+          disabled={isRunning}
+          className={duration === 1200 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          20:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => {
+            console.log("Setting duration to 1800 seconds (30 minutes)");
+            setDuration(1800);
+          }}
+          disabled={isRunning}
+          className={duration === 1800 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          30:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => {
+            console.log("Setting duration to 2700 seconds (45 minutes)");
+            setDuration(2700);
+          }}
+          disabled={isRunning}
+          className={duration === 2700 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          45:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => {
+            console.log("Setting duration to 3600 seconds (60 minutes)");
+            setDuration(3600);
+          }}
+          disabled={isRunning}
+          className={duration === 3600 ? "border-2 border-blue-500" : ""}
+          size="sm"
+        >
+          60:00
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          onClick={() => startEditing()}
+          disabled={isRunning}
+          className="col-span-4 mt-2 mb-4"
+          size="sm"
+        >
+          Custom Time
+        </Button>
+      </div>
+      
+      {/* Start and Reset buttons */}
       <div className="flex space-x-2">
         <Button 
           variant={isRunning ? "destructive" : "default"} 
