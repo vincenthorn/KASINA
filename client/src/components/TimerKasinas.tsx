@@ -567,7 +567,7 @@ const TimerKasinas: React.FC = () => {
                     
                     {/* Dropdown selector for Kasina types with enhanced visuals */}
                     <div className="mb-5 relative">
-                      <div className="absolute -right-2 -top-6 text-yellow-300 text-sm animate-bounce">
+                      <div className="absolute -right-2 -top-6 text-yellow-300 text-sm">
                         ⬇️ Click to change
                       </div>
                       <Select value={kasinaTab} onValueChange={setKasinaTab}>
@@ -597,7 +597,6 @@ const TimerKasinas: React.FC = () => {
                                   <span>Elemental Kasinas</span>
                                 </>
                               )}
-                              <span className="ml-2 text-xs text-yellow-300">▼ Change</span>
                             </span>
                           </SelectValue>
                         </SelectTrigger>
