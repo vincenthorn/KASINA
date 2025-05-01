@@ -578,13 +578,13 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.WHITE ? KASINA_COLORS.white : 'transparent',
                                 color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.WHITE]}</span> 
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE]}</span> 
                               <span>White</span>
                             </Button>
                             
@@ -592,12 +592,12 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.BLUE ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.BLUE)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.BLUE ? KASINA_COLORS.blue : 'transparent' 
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.BLUE]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.BLUE]}</span>
                               <span>Blue</span>
                             </Button>
                             
@@ -605,12 +605,12 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.RED ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.RED)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.RED ? KASINA_COLORS.red : 'transparent' 
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.RED]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.RED]}</span>
                               <span>Red</span>
                             </Button>
                             
@@ -618,13 +618,13 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.YELLOW ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.YELLOW)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.YELLOW ? KASINA_COLORS.yellow : 'transparent',
                                 color: selectedKasina === KASINA_TYPES.YELLOW ? 'black' : 'white'
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.YELLOW]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.YELLOW]}</span>
                               <span>Yellow</span>
                             </Button>
                           </div>
@@ -637,12 +637,12 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.WATER ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.WATER)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.WATER ? KASINA_COLORS.water : 'transparent' 
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.WATER]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WATER]}</span>
                               <span>Water</span>
                             </Button>
                             
@@ -650,12 +650,12 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.FIRE ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.FIRE)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.FIRE ? KASINA_COLORS.fire : 'transparent' 
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.FIRE]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.FIRE]}</span>
                               <span>Fire</span>
                             </Button>
                             
@@ -663,13 +663,13 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.AIR ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.AIR)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.AIR ? KASINA_COLORS.air : 'transparent',
                                 color: selectedKasina === KASINA_TYPES.AIR ? 'black' : 'white'
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.AIR]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.AIR]}</span>
                               <span>Air</span>
                             </Button>
                             
@@ -677,12 +677,12 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.EARTH ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.EARTH)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.EARTH ? KASINA_COLORS.earth : 'transparent' 
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.EARTH]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.EARTH]}</span>
                               <span>Earth</span>
                             </Button>
                             
@@ -690,12 +690,12 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.SPACE ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.SPACE)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.SPACE ? KASINA_COLORS.space : 'transparent' 
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.SPACE]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.SPACE]}</span>
                               <span>Space</span>
                             </Button>
                             
@@ -703,13 +703,13 @@ const TimerKasinas: React.FC = () => {
                             <Button
                               variant={selectedKasina === KASINA_TYPES.LIGHT ? "default" : "outline"}
                               onClick={() => setSelectedKasina(KASINA_TYPES.LIGHT)}
-                              className="w-full h-[70px] flex flex-col items-center justify-center text-sm md:text-base"
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                               style={{ 
                                 backgroundColor: selectedKasina === KASINA_TYPES.LIGHT ? KASINA_COLORS.light : 'transparent',
                                 color: selectedKasina === KASINA_TYPES.LIGHT ? 'black' : 'white'
                               }}
                             >
-                              <span className="text-2xl mb-1">{KASINA_EMOJIS[KASINA_TYPES.LIGHT]}</span>
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.LIGHT]}</span>
                               <span>Light</span>
                             </Button>
                           </div>
