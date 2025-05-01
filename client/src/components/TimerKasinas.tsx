@@ -565,15 +565,67 @@ const TimerKasinas: React.FC = () => {
                   <CardContent className="p-4 flex-1 flex flex-col">
                     <h2 className="text-xl font-semibold mb-4 text-white">Select Kasina</h2>
                     
-                    {/* Dropdown selector for Kasina types */}
-                    <div className="mb-4">
+                    {/* Dropdown selector for Kasina types with enhanced visuals */}
+                    <div className="mb-5 relative">
+                      <div className="absolute -right-2 -top-6 text-yellow-300 text-sm animate-bounce">
+                        ⬇️ Click to change
+                      </div>
                       <Select value={kasinaTab} onValueChange={setKasinaTab}>
-                        <SelectTrigger className="w-full bg-transparent text-white border-white/30 focus:ring-white/20">
-                          <SelectValue>{kasinaTab === 'colors' ? 'Color Kasinas' : 'Elemental Kasinas'}</SelectValue>
+                        <SelectTrigger className="w-full bg-black/50 text-white border-2 border-white/60 focus:ring-white/40 shadow-md shadow-white/10 hover:border-yellow-300/70 hover:shadow-yellow-300/20 transition-all duration-300 py-3">
+                          <SelectValue>
+                            <span className="flex items-center">
+                              {kasinaTab === 'colors' ? (
+                                <>
+                                  <span className="flex gap-1 mr-2">
+                                    <span className="text-white">⚪</span>
+                                    <span className="text-blue-500">🔵</span>
+                                    <span className="text-red-500">🔴</span>
+                                    <span className="text-yellow-300">🟡</span>
+                                  </span>
+                                  <span>Color Kasinas</span>
+                                </>
+                              ) : (
+                                <>
+                                  <span className="flex gap-1 mr-2">
+                                    <span>💧</span>
+                                    <span>🔥</span>
+                                    <span>💨</span>
+                                    <span>🌎</span>
+                                    <span>✨</span>
+                                    <span>☀️</span>
+                                  </span>
+                                  <span>Elemental Kasinas</span>
+                                </>
+                              )}
+                              <span className="ml-2 text-xs text-yellow-300">▼ Change</span>
+                            </span>
+                          </SelectValue>
                         </SelectTrigger>
-                        <SelectContent className="bg-black text-white border-white/20">
-                          <SelectItem value="colors" className="hover:bg-white/10 focus:bg-white/10">Color Kasinas</SelectItem>
-                          <SelectItem value="elements" className="hover:bg-white/10 focus:bg-white/10">Elemental Kasinas</SelectItem>
+                        <SelectContent className="bg-black text-white border-white/60 shadow-lg shadow-white/10">
+                          <SelectItem value="colors" className="hover:bg-white/10 focus:bg-white/10 py-2">
+                            <span className="flex items-center">
+                              <span className="flex gap-1 mr-2">
+                                <span className="text-white">⚪</span>
+                                <span className="text-blue-500">🔵</span>
+                                <span className="text-red-500">🔴</span>
+                                <span className="text-yellow-300">🟡</span>
+                              </span>
+                              <span>Color Kasinas</span>
+                            </span>
+                          </SelectItem>
+                          <SelectItem value="elements" className="hover:bg-white/10 focus:bg-white/10 py-2">
+                            <span className="flex items-center">
+                              <span className="flex gap-1 mr-2">
+                                <span>💧</span>
+                                <span>🔥</span>
+                                <span>💨</span>
+                                <span>🌎</span>
+                                <span>✨</span>
+                                <span>☀️</span>
+                              </span>
+                              <span>Elemental Kasinas</span>
+                            </span>
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
