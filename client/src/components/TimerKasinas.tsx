@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from './ui/select';
 import { useKasina } from '../lib/stores/useKasina';
 import { KASINA_NAMES, KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS, KASINA_EMOJIS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
@@ -565,160 +566,168 @@ const TimerKasinas: React.FC = () => {
                   <CardContent className="p-4 flex-1 flex flex-col">
                     <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
                     
-                    {/* Tab selection for Kasina types */}
-                    <Tabs defaultValue="colors" value={kasinaTab} onValueChange={setKasinaTab} className="flex-1 flex flex-col">
-                      <TabsList className="grid grid-cols-2 w-full mb-4">
-                        <TabsTrigger value="colors">Color Kasinas</TabsTrigger>
-                        <TabsTrigger value="elements">Elemental Kasinas</TabsTrigger>
-                      </TabsList>
+                    {/* Dropdown selector for Kasina types */}
+                    <div className="mb-4">
+                      <Select value={kasinaTab} onValueChange={setKasinaTab}>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Select type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectGroup>
+                            <SelectLabel>Kasina Types</SelectLabel>
+                            <SelectItem value="colors">Color Kasinas</SelectItem>
+                            <SelectItem value="elements">Elemental Kasinas</SelectItem>
+                          </SelectGroup>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    {/* Content area for selected type */}
+                    <div className="flex-1 overflow-y-auto min-h-[300px]">
+                      {/* Color Kasinas */}
+                      {kasinaTab === 'colors' && (
+                        <div className="grid grid-cols-2 gap-3 py-1">
+                          {/* White Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.WHITE ? KASINA_COLORS.white : 'transparent',
+                              color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE]}</span> 
+                            <span>White</span>
+                          </Button>
+                          
+                          {/* Blue Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.BLUE ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.BLUE)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.BLUE ? KASINA_COLORS.blue : 'transparent' 
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.BLUE]}</span>
+                            <span>Blue</span>
+                          </Button>
+                          
+                          {/* Red Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.RED ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.RED)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.RED ? KASINA_COLORS.red : 'transparent' 
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.RED]}</span>
+                            <span>Red</span>
+                          </Button>
+                          
+                          {/* Yellow Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.YELLOW ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.YELLOW)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.YELLOW ? KASINA_COLORS.yellow : 'transparent',
+                              color: selectedKasina === KASINA_TYPES.YELLOW ? 'black' : 'white'
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.YELLOW]}</span>
+                            <span>Yellow</span>
+                          </Button>
+                        </div>
+                      )}
                       
-                      {/* Scrollable content area for tabs */}
-                      <div className="flex-1 overflow-y-auto min-h-[300px]">
-                        {/* Color Kasinas Tab */}
-                        <TabsContent value="colors" className="h-full">
-                          <div className="grid grid-cols-2 gap-3 py-1">
-                            {/* White Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.WHITE ? KASINA_COLORS.white : 'transparent',
-                                color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE]}</span> 
-                              <span>White</span>
-                            </Button>
-                            
-                            {/* Blue Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.BLUE ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.BLUE)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.BLUE ? KASINA_COLORS.blue : 'transparent' 
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.BLUE]}</span>
-                              <span>Blue</span>
-                            </Button>
-                            
-                            {/* Red Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.RED ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.RED)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.RED ? KASINA_COLORS.red : 'transparent' 
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.RED]}</span>
-                              <span>Red</span>
-                            </Button>
-                            
-                            {/* Yellow Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.YELLOW ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.YELLOW)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.YELLOW ? KASINA_COLORS.yellow : 'transparent',
-                                color: selectedKasina === KASINA_TYPES.YELLOW ? 'black' : 'white'
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.YELLOW]}</span>
-                              <span>Yellow</span>
-                            </Button>
-                          </div>
-                        </TabsContent>
-                        
-                        {/* Elemental Kasinas Tab */}
-                        <TabsContent value="elements" className="h-full">
-                          <div className="grid grid-cols-2 gap-3 py-1">
-                            {/* Water Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.WATER ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.WATER)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.WATER ? KASINA_COLORS.water : 'transparent' 
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WATER]}</span>
-                              <span>Water</span>
-                            </Button>
-                            
-                            {/* Fire Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.FIRE ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.FIRE)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.FIRE ? KASINA_COLORS.fire : 'transparent' 
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.FIRE]}</span>
-                              <span>Fire</span>
-                            </Button>
-                            
-                            {/* Air Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.AIR ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.AIR)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.AIR ? KASINA_COLORS.air : 'transparent',
-                                color: selectedKasina === KASINA_TYPES.AIR ? 'black' : 'white'
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.AIR]}</span>
-                              <span>Air</span>
-                            </Button>
-                            
-                            {/* Earth Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.EARTH ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.EARTH)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.EARTH ? KASINA_COLORS.earth : 'transparent' 
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.EARTH]}</span>
-                              <span>Earth</span>
-                            </Button>
-                            
-                            {/* Space Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.SPACE ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.SPACE)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.SPACE ? KASINA_COLORS.space : 'transparent' 
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.SPACE]}</span>
-                              <span>Space</span>
-                            </Button>
-                            
-                            {/* Light Kasina button */}
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.LIGHT ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.LIGHT)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.LIGHT ? KASINA_COLORS.light : 'transparent',
-                                color: selectedKasina === KASINA_TYPES.LIGHT ? 'black' : 'white'
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.LIGHT]}</span>
-                              <span>Light</span>
-                            </Button>
-                          </div>
-                        </TabsContent>
-                      </div>
-                    </Tabs>
+                      {/* Elemental Kasinas */}
+                      {kasinaTab === 'elements' && (
+                        <div className="grid grid-cols-2 gap-3 py-1">
+                          {/* Water Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.WATER ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.WATER)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.WATER ? KASINA_COLORS.water : 'transparent' 
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WATER]}</span>
+                            <span>Water</span>
+                          </Button>
+                          
+                          {/* Fire Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.FIRE ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.FIRE)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.FIRE ? KASINA_COLORS.fire : 'transparent' 
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.FIRE]}</span>
+                            <span>Fire</span>
+                          </Button>
+                          
+                          {/* Air Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.AIR ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.AIR)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.AIR ? KASINA_COLORS.air : 'transparent',
+                              color: selectedKasina === KASINA_TYPES.AIR ? 'black' : 'white'
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.AIR]}</span>
+                            <span>Air</span>
+                          </Button>
+                          
+                          {/* Earth Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.EARTH ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.EARTH)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.EARTH ? KASINA_COLORS.earth : 'transparent' 
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.EARTH]}</span>
+                            <span>Earth</span>
+                          </Button>
+                          
+                          {/* Space Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.SPACE ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.SPACE)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.SPACE ? KASINA_COLORS.space : 'transparent' 
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.SPACE]}</span>
+                            <span>Space</span>
+                          </Button>
+                          
+                          {/* Light Kasina button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.LIGHT ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.LIGHT)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.LIGHT ? KASINA_COLORS.light : 'transparent',
+                              color: selectedKasina === KASINA_TYPES.LIGHT ? 'black' : 'white'
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.LIGHT]}</span>
+                            <span>Light</span>
+                          </Button>
+                        </div>
+                      )}
+                    </div>
                   </CardContent>
                 </div>
               </Card>
