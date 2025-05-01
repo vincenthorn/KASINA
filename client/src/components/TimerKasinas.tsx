@@ -558,25 +558,22 @@ const TimerKasinas: React.FC = () => {
           
           {/* Row 2: Kasina selection and Timer (side by side on desktop, stacked on mobile) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Column 1 - Kasina Selection with tabs */}
+            {/* Column 1 - Kasina Selection with dropdown */}
             <div className="w-full order-1">
               <Card className="shadow-lg h-full">
                 <div className="h-full flex flex-col">
                   <CardContent className="p-4 flex-1 flex flex-col">
-                    <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
+                    <h2 className="text-xl font-semibold mb-4 text-white">Select Kasina</h2>
                     
                     {/* Dropdown selector for Kasina types */}
                     <div className="mb-4">
                       <Select value={kasinaTab} onValueChange={setKasinaTab}>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select type" />
+                        <SelectTrigger className="w-full bg-transparent text-white border-white/30 focus:ring-white/20">
+                          <SelectValue>{kasinaTab === 'colors' ? 'Color Kasinas' : 'Elemental Kasinas'}</SelectValue>
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectGroup>
-                            <SelectLabel>Kasina Types</SelectLabel>
-                            <SelectItem value="colors">Color Kasinas</SelectItem>
-                            <SelectItem value="elements">Elemental Kasinas</SelectItem>
-                          </SelectGroup>
+                        <SelectContent className="bg-black text-white border-white/20">
+                          <SelectItem value="colors" className="hover:bg-white/10 focus:bg-white/10">Color Kasinas</SelectItem>
+                          <SelectItem value="elements" className="hover:bg-white/10 focus:bg-white/10">Elemental Kasinas</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
