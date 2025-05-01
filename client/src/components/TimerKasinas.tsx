@@ -535,29 +535,29 @@ const TimerKasinas: React.FC = () => {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 xl:gap-8">
           {/* Column 1 - Kasina Selection - Square card with tabs */}
           <div className="w-full">
-            <Card className="shadow-lg overflow-hidden h-full">
-              {/* Create a square aspect ratio container */}
-              <div className="relative">
-                <div className="pb-[100%] w-full"></div>
-                <div className="absolute inset-0 flex flex-col">
-                  <CardContent className="p-4 flex-1 flex flex-col">
-                    <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
+            <Card className="shadow-lg h-full">
+              {/* Modified container that allows for scrolling when needed */}
+              <div className="relative h-full flex flex-col">
+                <CardContent className="p-4 flex-1 flex flex-col">
+                  <h2 className="text-xl font-semibold mb-4">Select Kasina</h2>
+                  
+                  {/* Tab selection for Kasina types with auto-height */}
+                  <Tabs defaultValue="colors" value={kasinaTab} onValueChange={setKasinaTab} className="flex-1 flex flex-col">
+                    <TabsList className="grid grid-cols-2 w-full mb-4">
+                      <TabsTrigger value="colors">Color Kasinas</TabsTrigger>
+                      <TabsTrigger value="elements">Elemental Kasinas</TabsTrigger>
+                    </TabsList>
                     
-                    {/* Tab selection for Kasina types */}
-                    <Tabs defaultValue="colors" value={kasinaTab} onValueChange={setKasinaTab} className="flex-1 flex flex-col">
-                      <TabsList className="grid grid-cols-2 w-full mb-4">
-                        <TabsTrigger value="colors">Color Kasinas</TabsTrigger>
-                        <TabsTrigger value="elements">Elemental Kasinas</TabsTrigger>
-                      </TabsList>
-                      
+                    {/* Scrollable content area for tabs */}
+                    <div className="flex-1 overflow-y-auto min-h-[360px]">
                       {/* Color Kasinas Tab */}
-                      <TabsContent value="colors" className="flex-1 flex flex-col">
-                        <div className="grid grid-cols-2 gap-3 flex-1">
+                      <TabsContent value="colors" className="h-full">
+                        <div className="grid grid-cols-2 gap-3 py-1">
                           {/* White Kasina button */}
                           <Button
                             variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.WHITE ? KASINA_COLORS.white : 'transparent',
                               color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
@@ -571,7 +571,7 @@ const TimerKasinas: React.FC = () => {
                           <Button
                             variant={selectedKasina === KASINA_TYPES.BLUE ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.BLUE)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.BLUE ? KASINA_COLORS.blue : 'transparent' 
                             }}
@@ -584,7 +584,7 @@ const TimerKasinas: React.FC = () => {
                           <Button
                             variant={selectedKasina === KASINA_TYPES.RED ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.RED)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.RED ? KASINA_COLORS.red : 'transparent' 
                             }}
@@ -597,7 +597,7 @@ const TimerKasinas: React.FC = () => {
                           <Button
                             variant={selectedKasina === KASINA_TYPES.YELLOW ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.YELLOW)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.YELLOW ? KASINA_COLORS.yellow : 'transparent',
                               color: selectedKasina === KASINA_TYPES.YELLOW ? 'black' : 'white'
@@ -610,14 +610,14 @@ const TimerKasinas: React.FC = () => {
                       </TabsContent>
                       
                       {/* Elemental Kasinas Tab */}
-                      <TabsContent value="elements" className="flex-1 flex flex-col">
-                        {/* Always use 2 columns for elemental kasinas for better readability */}
-                        <div className="grid grid-cols-2 gap-3 flex-1">
+                      <TabsContent value="elements" className="h-full">
+                        {/* Always use 2 columns for elemental kasinas with guaranteed spacing */}
+                        <div className="grid grid-cols-2 gap-3 py-1">
                           {/* Water Kasina button */}
                           <Button
                             variant={selectedKasina === KASINA_TYPES.WATER ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.WATER)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.WATER ? KASINA_COLORS.water : 'transparent' 
                             }}
@@ -630,7 +630,7 @@ const TimerKasinas: React.FC = () => {
                           <Button
                             variant={selectedKasina === KASINA_TYPES.FIRE ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.FIRE)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.FIRE ? KASINA_COLORS.fire : 'transparent' 
                             }}
@@ -643,7 +643,7 @@ const TimerKasinas: React.FC = () => {
                           <Button
                             variant={selectedKasina === KASINA_TYPES.AIR ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.AIR)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.AIR ? KASINA_COLORS.air : 'transparent',
                               color: selectedKasina === KASINA_TYPES.AIR ? 'black' : 'white'
@@ -657,7 +657,7 @@ const TimerKasinas: React.FC = () => {
                           <Button
                             variant={selectedKasina === KASINA_TYPES.EARTH ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.EARTH)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.EARTH ? KASINA_COLORS.earth : 'transparent' 
                             }}
@@ -670,7 +670,7 @@ const TimerKasinas: React.FC = () => {
                           <Button
                             variant={selectedKasina === KASINA_TYPES.SPACE ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.SPACE)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.SPACE ? KASINA_COLORS.space : 'transparent' 
                             }}
@@ -683,7 +683,7 @@ const TimerKasinas: React.FC = () => {
                           <Button
                             variant={selectedKasina === KASINA_TYPES.LIGHT ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.LIGHT)}
-                            className="w-full h-full min-h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
+                            className="w-full h-[80px] flex flex-col items-center justify-center text-sm md:text-base"
                             style={{ 
                               backgroundColor: selectedKasina === KASINA_TYPES.LIGHT ? KASINA_COLORS.light : 'transparent',
                               color: selectedKasina === KASINA_TYPES.LIGHT ? 'black' : 'white'
@@ -694,24 +694,25 @@ const TimerKasinas: React.FC = () => {
                           </Button>
                         </div>
                       </TabsContent>
-                    </Tabs>
-                  </CardContent>
-                </div>
+                    </div>
+                  </Tabs>
+                </CardContent>
               </div>
             </Card>
           </div>
           
           {/* Column 2 - Kasina Orb - The visualization column */}
           <div className="w-full">
-            <Card className="shadow-lg overflow-hidden h-full bg-gray-900/20">
-              {/* Square aspect ratio container */}
-              <div className="relative">
-                <div className="pb-[100%] w-full"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <KasinaOrb 
-                    type={typedKasina} 
-                    remainingTime={timeRemaining} 
-                  />
+            <Card className="shadow-lg h-full bg-gray-900/20">
+              {/* Using same auto-height pattern for consistent sizing */}
+              <div className="relative h-full flex flex-col">
+                <div className="flex-1 flex items-center justify-center min-h-[360px]">
+                  <div className="w-full h-full max-w-[600px] max-h-[600px] mx-auto">
+                    <KasinaOrb 
+                      type={typedKasina} 
+                      remainingTime={timeRemaining} 
+                    />
+                  </div>
                 </div>
               </div>
             </Card>
@@ -719,27 +720,24 @@ const TimerKasinas: React.FC = () => {
           
           {/* Column 3 - Timer - Square card for the timer */}
           <div className="w-full">
-            <Card className="shadow-lg overflow-hidden h-full">
-              {/* Square aspect ratio container */}
-              <div className="relative">
-                <div className="pb-[100%] w-full"></div>
-                <div className="absolute inset-0 flex flex-col">
-                  <CardContent className="p-4 flex-1 flex flex-col justify-center">
-                    <h3 className="text-center text-xl font-medium mb-4 text-white">Timer</h3>
-                    
-                    {/* Add wrapper for better scaling of timer at all screen sizes */}
-                    <div className="flex-1 flex items-center justify-center">
-                      <div className="w-full max-w-[350px] mx-auto">
-                        <SimpleTimer
-                          onComplete={handleTimerComplete}
-                          onUpdate={handleStatusUpdate}
-                        />
-                      </div>
+            <Card className="shadow-lg h-full">
+              {/* Using same approach as Kasina selection to allow for auto sizing */}
+              <div className="relative h-full flex flex-col">
+                <CardContent className="p-4 flex-1 flex flex-col">
+                  <h3 className="text-center text-xl font-medium mb-4 text-white">Timer</h3>
+                  
+                  {/* Fixed height container with scrolling if needed */}
+                  <div className="flex-1 flex items-center justify-center min-h-[360px]">
+                    <div className="w-full max-w-[350px] mx-auto">
+                      <SimpleTimer
+                        onComplete={handleTimerComplete}
+                        onUpdate={handleStatusUpdate}
+                      />
                     </div>
-                    
-                    <div ref={timerDurationRef} className="hidden simple-timer-duration"></div>
-                  </CardContent>
-                </div>
+                  </div>
+                  
+                  <div ref={timerDurationRef} className="hidden simple-timer-duration"></div>
+                </CardContent>
               </div>
             </Card>
           </div>
