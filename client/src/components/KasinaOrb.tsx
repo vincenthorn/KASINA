@@ -697,8 +697,14 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
   
   useFrame(() => {
     if (cameraRef.current) {
-      // Update light position to follow camera
-      setCameraLight(cameraRef.current.position.clone());
+      // Update light position to follow camera - with memory optimization
+      // Instead of creating a new Vector3 on every frame, just copy the values directly
+      // This avoids creating thousands of Vector3 objects that need to be garbage collected
+      const newPos = cameraRef.current.position;
+      setCameraLight(prev => {
+        prev.set(newPos.x, newPos.y, newPos.z);
+        return prev;
+      });
     }
   });
 

@@ -5,6 +5,7 @@ import { queryClient } from "./lib/queryClient";
 import { useAuth } from "./lib/stores/useAuth";
 import { Toaster } from "sonner";
 import { ColorProvider } from "./lib/contexts/ColorContext";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
@@ -54,66 +55,80 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ColorProvider>
-        <Router>
-          <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route
-              path="/"
-              element={
-                <AuthenticatedRoute>
-                  <HomePage />
-                </AuthenticatedRoute>
-              }
-            />
-            <Route
-              path="/kasinas"
-              element={
-                <AuthenticatedRoute>
-                  <KasinasPage />
-                </AuthenticatedRoute>
-              }
-            />
-            <Route
-              path="/recording"
-              element={
-                <AdminOnlyRoute>
-                  <RecordingPage />
-                </AdminOnlyRoute>
-              }
-            />
-            <Route
-              path="/meditation"
-              element={
-                <AdminOnlyRoute>
-                  <MeditationPage />
-                </AdminOnlyRoute>
-              }
-            />
-            <Route
-              path="/reflection"
-              element={
-                <AuthenticatedRoute>
-                  <ReflectionPage />
-                </AuthenticatedRoute>
-              }
-            />
-            <Route
-              path="/admin"
-              element={
-                <AdminOnlyRoute>
-                  <AdminPage />
-                </AdminOnlyRoute>
-              }
-            />
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <ColorProvider>
+          <Router>
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <HomePage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+              <Route
+                path="/kasinas"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <KasinasPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+              <Route
+                path="/recording"
+                element={
+                  <AdminOnlyRoute>
+                    <ErrorBoundary>
+                      <RecordingPage />
+                    </ErrorBoundary>
+                  </AdminOnlyRoute>
+                }
+              />
+              <Route
+                path="/meditation"
+                element={
+                  <AdminOnlyRoute>
+                    <ErrorBoundary>
+                      <MeditationPage />
+                    </ErrorBoundary>
+                  </AdminOnlyRoute>
+                }
+              />
+              <Route
+                path="/reflection"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <ReflectionPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+              <Route
+                path="/admin"
+                element={
+                  <AdminOnlyRoute>
+                    <ErrorBoundary>
+                      <AdminPage />
+                    </ErrorBoundary>
+                  </AdminOnlyRoute>
+                }
+              />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Router>
-        <Toaster position="top-center" />
-      </ColorProvider>
-    </QueryClientProvider>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Router>
+          <Toaster position="top-center" />
+        </ColorProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 
