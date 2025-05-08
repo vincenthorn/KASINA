@@ -9,8 +9,9 @@ interface WakeLockSentinel extends EventTarget {
 
 declare global {
   interface Navigator {
+    // Use inline interface definition to avoid declaration conflicts
     wakeLock?: {
-      request: (type: 'screen') => Promise<WakeLockSentinel>;
+      request(type: 'screen'): Promise<WakeLockSentinel>;
     };
   }
 }

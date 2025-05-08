@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KASINA Social Media Preview Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    h1 {
+      font-family: 'Nunito', sans-serif;
+      margin-bottom: 20px;
+    }
+    
+    .container {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      border-radius: 4px;
+    }
+    
+    .orb {
+      width: 280px;
+      height: 280px;
+      background-color: #6366F1;
+      border-radius: 50%;
+      margin-bottom: 60px;
+      box-shadow: 0 0 150px 40px rgba(99, 102, 241, 0.5);
+    }
+    
+    .title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 120px;
+      font-weight: 800;
+      color: #6366F1;
+      text-transform: uppercase;
+      margin: 0 0 20px 0;
+      letter-spacing: 12px;
+      text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+    }
+    
+    .tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 36px;
+      color: white;
+      margin: 0;
+    }
+    
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    
+    button {
+      background: #6366F1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+    }
+    
+    button:hover {
+      background: #4F46E5;
+    }
+    
+    .instructions {
+      max-width: 1200px;
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>KASINA Social Media Preview Generator</h1>
+  
+  <div class="container" id="preview">
+    <div class="orb"></div>
+    <h2 class="title">KASINA</h2>
+    <p class="tagline">A 3D Visual Meditation Tool</p>
+  </div>
+  
+  <div class="controls">
+    <button id="downloadSVG">Download as SVG</button>
+    <button id="downloadPNG">Download as PNG</button>
+  </div>
+  
+  <div class="instructions">
+    <h3>Instructions:</h3>
+    <p>1. Use the buttons above to download the KASINA social media preview image.</p>
+    <p>2. The PNG option uses html2canvas to create a screenshot of the div above.</p>
+    <p>3. For best results with social media platforms, use the PNG format.</p>
+    <p>4. Update the meta tags in your HTML to use this image.</p>
+    <p>5. To use this image in social media meta tags, place it in your public directory.</p>
+  </div>
+  
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('downloadSVG').addEventListener('click', function() {
+      const svgContent = `
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with subtle gradient -->
+  <rect width="1200" height="630" fill="#121212" />
+  
+  <!-- Orb with glow effect -->
+  <circle cx="600" cy="250" r="140" fill="#6366F1" />
+  <circle cx="600" cy="250" r="200" fill="url(#orbGlow)" />
+  
+  <!-- Logo Text -->
+  <text x="600" y="450" font-family="'Nunito', sans-serif" font-size="120" font-weight="800" letter-spacing="12" text-anchor="middle" fill="#6366F1" style="text-transform: uppercase;">KASINA</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="520" font-family="'Inter', sans-serif" font-size="36" font-weight="400" text-anchor="middle" fill="#FFFFFF">A 3D Visual Meditation Tool</text>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <radialGradient id="orbGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="50%" stop-color="#6366F1" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+</svg>
+      `;
+      
+      const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'kasina-social-preview.svg';
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+    
+    document.getElementById('downloadPNG').addEventListener('click', function() {
+      html2canvas(document.getElementById('preview'), {
+        width: 1200,
+        height: 630,
+        scale: 2, // Higher scale for better quality
+        useCORS: true
+      }).then(function(canvas) {
+        const url = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'kasina-social-preview.png';
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>

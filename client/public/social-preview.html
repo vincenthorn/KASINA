@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Social Preview Image</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #121212;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .preview-container {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      background: #121212;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: #6366F1;
+      box-shadow: 0 0 140px 35px rgba(99, 102, 241, 0.5);
+    }
+
+    .title {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      left: 0;
+      top: 65%;
+      font-size: 120px;
+      letter-spacing: 8px;
+      font-weight: 800;
+      color: #6366F1;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+    }
+
+    .tagline {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      left: 0;
+      top: 80%;
+      font-size: 32px;
+      color: white;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #6366F1;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      z-index: 10;
+    }
+  </style>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <div class="preview-container" id="preview">
+    <div class="orb"></div>
+    <h1 class="title">KASINA</h1>
+    <p class="tagline">A 3D Visual Meditation Tool</p>
+  </div>
+
+  <button id="download">Download Preview Image</button>
+
+  <script>
+    document.getElementById('download').addEventListener('click', function() {
+      const preview = document.getElementById('preview');
+      
+      html2canvas(preview, {
+        width: 1200,
+        height: 630,
+        scale: 1
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'kasina-social-preview.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>
