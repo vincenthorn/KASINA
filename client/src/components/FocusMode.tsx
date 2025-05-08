@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
-import { Minimize2, ZoomIn, ZoomOut, Timer, Coffee } from 'lucide-react';
+import { Minimize2, X, ZoomIn, ZoomOut, Timer, Coffee } from 'lucide-react';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
+import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { KASINA_BACKGROUNDS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import KasinaOrb from './KasinaOrb';
 import { Dialog, DialogContent } from './ui/dialog';
 import useWakeLock from '../lib/useWakeLock';
+import { useNavigate } from 'react-router-dom';
 
 interface FocusModeProps {
   children: React.ReactNode;
@@ -26,6 +28,8 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const { isFocusModeActive, enableFocusMode, disableFocusMode } = useFocusMode();
   const { selectedKasina } = useKasina();
   const timerState = useSimpleTimer();
+  const sessionLogger = useSessionLogger();
+  const navigate = useNavigate();
   const [isUIVisible, setIsUIVisible] = useState(true);
   const [lastActivity, setLastActivity] = useState(Date.now());
   const [zoomLevel, setZoomLevel] = useState(1); // 1 = 100% (default size)
@@ -37,6 +41,35 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   // Use the wake lock hook to keep the screen on during meditation
   const { isSupported: isWakeLockSupported, isEnabled: isWakeLockEnabled, 
     enableWakeLock, disableWakeLock } = useWakeLock();
+    
+  // Function to handle ending a session and returning to the kasina page
+  const handleEndSession = async () => {
+    // If there's an active session with elapsed time, save it
+    if (timerState.isRunning && timerState.elapsedTime > 30) {
+      // Stop the timer first
+      timerState.stopTimer();
+      
+      try {
+        // Log the session with actual elapsed time
+        await sessionLogger.logSession({
+          kasinaType: selectedKasina as KasinaType,
+          duration: timerState.elapsedTime,
+          showToast: true
+        });
+      } catch (err) {
+        console.error("Error saving session on exit:", err);
+      }
+    }
+    
+    // Reset the timer
+    timerState.resetTimer();
+    
+    // Exit focus mode
+    disableFocusMode();
+    
+    // Go back to the kasinas page
+    navigate('/kasinas');
+  };
   
   // Get the background color for the selected kasina
   const getBackgroundColor = () => {
@@ -142,7 +175,15 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       <Dialog 
         open={isFocusModeActive} 
         onOpenChange={(open) => {
-          if (!open) disableFocusMode();
+          if (!open) {
+            if (timerState.isRunning) {
+              // If timer is running, end the session properly
+              handleEndSession();
+            } else {
+              // Otherwise just exit focus mode
+              disableFocusMode();
+            }
+          }
         }}
       >
         <DialogContent 
@@ -167,12 +208,28 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               onClick={(e) => {
                 // Don't treat this as normal mouse movement
                 e.stopPropagation();
-                disableFocusMode();
+                
+                if (timerState.isRunning) {
+                  // If timer is running, end the session completely
+                  handleEndSession();
+                } else {
+                  // If no timer, just exit focus mode
+                  disableFocusMode();
+                }
               }}
-              className="border-gray-700 text-gray-300 hover:bg-gray-900"
+              className={`${timerState.isRunning ? 'border-red-700 text-red-300 hover:bg-red-950' : 'border-gray-700 text-gray-300 hover:bg-gray-900'}`}
             >
-              <Minimize2 className="h-4 w-4 mr-1" />
-              Exit Focus Mode
+              {timerState.isRunning ? (
+                <>
+                  <X className="h-4 w-4 mr-1" />
+                  Exit Session
+                </>
+              ) : (
+                <>
+                  <Minimize2 className="h-4 w-4 mr-1" />
+                  Exit Focus Mode
+                </>
+              )}
             </Button>
           </div>
           
