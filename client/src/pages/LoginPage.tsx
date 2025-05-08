@@ -135,10 +135,10 @@ const LoginPage: React.FC = () => {
           </p>
           
           <div>
-            <p style={listItemStyles}>⏱️ 🧘‍♀️ Kasina mode with 10 visual orbs plus meditation timer</p>
+            <p style={listItemStyles}>⏱️ Kasina mode with 10 visual orbs plus meditation timer</p>
             <p style={listItemStyles}>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</p>
             <p style={listItemStyles}>6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</p>
-            <p style={listItemStyles} className="mb-0">📊 📈 Reflect on your meditation practice history</p>
+            <p style={listItemStyles} className="mb-0">📊 Reflect on your meditation practice history</p>
           </div>
         </div>
       </div>
