@@ -1,56 +1,51 @@
 import { useState, useEffect, useCallback } from 'react';
 
-// Type definition for the wake lock API not included in default TypeScript
+// Adding proper TypeScript definitions for the Wake Lock API
 interface WakeLockSentinel extends EventTarget {
   released: boolean;
   type: 'screen';
-  release: () => Promise<void>;
+  release(): Promise<void>;
+  addEventListener(type: 'release', listener: EventListener): void;
+  removeEventListener(type: 'release', listener: EventListener): void;
 }
 
-declare global {
-  interface Navigator {
-    // Use inline interface definition to avoid declaration conflicts
-    wakeLock?: {
-      request(type: 'screen'): Promise<WakeLockSentinel>;
-    };
-  }
-}
-
-type WakeLockState = {
+// Type for our hook's return value
+interface WakeLockState {
   isSupported: boolean;
   isEnabled: boolean;
   error: Error | null;
   enableWakeLock: () => Promise<void>;
   disableWakeLock: () => Promise<void>;
-};
+}
 
 /**
- * Hook to prevent the screen from turning off during meditation sessions.
- * Uses the Screen Wake Lock API to keep the screen active.
+ * Custom hook to prevent the screen from turning off during meditation sessions
+ * Uses the Screen Wake Lock API which may not be available in all browsers
  */
-export default function useWakeLock(): WakeLockState {
-  const [wakeLock, setWakeLock] = useState<WakeLockSentinel | null>(null);
+function useWakeLock(): WakeLockState {
+  const [wakeLockSentinel, setWakeLockSentinel] = useState<WakeLockSentinel | null>(null);
   const [isEnabled, setIsEnabled] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
   
-  // Check if wake lock is supported in this browser
+  // Check if the Wake Lock API is supported in this browser
   const isSupported = typeof navigator !== 'undefined' && 
-                      'wakeLock' in navigator && 
-                      navigator.wakeLock !== undefined;
+                     'wakeLock' in navigator && 
+                     navigator.wakeLock !== undefined;
   
-  // Function to acquire the wake lock
-  const enableWakeLock = useCallback(async () => {
+  // Function to request a wake lock
+  const enableWakeLock = useCallback(async (): Promise<void> => {
     if (!isSupported) {
       console.log("Screen Wake Lock API not supported in this browser");
       return;
     }
     
     try {
-      if (navigator.wakeLock) {
+      if ('wakeLock' in navigator && navigator.wakeLock) {
         console.log("Requesting screen wake lock...");
+        // @ts-ignore - TypeScript doesn't know about the wake lock API
         const lock = await navigator.wakeLock.request('screen');
         
-        setWakeLock(lock);
+        setWakeLockSentinel(lock);
         setIsEnabled(true);
         setError(null);
         
@@ -75,25 +70,25 @@ export default function useWakeLock(): WakeLockState {
   }, [isSupported]);
   
   // Function to release the wake lock
-  const disableWakeLock = useCallback(async () => {
-    if (wakeLock && !wakeLock.released) {
+  const disableWakeLock = useCallback(async (): Promise<void> => {
+    if (wakeLockSentinel && !wakeLockSentinel.released) {
       try {
-        await wakeLock.release();
+        await wakeLockSentinel.release();
         console.log("Screen wake lock released");
       } catch (err) {
         console.error("Error releasing screen wake lock:", err);
       }
     }
     setIsEnabled(false);
-    setWakeLock(null);
-  }, [wakeLock]);
+    setWakeLockSentinel(null);
+  }, [wakeLockSentinel]);
   
   // Re-acquire wake lock when the page becomes visible again
   useEffect(() => {
     if (!isSupported) return;
     
-    const handleVisibilityChange = () => {
-      if (wakeLock && document.visibilityState === 'visible') {
+    const handleVisibilityChange = (): void => {
+      if (wakeLockSentinel && document.visibilityState === 'visible') {
         enableWakeLock();
       }
     };
@@ -103,13 +98,13 @@ export default function useWakeLock(): WakeLockState {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       // Release wake lock on unmount
-      if (wakeLock && !wakeLock.released) {
-        wakeLock.release().catch(err => {
+      if (wakeLockSentinel && !wakeLockSentinel.released) {
+        wakeLockSentinel.release().catch(err => {
           console.error("Error releasing wake lock on unmount:", err);
         });
       }
     };
-  }, [enableWakeLock, isSupported, wakeLock]);
+  }, [enableWakeLock, isSupported, wakeLockSentinel]);
   
   return {
     isSupported,
@@ -119,3 +114,5 @@ export default function useWakeLock(): WakeLockState {
     disableWakeLock
   };
 }
+
+export default useWakeLock;
