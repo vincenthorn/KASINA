@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
-import { Maximize2, Minimize2, ZoomIn, ZoomOut, Timer } from 'lucide-react';
+import { Minimize2, ZoomIn, ZoomOut, Timer, Coffee } from 'lucide-react';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
@@ -8,6 +8,7 @@ import { KASINA_BACKGROUNDS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import KasinaOrb from './KasinaOrb';
 import { Dialog, DialogContent } from './ui/dialog';
+import useWakeLock from '../lib/useWakeLock';
 
 interface FocusModeProps {
   children: React.ReactNode;
@@ -32,6 +33,10 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const minZoom = 0.1; // 10%
   const maxZoom = 25; // 2500%
   const contentRef = useRef<HTMLDivElement>(null);
+  
+  // Use the wake lock hook to keep the screen on during meditation
+  const { isSupported: isWakeLockSupported, isEnabled: isWakeLockEnabled, 
+    enableWakeLock, disableWakeLock } = useWakeLock();
   
   // Get the background color for the selected kasina
   const getBackgroundColor = () => {
@@ -91,9 +96,23 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
     };
   }, [isFocusModeActive, isUIVisible]);
   
-  // Reset zoom level and clean up when exiting focus mode
+  // Handle wake lock when focus mode changes
   useEffect(() => {
-    if (!isFocusModeActive) {
+    if (isFocusModeActive) {
+      // Try to acquire wake lock when focus mode is activated
+      if (isWakeLockSupported && !isWakeLockEnabled) {
+        enableWakeLock().catch((err) => {
+          console.warn("Could not enable wake lock:", err);
+        });
+      }
+    } else {
+      // Release wake lock when focus mode is deactivated
+      if (isWakeLockEnabled) {
+        disableWakeLock().catch((err) => {
+          console.warn("Error releasing wake lock:", err);
+        });
+      }
+      
       // Reset zoom level
       setZoomLevel(1);
       
@@ -108,7 +127,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       
       return () => clearTimeout(timer);
     }
-  }, [isFocusModeActive]);
+  }, [isFocusModeActive, isWakeLockSupported, isWakeLockEnabled, enableWakeLock, disableWakeLock]);
   
   return (
     <>
@@ -230,6 +249,26 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               />
             </div>
           </div>
+          
+          {/* Wake lock indicator - visible on mouse movement */}
+          {isWakeLockSupported && (
+            <div 
+              className={`fixed top-16 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+            >
+              <div 
+                className={`text-xs px-2 py-1 rounded-full flex items-center gap-1 
+                  ${isWakeLockEnabled 
+                    ? 'bg-green-900/50 text-green-400 border border-green-800' 
+                    : 'bg-red-900/50 text-red-400 border border-red-800'}`}
+                title={isWakeLockEnabled 
+                  ? "Screen will stay on during meditation" 
+                  : "Screen may turn off (wake lock not active)"}
+              >
+                <Coffee className="h-3 w-3" />
+                <span>{isWakeLockEnabled ? "Stay awake on" : "Stay awake off"}</span>
+              </div>
+            </div>
+          )}
           
           {/* Timer display - visible on mouse movement */}
           <div 
