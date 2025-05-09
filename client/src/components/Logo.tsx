@@ -79,7 +79,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
         KASINA
       </h1>
       {showTagline && (
-        <p className={`text-white -mt-1 ${
+        <p className={`text-white ${sidebarMode ? "-mt-1" : "mt-1"} ${
           sidebarMode ? "text-[10px]" : // Extra small for sidebar
           size === "large" ? "text-base" : 
           size === "medium" ? "text-sm" : 
