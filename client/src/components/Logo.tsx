@@ -77,7 +77,11 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
         KASINA
       </h1>
       {showTagline && (
-        <p className="text-white mt-1 text-xs">A Visual Meditation Tool</p>
+        <p className={`text-white mt-1 ${
+          size === "large" ? "text-base" : 
+          size === "medium" ? "text-sm" : 
+          "text-xs"
+        }`}>A Visual Meditation Tool</p>
       )}
     </div>
   );
