@@ -278,6 +278,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const nameColIndex = headers.findIndex(h => 
           h.toLowerCase() === "name" || h.toLowerCase().includes("full") || h.toLowerCase().includes("first"));
         
+        console.log("Using column headers:", headers);
+        if (nameColIndex >= 0) {
+          console.log(`Found name column: "${headers[nameColIndex]}" at index ${nameColIndex}`);
+        } else {
+          console.log("No name column found in the CSV");
+        }
+        
         // Map of email to name from CSV
         const nameMap: Record<string, string> = {};
         

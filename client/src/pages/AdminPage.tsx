@@ -208,7 +208,8 @@ const AdminPage: React.FC = () => {
                   className="p-2 rounded bg-gray-700/60 text-white border border-indigo-900/40 focus:border-indigo-500 focus:outline-none"
                 />
                 <p className="text-sm text-indigo-200/80">
-                  The CSV file should include an "Email" column with user email addresses.
+                  The CSV file should include an "Email" column with user email addresses. 
+                  A "Name" column is also supported for displaying member names.
                 </p>
               </div>
               
@@ -296,7 +297,7 @@ const AdminPage: React.FC = () => {
                   <table className="min-w-full text-sm text-white">
                     <thead>
                       <tr className="border-b border-indigo-900/30 bg-gray-800/70">
-                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Full Name</th>
+                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Name</th>
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">Email Address</th>
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">All-Time Practice</th>
                       </tr>
