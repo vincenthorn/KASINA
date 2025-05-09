@@ -32,7 +32,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
       link.click();
       URL.revokeObjectURL(url);
     } else if (format === 'png') {
-      html2canvas(logoElement).then(canvas => {
+      html2canvas(logoElement as HTMLElement).then((canvas: HTMLCanvasElement) => {
         const url = canvas.toDataURL('image/png');
         const link = document.createElement('a');
         link.href = url;
@@ -77,7 +77,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
         KASINA
       </h1>
       {showTagline && (
-        <p className="text-white mt-1 text-base">A Visual Meditation Tool</p>
+        <p className={`text-white mt-1 ${size === "small" ? "text-xs" : "text-base"}`}>A Visual Meditation Tool</p>
       )}
     </div>
   );

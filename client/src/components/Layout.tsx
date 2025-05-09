@@ -50,7 +50,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
       {!isFocusMode && (
         <div className="w-64 bg-gray-900 border-r border-gray-800 p-4 hidden md:flex flex-col">
           <div className="mb-8 mt-4">
-            <Logo />
+            <Logo size="small" />
           </div>
           
           <nav className="flex-1 space-y-2">
