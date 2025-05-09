@@ -2,6 +2,9 @@ import React from "react";
 import AnimatedOrb from "./AnimatedOrb";
 import { useColor } from "../lib/contexts/ColorContext";
 
+// Adding html2canvas type declaration
+declare const html2canvas: (element: HTMLElement, options?: any) => Promise<HTMLCanvasElement>;
+
 interface LogoProps {
   size?: "small" | "medium" | "large";
   showTagline?: boolean;
@@ -74,7 +77,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
         KASINA
       </h1>
       {showTagline && (
-        <p className="text-white mt-1 text-sm">A 3D Visual Meditation Tool</p>
+        <p className="text-white mt-1 text-base">A Visual Meditation Tool</p>
       )}
     </div>
   );
