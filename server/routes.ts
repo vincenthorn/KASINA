@@ -146,11 +146,42 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
     }
     
     console.log(`Using column "${emailColumnName}" for emails`);
-
+    
+    // Find name column if it exists
+    const possibleNameColumns = [
+      "Name", "name", "Full Name", "full name", "First Name", "first name",
+      "FullName", "firstName", "FirstName", "Name"
+    ];
+    
+    let nameColumnName: string | null = null;
+    
+    // Find the first name column that exists in the record
+    for (const colName of possibleNameColumns) {
+      if (firstRecord[colName] !== undefined) {
+        nameColumnName = colName;
+        break;
+      }
+    }
+    
+    // Build a name map to save separately
+    const nameMap: Record<string, string> = {};
+    
     // Extract emails from the parsed data
     const emails = records
       .filter((record: any) => record[emailColumnName])
-      .map((record: any) => String(record[emailColumnName]).trim().toLowerCase());
+      .map((record: any) => {
+        const email = String(record[emailColumnName]).trim().toLowerCase();
+        
+        // Save name if available
+        if (nameColumnName && record[nameColumnName]) {
+          const name = String(record[nameColumnName]).trim();
+          if (name) {
+            nameMap[email] = name;
+          }
+        }
+        
+        return email;
+      });
 
     // Check if there are any emails in the data
     if (emails.length === 0) {
@@ -175,6 +206,7 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
     const combinedEmails = Array.from(new Set(emailsWithProtected)) as string[];
     
     console.log(`Whitelist update: ${emails.length} emails in CSV, ${combinedEmails.length} after adding protected accounts`);
+    console.log(`Found ${Object.keys(nameMap).length} names in the CSV`);
     
     // Create a header row and add emails
     const csvContent = [
@@ -184,6 +216,13 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
 
     // Write to the whitelist file
     await fs.promises.writeFile(whitelistPath, csvContent, "utf-8");
+    
+    // Save name map to a separate file
+    if (Object.keys(nameMap).length > 0) {
+      const nameMapPath = path.join(process.cwd(), 'name-map.json');
+      await fs.promises.writeFile(nameMapPath, JSON.stringify(nameMap, null, 2));
+      console.log(`Saved ${Object.keys(nameMap).length} names to name-map.json`);
+    }
 
     return combinedEmails;
   } catch (error) {
@@ -286,10 +325,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
         
         // Map of email to name from CSV
-        const nameMap: Record<string, string> = {};
+        let nameMap: Record<string, string> = {};
         
-        // Parse CSV data if it has proper headers
-        if (emailColIndex >= 0) {
+        // First try to read the separate name-map.json file
+        const nameMapPath = path.join(process.cwd(), 'name-map.json');
+        if (fs.existsSync(nameMapPath)) {
+          try {
+            const nameMapContent = await fs.promises.readFile(nameMapPath, 'utf-8');
+            nameMap = JSON.parse(nameMapContent);
+            console.log(`Loaded ${Object.keys(nameMap).length} names from name-map.json`);
+          } catch (err) {
+            console.error("Error reading name-map.json:", err);
+          }
+        }
+        
+        // If no separate name map or it's empty, try parsing CSV data
+        if (Object.keys(nameMap).length === 0 && emailColIndex >= 0) {
+          console.log("No name map file found or it was empty, trying to parse CSV for names");
           for (let i = 1; i < lines.length; i++) {
             const values = lines[i].split(",");
             if (values.length > emailColIndex) {
@@ -298,9 +350,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
               const name = nameColIndex >= 0 && values.length > nameColIndex 
                 ? values[nameColIndex].trim() 
                 : "";
-              nameMap[email] = name;
+              if (name) {
+                nameMap[email] = name;
+              }
             }
           }
+          console.log(`Parsed ${Object.keys(nameMap).length} names from CSV`);
         }
         
         // Get sessions data from the storage file
