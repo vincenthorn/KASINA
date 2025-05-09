@@ -9,12 +9,14 @@ interface LogoProps {
   size?: "small" | "medium" | "large";
   showTagline?: boolean;
   showOrb?: boolean;
+  sidebarMode?: boolean; // Special mode for sidebar with extra-small tagline
 }
 
 const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }> = ({ 
   size = "medium", 
   showTagline = true, 
   showOrb = true,
+  sidebarMode = false,
   onExport
 }) => {
 
@@ -78,6 +80,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
       </h1>
       {showTagline && (
         <p className={`text-white mt-1 ${
+          sidebarMode ? "text-[10px]" : // Extra small for sidebar
           size === "large" ? "text-base" : 
           size === "medium" ? "text-sm" : 
           "text-xs"
