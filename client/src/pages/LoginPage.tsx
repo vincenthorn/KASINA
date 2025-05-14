@@ -28,7 +28,7 @@ const paragraphStyles = {
   marginBottom: "24px",
   fontSize: "18px", // Reduced from 20px
   lineHeight: "1.7",
-  maxWidth: "800px",
+  maxWidth: "512px", // Updated to match login card width (max-w-lg = 512px)
   margin: "0 auto 24px auto",
   padding: "0 10px", // Add some padding for smaller screens
 };
@@ -39,7 +39,9 @@ const listItemStyles = {
   fontSize: "17px", // Reduced from 19px
   lineHeight: "1.6",
   padding: "0 10px", // Add padding for smaller screens
-  textAlign: "center" as const
+  textAlign: "center" as const,
+  maxWidth: "512px", // Match login card width
+  margin: "0 auto" // Center the text
 };
 
 const comingSoonStyles = {
@@ -124,12 +126,14 @@ const LoginPage: React.FC = () => {
             fontSize: "20px", 
             fontWeight: "bold",
             marginBottom: "20px",
-            textAlign: "center"
+            textAlign: "center",
+            maxWidth: "512px", // Match login card width
+            margin: "0 auto 20px auto" // Center and maintain bottom margin
           }}>
             Featuring:
           </p>
           
-          <div>
+          <div style={{ maxWidth: "512px", margin: "0 auto" }}>
             <p style={listItemStyles}>⏱️ Kasina mode with 10 visual orbs plus meditation timer</p>
             <p style={listItemStyles}>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</p>
             <p style={listItemStyles}>6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</p>
