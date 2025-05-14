@@ -240,7 +240,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KASINA Yellow Logo Export</title>
+  <title>KASINA Logo Export Tool</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -256,7 +256,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
     
     .container {
-      max-width: 600px;
+      max-width: 650px;
       background-color: white;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -273,7 +273,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     p {
       text-align: center;
       color: #666;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     
     canvas {
@@ -285,10 +285,64 @@ export async function registerRoutes(app: Express): Promise<Server> {
       background-size: 20px 20px;
       background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
       border: 1px solid #ddd;
-      margin: 20px 0;
       max-width: 100%;
       display: block;
       margin: 0 auto 1.5rem auto;
+    }
+    
+    .color-selector {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .color-option {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    
+    .color-option:hover {
+      transform: scale(1.1);
+    }
+    
+    .color-option.active {
+      border-color: #333;
+    }
+    
+    .color-option[data-color="yellow"] {
+      background-color: #F9D923;
+    }
+    
+    .color-option[data-color="white"] {
+      background-color: white;
+      border: 2px solid #ddd;
+    }
+    
+    .color-option[data-color="black"] {
+      background-color: #333;
+    }
+    
+    .color-option[data-color="red"] {
+      background-color: #FF4545;
+    }
+    
+    .color-option[data-color="blue"] {
+      background-color: #3B82F6;
+    }
+    
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
     
     button {
@@ -300,12 +354,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      margin: 0 auto;
-      display: block;
+      transition: all 0.2s;
     }
     
     button:hover {
-      background-color: #e7c922;
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    
+    button.download-btn {
+      padding: 14px 28px;
     }
     
     .info {
@@ -316,29 +374,76 @@ export async function registerRoutes(app: Express): Promise<Server> {
       text-align: center;
       color: #666;
     }
+    
+    .color-name {
+      display: block;
+      text-align: center;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #333;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>KASINA Yellow Logo Export</h1>
-    <p>Generate a transparent PNG of the KASINA logo with yellow orb</p>
+    <h1>KASINA Logo Export Tool</h1>
+    <p>Generate a transparent PNG of the KASINA logo in different colors</p>
     
     <canvas id="canvas" width="512" height="512"></canvas>
     
-    <button onclick="downloadLogo()">Download PNG</button>
+    <div class="color-name" id="colorName">Yellow</div>
+    
+    <div class="color-selector">
+      <div class="color-option active" data-color="yellow" title="Yellow"></div>
+      <div class="color-option" data-color="white" title="White"></div>
+      <div class="color-option" data-color="black" title="Black"></div>
+      <div class="color-option" data-color="red" title="Red"></div>
+      <div class="color-option" data-color="blue" title="Blue"></div>
+    </div>
+    
+    <div class="button-group">
+      <button onclick="downloadLogo()" class="download-btn">Download PNG</button>
+    </div>
     
     <div class="info">
-      <p>This is a square ratio PNG (512×512px) of the KASINA logo with a yellow orb above the text, all on a transparent background. Perfect for website favicons and promotional materials.</p>
+      <p>This is a square ratio PNG (512×512px) of the KASINA logo with the orb above the text, all on a transparent background. Perfect for website favicons and promotional materials.</p>
     </div>
   </div>
   
   <script>
-    // Yellow color for KASINA branding
-    const YELLOW_COLOR = '#F9D923';
+    // Color palette
+    const COLORS = {
+      yellow: '#F9D923',
+      white: '#FFFFFF',
+      black: '#333333',
+      red: '#FF4545',
+      blue: '#3B82F6'
+    };
     
-    // Get the canvas context
+    // Current selected color
+    let currentColor = 'yellow';
+    
+    // Get the canvas context and color elements
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
+    const colorOptions = document.querySelectorAll('.color-option');
+    const colorNameElement = document.getElementById('colorName');
+    
+    // Set up color selection
+    colorOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        // Update active state
+        colorOptions.forEach(opt => opt.classList.remove('active'));
+        option.classList.add('active');
+        
+        // Update current color
+        currentColor = option.getAttribute('data-color');
+        colorNameElement.textContent = currentColor.charAt(0).toUpperCase() + currentColor.slice(1);
+        
+        // Redraw logo with new color
+        renderLogo();
+      });
+    });
     
     // Render the logo when the page loads
     window.onload = function() {
@@ -347,18 +452,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     
     function renderLogo() {
       const size = canvas.width; // Square canvas
+      const selectedColor = COLORS[currentColor];
       
       // Clear canvas to ensure transparency
       ctx.clearRect(0, 0, size, size);
       
       // Calculate dimensions
-      const orbSize = size * 0.4; // 40% of canvas size
+      const orbSize = size * 0.35; // 35% of canvas size
       const orbX = size / 2;
       const orbY = size * 0.35; // Position orb at 35% from top
       
       // Draw orb glow
       const gradient = ctx.createRadialGradient(orbX, orbY, orbSize * 0.4, orbX, orbY, orbSize);
-      gradient.addColorStop(0, YELLOW_COLOR);
+      gradient.addColorStop(0, selectedColor);
       gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
       
       ctx.beginPath();
@@ -369,7 +475,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Draw solid orb
       ctx.beginPath();
       ctx.arc(orbX, orbY, orbSize * 0.8, 0, 2 * Math.PI);
-      ctx.fillStyle = YELLOW_COLOR;
+      ctx.fillStyle = selectedColor;
       ctx.fill();
       
       // Make sure Nunito font is loaded before drawing text
@@ -378,11 +484,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const fontSize = size * 0.14; // 14% of canvas size
         ctx.font = \`bold \${fontSize}px 'Nunito', sans-serif\`;
         ctx.textAlign = 'center';
-        ctx.fillStyle = YELLOW_COLOR;
+        ctx.fillStyle = selectedColor;
         ctx.textBaseline = 'middle';
         
-        // Position text below orb
-        const textY = size * 0.7; // 70% from top
+        // Position text clearly below orb
+        const textY = size * 0.75; // 75% from top (moved down from 70%)
         ctx.fillText('KASINA', size / 2, textY);
       });
     }
@@ -391,9 +497,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Convert canvas to data URL
       const dataURL = canvas.toDataURL('image/png');
       
-      // Create download link
+      // Create download link with the current color in the filename
       const link = document.createElement('a');
-      link.download = 'kasina-logo-yellow.png';
+      link.download = \`kasina-logo-\${currentColor}.png\`;
       link.href = dataURL;
       document.body.appendChild(link);
       link.click();
