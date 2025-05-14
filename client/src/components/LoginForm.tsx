@@ -40,10 +40,10 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <Card className="w-full max-w-md bg-gray-900 border-gray-700">
-        <CardHeader className="flex flex-col items-center pt-8 pb-2">
-          <div className="mb-4">
-            <Logo size="medium" />
+      <Card className="w-full max-w-lg bg-gray-900 border-gray-700">
+        <CardHeader className="flex flex-col items-center pt-20 pb-16">
+          <div className="mb-6">
+            <Logo size="large" loginPage={true} />
           </div>
         </CardHeader>
         <CardContent>

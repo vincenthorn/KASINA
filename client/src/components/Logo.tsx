@@ -10,6 +10,7 @@ interface LogoProps {
   showTagline?: boolean;
   showOrb?: boolean;
   sidebarMode?: boolean; // Special mode for sidebar with extra-small tagline
+  loginPage?: boolean; // Special mode for login page with reduced glow
 }
 
 const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }> = ({ 
@@ -17,6 +18,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
   showTagline = true, 
   showOrb = true,
   sidebarMode = false,
+  loginPage = false,
   onExport
 }) => {
 
@@ -55,14 +57,17 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
   const orbSizes = {
     small: 60,
     medium: 90,
-    large: 120,
+    large: 160, // Increased from 120 to 160 for better visibility on login page
   };
 
   return (
     <div className="flex flex-col items-center justify-center logo-container">
       {showOrb && (
         <div className="mb-4">
-          <AnimatedOrb size={orbSizes[size]} />
+          <AnimatedOrb 
+            size={orbSizes[size]} 
+            reducedGlow={loginPage} 
+          />
         </div>
       )}
       <h1 
