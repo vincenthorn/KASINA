@@ -28,7 +28,7 @@ const Login = () => {
       if (success) {
         navigate("/");
       } else {
-        toast.error("Become a premium member of contemplative.technology for access.");
+        toast.error("Become a premium member of contemplative.technology for access. Visit https://www.contemplative.technology/subscribe");
       }
     } catch (error) {
       toast.error("Login failed. Please try again.");
@@ -43,7 +43,7 @@ const Login = () => {
       <Card className="w-full max-w-md mx-4 bg-gray-900 text-white border-gray-700">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-6">
-            <Logo className="h-16" />
+            <Logo size="medium" />
           </div>
           <CardTitle className="text-2xl">Welcome to KASINA</CardTitle>
           <CardDescription className="text-gray-300">

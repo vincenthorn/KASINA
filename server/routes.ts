@@ -489,7 +489,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       } else {
         return res.status(403).json({ 
-          message: "Become a premium member of contemplative.technology for access." 
+          message: "Become a premium member of contemplative.technology for access. Visit https://www.contemplative.technology/subscribe" 
         });
       }
     } catch (error) {

@@ -82,7 +82,7 @@ const LoginForm: React.FC = () => {
         </CardContent>
         <CardFooter className="flex justify-center pb-6">
           <div className="text-sm text-gray-400 text-center max-w-[90%] mx-auto">
-            Use a <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account to login.
+            Use a <a href="https://www.contemplative.technology/subscribe" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account to login.
           </div>
         </CardFooter>
       </Card>
