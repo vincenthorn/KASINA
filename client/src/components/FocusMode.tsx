@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
-import { Minimize2, X, ZoomIn, ZoomOut, Timer, Coffee } from 'lucide-react';
+import { Minimize2, X, ZoomIn, ZoomOut, Timer, Coffee, Maximize, Minimize } from 'lucide-react';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import { useKasina } from '../lib/stores/useKasina';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
@@ -37,13 +37,59 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
   const minZoom = 0.1; // 10%
   const maxZoom = 25; // 2500%
   const contentRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   
   // Use the wake lock hook to keep the screen on during meditation
   const { isSupported: isWakeLockSupported, isEnabled: isWakeLockEnabled, 
     enableWakeLock, disableWakeLock } = useWakeLock();
     
+  // Function to toggle fullscreen
+  const toggleFullscreen = () => {
+    if (!isFullscreen) {
+      // Enter fullscreen
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().then(() => {
+          setIsFullscreen(true);
+        }).catch(err => {
+          console.error("Error attempting to enable fullscreen:", err);
+        });
+      }
+    } else {
+      // Exit fullscreen
+      if (document.exitFullscreen) {
+        document.exitFullscreen().then(() => {
+          setIsFullscreen(false);
+        }).catch(err => {
+          console.error("Error attempting to exit fullscreen:", err);
+        });
+      }
+    }
+  };
+  
+  // Listen for fullscreen change events
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+  
   // Function to handle ending a session and returning to the kasina page
   const handleEndSession = async () => {
+    // Exit fullscreen if active
+    if (isFullscreen && document.exitFullscreen) {
+      try {
+        await document.exitFullscreen();
+      } catch (err) {
+        console.error("Error exiting fullscreen:", err);
+      }
+    }
+    
     // If there's an active session with elapsed time, save it
     if (timerState.isRunning && timerState.elapsedTime > 30) {
       // Stop the timer first
@@ -400,6 +446,30 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               }
               return null;
             })}
+          </div>
+          
+          {/* Fullscreen button - visible on mouse movement */}
+          <div 
+            className={`fixed bottom-8 right-8 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={(e) => {
+                // Don't treat this as normal mouse movement
+                e.stopPropagation();
+                toggleFullscreen();
+              }}
+              className="rounded-full bg-black/50 border-gray-700 text-white hover:bg-gray-900"
+              title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+            >
+              {isFullscreen ? (
+                <Minimize className="h-5 w-5" />
+              ) : (
+                <Maximize className="h-5 w-5" />
+              )}
+              <span className="sr-only">{isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}</span>
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

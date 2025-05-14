@@ -216,5 +216,13 @@
     "duration": 60,
     "timestamp": "2025-05-08T21:07:40.513Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1747173059558",
+    "kasinaType": "water",
+    "kasinaName": "Water (2-minutes)",
+    "duration": 120,
+    "timestamp": "2025-05-13T21:50:59.558Z",
+    "userEmail": "user@kasina.app"
   }
 ]
