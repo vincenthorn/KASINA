@@ -62,6 +62,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/logo-export" element={<LogoExportPage />} />
               <Route
                 path="/"
                 element={

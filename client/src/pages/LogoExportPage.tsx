@@ -46,16 +46,37 @@ const LogoExportPage: React.FC = () => {
     ctx.fillStyle = YELLOW_COLOR;
     ctx.fill();
     
-    // Draw KASINA text
-    const fontSize = size * 0.14; // 14% of canvas size
-    ctx.font = `bold ${fontSize}px 'Nunito', sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.fillStyle = YELLOW_COLOR;
-    ctx.textBaseline = 'middle';
+    // Make sure Nunito font is loaded before drawing text
+    const font = new FontFace('Nunito', 'url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2)');
     
-    // Position text below orb
-    const textY = size * 0.7; // 70% from top
-    ctx.fillText('KASINA', size / 2, textY);
+    font.load().then(() => {
+      // Add font to document
+      document.fonts.add(font);
+      
+      // Draw KASINA text
+      const fontSize = size * 0.14; // 14% of canvas size
+      ctx.font = `bold ${fontSize}px 'Nunito', sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.textBaseline = 'middle';
+      
+      // Position text below orb
+      const textY = size * 0.7; // 70% from top
+      ctx.fillText('KASINA', size / 2, textY);
+    }).catch(err => {
+      console.error('Error loading Nunito font:', err);
+      
+      // Fallback to standard sans-serif if Nunito fails to load
+      const fontSize = size * 0.14;
+      ctx.font = `bold ${fontSize}px sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.textBaseline = 'middle';
+      
+      // Position text below orb
+      const textY = size * 0.7;
+      ctx.fillText('KASINA', size / 2, textY);
+    });
   }, []);
   
   // Function to download the logo as a PNG
@@ -85,9 +106,12 @@ const LogoExportPage: React.FC = () => {
   };
   
   return (
-    <Layout>
-      <div className="logo-export-container flex flex-col items-center justify-center py-8 px-4">
-        <h1 className="text-2xl font-bold mb-6">KASINA Yellow Logo Export</h1>
+    <div className="min-h-screen bg-gray-50 py-12 px-4">
+      <div className="logo-export-container flex flex-col items-center justify-center bg-white rounded-lg shadow-sm py-8 px-6 mx-auto">
+        <header className="mb-8 text-center">
+          <h1 className="text-2xl font-bold mb-2">KASINA Yellow Logo Export</h1>
+          <p className="text-gray-600">Generate a transparent PNG of the KASINA logo with yellow orb</p>
+        </header>
         
         <div className="canvas-container relative mb-8">
           <canvas 
@@ -103,7 +127,7 @@ const LogoExportPage: React.FC = () => {
             onClick={downloadLogo} 
             disabled={isDownloading}
             style={{ backgroundColor: YELLOW_COLOR, borderColor: YELLOW_COLOR }}
-            className="hover:bg-yellow-600"
+            className="hover:bg-yellow-600 text-white font-medium"
           >
             {isDownloading ? 'Downloading...' : 'Download PNG'}
           </Button>
@@ -112,15 +136,15 @@ const LogoExportPage: React.FC = () => {
             onClick={() => navigate('/')}
             variant="outline"
           >
-            Back to App
+            Back to KASINA
           </Button>
         </div>
         
         <div className="mt-8 max-w-md text-center text-gray-600">
-          <p>This is a square ratio PNG of the KASINA logo with a yellow orb above the text, all on a transparent background.</p>
+          <p>This is a square ratio PNG (512×512px) of the KASINA logo with a yellow orb above the text, all on a transparent background. Perfect for website favicons and promotional materials.</p>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 
