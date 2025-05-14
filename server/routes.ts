@@ -27,11 +27,23 @@ const whitelistPath = path.join(__dirname, "../whitelist.csv");
 async function readWhitelist(): Promise<string[]> {
   try {
     // Define protected emails that are always included
-    const protectedEmails = ["admin@kasina.app", "user@kasina.app"];
+    const protectedEmails = [
+      "admin@kasina.app", 
+      "user@kasina.app", 
+      // Premium users that should always be permanent
+      "brian@terma.asia", 
+      "emilywhorn@gmail.com", 
+      "ryan@ryanoelke.com"
+    ];
     
     // If whitelist doesn't exist, create empty file with protected emails
     if (!fs.existsSync(whitelistPath)) {
-      fs.writeFileSync(whitelistPath, `email\nadmin@kasina.app\nuser@kasina.app\n`, "utf-8");
+      const initialContent = [
+        "email",
+        ...protectedEmails
+      ].join("\n") + "\n";
+      
+      fs.writeFileSync(whitelistPath, initialContent, "utf-8");
     }
     
     const data = await fs.promises.readFile(whitelistPath, "utf-8");
@@ -49,7 +61,13 @@ async function readWhitelist(): Promise<string[]> {
   } catch (error) {
     console.error("Error reading whitelist:", error);
     // Return protected emails as fallback when file can't be read
-    return ["admin@kasina.app", "user@kasina.app"];
+    return [
+      "admin@kasina.app", 
+      "user@kasina.app",
+      "brian@terma.asia", 
+      "emilywhorn@gmail.com", 
+      "ryan@ryanoelke.com"
+    ];
   }
 }
 
@@ -99,7 +117,14 @@ const upload = multer({
 async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
   try {
     // Define protected emails that should never be removed from whitelist
-    const protectedEmails = ["admin@kasina.app", "user@kasina.app"];
+    const protectedEmails = [
+      "admin@kasina.app", 
+      "user@kasina.app",
+      // Premium users that should always remain
+      "brian@terma.asia", 
+      "emilywhorn@gmail.com", 
+      "ryan@ryanoelke.com"
+    ];
     
     // Parse CSV data
     const records = parse(csvData, {
