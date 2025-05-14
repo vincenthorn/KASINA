@@ -232,6 +232,182 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Public tool routes - these don't require authentication
+  app.get("/tools/logo-export", (req, res) => {
+    const logoExportHtml = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KASINA Yellow Logo Export</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 600px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    canvas {
+      background-image: 
+        linear-gradient(45deg, #ccc 25%, transparent 25%), 
+        linear-gradient(-45deg, #ccc 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #ccc 75%), 
+        linear-gradient(-45deg, transparent 75%, #ccc 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+      border: 1px solid #ddd;
+      margin: 20px 0;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 1.5rem auto;
+    }
+    
+    button {
+      padding: 12px 24px;
+      background-color: #F9D923;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    button:hover {
+      background-color: #e7c922;
+    }
+    
+    .info {
+      margin-top: 20px;
+      max-width: 500px;
+      line-height: 1.5;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KASINA Yellow Logo Export</h1>
+    <p>Generate a transparent PNG of the KASINA logo with yellow orb</p>
+    
+    <canvas id="canvas" width="512" height="512"></canvas>
+    
+    <button onclick="downloadLogo()">Download PNG</button>
+    
+    <div class="info">
+      <p>This is a square ratio PNG (512×512px) of the KASINA logo with a yellow orb above the text, all on a transparent background. Perfect for website favicons and promotional materials.</p>
+    </div>
+  </div>
+  
+  <script>
+    // Yellow color for KASINA branding
+    const YELLOW_COLOR = '#F9D923';
+    
+    // Get the canvas context
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Render the logo when the page loads
+    window.onload = function() {
+      renderLogo();
+    };
+    
+    function renderLogo() {
+      const size = canvas.width; // Square canvas
+      
+      // Clear canvas to ensure transparency
+      ctx.clearRect(0, 0, size, size);
+      
+      // Calculate dimensions
+      const orbSize = size * 0.4; // 40% of canvas size
+      const orbX = size / 2;
+      const orbY = size * 0.35; // Position orb at 35% from top
+      
+      // Draw orb glow
+      const gradient = ctx.createRadialGradient(orbX, orbY, orbSize * 0.4, orbX, orbY, orbSize);
+      gradient.addColorStop(0, YELLOW_COLOR);
+      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      
+      ctx.beginPath();
+      ctx.arc(orbX, orbY, orbSize, 0, 2 * Math.PI);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+      
+      // Draw solid orb
+      ctx.beginPath();
+      ctx.arc(orbX, orbY, orbSize * 0.8, 0, 2 * Math.PI);
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.fill();
+      
+      // Make sure Nunito font is loaded before drawing text
+      document.fonts.ready.then(() => {
+        // Draw KASINA text
+        const fontSize = size * 0.14; // 14% of canvas size
+        ctx.font = \`bold \${fontSize}px 'Nunito', sans-serif\`;
+        ctx.textAlign = 'center';
+        ctx.fillStyle = YELLOW_COLOR;
+        ctx.textBaseline = 'middle';
+        
+        // Position text below orb
+        const textY = size * 0.7; // 70% from top
+        ctx.fillText('KASINA', size / 2, textY);
+      });
+    }
+    
+    function downloadLogo() {
+      // Convert canvas to data URL
+      const dataURL = canvas.toDataURL('image/png');
+      
+      // Create download link
+      const link = document.createElement('a');
+      link.download = 'kasina-logo-yellow.png';
+      link.href = dataURL;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
+    `;
+    
+    res.setHeader('Content-Type', 'text/html');
+    res.send(logoExportHtml);
+  });
+  
   // Server-side deduplication cache for session saves (10-second window)
   // This prevents duplicate sessions from being saved when multiple requests arrive in quick succession
   const sessionDedupeCache = new Map<string, number>();
