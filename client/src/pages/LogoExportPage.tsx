@@ -1,20 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { Layout } from '../components/Layout';
-
-// CSS for the checkered background pattern
-const backgroundPattern = `
-  .bg-grid {
-    background-image: 
-      linear-gradient(45deg, #ccc 25%, transparent 25%), 
-      linear-gradient(-45deg, #ccc 25%, transparent 25%), 
-      linear-gradient(45deg, transparent 75%, #ccc 75%), 
-      linear-gradient(-45deg, transparent 75%, #ccc 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  }
-`;
+import Layout from '../components/Layout';
+import '../styles/logoExport.css';
 
 // Yellow color for KASINA branding
 const YELLOW_COLOR = '#F9D923';
@@ -98,15 +86,15 @@ const LogoExportPage: React.FC = () => {
   
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center py-8 px-4">
+      <div className="logo-export-container flex flex-col items-center justify-center py-8 px-4">
         <h1 className="text-2xl font-bold mb-6">KASINA Yellow Logo Export</h1>
         
-        <div className="relative mb-8">
+        <div className="canvas-container relative mb-8">
           <canvas 
             ref={canvasRef} 
             width={512} 
             height={512} 
-            className="bg-grid rounded-md border border-gray-300"
+            className="bg-grid rounded-md border border-gray-300 w-full"
           />
         </div>
         
@@ -114,7 +102,8 @@ const LogoExportPage: React.FC = () => {
           <Button 
             onClick={downloadLogo} 
             disabled={isDownloading}
-            className="bg-yellow-500 hover:bg-yellow-600"
+            style={{ backgroundColor: YELLOW_COLOR, borderColor: YELLOW_COLOR }}
+            className="hover:bg-yellow-600"
           >
             {isDownloading ? 'Downloading...' : 'Download PNG'}
           </Button>

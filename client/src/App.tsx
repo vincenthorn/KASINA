@@ -14,6 +14,7 @@ import RecordingPage from "./pages/RecordingPage";
 import MeditationPage from "./pages/MeditationPage";
 import ReflectionPage from "./pages/ReflectionPage";
 import AdminPage from "./pages/AdminPage";
+import LogoExportPage from "./pages/LogoExportPage";
 
 import NotFound from "./pages/not-found";
 
