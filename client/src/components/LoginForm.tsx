@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useAuth } from "../lib/stores/useAuth";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "./ui/card";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription } from "./ui/alert";
+import Logo from "./Logo";
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -40,10 +41,10 @@ const LoginForm: React.FC = () => {
   return (
     <div className="w-full flex justify-center">
       <Card className="w-full max-w-md bg-gray-900 border-gray-700">
-        <CardHeader>
-          <CardTitle className="text-white text-center">
-            Use a <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account:
-          </CardTitle>
+        <CardHeader className="flex flex-col items-center pt-8 pb-2">
+          <div className="mb-4">
+            <Logo size="medium" />
+          </div>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -55,6 +56,7 @@ const LoginForm: React.FC = () => {
             )}
             
             <div className="space-y-2">
+              <div className="text-sm text-gray-300 mb-2">Email address</div>
               <Input
                 type="email"
                 placeholder="Enter your email"
@@ -67,13 +69,18 @@ const LoginForm: React.FC = () => {
             
             <Button 
               type="submit" 
-              className="w-full bg-indigo-600 hover:bg-indigo-700"
+              className="w-full bg-indigo-600 hover:bg-indigo-700 mt-4"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Checking..." : "Enter"}
             </Button>
           </form>
         </CardContent>
+        <CardFooter className="flex justify-center pb-6">
+          <div className="text-sm text-gray-400 text-center">
+            Use a <a href="https://www.contemplative.technology" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account to login.
+          </div>
+        </CardFooter>
       </Card>
     </div>
   );

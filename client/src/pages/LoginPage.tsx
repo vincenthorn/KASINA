@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../lib/stores/useAuth";
-import Logo from "../components/Logo";
 import LoginForm from "../components/LoginForm";
 
 // Simple CSS for the page to ensure proper scrolling
@@ -106,12 +105,7 @@ const LoginPage: React.FC = () => {
   return (
     <div style={pageStyles}>
       <div style={contentStyles}>
-        {/* Logo Section */}
-        <div style={sectionStyles}>
-          <Logo size="large" />
-        </div>
-        
-        {/* Login Form Section */}
+        {/* Login Form Section with Logo inside */}
         <div style={sectionStyles}>
           <LoginForm />
         </div>
