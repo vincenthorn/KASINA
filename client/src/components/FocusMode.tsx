@@ -353,25 +353,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             </div>
           </div>
           
-          {/* Wake lock indicator - visible on mouse movement */}
-          {isWakeLockSupported && (
-            <div 
-              className={`fixed top-16 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
-            >
-              <div 
-                className={`text-xs px-2 py-1 rounded-full flex items-center gap-1 
-                  ${isWakeLockEnabled 
-                    ? 'bg-green-900/50 text-green-400 border border-green-800' 
-                    : 'bg-red-900/50 text-red-400 border border-red-800'}`}
-                title={isWakeLockEnabled 
-                  ? "Screen will stay on during meditation" 
-                  : "Screen may turn off (wake lock not active)"}
-              >
-                <Coffee className="h-3 w-3" />
-                <span>{isWakeLockEnabled ? "Stay awake on" : "Stay awake off"}</span>
-              </div>
-            </div>
-          )}
+          {/* Wake lock is enabled but indicator is hidden - functionality remains */}
           
           {/* Timer display - visible on mouse movement */}
           <div 
