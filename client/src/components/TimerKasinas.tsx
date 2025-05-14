@@ -596,9 +596,6 @@ const TimerKasinas: React.FC = () => {
                           <SelectItem value="colors" className="hover:bg-white/10 focus:bg-white/10 py-2">
                             <span className="flex items-center">
                               <span className="flex gap-1 mr-2">
-                                <span className="text-white">⚪</span>
-                                <span className="text-blue-500">🔵</span>
-                                <span className="text-red-500">🔴</span>
                                 <span className="text-yellow-300">🟡</span>
                               </span>
                               <span>Color Kasinas</span>
@@ -607,12 +604,7 @@ const TimerKasinas: React.FC = () => {
                           <SelectItem value="elements" className="hover:bg-white/10 focus:bg-white/10 py-2">
                             <span className="flex items-center">
                               <span className="flex gap-1 mr-2">
-                                <span>💧</span>
-                                <span>🔥</span>
-                                <span>💨</span>
                                 <span>🌎</span>
-                                <span>✨</span>
-                                <span>☀️</span>
                               </span>
                               <span>Elemental Kasinas</span>
                             </span>
