@@ -40,9 +40,13 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <Card className="w-full max-w-lg bg-gray-900 border-gray-700">
-        <CardHeader className="flex flex-col items-center pt-20 pb-16">
-          <div className="mb-6">
+      <Card className="w-full max-w-lg bg-gray-900 border-gray-700 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transform-gpu hover:translate-y-[-5px] transition-all duration-300"
+        style={{
+          boxShadow: "0 15px 35px rgba(66, 27, 158, 0.45), 0 5px 15px rgba(0, 0, 0, 0.1)",
+          borderRadius: "1rem",
+        }}>
+        <CardHeader className="flex flex-col items-center pt-20 pb-6">
+          <div className="mb-2">
             <Logo size="large" loginPage={true} />
           </div>
         </CardHeader>
