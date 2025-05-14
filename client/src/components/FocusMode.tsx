@@ -244,10 +244,31 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             position: 'relative' /* Added to ensure absolute positioning of children works properly */
           }}
         >
-          {/* Exit button - visible on mouse movement */}
+          {/* Controls group - visible on mouse movement (Exit and Fullscreen buttons) */}
           <div 
-            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'} flex gap-2`}
           >
+            {/* Fullscreen toggle button */}
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={(e) => {
+                // Don't treat this as normal mouse movement
+                e.stopPropagation();
+                toggleFullscreen();
+              }}
+              className="rounded-full bg-black/50 border-gray-700 text-white hover:bg-gray-900 h-9 w-9 p-0"
+              title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+            >
+              {isFullscreen ? (
+                <Minimize className="h-4 w-4" />
+              ) : (
+                <Maximize className="h-4 w-4" />
+              )}
+              <span className="sr-only">{isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}</span>
+            </Button>
+            
+            {/* Exit button */}
             <Button 
               variant="outline" 
               size="sm" 
@@ -430,29 +451,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             })}
           </div>
           
-          {/* Fullscreen button - visible on mouse movement */}
-          <div 
-            className={`fixed bottom-8 right-8 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <Button 
-              variant="outline" 
-              size="icon"
-              onClick={(e) => {
-                // Don't treat this as normal mouse movement
-                e.stopPropagation();
-                toggleFullscreen();
-              }}
-              className="rounded-full bg-black/50 border-gray-700 text-white hover:bg-gray-900"
-              title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
-            >
-              {isFullscreen ? (
-                <Minimize className="h-5 w-5" />
-              ) : (
-                <Maximize className="h-5 w-5" />
-              )}
-              <span className="sr-only">{isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}</span>
-            </Button>
-          </div>
+          {/* Fullscreen button moved to top-right with Exit button */}
         </DialogContent>
       </Dialog>
     </>
