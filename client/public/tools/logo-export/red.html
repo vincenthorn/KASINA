@@ -214,8 +214,8 @@
         ctx.fillStyle = redColor;
         ctx.textBaseline = 'middle';
         
-        // Position text below orb
-        const textY = orbY + orbSize + spaceBetween/2; // Position text below orb with proper spacing
+        // Position text closer to orb (reduced by another 10%)
+        const textY = orbY + orbSize + (spaceBetween * 0.4); // Further reduced spacing between orb and text
         
         // Add letter spacing effect
         const text = 'KASINA';
