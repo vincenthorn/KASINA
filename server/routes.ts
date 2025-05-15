@@ -345,11 +345,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       background-color: #F9D923;
     }
     
-    .color-option[data-color="white"] {
-      background-color: white;
-      border: 2px solid #ddd;
-    }
-    
     .color-option[data-color="black"] {
       background-color: #333;
     }
@@ -420,7 +415,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     
     <div class="color-selector">
       <div class="color-option active" data-color="yellow" title="Yellow"></div>
-      <div class="color-option" data-color="white" title="White"></div>
       <div class="color-option" data-color="black" title="Black"></div>
       <div class="color-option" data-color="red" title="Red"></div>
       <div class="color-option" data-color="blue" title="Blue"></div>
@@ -439,7 +433,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // Color palette
     const COLORS = {
       yellow: '#F9D923',
-      white: '#FFFFFF',
       black: '#333333',
       red: '#FF4545',
       blue: '#3B82F6'
