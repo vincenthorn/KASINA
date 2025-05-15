@@ -11,8 +11,8 @@ import {
 import { Button } from "../components/ui/button";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
-import { Navigate } from "react-router-dom";
-import { Loader2, Clock, Users, Upload } from "lucide-react";
+import { Navigate, Link } from "react-router-dom";
+import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette } from "lucide-react";
 
 // Define type for member data
 interface Member {
@@ -181,6 +181,88 @@ const AdminPage: React.FC = () => {
       </div>
       
       <div className="space-y-6">
+        {/* Logo Export Tool Card */}
+        <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/20 to-amber-900/10 pointer-events-none"></div>
+          <CardHeader className="relative">
+            <CardTitle className="text-white flex items-center gap-2">
+              <Palette className="h-5 w-5 text-yellow-400" />
+              KASINA Logo Export Tool
+            </CardTitle>
+            <CardDescription className="text-amber-200">
+              Export the KASINA logo in multiple colors with transparent backgrounds for marketing and promotional use.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="bg-gray-800/80 rounded-lg p-4 flex flex-col items-center border border-amber-900/30">
+                  <Image className="h-12 w-12 mb-3 text-yellow-400" />
+                  <h3 className="text-white font-medium mb-2">Logo Export Tool</h3>
+                  <p className="text-sm text-gray-300 text-center mb-4">Create custom logo exports with various color options and sizes.</p>
+                  <a 
+                    href="/tools/logo-export/index.html" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 rounded-md bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-500 hover:to-amber-500 text-white font-medium text-sm"
+                  >
+                    <Palette className="h-4 w-4 mr-2" />
+                    Open Logo Tool
+                  </a>
+                </div>
+                
+                <div className="bg-gray-800/80 rounded-lg p-4 flex flex-col items-center border border-amber-900/30">
+                  <DownloadCloud className="h-12 w-12 mb-3 text-yellow-400" />
+                  <h3 className="text-white font-medium mb-2">Quick Downloads</h3>
+                  <p className="text-sm text-gray-300 text-center mb-4">Download pre-configured logo versions in common colors.</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <a 
+                      href="/tools/logo-export/yellow.html" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-3 py-1.5 rounded-md bg-yellow-900/40 hover:bg-yellow-900/60 text-yellow-300 border border-yellow-700/40 text-xs font-medium"
+                    >
+                      Yellow
+                    </a>
+                    <a 
+                      href="/tools/logo-export/white.html" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-3 py-1.5 rounded-md bg-gray-600/40 hover:bg-gray-600/60 text-white border border-gray-500/40 text-xs font-medium"
+                    >
+                      White
+                    </a>
+                    <a 
+                      href="/tools/logo-export/black.html" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-3 py-1.5 rounded-md bg-gray-900/40 hover:bg-gray-900/60 text-gray-300 border border-gray-800/40 text-xs font-medium"
+                    >
+                      Black
+                    </a>
+                    <a 
+                      href="/tools/logo-export/red.html" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-3 py-1.5 rounded-md bg-red-900/40 hover:bg-red-900/60 text-red-300 border border-red-800/40 text-xs font-medium"
+                    >
+                      Red
+                    </a>
+                    <a 
+                      href="/tools/logo-export/blue.html" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-3 py-1.5 rounded-md bg-blue-900/40 hover:bg-blue-900/60 text-blue-300 border border-blue-800/40 text-xs font-medium"
+                    >
+                      Blue
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      
         {/* Upload card */}
         <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-purple-900/10 pointer-events-none"></div>
