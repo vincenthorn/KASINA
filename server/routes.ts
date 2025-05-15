@@ -66,7 +66,8 @@ async function readWhitelist(): Promise<string[]> {
       "user@kasina.app",
       "brian@terma.asia", 
       "emilywhorn@gmail.com", 
-      "ryan@ryanoelke.com"
+      "ryan@ryanoelke.com",
+      "ksowocki@gmail.com"
     ];
   }
 }
@@ -123,7 +124,8 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
       // Premium users that should always remain
       "brian@terma.asia", 
       "emilywhorn@gmail.com", 
-      "ryan@ryanoelke.com"
+      "ryan@ryanoelke.com",
+      "ksowocki@gmail.com"
     ];
     
     // Parse CSV data
