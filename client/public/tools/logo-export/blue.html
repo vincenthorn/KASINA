@@ -177,17 +177,15 @@
         const orbSize = size * 0.36; // Orb size (36% of canvas)
         const orbX = size / 2; // Center horizontally
         
-        // Adjust vertical positioning
+        // Use consistent vertical positioning based on red logo reference
         const textHeight = size * 0.13; // Text height (13% of canvas size)
-        const spaceBetween = size * 0.08; // Further reduced space between orb and text
+        const spaceBetween = size * 0.04; // Minimal space between orb and text to match red logo
         
-        // Position the orb lower in the canvas to balance white space
-        // This creates equal space above the orb and below the text
-        const verticalOffset = size * 0.05; // Shift the entire composition down slightly
+        // Center the composition in the canvas with proper balance
         const totalHeight = (orbSize * 2) + spaceBetween + textHeight; // Total height of the composition
         
-        // Calculate orb position - centered but with slight downward shift
-        const orbY = (size - totalHeight) / 2 + orbSize + verticalOffset;
+        // Calculate orb position - centered in the composition
+        const orbY = (size - totalHeight) / 2 + orbSize;
         
         // Draw orb glow
         const gradient = ctx.createRadialGradient(orbX, orbY, orbSize * 0.4, orbX, orbY, orbSize);
