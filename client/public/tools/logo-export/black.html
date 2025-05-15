@@ -178,8 +178,8 @@
         const orbX = size / 2; // Center horizontally
         
         // Center the entire logo composition (orb + text) vertically
-        const textHeight = size * 0.12; // Text height (same as fontSize)
-        const spaceBetween = size * 0.16; // Space between orb and text
+        const textHeight = size * 0.13; // Slightly increased text height
+        const spaceBetween = size * 0.22; // Increased space between orb and text
         const totalHeight = (orbSize * 2) + spaceBetween + textHeight; // Total height of the composition
         
         // Calculate orb position to center the composition
@@ -201,11 +201,11 @@
         ctx.fillStyle = blackColor;
         ctx.fill();
         
-        // Draw KASINA text - ensure Nunito font is loaded correctly
-        const fontSize = size * 0.12; // Text size (12% of canvas size)
+        // Draw KASINA text - using ExtraBold Nunito for better match to reference
+        const fontSize = size * 0.13; // Slightly increased text size (13% of canvas)
         
-        // Force load Nunito font
-        ctx.font = `bold ${fontSize}px Nunito, sans-serif`;
+        // Force load Nunito ExtraBold font
+        ctx.font = `800 ${fontSize}px Nunito, sans-serif`;
         ctx.textAlign = 'center';
         ctx.fillStyle = blackColor;
         ctx.textBaseline = 'middle';
@@ -215,7 +215,7 @@
         
         // Add letter spacing effect
         const text = 'KASINA';
-        const letterSpacing = fontSize * 0.1; // 10% of font size for spacing
+        const letterSpacing = fontSize * 0.14; // Increased letter spacing (14% of font size)
         
         // Apply letter spacing manually
         let totalWidth = 0;
