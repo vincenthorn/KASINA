@@ -361,17 +361,21 @@
     
     // Logo drawing function
     function drawLogo(ctx, color, size) {
-      // Calculate dimensions - centered vertically
+      // Calculate dimensions - true vertical center with balanced margins
       const orbSize = size * 0.36; // Orb size (36% of canvas)
       const orbX = size / 2; // Center horizontally
       
-      // Center the entire logo composition (orb + text) vertically
+      // Adjust vertical positioning
       const textHeight = size * 0.13; // Text height (13% of canvas size)
-      const spaceBetween = size * 0.13; // Reduced space between orb and text to match reference
+      const spaceBetween = size * 0.08; // Further reduced space between orb and text
+      
+      // Position the orb lower in the canvas to balance white space
+      // This creates equal space above the orb and below the text
+      const verticalOffset = size * 0.05; // Shift the entire composition down slightly
       const totalHeight = (orbSize * 2) + spaceBetween + textHeight; // Total height of the composition
       
-      // Calculate orb position to center the composition
-      const orbY = (size - totalHeight) / 2 + orbSize; // Center the orb + text combo
+      // Calculate orb position - centered but with slight downward shift
+      const orbY = (size - totalHeight) / 2 + orbSize + verticalOffset;
       
       // Draw orb glow
       const gradient = ctx.createRadialGradient(orbX, orbY, orbSize * 0.4, orbX, orbY, orbSize);
