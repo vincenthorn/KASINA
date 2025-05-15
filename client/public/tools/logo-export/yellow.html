@@ -205,21 +205,21 @@
         ctx.fillStyle = yellowColor;
         ctx.fill();
         
-        // Draw KASINA text - using ExtraBold Nunito for better match to reference
-        const fontSize = size * 0.13; // Slightly increased text size (13% of canvas)
+        // Draw KASINA text - using styles to match reference image
+        const fontSize = size * 0.13; // Text size (13% of canvas)
         
-        // Force load Nunito ExtraBold font
-        ctx.font = `800 ${fontSize}px Nunito, sans-serif`;
+        // Using Nunito with higher weight and wider letter spacing to match reference
+        ctx.font = `900 ${fontSize}px Nunito, sans-serif`; // Using 900 weight for strongest bold
         ctx.textAlign = 'center';
         ctx.fillStyle = yellowColor;
         ctx.textBaseline = 'middle';
         
-        // Position text below orb - properly centered vertically in the composition
+        // Position text below orb
         const textY = orbY + orbSize + spaceBetween/2; // Position text below orb with proper spacing
         
         // Add letter spacing effect
         const text = 'KASINA';
-        const letterSpacing = fontSize * 0.14; // Increased letter spacing (14% of font size)
+        const letterSpacing = fontSize * 0.2; // Significantly increased letter spacing to match reference
         
         // Apply letter spacing manually
         let totalWidth = 0;
