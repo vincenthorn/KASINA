@@ -173,10 +173,17 @@
         // Clear canvas
         ctx.clearRect(0, 0, size, size);
         
-        // Calculate dimensions - adjusted for better positioning
-        const orbSize = size * 0.36; // Slightly smaller orb (36% of canvas)
-        const orbX = size / 2;
-        const orbY = size * 0.43; // Position orb closer to center (43% from top)
+        // Calculate dimensions - centered vertically
+        const orbSize = size * 0.36; // Orb size (36% of canvas)
+        const orbX = size / 2; // Center horizontally
+        
+        // Center the entire logo composition (orb + text) vertically
+        const textHeight = size * 0.12; // Text height (same as fontSize)
+        const spaceBetween = size * 0.16; // Space between orb and text
+        const totalHeight = (orbSize * 2) + spaceBetween + textHeight; // Total height of the composition
+        
+        // Calculate orb position to center the composition
+        const orbY = (size - totalHeight) / 2 + orbSize; // Center the orb + text combo
         
         // Draw orb glow
         const gradient = ctx.createRadialGradient(orbX, orbY, orbSize * 0.4, orbX, orbY, orbSize);
@@ -195,7 +202,7 @@
         ctx.fill();
         
         // Draw KASINA text - ensure Nunito font is loaded correctly
-        const fontSize = size * 0.12; // Slightly smaller text (12% of canvas size)
+        const fontSize = size * 0.12; // Text size (12% of canvas size)
         
         // Force load Nunito font
         ctx.font = `bold ${fontSize}px Nunito, sans-serif`;
@@ -203,8 +210,8 @@
         ctx.fillStyle = yellowColor;
         ctx.textBaseline = 'middle';
         
-        // Position text with more space below orb
-        const textY = size * 0.78; // 78% from top - more space between orb and text
+        // Position text below orb - properly centered vertically in the composition
+        const textY = orbY + orbSize + spaceBetween/2; // Position text below orb with proper spacing
         
         // Add letter spacing effect
         const text = 'KASINA';
