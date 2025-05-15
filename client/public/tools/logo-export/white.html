@@ -1,223 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KASINA White Logo Export</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Nunito', sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f7f7f7;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-    
-    .container {
-      max-width: 600px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    
-    .canvas-container {
-      margin: 25px 0;
-      background-image: 
-        linear-gradient(45deg, #aaa 25%, transparent 25%), 
-        linear-gradient(-45deg, #aaa 25%, transparent 25%), 
-        linear-gradient(45deg, transparent 75%, #aaa 75%), 
-        linear-gradient(-45deg, transparent 75%, #aaa 75%);
-      background-size: 20px 20px;
-      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-      background-color: #444;
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    canvas {
-      display: block;
-    }
-    
-    .size-control {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      margin-bottom: 20px;
-      background-color: white;
-      padding: 10px 20px;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    button {
-      padding: 12px 24px;
-      background-color: #4f46e5;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: background-color 0.2s;
-    }
-    
-    button:hover {
-      background-color: #4338ca;
-    }
-    
-    a.back-link {
-      color: #4f46e5;
-      text-decoration: none;
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-    
-    .info-text {
-      margin-top: 25px;
-      line-height: 1.6;
-      color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KASINA Logo - White</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        h1 {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .canvas-container {
+            position: relative;
+            margin-bottom: 1rem;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        .size-control {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        input[type="range"] {
+            flex: 1;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+        .format-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            margin-top: 1rem;
+            display: inline-block;
+            border-bottom: 1px solid #fff;
+        }
+        a:hover {
+            border-bottom-color: transparent;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>KASINA White Logo</h1>
-    
-    <div class="size-control">
-      <label for="sizeSelect">Size:</label>
-      <select id="sizeSelect">
-        <option value="256">256px</option>
-        <option value="512" selected>512px</option>
-        <option value="1024">1024px</option>
-        <option value="2048">2048px</option>
-      </select>
-      <button id="updateBtn">Update</button>
-    </div>
+    <h1>KASINA Logo Export - White Version</h1>
     
     <div class="canvas-container">
-      <canvas id="logoCanvas" width="512" height="512"></canvas>
+        <canvas id="logoCanvas"></canvas>
     </div>
     
-    <button id="downloadBtn">Download White Logo</button>
+    <div class="controls">
+        <div class="size-control">
+            <label for="sizeSlider">Size:</label>
+            <input type="range" id="sizeSlider" min="100" max="1000" value="500" step="10">
+            <span id="sizeValue">500px</span>
+        </div>
+        
+        <div class="format-buttons">
+            <button id="downloadPNG">Download PNG</button>
+            <button id="downloadSVG">Download SVG</button>
+        </div>
+    </div>
     
-    <p class="info-text">
-      White KASINA logo with transparent background. The logo features the characteristic white orb above the text, with proper positioning.
-    </p>
+    <a href="./">Back to Logo Options</a>
     
-    <a href="index.html" class="back-link">← Back to Logo Export Tool</a>
-  </div>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get DOM elements
-      const canvas = document.getElementById('logoCanvas');
-      const ctx = canvas.getContext('2d');
-      const sizeSelect = document.getElementById('sizeSelect');
-      const updateBtn = document.getElementById('updateBtn');
-      const downloadBtn = document.getElementById('downloadBtn');
-      
-      // White color for KASINA branding
-      const whiteColor = '#FFFFFF';
-      
-      // Initialize
-      drawLogo();
-      
-      // Event Listeners
-      updateBtn.addEventListener('click', function() {
-        const size = parseInt(sizeSelect.value);
-        canvas.width = size;
-        canvas.height = size;
-        drawLogo();
-      });
-      
-      downloadBtn.addEventListener('click', function() {
-        const dataURL = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.download = 'kasina-logo-white.png';
-        link.href = dataURL;
-        link.click();
-      });
-      
-      // Logo drawing function
-      function drawLogo() {
-        const size = canvas.width;
+    <script>
+        // Initialize canvas
+        const canvas = document.getElementById('logoCanvas');
+        const ctx = canvas.getContext('2d');
+        const sizeSlider = document.getElementById('sizeSlider');
+        const sizeValue = document.getElementById('sizeValue');
+        const downloadPNGButton = document.getElementById('downloadPNG');
+        const downloadSVGButton = document.getElementById('downloadSVG');
         
-        // Clear canvas
-        ctx.clearRect(0, 0, size, size);
+        // Define white color for the logo
+        const whiteColor = '#ffffff';
         
-        // Calculate dimensions - adjusted for better positioning
-        const orbSize = size * 0.36; // Slightly smaller orb (36% of canvas)
-        const orbX = size / 2;
-        const orbY = size * 0.43; // Position orb closer to center (43% from top)
-        
-        // Draw orb glow
-        const gradient = ctx.createRadialGradient(orbX, orbY, orbSize * 0.4, orbX, orbY, orbSize);
-        gradient.addColorStop(0, whiteColor);
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        
-        ctx.beginPath();
-        ctx.arc(orbX, orbY, orbSize, 0, 2 * Math.PI);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-        
-        // Draw solid orb
-        ctx.beginPath();
-        ctx.arc(orbX, orbY, orbSize * 0.8, 0, 2 * Math.PI);
-        ctx.fillStyle = whiteColor;
-        ctx.fill();
-        
-        // Draw KASINA text - ensure Nunito font is loaded correctly
-        const fontSize = size * 0.12; // Slightly smaller text (12% of canvas size)
-        
-        // Force load Nunito font
-        ctx.font = `bold ${fontSize}px Nunito, sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.fillStyle = whiteColor;
-        ctx.textBaseline = 'middle';
-        
-        // Position text with more space below orb
-        const textY = size * 0.78; // 78% from top - more space between orb and text
-        
-        // Add letter spacing effect
-        const text = 'KASINA';
-        const letterSpacing = fontSize * 0.1; // 10% of font size for spacing
-        
-        // Apply letter spacing manually
-        let totalWidth = 0;
-        for (let i = 0; i < text.length; i++) {
-          const letter = text[i];
-          totalWidth += ctx.measureText(letter).width + (i < text.length - 1 ? letterSpacing : 0);
+        // Update canvas size and redraw logo when size changes
+        function updateCanvasSize() {
+            const size = parseInt(sizeSlider.value);
+            canvas.width = size;
+            canvas.height = size;
+            drawLogo(size);
+            sizeValue.textContent = `${size}px`;
         }
         
-        let startX = size / 2 - totalWidth / 2;
-        for (let i = 0; i < text.length; i++) {
-          const letter = text[i];
-          const letterWidth = ctx.measureText(letter).width;
-          ctx.fillText(letter, startX + letterWidth / 2, textY);
-          startX += letterWidth + letterSpacing;
+        // Draw the logo with specified size
+        function drawLogo(size) {
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Calculate dimensions - true vertical center with balanced margins
+            const orbSize = size * 0.36; // Orb size (36% of canvas)
+            const orbX = size / 2; // Center horizontally
+            
+            // Use consistent vertical positioning based on red logo reference
+            const textHeight = size * 0.13; // Text height (13% of canvas size)
+            const spaceBetween = size * 0.04; // Minimal space between orb and text to match red logo
+            
+            // Center the composition in the canvas with proper balance
+            const totalHeight = (orbSize * 2) + spaceBetween + textHeight; // Total height of the composition
+            
+            // Calculate orb position - centered in the composition
+            const orbY = (size - totalHeight) / 2 + orbSize;
+            
+            // Draw orb glow
+            const gradient = ctx.createRadialGradient(orbX, orbY, orbSize * 0.4, orbX, orbY, orbSize);
+            gradient.addColorStop(0, whiteColor);
+            gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.beginPath();
+            ctx.arc(orbX, orbY, orbSize, 0, 2 * Math.PI);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
+            // Draw solid orb
+            ctx.beginPath();
+            ctx.arc(orbX, orbY, orbSize * 0.8, 0, 2 * Math.PI);
+            ctx.fillStyle = whiteColor;
+            ctx.fill();
+            
+            // Draw KASINA text - consistent with red logo reference
+            const fontSize = size * 0.13; // Text size (13% of canvas)
+            
+            // Using Nunito with proper weight and spacing to match red logo reference
+            ctx.font = `900 ${fontSize}px Nunito, sans-serif`; // Using 900 weight for strongest bold
+            ctx.textAlign = 'center';
+            ctx.fillStyle = whiteColor;
+            ctx.textBaseline = 'middle';
+            
+            // Position text very close to orb, following red logo reference
+            const textY = orbY + orbSize + spaceBetween; // Minimal spacing between orb and text
+            
+            // Add letter spacing effect
+            const text = 'KASINA';
+            const letterSpacing = fontSize * 0.22; // Wide letter spacing to match reference
+            
+            // Apply letter spacing manually
+            let totalWidth = 0;
+            for (let i = 0; i < text.length; i++) {
+                const letter = text[i];
+                const letterWidth = ctx.measureText(letter).width;
+                totalWidth += letterWidth + (i < text.length - 1 ? letterSpacing : 0);
+            }
+            
+            let currentX = orbX - totalWidth / 2;
+            for (let i = 0; i < text.length; i++) {
+                const letter = text[i];
+                const letterWidth = ctx.measureText(letter).width;
+                ctx.fillText(letter, currentX + letterWidth / 2, textY);
+                currentX += letterWidth + letterSpacing;
+            }
         }
-      }
-    });
-  </script>
+        
+        // Download the logo as PNG
+        function downloadPNG() {
+            const dataURL = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.href = dataURL;
+            link.download = 'kasina-logo-white.png';
+            link.click();
+        }
+        
+        // Download the logo as SVG
+        function downloadSVG() {
+            const size = parseInt(sizeSlider.value);
+            const orbSize = size * 0.36;
+            const textHeight = size * 0.13;
+            const spaceBetween = size * 0.04;
+            const totalHeight = (orbSize * 2) + spaceBetween + textHeight;
+            const orbX = size / 2;
+            const orbY = (size - totalHeight) / 2 + orbSize;
+            const textY = orbY + orbSize + spaceBetween;
+            
+            // Create SVG content
+            let svgContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="orbGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+            <stop offset="0%" stop-color="${whiteColor}" />
+            <stop offset="100%" stop-color="${whiteColor}" stop-opacity="0" />
+        </radialGradient>
+    </defs>
+    
+    <!-- Orb Glow -->
+    <circle cx="${orbX}" cy="${orbY}" r="${orbSize}" fill="url(#orbGlow)" />
+    
+    <!-- Solid Orb -->
+    <circle cx="${orbX}" cy="${orbY}" r="${orbSize * 0.8}" fill="${whiteColor}" />
+    
+    <!-- KASINA Text with Letter Spacing -->`;
+            
+            // Calculate letter positions
+            const letterSpacing = textHeight * 0.22;
+            const text = 'KASINA';
+            let totalWidth = text.length * (textHeight * 0.7) + (text.length - 1) * letterSpacing;
+            let currentX = orbX - totalWidth / 2;
+            
+            for (let i = 0; i < text.length; i++) {
+                const letter = text[i];
+                svgContent += `
+    <text x="${currentX + (textHeight * 0.35)}" y="${textY}" font-family="Nunito, sans-serif" font-weight="900" font-size="${textHeight}" text-anchor="middle" fill="${whiteColor}">${letter}</text>`;
+                currentX += textHeight * 0.7 + letterSpacing;
+            }
+            
+            svgContent += `
+</svg>`;
+            
+            // Create download link
+            const blob = new Blob([svgContent], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'kasina-logo-white.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // Initialize canvas and event listeners
+        updateCanvasSize();
+        sizeSlider.addEventListener('input', updateCanvasSize);
+        downloadPNGButton.addEventListener('click', downloadPNG);
+        downloadSVGButton.addEventListener('click', downloadSVG);
+    </script>
 </body>
 </html>
