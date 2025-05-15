@@ -225,14 +225,6 @@ const AdminPage: React.FC = () => {
                       Yellow
                     </a>
                     <a 
-                      href="/tools/logo-export/white.html" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-3 py-1.5 rounded-md bg-gray-600/40 hover:bg-gray-600/60 text-white border border-gray-500/40 text-xs font-medium"
-                    >
-                      White
-                    </a>
-                    <a 
                       href="/tools/logo-export/black.html" 
                       target="_blank" 
                       rel="noopener noreferrer"
