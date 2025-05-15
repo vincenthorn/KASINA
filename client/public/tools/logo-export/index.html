@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KASINA Logo Export Tool</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4f46e5;
+      --primary-hover: #4338ca;
+      --yellow: #F9D923;
+      --white: #FFFFFF;
+      --red: #FF3B30;
+      --blue: #0A84FF;
+      --black: #000000;
+    }
+    
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7f7f7;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    header {
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 0;
+    }
+    
+    .canvas-container {
+      position: relative;
+      margin: 25px 0;
+      background-image: 
+        linear-gradient(45deg, #ccc 25%, transparent 25%), 
+        linear-gradient(-45deg, #ccc 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #ccc 75%), 
+        linear-gradient(-45deg, transparent 75%, #ccc 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    canvas {
+      display: block;
+    }
+    
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 25px;
+      width: 100%;
+      max-width: 500px;
+    }
+    
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .control-group h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #555;
+    }
+    
+    .color-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .color-option {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .color-option.selected {
+      border-color: var(--primary-color);
+      transform: scale(1.1);
+    }
+    
+    .color-option.custom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%),
+                  linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%);
+      background-size: 10px 10px;
+      background-position: 0 0, 5px 5px;
+    }
+    
+    .color-option.custom input {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    
+    .color-yellow { background-color: var(--yellow); }
+    .color-white { background-color: var(--white); }
+    .color-red { background-color: var(--red); }
+    .color-blue { background-color: var(--blue); }
+    .color-black { background-color: var(--black); }
+    
+    .size-option {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .size-option input {
+      width: 100%;
+    }
+    
+    .size-value {
+      min-width: 50px;
+      text-align: right;
+    }
+    
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    
+    button {
+      padding: 12px 24px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: var(--primary-hover);
+    }
+    
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    
+    .info-text {
+      margin-top: 25px;
+      line-height: 1.6;
+      color: #666;
+      text-align: center;
+      max-width: 600px;
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .controls {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>KASINA Logo Export Tool</h1>
+      <p class="subtitle">Export the KASINA logo in multiple colors with transparent background</p>
+    </header>
+    
+    <div class="controls">
+      <div class="control-group">
+        <h3>Logo Color</h3>
+        <div class="color-options">
+          <div class="color-option color-yellow selected" data-color="#F9D923" title="Yellow"></div>
+          <div class="color-option color-white" data-color="#FFFFFF" title="White"></div>
+          <div class="color-option color-black" data-color="#000000" title="Black"></div>
+          <div class="color-option color-red" data-color="#FF3B30" title="Red"></div>
+          <div class="color-option color-blue" data-color="#0A84FF" title="Blue"></div>
+          <div class="color-option custom" title="Custom Color">
+            <input type="color" id="customColor" value="#F9D923">
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <h3>Export Size</h3>
+        <div class="size-option">
+          <input type="range" id="sizeSlider" min="128" max="2048" step="128" value="512">
+          <span class="size-value" id="sizeValue">512px</span>
+        </div>
+      </div>
+      
+      <div class="buttons">
+        <button id="updatePreviewBtn">Update Preview</button>
+        <button id="downloadBtn">Download Logo</button>
+      </div>
+    </div>
+    
+    <div class="canvas-container">
+      <canvas id="logoCanvas" width="512" height="512"></canvas>
+    </div>
+    
+    <p class="info-text">
+      This tool creates a high-quality PNG export of the KASINA logo with a transparent background. The logo features the characteristic orb above the text, properly positioned and aligned. Click "Download Logo" to save it to your device.
+    </p>
+    
+    <footer>
+      &copy; 2025 KASINA - All Rights Reserved
+    </footer>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get DOM elements
+      const canvas = document.getElementById('logoCanvas');
+      const ctx = canvas.getContext('2d');
+      const sizeSlider = document.getElementById('sizeSlider');
+      const sizeValue = document.getElementById('sizeValue');
+      const updatePreviewBtn = document.getElementById('updatePreviewBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const customColorInput = document.getElementById('customColor');
+      const colorOptions = document.querySelectorAll('.color-option');
+      
+      // State
+      let selectedColor = '#F9D923'; // Default yellow
+      let canvasSize = 512; // Default size
+      
+      // Initialize
+      updatePreview();
+      
+      // Event Listeners
+      sizeSlider.addEventListener('input', function() {
+        canvasSize = parseInt(this.value);
+        sizeValue.textContent = `${canvasSize}px`;
+      });
+      
+      updatePreviewBtn.addEventListener('click', updatePreview);
+      downloadBtn.addEventListener('click', downloadLogo);
+      
+      // Handle color selection
+      colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          if (!this.classList.contains('custom')) {
+            selectedColor = this.getAttribute('data-color');
+            customColorInput.value = selectedColor;
+            
+            // Update selected state
+            colorOptions.forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+            
+            updatePreview();
+          }
+        });
+      });
+      
+      // Handle custom color
+      customColorInput.addEventListener('input', function() {
+        selectedColor = this.value;
+        
+        // Update selected state
+        colorOptions.forEach(opt => opt.classList.remove('selected'));
+        this.parentElement.classList.add('selected');
+        
+        updatePreview();
+      });
+      
+      // Logo rendering function
+      function updatePreview() {
+        // Update canvas dimensions
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, canvasSize, canvasSize);
+        
+        // Draw the logo
+        drawLogo(ctx, selectedColor, canvasSize);
+      }
+      
+      // Download function
+      function downloadLogo() {
+        const dataURL = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = `kasina-logo-${getColorName()}.png`;
+        link.href = dataURL;
+        link.click();
+      }
+      
+      // Helper to get color name for file naming
+      function getColorName() {
+        switch(selectedColor.toLowerCase()) {
+          case '#f9d923': return 'yellow';
+          case '#ffffff': return 'white';
+          case '#000000': return 'black';
+          case '#ff3b30': return 'red';
+          case '#0a84ff': return 'blue';
+          default: return 'custom';
+        }
+      }
+    });
+    
+    // Logo drawing function
+    function drawLogo(ctx, color, size) {
+      // Calculate dimensions
+      const orbSize = size * 0.4; // 40% of canvas size
+      const orbX = size / 2;
+      const orbY = size * 0.35; // Position orb at 35% from top
+      
+      // Draw orb glow
+      const gradient = ctx.createRadialGradient(orbX, orbY, orbSize * 0.4, orbX, orbY, orbSize);
+      gradient.addColorStop(0, color);
+      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      
+      ctx.beginPath();
+      ctx.arc(orbX, orbY, orbSize, 0, 2 * Math.PI);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+      
+      // Draw solid orb
+      ctx.beginPath();
+      ctx.arc(orbX, orbY, orbSize * 0.8, 0, 2 * Math.PI);
+      ctx.fillStyle = color;
+      ctx.fill();
+      
+      // Draw KASINA text
+      const fontSize = size * 0.14; // 14% of canvas size
+      ctx.font = `bold ${fontSize}px 'Nunito', sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillStyle = color;
+      ctx.textBaseline = 'middle';
+      
+      // Position text below orb
+      const textY = size * 0.7; // 70% from top - properly positioned below the orb
+      ctx.fillText('KASINA', size / 2, textY);
+    }
+  </script>
+</body>
+</html>
