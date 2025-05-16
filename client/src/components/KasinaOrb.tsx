@@ -269,26 +269,40 @@ const fireShader = {
       // Normalize for consistency
       vec3 nPos = normalize(vPosition);
       
-      // Extremely bright fire colors
-      vec3 glowColor = vec3(1.0, 0.6, 0.0);   // Bright orange-red glow
-      vec3 fireColor = vec3(1.0, 0.8, 0.1);   // Very bright orange-yellow fire
-      vec3 hotColor = vec3(1.0, 0.95, 0.4);   // Intense yellow hot regions
+      // Solar-inspired colors with randomness (like the sun)
+      vec3 glowColor = vec3(1.0, 0.5, 0.0);   // Deep solar orange for outer regions
+      vec3 fireColor = vec3(1.0, 0.8, 0.1);   // Bright yellow-orange for mid regions
+      vec3 hotColor = vec3(1.0, 0.98, 0.6);   // Intense solar yellow for hot regions
       vec3 coreColor = vec3(1.0, 1.0, 1.0);   // Pure white-hot core
       
-      // Generate base turbulence for the fire
+      // Generate turbulence patterns for sun-like randomness
       float turbulence = 0.0;
       
-      // Slow-moving large scale turbulence
-      vec2 baseCoord = vec2(nPos.x * 2.0, nPos.y * 2.0 + time * 0.2);
-      turbulence += fbm(baseCoord) * 0.5;
+      // Large scale solar convection patterns - slow movement
+      vec2 baseCoord = vec2(nPos.x * 2.0, nPos.y * 2.0 + time * 0.15);
+      float basePattern = fbm(baseCoord) * 0.6; // Stronger base pattern
+      turbulence += basePattern;
       
-      // Add medium-scale details
-      vec2 medCoord = vec2(nPos.x * 4.0, nPos.y * 4.0 + time * 0.5);
-      turbulence += fbm(medCoord) * 0.25;
+      // Medium-scale solar granulation patterns
+      vec2 medCoord = vec2(nPos.x * 5.0, nPos.y * 5.0 + time * 0.4);
+      float medPattern = fbm(medCoord) * 0.3;
+      turbulence += medPattern;
       
-      // Fast small details for flickering
-      vec2 detailCoord = vec2(nPos.x * 8.0, nPos.y * 8.0 + time * 1.0);
-      turbulence += fbm(detailCoord) * 0.125;
+      // Fast small details for solar flares and prominences
+      vec2 detailCoord = vec2(nPos.x * 10.0, nPos.y * 10.0 + time * 1.2);
+      float detailPattern = fbm(detailCoord) * 0.2;
+      turbulence += detailPattern;
+      
+      // Add rapidly moving micro-details for solar surface
+      vec2 microCoord = vec2(nPos.x * 20.0, nPos.y * 20.0 + time * 3.0);
+      float microPattern = fbm(microCoord) * 0.1;
+      turbulence += microPattern;
+      
+      // Add occasional bursts for solar flares
+      float flareTiming = fbm(vec2(time * 0.2, 0.0)) * 2.0;
+      float flarePosition = fbm(vec2(nPos.x * 3.0 + time * 0.5, nPos.y * 3.0));
+      float flareIntensity = smoothstep(0.7, 0.9, flarePosition) * smoothstep(0.7, 0.9, flareTiming) * 0.3;
+      turbulence += flareIntensity;
       
       // Create a fire orb pattern as if viewed from below
       // Fire should be brightest near the center and have a billowing pattern
@@ -309,20 +323,32 @@ const fireShader = {
       // Ensure intensity stays in reasonable range
       intensity = clamp(intensity, 0.0, 1.0);
       
-      // Layer fire colors based on intensity
+      // Layer solar colors with more randomized patterns
       vec3 finalColor;
+      
+      // Add random sunspot-like patterns
+      float spotPattern = fbm(vec2(nPos.x * 6.0 - time * 0.1, nPos.z * 6.0 + time * 0.05)) * 0.5 + 0.5;
+      float spotIntensity = smoothstep(0.4, 0.6, spotPattern) * 0.3; // Darken some areas like sunspots
+      
+      // Random bright regions - solar faculae
+      float brightPattern = fbm(vec2(nPos.x * 4.0 + time * 0.2, nPos.z * 4.0 - time * 0.15)) * 0.5 + 0.5;
+      float brightIntensity = smoothstep(0.6, 0.8, brightPattern) * 0.4; // Brighten some areas
+      
+      // Base color layering with added randomness
       if (intensity > 0.85) {
-        // White-hot core
-        finalColor = mix(hotColor, coreColor, (intensity - 0.85) * 6.67);
+        // White-hot core with random bright spots
+        finalColor = mix(hotColor, coreColor, (intensity - 0.85) * 6.67 + brightIntensity);
       } else if (intensity > 0.6) {
-        // Hot yellow regions
-        finalColor = mix(fireColor, hotColor, (intensity - 0.6) * 4.0);
+        // Hot yellow regions with sunspot darkening
+        finalColor = mix(fireColor, hotColor, (intensity - 0.6) * 4.0 + brightIntensity - spotIntensity);
       } else if (intensity > 0.3) {
-        // Main orange fire
-        finalColor = mix(glowColor, fireColor, (intensity - 0.3) * 3.33);
+        // Main solar surface with granulation
+        float granulation = fbm(vec2(nPos.x * 15.0 + time * 0.3, nPos.z * 15.0 - time * 0.25)) * 0.2;
+        finalColor = mix(glowColor, fireColor, (intensity - 0.3) * 3.33 + granulation - spotIntensity * 0.5);
       } else {
-        // Outer glow
-        finalColor = glowColor * intensity * 3.33;
+        // Outer corona/chromosphere with subtle structures
+        float coronaDetail = fbm(vec2(nPos.x * 3.0 - time * 0.05, nPos.z * 3.0 + time * 0.1)) * 0.3;
+        finalColor = glowColor * (intensity * 3.33 + coronaDetail);
       }
       
       // Add a random flickering effect
