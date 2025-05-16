@@ -267,10 +267,10 @@ const fireShader = {
       // Normalize for consistency
       vec3 nPos = normalize(vPosition);
       
-      // Base colors for fire
-      vec3 glowColor = vec3(1.0, 0.3, 0.0); // Deep orange glow
-      vec3 fireColor = vec3(1.0, 0.6, 0.0); // Main orange fire
-      vec3 hotColor = vec3(1.0, 0.8, 0.0);  // Yellow hot regions
+      // Base colors for fire - much brighter
+      vec3 glowColor = vec3(1.0, 0.5, 0.0); // Brighter orange glow
+      vec3 fireColor = vec3(1.0, 0.7, 0.0); // Brighter main orange fire
+      vec3 hotColor = vec3(1.0, 0.9, 0.0);  // Brighter yellow hot regions
       vec3 coreColor = vec3(1.0, 1.0, 1.0); // White-hot core
       
       // Generate base turbulence for the fire
@@ -322,7 +322,7 @@ const fireShader = {
       }
       
       // Add a random flickering effect
-      float flicker = noise(vec2(time * 4.0, nPos.y * 2.0)) * 0.15;
+      float flicker = noise(vec2(time * 4.0, nPos.y * 2.0)) * 0.2;
       finalColor *= 1.0 + flicker;
       
       // Enhance the appearance of actual flames
@@ -330,8 +330,11 @@ const fireShader = {
       float flameShape = smoothstep(-0.5, 0.5, nPos.y);
       finalColor *= mix(0.8, 1.2, flameShape);
       
-      // Final alpha is based on intensity with a minimum for visibility
-      float alpha = max(intensity * 0.8, 0.1);
+      // Significantly boost overall brightness
+      finalColor *= 3.0;
+      
+      // Final alpha is based on intensity with a high minimum for visibility
+      float alpha = max(intensity * 0.9, 0.6);
       
       gl_FragColor = vec4(finalColor, alpha);
     }
