@@ -14,9 +14,34 @@ import { toast } from 'sonner';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { guaranteedSessionSave } from './OneMinuteFix';
 import notificationManager from '../lib/notificationManager';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { Separator } from './ui/separator';
+
+// Utility function to determine if a color is light or dark
+// Used to set text color for better contrast
+function isColorLight(color: string): boolean {
+  // Default to false if color is invalid
+  if (!color || color === 'transparent') return false;
+  
+  // Handle colors without # prefix
+  const hex = color.charAt(0) === '#' ? color.substring(1) : color;
+  
+  // Handle both 3-digit and 6-digit hex codes
+  const r = parseInt(hex.length === 3 ? hex.charAt(0) + hex.charAt(0) : hex.substring(0, 2), 16);
+  const g = parseInt(hex.length === 3 ? hex.charAt(1) + hex.charAt(1) : hex.substring(2, 4), 16);
+  const b = parseInt(hex.length === 3 ? hex.charAt(2) + hex.charAt(2) : hex.substring(4, 6), 16);
+  
+  // Calculate perceived brightness using the formula
+  // (299*R + 587*G + 114*B) / 1000
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  
+  // Return true if the color is light (brightness > 128)
+  return brightness > 128;
+}
 
 const TimerKasinas: React.FC = () => {
-  const { selectedKasina, setSelectedKasina, addSession } = useKasina();
+  const { selectedKasina, customColor, setSelectedKasina, setCustomColor, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const { timeRemaining, duration } = useSimpleTimer();
   
@@ -26,9 +51,26 @@ const TimerKasinas: React.FC = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedTab, setSelectedTab] = useState<string>("simple");
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [tempCustomColor, setTempCustomColor] = useState(customColor);
   
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
+  
+  // Handle custom color change
+  const handleCustomColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newColor = e.target.value;
+    setTempCustomColor(newColor);
+    
+    // Only update the actual custom color if it's a valid hex color
+    if (/^#([0-9A-F]{3}){1,2}$/i.test(newColor)) {
+      setCustomColor(newColor);
+      
+      // If we're already on the custom kasina, update immediately
+      if (selectedKasina === KASINA_TYPES.CUSTOM) {
+        KASINA_COLORS[KASINA_TYPES.CUSTOM] = newColor;
+      }
+    }
+  };
   
   // Special debug for Yellow Kasina to identify selection issues
   useEffect(() => {
@@ -53,6 +95,11 @@ const TimerKasinas: React.FC = () => {
       sessionSavedRef.current = false;
     };
   }, []);
+  
+  // Keep tempCustomColor in sync with customColor from the store
+  useEffect(() => {
+    setTempCustomColor(customColor);
+  }, [customColor]);
   
   // Reset session saved flag when changing kasina type
   useEffect(() => {
@@ -617,60 +664,115 @@ const TimerKasinas: React.FC = () => {
                     <div className="flex-1 overflow-y-auto min-h-[300px]">
                       {/* Color Kasinas */}
                       {kasinaTab === 'colors' && (
-                        <div className="grid grid-cols-2 gap-3 py-1">
-                          {/* White Kasina button */}
-                          <Button
-                            variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
-                            onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
-                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                            style={{ 
-                              backgroundColor: selectedKasina === KASINA_TYPES.WHITE ? KASINA_COLORS.white : 'transparent',
-                              color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
-                            }}
-                          >
-                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE]}</span> 
-                            <span>White</span>
-                          </Button>
+                        <div className="flex flex-col gap-4 py-1">
+                          {/* Standard Color Kasinas Grid */}
+                          <div className="grid grid-cols-2 gap-3">
+                            {/* White Kasina button */}
+                            <Button
+                              variant={selectedKasina === KASINA_TYPES.WHITE ? "default" : "outline"}
+                              onClick={() => setSelectedKasina(KASINA_TYPES.WHITE)}
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                              style={{ 
+                                backgroundColor: selectedKasina === KASINA_TYPES.WHITE ? KASINA_COLORS.white : 'transparent',
+                                color: selectedKasina === KASINA_TYPES.WHITE ? 'black' : 'white'
+                              }}
+                            >
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE]}</span> 
+                              <span>White</span>
+                            </Button>
+                            
+                            {/* Blue Kasina button */}
+                            <Button
+                              variant={selectedKasina === KASINA_TYPES.BLUE ? "default" : "outline"}
+                              onClick={() => setSelectedKasina(KASINA_TYPES.BLUE)}
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                              style={{ 
+                                backgroundColor: selectedKasina === KASINA_TYPES.BLUE ? KASINA_COLORS.blue : 'transparent' 
+                              }}
+                            >
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.BLUE]}</span>
+                              <span>Blue</span>
+                            </Button>
+                            
+                            {/* Red Kasina button */}
+                            <Button
+                              variant={selectedKasina === KASINA_TYPES.RED ? "default" : "outline"}
+                              onClick={() => setSelectedKasina(KASINA_TYPES.RED)}
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                              style={{ 
+                                backgroundColor: selectedKasina === KASINA_TYPES.RED ? KASINA_COLORS.red : 'transparent' 
+                              }}
+                            >
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.RED]}</span>
+                              <span>Red</span>
+                            </Button>
+                            
+                            {/* Yellow Kasina button */}
+                            <Button
+                              variant={selectedKasina === KASINA_TYPES.YELLOW ? "default" : "outline"}
+                              onClick={() => setSelectedKasina(KASINA_TYPES.YELLOW)}
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                              style={{ 
+                                backgroundColor: selectedKasina === KASINA_TYPES.YELLOW ? KASINA_COLORS.yellow : 'transparent',
+                                color: selectedKasina === KASINA_TYPES.YELLOW ? 'black' : 'white'
+                              }}
+                            >
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.YELLOW]}</span>
+                              <span>Yellow</span>
+                            </Button>
+                          </div>
                           
-                          {/* Blue Kasina button */}
-                          <Button
-                            variant={selectedKasina === KASINA_TYPES.BLUE ? "default" : "outline"}
-                            onClick={() => setSelectedKasina(KASINA_TYPES.BLUE)}
-                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                            style={{ 
-                              backgroundColor: selectedKasina === KASINA_TYPES.BLUE ? KASINA_COLORS.blue : 'transparent' 
-                            }}
-                          >
-                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.BLUE]}</span>
-                            <span>Blue</span>
-                          </Button>
-                          
-                          {/* Red Kasina button */}
-                          <Button
-                            variant={selectedKasina === KASINA_TYPES.RED ? "default" : "outline"}
-                            onClick={() => setSelectedKasina(KASINA_TYPES.RED)}
-                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                            style={{ 
-                              backgroundColor: selectedKasina === KASINA_TYPES.RED ? KASINA_COLORS.red : 'transparent' 
-                            }}
-                          >
-                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.RED]}</span>
-                            <span>Red</span>
-                          </Button>
-                          
-                          {/* Yellow Kasina button */}
-                          <Button
-                            variant={selectedKasina === KASINA_TYPES.YELLOW ? "default" : "outline"}
-                            onClick={() => setSelectedKasina(KASINA_TYPES.YELLOW)}
-                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                            style={{ 
-                              backgroundColor: selectedKasina === KASINA_TYPES.YELLOW ? KASINA_COLORS.yellow : 'transparent',
-                              color: selectedKasina === KASINA_TYPES.YELLOW ? 'black' : 'white'
-                            }}
-                          >
-                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.YELLOW]}</span>
-                            <span>Yellow</span>
-                          </Button>
+                          {/* Custom Color Picker Section */}
+                          <div className="mt-2">
+                            <Separator className="mb-4" />
+                            <div className="space-y-4">
+                              {/* Custom Color Button */}
+                              <Button
+                                variant={selectedKasina === KASINA_TYPES.CUSTOM ? "default" : "outline"}
+                                onClick={() => setSelectedKasina(KASINA_TYPES.CUSTOM)}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.CUSTOM ? customColor : 'transparent',
+                                  color: selectedKasina === KASINA_TYPES.CUSTOM ? 
+                                    (isColorLight(customColor) ? 'black' : 'white') : 'white'
+                                }}
+                              >
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.CUSTOM]}</span>
+                                <span>Custom Color</span>
+                              </Button>
+                              
+                              {/* Color Picker Controls */}
+                              <div className="grid grid-cols-1 gap-3">
+                                <div>
+                                  <Label htmlFor="color-picker" className="text-sm text-white mb-1 block">
+                                    Choose a color:
+                                  </Label>
+                                  <input 
+                                    type="color" 
+                                    id="color-picker"
+                                    value={tempCustomColor}
+                                    onChange={handleCustomColorChange}
+                                    className="w-full h-10 rounded cursor-pointer"
+                                  />
+                                </div>
+                                
+                                <div>
+                                  <Label htmlFor="hex-input" className="text-sm text-white mb-1 block">
+                                    Hex code:
+                                  </Label>
+                                  <Input 
+                                    type="text"
+                                    id="hex-input"
+                                    value={tempCustomColor}
+                                    onChange={handleCustomColorChange}
+                                    placeholder="#RRGGBB"
+                                    pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                                    className="bg-black/30 text-white border-white/30 focus:border-white"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       )}
                       
