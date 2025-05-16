@@ -216,145 +216,124 @@ const fireShader = {
     varying vec3 vPosition;
     varying vec3 vNormal;
     
-    // Hash function for noise
-    float hash(vec2 p) {
-      p = fract(p * vec2(123.34, 456.21));
-      p += dot(p, p + 45.32);
-      return fract(p.x * p.y);
+    // Noise functions for fire effect
+    float random(vec2 st) {
+      return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
     }
     
-    // Improved noise function with better randomness
-    float noise(vec2 p) {
-      vec2 i = floor(p);
-      vec2 f = fract(p);
+    float noise(vec2 st) {
+      vec2 i = floor(st);
+      vec2 f = fract(st);
       
-      // Cubic Hermite interpolation for smoother transitions
+      // Four corners in 2D of a tile
+      float a = random(i);
+      float b = random(i + vec2(1.0, 0.0));
+      float c = random(i + vec2(0.0, 1.0));
+      float d = random(i + vec2(1.0, 1.0));
+      
+      // Smooth interpolation
       vec2 u = f * f * (3.0 - 2.0 * f);
       
-      // Four corners
-      float a = hash(i);
-      float b = hash(i + vec2(1.0, 0.0));
-      float c = hash(i + vec2(0.0, 1.0));
-      float d = hash(i + vec2(1.0, 1.0));
-      
-      return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+      // Mix 4 corners
+      return mix(a, b, u.x) + 
+            (c - a)* u.y * (1.0 - u.x) + 
+            (d - b) * u.x * u.y;
     }
     
-    // Layered noise (fbm)
-    float fbm(vec2 p) {
+    // Layered noise for organic fire movement
+    float fbm(vec2 st) {
       float value = 0.0;
       float amplitude = 0.5;
       float frequency = 1.0;
       
-      // Octaves of noise
-      for(int i=0; i<6; i++) {
-        value += amplitude * noise(p * frequency);
-        amplitude *= 0.5;
-        frequency *= 2.0;
+      // Loop of octaves
+      for (int i = 0; i < 5; i++) {
+        value += amplitude * noise(st * frequency);
+        st *= 2.0; // frequency doubles each octave
+        amplitude *= 0.5; // amplitude halves each octave
       }
       
       return value;
     }
     
-    // Function to create a flame shape
-    float flameFunction(vec2 uv, float time) {
-      // Flame base shape
-      float flame = 0.0;
-      
-      // Create the basic teardrop shape
-      float y = 1.0 - uv.y;
-      float x = uv.x - 0.5;
-      
-      // Basic flame shape - wider at bottom, pointed at top
-      flame = 0.5 - length(vec2(x * 1.5, y * 0.5 - 0.3)) * 0.8;
-      
-      // Make the top more pointed
-      flame -= pow(y, 1.3) * 0.1;
-      
-      // Noise patterns
-      vec2 noiseCoord = vec2(x * 3.0, y * 6.0) + time * vec2(0.0, -2.0);
-      float noisePattern = fbm(noiseCoord) * 0.3;
-      
-      // Large slow movement from side to side
-      float sway = sin(time * 1.0) * 0.03;
-      flame += sway * y * y;
-      
-      // Add fine details and flickering
-      flame += noisePattern * y;
-      
-      // Add fast vertical flickering at the top
-      float topFlicker = fbm(vec2(time * 3.0, x * 2.0)) * 0.05;
-      flame += topFlicker * pow(y, 2.0);
-      
-      return smoothstep(0.0, 0.2, flame);
-    }
-    
     void main() {
-      // Convert 3D position to 2D UV for flame visualization
-      // Map from 3D sphere to flat flame pattern
-      vec2 flameUv;
+      // Fire is a natural phenomenon with distinctive properties:
+      // 1. It has a central core that's very bright (white/yellow)
+      // 2. The edges fade to orange/red
+      // 3. It has a fluid, organic movement
+      // 4. It flickers and changes constantly
       
-      // Project from 3D to 2D using position
-      // The y-coordinate is the most important for flames
-      flameUv.x = vPosition.x * 0.5 + 0.5;
+      // Use 3D position to create authentic fire effect
+      // Normalize for consistency
+      vec3 nPos = normalize(vPosition);
       
-      // Scale the y coordinate to make the flame taller
-      // The flame should extend upward from the sphere
-      flameUv.y = vPosition.y * 0.5 + 0.5;
+      // Base colors for fire
+      vec3 glowColor = vec3(1.0, 0.3, 0.0); // Deep orange glow
+      vec3 fireColor = vec3(1.0, 0.6, 0.0); // Main orange fire
+      vec3 hotColor = vec3(1.0, 0.8, 0.0);  // Yellow hot regions
+      vec3 coreColor = vec3(1.0, 1.0, 1.0); // White-hot core
       
-      // Evaluate the flame function
-      float flameIntensity = flameFunction(flameUv, time);
+      // Generate base turbulence for the fire
+      float turbulence = 0.0;
       
-      // Only show the flame in the forward-facing part of the sphere
-      // This creates a more 2D-like flame effect on the 3D sphere
-      float facingFactor = dot(normalize(vNormal), vec3(0.0, 0.0, 1.0));
-      facingFactor = smoothstep(-0.2, 0.8, facingFactor);
-      flameIntensity *= facingFactor;
+      // Slow-moving large scale turbulence
+      vec2 baseCoord = vec2(nPos.x * 2.0, nPos.y * 2.0 + time * 0.2);
+      turbulence += fbm(baseCoord) * 0.5;
       
-      // Extremely bright color palette for fire
-      vec3 darkOrange = vec3(1.0, 0.2, 0.0);    // Base/dark orange (edges)
-      vec3 brightOrange = vec3(1.0, 0.5, 0.0);  // Mid-level orange
-      vec3 brightYellow = vec3(1.0, 0.8, 0.0);  // Yellow for upper flame
-      vec3 whiteHot = vec3(1.0, 1.0, 1.0);      // White-hot center/top
+      // Add medium-scale details
+      vec2 medCoord = vec2(nPos.x * 4.0, nPos.y * 4.0 + time * 0.5);
+      turbulence += fbm(medCoord) * 0.25;
       
-      // Create a dramatic gradient from orange to white
-      vec3 flameColor;
-      float yGradient = flameUv.y; // Use y position for main gradient
+      // Fast small details for flickering
+      vec2 detailCoord = vec2(nPos.x * 8.0, nPos.y * 8.0 + time * 1.0);
+      turbulence += fbm(detailCoord) * 0.125;
       
-      if (yGradient > 0.85) {
-        // White-hot tip
-        flameColor = mix(brightYellow, whiteHot, (yGradient - 0.85) * 6.0);
-      } else if (yGradient > 0.5) {
-        // Yellow part of flame 
-        flameColor = mix(brightOrange, brightYellow, (yGradient - 0.5) * 3.0);
+      // Adjust turbulence to create recognizable fire pattern
+      // Fire is hotter and brighter in the center and rises upward
+      float distFromCenter = length(vec2(nPos.x, nPos.z));
+      float yFactor = (nPos.y + 1.0) * 0.5; // -1 to 1 becomes 0 to 1
+      
+      // Intensity decreases from center outward
+      float intensity = 1.0 - smoothstep(0.0, 0.8, distFromCenter);
+      
+      // Intensity increases as we move upward
+      intensity *= mix(0.7, 1.0, yFactor);
+      
+      // Add turbulence for realistic fire movement
+      intensity += turbulence * 0.2;
+      
+      // Ensure intensity stays in reasonable range
+      intensity = clamp(intensity, 0.0, 1.0);
+      
+      // Layer fire colors based on intensity
+      vec3 finalColor;
+      if (intensity > 0.85) {
+        // White-hot core
+        finalColor = mix(hotColor, coreColor, (intensity - 0.85) * 6.67);
+      } else if (intensity > 0.6) {
+        // Hot yellow regions
+        finalColor = mix(fireColor, hotColor, (intensity - 0.6) * 4.0);
+      } else if (intensity > 0.3) {
+        // Main orange fire
+        finalColor = mix(glowColor, fireColor, (intensity - 0.3) * 3.33);
       } else {
-        // Orange base
-        flameColor = mix(darkOrange, brightOrange, yGradient * 2.0);
+        // Outer glow
+        finalColor = glowColor * intensity * 3.33;
       }
       
-      // Make the center of the flame brighter
-      float centerX = abs(flameUv.x - 0.5);
-      float centerFactor = smoothstep(0.2, 0.0, centerX);
-      flameColor = mix(flameColor, mix(brightYellow, whiteHot, yGradient), centerFactor * 0.7);
+      // Add a random flickering effect
+      float flicker = noise(vec2(time * 4.0, nPos.y * 2.0)) * 0.15;
+      finalColor *= 1.0 + flicker;
       
-      // Add extremely bright hot spots
-      vec2 hotspotCoord = vec2(flameUv.x * 5.0, flameUv.y * 10.0 - time * 3.0);
-      float hotspots = fbm(hotspotCoord) * 0.15;
-      flameColor += whiteHot * hotspots * yGradient;
+      // Enhance the appearance of actual flames
+      // Make the upper part of the sphere more like rising flames
+      float flameShape = smoothstep(-0.5, 0.5, nPos.y);
+      finalColor *= mix(0.8, 1.2, flameShape);
       
-      // Add flicker to the entire flame
-      float flicker = fbm(vec2(time * 2.5, flameUv.y * 2.0)) * 0.15;
-      flameColor += flameColor * flicker;
+      // Final alpha is based on intensity with a minimum for visibility
+      float alpha = max(intensity * 0.8, 0.1);
       
-      // Boost overall brightness
-      flameColor *= 2.0;
-      
-      // Make flame transparent outside the shape
-      // Keep high minimum alpha to ensure visibility
-      float alpha = flameIntensity;
-      
-      // Output
-      gl_FragColor = vec4(flameColor, alpha);
+      gl_FragColor = vec4(finalColor, alpha);
     }
   `
 };
