@@ -259,152 +259,181 @@ const fireShader = {
     }
     
     void main() {
-      // Fire is a natural phenomenon with distinctive properties:
-      // 1. It has a central core that's very bright (white/yellow)
-      // 2. The edges fade to orange/red
-      // 3. It has a fluid, organic movement
-      // 4. It flickers and changes constantly
+      // Authentic fire has these key elements:
+      // 1. Moving, licking flames that travel upward
+      // 2. Varied colors from deep reds to bright yellows and occasional blues
+      // 3. Constant, irregular flickering and dancing motion
+      // 4. Embers and glowing particles within the flame
       
-      // Use 3D position to create authentic fire effect
-      // Normalize for consistency
+      // Normalize position for consistent calculations
       vec3 nPos = normalize(vPosition);
       
-      // Rich fire spectrum with diverse colors
-      vec3 glowColor = vec3(0.6, 0.1, 0.0);     // Deep red glow for cooler outer edges
-      vec3 fireColor = vec3(1.0, 0.4, 0.0);     // Rich orange for main fire regions
-      vec3 hotColor = vec3(1.0, 0.8, 0.0);      // Bright yellow for hot regions
-      vec3 coreColor = vec3(1.0, 1.0, 1.0);     // Pure white-hot core
-      vec3 blueColor = vec3(0.2, 0.4, 0.9);     // Blue for hottest flame base
-      vec3 purpleColor = vec3(0.5, 0.0, 0.5);   // Deep purple for smoke/edges
+      // DEFINE FIRE COLOR PALETTE
+      // Authentic fire has a spectrum from deep red to bright yellow/white
+      vec3 emberColor = vec3(0.6, 0.05, 0.0);   // Deep ember red (cooler)
+      vec3 darkRed = vec3(0.8, 0.1, 0.0);       // Dark red flame
+      vec3 fireRed = vec3(1.0, 0.2, 0.0);       // Vibrant red flame
+      vec3 fireOrange = vec3(1.0, 0.4, 0.0);    // Rich orange flame
+      vec3 fireYellow = vec3(1.0, 0.7, 0.1);    // Bright yellow flame
+      vec3 hotYellow = vec3(1.0, 0.9, 0.3);     // Hot yellow core
+      vec3 coreColor = vec3(1.0, 0.95, 0.8);    // White-hot core
+      vec3 blueColor = vec3(0.4, 0.5, 1.0);     // Blue flame base (hottest)
       
-      // Generate turbulence patterns for sun-like randomness
-      float turbulence = 0.0;
+      // FLAME SHAPE AND MOVEMENT
+      // Transform sphere coordinates to create upward licking flames
       
-      // Large scale solar convection patterns - slow movement
-      vec2 baseCoord = vec2(nPos.x * 2.0, nPos.y * 2.0 + time * 0.15);
-      float basePattern = fbm(baseCoord) * 0.6; // Stronger base pattern
-      turbulence += basePattern;
+      // Basic position mapping for flame 
+      // We want flames to appear to rise upward and flicker outward
+      float height = nPos.y * 0.5 + 0.5; // Transform Y from [-1,1] to [0,1]
       
-      // Medium-scale solar granulation patterns
-      vec2 medCoord = vec2(nPos.x * 5.0, nPos.y * 5.0 + time * 0.4);
-      float medPattern = fbm(medCoord) * 0.3;
-      turbulence += medPattern;
-      
-      // Fast small details for solar flares and prominences
-      vec2 detailCoord = vec2(nPos.x * 10.0, nPos.y * 10.0 + time * 1.2);
-      float detailPattern = fbm(detailCoord) * 0.2;
-      turbulence += detailPattern;
-      
-      // Add rapidly moving micro-details for solar surface
-      vec2 microCoord = vec2(nPos.x * 20.0, nPos.y * 20.0 + time * 3.0);
-      float microPattern = fbm(microCoord) * 0.1;
-      turbulence += microPattern;
-      
-      // Add occasional bursts for solar flares
-      float flareTiming = fbm(vec2(time * 0.2, 0.0)) * 2.0;
-      float flarePosition = fbm(vec2(nPos.x * 3.0 + time * 0.5, nPos.y * 3.0));
-      float flareIntensity = smoothstep(0.7, 0.9, flarePosition) * smoothstep(0.7, 0.9, flareTiming) * 0.3;
-      turbulence += flareIntensity;
-      
-      // Create a fire orb pattern as if viewed from below
-      // Fire should be brightest near the center and have a billowing pattern
+      // Create basic flame shape (taller in center, shorter at edges)
       float distFromCenter = length(vec2(nPos.x, nPos.z));
-      float yFactor = (nPos.y + 1.0) * 0.5; // -1 to 1 becomes 0 to 1
+      float baseShape = 1.0 - smoothstep(0.0, 0.8, distFromCenter); // Base intensity is brighter in center
       
-      // Create a more concentrated bright center
-      float intensity = 1.0 - smoothstep(0.0, 0.6, distFromCenter);
+      // Create "tongues" of flame that lick upward
+      // Multiple flame layers moving at different speeds and scales
+      float flames = 0.0;
       
-      // Enhance the effect of a perfect fire orb
-      // Bottom of the orb is brighter than sides to simulate viewing from below
-      float viewFromBelow = 1.0 - abs(nPos.y - 0.2);
-      intensity *= mix(0.9, 1.5, viewFromBelow);
+      // Large slow-moving flames
+      vec2 largeFlameCoord = vec2(
+        nPos.x * 2.0 + sin(time * 0.7) * 0.2, 
+        nPos.y * 2.0 + time * 0.8
+      );
+      float largeFlame = fbm(largeFlameCoord) * 0.6;
       
-      // Add turbulence for realistic fire movement
-      intensity += turbulence * 0.2;
+      // Medium flames with more detail and faster movement
+      vec2 medFlameCoord = vec2(
+        nPos.x * 4.0 + sin(time * 1.2 + nPos.z) * 0.3, 
+        nPos.y * 3.0 + time * 1.5
+      );
+      float medFlame = fbm(medFlameCoord) * 0.3;
       
-      // Ensure intensity stays in reasonable range
-      intensity = clamp(intensity, 0.0, 1.0);
+      // Small flickering detail flames that move quickly
+      vec2 detailFlameCoord = vec2(
+        nPos.x * 8.0 + sin(time * 2.0 + nPos.z * 2.0) * 0.4, 
+        nPos.y * 5.0 + time * 3.0
+      );
+      float detailFlame = fbm(detailFlameCoord) * 0.15;
       
-      // Layer solar colors with more randomized patterns
-      vec3 finalColor;
+      // Create lateral flame movement (side to side flicker)
+      float lateralMovement = sin(nPos.y * 4.0 + time * 2.5) * cos(time * 1.8) * 0.15;
       
-      // Create complex flame patterns
-      float flamePattern = fbm(vec2(nPos.x * 6.0 - time * 0.2, nPos.z * 6.0 + time * 0.15)) * 0.5 + 0.5;
-      float hotSpots = smoothstep(0.5, 0.7, flamePattern) * 0.4; // Create hot spots in the flame
+      // Combine all flame layers
+      flames = largeFlame + medFlame + detailFlame + lateralMovement;
       
-      // Blue flame base patterns
-      float blueFlamePattern = fbm(vec2(nPos.x * 8.0 + time * 0.3, nPos.y * 5.0 - time * 0.1)) * 0.5 + 0.5;
-      float blueIntensity = smoothstep(0.6, 0.8, blueFlamePattern) * 0.7; // Blue flame regions
+      // Adjust flame shape to look more like licking flames
+      // Higher values toward top of sphere, creating upward licking flame effect
+      flames *= smoothstep(-0.2, 0.8, nPos.y); // Stronger at top
       
-      // Create occasional deep red embers
-      float emberPattern = fbm(vec2(nPos.x * 3.0 - time * 0.05, nPos.z * 4.0 + time * 0.1)) * 0.5 + 0.5;
-      float emberIntensity = smoothstep(0.7, 0.9, emberPattern) * 0.5; // Deep red embers
+      // FIRE FLICKER AND TURBULENCE
+      // Create realistic fire flickering at different rates
       
-      // Create subtle smoke/purple edges
-      float smokePattern = fbm(vec2(nPos.x * 2.0 + time * 0.1, nPos.z * 3.0 - time * 0.15)) * 0.5 + 0.5;
-      float smokeIntensity = smoothstep(0.6, 0.9, smokePattern) * 0.4; // Purple smoke regions
+      // Slow, medium and fast flicker components
+      float slowFlicker = noise(vec2(time * 1.5, 0.0)) * 0.5 + 0.5;
+      float medFlicker = noise(vec2(time * 3.0, 0.5)) * 0.3 + 0.7;
+      float fastFlicker = noise(vec2(time * 8.0, 1.0)) * 0.2 + 0.8;
       
-      // Complex color layering with full fire spectrum
-      if (intensity > 0.85) {
-        // White-hot core with blue flame accents
-        vec3 hotBase = mix(hotColor, coreColor, (intensity - 0.85) * 6.67);
-        vec3 blueAccent = mix(hotBase, blueColor, blueIntensity * (intensity - 0.85) * 3.0);
-        finalColor = mix(hotBase, blueAccent, 0.3 + 0.5 * sin(time)); // Pulsing between colors
+      // Combine flicker components for natural, varied rhythm
+      float flicker = slowFlicker * medFlicker * fastFlicker;
+      
+      // EMBERS AND HOTSPOTS
+      // Create glowing embers and hotspots within the flame
+      float emberNoise = fbm(vec2(nPos.x * 5.0 + time * 0.2, nPos.z * 5.0 - time * 0.3)) * 0.5 + 0.5;
+      float hotspotNoise = fbm(vec2(nPos.x * 3.0 - time * 0.4, nPos.z * 3.0 + time * 0.5)) * 0.5 + 0.5;
+      
+      // Create ember spots that glow and fade
+      float embers = smoothstep(0.6, 0.8, emberNoise) * (1.0 - baseShape) * 0.8;
+      
+      // Create hotter spots within the flame
+      float hotspots = smoothstep(0.7, 0.9, hotspotNoise) * baseShape * 0.7;
+      
+      // BLUE FLAME BASE
+      // Create occasional blue flame at the base (hottest part of flame)
+      float blueFlameNoise = fbm(vec2(nPos.x * 4.0 - time * 0.3, nPos.z * 4.0 + time * 0.2)) * 0.5 + 0.5;
+      float blueFlame = smoothstep(0.7, 0.9, blueFlameNoise) * smoothstep(0.0, 0.4, nPos.y + 0.6) * 0.8;
+      
+      // COMBINE ALL FIRE COMPONENTS
+      // Final intensity combines base shape, flames, flicker
+      float fireIntensity = (baseShape * 0.6 + flames * 0.8) * flicker;
+      
+      // Ensure reasonable range
+      fireIntensity = clamp(fireIntensity, 0.0, 1.0);
+      
+      // COLOR MAPPING based on intensity and special effects
+      vec3 fireColor;
+      
+      if (fireIntensity > 0.85) {
+        // Hottest core - blend from yellow to white core
+        fireColor = mix(hotYellow, coreColor, (fireIntensity - 0.85) * 6.67);
+        
+        // Add blue flame to the hottest regions (but only at certain angles)
+        fireColor = mix(fireColor, blueColor, blueFlame * (fireIntensity - 0.85) * 3.0);
       } 
-      else if (intensity > 0.6) {
-        // Hot yellow-orange regions with occasional blue accents
-        vec3 midBase = mix(fireColor, hotColor, (intensity - 0.6) * 4.0);
-        // Add blue to the hottest parts
-        float blueMix = blueIntensity * smoothstep(0.7, 0.85, intensity) * 0.4;
-        finalColor = mix(midBase, blueColor, blueMix);
-        // Add occasional embers
-        finalColor = mix(finalColor, vec3(0.8, 0.1, 0.0), emberIntensity * 0.3);
+      else if (fireIntensity > 0.6) {
+        // Hot regions - blend from orange to yellow
+        fireColor = mix(fireOrange, fireYellow, (fireIntensity - 0.6) * 4.0);
+        
+        // Add some hotspots in these regions
+        fireColor = mix(fireColor, hotYellow, hotspots * 0.6);
       } 
-      else if (intensity > 0.3) {
-        // Main fire body - rich orange-red with blue at base
-        vec3 fireBase = mix(glowColor, fireColor, (intensity - 0.3) * 3.33);
+      else if (fireIntensity > 0.3) {
+        // Mid-heat regions - blend from reds to orange
+        fireColor = mix(fireRed, fireOrange, (fireIntensity - 0.3) * 3.33);
+        
         // Add some blue at the base of the flames
-        float baseBlueFactor = blueIntensity * (1.0 - intensity) * 0.3; 
-        finalColor = mix(fireBase, blueColor, baseBlueFactor);
-        // Add deep red embers
-        finalColor = mix(finalColor, vec3(0.7, 0.05, 0.0), emberIntensity * 0.6);
+        fireColor = mix(fireColor, blueColor * 0.7, blueFlame * 0.3);
+        
+        // Add occasional ember colors
+        fireColor = mix(fireColor, emberColor, embers * 0.3);
       } 
       else {
-        // Outer edges - glowing embers, smoke and cool flames
-        float edgeFactor = fbm(vec2(nPos.x * 3.0 - time * 0.05, nPos.z * 3.0 + time * 0.1)) * 0.3;
-        vec3 edgeBase = glowColor * (intensity * 3.33 + edgeFactor);
-        // Mix in deep purple smoke at the edges
-        finalColor = mix(edgeBase, purpleColor, smokeIntensity * (1.0 - intensity) * 0.7);
+        // Coolest regions - deep reds and embers
+        fireColor = mix(emberColor, darkRed, fireIntensity * 3.33);
+        
+        // More pronounced embers in cooler regions
+        fireColor = mix(fireColor, emberColor * 0.8, embers * 0.7);
       }
       
-      // Add a random flickering effect
-      float flicker = noise(vec2(time * 4.0, nPos.y * 2.0)) * 0.2;
-      finalColor *= 1.0 + flicker;
+      // FIRE SHAPE ENHANCEMENT
+      // Enhance vertical flame movement - stronger at top
+      float verticalGradient = smoothstep(-1.0, 1.0, nPos.y);
+      fireColor *= mix(0.7, 1.3, verticalGradient);
       
-      // Enhance the appearance of actual flames
-      // Make the upper part of the sphere more like rising flames
-      float flameShape = smoothstep(-0.5, 0.5, nPos.y);
-      finalColor *= mix(0.8, 1.2, flameShape);
+      // FLICKERING AND MOTION ENHANCEMENT
+      // Add micro-flicker for flame edge details
+      float microFlicker = noise(vec2(time * 12.0, nPos.y * 8.0)) * 0.15 + 0.925;
+      fireColor *= microFlicker;
       
-      // Extremely boost overall brightness
-      finalColor *= 5.0;
+      // BRIGHTNESS AND GLOW
+      // Fire has extreme brightness in the center      
+      // Apply distance-based falloff for natural glow
+      float glowFalloff = 1.0 / (1.0 + distFromCenter * 3.0);
+      fireColor *= mix(1.0, 3.0, glowFalloff);
       
-      // Add an emissive glow to make it look like it's radiating light
-      finalColor += vec3(0.3, 0.2, 0.05); // Add baseline brightness
+      // Add emissive boost to make it look truly incandescent
+      fireColor += vec3(0.2, 0.05, 0.0) * fireIntensity;
       
-      // Add external pulsing illumination effect
-      // This creates a glow that pulses independently of the flame movement
-      vec3 pulseColor = vec3(1.0, 0.7, 0.3); // Warm golden glow color
-      float pulseFactor = pulseIntensity * 0.5; // Scale down the external pulse intensity
+      // SPECIAL EFFECTS
+      // Add pulsing glow that simulates radiating heat
+      vec3 pulseColor = vec3(1.0, 0.6, 0.2); // Warm orange-red glow
+      float pulseStrength = pulseIntensity * 0.6; // External pulse from uniform
       
-      // Add the pulse with distance-based falloff to create a radiating effect
-      float distFromEdge = smoothstep(0.8, 1.0, length(nPos));
-      finalColor += pulseColor * pulseFactor * distFromEdge * 3.0;
+      // Apply pulse glow with distance falloff
+      float edgeGlow = smoothstep(0.7, 1.0, length(nPos));
+      fireColor += pulseColor * pulseStrength * edgeGlow * 2.0; 
       
-      // Final alpha is based on intensity with a very high minimum for visibility
-      float alpha = max(intensity * 0.95, 0.8);
+      // Add occasional blue flame flashes at the base
+      float blueFlash = noise(vec2(time * 3.0, nPos.x * 4.0)) * blueFlame * 0.3;
+      fireColor = mix(fireColor, blueColor * 1.2, blueFlash * (1.0 - verticalGradient));
       
-      gl_FragColor = vec4(finalColor, alpha);
+      // FINAL ADJUSTMENTS
+      // Gamma correction for better visibility
+      fireColor = pow(fireColor, vec3(0.6));
+      
+      // Final output with high minimum opacity for visibility
+      float alpha = max(fireIntensity * 0.95, 0.8);
+      
+      gl_FragColor = vec4(fireColor, alpha);
     }
   `
 };
