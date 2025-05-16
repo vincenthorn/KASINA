@@ -269,11 +269,13 @@ const fireShader = {
       // Normalize for consistency
       vec3 nPos = normalize(vPosition);
       
-      // Solar-inspired colors with randomness (like the sun)
-      vec3 glowColor = vec3(1.0, 0.5, 0.0);   // Deep solar orange for outer regions
-      vec3 fireColor = vec3(1.0, 0.8, 0.1);   // Bright yellow-orange for mid regions
-      vec3 hotColor = vec3(1.0, 0.98, 0.6);   // Intense solar yellow for hot regions
-      vec3 coreColor = vec3(1.0, 1.0, 1.0);   // Pure white-hot core
+      // Rich fire spectrum with diverse colors
+      vec3 glowColor = vec3(0.6, 0.1, 0.0);     // Deep red glow for cooler outer edges
+      vec3 fireColor = vec3(1.0, 0.4, 0.0);     // Rich orange for main fire regions
+      vec3 hotColor = vec3(1.0, 0.8, 0.0);      // Bright yellow for hot regions
+      vec3 coreColor = vec3(1.0, 1.0, 1.0);     // Pure white-hot core
+      vec3 blueColor = vec3(0.2, 0.4, 0.9);     // Blue for hottest flame base
+      vec3 purpleColor = vec3(0.5, 0.0, 0.5);   // Deep purple for smoke/edges
       
       // Generate turbulence patterns for sun-like randomness
       float turbulence = 0.0;
@@ -326,29 +328,53 @@ const fireShader = {
       // Layer solar colors with more randomized patterns
       vec3 finalColor;
       
-      // Add random sunspot-like patterns
-      float spotPattern = fbm(vec2(nPos.x * 6.0 - time * 0.1, nPos.z * 6.0 + time * 0.05)) * 0.5 + 0.5;
-      float spotIntensity = smoothstep(0.4, 0.6, spotPattern) * 0.3; // Darken some areas like sunspots
+      // Create complex flame patterns
+      float flamePattern = fbm(vec2(nPos.x * 6.0 - time * 0.2, nPos.z * 6.0 + time * 0.15)) * 0.5 + 0.5;
+      float hotSpots = smoothstep(0.5, 0.7, flamePattern) * 0.4; // Create hot spots in the flame
       
-      // Random bright regions - solar faculae
-      float brightPattern = fbm(vec2(nPos.x * 4.0 + time * 0.2, nPos.z * 4.0 - time * 0.15)) * 0.5 + 0.5;
-      float brightIntensity = smoothstep(0.6, 0.8, brightPattern) * 0.4; // Brighten some areas
+      // Blue flame base patterns
+      float blueFlamePattern = fbm(vec2(nPos.x * 8.0 + time * 0.3, nPos.y * 5.0 - time * 0.1)) * 0.5 + 0.5;
+      float blueIntensity = smoothstep(0.6, 0.8, blueFlamePattern) * 0.7; // Blue flame regions
       
-      // Base color layering with added randomness
+      // Create occasional deep red embers
+      float emberPattern = fbm(vec2(nPos.x * 3.0 - time * 0.05, nPos.z * 4.0 + time * 0.1)) * 0.5 + 0.5;
+      float emberIntensity = smoothstep(0.7, 0.9, emberPattern) * 0.5; // Deep red embers
+      
+      // Create subtle smoke/purple edges
+      float smokePattern = fbm(vec2(nPos.x * 2.0 + time * 0.1, nPos.z * 3.0 - time * 0.15)) * 0.5 + 0.5;
+      float smokeIntensity = smoothstep(0.6, 0.9, smokePattern) * 0.4; // Purple smoke regions
+      
+      // Complex color layering with full fire spectrum
       if (intensity > 0.85) {
-        // White-hot core with random bright spots
-        finalColor = mix(hotColor, coreColor, (intensity - 0.85) * 6.67 + brightIntensity);
-      } else if (intensity > 0.6) {
-        // Hot yellow regions with sunspot darkening
-        finalColor = mix(fireColor, hotColor, (intensity - 0.6) * 4.0 + brightIntensity - spotIntensity);
-      } else if (intensity > 0.3) {
-        // Main solar surface with granulation
-        float granulation = fbm(vec2(nPos.x * 15.0 + time * 0.3, nPos.z * 15.0 - time * 0.25)) * 0.2;
-        finalColor = mix(glowColor, fireColor, (intensity - 0.3) * 3.33 + granulation - spotIntensity * 0.5);
-      } else {
-        // Outer corona/chromosphere with subtle structures
-        float coronaDetail = fbm(vec2(nPos.x * 3.0 - time * 0.05, nPos.z * 3.0 + time * 0.1)) * 0.3;
-        finalColor = glowColor * (intensity * 3.33 + coronaDetail);
+        // White-hot core with blue flame accents
+        vec3 hotBase = mix(hotColor, coreColor, (intensity - 0.85) * 6.67);
+        vec3 blueAccent = mix(hotBase, blueColor, blueIntensity * (intensity - 0.85) * 3.0);
+        finalColor = mix(hotBase, blueAccent, 0.3 + 0.5 * sin(time)); // Pulsing between colors
+      } 
+      else if (intensity > 0.6) {
+        // Hot yellow-orange regions with occasional blue accents
+        vec3 midBase = mix(fireColor, hotColor, (intensity - 0.6) * 4.0);
+        // Add blue to the hottest parts
+        float blueMix = blueIntensity * smoothstep(0.7, 0.85, intensity) * 0.4;
+        finalColor = mix(midBase, blueColor, blueMix);
+        // Add occasional embers
+        finalColor = mix(finalColor, vec3(0.8, 0.1, 0.0), emberIntensity * 0.3);
+      } 
+      else if (intensity > 0.3) {
+        // Main fire body - rich orange-red with blue at base
+        vec3 fireBase = mix(glowColor, fireColor, (intensity - 0.3) * 3.33);
+        // Add some blue at the base of the flames
+        float baseBlueFactor = blueIntensity * (1.0 - intensity) * 0.3; 
+        finalColor = mix(fireBase, blueColor, baseBlueFactor);
+        // Add deep red embers
+        finalColor = mix(finalColor, vec3(0.7, 0.05, 0.0), emberIntensity * 0.6);
+      } 
+      else {
+        // Outer edges - glowing embers, smoke and cool flames
+        float edgeFactor = fbm(vec2(nPos.x * 3.0 - time * 0.05, nPos.z * 3.0 + time * 0.1)) * 0.3;
+        vec3 edgeBase = glowColor * (intensity * 3.33 + edgeFactor);
+        // Mix in deep purple smoke at the edges
+        finalColor = mix(edgeBase, purpleColor, smokeIntensity * (1.0 - intensity) * 0.7);
       }
       
       // Add a random flickering effect
