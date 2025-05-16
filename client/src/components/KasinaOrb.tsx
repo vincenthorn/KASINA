@@ -267,11 +267,11 @@ const fireShader = {
       // Normalize for consistency
       vec3 nPos = normalize(vPosition);
       
-      // Base colors for fire - much brighter
-      vec3 glowColor = vec3(1.0, 0.5, 0.0); // Brighter orange glow
-      vec3 fireColor = vec3(1.0, 0.7, 0.0); // Brighter main orange fire
-      vec3 hotColor = vec3(1.0, 0.9, 0.0);  // Brighter yellow hot regions
-      vec3 coreColor = vec3(1.0, 1.0, 1.0); // White-hot core
+      // Extremely bright fire colors
+      vec3 glowColor = vec3(1.0, 0.6, 0.0);   // Bright orange-red glow
+      vec3 fireColor = vec3(1.0, 0.8, 0.1);   // Very bright orange-yellow fire
+      vec3 hotColor = vec3(1.0, 0.95, 0.4);   // Intense yellow hot regions
+      vec3 coreColor = vec3(1.0, 1.0, 1.0);   // Pure white-hot core
       
       // Generate base turbulence for the fire
       float turbulence = 0.0;
@@ -288,16 +288,18 @@ const fireShader = {
       vec2 detailCoord = vec2(nPos.x * 8.0, nPos.y * 8.0 + time * 1.0);
       turbulence += fbm(detailCoord) * 0.125;
       
-      // Adjust turbulence to create recognizable fire pattern
-      // Fire is hotter and brighter in the center and rises upward
+      // Create a fire orb pattern as if viewed from below
+      // Fire should be brightest near the center and have a billowing pattern
       float distFromCenter = length(vec2(nPos.x, nPos.z));
       float yFactor = (nPos.y + 1.0) * 0.5; // -1 to 1 becomes 0 to 1
       
-      // Intensity decreases from center outward
-      float intensity = 1.0 - smoothstep(0.0, 0.8, distFromCenter);
+      // Create a more concentrated bright center
+      float intensity = 1.0 - smoothstep(0.0, 0.6, distFromCenter);
       
-      // Intensity increases as we move upward
-      intensity *= mix(0.7, 1.0, yFactor);
+      // Enhance the effect of a perfect fire orb
+      // Bottom of the orb is brighter than sides to simulate viewing from below
+      float viewFromBelow = 1.0 - abs(nPos.y - 0.2);
+      intensity *= mix(0.9, 1.5, viewFromBelow);
       
       // Add turbulence for realistic fire movement
       intensity += turbulence * 0.2;
@@ -330,11 +332,14 @@ const fireShader = {
       float flameShape = smoothstep(-0.5, 0.5, nPos.y);
       finalColor *= mix(0.8, 1.2, flameShape);
       
-      // Significantly boost overall brightness
-      finalColor *= 3.0;
+      // Extremely boost overall brightness
+      finalColor *= 5.0;
       
-      // Final alpha is based on intensity with a high minimum for visibility
-      float alpha = max(intensity * 0.9, 0.6);
+      // Add an emissive glow to make it look like it's radiating light
+      finalColor += vec3(0.3, 0.2, 0.05); // Add baseline brightness
+      
+      // Final alpha is based on intensity with a very high minimum for visibility
+      float alpha = max(intensity * 0.95, 0.8);
       
       gl_FragColor = vec4(finalColor, alpha);
     }
