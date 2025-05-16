@@ -294,29 +294,29 @@ const fireShader = {
       // Multiple flame layers moving at different speeds and scales
       float flames = 0.0;
       
-      // Large slow-moving flames (50% slower)
+      // Large slow-moving flames
       vec2 largeFlameCoord = vec2(
-        nPos.x * 2.0 + sin(time * 0.35) * 0.2, 
-        nPos.y * 2.0 + time * 0.4
+        nPos.x * 2.0 + sin(time * 0.7) * 0.2, 
+        nPos.y * 2.0 + time * 0.8
       );
       float largeFlame = fbm(largeFlameCoord) * 0.6;
       
-      // Medium flames with more detail and faster movement (50% slower)
+      // Medium flames with more detail and faster movement
       vec2 medFlameCoord = vec2(
-        nPos.x * 4.0 + sin(time * 0.6 + nPos.z) * 0.3, 
-        nPos.y * 3.0 + time * 0.75
+        nPos.x * 4.0 + sin(time * 1.2 + nPos.z) * 0.3, 
+        nPos.y * 3.0 + time * 1.5
       );
       float medFlame = fbm(medFlameCoord) * 0.3;
       
-      // Small flickering detail flames that move quickly (50% slower)
+      // Small flickering detail flames that move quickly
       vec2 detailFlameCoord = vec2(
-        nPos.x * 8.0 + sin(time * 1.0 + nPos.z * 2.0) * 0.4, 
-        nPos.y * 5.0 + time * 1.5
+        nPos.x * 8.0 + sin(time * 2.0 + nPos.z * 2.0) * 0.4, 
+        nPos.y * 5.0 + time * 3.0
       );
       float detailFlame = fbm(detailFlameCoord) * 0.15;
       
-      // Create lateral flame movement (side to side flicker) (50% slower)
-      float lateralMovement = sin(nPos.y * 4.0 + time * 1.25) * cos(time * 0.9) * 0.15;
+      // Create lateral flame movement (side to side flicker)
+      float lateralMovement = sin(nPos.y * 4.0 + time * 2.5) * cos(time * 1.8) * 0.15;
       
       // Combine all flame layers
       flames = largeFlame + medFlame + detailFlame + lateralMovement;
@@ -328,18 +328,18 @@ const fireShader = {
       // FIRE FLICKER AND TURBULENCE
       // Create realistic fire flickering at different rates
       
-      // Slow, medium and fast flicker components (50% slower)
-      float slowFlicker = noise(vec2(time * 0.75, 0.0)) * 0.5 + 0.5;
-      float medFlicker = noise(vec2(time * 1.5, 0.5)) * 0.3 + 0.7;
-      float fastFlicker = noise(vec2(time * 4.0, 1.0)) * 0.2 + 0.8;
+      // Slow, medium and fast flicker components
+      float slowFlicker = noise(vec2(time * 1.5, 0.0)) * 0.5 + 0.5;
+      float medFlicker = noise(vec2(time * 3.0, 0.5)) * 0.3 + 0.7;
+      float fastFlicker = noise(vec2(time * 8.0, 1.0)) * 0.2 + 0.8;
       
       // Combine flicker components for natural, varied rhythm
       float flicker = slowFlicker * medFlicker * fastFlicker;
       
       // EMBERS AND HOTSPOTS
-      // Create glowing embers and hotspots within the flame (50% slower)
-      float emberNoise = fbm(vec2(nPos.x * 5.0 + time * 0.1, nPos.z * 5.0 - time * 0.15)) * 0.5 + 0.5;
-      float hotspotNoise = fbm(vec2(nPos.x * 3.0 - time * 0.2, nPos.z * 3.0 + time * 0.25)) * 0.5 + 0.5;
+      // Create glowing embers and hotspots within the flame
+      float emberNoise = fbm(vec2(nPos.x * 5.0 + time * 0.2, nPos.z * 5.0 - time * 0.3)) * 0.5 + 0.5;
+      float hotspotNoise = fbm(vec2(nPos.x * 3.0 - time * 0.4, nPos.z * 3.0 + time * 0.5)) * 0.5 + 0.5;
       
       // Create ember spots that glow and fade
       float embers = smoothstep(0.6, 0.8, emberNoise) * (1.0 - baseShape) * 0.8;
@@ -348,8 +348,8 @@ const fireShader = {
       float hotspots = smoothstep(0.7, 0.9, hotspotNoise) * baseShape * 0.7;
       
       // BLUE FLAME BASE
-      // Create occasional blue flame at the base (hottest part of flame) (50% slower)
-      float blueFlameNoise = fbm(vec2(nPos.x * 4.0 - time * 0.15, nPos.z * 4.0 + time * 0.1)) * 0.5 + 0.5;
+      // Create occasional blue flame at the base (hottest part of flame)
+      float blueFlameNoise = fbm(vec2(nPos.x * 4.0 - time * 0.3, nPos.z * 4.0 + time * 0.2)) * 0.5 + 0.5;
       float blueFlame = smoothstep(0.7, 0.9, blueFlameNoise) * smoothstep(0.0, 0.4, nPos.y + 0.6) * 0.8;
       
       // COMBINE ALL FIRE COMPONENTS
@@ -400,8 +400,8 @@ const fireShader = {
       fireColor *= mix(0.7, 1.3, verticalGradient);
       
       // FLICKERING AND MOTION ENHANCEMENT
-      // Add micro-flicker for flame edge details (50% slower)
-      float microFlicker = noise(vec2(time * 6.0, nPos.y * 8.0)) * 0.15 + 0.925;
+      // Add micro-flicker for flame edge details
+      float microFlicker = noise(vec2(time * 12.0, nPos.y * 8.0)) * 0.15 + 0.925;
       fireColor *= microFlicker;
       
       // BRIGHTNESS AND GLOW
@@ -422,8 +422,8 @@ const fireShader = {
       float edgeGlow = smoothstep(0.7, 1.0, length(nPos));
       fireColor += pulseColor * pulseStrength * edgeGlow * 2.0; 
       
-      // Add occasional blue flame flashes at the base (50% slower)
-      float blueFlash = noise(vec2(time * 1.5, nPos.x * 4.0)) * blueFlame * 0.3;
+      // Add occasional blue flame flashes at the base
+      float blueFlash = noise(vec2(time * 3.0, nPos.x * 4.0)) * blueFlame * 0.3;
       fireColor = mix(fireColor, blueColor * 1.2, blueFlash * (1.0 - verticalGradient));
       
       // FINAL ADJUSTMENTS
