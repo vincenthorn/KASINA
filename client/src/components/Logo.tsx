@@ -61,36 +61,38 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
   };
 
   return (
-    <div className="flex flex-col items-center justify-center logo-container">
+    <div className="sm:flex-col flex items-center logo-container">
       {showOrb && (
-        <div className="mb-4">
+        <div className="sm:mb-4 mb-0 mr-3 sm:mr-0">
           <AnimatedOrb 
             size={orbSizes[size]} 
             reducedGlow={loginPage} 
           />
         </div>
       )}
-      <h1 
-        className={`font-bold ${sizeClasses[size]}`}
-        style={{ 
-          color: currentColor,
-          transition: "color 3s ease-in-out",
-          fontFamily: "'Nunito', sans-serif", 
-          letterSpacing: "2px",
-          fontWeight: 700,
-          textTransform: "uppercase"
-        }}
-      >
-        KASINA
-      </h1>
-      {showTagline && (
-        <p className={`text-white ${sidebarMode ? "-mt-1" : "mt-1"} ${
-          sidebarMode ? "text-[10px]" : // Extra small for sidebar
-          size === "large" ? "text-base" : 
-          size === "medium" ? "text-sm" : 
-          "text-xs"
-        }`}>A Visual Meditation Tool</p>
-      )}
+      <div className="flex flex-col">
+        <h1 
+          className={`font-bold ${sizeClasses[size]}`}
+          style={{ 
+            color: currentColor,
+            transition: "color 3s ease-in-out",
+            fontFamily: "'Nunito', sans-serif", 
+            letterSpacing: "2px",
+            fontWeight: 700,
+            textTransform: "uppercase"
+          }}
+        >
+          KASINA
+        </h1>
+        {showTagline && (
+          <p className={`text-white ${sidebarMode ? "-mt-1" : ""} ${
+            sidebarMode ? "text-[10px]" : // Extra small for sidebar
+            size === "large" ? "text-base" : 
+            size === "medium" ? "text-sm" : 
+            "text-xs"
+          }`}>A Visual Meditation Tool</p>
+        )}
+      </div>
     </div>
   );
 };
