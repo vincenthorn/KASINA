@@ -61,9 +61,9 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
   };
 
   return (
-    <div className="sm:flex-col flex items-center logo-container">
+    <div className="md:flex-col flex items-center logo-container">
       {showOrb && (
-        <div className="sm:mb-4 mb-0 mr-3 sm:mr-0">
+        <div className="md:mb-4 mb-0 mr-3 md:mr-0">
           <AnimatedOrb 
             size={orbSizes[size]} 
             reducedGlow={loginPage} 
