@@ -272,5 +272,13 @@
     "duration": 60,
     "timestamp": "2025-05-16T13:57:15.262Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1747424961138",
+    "kasinaType": "light",
+    "kasinaName": "Light (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-16T19:49:21.138Z",
+    "userEmail": "user@kasina.app"
   }
 ]
