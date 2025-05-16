@@ -426,7 +426,7 @@ const spaceShader = {
 const lightShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#fffcf0") },
+    color: { value: new THREE.Color("#ffffcc") },
     opacity: { value: 1.0 }
   },
   vertexShader: `
@@ -445,14 +445,14 @@ const lightShader = {
       vec2 uv = vUv;
       float d = length(uv - vec2(0.5, 0.5));
       
-      // Radial gradient for a sun/light effect
-      float brightness = 1.0 - smoothstep(0.0, 0.5, d);
-      brightness = pow(brightness, 0.8);
+      // Much more gentle falloff at edges, keeping most of the orb bright
+      float brightness = 1.0 - smoothstep(0.4, 0.5, d);
       
-      // Pulsing effect
-      float pulse = 0.05 * sin(time * 2.0);
+      // Gentle pulsing effect
+      float pulse = 0.05 * sin(time * 1.5);
       
-      vec3 finalColor = color * (brightness + pulse);
+      // Add extra brightness to the whole orb
+      vec3 finalColor = color * (brightness + pulse + 0.2);
       gl_FragColor = vec4(finalColor, 1.0);
     }
   `
