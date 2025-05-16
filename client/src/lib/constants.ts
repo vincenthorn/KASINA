@@ -40,7 +40,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.FIRE]: "#FF6600",  // Bright orange for fire
   [KASINA_TYPES.EARTH]: "#993300", // Terracotta red
   [KASINA_TYPES.SPACE]: "#330066", // Deep purple
-  [KASINA_TYPES.LIGHT]: "#FFFEFA"  // Light yellowish white (45% brighter)
+  [KASINA_TYPES.LIGHT]: "#FFFFCC"  // Light yellowish white with significantly increased brightness
 };
 
 // Background colors for elemental kasinas
