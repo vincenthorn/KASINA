@@ -116,7 +116,7 @@ const LoginPage: React.FC = () => {
         {/* Description Section */}
         <div style={sectionStyles}>
           <p style={paragraphStyles}>
-            <b>KASINA</b> is a visual meditation tool for those ready to deepen their concentration with a dynamic meditation object. 
+            <b>KASINA</b> is visual meditation software for those ready to deepen their concentration with a dynamic meditation object. 
             Inspired by ancient <i style={{ fontStyle: 'italic' }}>kasina</i> practices, reimagined for the modern meditator.
           </p>
           
