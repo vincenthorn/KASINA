@@ -296,5 +296,13 @@
     "duration": 60,
     "timestamp": "2025-05-16T22:04:16.058Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1747433520740",
+    "kasinaType": "fire",
+    "kasinaName": "Fire (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-16T22:12:00.740Z",
+    "userEmail": "user@kasina.app"
   }
 ]
