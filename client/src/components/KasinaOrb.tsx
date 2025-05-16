@@ -216,124 +216,108 @@ const fireShader = {
     varying vec3 vPosition;
     varying vec3 vNormal;
     
-    // Improved Perlin-like noise without visible patterns
+    // Improved noise functions
     float hash(float n) {
       return fract(sin(n) * 43758.5453);
     }
     
-    float noise(vec3 x) {
-      // The noise function returns a value in the range -1.0 -> 1.0
-      vec3 p = floor(x);
-      vec3 f = fract(x);
+    float noise(vec2 p) {
+      vec2 i = floor(p);
+      vec2 f = fract(p);
       f = f * f * (3.0 - 2.0 * f);
       
-      float n = p.x + p.y * 57.0 + p.z * 113.0;
+      float n = i.x + i.y * 57.0;
       return mix(
-        mix(
-          mix(hash(n), hash(n + 1.0), f.x),
-          mix(hash(n + 57.0), hash(n + 58.0), f.x),
-          f.y),
-        mix(
-          mix(hash(n + 113.0), hash(n + 114.0), f.x),
-          mix(hash(n + 170.0), hash(n + 171.0), f.x),
-          f.y),
-        f.z);
+        mix(hash(n), hash(n + 1.0), f.x),
+        mix(hash(n + 57.0), hash(n + 58.0), f.x),
+        f.y);
     }
     
-    // Turbulent fractal noise function
-    float turbulence(vec3 p, float octaves) {
-      float value = 0.0;
-      float amplitude = 1.0;
-      float frequency = 1.0;
+    // Candle flame shape function
+    float candleFlame(vec2 uv, float time) {
+      // Center the coordinates for the flame
+      vec2 flameUv = uv - 0.5;
       
-      // Add octaves of noise with decreasing amplitude and increasing frequency
-      for(float i = 0.0; i < octaves; i++) {
-        value += amplitude * abs(noise(p * frequency));
-        amplitude *= 0.5;
-        frequency *= 2.0;
-      }
+      // Convert to polar coordinates for better flame control
+      float radius = length(flameUv);
+      float angle = atan(flameUv.x, flameUv.y);
       
-      return value;
-    }
-    
-    // Flame function with more dynamic flame effects
-    float flameWorld(vec3 pos, float time) {
-      // Use position as base coordinates
-      float radius = length(pos);
-      vec3 nPos = normalize(pos);
+      // Create base flame shape (tear drop / elongated at top)
+      // Adjust the shape to look more like a candle flame (wider at bottom, pointed at top)
+      float flameShape = 0.45 - pow(radius * 2.0, 2.0) - flameUv.y * 0.5;
       
-      // Create a molten core for the fire world
-      float core = smoothstep(0.0, 0.7, radius);
+      // Add some asymmetry to the flame
+      flameShape += cos(angle * 2.0) * 0.05;
       
-      // Create layered turbulent noise for the flames
-      float flames = 0.0;
+      // Animate the flame with noise (flickering effect)
+      float flicker = 
+          noise(vec2(time * 1.5, time * 1.5)) * 0.03 + // Fast small flicker
+          noise(vec2(time * 0.5, time * 0.5)) * 0.05;  // Slow larger flicker
       
-      // Base layer - slow moving large flame structures
-      flames += turbulence(nPos * 2.0 + time * 0.05, 4.0) * 0.5;
+      // Add noise for flame detail along the edges
+      float detail = noise(vec2(flameUv.x * 10.0 + time, flameUv.y * 20.0 - time * 2.0)) * 0.1;
       
-      // Medium layer - medium speed flame details
-      flames += turbulence(nPos * 4.0 + time * 0.1, 3.0) * 0.3;
-      
-      // Fast layer - quick moving small flame details
-      flames += turbulence(nPos * 8.0 + time * 0.2, 2.0) * 0.2;
-      
-      // Create flame tendrils that extend beyond the sphere
-      float tendrils = 0.0;
-      
-      // Base on the normal to create directional flames
-      float dirFactor = mix(0.5, 1.0, dot(normalize(vNormal), vec3(0.0, 1.0, 0.0))); // More intense at top
-      tendrils = turbulence(nPos * 3.0 + vec3(0.0, time * 0.15, 0.0), 4.0) * dirFactor;
-      
-      // Extend the sphere with flame tendrils
-      float flameExtension = smoothstep(0.9, 1.0, radius) * tendrils * 0.3;
-      
-      // Create pulsating effect for the fire world
-      float pulse = sin(time * 0.2) * 0.05 + 0.05;
-      
-      // Combine all effects
-      return clamp(flames * core + flameExtension + pulse, 0.0, 1.0);
+      // Combine for final flame shape with animated details
+      return smoothstep(0.0, 0.1, flameShape + flicker + detail);
     }
     
     void main() {
-      // Calculate the fire world effect
-      float fireEffect = flameWorld(vPosition, time);
+      // Transform the sphere's UV coordinates to create a candle flame effect
+      // Map sphere coordinates to a 2D space focusing on front-facing section
       
-      // Create a vibrant color palette for the fire world
-      vec3 deepRed = vec3(0.5, 0.0, 0.0);        // Deep molten core
-      vec3 brightOrange = vec3(1.0, 0.4, 0.0);   // Main fire color
-      vec3 brightYellow = vec3(1.0, 0.9, 0.2);   // Bright flames
-      vec3 whiteHot = vec3(1.0, 1.0, 1.0);       // White-hot centers
+      // Extract a slice of the sphere for the flame effect
+      // Use vNormal to ensure the flame is always oriented correctly
+      vec2 flameUv;
       
-      // Create a glowing lava/magma base
-      float lavaPattern = noise(vPosition * 3.0 + time * 0.02) * 0.5 + 0.5;
+      // Project the position onto a plane 
+      // Scale Y to elongate the flame
+      flameUv.x = vPosition.x * 0.7;
+      flameUv.y = vPosition.y * 1.2; // Elongate vertically for flame shape
       
-      // Create cracks in the surface that show brighter color underneath
-      float cracks = pow(noise(vPosition * 5.0 + time * 0.01) * 0.5 + 0.5, 3.0);
+      // Calculate base candle flame
+      float flameIntensity = candleFlame(flameUv + 0.5, time);
       
-      // Mix colors based on the fire effect value for more dynamic coloring
+      // Adjust intensity based on distance from center to create 3D feeling
+      float distanceFromCenter = length(vPosition.xz);
+      flameIntensity *= smoothstep(0.7, 0.0, distanceFromCenter);
+      
+      // Adjust intensity based on y-position to make the flame taller
+      flameIntensity *= smoothstep(-0.5, 1.0, vPosition.y);
+      
+      // Create a richer color gradient for the candle flame
+      vec3 baseOrange = vec3(1.0, 0.3, 0.0);    // Deep orange at the edges
+      vec3 midYellow = vec3(1.0, 0.7, 0.0);     // Mid yellow-orange
+      vec3 brightYellow = vec3(1.0, 0.9, 0.2);  // Bright yellow
+      vec3 whiteCenter = vec3(1.0, 1.0, 1.0);   // White-hot center
+      
+      // Create color variation by height to mimic real flame
+      float heightFactor = smoothstep(-0.5, 0.9, vPosition.y);
+      
+      // Mix colors based on height and flame intensity
       vec3 finalColor;
-      if (fireEffect > 0.85) {
-        // White-hot areas
-        finalColor = mix(brightYellow, whiteHot, (fireEffect - 0.85) / 0.15);
-      } else if (fireEffect > 0.6) {
-        // Bright flames
-        finalColor = mix(brightOrange, brightYellow, (fireEffect - 0.6) / 0.25);
-      } else if (fireEffect > 0.3) {
-        // Main fire
-        finalColor = mix(deepRed, brightOrange, (fireEffect - 0.3) / 0.3);
+      if (heightFactor > 0.8 && flameIntensity > 0.7) {
+        // White-hot tip
+        finalColor = mix(brightYellow, whiteCenter, (heightFactor - 0.8) * 5.0);
+      } else if (heightFactor > 0.4) {
+        // Yellow middle
+        finalColor = mix(midYellow, brightYellow, (heightFactor - 0.4) * 2.5);
       } else {
-        // Molten core
-        finalColor = deepRed * (0.7 + fireEffect);
+        // Orange base
+        finalColor = mix(baseOrange, midYellow, heightFactor * 2.5);
       }
       
-      // Add the lava cracks effect
-      finalColor = mix(finalColor, brightYellow, cracks * 0.3);
+      // Add subtle flickering to the entire flame
+      float flicker = noise(vec2(time * 2.0, vPosition.y * 4.0)) * 0.1;
+      finalColor += flicker;
       
-      // Add emissive glow
-      finalColor += fireEffect * 0.2;
+      // Add glow for more vibrancy
+      finalColor += vec3(0.1, 0.05, 0.0) * flameIntensity;
       
-      // Output final color
-      gl_FragColor = vec4(finalColor, opacity);
+      // Create transparency at the edges to soften the flame
+      float alpha = flameIntensity * opacity;
+      
+      // Output final color with transparency
+      gl_FragColor = vec4(finalColor, alpha);
     }
   `
 };
