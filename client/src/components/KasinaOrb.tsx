@@ -426,7 +426,7 @@ const spaceShader = {
 const lightShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#ffffcc") },
+    color: { value: new THREE.Color("#ffffff") },
     opacity: { value: 1.0 }
   },
   vertexShader: `
