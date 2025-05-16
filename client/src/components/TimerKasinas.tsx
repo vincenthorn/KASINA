@@ -61,14 +61,17 @@ const TimerKasinas: React.FC = () => {
     const newColor = e.target.value;
     setTempCustomColor(newColor);
     
+    // Automatically select Custom Color when using the color picker or hex input
+    if (selectedKasina !== KASINA_TYPES.CUSTOM) {
+      setSelectedKasina(KASINA_TYPES.CUSTOM);
+    }
+    
     // Only update the actual custom color if it's a valid hex color
     if (/^#([0-9A-F]{3}){1,2}$/i.test(newColor)) {
       setCustomColor(newColor);
       
-      // If we're already on the custom kasina, update immediately
-      if (selectedKasina === KASINA_TYPES.CUSTOM) {
-        KASINA_COLORS[KASINA_TYPES.CUSTOM] = newColor;
-      }
+      // Update the color in the constants
+      KASINA_COLORS[KASINA_TYPES.CUSTOM] = newColor;
     }
   };
   
