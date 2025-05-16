@@ -50,7 +50,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
       {!isFocusMode && (
         <div className="w-64 bg-gray-900 border-r border-gray-800 p-4 hidden md:flex flex-col">
           <div className="mb-8 mt-4">
-            <Logo sidebarMode={true} />
+            <Logo sidebarMode={true} alwaysVertical={true} />
           </div>
           
           <nav className="flex-1 space-y-2">
@@ -107,7 +107,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
       {!isFocusMode && (
         <div className="md:hidden fixed top-0 left-0 right-0 bg-gray-900 z-10 border-b border-gray-800">
           <div className="flex items-center justify-between p-4">
-            <Logo size="small" showTagline={false} />
+            <Logo size="small" showTagline={false} alwaysVertical={false} />
             <div className="flex space-x-2">
               {/* Regular nav items */}
               {navItems.map((item) => (
