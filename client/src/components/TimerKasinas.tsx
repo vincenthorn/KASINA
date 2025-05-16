@@ -722,55 +722,41 @@ const TimerKasinas: React.FC = () => {
                             </Button>
                           </div>
                           
-                          {/* Custom Color Picker Section */}
-                          <div className="mt-2">
-                            <Separator className="mb-4" />
-                            <div className="space-y-4">
-                              {/* Custom Color Button */}
-                              <Button
-                                variant={selectedKasina === KASINA_TYPES.CUSTOM ? "default" : "outline"}
-                                onClick={() => setSelectedKasina(KASINA_TYPES.CUSTOM)}
-                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                                style={{ 
-                                  backgroundColor: selectedKasina === KASINA_TYPES.CUSTOM ? customColor : 'transparent',
-                                  color: selectedKasina === KASINA_TYPES.CUSTOM ? 
-                                    (isColorLight(customColor) ? 'black' : 'white') : 'white'
-                                }}
-                              >
-                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.CUSTOM]}</span>
-                                <span>Custom Color</span>
-                              </Button>
-                              
-                              {/* Color Picker Controls */}
-                              <div className="grid grid-cols-1 gap-3">
-                                <div>
-                                  <Label htmlFor="color-picker" className="text-sm text-white mb-1 block">
-                                    Choose a color:
-                                  </Label>
-                                  <input 
-                                    type="color" 
-                                    id="color-picker"
-                                    value={tempCustomColor}
-                                    onChange={handleCustomColorChange}
-                                    className="w-full h-10 rounded cursor-pointer"
-                                  />
-                                </div>
-                                
-                                <div>
-                                  <Label htmlFor="hex-input" className="text-sm text-white mb-1 block">
-                                    Hex code:
-                                  </Label>
-                                  <Input 
-                                    type="text"
-                                    id="hex-input"
-                                    value={tempCustomColor}
-                                    onChange={handleCustomColorChange}
-                                    placeholder="#RRGGBB"
-                                    pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-                                    className="bg-black/30 text-white border-white/30 focus:border-white"
-                                  />
-                                </div>
-                              </div>
+                          {/* Custom Color Picker Section - Compact Layout */}
+                          <div className="mt-3">
+                            <Button
+                              variant={selectedKasina === KASINA_TYPES.CUSTOM ? "default" : "outline"}
+                              onClick={() => setSelectedKasina(KASINA_TYPES.CUSTOM)}
+                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base mb-2"
+                              style={{ 
+                                backgroundColor: selectedKasina === KASINA_TYPES.CUSTOM ? customColor : 'transparent',
+                                color: selectedKasina === KASINA_TYPES.CUSTOM ? 
+                                  (isColorLight(customColor) ? 'black' : 'white') : 'white'
+                              }}
+                            >
+                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.CUSTOM]}</span>
+                              <span>Custom Color</span>
+                            </Button>
+                            
+                            {/* Compact Color Controls */}
+                            <div className="grid grid-cols-3 gap-2 items-center">
+                              <input 
+                                type="color" 
+                                id="color-picker"
+                                value={tempCustomColor}
+                                onChange={handleCustomColorChange}
+                                className="h-8 rounded cursor-pointer col-span-1"
+                                title="Choose a color"
+                              />
+                              <Input 
+                                type="text"
+                                id="hex-input"
+                                value={tempCustomColor}
+                                onChange={handleCustomColorChange}
+                                placeholder="#RRGGBB"
+                                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                                className="bg-black/30 text-white border-white/30 focus:border-white h-8 col-span-2 text-sm"
+                              />
                             </div>
                           </div>
                         </div>
