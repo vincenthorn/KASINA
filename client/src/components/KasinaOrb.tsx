@@ -194,7 +194,8 @@ const fireShader = {
   uniforms: {
     time: { value: 0 },
     color: { value: new THREE.Color("#ff6600") }, // Fiery orange base color
-    opacity: { value: 1.0 }
+    opacity: { value: 1.0 },
+    pulseIntensity: { value: 0.0 } // Added for external pulsing effect
   },
   vertexShader: `
     varying vec2 vUv;
@@ -212,6 +213,7 @@ const fireShader = {
     uniform float time;
     uniform vec3 color;
     uniform float opacity;
+    uniform float pulseIntensity; // External pulsing effect intensity
     varying vec2 vUv;
     varying vec3 vPosition;
     varying vec3 vNormal;
@@ -337,6 +339,15 @@ const fireShader = {
       
       // Add an emissive glow to make it look like it's radiating light
       finalColor += vec3(0.3, 0.2, 0.05); // Add baseline brightness
+      
+      // Add external pulsing illumination effect
+      // This creates a glow that pulses independently of the flame movement
+      vec3 pulseColor = vec3(1.0, 0.7, 0.3); // Warm golden glow color
+      float pulseFactor = pulseIntensity * 0.5; // Scale down the external pulse intensity
+      
+      // Add the pulse with distance-based falloff to create a radiating effect
+      float distFromEdge = smoothstep(0.8, 1.0, length(nPos));
+      finalColor += pulseColor * pulseFactor * distFromEdge * 3.0;
       
       // Final alpha is based on intensity with a very high minimum for visibility
       float alpha = max(intensity * 0.95, 0.8);
@@ -611,7 +622,21 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
             // Attempt to modify any shader uniforms that might affect the appearance
             const material = materialRef.current as THREE.ShaderMaterial;
             
-            if (selectedKasina === KASINA_TYPES.SPACE) {
+            if (selectedKasina === KASINA_TYPES.FIRE) {
+              // Animate the pulse intensity with a different rhythm than the scale animation
+              // This creates a more dynamic, interesting fire effect with multiple layers of movement
+              if (material.uniforms.pulseIntensity !== undefined) {
+                // Create a slower, more dramatic pulsing for the illumination effect
+                // This creates the effect of fire light radiating outward
+                const pulseTime = time * 0.5; // Slower than the main animation
+                const pulseCycle = (Math.sin(pulseTime) * 0.5 + 0.5); // 0 to 1 range
+                
+                // Create a more dramatic pulse with clear peaks and valleys
+                const adjustedPulse = Math.pow(pulseCycle, 1.2); // Steeper curve for more dramatic effect
+                material.uniforms.pulseIntensity.value = adjustedPulse * 1.0; // Stronger effect
+              }
+            }
+            else if (selectedKasina === KASINA_TYPES.SPACE) {
               if (material.uniforms.glowIntensity !== undefined) {
                 material.uniforms.glowIntensity.value = 0.5 + breatheCycle * 0.3;
               }
