@@ -738,25 +738,36 @@ const TimerKasinas: React.FC = () => {
                               <span>Custom Color</span>
                             </Button>
                             
-                            {/* Compact Color Controls */}
-                            <div className="grid grid-cols-3 gap-2 items-center">
-                              <input 
-                                type="color" 
-                                id="color-picker"
-                                value={tempCustomColor}
-                                onChange={handleCustomColorChange}
-                                className="h-8 rounded cursor-pointer col-span-1"
-                                title="Choose a color"
-                              />
-                              <Input 
-                                type="text"
-                                id="hex-input"
-                                value={tempCustomColor}
-                                onChange={handleCustomColorChange}
-                                placeholder="#RRGGBB"
-                                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-                                className="bg-black/30 text-white border-white/30 focus:border-white h-8 col-span-2 text-sm"
-                              />
+                            {/* Color Controls matching size of color buttons above */}
+                            <div className="grid grid-cols-2 gap-3 items-center">
+                              <Button
+                                variant="outline"
+                                className="w-full h-[70px] flex items-center justify-center"
+                              >
+                                <Input 
+                                  type="text"
+                                  id="hex-input"
+                                  value={tempCustomColor}
+                                  onChange={handleCustomColorChange}
+                                  placeholder="#RRGGBB"
+                                  pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                                  className="bg-black/30 text-white border-none focus:border-none focus:ring-0 w-full h-full text-center"
+                                />
+                              </Button>
+                              <Button
+                                variant="outline"
+                                className="w-full h-[70px] flex items-center justify-center p-0 overflow-hidden"
+                              >
+                                <input 
+                                  type="color" 
+                                  id="color-picker"
+                                  value={tempCustomColor}
+                                  onChange={handleCustomColorChange}
+                                  className="w-full h-full cursor-pointer border-none"
+                                  title="Choose a color"
+                                  style={{ backgroundColor: 'transparent' }}
+                                />
+                              </Button>
                             </div>
                           </div>
                         </div>
