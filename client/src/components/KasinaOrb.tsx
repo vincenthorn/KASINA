@@ -294,37 +294,39 @@ const fireShader = {
       // Create color gradient from bottom to top
       float heightGradient = smoothstep(-1.0, 1.0, y);
       
-      // Define flame colors
-      vec3 baseOrange = vec3(1.0, 0.4, 0.0);    // Base
-      vec3 midYellow = vec3(1.0, 0.7, 0.0);     // Middle
-      vec3 brightYellow = vec3(1.0, 0.9, 0.2);  // Upper middle
-      vec3 whiteTip = vec3(1.0, 1.0, 1.0);      // Tip
+      // Define much brighter flame colors
+      vec3 baseOrange = vec3(1.0, 0.5, 0.0);     // Brighter base orange
+      vec3 midYellow = vec3(1.0, 0.8, 0.0);      // Brighter mid yellow
+      vec3 brightYellow = vec3(1.0, 1.0, 0.3);   // Very bright yellow
+      vec3 whiteTip = vec3(1.0, 1.0, 1.0);       // Pure white tip
       
       // Mix colors based on height
       vec3 flameColor;
-      if (heightGradient > 0.8) {
+      if (heightGradient > 0.75) {
         // White tip at the very top
-        flameColor = mix(brightYellow, whiteTip, (heightGradient - 0.8) * 5.0);
-      } else if (heightGradient > 0.5) {
+        flameColor = mix(brightYellow, whiteTip, (heightGradient - 0.75) * 4.0);
+      } else if (heightGradient > 0.4) {
         // Bright yellow in the upper middle
-        flameColor = mix(midYellow, brightYellow, (heightGradient - 0.5) * 3.3);
+        flameColor = mix(midYellow, brightYellow, (heightGradient - 0.4) * 2.8);
       } else {
         // Orange to yellow gradient in the lower part
-        flameColor = mix(baseOrange, midYellow, heightGradient * 2.0);
+        flameColor = mix(baseOrange, midYellow, heightGradient * 2.5);
       }
       
-      // Add glow
-      flameColor += vec3(0.2, 0.1, 0.0) * flameShape;
+      // Add strong glow
+      flameColor += vec3(0.4, 0.2, 0.0) * flameShape;
       
-      // Add flicker variation to color
-      flameColor += flicker * vec3(0.2, 0.1, 0.0);
+      // Add brighter flicker variation to color
+      flameColor += flicker * vec3(0.3, 0.2, 0.0);
+      
+      // Enhance brightness overall
+      flameColor *= 1.5;
       
       // For fire and flame effects, we want the flame to be visible regardless of light conditions
       // This makes it look like it's emitting light
       
-      // Set alpha based on the flame shape
-      // Instead of subtle transparency, make it more clearly visible
-      float alpha = max(0.1, flameShape * 0.9 + 0.1); // Ensure some minimum opacity
+      // Set alpha based on the flame shape with higher opacity overall
+      float alpha = max(0.6, flameShape * 0.9 + 0.1); // Higher minimum opacity for better visibility
       
       // Output the final color
       gl_FragColor = vec4(flameColor, alpha);
