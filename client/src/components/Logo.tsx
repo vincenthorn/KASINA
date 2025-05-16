@@ -63,18 +63,18 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
   };
 
   return (
-    <div className={`${alwaysVertical ? 'flex-col' : 'md:flex-col flex'} items-center logo-container`}>
+    <div className={`${alwaysVertical ? 'flex-col' : 'md:flex-col flex'} items-center justify-center text-center w-full logo-container`}>
       {showOrb && (
-        <div className={`${alwaysVertical ? 'mb-4' : 'md:mb-4 mb-0 mr-3 md:mr-0'}`}>
+        <div className={`${alwaysVertical ? 'mb-4 flex justify-center' : 'md:mb-4 mb-0 mr-3 md:mr-0'}`}>
           <AnimatedOrb 
             size={orbSizes[size]} 
             reducedGlow={loginPage} 
           />
         </div>
       )}
-      <div className={`flex flex-col ${alwaysVertical ? 'items-center text-center' : ''}`}>
+      <div className={`flex flex-col w-full ${alwaysVertical ? 'items-center text-center' : ''}`}>
         <h1 
-          className={`font-bold ${sizeClasses[size]}`}
+          className={`font-bold ${sizeClasses[size]} text-center`}
           style={{ 
             color: currentColor,
             transition: "color 3s ease-in-out",
@@ -87,7 +87,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
           KASINA
         </h1>
         {showTagline && (
-          <p className={`text-white ${sidebarMode ? "-mt-1" : ""} ${
+          <p className={`text-white text-center w-full ${sidebarMode ? "-mt-1" : ""} ${
             sidebarMode ? "text-[10px]" : // Extra small for sidebar
             size === "large" ? "text-base" : 
             size === "medium" ? "text-sm" : 

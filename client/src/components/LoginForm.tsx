@@ -46,7 +46,7 @@ const LoginForm: React.FC = () => {
           borderRadius: "1rem",
         }}>
         <CardHeader className="flex flex-col items-center pt-20 pb-6">
-          <div className="mb-2">
+          <div className="mb-2 flex justify-center w-full">
             <Logo size="large" loginPage={true} alwaysVertical={true} />
           </div>
         </CardHeader>
