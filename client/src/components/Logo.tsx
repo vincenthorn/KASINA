@@ -72,7 +72,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
           />
         </div>
       )}
-      <div className="flex flex-col">
+      <div className={`flex flex-col ${alwaysVertical ? 'items-center text-center' : ''}`}>
         <h1 
           className={`font-bold ${sizeClasses[size]}`}
           style={{ 
