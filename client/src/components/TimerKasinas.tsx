@@ -89,9 +89,12 @@ const TimerKasinas: React.FC = () => {
     }
   }, [selectedKasina]);
   
-  // Reset session saved flag when the component mounts
+  // Reset session saved flag and default to White kasina when the component mounts
   useEffect(() => {
     sessionSavedRef.current = false;
+    
+    // Set White kasina as default when component mounts
+    setSelectedKasina(KASINA_TYPES.WHITE);
     
     // Reset saved flag when navigating or unmounting
     return () => {
