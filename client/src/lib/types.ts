@@ -4,7 +4,8 @@ export type KasinaType =
   | "white" 
   | "blue" 
   | "red" 
-  | "yellow" 
+  | "yellow"
+  | "custom" 
   // Elemental kasinas
   | "water" 
   | "air" 
@@ -20,6 +21,7 @@ export const getKasinaEmoji = (type: KasinaType): string => {
     blue: "🔵",
     red: "🔴",
     yellow: "🟡",
+    custom: "🎨",
     water: "💧",
     air: "💨",
     fire: "🔥",
@@ -40,7 +42,7 @@ export interface OrbConfig {
   particles?: boolean;
 }
 
-export const getOrbConfig = (type: KasinaType): OrbConfig => {
+export const getOrbConfig = (type: KasinaType, customColor?: string): OrbConfig => {
   const configs: Record<KasinaType, OrbConfig> = {
     // Color kasinas
     white: { 
@@ -66,6 +68,12 @@ export const getOrbConfig = (type: KasinaType): OrbConfig => {
       emissive: "#FFCC00", 
       speed: 0.35, 
       complexity: 1 
+    },
+    custom: {
+      color: customColor || "#8A2BE2", // Default to medium violet red if no custom color
+      emissive: customColor || "#9932CC", 
+      speed: 0.45,
+      complexity: 1
     },
     
     // Elemental kasinas

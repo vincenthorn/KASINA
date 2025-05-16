@@ -4,6 +4,7 @@ export const KASINA_TYPES = {
   BLUE: "blue",
   RED: "red",
   YELLOW: "yellow",
+  CUSTOM: "custom",
   WATER: "water",
   AIR: "air", 
   FIRE: "fire",
@@ -18,6 +19,7 @@ export const KASINA_NAMES: Record<string, string> = {
   [KASINA_TYPES.BLUE]: "Blue",
   [KASINA_TYPES.RED]: "Red",
   [KASINA_TYPES.YELLOW]: "Yellow",
+  [KASINA_TYPES.CUSTOM]: "Custom Color",
   [KASINA_TYPES.WATER]: "Water",
   [KASINA_TYPES.AIR]: "Air",
   [KASINA_TYPES.FIRE]: "Fire",
@@ -32,6 +34,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.BLUE]: "#0000FF",
   [KASINA_TYPES.RED]: "#FF0000",
   [KASINA_TYPES.YELLOW]: "#FFFF00",
+  [KASINA_TYPES.CUSTOM]: "#8A2BE2", // Default to a medium violet red for custom
   [KASINA_TYPES.WATER]: "#0065b3", // Deeper ocean blue for water
   [KASINA_TYPES.AIR]: "#a0d6f7",   // Distinct medium sky blue with a hint of aqua
   [KASINA_TYPES.FIRE]: "#FF6600",  // Bright orange for fire
@@ -46,6 +49,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.BLUE]: "#000000",  // Default black
   [KASINA_TYPES.RED]: "#000000",   // Default black
   [KASINA_TYPES.YELLOW]: "#000000", // Default black
+  [KASINA_TYPES.CUSTOM]: "#000000", // Default black
   [KASINA_TYPES.WATER]: "#001a33", // Deep oceanic blue background
   [KASINA_TYPES.AIR]: "#1a4b75",   // Darker sky blue (changed from steel blue)
   [KASINA_TYPES.FIRE]: "#330000",  // Deep dark red background
@@ -60,6 +64,7 @@ export const KASINA_EMOJIS: Record<string, string> = {
   [KASINA_TYPES.BLUE]: "🔵",
   [KASINA_TYPES.RED]: "🔴",
   [KASINA_TYPES.YELLOW]: "🟡",
+  [KASINA_TYPES.CUSTOM]: "🎨",
   [KASINA_TYPES.WATER]: "💧",
   [KASINA_TYPES.AIR]: "💨",
   [KASINA_TYPES.FIRE]: "🔥",

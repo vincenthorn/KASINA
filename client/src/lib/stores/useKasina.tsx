@@ -6,7 +6,9 @@ import { apiRequest } from "../api";
 
 interface KasinaState {
   selectedKasina: string;
+  customColor: string;
   setSelectedKasina: (type: string) => void;
+  setCustomColor: (color: string) => void;
   getKasinaColor: (type: string) => string;
   getKasinaEmoji: (type: string) => string;
   saveSession: (session: Omit<KasinaSession, "id">) => Promise<void>;
@@ -16,13 +18,27 @@ interface KasinaState {
 export const useKasina = create<KasinaState>((set, get) => ({
   // Default to white kasina or last used
   selectedKasina: getLocalStorage("selectedKasina", KASINA_TYPES.WHITE),
+  customColor: getLocalStorage("customColor", "#8A2BE2"), // Default to medium violet red
   
   setSelectedKasina: (type: string) => {
     set({ selectedKasina: type });
     setLocalStorage("selectedKasina", type);
   },
   
+  setCustomColor: (color: string) => {
+    set({ customColor: color });
+    setLocalStorage("customColor", color);
+    
+    // If the current selection is custom, we need to update KASINA_COLORS directly
+    if (get().selectedKasina === KASINA_TYPES.CUSTOM) {
+      KASINA_COLORS[KASINA_TYPES.CUSTOM] = color;
+    }
+  },
+  
   getKasinaColor: (type: string) => {
+    if (type === KASINA_TYPES.CUSTOM) {
+      return get().customColor;
+    }
     return KASINA_COLORS[type] || "#FFFFFF";
   },
   
