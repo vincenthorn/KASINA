@@ -685,8 +685,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         meshRef.current.rotation.x = 0;
         meshRef.current.rotation.z = 0;
       } else {
-        // Regular rotation for other kasinas
-        meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
+        // Regular rotation for other kasinas at half the original speed
+        meshRef.current.rotation.y = clock.getElapsedTime() * 0.05; // Reduced from 0.1 to 0.05 (half speed)
       }
       
       // Shrinking effect for end of session (when remaining time is <= 60 seconds)
