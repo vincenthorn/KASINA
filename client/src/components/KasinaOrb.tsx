@@ -480,13 +480,18 @@ const airShader = {
 const earthShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#613a00") },
+    color: { value: new THREE.Color("#CC6633") }, // Warm terracotta clay color
     opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
     void main() {
       vUv = uv;
+      vPosition = position;
+      vNormal = normalize(normalMatrix * normal);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -494,21 +499,81 @@ const earthShader = {
     uniform float time;
     uniform vec3 color;
     varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
     
+    // Noise function for clay-like texture
     float rand(vec2 co) {
       return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
     }
     
+    // Worley noise for natural clay texture
+    float worleyNoise(vec2 uv, float scale) {
+      vec2 id = floor(uv * scale);
+      vec2 lv = fract(uv * scale);
+      
+      float minDist = 1.0;
+      
+      for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+          vec2 offset = vec2(float(x), float(y));
+          vec2 pos = offset + 0.5 + 0.3 * vec2(
+            sin(rand(id + offset) * 6.28),
+            cos(rand(id + offset + vec2(1.0, 2.0)) * 6.28)
+          );
+          float dist = length(pos - lv);
+          minDist = min(minDist, dist);
+        }
+      }
+      
+      return minDist;
+    }
+    
     void main() {
-      vec2 uv = vUv;
+      // Base terracotta clay color
       vec3 baseColor = color;
       
-      // Add some texture and variation
-      float noise = rand(floor(uv * 30.0 + time * 0.1));
-      float d = length(uv - vec2(0.5, 0.5));
+      // Create natural clay-like texture with granular detail
+      // Combine multiple scales of Worley noise patterns
+      float clayTexture = 0.0;
       
-      vec3 finalColor = mix(baseColor, baseColor * 1.2, noise * (1.0 - d));
-      gl_FragColor = vec4(finalColor, 1.0);
+      // Clay granular structure at different scales
+      float large = worleyNoise(vUv * 2.0, 4.0);
+      float medium = worleyNoise(vUv * 4.0, 8.0);
+      float small = worleyNoise(vUv * 8.0, 16.0);
+      
+      // Combine the different scales with varying weights
+      clayTexture = large * 0.6 + medium * 0.3 + small * 0.1;
+      
+      // Add some slow-moving subtle variation
+      float timeShift = sin(time * 0.05) * 0.02;
+      clayTexture += timeShift;
+      
+      // Distance from center for lighting effect
+      float d = length(vUv - vec2(0.5, 0.5));
+      
+      // Create a solid, firm appearance with subtle lighting
+      // Make the edges a bit darker to enhance the 3D solid appearance
+      float lightIntensity = 1.0 - smoothstep(0.0, 0.8, d);
+      
+      // Add shading based on normal direction for 3D effect
+      float normalShading = 0.5 + 0.5 * dot(vNormal, vec3(0.5, 0.5, 0.5));
+      
+      // Mix darker and lighter variations of the clay color
+      vec3 darkClay = baseColor * 0.7;  // Darker variation
+      vec3 lightClay = baseColor * 1.3; // Lighter variation
+      
+      // Create the final clay appearance with texture and lighting
+      vec3 clayColor = mix(darkClay, lightClay, clayTexture);
+      
+      // Apply subtle ambient and directional lighting
+      clayColor *= 0.7 + 0.3 * normalShading + 0.2 * lightIntensity;
+      
+      // Add very subtle surface irregularities
+      float surfaceNoise = rand(vUv * 100.0) * 0.05;
+      clayColor *= 0.97 + surfaceNoise;
+      
+      gl_FragColor = vec4(clayColor, 1.0);
     }
   `
 };
