@@ -92,7 +92,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
             size === "large" ? "text-base" : 
             size === "medium" ? "text-sm" : 
             "text-xs"
-          }`}>A Visual Meditation Tool</p>
+          }`}>A Dynamic Meditation Object</p>
         )}
       </div>
     </div>
