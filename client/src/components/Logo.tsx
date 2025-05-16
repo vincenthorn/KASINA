@@ -11,6 +11,7 @@ interface LogoProps {
   showOrb?: boolean;
   sidebarMode?: boolean; // Special mode for sidebar with extra-small tagline
   loginPage?: boolean; // Special mode for login page with reduced glow
+  alwaysVertical?: boolean; // Force vertical layout regardless of screen size
 }
 
 const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }> = ({ 
@@ -19,6 +20,7 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
   showOrb = true,
   sidebarMode = false,
   loginPage = false,
+  alwaysVertical = false,
   onExport
 }) => {
 
@@ -61,9 +63,9 @@ const Logo: React.FC<LogoProps & { onExport?: (format: 'svg' | 'png') => void }>
   };
 
   return (
-    <div className="md:flex-col flex items-center logo-container">
+    <div className={`${alwaysVertical ? 'flex-col' : 'md:flex-col flex'} items-center logo-container`}>
       {showOrb && (
-        <div className="md:mb-4 mb-0 mr-3 md:mr-0">
+        <div className={`${alwaysVertical ? 'mb-4' : 'md:mb-4 mb-0 mr-3 md:mr-0'}`}>
           <AnimatedOrb 
             size={orbSizes[size]} 
             reducedGlow={loginPage} 
