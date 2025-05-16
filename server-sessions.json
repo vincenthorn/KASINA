@@ -248,5 +248,13 @@
     "duration": 60,
     "timestamp": "2025-05-14T23:26:20.883Z",
     "userEmail": "admin@kasina.app"
+  },
+  {
+    "id": "1747399709659",
+    "kasinaType": "custom",
+    "kasinaName": "Custom (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-16T12:48:29.659Z",
+    "userEmail": "user@kasina.app"
   }
 ]

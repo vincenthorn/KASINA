@@ -116,7 +116,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
     if (!sessions || sessions.length === 0) return [];
     
     // Group the kasina types into "color" and "elemental" categories
-    const colorKasinas = ['white', 'blue', 'red', 'yellow'];
+    const colorKasinas = ['white', 'blue', 'red', 'yellow', 'custom'];
     const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
     
     // Prepare data based on current mode
