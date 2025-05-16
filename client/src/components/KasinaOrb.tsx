@@ -460,7 +460,7 @@ const lightShader = {
 
 // Dynamic Orb component with shader materials
 const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime = null }) => {
-  const { selectedKasina } = useKasina();
+  const { selectedKasina, customColor } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
   
@@ -615,8 +615,14 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         return new THREE.ShaderMaterial({...spaceShader, transparent: true});
       case KASINA_TYPES.LIGHT:
         return new THREE.ShaderMaterial({...lightShader, transparent: true});
+      case KASINA_TYPES.CUSTOM:
+        // For custom color kasina
+        return new THREE.MeshBasicMaterial({ 
+          color: customColor,
+          transparent: true
+        });
       default:
-        // For basic color kasinas
+        // For standard color kasinas
         return new THREE.MeshBasicMaterial({ 
           color: KASINA_COLORS[selectedKasina],
           transparent: true
@@ -630,7 +636,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       meshRef.current.material = material;
       materialRef.current = material;
     }
-  }, [selectedKasina]);
+  }, [selectedKasina, customColor]);
 
   return (
     <mesh ref={meshRef}>
