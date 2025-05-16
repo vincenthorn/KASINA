@@ -431,8 +431,10 @@ const lightShader = {
   },
   vertexShader: `
     varying vec2 vUv;
+    varying vec3 vNormal;
     void main() {
       vUv = uv;
+      vNormal = normalize(normalMatrix * normal);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -440,19 +442,25 @@ const lightShader = {
     uniform float time;
     uniform vec3 color;
     varying vec2 vUv;
+    varying vec3 vNormal;
     
     void main() {
       vec2 uv = vUv;
       float d = length(uv - vec2(0.5, 0.5));
       
       // Much more gentle falloff at edges, keeping most of the orb bright
-      float brightness = 1.0 - smoothstep(0.4, 0.5, d);
+      float brightness = 1.0 - smoothstep(0.45, 0.5, d);
       
       // Gentle pulsing effect
       float pulse = 0.05 * sin(time * 1.5);
       
-      // Add extra brightness to the whole orb
-      vec3 finalColor = color * (brightness + pulse + 0.2);
+      // Calculate lighting factor based on normal
+      // This makes the light source always come from the viewer's direction
+      vec3 lightDir = vec3(0.0, 0.0, 1.0); // Light from camera direction
+      float lightFactor = max(0.85, dot(vNormal, lightDir)); // Minimum 85% brightness
+      
+      // Add extra brightness to the whole orb with lightFactor to eliminate dark side
+      vec3 finalColor = color * (brightness + pulse + 0.25) * lightFactor;
       gl_FragColor = vec4(finalColor, 1.0);
     }
   `
@@ -466,8 +474,21 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   
   useFrame(({ clock }) => {
     if (meshRef.current) {
-      // Gentle rotation
-      meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
+      // Special rotation handling for Light kasina
+      if (selectedKasina === KASINA_TYPES.LIGHT) {
+        // Limited 180 degree oscillation with dark side always facing away
+        const time = clock.getElapsedTime();
+        // Use sine wave to create oscillation between -0.5 and 0.5 (radians)
+        meshRef.current.rotation.y = Math.sin(time * 0.1) * 0.5;
+        
+        // Always keep the initial orientation facing the camera
+        // This ensures the brighter side faces the user
+        meshRef.current.rotation.x = 0;
+        meshRef.current.rotation.z = 0;
+      } else {
+        // Regular rotation for other kasinas
+        meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
+      }
       
       // Shrinking effect for end of session (when remaining time is <= 60 seconds)
       if (remainingTime !== null && remainingTime <= 60) {
