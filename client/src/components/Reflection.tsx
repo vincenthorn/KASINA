@@ -60,7 +60,10 @@ const Reflection = () => {
   useEffect(() => {
     // Log sessions data for debugging
     console.log('Raw sessions data:', filteredSessions);
-    console.log('OM kasina sessions:', filteredSessions.filter(s => s.kasinaType === 'om_kasina'));
+    console.log('OM kasina sessions check:', filteredSessions.filter(s => {
+      console.log('Session kasinaType:', s.kasinaType, typeof s.kasinaType);
+      return s.kasinaType && s.kasinaType.toLowerCase().includes('om');
+    }));
     
     // Directly use the kasina series from constants
     const colorKasinas = KASINA_SERIES.COLOR;
