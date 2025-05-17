@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from './ui/select';
 import { useKasina } from '../lib/stores/useKasina';
-import { KASINA_NAMES, KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS, KASINA_EMOJIS } from '../lib/constants';
+import { KASINA_NAMES, KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS, KASINA_EMOJIS, KASINA_SERIES } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import { useFocusMode } from '../lib/stores/useFocusMode';
 import SimpleTimer from './SimpleTimer';
@@ -17,6 +17,7 @@ import notificationManager from '../lib/notificationManager';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Separator } from './ui/separator';
+import { useAuth } from '../lib/stores/useAuth';
 
 // Utility function to determine if a color is light or dark
 // Used to set text color for better contrast
@@ -44,6 +45,10 @@ const TimerKasinas: React.FC = () => {
   const { selectedKasina, customColor, setSelectedKasina, setCustomColor, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const { timeRemaining, duration } = useSimpleTimer();
+  const { email } = useAuth(); // Get user email to check if admin
+  
+  // Check if user is admin
+  const isAdmin = email === "admin@kasina.app";
   
   // Add this ref to prevent multiple session saves
   const sessionSavedRef = useRef(false);
@@ -662,6 +667,17 @@ const TimerKasinas: React.FC = () => {
                               <span>Elemental Kasinas</span>
                             </span>
                           </SelectItem>
+                          {/* Vajrayana Kasinas - only visible to admin users */}
+                          {isAdmin && (
+                            <SelectItem value="vajrayana" className="hover:bg-white/10 focus:bg-white/10 py-2">
+                              <span className="flex items-center">
+                                <span className="flex gap-1 mr-2">
+                                  <span>💀</span>
+                                </span>
+                                <span>Vajrayana Kasinas</span>
+                              </span>
+                            </SelectItem>
+                          )}
                         </SelectContent>
                       </Select>
                     </div>
