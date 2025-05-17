@@ -58,12 +58,18 @@ const Reflection = () => {
 
   // Prepare pie chart data
   useEffect(() => {
-    // Log sessions data for debugging
-    console.log('Raw sessions data:', filteredSessions);
-    console.log('OM kasina sessions check:', filteredSessions.filter(s => {
-      console.log('Session kasinaType:', s.kasinaType, typeof s.kasinaType);
-      return s.kasinaType && s.kasinaType.toLowerCase().includes('om');
-    }));
+    // Process the sessions to ensure proper categorization
+    // Special fix for OM Kasina sessions - map any 'om kasina' style entries to 'om_kasina'
+    const processedSessions = filteredSessions.map(session => {
+      const kasinaType = session.kasinaType;
+      
+      // If it's an OM Kasina (case-insensitive), normalize to 'om_kasina'
+      if (typeof kasinaType === 'string' && kasinaType.toLowerCase().includes('om')) {
+        return { ...session, kasinaType: 'om_kasina' };
+      }
+      
+      return session;
+    });
     
     // Directly use the kasina series from constants
     const colorKasinas = KASINA_SERIES.COLOR;
@@ -80,7 +86,7 @@ const Reflection = () => {
     // Process color kasinas
     const colorData = colorKasinas
       .map(type => {
-        const sessionsOfType = filteredSessions.filter(s => s.kasinaType === type);
+        const sessionsOfType = processedSessions.filter(s => s.kasinaType === type);
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
         colorTotal += duration;
         
@@ -100,7 +106,7 @@ const Reflection = () => {
     // Process elemental kasinas
     const elementalData = elementalKasinas
       .map(type => {
-        const sessionsOfType = filteredSessions.filter(s => s.kasinaType === type);
+        const sessionsOfType = processedSessions.filter(s => s.kasinaType === type);
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
         elementalTotal += duration;
         
@@ -120,21 +126,9 @@ const Reflection = () => {
     // Process vajrayana kasinas
     const vajrayanaData = vajrayanaKasinas
       .map(type => {
-        // Special handling for all Vajrayana kasinas
-        let sessionsOfType;
-
-        // For OM Kasina, look for any session containing "om" regardless of case or format
-        if (type === 'om_kasina') {
-          sessionsOfType = filteredSessions.filter(s => 
-            typeof s.kasinaType === 'string' && 
-            s.kasinaType.toLowerCase().includes('om')
-          );
-          console.log('Found OM Kasina sessions:', sessionsOfType);
-        } 
-        // For other Vajrayana kasinas, use the default filter
-        else {
-          sessionsOfType = filteredSessions.filter(s => s.kasinaType === type);
-        }
+        // Using our normalized sessions data
+        const sessionsOfType = processedSessions.filter(s => s.kasinaType === type);
+        console.log(`Found ${type} sessions:`, sessionsOfType);
         
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
         vajrayanaTotal += duration;
