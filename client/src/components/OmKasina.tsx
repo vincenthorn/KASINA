@@ -96,17 +96,29 @@ const OmKasina = () => {
         <meshBasicMaterial color="#f0f0ff" />
       </mesh>
       
-      {/* OM Syllable - larger and perfectly centered */}
-      <mesh position={[0, 0, 0.002]}>
-        <planeGeometry args={[0.55, 0.55]} /> 
+      {/* 3D Shadow effect for OM Syllable */}
+      <mesh position={[0.008, -0.008, 0.001]}>
+        <planeGeometry args={[0.8, 0.8]} /> 
         <meshBasicMaterial 
           map={omTexture} 
           transparent={true}
-          opacity={1.0} 
+          opacity={0.5}
+          color="#222266"
         />
       </mesh>
       
-      {/* Inner dot */}
+      {/* OM Syllable - larger and perfectly centered */}
+      <mesh position={[0, 0, 0.002]}>
+        <planeGeometry args={[0.8, 0.8]} /> 
+        <meshBasicMaterial 
+          map={omTexture} 
+          transparent={true}
+          opacity={1.0}
+          color="#0033aa" 
+        />
+      </mesh>
+      
+      {/* Inner dot - keeping it as part of the design */}
       <mesh position={[0, 0, 0.001]}>
         <circleGeometry args={[0.05, 32]} />
         <meshBasicMaterial color="#ffffff" />
