@@ -672,10 +672,23 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   const { selectedKasina, customColor } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
-  const { email } = useAuth(); // Get user email to check if admin
+  const { email } = useAuth(); // Get user email to check if admin or premium
   
   // Check if user is admin
   const isAdmin = email === "admin@kasina.app";
+  
+  // Define premium users - these users get access to Vajrayana kasinas
+  const premiumEmails = [
+    'admin@kasina.app',   // Admin always has premium features
+    'premium@kasina.app', // Test premium account
+    'brian@terma.asia',   // Premium users
+    'emilywhorn@gmail.com',
+    'ryan@ryanoelke.com',
+    'ksowocki@gmail.com'
+  ];
+  
+  // Check if current user is premium
+  const isPremium = email ? premiumEmails.includes(email) : false;
   
   // For White A Thigle - load the simple concentric rings
   const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
@@ -684,7 +697,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   useFrame(({ clock, camera }) => {
     if (meshRef.current) {
       // White A Thigle - make the plane always face the camera
-      if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isAdmin) {
+      if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isPremium) {
         // Get camera position and make the plane face it
         meshRef.current.lookAt(camera.position);
         
@@ -929,7 +942,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
           
           return material;
         } else {
-          console.log("Non-admin tried to access White A Thigle kasina, falling back to white");
+          console.log("Non-premium user tried to access White A Thigle kasina, falling back to white");
           return new THREE.MeshBasicMaterial({ 
             color: KASINA_COLORS.white,
             transparent: true
