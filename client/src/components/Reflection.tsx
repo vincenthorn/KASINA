@@ -117,7 +117,14 @@ const Reflection = () => {
     // Process vajrayana kasinas
     const vajrayanaData = vajrayanaKasinas
       .map(type => {
-        const sessionsOfType = filteredSessions.filter(s => s.kasinaType === type);
+        // Add console log to debug sessions of this type
+        console.log(`Checking for Vajrayana type "${type}":`, filteredSessions.filter(s => s.kasinaType === type));
+        
+        // Make sure we're filtering correctly for OM Kasina
+        const sessionsOfType = type === 'om_kasina' 
+          ? filteredSessions.filter(s => s.kasinaType === 'om_kasina' || s.kasinaType === 'Om kasina') 
+          : filteredSessions.filter(s => s.kasinaType === type);
+        
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
         vajrayanaTotal += duration;
         
