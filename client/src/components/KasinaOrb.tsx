@@ -968,17 +968,65 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     }
   }, [selectedKasina, isAdmin]);
   
+  // Use a simple approach for White A Thigle with multiple circle meshes
   if (isWhiteAThigle) {
+    // Create a container reference
+    const groupRef = useRef<THREE.Group>(null);
+    
+    // Handle animation
+    useFrame(({ clock, camera }) => {
+      if (groupRef.current) {
+        const time = clock.getElapsedTime();
+        
+        // Make the group face the camera
+        groupRef.current.lookAt(camera.position);
+        
+        // Add subtle floating motion
+        groupRef.current.position.y = Math.sin(time * 0.5) * 0.08;
+        groupRef.current.position.x = Math.sin(time * 0.3) * 0.04;
+        
+        // Add subtle pulsing effect
+        const pulse = 1.0 + Math.sin(time * 0.4) * 0.02;
+        groupRef.current.scale.set(pulse, pulse, pulse);
+      }
+    });
+    
     return (
-      <group>
-        {/* Use a perfectly square plane to maintain the image aspect ratio */}
-        <mesh ref={meshRef}>
-          <planeGeometry args={[1.8, 1.8]} /> {/* Size adjusted to be more proportional */}
-          <meshBasicMaterial 
-            map={whiteAImageTexture}
-            transparent={true} 
-            side={THREE.DoubleSide}
-          />
+      <group ref={groupRef}>
+        {/* Blue background disc */}
+        <mesh position={[0, 0, -0.005]}>
+          <circleGeometry args={[1.3, 64]} />
+          <meshBasicMaterial color="#0044ff" />
+        </mesh>
+        
+        {/* Yellow ring (outermost) */}
+        <mesh position={[0, 0, -0.004]}>
+          <circleGeometry args={[1.2, 64]} />
+          <meshBasicMaterial color="#ffff00" />
+        </mesh>
+        
+        {/* Red ring */}
+        <mesh position={[0, 0, -0.003]}>
+          <circleGeometry args={[0.95, 64]} />
+          <meshBasicMaterial color="#ff0000" />
+        </mesh>
+        
+        {/* White ring */}
+        <mesh position={[0, 0, -0.002]}>
+          <circleGeometry args={[0.7, 64]} />
+          <meshBasicMaterial color="#ffffff" />
+        </mesh>
+        
+        {/* Green ring */}
+        <mesh position={[0, 0, -0.001]}>
+          <circleGeometry args={[0.5, 64]} />
+          <meshBasicMaterial color="#00cc00" />
+        </mesh>
+        
+        {/* Blue center */}
+        <mesh position={[0, 0, 0]}>
+          <circleGeometry args={[0.3, 64]} />
+          <meshBasicMaterial color="#0044ff" />
         </mesh>
       </group>
     );
@@ -990,6 +1038,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     );
   }
 };
+
+// Shader definition moved inside the DynamicOrb component to avoid reference issues
 
 // Scene setup component
 const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> = ({ 
