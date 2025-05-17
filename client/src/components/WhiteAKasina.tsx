@@ -92,8 +92,8 @@ const WhiteAKasina = () => {
       </mesh>
       
       {/* 3D Shadow effect for Tibetan 'A' symbol */}
-      <mesh position={[0.03, -0.03, 0.002]}>
-        <planeGeometry args={[0.9, 0.9]} />
+      <mesh position={[0.04, -0.04, 0.002]}>
+        <planeGeometry args={[1.35, 1.35]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
@@ -102,9 +102,9 @@ const WhiteAKasina = () => {
         />
       </mesh>
       
-      {/* Tibetan 'A' symbol - 12x larger than original */}
+      {/* Tibetan 'A' symbol - 50% larger than previous size */}
       <mesh position={[0, 0, 0.003]}>
-        <planeGeometry args={[0.9, 0.9]} />
+        <planeGeometry args={[1.35, 1.35]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
