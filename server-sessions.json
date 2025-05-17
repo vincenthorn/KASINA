@@ -376,5 +376,13 @@
     "duration": 60,
     "timestamp": "2025-05-17T03:55:17.712Z",
     "userEmail": "admin@kasina.app"
+  },
+  {
+    "id": "1747487068526",
+    "kasinaType": "white_a_thigle",
+    "kasinaName": "White_a_thigle (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T13:04:28.526Z",
+    "userEmail": "admin@kasina.app"
   }
 ]

@@ -929,7 +929,7 @@ const TimerKasinas: React.FC = () => {
                             </div>
                           ) : (
                             // Non-premium users see a subscription message
-                            <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-md border border-indigo-500/20">
+                            <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-2xl border border-indigo-500/20 overflow-hidden shadow-xl">
                               <div className="text-center mb-4">
                                 <h3 className="text-2xl font-bold text-white mb-3">
                                   <span className="mr-2">💀</span>
@@ -943,7 +943,7 @@ const TimerKasinas: React.FC = () => {
                                 href="https://www.contemplative.technology/subscribe" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-md font-medium shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all"
+                                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-8 rounded-full font-medium shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105"
                               >
                                 Upgrade to Premium
                               </a>
