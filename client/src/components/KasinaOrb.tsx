@@ -676,8 +676,9 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   // Check if user is admin
   const isAdmin = email === "admin@kasina.app";
   
-  // For White A Thigle - load texture
+  // For White A Thigle - load both SVG and direct image texture
   const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
+  const whiteAImageTexture = useTexture('/images/vajrayana/white-a-thigle-texture.webp');
   
   useFrame(({ clock, camera }) => {
     if (meshRef.current) {
@@ -970,9 +971,14 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   if (isWhiteAThigle) {
     return (
       <group>
-        {/* Main thigle with the shader that draws all the concentric circles */}
+        {/* Use a simple plane with direct texture mapping for reliable display */}
         <mesh ref={meshRef}>
-          <circleGeometry args={[1, 64]} />
+          <planeGeometry args={[2, 2]} />
+          <meshBasicMaterial 
+            map={whiteAImageTexture}
+            transparent={true} 
+            side={THREE.DoubleSide}
+          />
         </mesh>
       </group>
     );
