@@ -416,7 +416,10 @@ const Reflection = () => {
                         <td className="py-3 px-4">{formatDate(session.date)}</td>
                         <td className="py-3 px-4">
                           <span className="mr-2">{KASINA_EMOJIS[session.kasinaType] || '🧿'}</span>
-                          {KASINA_NAMES[session.kasinaType] || session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina
+                          {session.kasinaType === 'clear_light_thigle' 
+                            ? 'Clear Light Thigle Kasina'
+                            : KASINA_NAMES[session.kasinaType] || session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
+                          }
                         </td>
                         <td className="py-3 px-4">
                           <span className="px-3 py-1 bg-indigo-600/30 text-indigo-200 rounded-full text-sm font-medium">
