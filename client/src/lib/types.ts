@@ -12,7 +12,9 @@ export type KasinaType =
   | "fire" 
   | "earth" 
   | "space" 
-  | "light";
+  | "light"
+  // Vajrayana kasinas (admin only)
+  | "white_a_thigle";
 
 // Emojis for different kasina types
 export const getKasinaEmoji = (type: KasinaType): string => {
@@ -28,6 +30,7 @@ export const getKasinaEmoji = (type: KasinaType): string => {
     earth: "🌍",
     space: "✨",
     light: "☀️",
+    WHITE_A_THIGLE: "💀",
   };
   
   return emojis[type] || "🟠";
@@ -117,6 +120,13 @@ export const getOrbConfig = (type: KasinaType, customColor?: string): OrbConfig 
       speed: 0.4, 
       complexity: 2,
       particles: true 
+    },
+    // Vajrayana kasinas
+    WHITE_A_THIGLE: {
+      color: "#FFFFFF",
+      emissive: "#FFFFFF",
+      speed: 0.2,
+      complexity: 2
     },
   };
   

@@ -679,10 +679,22 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   // For White A Thigle - load texture
   const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.jpeg');
   
-  useFrame(({ clock }) => {
+  useFrame(({ clock, camera }) => {
     if (meshRef.current) {
+      // White A Thigle - make the plane always face the camera
+      if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isAdmin) {
+        // Get camera position and make the plane face it
+        meshRef.current.lookAt(camera.position);
+        
+        // Add a subtle floating motion
+        const time = clock.getElapsedTime();
+        meshRef.current.position.y = Math.sin(time * 0.5) * 0.05;
+        
+        // Add a very subtle rotation while still facing the camera
+        meshRef.current.rotation.z = Math.sin(time * 0.2) * 0.03;
+      }
       // Special rotation handling for Light kasina
-      if (selectedKasina === KASINA_TYPES.LIGHT) {
+      else if (selectedKasina === KASINA_TYPES.LIGHT) {
         // Limited 180 degree oscillation with dark side always facing away
         const time = clock.getElapsedTime();
         // Use sine wave to create oscillation between -0.5 and 0.5 (radians)
