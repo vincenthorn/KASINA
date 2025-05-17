@@ -480,5 +480,13 @@
     "duration": 60,
     "timestamp": "2025-05-17T15:40:51.429Z",
     "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747501447957",
+    "kasinaType": "ah_kasina",
+    "kasinaName": "Ah_kasina (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T17:04:07.957Z",
+    "userEmail": "premium@kasina.app"
   }
 ]
