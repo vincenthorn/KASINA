@@ -13,6 +13,7 @@ export const KASINA_TYPES = {
   LIGHT: "light",
   // Vajrayana Series
   WHITE_A_THIGLE: "clear_light_thigle", // Updated name from white_a_thigle
+  WHITE_A_KASINA: "white_a_kasina", // New White A Kasina
   OM_KASINA: "om_kasina",
   AH_KASINA: "ah_kasina",
   HUM_KASINA: "hum_kasina"
@@ -35,6 +36,7 @@ export const KASINA_NAMES: Record<string, string> = {
   [KASINA_TYPES.LIGHT]: "Light",
   // Vajrayana Series
   [KASINA_TYPES.WHITE_A_THIGLE]: "Clear Light",
+  [KASINA_TYPES.WHITE_A_KASINA]: "White A",
   [KASINA_TYPES.OM_KASINA]: "OM",
   [KASINA_TYPES.AH_KASINA]: "AH",
   [KASINA_TYPES.HUM_KASINA]: "HUM"
@@ -57,6 +59,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.LIGHT]: "#FFFFCC", // Light yellowish white with significantly increased brightness
   // Vajrayana Series
   [KASINA_TYPES.WHITE_A_THIGLE]: "#FFFFFF", // Pure white for the Tibetan letter in Clear Light Thigle
+  [KASINA_TYPES.WHITE_A_KASINA]: "#FFFFFF", // Pure white for the Tibetan letter A
   [KASINA_TYPES.OM_KASINA]: "#FFFFFF", // Radiant white orb
   [KASINA_TYPES.AH_KASINA]: "#FF1111", // Deep red orb with golden glow
   [KASINA_TYPES.HUM_KASINA]: "#0022AA" // Deep blue orb
@@ -78,7 +81,8 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)
   [KASINA_TYPES.LIGHT]: "#000000", // Pure black
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff"  // More vibrant royal blue background for Clear Light Thigle
+  [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff",  // More vibrant royal blue background for Clear Light Thigle
+  [KASINA_TYPES.WHITE_A_KASINA]: "#0055ff"   // Same royal blue background for White A Kasina
 };
 
 // Kasina emojis
@@ -98,6 +102,7 @@ export const KASINA_EMOJIS: Record<string, string> = {
   [KASINA_TYPES.LIGHT]: "☀️",
   // Vajrayana Series
   [KASINA_TYPES.WHITE_A_THIGLE]: "🌈",
+  [KASINA_TYPES.WHITE_A_KASINA]: "Ⓐ",
   [KASINA_TYPES.OM_KASINA]: "🕉️",
   [KASINA_TYPES.AH_KASINA]: "🔮",
   [KASINA_TYPES.HUM_KASINA]: "🌀"
@@ -122,6 +127,7 @@ export const KASINA_SERIES = {
   ],
   VAJRAYANA: [
     KASINA_TYPES.WHITE_A_THIGLE,
+    KASINA_TYPES.WHITE_A_KASINA,
     KASINA_TYPES.OM_KASINA,
     KASINA_TYPES.AH_KASINA,
     KASINA_TYPES.HUM_KASINA
