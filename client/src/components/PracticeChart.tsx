@@ -115,9 +115,10 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
   const chartData = useMemo(() => {
     if (!sessions || sessions.length === 0) return [];
     
-    // Group the kasina types into "color" and "elemental" categories
+    // Group the kasina types into "color", "elemental", and "vajrayana" categories
     const colorKasinas = ['white', 'blue', 'red', 'yellow', 'custom'];
     const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
+    const vajrayanaKasinas = ['clear_light_thigle']; // Updated from white_a_thigle to clear_light_thigle
     
     // Prepare data based on current mode
     if (chartMode === 'overview') {

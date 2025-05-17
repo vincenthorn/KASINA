@@ -696,7 +696,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   
   useFrame(({ clock, camera }) => {
     if (meshRef.current) {
-      // White A Thigle - make the plane always face the camera
+      // Clear Light Thigle - make the plane always face the camera
       if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isPremium) {
         // Get camera position and make the plane face it
         meshRef.current.lookAt(camera.position);
@@ -907,7 +907,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       case KASINA_TYPES.WHITE_A_THIGLE:
         // Only for premium users (including admin), else fall back to white kasina
         if (isPremium) {
-          console.log("Creating White A Thigle shader material for premium user");
+          console.log("Creating Clear Light Thigle shader material for premium user");
           
           // Let's create our own shader material directly for more control
           const material = new THREE.ShaderMaterial({
@@ -920,7 +920,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
           
           // Set the texture and make sure it's properly loaded
           if (whiteATexture) {
-            console.log("White A Thigle texture loaded successfully");
+            console.log("Clear Light Thigle texture loaded successfully");
             
             // Set the texture on the shader
             material.uniforms.map.value = whiteATexture;
@@ -935,14 +935,14 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
             // Set the resolution for proper scaling
             material.uniforms.resolution.value.set(512, 512);
             
-            console.log("White A Thigle shader configured successfully");
+            console.log("Clear Light Thigle shader configured successfully");
           } else {
-            console.error("Failed to load White A Thigle texture");
+            console.error("Failed to load Clear Light Thigle texture");
           }
           
           return material;
         } else {
-          console.log("Non-premium user tried to access White A Thigle kasina, falling back to white");
+          console.log("Non-premium user tried to access Clear Light Thigle kasina, falling back to white");
           return new THREE.MeshBasicMaterial({ 
             color: KASINA_COLORS.white,
             transparent: true
@@ -971,7 +971,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     }
   }, [selectedKasina, customColor]);
 
-  // For White A Thigle, we want a flat plane that faces the camera
+  // For Clear Light Thigle, we want a flat plane that faces the camera
   // rather than a sphere, to show the Tibetan letter properly
   const isWhiteAThigle = selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isPremium;
   
