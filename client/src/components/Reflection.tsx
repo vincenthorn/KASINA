@@ -144,49 +144,92 @@ const Reflection = () => {
       })
       .filter(Boolean) as ChartDataItem[];
     
-    // Process vajrayana kasinas with enhanced debugging
-    console.log('Processing Vajrayana kasinas...');
-    console.log('Vajrayana types from constants:', vajrayanaKasinas);
-    console.log('All normalized sessions:', normalizedSessions);
+    // COMPLETELY NEW APPROACH: Direct manual creation of Vajrayana data
     
-    // Create a separate array just for OM Kasina sessions for debugging
-    const omKasinaSessions = normalizedSessions.filter(s => 
-      s.kasinaType === 'om_kasina' || 
-      (typeof s.kasinaType === 'string' && s.kasinaType.toLowerCase().includes('om'))
-    );
-    console.log('All OM Kasina sessions:', omKasinaSessions);
+    // Prepare data directly from the filtered sessions
+    let omSessions = [];
+    let ahSessions = [];
+    let humSessions = [];
+    let clearLightSessions = [];
     
-    const vajrayanaData = vajrayanaKasinas
-      .map(type => {
-        // More flexible matching for Vajrayana kasinas
-        let sessionsOfType;
-        
-        if (type === 'om_kasina') {
-          // Special handling for OM Kasina
-          sessionsOfType = normalizedSessions.filter(s => 
-            s.kasinaType === 'om_kasina' || 
-            (typeof s.kasinaType === 'string' && s.kasinaType.toLowerCase().includes('om'))
-          );
-        } else if (type === 'ah_kasina') {
-          // Special handling for AH Kasina
-          sessionsOfType = normalizedSessions.filter(s => 
-            s.kasinaType === 'ah_kasina' || 
-            (typeof s.kasinaType === 'string' && s.kasinaType.toLowerCase().includes('ah'))
-          );
-        } else if (type === 'hum_kasina') {
-          // Special handling for HUM Kasina
-          sessionsOfType = normalizedSessions.filter(s => 
-            s.kasinaType === 'hum_kasina' || 
-            (typeof s.kasinaType === 'string' && s.kasinaType.toLowerCase().includes('hum'))
-          );
-        } else {
-          // Default handling for other types
-          sessionsOfType = normalizedSessions.filter(s => s.kasinaType === type);
-        }
-        
-        console.log(`Found ${type} sessions:`, sessionsOfType);
-        
-        const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
+    // Categorize sessions manually
+    filteredSessions.forEach(session => {
+      if (!session.kasinaType) return;
+      
+      const typeStr = String(session.kasinaType).toLowerCase();
+      
+      if (typeStr.includes('om')) {
+        omSessions.push(session);
+      } else if (typeStr.includes('ah')) {
+        ahSessions.push(session);
+      } else if (typeStr.includes('hum')) {
+        humSessions.push(session);
+      } else if (typeStr.includes('clear') || typeStr.includes('thigle')) {
+        clearLightSessions.push(session);
+      }
+    });
+    
+    // Calculate durations
+    const omDuration = omSessions.reduce((sum, s) => sum + s.duration, 0);
+    const ahDuration = ahSessions.reduce((sum, s) => sum + s.duration, 0);
+    const humDuration = humSessions.reduce((sum, s) => sum + s.duration, 0);
+    const clearLightDuration = clearLightSessions.reduce((sum, s) => sum + s.duration, 0);
+    
+    // Log for debugging
+    console.log('DEBUG: OM Sessions:', omSessions, 'Total:', omDuration);
+    console.log('DEBUG: AH Sessions:', ahSessions, 'Total:', ahDuration);
+    console.log('DEBUG: HUM Sessions:', humSessions, 'Total:', humDuration);
+    console.log('DEBUG: Clear Light Sessions:', clearLightSessions, 'Total:', clearLightDuration);
+    
+    // Create Vajrayana data manually
+    const vajrayanaData: ChartDataItem[] = [];
+    
+    // Add OM Kasina data if there are sessions
+    if (omDuration > 0) {
+      vajrayanaData.push({
+        name: 'om_kasina',
+        value: omDuration,
+        emoji: KASINA_EMOJIS['om_kasina'] || '🕉️',
+        displayName: 'OM Kasina',
+        category: 'vajrayana'
+      });
+    }
+    
+    // Add AH Kasina data if there are sessions
+    if (ahDuration > 0) {
+      vajrayanaData.push({
+        name: 'ah_kasina',
+        value: ahDuration,
+        emoji: KASINA_EMOJIS['ah_kasina'] || '🔮',
+        displayName: 'AH Kasina',
+        category: 'vajrayana'
+      });
+    }
+    
+    // Add HUM Kasina data if there are sessions
+    if (humDuration > 0) {
+      vajrayanaData.push({
+        name: 'hum_kasina',
+        value: humDuration,
+        emoji: KASINA_EMOJIS['hum_kasina'] || '🌀',
+        displayName: 'HUM Kasina',
+        category: 'vajrayana'
+      });
+    }
+    
+    // Add Clear Light Thigle data if there are sessions
+    if (clearLightDuration > 0) {
+      vajrayanaData.push({
+        name: 'clear_light_thigle',
+        value: clearLightDuration,
+        emoji: KASINA_EMOJIS['clear_light_thigle'] || '🌈',
+        displayName: 'Clear Light',
+        category: 'vajrayana'
+      });
+    }
+    
+    // Calculate vajrayana total for the overall chart
+    const vajrayanaTotal = omDuration + ahDuration + humDuration + clearLightDuration;
         vajrayanaTotal += duration;
         
         if (duration > 0) {
