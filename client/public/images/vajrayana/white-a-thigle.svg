@@ -1,56 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <!-- Definitions with gradients and filters -->
+  <!-- Definitions for the concentric rainbow rings and other elements -->
   <defs>
-    <!-- Rainbow gradient for outer glow -->
-    <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff0000" />
-      <stop offset="16.67%" stop-color="#ff9900" />
-      <stop offset="33.33%" stop-color="#ffff00" />
-      <stop offset="50%" stop-color="#00ff00" />
-      <stop offset="66.67%" stop-color="#0099ff" />
-      <stop offset="83.33%" stop-color="#6633ff" />
-      <stop offset="100%" stop-color="#ff33cc" />
-    </linearGradient>
+    <!-- Outer blue glow -->
+    <radialGradient id="blueGlow" cx="50%" cy="50%" r="55%" fx="50%" fy="50%">
+      <stop offset="50%" stop-color="#0000ff" />
+      <stop offset="100%" stop-color="#000080" />
+    </radialGradient>
     
-    <!-- Glow filter -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="10" result="blur" />
+    <!-- Yellow ring gradient -->
+    <radialGradient id="yellowRing" cx="50%" cy="50%" r="40%" fx="50%" fy="50%">
+      <stop offset="80%" stop-color="#ffff00" />
+      <stop offset="100%" stop-color="#ffcc00" />
+    </radialGradient>
+    
+    <!-- Red ring gradient -->
+    <radialGradient id="redRing" cx="50%" cy="50%" r="30%" fx="50%" fy="50%">
+      <stop offset="80%" stop-color="#ff0000" />
+      <stop offset="100%" stop-color="#cc0000" />
+    </radialGradient>
+    
+    <!-- White ring gradient -->
+    <radialGradient id="whiteRing" cx="50%" cy="50%" r="25%" fx="50%" fy="50%">
+      <stop offset="90%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f0f0f0" />
+    </radialGradient>
+    
+    <!-- Green ring gradient -->
+    <radialGradient id="greenRing" cx="50%" cy="50%" r="18%" fx="50%" fy="50%">
+      <stop offset="80%" stop-color="#00cc00" />
+      <stop offset="100%" stop-color="#009900" />
+    </radialGradient>
+    
+    <!-- Blue center gradient -->
+    <radialGradient id="blueCenter" cx="50%" cy="50%" r="13%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#0066ff" />
+      <stop offset="100%" stop-color="#0000cc" />
+    </radialGradient>
+    
+    <!-- Glow filters -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
-    
-    <!-- Radial gradient for the Thigle -->
-    <radialGradient id="thigleGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-      <stop offset="0%" stop-color="white" />
-      <stop offset="90%" stop-color="white" />
-      <stop offset="100%" stop-color="#f0f0ff" />
-    </radialGradient>
   </defs>
   
-  <!-- Background dark indigo -->
-  <rect width="512" height="512" fill="#000033" />
+  <!-- Background blue -->
+  <rect width="512" height="512" fill="#0000cc" />
   
-  <!-- Rainbow glow ring -->
-  <circle cx="256" cy="256" r="230" fill="none" stroke="url(#rainbowGradient)" stroke-width="10" filter="url(#glow)" />
+  <!-- Outer blue glow -->
+  <circle cx="256" cy="256" r="250" fill="url(#blueGlow)" />
   
-  <!-- White center circle - the thigle -->
-  <circle cx="256" cy="256" r="180" fill="url(#thigleGradient)" />
+  <!-- Yellow ring -->
+  <circle cx="256" cy="256" r="190" fill="url(#yellowRing)" filter="url(#softGlow)" />
   
-  <!-- Tibetan/Sanskrit "A" letter in black -->
-  <g transform="translate(100, 70) scale(1.5)">
-    <path d="M95 65 L145 310 M95 65 L166 65 M120 190 L170 190" 
-          stroke="black" 
-          stroke-width="20" 
-          stroke-linecap="round" 
-          stroke-linejoin="round"
-          fill="none"/>
+  <!-- Red ring -->
+  <circle cx="256" cy="256" r="150" fill="url(#redRing)" />
+  
+  <!-- White ring -->
+  <circle cx="256" cy="256" r="120" fill="url(#whiteRing)" />
+  
+  <!-- Green ring -->
+  <circle cx="256" cy="256" r="90" fill="url(#greenRing)" />
+  
+  <!-- Blue center -->
+  <circle cx="256" cy="256" r="65" fill="url(#blueCenter)" />
+  
+  <!-- Tibetan "A" letter in white -->
+  <g transform="translate(220, 236) scale(0.8)">
+    <!-- Based on the authentic Tibetan "A" from the image -->
+    <path d="M40 0 
+             C40 -20, 70 -30, 90 -10
+             L75 5
+             C65 -5, 50 -5, 45 5
+             C40 15, 45 25, 55 25
+             L55 45
+             C35 45, 20 25, 30 5
+             C40 -15, 70 -20, 85 -5
+             L70 10
+             C60 0, 45 0, 40 10
+             C35 20, 40 30, 50 30
+             L50 40
+             C30 40, 15 20, 25 0
+             Z" 
+          fill="white" />
   </g>
   
-  <!-- Energy lines with subtle rainbow effect -->
-  <g opacity="0.3">
-    <path d="M256 76 L256 436" stroke="url(#rainbowGradient)" stroke-width="2"/>
-    <path d="M176 256 L336 256" stroke="url(#rainbowGradient)" stroke-width="2"/>
-    <circle cx="256" cy="256" r="140" stroke="url(#rainbowGradient)" stroke-width="1" fill="none"/>
-    <circle cx="256" cy="256" r="100" stroke="url(#rainbowGradient)" stroke-width="1" fill="none"/>
+  <!-- Light emanation effects -->
+  <g opacity="0.4" filter="url(#softGlow)">
+    <circle cx="256" cy="256" r="240" stroke="white" stroke-width="2" fill="none" />
+    <circle cx="256" cy="256" r="225" stroke="white" stroke-width="1" fill="none" />
   </g>
 </svg>

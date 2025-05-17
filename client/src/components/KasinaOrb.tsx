@@ -970,32 +970,9 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   if (isWhiteAThigle) {
     return (
       <group>
-        {/* Main thigle - we'll use a circle plane for it */}
+        {/* Main thigle with the shader that draws all the concentric circles */}
         <mesh ref={meshRef}>
-          <circleGeometry args={[1, 64]} /> {/* Use circle instead of plane for circular shape */}
-        </mesh>
-        
-        {/* Multiple glow layers with rainbow colors */}
-        <mesh rotation={[0, Math.PI/12, 0]} scale={[1.02, 1.02, 1]}>
-          <circleGeometry args={[1.05, 64]} />
-          <meshBasicMaterial color="#ff3366" transparent opacity={0.15} />
-        </mesh>
-        
-        <mesh rotation={[0, -Math.PI/12, 0]} scale={[1.04, 1.04, 1]}>
-          <circleGeometry args={[1.06, 64]} />
-          <meshBasicMaterial color="#3366ff" transparent opacity={0.15} />
-        </mesh>
-        
-        {/* Rainbow halo effect - now properly sized for a circle */}
-        <mesh scale={[1.12, 1.12, 1]}>
-          <ringGeometry args={[0.95, 1.0, 64]} />
-          <meshBasicMaterial color="#ffcc00" transparent opacity={0.3} />
-        </mesh>
-        
-        {/* Extra outer glow for a rainbow effect */}
-        <mesh>
-          <ringGeometry args={[1.0, 1.2, 64]} />
-          <meshBasicMaterial color="#ff00ff" transparent opacity={0.2} />
+          <circleGeometry args={[1, 64]} />
         </mesh>
       </group>
     );
@@ -1147,7 +1124,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   );
 };
 
-// White A Thigle Shader with enhanced rainbow effects
+// White A Thigle Shader with concentric rainbow rings
 const whiteAThigleShader = {
   uniforms: {
     time: { value: 0 },
@@ -1179,89 +1156,82 @@ const whiteAThigleShader = {
     varying vec3 vNormal;
     varying vec3 vPosition;
     
-    // Improved noise function for better sparkle effects
+    // Noise function for sparkle effects
     float noise(vec2 p) {
-      vec2 ip = floor(p);
-      vec2 u = fract(p);
-      u = u*u*(3.0-2.0*u);
-      
-      float res = mix(
-        mix(fract(sin(dot(ip, vec2(12.9898, 78.233))) * 43758.5453), 
-            fract(sin(dot(ip + vec2(1.0, 0.0), vec2(12.9898, 78.233))) * 43758.5453), u.x),
-        mix(fract(sin(dot(ip + vec2(0.0, 1.0), vec2(12.9898, 78.233))) * 43758.5453), 
-            fract(sin(dot(ip + vec2(1.0, 1.0), vec2(12.9898, 78.233))) * 43758.5453), u.x), u.y);
-      return res;
+      return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
     }
     
-    // Convert HSV to RGB with improved color accuracy
-    vec3 hsv2rgb(vec3 c) {
-      vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
-      vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
-      return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
-    }
-    
-    // Calculate a rainbow gradient based on position and time
-    vec3 rainbow(float pos) {
-      // Create a full rainbow cycle
-      vec3 rainbow = hsv2rgb(vec3(fract(pos), 1.0, 1.0));
-      return rainbow;
+    // Function to create a smooth circle
+    float circle(vec2 uv, float radius, float softness) {
+      float dist = length(uv - vec2(0.5, 0.5));
+      return 1.0 - smoothstep(radius - softness, radius, dist);
     }
     
     void main() {
-      // Sample the texture first to see if we have anything
+      // Sample the texture for the Tibetan A letter
       vec4 texSample = texture2D(map, vUv);
       
-      // Calculate distance from center for circular effects
+      // Calculate distance from center
       vec2 center = vec2(0.5, 0.5);
       float distToCenter = length(vUv - center) * 2.0;
       
-      // Stop processing pixels outside our circle (with soft edge)
-      float circleMask = 1.0 - smoothstep(0.98, 1.05, distToCenter);
+      // Animation values
+      float t = time * 0.2; // Slow animation
+      float pulse = sin(time * 0.4) * 0.03; // Very subtle pulsing
       
-      // Exit early if we're outside the circle
-      if (circleMask <= 0.01) {
-        discard;
+      // Create concentric rings with authentic colors from the reference image
+      
+      // Outer blue background and glow - radius 1.0
+      vec3 blueBackground = mix(vec3(0.0, 0.0, 0.8), vec3(0.0, 0.0, 0.5), distToCenter);
+      
+      // Yellow ring - radius approx 0.75
+      float yellowRingRadius = 0.75 + pulse;
+      float yellowRing = circle(vUv, yellowRingRadius, 0.02) - circle(vUv, yellowRingRadius - 0.08, 0.02);
+      vec3 yellowColor = vec3(1.0, 1.0, 0.0);
+      
+      // Red ring - radius approx 0.6
+      float redRingRadius = 0.6 + pulse * 0.8;
+      float redRing = circle(vUv, redRingRadius, 0.02) - circle(vUv, redRingRadius - 0.07, 0.02);
+      vec3 redColor = vec3(1.0, 0.0, 0.0);
+      
+      // White ring - radius approx 0.48
+      float whiteRingRadius = 0.48 + pulse * 0.6;
+      float whiteRing = circle(vUv, whiteRingRadius, 0.02) - circle(vUv, whiteRingRadius - 0.05, 0.02);
+      vec3 whiteColor = vec3(1.0, 1.0, 1.0);
+      
+      // Green ring - radius approx 0.36
+      float greenRingRadius = 0.36 + pulse * 0.4;
+      float greenRing = circle(vUv, greenRingRadius, 0.02) - circle(vUv, greenRingRadius - 0.05, 0.02);
+      vec3 greenColor = vec3(0.0, 0.8, 0.0);
+      
+      // Blue center - radius approx 0.26
+      float blueCenter = circle(vUv, 0.26 + pulse * 0.2, 0.02);
+      vec3 blueCenterColor = vec3(0.0, 0.2, 1.0);
+      
+      // Combine all rings
+      vec3 finalColor = blueBackground;
+      finalColor = mix(finalColor, yellowColor, yellowRing);
+      finalColor = mix(finalColor, redColor, redRing);
+      finalColor = mix(finalColor, whiteColor, whiteRing);
+      finalColor = mix(finalColor, greenColor, greenRing);
+      finalColor = mix(finalColor, blueCenterColor, blueCenter);
+      
+      // Add subtle shimmer
+      float shimmer = noise(vUv * 30.0 + time * 0.1) * 0.05;
+      finalColor += vec3(shimmer);
+      
+      // Add a subtle glow effect
+      float glow = (1.0 - distToCenter * 0.5) * 0.1;
+      finalColor += vec3(glow);
+      
+      // If we have a texture (the Tibetan A), overlay it in the center
+      if (texSample.a > 0.1 && distToCenter < 0.5) {
+        // Add the white "A" letter only in the center blue area
+        finalColor = mix(finalColor, vec3(1.0), texSample.a * blueCenter);
       }
       
-      // Dynamic animation values 
-      float time_cycled = time * 0.5;
-      float breath = sin(time * 0.3) * 0.5 + 0.5;  // Slow breathing
-      float pulse = sin(time * 1.2) * 0.5 + 0.5;   // Faster pulsing
-      
-      // Calculate radial rainbow gradient that moves over time
-      float rainbowPos = (atan(vUv.y - 0.5, vUv.x - 0.5) / (2.0 * 3.14159)) + 0.5;
-      rainbowPos = fract(rainbowPos + time_cycled * 0.1); // Rotate colors slowly
-      vec3 rainbowColor = rainbow(rainbowPos);
-      
-      // Create an outer edge glow using the rainbow
-      float edgeGlow = smoothstep(0.7, 0.95, distToCenter) * circleMask;
-      
-      // Create sparkling effects
-      float sparkleNoise = noise(vUv * 20.0 + time * 0.5);
-      float sparkleIntensity = pow(sparkleNoise, 8.0) * 0.8;
-      vec3 sparkleColor = rainbow(fract(sparkleNoise + time_cycled * 0.2));
-      
-      // Create general glow that pulses
-      float innerGlow = (1.0 - distToCenter * 0.5) * (0.7 + breath * 0.3) * 0.8;
-      
-      // Build our base color - mostly white with touches of rainbow
-      vec3 baseColor = mix(color, rainbowColor, 0.2 + edgeGlow * 0.8);
-      
-      // Apply all effects
-      vec3 finalColor = baseColor;
-      finalColor += sparkleColor * sparkleIntensity; // Add sparkles
-      finalColor += rainbowColor * edgeGlow * 0.8;  // Add rainbow edge
-      finalColor *= innerGlow * (0.9 + pulse * 0.2); // Modulate with inner glow
-      
-      // Apply circle mask and texture alpha (if any)
-      float finalAlpha = circleMask;
-      if (texSample.a > 0.0) {
-        // If texture has alpha, use it
-        finalAlpha *= texSample.a * opacity;
-      }
-      
-      // Output the final color
-      gl_FragColor = vec4(finalColor, finalAlpha);
+      // Final output with full opacity
+      gl_FragColor = vec4(finalColor, 1.0);
     }
   `
 };
