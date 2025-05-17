@@ -1,14 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { useTexture } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 
 // Component that renders concentric rings for the White A Thigle kasina with Tibetan "A" symbol
 const ConcentricRings: React.FC = () => {
   const groupRef = useRef<THREE.Group>(null);
-  
-  // Load the Tibetan A symbol texture
-  const symbolTexture = useTexture("/images/vajrayana/tibetan-a-white.png");
   
   // Animation to make the object face the camera and float gently
   useFrame(({ clock, camera }) => {
@@ -66,15 +63,17 @@ const ConcentricRings: React.FC = () => {
         <meshBasicMaterial color="#0055ff" />
       </mesh>
       
-      {/* Tibetan A symbol overlay */}
-      <mesh position={[0, 0, 0.001]}>
-        <planeGeometry args={[0.28, 0.28]} />
-        <meshBasicMaterial 
-          map={symbolTexture} 
-          transparent={true} 
-          side={THREE.DoubleSide}
-        />
-      </mesh>
+      {/* Tibetan A symbol as text */}
+      <Text
+        position={[0, 0, 0.001]}
+        color="white"
+        fontSize={0.18}
+        font="/fonts/Inter-Bold.woff"
+        anchorX="center"
+        anchorY="middle"
+      >
+        ཨ
+      </Text>
     </group>
   );
 };
