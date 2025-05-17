@@ -123,10 +123,19 @@ const Reflection = () => {
         // Add console log to debug sessions of this type
         console.log(`Checking for Vajrayana type "${type}":`, filteredSessions.filter(s => s.kasinaType === type));
         
-        // Make sure we're filtering correctly for OM Kasina
-        const sessionsOfType = type === 'om_kasina' 
-          ? filteredSessions.filter(s => s.kasinaType === 'om_kasina' || s.kasinaType === 'Om kasina') 
-          : filteredSessions.filter(s => s.kasinaType === type);
+        // Special handling for OM Kasina - need to check for case-insensitive string matching
+        let sessionsOfType;
+        if (type === 'om_kasina') {
+          sessionsOfType = filteredSessions.filter(s => 
+            typeof s.kasinaType === 'string' && 
+            (s.kasinaType.toLowerCase() === 'om_kasina' || 
+             s.kasinaType.toLowerCase() === 'om kasina' ||
+             s.kasinaType.toLowerCase().includes('om'))
+          );
+          console.log('Found OM Kasina sessions:', sessionsOfType);
+        } else {
+          sessionsOfType = filteredSessions.filter(s => s.kasinaType === type);
+        }
         
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
         vajrayanaTotal += duration;
