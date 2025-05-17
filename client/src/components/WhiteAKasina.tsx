@@ -4,16 +4,13 @@ import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useTexture } from '@react-three/drei';
 
-// Standalone component to render the White A Kasina based on Clear Light design
+// Standalone component to render the White A Kasina (matching the style of other Vajrayana kasinas)
 const WhiteAKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
   // Load the Tibetan 'A' syllable texture
   const aTexture = useTexture('/images/vajrayana/letter-a-thun.svg');
-  
-  // Get timer state directly from the store without subscription
-  const timerState = useSimpleTimer.getState();
   
   // Animation to make the orb face the camera and stay stationary
   useFrame(({ clock, camera }) => {
@@ -57,66 +54,64 @@ const WhiteAKasina = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Blue background - use a larger circle for the entire background */}
+      {/* Deep blue background */}
       <mesh position={[0, 0, -0.006]}>
         <circleGeometry args={[1.0, 64]} />
-        <meshBasicMaterial color="#0055ff" />
+        <meshBasicMaterial color="#0033aa" />
       </mesh>
       
-      {/* Yellow ring - use full circles instead of rings to avoid gaps */}
+      {/* Outer glow - deep blue radiance */}
       <mesh position={[0, 0, -0.005]}>
-        <circleGeometry args={[0.95, 64]} />
-        <meshBasicMaterial color="#ffff00" />
+        <circleGeometry args={[0.9, 64]} />
+        <meshBasicMaterial 
+          color="#0044cc" 
+          transparent={true}
+          opacity={0.8}
+        />
       </mesh>
       
-      {/* Red ring */}
+      {/* Inner glow */}
       <mesh position={[0, 0, -0.004]}>
-        <circleGeometry args={[0.73, 64]} />
-        <meshBasicMaterial color="#ff0000" />
+        <circleGeometry args={[0.7, 64]} />
+        <meshBasicMaterial 
+          color="#3366ee" 
+          transparent={true}
+          opacity={0.85}
+        />
       </mesh>
       
-      {/* White ring */}
+      {/* White orb body */}
       <mesh position={[0, 0, -0.003]}>
-        <circleGeometry args={[0.53, 64]} />
+        <circleGeometry args={[0.5, 64]} />
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
-      {/* Green ring */}
+      {/* Blue center where the A will be placed */}
       <mesh position={[0, 0, -0.002]}>
-        <circleGeometry args={[0.33, 64]} />
-        <meshBasicMaterial color="#00cc00" />
+        <circleGeometry args={[0.3, 64]} />
+        <meshBasicMaterial color="#0033aa" />
       </mesh>
       
-      {/* Blue center */}
+      {/* White subtle glow around the center */}
       <mesh position={[0, 0, -0.001]}>
-        <circleGeometry args={[0.20, 64]} />
-        <meshBasicMaterial color="#0055ff" />
+        <ringGeometry args={[0.27, 0.33, 32]} />
+        <meshBasicMaterial color="#ffffff" transparent={true} opacity={0.6} />
       </mesh>
       
-      {/* Add white glow effect around the Tibetan A symbol */}
-      <mesh position={[0, 0, 0.001]}>
-        <circleGeometry args={[0.16, 32]} />
-        <meshBasicMaterial 
-          color="#ffffff"
-          opacity={0.5}
-          transparent={true}
-        />
-      </mesh>
-
       {/* 3D Shadow effect for Tibetan 'A' symbol */}
-      <mesh position={[0.006, -0.006, 0.002]}>
-        <planeGeometry args={[0.4, 0.4]} />
+      <mesh position={[0.008, -0.008, 0.001]}>
+        <planeGeometry args={[0.5, 0.5]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
           opacity={0.5}
-          color="#222222"
+          color="#000022"
         />
       </mesh>
       
-      {/* Tibetan 'A' symbol - replacing the white dot */}
-      <mesh position={[0, 0, 0.003]}>
-        <planeGeometry args={[0.4, 0.4]} />
+      {/* Tibetan 'A' symbol */}
+      <mesh position={[0, 0, 0.002]}>
+        <planeGeometry args={[0.5, 0.5]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
