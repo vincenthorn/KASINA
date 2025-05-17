@@ -7,6 +7,9 @@ import { KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from "../lib/constant
 import { KasinaType } from "../lib/types";
 import { useAuth } from "../lib/stores/useAuth";
 import WhiteAThigle from "./WhiteAThigle";
+import OmKasina from "./OmKasina";
+import AhKasina from "./AhKasina";
+import HumKasina from "./HumKasina";
 
 // Shader materials for the elemental kasinas
 const waterShader = {
