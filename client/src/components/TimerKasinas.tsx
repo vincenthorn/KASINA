@@ -771,54 +771,70 @@ const TimerKasinas: React.FC = () => {
                             </Button>
                           </div>
                           
-                          {/* Custom Color Picker Section - Compact Layout */}
-                          <div className="mt-3">
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.CUSTOM ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.CUSTOM)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base mb-2"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.CUSTOM ? customColor : 'transparent',
-                                color: selectedKasina === KASINA_TYPES.CUSTOM ? 
-                                  (isColorLight(customColor) ? 'black' : 'white') : 'white'
-                              }}
-                            >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.CUSTOM]}</span>
-                              <span>Custom Color</span>
-                            </Button>
-                            
-                            {/* Color Controls matching size of color buttons above */}
-                            <div className="grid grid-cols-2 gap-3 items-center">
+                          {/* Custom Color Picker Section - Only for premium users */}
+                          {isPremium ? (
+                            <div className="mt-3">
                               <Button
-                                variant="outline"
-                                className="w-full h-[70px] flex items-center justify-center"
+                                variant={selectedKasina === KASINA_TYPES.CUSTOM ? "default" : "outline"}
+                                onClick={() => setSelectedKasina(KASINA_TYPES.CUSTOM)}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base mb-2"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.CUSTOM ? customColor : 'transparent',
+                                  color: selectedKasina === KASINA_TYPES.CUSTOM ? 
+                                    (isColorLight(customColor) ? 'black' : 'white') : 'white'
+                                }}
                               >
-                                <Input 
-                                  type="text"
-                                  id="hex-input"
-                                  value={tempCustomColor}
-                                  onChange={handleCustomColorChange}
-                                  placeholder="#RRGGBB"
-                                  pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-                                  className="bg-black/30 text-white border-none focus:border-none focus:ring-0 w-full h-full text-center"
-                                />
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.CUSTOM]}</span>
+                                <span>Custom Color</span>
                               </Button>
+                              
+                              {/* Color Controls matching size of color buttons above */}
+                              <div className="grid grid-cols-2 gap-3 items-center">
+                                <Button
+                                  variant="outline"
+                                  className="w-full h-[70px] flex items-center justify-center"
+                                >
+                                  <Input 
+                                    type="text"
+                                    id="hex-input"
+                                    value={tempCustomColor}
+                                    onChange={handleCustomColorChange}
+                                    placeholder="#RRGGBB"
+                                    pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                                    className="bg-black/30 text-white border-none focus:border-none focus:ring-0 w-full h-full text-center"
+                                  />
+                                </Button>
+                                <Button
+                                  variant="outline"
+                                  className="w-full h-[70px] flex items-center justify-center p-0 overflow-hidden"
+                                >
+                                  <input 
+                                    type="color" 
+                                    id="color-picker"
+                                    value={tempCustomColor}
+                                    onChange={handleCustomColorChange}
+                                    className="w-full h-full cursor-pointer border-none"
+                                    title="Choose a color"
+                                    style={{ backgroundColor: 'transparent' }}
+                                  />
+                                </Button>
+                              </div>
+                            </div>
+                          ) : (
+                            /* Non-premium users see a premium badge for custom color */
+                            <div className="mt-3">
                               <Button
                                 variant="outline"
-                                className="w-full h-[70px] flex items-center justify-center p-0 overflow-hidden"
+                                onClick={() => window.open('https://www.contemplative.technology/subscribe', '_blank')}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base relative overflow-hidden group"
                               >
-                                <input 
-                                  type="color" 
-                                  id="color-picker"
-                                  value={tempCustomColor}
-                                  onChange={handleCustomColorChange}
-                                  className="w-full h-full cursor-pointer border-none"
-                                  title="Choose a color"
-                                  style={{ backgroundColor: 'transparent' }}
-                                />
+                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-purple-900/20 group-hover:opacity-80 opacity-50 transition-opacity"></div>
+                                <span className="text-2xl opacity-60">{KASINA_EMOJIS[KASINA_TYPES.CUSTOM]}</span>
+                                <span className="opacity-60">Custom Color</span>
+                                <span className="absolute top-1.5 right-2 text-yellow-400 text-xs font-medium">✦ Premium</span>
                               </Button>
                             </div>
-                          </div>
+                          )}
                         </div>
                       )}
                       
