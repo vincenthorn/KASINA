@@ -13,8 +13,11 @@ export type KasinaType =
   | "earth" 
   | "space" 
   | "light"
-  // Vajrayana kasinas (admin only)
-  | "white_a_thigle";
+  // Vajrayana kasinas (premium and admin users)
+  | "clear_light_thigle" // Renamed from white_a_thigle
+  | "om_kasina"
+  | "ah_kasina"
+  | "hum_kasina";
 
 // Emojis for different kasina types
 export const getKasinaEmoji = (type: KasinaType): string => {
@@ -30,7 +33,10 @@ export const getKasinaEmoji = (type: KasinaType): string => {
     earth: "🌍",
     space: "✨",
     light: "☀️",
-    white_a_thigle: "💀",
+    clear_light_thigle: "🌈", // Updated from 💀 to 🌈
+    om_kasina: "🕉️",
+    ah_kasina: "🔮",
+    hum_kasina: "🌀"
   };
   
   return emojis[type] || "🟠";
@@ -122,10 +128,28 @@ export const getOrbConfig = (type: KasinaType, customColor?: string): OrbConfig 
       particles: true 
     },
     // Vajrayana kasinas
-    white_a_thigle: {
+    clear_light_thigle: {
       color: "#FFFFFF",
       emissive: "#FFFFFF",
       speed: 0.2,
+      complexity: 2
+    },
+    om_kasina: {
+      color: "#FFFFFF",
+      emissive: "#FFFFFF",
+      speed: 0.3,
+      complexity: 2
+    },
+    ah_kasina: {
+      color: "#FF1111",
+      emissive: "#FF5500",
+      speed: 0.4,
+      complexity: 2
+    },
+    hum_kasina: {
+      color: "#0022AA",
+      emissive: "#0044FF", 
+      speed: 0.3,
       complexity: 2
     },
   };

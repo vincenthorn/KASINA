@@ -58,12 +58,14 @@ const Reflection = () => {
   useEffect(() => {
     const kasinaTypes: KasinaType[] = [
       'white', 'blue', 'red', 'yellow', 
-      'water', 'air', 'fire', 'earth', 'space', 'light'
+      'water', 'air', 'fire', 'earth', 'space', 'light',
+      'clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina'
     ];
     
     // Define which kasinas belong to which category
     const colorKasinas: KasinaType[] = ['white', 'blue', 'red', 'yellow'];
     const elementalKasinas: KasinaType[] = ['water', 'air', 'fire', 'earth', 'space', 'light'];
+    const vajrayanaKasinas: KasinaType[] = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina'];
     
     // Sum duration by kasina type
     const durationByType = kasinaTypes.reduce((acc, type) => {
@@ -78,12 +80,17 @@ const Reflection = () => {
       .filter(([_, duration]) => duration > 0)
       .map(([type, duration]) => {
         const isColorKasina = colorKasinas.includes(type as KasinaType);
+        const isElementalKasina = elementalKasinas.includes(type as KasinaType);
+        const isVajrayanaKasina = vajrayanaKasinas.includes(type as KasinaType);
+        
         return {
           name: type,
           value: duration,
           emoji: KASINA_EMOJIS[type] || '🧿',
           displayName: KASINA_NAMES[type] || type.charAt(0).toUpperCase() + type.slice(1),
-          category: isColorKasina ? 'color' as const : 'elemental' as const
+          category: isColorKasina ? 'color' as const : 
+                   isElementalKasina ? 'elemental' as const : 
+                   isVajrayanaKasina ? 'vajrayana' as const : 'elemental' as const
         };
       });
     

@@ -97,7 +97,7 @@ export const KASINA_EMOJIS: Record<string, string> = {
   [KASINA_TYPES.SPACE]: "✨",
   [KASINA_TYPES.LIGHT]: "☀️",
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "💀",
+  [KASINA_TYPES.WHITE_A_THIGLE]: "🌈",
   [KASINA_TYPES.OM_KASINA]: "🕉️",
   [KASINA_TYPES.AH_KASINA]: "🔮",
   [KASINA_TYPES.HUM_KASINA]: "🌀"
