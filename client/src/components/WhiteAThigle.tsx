@@ -11,11 +11,11 @@ const WhiteAThigle = () => {
   // Get timer state to connect with the countdown animation
   const { 
     isRunning, 
-    countdown,
+    timeRemaining,
     duration 
   } = useSimpleTimer((state) => ({
     isRunning: state.isRunning,
-    countdown: state.countdown,
+    timeRemaining: state.timeRemaining,
     duration: state.duration
   }));
   
@@ -23,21 +23,42 @@ const WhiteAThigle = () => {
   const [inFinalCountdown, setInFinalCountdown] = useState(false);
   const [countdownScale, setCountdownScale] = useState(1.0);
   
-  // Monitor the countdown to enable final animation
+  // Use a simple approach to track the countdown and update visuals
   useEffect(() => {
-    // Check if we're in the final 60 seconds and the timer is running
-    if (isRunning && countdown <= 60 && countdown > 0) {
-      setInFinalCountdown(true);
+    // Gracefully handle the case where timeRemaining is null
+    if (timeRemaining === null) {
+      // If timer is not set, make sure we're showing the full-size kasina
+      if (inFinalCountdown) {
+        setInFinalCountdown(false);
+      }
+      if (countdownScale !== 1.0) {
+        setCountdownScale(1.0);
+      }
+      return;
+    }
+    
+    // Check if we're in the final countdown period (60 seconds or less)
+    const shouldBeInFinalCountdown = isRunning && timeRemaining <= 60 && timeRemaining > 0;
+    
+    // Only update if state needs to change
+    if (shouldBeInFinalCountdown !== inFinalCountdown) {
+      setInFinalCountdown(shouldBeInFinalCountdown);
+    }
+    
+    // Update scale during final countdown
+    if (shouldBeInFinalCountdown) {
+      // Scale from 1.0 down to 0.1 as timeRemaining goes from 60 to 0
+      const newScale = Math.max(0.1, timeRemaining / 60);
       
-      // Calculate the scale based on remaining time (1.0 -> 0.0)
-      const newScale = Math.max(0.1, countdown / 60);
-      setCountdownScale(newScale);
-    } else if (countdown <= 0 || !isRunning) {
-      // Timer stopped or completed
-      setInFinalCountdown(false);
+      // Avoid excessive re-renders by only updating when scale changes significantly
+      if (Math.abs(newScale - countdownScale) > 0.01) {
+        setCountdownScale(newScale);
+      }
+    } else if (countdownScale !== 1.0) {
+      // Reset to full size when not in final countdown
       setCountdownScale(1.0);
     }
-  }, [countdown, isRunning]);
+  }, [timeRemaining, isRunning, inFinalCountdown, countdownScale]);
   
   // Animation to make the orb float and face the camera
   useFrame(({ clock, camera }) => {
