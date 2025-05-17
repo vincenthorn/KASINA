@@ -26,10 +26,10 @@ const ConcentricRings: React.FC = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Blue background disc - using the same blue as the center */}
+      {/* Blue background disc - using a brighter royal blue */}
       <mesh position={[0, 0, -0.005]}>
         <circleGeometry args={[1.3, 64]} />
-        <meshBasicMaterial color="#0044ff" />
+        <meshBasicMaterial color="#0055ff" />
       </mesh>
       
       {/* Yellow ring (outermost) */}
@@ -56,10 +56,10 @@ const ConcentricRings: React.FC = () => {
         <meshBasicMaterial color="#00cc00" />
       </mesh>
       
-      {/* Blue center */}
+      {/* Blue center - matching the background */}
       <mesh position={[0, 0, 0]}>
         <circleGeometry args={[0.3, 64]} />
-        <meshBasicMaterial color="#0044ff" />
+        <meshBasicMaterial color="#0055ff" />
       </mesh>
     </group>
   );

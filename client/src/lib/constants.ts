@@ -69,7 +69,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)
   [KASINA_TYPES.LIGHT]: "#000000", // Pure black
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "#0044ff"  // Vibrant blue background to match the center
+  [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff"  // More vibrant royal blue background
 };
 
 // Kasina emojis
