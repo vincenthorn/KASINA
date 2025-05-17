@@ -7,6 +7,7 @@ import { apiRequest } from "../api";
 interface KasinaState {
   selectedKasina: string;
   customColor: string;
+  sessions?: KasinaSession[];
   setSelectedKasina: (type: string) => void;
   setCustomColor: (color: string) => void;
   getKasinaColor: (type: string) => string;

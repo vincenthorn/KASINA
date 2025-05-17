@@ -50,7 +50,7 @@ const Reflection = () => {
       filtered = sessions.filter((session: KasinaSession) => new Date(session.date) >= oneWeekAgo);
     } else if (timeFilter === 'month') {
       const oneMonthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
-      filtered = sessions.filter(session => new Date(session.date) >= oneMonthAgo);
+      filtered = sessions.filter((session: KasinaSession) => new Date(session.date) >= oneMonthAgo);
     } else {
       filtered = [...sessions];
     }
@@ -61,7 +61,7 @@ const Reflection = () => {
   // Prepare pie chart data
   useEffect(() => {
     // First, normalize the session types for consistency
-    const normalizedSessions = filteredSessions.map(session => {
+    const normalizedSessions = filteredSessions.map((session: KasinaSession) => {
       // Handle missing kasinaType
       if (!session.kasinaType) {
         return session;
@@ -220,7 +220,7 @@ const Reflection = () => {
       setPieData(vajrayanaData);
     }
     
-  }, [normalizedSessions, chartMode]);
+  }, [filteredSessions, chartMode]);
 
   // Colors for pie chart
   const COLORS = [
