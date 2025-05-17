@@ -639,12 +639,26 @@ const TimerKasinas: React.FC = () => {
                                   </span>
                                   <span>Color Kasinas</span>
                                 </>
-                              ) : (
+                              ) : kasinaTab === 'elements' ? (
                                 <>
                                   <span className="flex gap-1 mr-2">
                                     <span>🌎</span>
                                   </span>
                                   <span>Elemental Kasinas</span>
+                                </>
+                              ) : kasinaTab === 'vajrayana' ? (
+                                <>
+                                  <span className="flex gap-1 mr-2">
+                                    <span>💀</span>
+                                  </span>
+                                  <span>Vajrayana Kasinas</span>
+                                </>
+                              ) : (
+                                <>
+                                  <span className="flex gap-1 mr-2">
+                                    <span className="text-yellow-300">🟡</span>
+                                  </span>
+                                  <span>Color Kasinas</span>
                                 </>
                               )}
                             </span>
@@ -889,11 +903,11 @@ const TimerKasinas: React.FC = () => {
                             onClick={() => setSelectedKasina(KASINA_TYPES.WHITE_A_THIGLE)}
                             className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
                             style={{ 
-                              backgroundColor: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? KASINA_COLORS.white_a_thigle : 'transparent',
+                              backgroundColor: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? KASINA_COLORS[KASINA_TYPES.WHITE_A_THIGLE] : 'transparent',
                               color: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? 'black' : 'white'
                             }}
                           >
-                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.white_a_thigle]}</span>
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
                             <span>White A Thigle</span>
                           </Button>
                         </div>

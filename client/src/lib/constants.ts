@@ -110,6 +110,7 @@ export const KASINA_SERIES = {
   ],
   VAJRAYANA: [
     KASINA_TYPES.WHITE_A_THIGLE
+    // Future Vajrayana kasinas can be added here
   ]
 };
 
