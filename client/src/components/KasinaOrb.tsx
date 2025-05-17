@@ -969,42 +969,19 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     }
   }, [selectedKasina, isAdmin]);
   
-  // For the White A Thigle kasina, we'll use a different approach
+  // For the White A Thigle kasina, we'll return a hybrid approach
   if (isWhiteAThigle) {
-    // Create a direct session log for White A Thigle
-    useEffect(() => {
-      console.log("White A Thigle selected and is admin - creating quick session");
-      
-      // Create a quick 1-minute session via API to ensure it's logged
-      const createOneMinuteSession = async () => {
-        try {
-          const response = await fetch('/api/direct-one-minute-session', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ 
-              kasinaType: KASINA_TYPES.WHITE_A_THIGLE,
-              minutes: 1
-            }),
-          });
-          const data = await response.json();
-          console.log("Quick session creation response:", data);
-        } catch (error) {
-          console.error("Error creating quick session:", error);
-        }
-      };
-      
-      // Only create the session when this component mounts
-      const timeoutId = setTimeout(() => {
-        createOneMinuteSession();
-      }, 500); // Small delay to ensure everything is ready
-      
-      return () => clearTimeout(timeoutId);
-    }, []);
-    
-    // Return the visual component without any mesh reference for timer
-    return <WhiteAThigle />;
+    return (
+      <>
+        {/* Add an invisible sphere with the ref to maintain timer functionality */}
+        <mesh ref={meshRef} visible={false} position={[0, 0, -100]}>
+          <sphereGeometry args={[1, 64, 64]} />
+        </mesh>
+        
+        {/* Add the visual White A Thigle component */}
+        <WhiteAThigle />
+      </>
+    );
   } else {
     return (
       <mesh ref={meshRef}>
