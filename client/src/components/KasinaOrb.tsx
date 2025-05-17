@@ -975,18 +975,24 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   }, [selectedKasina, customColor]);
 
   // For Clear Light Thigle, we want a flat plane that faces the camera
-  // rather than a sphere, to show the Tibetan letter properly
-  const isWhiteAThigle = selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isPremium;
+  // rather than a sphere, to show the Tibetan letters properly
+  // Check if a Vajrayana kasina is selected by a premium user
+  const isVajrayanaKasina = isPremium && (
+    selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ||
+    selectedKasina === KASINA_TYPES.OM_KASINA ||
+    selectedKasina === KASINA_TYPES.AH_KASINA ||
+    selectedKasina === KASINA_TYPES.HUM_KASINA
+  );
   
   // Debug
   useEffect(() => {
-    if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE) {
-      console.log("White A Thigle selected, admin status:", isAdmin);
+    if (isVajrayanaKasina) {
+      console.log("Vajrayana kasina selected:", selectedKasina, "premium status:", isPremium);
     }
-  }, [selectedKasina, isAdmin]);
+  }, [selectedKasina, isPremium, isVajrayanaKasina]);
   
-  // For the White A Thigle kasina, we'll return a hybrid approach
-  if (isWhiteAThigle) {
+  // For Vajrayana kasinas, we'll return a hybrid approach
+  if (isVajrayanaKasina) {
     return (
       <>
         {/* Add an invisible sphere with the ref to maintain timer functionality */}
@@ -994,8 +1000,11 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
           <sphereGeometry args={[1, 64, 64]} />
         </mesh>
         
-        {/* Add the visual White A Thigle component */}
-        <WhiteAThigle />
+        {/* Add the visual Vajrayana component based on selection */}
+        {selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && <WhiteAThigle />}
+        {selectedKasina === KASINA_TYPES.OM_KASINA && <OmKasina />}
+        {selectedKasina === KASINA_TYPES.AH_KASINA && <AhKasina />}
+        {selectedKasina === KASINA_TYPES.HUM_KASINA && <HumKasina />}
       </>
     );
   } else {
