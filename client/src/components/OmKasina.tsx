@@ -10,8 +10,8 @@ const OmKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
-  // Load the OM syllable texture
-  const omTexture = useTexture('/images/vajrayana/om-syllable.svg');
+  // Load the OM syllable texture (dark version for better contrast)
+  const omTexture = useTexture('/images/vajrayana/om-syllable-dark.svg');
   
   // Get timer state directly from the store without subscription
   const timerState = useSimpleTimer.getState();
@@ -46,9 +46,9 @@ const OmKasina = () => {
       groupRef.current.position.x = 0;
       groupRef.current.scale.set(scale, scale, scale);
     } else {
-      // Normal floating animation - slower, more spacious movement
-      groupRef.current.position.y = Math.sin(time * 0.3) * 0.1;
-      groupRef.current.position.x = Math.sin(time * 0.2) * 0.05;
+      // Stationary position - no floating movement
+      groupRef.current.position.y = 0;
+      groupRef.current.position.x = 0;
       
       // Subtle radiating pulse effect - gentler than other kasinas
       const pulse = 1.0 + Math.sin(time * 0.2) * 0.03;
