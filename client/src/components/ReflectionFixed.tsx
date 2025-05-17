@@ -56,11 +56,19 @@ const ReflectionFixed: React.FC = () => {
     const now = new Date();
     if (timeRange === 'week') {
       const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-      filteredSessions = sessions.filter((session: KasinaSession) => new Date(session.timestamp) >= oneWeekAgo);
+      // The timestamp might be directly on the session or in a date field
+      filteredSessions = sessions.filter((session: KasinaSession) => {
+        const sessionDate = session.timestamp || session.date;
+        return new Date(sessionDate) >= oneWeekAgo;
+      });
       console.log("Week sessions:", filteredSessions.length);
     } else if (timeRange === 'month') {
       const oneMonthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-      filteredSessions = sessions.filter((session: KasinaSession) => new Date(session.timestamp) >= oneMonthAgo);
+      // The timestamp might be directly on the session or in a date field
+      filteredSessions = sessions.filter((session: KasinaSession) => {
+        const sessionDate = session.timestamp || session.date;
+        return new Date(sessionDate) >= oneMonthAgo;
+      });
       console.log("Month sessions:", filteredSessions.length);
     }
 
@@ -401,16 +409,17 @@ const ReflectionFixed: React.FC = () => {
               Total Meditation Time: <span className="font-semibold">{formatTime(getDisplayTime())}</span>
             </div>
             <div className="w-full max-w-md h-64">
-              <PracticeChart data={chartData} />
+              {/* Use sessions array with PracticeChart instead of data */}
+              <PracticeChart sessions={sessions} />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Session Log */}
+      {/* Session Log - render standard log with the filtered sessions */}
       <div className="bg-card rounded-lg p-4 shadow">
         <h2 className="text-xl font-bold mb-4">Practice Log</h2>
-        <PracticeLog sessions={sessions} timeRange={timeRange} />
+        <PracticeLog sessions={sessions} />
       </div>
     </div>
   );

@@ -21,9 +21,10 @@ interface PracticeChartProps {
   sessions: {
     id: string;
     kasinaType: string;
-    kasinaName: string;
+    kasinaName?: string;
     duration: number;
-    timestamp: string;
+    timestamp?: string;
+    date?: string | Date;
   }[];
 }
 
@@ -118,12 +119,21 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
     // Group the kasina types into "color", "elemental", and "vajrayana" categories
     const colorKasinas = ['white', 'blue', 'red', 'yellow', 'custom'];
     const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
-    const vajrayanaKasinas = [
-      'clear_light_thigle', 
-      'om_kasina', 
-      'ah_kasina', 
-      'hum_kasina'
-    ];
+    // Important - use flexible matching for vajrayana kasina types
+    const vajrayanaKasinas = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina'];
+    
+    // This will properly detect all the Vajrayana sessions including our OM, AH, and HUM kasinas
+    const detectVajrayanaSession = (session: any) => {
+      const type = String(session.kasinaType || '').toLowerCase();
+      return (
+        vajrayanaKasinas.includes(type) || 
+        type.includes('om') || 
+        type.includes('ah') || 
+        type.includes('hum') || 
+        type.includes('thigle') || 
+        type.includes('clear')
+      );
+    };
     
     // Prepare data based on current mode
     if (chartMode === 'overview') {
