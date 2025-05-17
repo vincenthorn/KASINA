@@ -690,7 +690,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   // Check if current user is premium
   const isPremium = email ? premiumEmails.includes(email) : false;
   
-  // For White A Thigle - load the simple concentric rings
+  // For Clear Light Thigle - load the simple concentric rings
   const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
   const whiteAImageTexture = useTexture('/images/vajrayana/concentric-rings-simple.svg');
   

@@ -12,7 +12,7 @@ export const KASINA_TYPES = {
   SPACE: "space",
   LIGHT: "light",
   // Vajrayana Series
-  WHITE_A_THIGLE: "white_a_thigle"
+  WHITE_A_THIGLE: "clear_light_thigle" // Updated name from white_a_thigle
 };
 
 // Kasina names
@@ -31,7 +31,7 @@ export const KASINA_NAMES: Record<string, string> = {
   [KASINA_TYPES.SPACE]: "Space",
   [KASINA_TYPES.LIGHT]: "Light",
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "White A Thigle"
+  [KASINA_TYPES.WHITE_A_THIGLE]: "Clear Light Thigle"
 };
 
 // Kasina colors (hex codes)
@@ -50,7 +50,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.SPACE]: "#330066", // Deep purple
   [KASINA_TYPES.LIGHT]: "#FFFFCC", // Light yellowish white with significantly increased brightness
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "#FFFFFF" // Pure white for the Tibetan letter A
+  [KASINA_TYPES.WHITE_A_THIGLE]: "#FFFFFF" // Pure white for the Tibetan letter in Clear Light Thigle
 };
 
 // Background colors for elemental kasinas
@@ -69,7 +69,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)
   [KASINA_TYPES.LIGHT]: "#000000", // Pure black
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff"  // More vibrant royal blue background
+  [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff"  // More vibrant royal blue background for Clear Light Thigle
 };
 
 // Kasina emojis

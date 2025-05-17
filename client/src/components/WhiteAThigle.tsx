@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 
-// Standalone component to render the White A Thigle kasina
+// Standalone component to render the Clear Light Thigle kasina
 const WhiteAThigle = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
