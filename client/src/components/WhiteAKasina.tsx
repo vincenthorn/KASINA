@@ -63,31 +63,31 @@ const WhiteAKasina = () => {
       
       {/* Yellow ring - use full circles instead of rings to avoid gaps */}
       <mesh position={[0, 0, -0.005]}>
-        <circleGeometry args={[0.9, 64]} />
+        <circleGeometry args={[0.95, 64]} />
         <meshBasicMaterial color="#ffff00" />
       </mesh>
       
       {/* Red ring */}
       <mesh position={[0, 0, -0.004]}>
-        <circleGeometry args={[0.7, 64]} />
+        <circleGeometry args={[0.81, 64]} />
         <meshBasicMaterial color="#ff0000" />
       </mesh>
       
       {/* White ring */}
       <mesh position={[0, 0, -0.003]}>
-        <circleGeometry args={[0.5, 64]} />
+        <circleGeometry args={[0.67, 64]} />
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
       {/* Green ring */}
       <mesh position={[0, 0, -0.002]}>
-        <circleGeometry args={[0.35, 64]} />
+        <circleGeometry args={[0.53, 64]} />
         <meshBasicMaterial color="#00cc00" />
       </mesh>
       
       {/* Blue center - 40% larger */}
       <mesh position={[0, 0, -0.001]}>
-        <circleGeometry args={[0.28, 64]} />
+        <circleGeometry args={[0.39, 64]} />
         <meshBasicMaterial color="#0055ff" />
       </mesh>
       
