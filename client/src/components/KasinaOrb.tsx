@@ -926,9 +926,29 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   
   if (isWhiteAThigle) {
     return (
-      <mesh ref={meshRef}>
-        <planeGeometry args={[2, 2]} />
-      </mesh>
+      <group>
+        {/* Main thigle plane that will receive the shader material */}
+        <mesh ref={meshRef}>
+          <planeGeometry args={[2, 2]} />
+        </mesh>
+        
+        {/* Subtle glow planes at different angles with fixed materials */}
+        <mesh rotation={[0, Math.PI/8, 0]} scale={[1.05, 1.05, 1]}>
+          <planeGeometry args={[2, 2]} />
+          <meshBasicMaterial color="#ffffff" transparent opacity={0.15} />
+        </mesh>
+        
+        <mesh rotation={[0, -Math.PI/8, 0]} scale={[1.05, 1.05, 1]}>
+          <planeGeometry args={[2, 2]} />
+          <meshBasicMaterial color="#ffffff" transparent opacity={0.15} />
+        </mesh>
+        
+        {/* Rainbow halo effect */}
+        <mesh scale={[1.2, 1.2, 1]}>
+          <ringGeometry args={[0.9, 1.0, 64]} />
+          <meshBasicMaterial color="#ffffff" transparent opacity={0.3} />
+        </mesh>
+      </group>
     );
   } else {
     return (
@@ -1078,7 +1098,7 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   );
 };
 
-// White A Thigle Shader
+// White A Thigle Shader with rainbow effects
 const whiteAThigleShader = {
   uniforms: {
     time: { value: 0 },
@@ -1089,10 +1109,12 @@ const whiteAThigleShader = {
   vertexShader: `
     varying vec2 vUv;
     varying vec3 vNormal;
+    varying vec3 vPosition;
     
     void main() {
       vUv = uv;
       vNormal = normalize(normalMatrix * normal);
+      vPosition = position;
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -1104,10 +1126,18 @@ const whiteAThigleShader = {
     
     varying vec2 vUv;
     varying vec3 vNormal;
+    varying vec3 vPosition;
     
     // Simple noise function
     float noise(vec2 p) {
       return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+    }
+    
+    // Convert HSV to RGB
+    vec3 hsv2rgb(vec3 c) {
+      vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+      vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+      return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
     }
     
     void main() {
@@ -1118,22 +1148,36 @@ const whiteAThigleShader = {
       vec2 center = vec2(0.5, 0.5);
       float distToCenter = length(vUv - center) * 2.0;
       
-      // Subtle breathing effect
+      // Breathing and pulsing effects
       float breath = sin(time * 0.3) * 0.5 + 0.5;
+      float pulse = sin(time * 0.8) * 0.5 + 0.5;
       
-      // Create gentle pulsing glow
-      vec3 glowColor = vec3(1.0, 1.0, 1.0); // Pure white glow
-      float glowIntensity = 0.15 * breath;
+      // Create rainbow edge glow (only at the edges)
+      float edgeFactor = smoothstep(0.8, 1.0, distToCenter);
       
-      // Add subtle shimmering
-      float shimmer = noise(vUv * 5.0 + time * 0.1) * 0.05;
+      // Rainbow color cycling
+      float hue = fract(time * 0.05); // Slow cycling through rainbow colors
+      vec3 rainbowColor = hsv2rgb(vec3(hue, 0.8, 1.0)); // Vibrant saturation
       
-      // Build final color with glow effects
-      vec3 finalColor = color;
-      finalColor += glowColor * glowIntensity; // Add pulsing glow
-      finalColor += shimmer; // Add shimmer
+      // Add subtle shimmer/sparkle effect
+      float shimmer = noise(vUv * 10.0 + time * 0.2) * pulse;
+      float sparkle = pow(shimmer, 5.0) * 2.0; // More concentrated bright spots
+      
+      // Mix in subtle rainbow at the edges
+      vec3 baseColor = mix(color, rainbowColor, edgeFactor * 0.7);
+      
+      // Build final color with all effects
+      vec3 finalColor = baseColor;
+      finalColor += vec3(1.0) * sparkle; // Add white sparkles
+      finalColor += rainbowColor * shimmer * 0.3; // Add colored shimmer
+      
+      // Add subtle pulsing glow near edges
+      float glowIntensity = 0.2 * breath * smoothstep(0.6, 1.0, distToCenter);
+      finalColor += rainbowColor * glowIntensity;
       
       // Use the texture as a mask - only where the texture has an alpha value
+      // Ensure we never exceed 1.0 for color channels
+      finalColor = clamp(finalColor, 0.0, 1.0);
       gl_FragColor = vec4(finalColor, texSample.a * opacity);
     }
   `
