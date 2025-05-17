@@ -58,25 +58,57 @@ const Reflection = () => {
 
   // Prepare pie chart data
   useEffect(() => {
+    // Add debug info first - let's check what the raw data looks like
+    console.log('DEBUG - Raw filtered sessions:', filteredSessions);
+    console.log('DEBUG - OM sessions:', filteredSessions.filter(s => 
+      typeof s.kasinaType === 'string' && 
+      s.kasinaType.toLowerCase().includes('om')
+    ));
+    
     // Process the sessions to ensure proper categorization
-    // Special fix for OM Kasina sessions - map any 'om kasina' style entries to 'om_kasina'
+    // Normalize all session types for consistency
     const processedSessions = filteredSessions.map(session => {
-      const kasinaType = session.kasinaType;
+      // Ensure kasinaType is a string
+      if (!session.kasinaType) {
+        return session;
+      }
       
-      // If it's an OM Kasina (case-insensitive), normalize to 'om_kasina'
-      if (typeof kasinaType === 'string' && kasinaType.toLowerCase().includes('om')) {
+      const kasinaType = String(session.kasinaType).toLowerCase();
+      
+      // Handle OM Kasina detection
+      if (kasinaType.includes('om')) {
+        console.log('DEBUG - Found OM session:', session);
         return { ...session, kasinaType: 'om_kasina' };
+      }
+      
+      // Handle AH Kasina detection
+      if (kasinaType.includes('ah')) {
+        return { ...session, kasinaType: 'ah_kasina' };
+      }
+      
+      // Handle HUM Kasina detection
+      if (kasinaType.includes('hum')) {
+        return { ...session, kasinaType: 'hum_kasina' };
+      }
+      
+      // Handle Clear Light Kasina detection
+      if (kasinaType.includes('clear') || kasinaType.includes('thigle')) {
+        return { ...session, kasinaType: 'clear_light_thigle' };
       }
       
       return session;
     });
+    
+    // Debug the processed sessions
+    console.log('DEBUG - Processed sessions:', processedSessions);
+    console.log('DEBUG - Processed OM sessions:', processedSessions.filter(s => s.kasinaType === 'om_kasina'));
     
     // Directly use the kasina series from constants
     const colorKasinas = KASINA_SERIES.COLOR;
     const elementalKasinas = KASINA_SERIES.ELEMENTAL;
     const vajrayanaKasinas = KASINA_SERIES.VAJRAYANA;
     
-    console.log('Vajrayana kasina types:', vajrayanaKasinas);
+    console.log('DEBUG - Vajrayana kasina types:', vajrayanaKasinas);
     
     // Create session counts by category
     let colorTotal = 0;
