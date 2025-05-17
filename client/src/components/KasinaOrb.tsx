@@ -676,9 +676,9 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   // Check if user is admin
   const isAdmin = email === "admin@kasina.app";
   
-  // For White A Thigle - load the authentic reference image
+  // For White A Thigle - load the simple concentric rings
   const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
-  const whiteAImageTexture = useTexture('/images/vajrayana/reference-thigle.webp');
+  const whiteAImageTexture = useTexture('/images/vajrayana/concentric-rings-simple.svg');
   
   useFrame(({ clock, camera }) => {
     if (meshRef.current) {
