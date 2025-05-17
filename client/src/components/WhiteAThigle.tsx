@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
@@ -8,80 +8,47 @@ const WhiteAThigle = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
-  // Get timer state to connect with the countdown animation
-  const { 
-    isRunning, 
-    timeRemaining,
-    duration 
-  } = useSimpleTimer((state) => ({
-    isRunning: state.isRunning,
-    timeRemaining: state.timeRemaining,
-    duration: state.duration
-  }));
-  
-  // State to track if we're in the final countdown phase (0-60 seconds)
-  const [inFinalCountdown, setInFinalCountdown] = useState(false);
-  const [countdownScale, setCountdownScale] = useState(1.0);
-  
-  // Use a simple approach to track the countdown and update visuals
-  useEffect(() => {
-    // Gracefully handle the case where timeRemaining is null
-    if (timeRemaining === null) {
-      // If timer is not set, make sure we're showing the full-size kasina
-      if (inFinalCountdown) {
-        setInFinalCountdown(false);
-      }
-      if (countdownScale !== 1.0) {
-        setCountdownScale(1.0);
-      }
-      return;
-    }
-    
-    // Check if we're in the final countdown period (60 seconds or less)
-    const shouldBeInFinalCountdown = isRunning && timeRemaining <= 60 && timeRemaining > 0;
-    
-    // Only update if state needs to change
-    if (shouldBeInFinalCountdown !== inFinalCountdown) {
-      setInFinalCountdown(shouldBeInFinalCountdown);
-    }
-    
-    // Update scale during final countdown
-    if (shouldBeInFinalCountdown) {
-      // Scale from 1.0 down to 0.1 as timeRemaining goes from 60 to 0
-      const newScale = Math.max(0.1, timeRemaining / 60);
-      
-      // Avoid excessive re-renders by only updating when scale changes significantly
-      if (Math.abs(newScale - countdownScale) > 0.01) {
-        setCountdownScale(newScale);
-      }
-    } else if (countdownScale !== 1.0) {
-      // Reset to full size when not in final countdown
-      setCountdownScale(1.0);
-    }
-  }, [timeRemaining, isRunning, inFinalCountdown, countdownScale]);
+  // Get timer state directly from the store without subscription
+  // This prevents unnecessary re-renders
+  const timerState = useSimpleTimer.getState();
   
   // Animation to make the orb float and face the camera
   useFrame(({ clock, camera }) => {
-    if (groupRef.current) {
-      const time = clock.getElapsedTime();
+    if (!groupRef.current) return;
+    
+    // Always make the group face the camera
+    groupRef.current.lookAt(camera.position);
+    
+    // Get current timer state in each frame
+    const currentState = useSimpleTimer.getState();
+    const { isRunning, timeRemaining } = currentState;
+    
+    // Calculate time and animation values
+    const time = clock.getElapsedTime();
+    let scale = 1.0;
+    
+    // Check if we should show the countdown animation
+    const inFinalCountdown = isRunning && 
+                         timeRemaining !== null && 
+                         timeRemaining <= 60 && 
+                         timeRemaining > 0;
+    
+    if (inFinalCountdown) {
+      // During final countdown, calculate scale based on remaining time
+      scale = Math.max(0.1, (timeRemaining as number) / 60);
       
-      // Make the group always face the camera
-      groupRef.current.lookAt(camera.position);
+      // Apply position and scale for countdown
+      groupRef.current.position.y = 0;
+      groupRef.current.position.x = 0;
+      groupRef.current.scale.set(scale, scale, scale);
+    } else {
+      // Normal floating animation when not in countdown
+      groupRef.current.position.y = Math.sin(time * 0.5) * 0.08;
+      groupRef.current.position.x = Math.sin(time * 0.3) * 0.04;
       
-      // Gentle floating motion (disabled during final countdown)
-      if (!inFinalCountdown) {
-        groupRef.current.position.y = Math.sin(time * 0.5) * 0.08;
-        groupRef.current.position.x = Math.sin(time * 0.3) * 0.04;
-        
-        // Subtle breathing/pulsing effect
-        const pulse = 1.0 + Math.sin(time * 0.4) * 0.02;
-        groupRef.current.scale.set(pulse, pulse, pulse);
-      } else {
-        // During final countdown, apply shrinking scale
-        groupRef.current.position.y = 0;
-        groupRef.current.position.x = 0;
-        groupRef.current.scale.set(countdownScale, countdownScale, countdownScale);
-      }
+      // Subtle breathing/pulsing effect
+      const pulse = 1.0 + Math.sin(time * 0.4) * 0.02;
+      groupRef.current.scale.set(pulse, pulse, pulse);
     }
   });
   
