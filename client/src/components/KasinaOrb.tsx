@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { useKasina } from "../lib/stores/useKasina";
 import { KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from "../lib/constants";
 import { KasinaType } from "../lib/types";
+import { useAuth } from "../lib/stores/useAuth";
 
 // Shader materials for the elemental kasinas
 const waterShader = {
@@ -670,6 +671,13 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   const { selectedKasina, customColor } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
+  const { email } = useAuth(); // Get user email to check if admin
+  
+  // Check if user is admin
+  const isAdmin = email === "admin@kasina.app";
+  
+  // For White A Thigle - load texture
+  const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.jpeg');
   
   useFrame(({ clock }) => {
     if (meshRef.current) {
@@ -849,6 +857,22 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         return new THREE.ShaderMaterial({...spaceShader, transparent: true});
       case KASINA_TYPES.LIGHT:
         return new THREE.ShaderMaterial({...lightShader, transparent: true});
+      case KASINA_TYPES.WHITE_A_THIGLE:
+        // Only for admin users, else fall back to white kasina
+        if (isAdmin) {
+          const material = new THREE.ShaderMaterial({
+            ...whiteAThigleShader, 
+            transparent: true
+          });
+          // Set the texture
+          material.uniforms.map.value = whiteATexture;
+          return material;
+        } else {
+          return new THREE.MeshBasicMaterial({ 
+            color: KASINA_COLORS.white,
+            transparent: true
+          });
+        }
       case KASINA_TYPES.CUSTOM:
         // For custom color kasina
         return new THREE.MeshBasicMaterial({ 
@@ -872,11 +896,23 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     }
   }, [selectedKasina, customColor]);
 
-  return (
-    <mesh ref={meshRef}>
-      <sphereGeometry args={[1, 64, 64]} />
-    </mesh>
-  );
+  // For White A Thigle, we want a flat plane that faces the camera
+  // rather than a sphere, to show the Tibetan letter properly
+  const isWhiteAThigle = selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isAdmin;
+  
+  if (isWhiteAThigle) {
+    return (
+      <mesh ref={meshRef}>
+        <planeGeometry args={[2, 2]} />
+      </mesh>
+    );
+  } else {
+    return (
+      <mesh ref={meshRef}>
+        <sphereGeometry args={[1, 64, 64]} />
+      </mesh>
+    );
+  }
 };
 
 // Scene setup component
@@ -1016,6 +1052,67 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
       </Canvas>
     </div>
   );
+};
+
+// White A Thigle Shader
+const whiteAThigleShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#FFFFFF") },
+    opacity: { value: 1.0 },
+    map: { value: null }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    
+    void main() {
+      vUv = uv;
+      vNormal = normalize(normalMatrix * normal);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    uniform sampler2D map;
+    
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    
+    // Simple noise function
+    float noise(vec2 p) {
+      return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+    }
+    
+    void main() {
+      // Sample the texture
+      vec4 texSample = texture2D(map, vUv);
+      
+      // Calculate distance from center
+      vec2 center = vec2(0.5, 0.5);
+      float distToCenter = length(vUv - center) * 2.0;
+      
+      // Subtle breathing effect
+      float breath = sin(time * 0.3) * 0.5 + 0.5;
+      
+      // Create gentle pulsing glow
+      vec3 glowColor = vec3(1.0, 1.0, 1.0); // Pure white glow
+      float glowIntensity = 0.15 * breath;
+      
+      // Add subtle shimmering
+      float shimmer = noise(vUv * 5.0 + time * 0.1) * 0.05;
+      
+      // Build final color with glow effects
+      vec3 finalColor = color;
+      finalColor += glowColor * glowIntensity; // Add pulsing glow
+      finalColor += shimmer; // Add shimmer
+      
+      // Use the texture as a mask - only where the texture has an alpha value
+      gl_FragColor = vec4(finalColor, texSample.a * opacity);
+    }
+  `
 };
 
 export default KasinaOrb;
