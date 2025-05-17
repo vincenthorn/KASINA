@@ -144,11 +144,46 @@ const Reflection = () => {
       })
       .filter(Boolean) as ChartDataItem[];
     
-    // Process vajrayana kasinas
+    // Process vajrayana kasinas with enhanced debugging
+    console.log('Processing Vajrayana kasinas...');
+    console.log('Vajrayana types from constants:', vajrayanaKasinas);
+    console.log('All normalized sessions:', normalizedSessions);
+    
+    // Create a separate array just for OM Kasina sessions for debugging
+    const omKasinaSessions = normalizedSessions.filter(s => 
+      s.kasinaType === 'om_kasina' || 
+      (typeof s.kasinaType === 'string' && s.kasinaType.toLowerCase().includes('om'))
+    );
+    console.log('All OM Kasina sessions:', omKasinaSessions);
+    
     const vajrayanaData = vajrayanaKasinas
       .map(type => {
-        // Using our normalized sessions data
-        const sessionsOfType = normalizedSessions.filter(s => s.kasinaType === type);
+        // More flexible matching for Vajrayana kasinas
+        let sessionsOfType;
+        
+        if (type === 'om_kasina') {
+          // Special handling for OM Kasina
+          sessionsOfType = normalizedSessions.filter(s => 
+            s.kasinaType === 'om_kasina' || 
+            (typeof s.kasinaType === 'string' && s.kasinaType.toLowerCase().includes('om'))
+          );
+        } else if (type === 'ah_kasina') {
+          // Special handling for AH Kasina
+          sessionsOfType = normalizedSessions.filter(s => 
+            s.kasinaType === 'ah_kasina' || 
+            (typeof s.kasinaType === 'string' && s.kasinaType.toLowerCase().includes('ah'))
+          );
+        } else if (type === 'hum_kasina') {
+          // Special handling for HUM Kasina
+          sessionsOfType = normalizedSessions.filter(s => 
+            s.kasinaType === 'hum_kasina' || 
+            (typeof s.kasinaType === 'string' && s.kasinaType.toLowerCase().includes('hum'))
+          );
+        } else {
+          // Default handling for other types
+          sessionsOfType = normalizedSessions.filter(s => s.kasinaType === type);
+        }
+        
         console.log(`Found ${type} sessions:`, sessionsOfType);
         
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
