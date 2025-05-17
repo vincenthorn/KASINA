@@ -686,15 +686,32 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         // Get camera position and make the plane face it
         meshRef.current.lookAt(camera.position);
         
-        // Add a subtle floating motion
+        // Add more dynamic floating motion
         const time = clock.getElapsedTime();
-        meshRef.current.position.y = Math.sin(time * 0.5) * 0.05;
+        meshRef.current.position.y = Math.sin(time * 0.5) * 0.08;
+        meshRef.current.position.x = Math.sin(time * 0.3) * 0.04;
         
         // Add a very subtle rotation while still facing the camera
-        meshRef.current.rotation.z = Math.sin(time * 0.2) * 0.03;
+        meshRef.current.rotation.z = Math.sin(time * 0.2) * 0.05;
         
-        // Log for debugging
-        console.log("Rendering White A Thigle kasina");
+        // Animate subtle scale pulsing for depth effect
+        const pulseScale = 1.0 + Math.sin(time * 0.7) * 0.03;
+        meshRef.current.scale.set(pulseScale, pulseScale, pulseScale);
+        
+        // Update shader uniforms for animation effects
+        if (materialRef.current && 'uniforms' in materialRef.current) {
+          const material = materialRef.current as THREE.ShaderMaterial;
+          
+          // Update time uniform
+          if (material.uniforms.time) {
+            material.uniforms.time.value = time;
+          }
+          
+          // Debug info
+          if (time % 10 < 0.1) { // Log only occasionally to reduce console spam
+            console.log("Rendering White A Thigle kasina with rainbow effects");
+          }
+        }
       }
       // Special rotation handling for Light kasina
       else if (selectedKasina === KASINA_TYPES.LIGHT) {
@@ -876,12 +893,26 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         // Only for admin users, else fall back to white kasina
         if (isAdmin) {
           console.log("Creating White A Thigle shader material for admin");
+          
+          // Create shader material with enhanced settings
           const material = new THREE.ShaderMaterial({
             ...whiteAThigleShader, 
-            transparent: true
+            transparent: true,
+            side: THREE.DoubleSide, // Make it visible from both sides
           });
-          // Set the texture
-          material.uniforms.map.value = whiteATexture;
+          
+          // Set the texture and make sure it's properly loaded
+          if (whiteATexture) {
+            console.log("White A Thigle texture loaded successfully");
+            material.uniforms.map.value = whiteATexture;
+            whiteATexture.needsUpdate = true;
+            
+            // Use a custom blend mode for better colors
+            material.blending = THREE.AdditiveBlending;
+          } else {
+            console.error("Failed to load White A Thigle texture");
+          }
+          
           return material;
         } else {
           console.log("Non-admin tried to access White A Thigle kasina, falling back to white");
