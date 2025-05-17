@@ -973,7 +973,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   if (isWhiteAThigle) {
     // Use a direct mesh approach instead of a separate component
     return (
-      <group ref={meshRef}>
+      // Don't use meshRef (which is for regular Mesh) for a group 
+      <group>
         {/* Blue background disc */}
         <mesh position={[0, 0, -0.005]}>
           <circleGeometry args={[1.3, 64]} />
@@ -1009,6 +1010,33 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
           <circleGeometry args={[0.3, 64]} />
           <meshBasicMaterial color="#0055ff" />
         </mesh>
+        
+        {/* Simple white Tibetan A symbol made with geometries */}
+        <group position={[0, 0, 0.001]}>
+          {/* Vertical stem */}
+          <mesh position={[-0.05, 0, 0]}>
+            <boxGeometry args={[0.03, 0.18, 0.01]} />
+            <meshBasicMaterial color="white" />
+          </mesh>
+          
+          {/* Top horizontal bar */}
+          <mesh position={[0, 0.08, 0]}>
+            <boxGeometry args={[0.2, 0.03, 0.01]} />
+            <meshBasicMaterial color="white" />
+          </mesh>
+          
+          {/* Right vertical line */}
+          <mesh position={[0.09, 0.03, 0]}>
+            <boxGeometry args={[0.03, 0.13, 0.01]} />
+            <meshBasicMaterial color="white" />
+          </mesh>
+          
+          {/* Curved part (simplified with a small circle) */}
+          <mesh position={[-0.03, -0.06, 0]}>
+            <circleGeometry args={[0.05, 32]} />
+            <meshBasicMaterial color="white" />
+          </mesh>
+        </group>
       </group>
     );
   } else {
