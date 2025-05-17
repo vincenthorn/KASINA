@@ -103,14 +103,14 @@ const AhKasina = () => {
         <meshBasicMaterial color="#ff3300" />
       </mesh>
       
-      {/* AH Syllable - moved it forward and made it larger for better visibility */}
+      {/* AH Syllable - now black instead of white as requested */}
       <mesh position={[0, 0, 0.003]}>
         <planeGeometry args={[0.6, 0.6]} />
         <meshBasicMaterial 
           map={ahTexture} 
           transparent={true}
           opacity={1}
-          color="#FFFFFF"
+          color="#000000"
         />
       </mesh>
       
