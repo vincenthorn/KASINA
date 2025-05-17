@@ -930,7 +930,7 @@ const TimerKasinas: React.FC = () => {
                           {isPremium ? (
                             // Premium users get access to the Vajrayana kasinas
                             <div className="grid grid-cols-2 gap-3">
-                              {/* White A Thigle Kasina button */}
+                              {/* Clear Light Thigle Kasina button */}
                               <Button
                                 variant={selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? "default" : "outline"}
                                 onClick={() => setSelectedKasina(KASINA_TYPES.WHITE_A_THIGLE)}
@@ -941,7 +941,7 @@ const TimerKasinas: React.FC = () => {
                                 }}
                               >
                                 <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
-                                <span>White A Thigle</span>
+                                <span>Clear Light Thigle</span>
                               </Button>
                             </div>
                           ) : (
