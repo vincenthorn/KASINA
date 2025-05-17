@@ -146,8 +146,9 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
         .filter(s => elementalKasinas.includes(s.kasinaType))
         .reduce((sum, s) => sum + s.duration, 0);
       
+      // Use our flexible detection method for Vajrayana kasinas
       const vajrayanaTotal = sessions
-        .filter(s => vajrayanaKasinas.includes(s.kasinaType))
+        .filter(s => detectVajrayanaSession(s))
         .reduce((sum, s) => sum + s.duration, 0);
         
       return [
@@ -215,78 +216,98 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
         })
         .filter(item => item.value > 0);
     } else if (chartMode === 'vajrayana') {
-      // Show detailed breakdown of Vajrayana kasinas with more flexible matching
-      const vajrayanaData = [];
+      // Completely revised Vajrayana chart section with better detection
+      const vajrayanaData: ChartDataItem[] = [];
       
-      // OM Kasina
-      const omSessions = sessions.filter(s => 
-        s.kasinaType === 'om_kasina' || 
-        String(s.kasinaType).toLowerCase().includes('om')
-      );
-      const omDuration = omSessions.reduce((sum, s) => sum + s.duration, 0);
-      if (omDuration > 0) {
-        vajrayanaData.push({
-          name: 'om_kasina',
-          kasinaType: 'om_kasina',
-          value: omDuration,
-          emoji: KASINA_EMOJIS['om_kasina'] || '🕉️',
-          displayName: 'OM Kasina',
-          color: '#8855ff'
-        });
+      // Process OM Kasina sessions
+      const omSessions = sessions.filter(s => {
+        const type = String(s.kasinaType || '').toLowerCase();
+        return type === 'om_kasina' || type.includes('om');
+      });
+      
+      if (omSessions.length > 0) {
+        console.log("Found OM Kasina sessions:", omSessions.length);
+        const omDuration = omSessions.reduce((sum, s) => sum + s.duration, 0);
+        
+        if (omDuration > 0) {
+          vajrayanaData.push({
+            name: 'om_kasina',
+            value: omDuration,
+            emoji: '🕉️',
+            displayName: 'OM Kasina',
+            color: '#8855ff',
+            category: 'vajrayana'
+          });
+        }
       }
       
-      // AH Kasina
-      const ahSessions = sessions.filter(s => 
-        s.kasinaType === 'ah_kasina' || 
-        String(s.kasinaType).toLowerCase().includes('ah')
-      );
-      const ahDuration = ahSessions.reduce((sum, s) => sum + s.duration, 0);
-      if (ahDuration > 0) {
-        vajrayanaData.push({
-          name: 'ah_kasina',
-          kasinaType: 'ah_kasina',
-          value: ahDuration,
-          emoji: KASINA_EMOJIS['ah_kasina'] || '🔮',
-          displayName: 'AH Kasina',
-          color: '#ff5555'
-        });
+      // Process AH Kasina sessions
+      const ahSessions = sessions.filter(s => {
+        const type = String(s.kasinaType || '').toLowerCase();
+        return type === 'ah_kasina' || type.includes('ah');
+      });
+      
+      if (ahSessions.length > 0) {
+        console.log("Found AH Kasina sessions:", ahSessions.length);
+        const ahDuration = ahSessions.reduce((sum, s) => sum + s.duration, 0);
+        
+        if (ahDuration > 0) {
+          vajrayanaData.push({
+            name: 'ah_kasina',
+            value: ahDuration,
+            emoji: '🔮',
+            displayName: 'AH Kasina',
+            color: '#ff5555',
+            category: 'vajrayana'
+          });
+        }
       }
       
-      // HUM Kasina
-      const humSessions = sessions.filter(s => 
-        s.kasinaType === 'hum_kasina' || 
-        String(s.kasinaType).toLowerCase().includes('hum')
-      );
-      const humDuration = humSessions.reduce((sum, s) => sum + s.duration, 0);
-      if (humDuration > 0) {
-        vajrayanaData.push({
-          name: 'hum_kasina',
-          kasinaType: 'hum_kasina',
-          value: humDuration,
-          emoji: KASINA_EMOJIS['hum_kasina'] || '🌀',
-          displayName: 'HUM Kasina',
-          color: '#3366ff'
-        });
+      // Process HUM Kasina sessions
+      const humSessions = sessions.filter(s => {
+        const type = String(s.kasinaType || '').toLowerCase();
+        return type === 'hum_kasina' || type.includes('hum');
+      });
+      
+      if (humSessions.length > 0) {
+        console.log("Found HUM Kasina sessions:", humSessions.length);
+        const humDuration = humSessions.reduce((sum, s) => sum + s.duration, 0);
+        
+        if (humDuration > 0) {
+          vajrayanaData.push({
+            name: 'hum_kasina',
+            value: humDuration,
+            emoji: '🌀',
+            displayName: 'HUM Kasina',
+            color: '#3366ff',
+            category: 'vajrayana'
+          });
+        }
       }
       
-      // Clear Light Thigle
-      const clearLightSessions = sessions.filter(s => 
-        s.kasinaType === 'clear_light_thigle' || 
-        String(s.kasinaType).toLowerCase().includes('clear') ||
-        String(s.kasinaType).toLowerCase().includes('thigle')
-      );
-      const clearLightDuration = clearLightSessions.reduce((sum, s) => sum + s.duration, 0);
-      if (clearLightDuration > 0) {
-        vajrayanaData.push({
-          name: 'clear_light_thigle',
-          kasinaType: 'clear_light_thigle',
-          value: clearLightDuration,
-          emoji: KASINA_EMOJIS['clear_light_thigle'] || '🌈',
-          displayName: 'Clear Light',
-          color: '#ffffff'
-        });
+      // Process Clear Light Thigle sessions
+      const clearLightSessions = sessions.filter(s => {
+        const type = String(s.kasinaType || '').toLowerCase();
+        return type === 'clear_light_thigle' || type.includes('clear') || type.includes('thigle');
+      });
+      
+      if (clearLightSessions.length > 0) {
+        console.log("Found Clear Light sessions:", clearLightSessions.length);
+        const clearLightDuration = clearLightSessions.reduce((sum, s) => sum + s.duration, 0);
+        
+        if (clearLightDuration > 0) {
+          vajrayanaData.push({
+            name: 'clear_light_thigle',
+            value: clearLightDuration,
+            emoji: '🌈',
+            displayName: 'Clear Light',
+            color: '#ffffff',
+            category: 'vajrayana'
+          });
+        }
       }
       
+      console.log("Vajrayana data for chart:", vajrayanaData);
       return vajrayanaData;
     }
     
