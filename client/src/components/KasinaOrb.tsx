@@ -894,21 +894,33 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         if (isAdmin) {
           console.log("Creating White A Thigle shader material for admin");
           
-          // Create shader material with enhanced settings
+          // Let's create our own shader material directly for more control
           const material = new THREE.ShaderMaterial({
             ...whiteAThigleShader, 
             transparent: true,
             side: THREE.DoubleSide, // Make it visible from both sides
+            depthTest: false, // Ensure it's always visible
+            depthWrite: false // Don't write to depth buffer
           });
           
           // Set the texture and make sure it's properly loaded
           if (whiteATexture) {
             console.log("White A Thigle texture loaded successfully");
-            material.uniforms.map.value = whiteATexture;
-            whiteATexture.needsUpdate = true;
             
-            // Use a custom blend mode for better colors
+            // Set the texture on the shader
+            material.uniforms.map.value = whiteATexture;
+            
+            // Force shader parameters for better appearance
+            material.uniforms.opacity.value = 1.0;
+            material.uniforms.color.value = new THREE.Color(0xffffff);
+            
+            // Set blending for better rainbow effects
             material.blending = THREE.AdditiveBlending;
+            
+            // Set the resolution for proper scaling
+            material.uniforms.resolution.value.set(512, 512);
+            
+            console.log("White A Thigle shader configured successfully");
           } else {
             console.error("Failed to load White A Thigle texture");
           }
@@ -958,26 +970,32 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   if (isWhiteAThigle) {
     return (
       <group>
-        {/* Main thigle plane that will receive the shader material */}
+        {/* Main thigle - we'll use a circle plane for it */}
         <mesh ref={meshRef}>
-          <planeGeometry args={[2, 2]} />
+          <circleGeometry args={[1, 64]} /> {/* Use circle instead of plane for circular shape */}
         </mesh>
         
-        {/* Subtle glow planes at different angles with fixed materials */}
-        <mesh rotation={[0, Math.PI/8, 0]} scale={[1.05, 1.05, 1]}>
-          <planeGeometry args={[2, 2]} />
-          <meshBasicMaterial color="#ffffff" transparent opacity={0.15} />
+        {/* Multiple glow layers with rainbow colors */}
+        <mesh rotation={[0, Math.PI/12, 0]} scale={[1.02, 1.02, 1]}>
+          <circleGeometry args={[1.05, 64]} />
+          <meshBasicMaterial color="#ff3366" transparent opacity={0.15} />
         </mesh>
         
-        <mesh rotation={[0, -Math.PI/8, 0]} scale={[1.05, 1.05, 1]}>
-          <planeGeometry args={[2, 2]} />
-          <meshBasicMaterial color="#ffffff" transparent opacity={0.15} />
+        <mesh rotation={[0, -Math.PI/12, 0]} scale={[1.04, 1.04, 1]}>
+          <circleGeometry args={[1.06, 64]} />
+          <meshBasicMaterial color="#3366ff" transparent opacity={0.15} />
         </mesh>
         
-        {/* Rainbow halo effect */}
-        <mesh scale={[1.2, 1.2, 1]}>
-          <ringGeometry args={[0.9, 1.0, 64]} />
-          <meshBasicMaterial color="#ffffff" transparent opacity={0.3} />
+        {/* Rainbow halo effect - now properly sized for a circle */}
+        <mesh scale={[1.12, 1.12, 1]}>
+          <ringGeometry args={[0.95, 1.0, 64]} />
+          <meshBasicMaterial color="#ffcc00" transparent opacity={0.3} />
+        </mesh>
+        
+        {/* Extra outer glow for a rainbow effect */}
+        <mesh>
+          <ringGeometry args={[1.0, 1.2, 64]} />
+          <meshBasicMaterial color="#ff00ff" transparent opacity={0.2} />
         </mesh>
       </group>
     );
@@ -1129,13 +1147,14 @@ const KasinaOrb: React.FC<KasinaOrbProps> = ({
   );
 };
 
-// White A Thigle Shader with rainbow effects
+// White A Thigle Shader with enhanced rainbow effects
 const whiteAThigleShader = {
   uniforms: {
     time: { value: 0 },
     color: { value: new THREE.Color("#FFFFFF") },
     opacity: { value: 1.0 },
-    map: { value: null }
+    map: { value: null },
+    resolution: { value: new THREE.Vector2(512, 512) }
   },
   vertexShader: `
     varying vec2 vUv;
@@ -1154,62 +1173,95 @@ const whiteAThigleShader = {
     uniform vec3 color;
     uniform float opacity;
     uniform sampler2D map;
+    uniform vec2 resolution;
     
     varying vec2 vUv;
     varying vec3 vNormal;
     varying vec3 vPosition;
     
-    // Simple noise function
+    // Improved noise function for better sparkle effects
     float noise(vec2 p) {
-      return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+      vec2 ip = floor(p);
+      vec2 u = fract(p);
+      u = u*u*(3.0-2.0*u);
+      
+      float res = mix(
+        mix(fract(sin(dot(ip, vec2(12.9898, 78.233))) * 43758.5453), 
+            fract(sin(dot(ip + vec2(1.0, 0.0), vec2(12.9898, 78.233))) * 43758.5453), u.x),
+        mix(fract(sin(dot(ip + vec2(0.0, 1.0), vec2(12.9898, 78.233))) * 43758.5453), 
+            fract(sin(dot(ip + vec2(1.0, 1.0), vec2(12.9898, 78.233))) * 43758.5453), u.x), u.y);
+      return res;
     }
     
-    // Convert HSV to RGB
+    // Convert HSV to RGB with improved color accuracy
     vec3 hsv2rgb(vec3 c) {
       vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
       vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
       return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
     }
     
+    // Calculate a rainbow gradient based on position and time
+    vec3 rainbow(float pos) {
+      // Create a full rainbow cycle
+      vec3 rainbow = hsv2rgb(vec3(fract(pos), 1.0, 1.0));
+      return rainbow;
+    }
+    
     void main() {
-      // Sample the texture
+      // Sample the texture first to see if we have anything
       vec4 texSample = texture2D(map, vUv);
       
-      // Calculate distance from center
+      // Calculate distance from center for circular effects
       vec2 center = vec2(0.5, 0.5);
       float distToCenter = length(vUv - center) * 2.0;
       
-      // Breathing and pulsing effects
-      float breath = sin(time * 0.3) * 0.5 + 0.5;
-      float pulse = sin(time * 0.8) * 0.5 + 0.5;
+      // Stop processing pixels outside our circle (with soft edge)
+      float circleMask = 1.0 - smoothstep(0.98, 1.05, distToCenter);
       
-      // Create rainbow edge glow (only at the edges)
-      float edgeFactor = smoothstep(0.8, 1.0, distToCenter);
+      // Exit early if we're outside the circle
+      if (circleMask <= 0.01) {
+        discard;
+      }
       
-      // Rainbow color cycling
-      float hue = fract(time * 0.05); // Slow cycling through rainbow colors
-      vec3 rainbowColor = hsv2rgb(vec3(hue, 0.8, 1.0)); // Vibrant saturation
+      // Dynamic animation values 
+      float time_cycled = time * 0.5;
+      float breath = sin(time * 0.3) * 0.5 + 0.5;  // Slow breathing
+      float pulse = sin(time * 1.2) * 0.5 + 0.5;   // Faster pulsing
       
-      // Add subtle shimmer/sparkle effect
-      float shimmer = noise(vUv * 10.0 + time * 0.2) * pulse;
-      float sparkle = pow(shimmer, 5.0) * 2.0; // More concentrated bright spots
+      // Calculate radial rainbow gradient that moves over time
+      float rainbowPos = (atan(vUv.y - 0.5, vUv.x - 0.5) / (2.0 * 3.14159)) + 0.5;
+      rainbowPos = fract(rainbowPos + time_cycled * 0.1); // Rotate colors slowly
+      vec3 rainbowColor = rainbow(rainbowPos);
       
-      // Mix in subtle rainbow at the edges
-      vec3 baseColor = mix(color, rainbowColor, edgeFactor * 0.7);
+      // Create an outer edge glow using the rainbow
+      float edgeGlow = smoothstep(0.7, 0.95, distToCenter) * circleMask;
       
-      // Build final color with all effects
+      // Create sparkling effects
+      float sparkleNoise = noise(vUv * 20.0 + time * 0.5);
+      float sparkleIntensity = pow(sparkleNoise, 8.0) * 0.8;
+      vec3 sparkleColor = rainbow(fract(sparkleNoise + time_cycled * 0.2));
+      
+      // Create general glow that pulses
+      float innerGlow = (1.0 - distToCenter * 0.5) * (0.7 + breath * 0.3) * 0.8;
+      
+      // Build our base color - mostly white with touches of rainbow
+      vec3 baseColor = mix(color, rainbowColor, 0.2 + edgeGlow * 0.8);
+      
+      // Apply all effects
       vec3 finalColor = baseColor;
-      finalColor += vec3(1.0) * sparkle; // Add white sparkles
-      finalColor += rainbowColor * shimmer * 0.3; // Add colored shimmer
+      finalColor += sparkleColor * sparkleIntensity; // Add sparkles
+      finalColor += rainbowColor * edgeGlow * 0.8;  // Add rainbow edge
+      finalColor *= innerGlow * (0.9 + pulse * 0.2); // Modulate with inner glow
       
-      // Add subtle pulsing glow near edges
-      float glowIntensity = 0.2 * breath * smoothstep(0.6, 1.0, distToCenter);
-      finalColor += rainbowColor * glowIntensity;
+      // Apply circle mask and texture alpha (if any)
+      float finalAlpha = circleMask;
+      if (texSample.a > 0.0) {
+        // If texture has alpha, use it
+        finalAlpha *= texSample.a * opacity;
+      }
       
-      // Use the texture as a mask - only where the texture has an alpha value
-      // Ensure we never exceed 1.0 for color channels
-      finalColor = clamp(finalColor, 0.0, 1.0);
-      gl_FragColor = vec4(finalColor, texSample.a * opacity);
+      // Output the final color
+      gl_FragColor = vec4(finalColor, finalAlpha);
     }
   `
 };
