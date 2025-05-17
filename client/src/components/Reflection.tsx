@@ -58,10 +58,16 @@ const Reflection = () => {
 
   // Prepare pie chart data
   useEffect(() => {
+    // Log sessions data for debugging
+    console.log('Raw sessions data:', filteredSessions);
+    console.log('OM kasina sessions:', filteredSessions.filter(s => s.kasinaType === 'om_kasina'));
+    
     // Directly use the kasina series from constants
     const colorKasinas = KASINA_SERIES.COLOR;
     const elementalKasinas = KASINA_SERIES.ELEMENTAL;
     const vajrayanaKasinas = KASINA_SERIES.VAJRAYANA;
+    
+    console.log('Vajrayana kasina types:', vajrayanaKasinas);
     
     // Create session counts by category
     let colorTotal = 0;
