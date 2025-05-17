@@ -905,9 +905,9 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       case KASINA_TYPES.LIGHT:
         return new THREE.ShaderMaterial({...lightShader, transparent: true});
       case KASINA_TYPES.WHITE_A_THIGLE:
-        // Only for admin users, else fall back to white kasina
-        if (isAdmin) {
-          console.log("Creating White A Thigle shader material for admin");
+        // Only for premium users (including admin), else fall back to white kasina
+        if (isPremium) {
+          console.log("Creating White A Thigle shader material for premium user");
           
           // Let's create our own shader material directly for more control
           const material = new THREE.ShaderMaterial({
@@ -973,7 +973,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
 
   // For White A Thigle, we want a flat plane that faces the camera
   // rather than a sphere, to show the Tibetan letter properly
-  const isWhiteAThigle = selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isAdmin;
+  const isWhiteAThigle = selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isPremium;
   
   // Debug
   useEffect(() => {
