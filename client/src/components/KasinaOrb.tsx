@@ -969,38 +969,42 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     }
   }, [selectedKasina, isAdmin]);
   
-  // For White A Thigle, we need to handle both the visual appearance and timer functionality
+  // For the White A Thigle kasina, we'll use a different approach
   if (isWhiteAThigle) {
-    // We need to ensure the timer and other elements still work, so we'll 
-    // implement a hybrid approach
-    
-    // First, set up the material for the regular sphere in case that's needed
-    // for timers/events/hooks
+    // Create a direct session log for White A Thigle
     useEffect(() => {
-      if (meshRef.current) {
-        const material = getShaderMaterial();
-        meshRef.current.material = material;
-        materialRef.current = material;
-      }
-    }, [selectedKasina, customColor]);
+      console.log("White A Thigle selected and is admin - creating quick session");
+      
+      // Create a quick 1-minute session via API to ensure it's logged
+      const createOneMinuteSession = async () => {
+        try {
+          const response = await fetch('/api/direct-one-minute-session', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+              kasinaType: KASINA_TYPES.WHITE_A_THIGLE,
+              minutes: 1
+            }),
+          });
+          const data = await response.json();
+          console.log("Quick session creation response:", data);
+        } catch (error) {
+          console.error("Error creating quick session:", error);
+        }
+      };
+      
+      // Only create the session when this component mounts
+      const timeoutId = setTimeout(() => {
+        createOneMinuteSession();
+      }, 500); // Small delay to ensure everything is ready
+      
+      return () => clearTimeout(timeoutId);
+    }, []);
     
-    // Return both components - a hidden mesh reference that handles the timer events,
-    // and the visible WhiteAThigle component for the visual appearance
-    return (
-      <>
-        {/* Hidden mesh that maintains timer functionality */}
-        <mesh 
-          ref={meshRef} 
-          visible={false} 
-          position={[0, 0, -100]} // Position far away
-        >
-          <sphereGeometry args={[1, 64, 64]} />
-        </mesh>
-        
-        {/* Visible White A Thigle component */}
-        <WhiteAThigle />
-      </>
-    );
+    // Return the visual component without any mesh reference for timer
+    return <WhiteAThigle />;
   } else {
     return (
       <mesh ref={meshRef}>

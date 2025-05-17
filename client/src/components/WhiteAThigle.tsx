@@ -3,8 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 // Standalone component to render the White A Thigle kasina
-// This is completely separate from the regular kasina rendering
-const WhiteAThigle: React.FC = () => {
+const WhiteAThigle = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
