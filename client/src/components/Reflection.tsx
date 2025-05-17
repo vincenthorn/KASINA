@@ -58,17 +58,9 @@ const Reflection = () => {
 
   // Prepare pie chart data
   useEffect(() => {
-    // Add debug info first - let's check what the raw data looks like
-    console.log('DEBUG - Raw filtered sessions:', filteredSessions);
-    console.log('DEBUG - OM sessions:', filteredSessions.filter(s => 
-      typeof s.kasinaType === 'string' && 
-      s.kasinaType.toLowerCase().includes('om')
-    ));
-    
-    // Process the sessions to ensure proper categorization
-    // Normalize all session types for consistency
+    // Normalize session types for consistency
     const processedSessions = filteredSessions.map(session => {
-      // Ensure kasinaType is a string
+      // Handle missing kasinaType
       if (!session.kasinaType) {
         return session;
       }
@@ -77,38 +69,37 @@ const Reflection = () => {
       
       // Handle OM Kasina detection
       if (kasinaType.includes('om')) {
-        console.log('DEBUG - Found OM session:', session);
-        return { ...session, kasinaType: 'om_kasina' };
+        return { ...session, kasinaType: 'om_kasina' as KasinaType };
       }
       
       // Handle AH Kasina detection
       if (kasinaType.includes('ah')) {
-        return { ...session, kasinaType: 'ah_kasina' };
+        return { ...session, kasinaType: 'ah_kasina' as KasinaType };
       }
       
       // Handle HUM Kasina detection
       if (kasinaType.includes('hum')) {
-        return { ...session, kasinaType: 'hum_kasina' };
+        return { ...session, kasinaType: 'hum_kasina' as KasinaType };
       }
       
       // Handle Clear Light Kasina detection
       if (kasinaType.includes('clear') || kasinaType.includes('thigle')) {
-        return { ...session, kasinaType: 'clear_light_thigle' };
+        return { ...session, kasinaType: 'clear_light_thigle' as KasinaType };
       }
       
       return session;
     });
     
-    // Debug the processed sessions
-    console.log('DEBUG - Processed sessions:', processedSessions);
-    console.log('DEBUG - Processed OM sessions:', processedSessions.filter(s => s.kasinaType === 'om_kasina'));
+    // Add debug logging
+    console.log('Normalized sessions:', processedSessions);
+    console.log('OM Kasina sessions:', 
+      processedSessions.filter(s => s.kasinaType === 'om_kasina')
+    );
     
     // Directly use the kasina series from constants
     const colorKasinas = KASINA_SERIES.COLOR;
     const elementalKasinas = KASINA_SERIES.ELEMENTAL;
     const vajrayanaKasinas = KASINA_SERIES.VAJRAYANA;
-    
-    console.log('DEBUG - Vajrayana kasina types:', vajrayanaKasinas);
     
     // Create session counts by category
     let colorTotal = 0;
@@ -231,7 +222,7 @@ const Reflection = () => {
       setPieData(vajrayanaData);
     }
     
-  }, [filteredSessions, chartMode]);
+  }, [processedSessions, chartMode]);
 
   // Colors for pie chart
   const COLORS = [
