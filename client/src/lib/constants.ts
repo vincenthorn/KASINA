@@ -65,7 +65,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.OM_KASINA]: "#FFFFFF", // Radiant white orb
   [KASINA_TYPES.AH_KASINA]: "#FF1111", // Deep red orb with golden glow
   [KASINA_TYPES.HUM_KASINA]: "#0022AA", // Deep blue orb
-  [KASINA_TYPES.RAINBOW_KASINA]: "#1a0080" // Deep blue-violet background color for Rainbow kasina
+  [KASINA_TYPES.RAINBOW_KASINA]: "#2200cc" // Brighter blue-violet background color for Rainbow kasina
 };
 
 // Background colors for elemental kasinas

@@ -51,42 +51,42 @@ const RainbowKasina = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Deep blue-violet background that fills the entire kasina */}
+      {/* Brighter blue-violet background that fills the entire kasina */}
       <mesh position={[0, 0, -0.006]}>
         <circleGeometry args={[1.0, 64]} />
-        <meshBasicMaterial color="#1a0080" />
+        <meshBasicMaterial color="#2200cc" />
       </mesh>
       
-      {/* Compressed rainbow rings - 10x more compressed */}
+      {/* Ultra-compressed rainbow rings - 30x more compressed than original */}
       
       {/* Red outer ring of the rainbow */}
       <mesh position={[0, 0, -0.005]}>
-        <circleGeometry args={[0.62, 64]} />
+        <circleGeometry args={[0.55, 64]} />
         <meshBasicMaterial color="#ff0000" />
       </mesh>
       
       {/* Orange ring */}
       <mesh position={[0, 0, -0.004]}>
-        <circleGeometry args={[0.59, 64]} />
+        <circleGeometry args={[0.54, 64]} />
         <meshBasicMaterial color="#ff8800" />
       </mesh>
       
       {/* Yellow ring */}
       <mesh position={[0, 0, -0.003]}>
-        <circleGeometry args={[0.56, 64]} />
+        <circleGeometry args={[0.53, 64]} />
         <meshBasicMaterial color="#ffff00" />
       </mesh>
       
       {/* Green inner ring */}
       <mesh position={[0, 0, -0.002]}>
-        <circleGeometry args={[0.53, 64]} />
+        <circleGeometry args={[0.52, 64]} />
         <meshBasicMaterial color="#00cc00" />
       </mesh>
       
       {/* Blue-violet center */}
       <mesh position={[0, 0, -0.001]}>
-        <circleGeometry args={[0.50, 64]} />
-        <meshBasicMaterial color="#1a0080" />
+        <circleGeometry args={[0.51, 64]} />
+        <meshBasicMaterial color="#2200cc" />
       </mesh>
     </group>
   );
