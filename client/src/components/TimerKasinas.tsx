@@ -53,6 +53,7 @@ const TimerKasinas: React.FC = () => {
   // Define premium users - these users get access to Vajrayana kasinas
   const premiumEmails = [
     'admin@kasina.app',   // Admin always has premium features
+    'premium@kasina.app', // Test premium account
     'brian@terma.asia',   // Premium users
     'emilywhorn@gmail.com',
     'ryan@ryanoelke.com',

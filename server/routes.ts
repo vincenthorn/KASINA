@@ -30,6 +30,7 @@ async function readWhitelist(): Promise<string[]> {
     const protectedEmails = [
       "admin@kasina.app", 
       "user@kasina.app", 
+      "premium@kasina.app", // Test premium account
       // Premium users that should always be permanent
       "brian@terma.asia", 
       "emilywhorn@gmail.com", 
@@ -121,6 +122,7 @@ async function updateWhitelistFromCSV(csvData: Buffer): Promise<string[]> {
     const protectedEmails = [
       "admin@kasina.app", 
       "user@kasina.app",
+      "premium@kasina.app", // Test premium account
       // Premium users that should always remain
       "brian@terma.asia", 
       "emilywhorn@gmail.com", 
