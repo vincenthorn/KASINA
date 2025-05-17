@@ -969,9 +969,38 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     }
   }, [selectedKasina, isAdmin]);
   
-  // Use our new WhiteAThigle component for White A Thigle, regular mesh for others
+  // For White A Thigle, we need to handle both the visual appearance and timer functionality
   if (isWhiteAThigle) {
-    return <WhiteAThigle />;
+    // We need to ensure the timer and other elements still work, so we'll 
+    // implement a hybrid approach
+    
+    // First, set up the material for the regular sphere in case that's needed
+    // for timers/events/hooks
+    useEffect(() => {
+      if (meshRef.current) {
+        const material = getShaderMaterial();
+        meshRef.current.material = material;
+        materialRef.current = material;
+      }
+    }, [selectedKasina, customColor]);
+    
+    // Return both components - a hidden mesh reference that handles the timer events,
+    // and the visible WhiteAThigle component for the visual appearance
+    return (
+      <>
+        {/* Hidden mesh that maintains timer functionality */}
+        <mesh 
+          ref={meshRef} 
+          visible={false} 
+          position={[0, 0, -100]} // Position far away
+        >
+          <sphereGeometry args={[1, 64, 64]} />
+        </mesh>
+        
+        {/* Visible White A Thigle component */}
+        <WhiteAThigle />
+      </>
+    );
   } else {
     return (
       <mesh ref={meshRef}>

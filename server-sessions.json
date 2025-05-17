@@ -336,5 +336,29 @@
     "duration": 60,
     "timestamp": "2025-05-17T03:20:28.277Z",
     "userEmail": "admin@kasina.app"
+  },
+  {
+    "id": "1747452382769",
+    "kasinaType": "white_a_thigle",
+    "kasinaName": "White_a_thigle (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T03:26:22.769Z",
+    "userEmail": "admin@kasina.app"
+  },
+  {
+    "id": "1747452459869",
+    "kasinaType": "white_a_thigle",
+    "kasinaName": "White_a_thigle (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T03:27:39.869Z",
+    "userEmail": "admin@kasina.app"
+  },
+  {
+    "id": "1747452723881",
+    "kasinaType": "white_a_thigle",
+    "kasinaName": "White_a_thigle (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T03:32:03.881Z",
+    "userEmail": "admin@kasina.app"
   }
 ]
