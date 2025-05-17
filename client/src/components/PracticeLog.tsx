@@ -93,7 +93,9 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
                       <h3 className="text-white font-semibold text-lg leading-tight truncate">
                         {session.kasinaType === 'clear_light_thigle' 
                           ? 'Clear Light Kasina'
-                          : session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
+                          : session.kasinaType.includes('kasina')
+                            ? session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ')
+                            : session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
                         }
                       </h3>
                       <p className="text-gray-500 text-sm mt-0.5">{format(new Date(session.timestamp), 'PPp')}</p>

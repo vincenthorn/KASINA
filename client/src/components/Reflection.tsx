@@ -58,6 +58,10 @@ const Reflection = () => {
 
   // Prepare pie chart data
   useEffect(() => {
+    // Debug - check sessions
+    console.log('All sessions:', filteredSessions);
+    console.log('Looking for OM kasina sessions:', filteredSessions.filter(s => s.kasinaType === 'om_kasina'));
+    
     const kasinaTypes: KasinaType[] = [
       'white', 'blue', 'red', 'yellow', 
       'water', 'air', 'fire', 'earth', 'space', 'light',
