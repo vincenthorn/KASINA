@@ -16,7 +16,7 @@ const HumKasina = () => {
   // Get timer state directly from the store without subscription
   const timerState = useSimpleTimer.getState();
   
-  // Animation to make the orb float and face the camera
+  // Animation to make the orb face the camera but stay stationary
   useFrame(({ clock, camera }) => {
     if (!groupRef.current) return;
     
@@ -46,14 +46,12 @@ const HumKasina = () => {
       groupRef.current.position.x = 0;
       groupRef.current.scale.set(scale, scale, scale);
     } else {
-      // Calmer floating movement - more meditative, breath-like
-      groupRef.current.position.y = Math.sin(time * 0.4) * 0.06;
-      groupRef.current.position.x = Math.sin(time * 0.3) * 0.02;
+      // Keep the kasina stationary as requested
+      groupRef.current.position.y = 0;
+      groupRef.current.position.x = 0;
       
-      // Breath-synchronized pulsing effect (slower, deeper pulse)
-      // 4-second breathing cycle (approximately)
-      const breatheCycle = Math.sin(time * 1.5);
-      const pulse = 1.0 + breatheCycle * 0.03;
+      // Very subtle pulsing effect
+      const pulse = 1.0 + Math.sin(time * 0.2) * 0.01;
       groupRef.current.scale.set(pulse, pulse, pulse);
     }
   });
@@ -104,21 +102,29 @@ const HumKasina = () => {
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
-      {/* HUM Syllable */}
-      <mesh position={[0, 0, 0.002]}>
-        <planeGeometry args={[0.5, 0.5]} />
+      {/* 3D Shadow effect for HUM Syllable */}
+      <mesh position={[0.008, -0.008, 0.002]}>
+        <planeGeometry args={[0.8, 0.8]} />
         <meshBasicMaterial 
           map={humTexture} 
           transparent={true}
-          opacity={0.95}
+          opacity={0.6}
+          color="#000044"
         />
       </mesh>
       
-      {/* Inner core */}
-      <mesh position={[0, 0, 0.001]}>
-        <circleGeometry args={[0.08, 32]} />
-        <meshBasicMaterial color="#aaddff" />
+      {/* HUM Syllable - larger with 3D effect */}
+      <mesh position={[0, 0, 0.003]}>
+        <planeGeometry args={[0.8, 0.8]} />
+        <meshBasicMaterial 
+          map={humTexture} 
+          transparent={true}
+          opacity={1}
+          color="#ffffff"
+        />
       </mesh>
+      
+      {/* Removed the inner core blue dot as requested */}
     </group>
   );
 };

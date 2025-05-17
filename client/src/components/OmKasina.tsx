@@ -96,8 +96,8 @@ const OmKasina = () => {
         <meshBasicMaterial color="#f0f0ff" />
       </mesh>
       
-      {/* 3D Shadow effect for OM Syllable */}
-      <mesh position={[0.008, -0.008, 0.001]}>
+      {/* 3D Shadow effect for OM Syllable - adjusted vertical position */}
+      <mesh position={[0.008, -0.058, 0.001]}>
         <planeGeometry args={[0.8, 0.8]} /> 
         <meshBasicMaterial 
           map={omTexture} 
@@ -107,8 +107,8 @@ const OmKasina = () => {
         />
       </mesh>
       
-      {/* OM Syllable - larger and perfectly centered */}
-      <mesh position={[0, 0, 0.002]}>
+      {/* OM Syllable - larger and vertically centered in the inner circle */}
+      <mesh position={[0, -0.05, 0.002]}>
         <planeGeometry args={[0.8, 0.8]} /> 
         <meshBasicMaterial 
           map={omTexture} 
