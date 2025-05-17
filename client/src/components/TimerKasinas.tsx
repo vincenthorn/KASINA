@@ -879,6 +879,25 @@ const TimerKasinas: React.FC = () => {
                           </Button>
                         </div>
                       )}
+                      
+                      {/* Vajrayana Kasinas - Only visible to admin users */}
+                      {isAdmin && kasinaTab === 'vajrayana' && (
+                        <div className="grid grid-cols-2 gap-3 py-1">
+                          {/* White A Thigle button */}
+                          <Button
+                            variant={selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? "default" : "outline"}
+                            onClick={() => setSelectedKasina(KASINA_TYPES.WHITE_A_THIGLE)}
+                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                            style={{ 
+                              backgroundColor: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? KASINA_COLORS.white_a_thigle : 'transparent',
+                              color: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? 'black' : 'white'
+                            }}
+                          >
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
+                            <span>White A Thigle</span>
+                          </Button>
+                        </div>
+                      )}
                     </div>
                   </CardContent>
                 </div>
