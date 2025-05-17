@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
-import ReflectionFixed from "../components/ReflectionFixed";
+import PracticeChart from "../components/PracticeChart";
+import PracticeLog from "../components/PracticeLog";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
 import { toast } from "sonner";
@@ -273,7 +274,8 @@ const ReflectionPage: React.FC = () => {
           </div>
         ) : (
           <div className="space-y-8">
-            <ReflectionFixed />
+            <PracticeChart sessions={sessions} />
+            <PracticeLog sessions={sessions} />
           </div>
         )}
       </div>

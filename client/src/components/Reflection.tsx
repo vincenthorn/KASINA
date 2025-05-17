@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { useKasina } from "../lib/stores/useKasina";
-import { KasinaSession, KasinaType } from "../lib/types";
-import { PieChart, Pie, Cell, ResponsiveContainer, Sector } from 'recharts';
-import { KASINA_EMOJIS, KASINA_NAMES, KASINA_SERIES } from "../lib/constants";
+import { getKasinaEmoji, KasinaSession, KasinaType } from "../lib/types";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from 'recharts';
+import { KASINA_EMOJIS, KASINA_NAMES } from "../lib/constants";
 import { Button } from './ui/button';
 
 // Define our types for chart organization
@@ -18,9 +18,7 @@ type ChartDataItem = {
 };
 
 const Reflection = () => {
-  // Get sessions from Kasina store
-  const kasina = useKasina();
-  const sessions = kasina.sessions || [];
+  const { sessions } = useKasina();
   const [timeFilter, setTimeFilter] = useState<'week' | 'month' | 'all'>('all');
   const [filteredSessions, setFilteredSessions] = useState<KasinaSession[]>([]);
   const [pieData, setPieData] = useState<ChartDataItem[]>([]);
@@ -47,10 +45,10 @@ const Reflection = () => {
     
     if (timeFilter === 'week') {
       const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-      filtered = sessions.filter((session: KasinaSession) => new Date(session.date) >= oneWeekAgo);
+      filtered = sessions.filter(session => new Date(session.date) >= oneWeekAgo);
     } else if (timeFilter === 'month') {
       const oneMonthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
-      filtered = sessions.filter((session: KasinaSession) => new Date(session.date) >= oneMonthAgo);
+      filtered = sessions.filter(session => new Date(session.date) >= oneMonthAgo);
     } else {
       filtered = [...sessions];
     }
@@ -60,192 +58,103 @@ const Reflection = () => {
 
   // Prepare pie chart data
   useEffect(() => {
-    // Create separate arrays for each kasina type
-    const colorSessions: KasinaSession[] = [];
-    const elementalSessions: KasinaSession[] = [];
-    const vajrayanaSessions: KasinaSession[] = [];
+    // Debug - check sessions
+    console.log('All sessions:', filteredSessions);
+    console.log('Looking for OM kasina sessions:', filteredSessions.filter(s => s.kasinaType === 'om_kasina'));
     
-    // Direct approach: manually identify and sort each session type
-    // Create direct mappings of sessions
-    filteredSessions.forEach((session) => {
-      if (!session.kasinaType) return;
-      
-      // Normalize the type to lowercase for consistent comparison
-      const type = String(session.kasinaType).toLowerCase();
-      
-      // Handle Vajrayana kasinas first with EXPLICIT, DIRECT matching
-      // For debugging purposes only
-      console.log("ACTUAL RAW SESSION DATA:", JSON.stringify(session));
-      
-      // OM Kasina - check both 'om_kasina' and any string containing 'om'
-      if (type === 'om_kasina' || type.includes('om')) {
-        console.log("MATCHED OM KASINA:", session.id, type);
-        // Make a copy with the correct type to ensure consistent categorization
-        vajrayanaSessions.push({...session, kasinaType: 'om_kasina' as KasinaType});
-      }
-      // AH Kasina - check both 'ah_kasina' and any string containing 'ah'
-      else if (type === 'ah_kasina' || type.includes('ah')) {
-        console.log("MATCHED AH KASINA:", session.id, type);
-        vajrayanaSessions.push({...session, kasinaType: 'ah_kasina' as KasinaType});
-      }
-      // HUM Kasina - check both 'hum_kasina' and any string containing 'hum'
-      else if (type === 'hum_kasina' || type.includes('hum')) {
-        console.log("MATCHED HUM KASINA:", session.id, type);
-        vajrayanaSessions.push({...session, kasinaType: 'hum_kasina' as KasinaType});
-      }
-      // Clear Light Thigle - check known type and common substrings
-      else if (type === 'clear_light_thigle' || type.includes('clear') || type.includes('thigle')) {
-        console.log("MATCHED CLEAR LIGHT:", session.id, type);
-        vajrayanaSessions.push({...session, kasinaType: 'clear_light_thigle' as KasinaType});
-      }
-      // Color kasinas
-      else if (['white', 'blue', 'red', 'yellow', 'custom'].includes(type)) {
-        colorSessions.push(session);
-      }
-      // Elemental kasinas
-      else if (['water', 'air', 'fire', 'earth', 'space', 'light'].includes(type)) {
-        elementalSessions.push(session);
-      }
-    });
+    const kasinaTypes: KasinaType[] = [
+      'white', 'blue', 'red', 'yellow', 
+      'water', 'air', 'fire', 'earth', 'space', 'light',
+      'clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina'
+    ];
     
-    // Calculate total durations for each category
-    let colorTotal = 0;
-    let elementalTotal = 0;
-    let vajrayanaTotal = 0;
+    // Define which kasinas belong to which category
+    const colorKasinas: KasinaType[] = ['white', 'blue', 'red', 'yellow'];
+    const elementalKasinas: KasinaType[] = ['water', 'air', 'fire', 'earth', 'space', 'light'];
+    const vajrayanaKasinas: KasinaType[] = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina'];
     
-    // Color data
-    const colorData: ChartDataItem[] = [];
-    KASINA_SERIES.COLOR.forEach(type => {
-      const sessionsOfType = colorSessions.filter(s => s.kasinaType === type);
-      const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
-      colorTotal += duration;
-      
-      if (duration > 0) {
-        colorData.push({
+    // Sum duration by kasina type
+    const durationByType = kasinaTypes.reduce((acc, type) => {
+      acc[type] = filteredSessions
+        .filter(session => session.kasinaType === type)
+        .reduce((sum, session) => sum + session.duration, 0);
+      return acc;
+    }, {} as Record<KasinaType, number>);
+    
+    // Create detailed pie chart data with category flags
+    const detailedChartData = Object.entries(durationByType)
+      .filter(([_, duration]) => duration > 0)
+      .map(([type, duration]) => {
+        // Check type directly for Vajrayana kasinas first
+        if (type === 'clear_light_thigle' || type === 'om_kasina' || type === 'ah_kasina' || type === 'hum_kasina') {
+          return {
+            name: type,
+            value: duration,
+            emoji: KASINA_EMOJIS[type] || '🧿',
+            displayName: KASINA_NAMES[type] || type.charAt(0).toUpperCase() + type.slice(1),
+            category: 'vajrayana' as const
+          };
+        }
+        
+        const isColorKasina = colorKasinas.includes(type as KasinaType);
+        const isElementalKasina = elementalKasinas.includes(type as KasinaType);
+        
+        return {
           name: type,
           value: duration,
-          emoji: KASINA_EMOJIS[type] || '⚪',
-          displayName: KASINA_NAMES[type] || type,
-          category: 'color'
-        });
-      }
-    });
+          emoji: KASINA_EMOJIS[type] || '🧿',
+          displayName: KASINA_NAMES[type] || type.charAt(0).toUpperCase() + type.slice(1),
+          category: isColorKasina ? 'color' as const : 'elemental' as const
+        };
+      });
     
-    // Elemental data
-    const elementalData: ChartDataItem[] = [];
-    KASINA_SERIES.ELEMENTAL.forEach(type => {
-      const sessionsOfType = elementalSessions.filter(s => s.kasinaType === type);
-      const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
-      elementalTotal += duration;
+    // Calculate total time for all sessions
+    const totalDuration = detailedChartData.reduce((sum, item) => sum + item.value, 0);
+    setTotalTime(totalDuration);
+    
+    // Create color kasinas summary
+    const colorTotal = detailedChartData
+      .filter(item => item.category === 'color')
+      .reduce((sum, item) => sum + item.value, 0);
       
-      if (duration > 0) {
-        elementalData.push({
-          name: type,
-          value: duration,
-          emoji: KASINA_EMOJIS[type] || '💧',
-          displayName: KASINA_NAMES[type] || type,
-          category: 'elemental'
-        });
-      }
-    });
+    // Create elemental kasinas summary
+    const elementalTotal = detailedChartData
+      .filter(item => item.category === 'elemental')
+      .reduce((sum, item) => sum + item.value, 0);
+      
+    // Calculate vajrayana total
+    const vajrayanaTotal = detailedChartData
+      .filter(item => item.category === 'vajrayana')
+      .reduce((sum, item) => sum + item.value, 0);
     
-    // Vajrayana data - manually calculate for each type
-    const vajrayanaData: ChartDataItem[] = [];
-    
-    // Calculate OM Kasina
-    const omSessions = vajrayanaSessions.filter(s => s.kasinaType === 'om_kasina');
-    const omDuration = omSessions.reduce((sum, s) => sum + s.duration, 0);
-    vajrayanaTotal += omDuration;
-    if (omDuration > 0) {
-      vajrayanaData.push({
-        name: 'om_kasina',
-        value: omDuration,
-        emoji: KASINA_EMOJIS['om_kasina'] || '🕉️',
-        displayName: 'OM Kasina',
-        category: 'vajrayana'
-      });
-    }
-    
-    // Calculate AH Kasina
-    const ahSessions = vajrayanaSessions.filter(s => s.kasinaType === 'ah_kasina');
-    const ahDuration = ahSessions.reduce((sum, s) => sum + s.duration, 0);
-    vajrayanaTotal += ahDuration;
-    if (ahDuration > 0) {
-      vajrayanaData.push({
-        name: 'ah_kasina',
-        value: ahDuration,
-        emoji: KASINA_EMOJIS['ah_kasina'] || '🔮',
-        displayName: 'AH Kasina',
-        category: 'vajrayana'
-      });
-    }
-    
-    // Calculate HUM Kasina
-    const humSessions = vajrayanaSessions.filter(s => s.kasinaType === 'hum_kasina');
-    const humDuration = humSessions.reduce((sum, s) => sum + s.duration, 0);
-    vajrayanaTotal += humDuration;
-    if (humDuration > 0) {
-      vajrayanaData.push({
-        name: 'hum_kasina',
-        value: humDuration,
-        emoji: KASINA_EMOJIS['hum_kasina'] || '🌀',
-        displayName: 'HUM Kasina',
-        category: 'vajrayana'
-      });
-    }
-    
-    // Calculate Clear Light Thigle
-    const clearLightSessions = vajrayanaSessions.filter(s => s.kasinaType === 'clear_light_thigle');
-    const clearLightDuration = clearLightSessions.reduce((sum, s) => sum + s.duration, 0);
-    vajrayanaTotal += clearLightDuration;
-    if (clearLightDuration > 0) {
-      vajrayanaData.push({
-        name: 'clear_light_thigle',
-        value: clearLightDuration,
-        emoji: KASINA_EMOJIS['clear_light_thigle'] || '🌈',
-        displayName: 'Clear Light',
-        category: 'vajrayana'
-      });
-    }
-    
-    // Logging for debugging
-    console.log('Found OM sessions:', omSessions.length, 'with duration:', omDuration);
-    console.log('Vajrayana data:', vajrayanaData);
-    
-    // Create overview data
-    const overviewData: ChartDataItem[] = [];
-    
-    if (colorTotal > 0) {
-      overviewData.push({
+    // Create overview data (color vs elemental vs vajrayana)
+    const overviewData: ChartDataItem[] = [
+      {
         name: 'color',
         value: colorTotal,
         emoji: '🎨',
         displayName: 'Color'
-      });
-    }
-    
-    if (elementalTotal > 0) {
-      overviewData.push({
+      },
+      {
         name: 'elemental',
         value: elementalTotal,
-        emoji: '🌍',
+        emoji: '✨',
         displayName: 'Elemental'
-      });
-    }
-    
-    if (vajrayanaTotal > 0) {
-      overviewData.push({
+      },
+      {
         name: 'vajrayana',
         value: vajrayanaTotal,
-        emoji: '☸️',
+        emoji: '🕉️',
         displayName: 'Vajrayana'
-      });
-    }
+      }
+    ].filter(item => item.value > 0);
     
-    const totalSessionsTime = colorTotal + elementalTotal + vajrayanaTotal;
+    // Filter to only get color, elemental, or vajrayana kasinas
+    const colorData = detailedChartData.filter(item => item.category === 'color');
+    const elementalData = detailedChartData.filter(item => item.category === 'elemental');
+    const vajrayanaData = detailedChartData.filter(item => item.category === 'vajrayana');
     
-    // Update the state
-    setTotalTime(totalSessionsTime);
+    // Store all data sets
     setAllChartData({
       overview: overviewData,
       color: colorData,
@@ -284,188 +193,258 @@ const Reflection = () => {
     return `${minutes}m`;
   };
 
-  // Format date for display
-  const formatDate = (date: string | Date) => {
-    const d = new Date(date);
-    const month = d.toLocaleString('default', { month: 'short' });
-    const day = d.getDate();
-    const year = d.getFullYear();
-    const hours = d.getHours();
-    const minutes = d.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    const displayHours = hours % 12 || 12;
-    
-    return `${month} ${day}, ${year}, ${displayHours}:${minutes} ${ampm}`;
+  const formatDate = (dateString: string | Date) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
   };
-  
-  // Custom active shape for the pie chart
-  const renderActiveShape = (props: any) => {
-    const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill, payload } = props;
-    
-    return (
-      <g>
-        <text x={cx} y={cy} dy={-20} textAnchor="middle" fill="#e4e4e7" fontSize={18}>
-          {payload.emoji}
-        </text>
-        <text x={cx} y={cy + 10} textAnchor="middle" fill="#e4e4e7" fontSize={14}>
-          {payload.displayName}
-        </text>
-        <text x={cx} y={cy + 30} textAnchor="middle" fill="#e4e4e7" fontSize={12} fontWeight="bold">
-          {formatTime(payload.value)}
-        </text>
-        <Sector
-          cx={cx}
-          cy={cy}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          fill={fill}
-        />
-        <Sector
-          cx={cx}
-          cy={cy}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          innerRadius={outerRadius + 6}
-          outerRadius={outerRadius + 10}
-          fill={fill}
-        />
-      </g>
-    );
-  };
-  
-  // State to track active index in the pie chart
-  const [activeIndex, setActiveIndex] = useState(0);
-  
+
   return (
-    <div className="space-y-4">
-      <Card>
-        <CardHeader className="pb-2">
-          <div className="flex justify-between items-center">
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-col md:flex-row justify-between items-start mb-8">
+        <div className="flex items-center">
+          <div className="h-12 w-12 bg-indigo-600/20 rounded-full flex items-center justify-center mr-4 shadow-lg shadow-indigo-900/20">
+            <span className="text-2xl">🧘</span>
+          </div>
+          <div>
+            <h1 className="text-3xl font-bold mb-2 text-white">Reflection</h1>
+            <p className="text-gray-400">
+              Analyze your meditation patterns and progress
+            </p>
+          </div>
+        </div>
+        
+        <div className="mt-4 md:mt-0">
+          <Select value={timeFilter} onValueChange={(value: 'week' | 'month' | 'all') => setTimeFilter(value)}>
+            <SelectTrigger className="w-36 bg-gray-800 border-gray-700">
+              <SelectValue placeholder="Time Range" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="week">This Week</SelectItem>
+              <SelectItem value="month">This Month</SelectItem>
+              <SelectItem value="all">All Time</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+      
+      <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <Card className="bg-gray-800 text-white border-gray-700 col-span-3 md:col-span-1">
+          <CardHeader>
+            <CardTitle>Total Meditation Time</CardTitle>
+            <CardDescription className="text-gray-300">
+              {timeFilter === 'week' 
+                ? 'This week' 
+                : timeFilter === 'month' 
+                  ? 'This month' 
+                  : 'All time'}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="text-4xl font-bold">{formatTime(totalTime)}</div>
+            <div className="text-sm text-gray-400 mt-1">
+              {filteredSessions.length} {filteredSessions.length === 1 ? 'session' : 'sessions'}
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card className="bg-gray-800 text-white border-gray-700 col-span-3 md:col-span-2">
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
             <div>
-              <CardTitle>
-                {chartMode === 'overview' ? 'Practice Overview' : 
-                 chartMode === 'color' ? 'Color Kasinas' :
-                 chartMode === 'elemental' ? 'Elemental Kasinas' : 'Vajrayana Kasinas'}
-              </CardTitle>
-              <CardDescription>
-                {chartMode === 'overview' 
-                  ? 'Overview of all sessions' 
-                  : `Click segments for details or select to overview`}
+              <CardTitle>Practice Distribution</CardTitle>
+              <CardDescription className="text-gray-300">
+                {chartMode === 'overview' ? 'Color, Elemental & Vajrayana Kasinas' : 
+                  chartMode === 'color' ? 'Color Kasinas Breakdown' : 
+                  chartMode === 'elemental' ? 'Elemental Kasinas Breakdown' : 
+                  'Vajrayana Kasinas Breakdown'}
               </CardDescription>
             </div>
             {chartMode !== 'overview' && (
-              <Button size="sm" variant="outline" onClick={() => setChartMode('overview')}>
-                Back to Overview
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => setChartMode('overview')}
+                className="bg-gray-700 hover:bg-gray-600 border-gray-600"
+              >
+                ← Back to Overview
               </Button>
             )}
-          </div>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <div className="flex">
-            <div className="flex-1">
-              <div className="h-[200px]">
-                {pieData.length > 0 ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        activeIndex={activeIndex}
-                        activeShape={renderActiveShape}
-                        data={pieData}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={55}
-                        outerRadius={70}
-                        fill="#8884d8"
-                        dataKey="value"
-                        onMouseEnter={(_, index) => setActiveIndex(index)}
-                        onClick={(data) => {
-                          if (chartMode === 'overview' && data.name) {
-                            setChartMode(data.name as ChartMode);
-                          }
-                        }}
-                      >
-                        {pieData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                      </Pie>
-                    </PieChart>
-                  </ResponsiveContainer>
-                ) : (
-                  <div className="flex items-center justify-center h-full">
-                    <p className="text-gray-400">No data for selected period</p>
+          </CardHeader>
+          <CardContent className="pt-4">
+            {pieData.length === 0 ? (
+              <div className="h-[300px] flex items-center justify-center text-gray-400">
+                No data available for the selected time period
+              </div>
+            ) : (
+              <div className="h-[300px] relative">
+                {chartMode === 'overview' && pieData.length > 0 && (
+                  <div className="absolute top-0 left-0 right-0 text-center text-gray-400 text-sm z-10 py-2 px-4 bg-gray-800/60 rounded-md backdrop-blur-sm">
+                    <span className="inline-flex items-center">
+                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      Click on a section to see detailed breakdown
+                    </span>
                   </div>
                 )}
-              </div>
-            </div>
-            <div className="ml-4 flex-1">
-              <div className="text-center mb-2">
-                <h3 className="text-lg font-medium text-gray-300">Total Meditation Time</h3>
-                <p className="text-3xl font-bold">{formatTime(totalTime)}</p>
-                <p className="text-sm text-gray-400">
-                  {chartMode === 'overview' 
-                    ? 'Overview of all sessions' 
-                    : `Viewing ${chartMode} Kasinas`}
-                </p>
-              </div>
-              
-              <div className="mt-4 flex flex-wrap justify-center gap-2">
-                {allChartData.overview.map(category => (
-                  <Button
-                    key={category.name}
-                    size="sm"
-                    variant={chartMode === category.name ? "default" : "outline"}
-                    onClick={() => setChartMode(category.name as ChartMode)}
-                    className="flex items-center space-x-1"
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart
+                    margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
                   >
-                    <span>{category.emoji}</span>
-                    <span>{category.displayName}</span>
-                    <span className="ml-1 text-xs">{formatTime(category.value)}</span>
-                  </Button>
-                ))}
+                    <Pie
+                      data={pieData}
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={100}
+                      innerRadius={60}
+                      dataKey="value"
+                      labelLine={false}
+                      label={({ emoji, percent }) => `${emoji} ${(percent * 100).toFixed(0)}%`}
+                      onClick={(data) => {
+                        // Only enable click in overview mode
+                        if (chartMode === 'overview') {
+                          if (data.name === 'color') {
+                            setChartMode('color');
+                          } else if (data.name === 'elemental') {
+                            setChartMode('elemental');
+                          } else if (data.name === 'vajrayana') {
+                            setChartMode('vajrayana');
+                          }
+                        }
+                      }}
+                      activeShape={(props) => {
+                        const RADIAN = Math.PI / 180;
+                        const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
+                        const sin = Math.sin(-RADIAN * midAngle);
+                        const cos = Math.cos(-RADIAN * midAngle);
+                        const sx = cx + (outerRadius + 10) * cos;
+                        const sy = cy + (outerRadius + 10) * sin;
+                        const mx = cx + (outerRadius + 30) * cos;
+                        const my = cy + (outerRadius + 30) * sin;
+                        const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+                        const ey = my;
+                        const textAnchor = cos >= 0 ? 'start' : 'end';
+                  
+                        return (
+                          <g>
+                            <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#fff" fontSize={14}>
+                              {payload.emoji}
+                            </text>
+                            <Sector
+                              cx={cx}
+                              cy={cy}
+                              innerRadius={innerRadius}
+                              outerRadius={outerRadius}
+                              startAngle={startAngle}
+                              endAngle={endAngle}
+                              fill={fill}
+                              opacity={0.8}
+                            />
+                            <Sector
+                              cx={cx}
+                              cy={cy}
+                              startAngle={startAngle}
+                              endAngle={endAngle}
+                              innerRadius={outerRadius + 6}
+                              outerRadius={outerRadius + 10}
+                              fill={fill}
+                            />
+                          </g>
+                        );
+                      }}
+                    >
+                      {pieData.map((entry, index) => (
+                        <Cell 
+                          key={`cell-${index}`} 
+                          fill={COLORS[index % COLORS.length]} 
+                          style={{ cursor: chartMode === 'overview' ? 'pointer' : 'default' }}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip
+                      formatter={(value: number) => [formatTime(value), 'Duration']}
+                      labelFormatter={(name, entry) => {
+                        const dataEntry = pieData.find(item => item.name === name);
+                        if (!dataEntry) return name;
+                        
+                        return chartMode === 'overview' 
+                          ? `${dataEntry.emoji} ${dataEntry.displayName} Kasinas${chartMode === 'overview' ? ' (Click to expand)' : ''}`
+                          : `${dataEntry.emoji} ${dataEntry.displayName} Kasina`;
+                      }}
+                      contentStyle={{ 
+                        backgroundColor: '#1F2937', 
+                        borderColor: '#4B5563',
+                        borderRadius: '0.375rem',
+                        padding: '0.75rem',
+                        color: 'white'
+                      }}
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+                
+                {/* Custom legend */}
+                <div className="mt-4 flex flex-wrap justify-center gap-3">
+                  {pieData.map((entry, index) => (
+                    <div 
+                      key={`legend-${index}`} 
+                      className={`flex items-center px-3 py-1.5 rounded-full text-sm 
+                        ${chartMode === 'overview' ? 'cursor-pointer' : 'cursor-default'} 
+                        transition-all duration-200 hover:scale-105`}
+                      style={{ 
+                        backgroundColor: `${COLORS[index % COLORS.length]}30`, 
+                        border: `1px solid ${COLORS[index % COLORS.length]}80` 
+                      }}
+                      onClick={() => {
+                        if (chartMode === 'overview') {
+                          if (entry.name === 'color') {
+                            setChartMode('color');
+                          } else if (entry.name === 'elemental') {
+                            setChartMode('elemental');
+                          } else if (entry.name === 'vajrayana') {
+                            setChartMode('vajrayana');
+                          }
+                        }
+                      }}
+                    >
+                      <div 
+                        className="w-3 h-3 rounded-full mr-2" 
+                        style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                      />
+                      <span className="mr-1">{entry.emoji}</span>
+                      <span>{entry.displayName}</span>
+                      <span className="ml-2 text-gray-300 font-mono">{formatTime(entry.value)}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-          
-          <div className="mt-4">
-            <Select 
-              value={timeFilter} 
-              onValueChange={(value) => setTimeFilter(value as 'week' | 'month' | 'all')}
-            >
-              <SelectTrigger className="w-[180px] bg-gray-800 border-gray-700">
-                <SelectValue placeholder="Select time period" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="week">Last 7 days</SelectItem>
-                <SelectItem value="month">Last 30 days</SelectItem>
-                <SelectItem value="all">All time</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </CardContent>
-      </Card>
+            )}
+          </CardContent>
+        </Card>
+      </div>
       
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="flex items-center">
-            <span className="mr-2">📝</span>
-            Practice Log
-          </CardTitle>
+      <Card className="bg-gray-800 text-white border-gray-700">
+        <CardHeader>
+          <CardTitle>Session History</CardTitle>
+          <CardDescription className="text-gray-300">
+            Log of your meditation sessions
+          </CardDescription>
         </CardHeader>
         <CardContent>
           {filteredSessions.length === 0 ? (
-            <div className="text-center py-8">
-              <p className="text-gray-400">No practice sessions recorded yet</p>
+            <div className="text-center py-8 text-gray-400">
+              No sessions recorded in this time period
             </div>
           ) : (
-            <div className="overflow-x-auto rounded-md">
+            <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-800">
-                  <tr>
-                    <th className="py-3 px-4 text-left font-medium text-gray-300">Date</th>
-                    <th className="py-3 px-4 text-left font-medium text-gray-300">Kasina</th>
-                    <th className="py-3 px-4 text-left font-medium text-gray-300">Duration</th>
+                <thead>
+                  <tr className="border-b border-gray-700">
+                    <th className="text-left py-3 px-4">Date</th>
+                    <th className="text-left py-3 px-4">Kasina</th>
+                    <th className="text-left py-3 px-4">Duration</th>
                   </tr>
                 </thead>
                 <tbody>

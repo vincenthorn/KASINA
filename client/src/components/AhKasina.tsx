@@ -16,7 +16,7 @@ const AhKasina = () => {
   // Get timer state directly from the store without subscription
   const timerState = useSimpleTimer.getState();
   
-  // Animation to make the orb float and face the camera
+  // Animation to make the orb background float but keep the AH syllable stationary
   useFrame(({ clock, camera }) => {
     if (!groupRef.current) return;
     
@@ -46,12 +46,13 @@ const AhKasina = () => {
       groupRef.current.position.x = 0;
       groupRef.current.scale.set(scale, scale, scale);
     } else {
-      // Ember-like fluctuation - quicker, fire-like motion
-      groupRef.current.position.y = Math.sin(time * 0.7) * 0.06;
-      groupRef.current.position.x = Math.sin(time * 0.5) * 0.04;
+      // Only animate the background with subtle pulsing
+      // Keep the AH syllable stationary by not changing x and y positions
+      groupRef.current.position.y = 0;
+      groupRef.current.position.x = 0;
       
-      // Fiery flickering effect with faster, more dynamic pulses
-      const pulse = 1.0 + Math.sin(time * 0.8) * 0.03 + Math.sin(time * 1.2) * 0.015;
+      // Subtle fiery flickering effect with slower, gentler pulses
+      const pulse = 1.0 + Math.sin(time * 0.4) * 0.02;
       groupRef.current.scale.set(pulse, pulse, pulse);
     }
   });
@@ -102,21 +103,18 @@ const AhKasina = () => {
         <meshBasicMaterial color="#ff3300" />
       </mesh>
       
-      {/* AH Syllable */}
-      <mesh position={[0, 0, 0.002]}>
-        <planeGeometry args={[0.5, 0.5]} />
+      {/* AH Syllable - moved it forward and made it larger for better visibility */}
+      <mesh position={[0, 0, 0.003]}>
+        <planeGeometry args={[0.6, 0.6]} />
         <meshBasicMaterial 
           map={ahTexture} 
           transparent={true}
-          opacity={0.95}
+          opacity={1}
+          color="#FFFFFF"
         />
       </mesh>
       
-      {/* Ember core */}
-      <mesh position={[0, 0, 0.001]}>
-        <circleGeometry args={[0.1, 32]} />
-        <meshBasicMaterial color="#ffdd00" />
-      </mesh>
+      {/* Removed the yellow ember core as requested */}
     </group>
   );
 };

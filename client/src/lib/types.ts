@@ -161,11 +161,8 @@ export const getOrbConfig = (type: KasinaType, customColor?: string): OrbConfig 
 export interface KasinaSession {
   id: string;
   kasinaType: KasinaType;
-  kasinaName?: string;
   duration: number; // in seconds
-  date?: Date | string;
-  timestamp?: string; // For compatibility with existing session data
-  userEmail?: string;
+  date: Date | string;
 }
 
 // Recording data
