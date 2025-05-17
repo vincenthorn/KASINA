@@ -244,8 +244,10 @@ const Reflection = () => {
             <div>
               <CardTitle>Practice Distribution</CardTitle>
               <CardDescription className="text-gray-300">
-                {chartMode === 'overview' ? 'Color vs Elemental Kasinas' : 
-                  chartMode === 'color' ? 'Color Kasinas Breakdown' : 'Elemental Kasinas Breakdown'}
+                {chartMode === 'overview' ? 'Color, Elemental & Vajrayana Kasinas' : 
+                  chartMode === 'color' ? 'Color Kasinas Breakdown' : 
+                  chartMode === 'elemental' ? 'Elemental Kasinas Breakdown' : 
+                  'Vajrayana Kasinas Breakdown'}
               </CardDescription>
             </div>
             {chartMode !== 'overview' && (
@@ -296,6 +298,8 @@ const Reflection = () => {
                             setChartMode('color');
                           } else if (data.name === 'elemental') {
                             setChartMode('elemental');
+                          } else if (data.name === 'vajrayana') {
+                            setChartMode('vajrayana');
                           }
                         }
                       }}
@@ -387,6 +391,8 @@ const Reflection = () => {
                             setChartMode('color');
                           } else if (entry.name === 'elemental') {
                             setChartMode('elemental');
+                          } else if (entry.name === 'vajrayana') {
+                            setChartMode('vajrayana');
                           }
                         }
                       }}
