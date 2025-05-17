@@ -28,38 +28,38 @@ const WhiteAThigle: React.FC = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Blue background */}
-      <mesh position={[0, 0, -0.005]}>
+      {/* Blue background - use a larger circle for the entire background */}
+      <mesh position={[0, 0, -0.006]}>
         <circleGeometry args={[1.0, 64]} />
         <meshBasicMaterial color="#0055ff" />
       </mesh>
       
-      {/* Yellow ring */}
-      <mesh position={[0, 0, -0.004]}>
-        <ringGeometry args={[0.75, 0.95, 64]} />
+      {/* Yellow ring - use full circles instead of rings to avoid gaps */}
+      <mesh position={[0, 0, -0.005]}>
+        <circleGeometry args={[0.95, 64]} />
         <meshBasicMaterial color="#ffff00" />
       </mesh>
       
       {/* Red ring */}
-      <mesh position={[0, 0, -0.003]}>
-        <ringGeometry args={[0.55, 0.73, 64]} />
+      <mesh position={[0, 0, -0.004]}>
+        <circleGeometry args={[0.73, 64]} />
         <meshBasicMaterial color="#ff0000" />
       </mesh>
       
       {/* White ring */}
-      <mesh position={[0, 0, -0.002]}>
-        <ringGeometry args={[0.35, 0.53, 64]} />
+      <mesh position={[0, 0, -0.003]}>
+        <circleGeometry args={[0.53, 64]} />
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
       {/* Green ring */}
-      <mesh position={[0, 0, -0.001]}>
-        <ringGeometry args={[0.21, 0.33, 64]} />
+      <mesh position={[0, 0, -0.002]}>
+        <circleGeometry args={[0.33, 64]} />
         <meshBasicMaterial color="#00cc00" />
       </mesh>
       
       {/* Blue center */}
-      <mesh position={[0, 0, 0]}>
+      <mesh position={[0, 0, -0.001]}>
         <circleGeometry args={[0.20, 64]} />
         <meshBasicMaterial color="#0055ff" />
       </mesh>
