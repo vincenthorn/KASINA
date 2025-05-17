@@ -929,13 +929,13 @@ const TimerKasinas: React.FC = () => {
                             </div>
                           ) : (
                             // Non-premium users see a subscription message
-                            <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-2xl border border-indigo-500/20 overflow-hidden shadow-xl">
-                              <div className="text-center mb-4">
-                                <h3 className="text-2xl font-bold text-white mb-3">
+                            <div className="flex flex-col items-center justify-center h-full w-full p-10 py-16 bg-gradient-to-br from-purple-900/60 to-indigo-900/60 rounded-2xl border border-indigo-500/30 overflow-hidden shadow-xl">
+                              <div className="text-center mb-8">
+                                <h3 className="text-3xl font-bold text-white mb-4">
                                   <span className="mr-2">💀</span>
                                   Vajrayana Kasinas
                                 </h3>
-                                <p className="text-indigo-200 mb-4">
+                                <p className="text-indigo-100 mb-8 text-lg max-w-md">
                                   Access advanced meditation techniques with our premium subscription.
                                 </p>
                               </div>
@@ -943,7 +943,7 @@ const TimerKasinas: React.FC = () => {
                                 href="https://www.contemplative.technology/subscribe" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-8 rounded-full font-medium shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105"
+                                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 px-10 rounded-full font-medium text-lg shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105"
                               >
                                 Upgrade to Premium
                               </a>
