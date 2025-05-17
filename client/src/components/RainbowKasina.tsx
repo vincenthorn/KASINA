@@ -196,12 +196,20 @@ const RainbowKasina = () => {
     return material;
   }, []);
 
+  // Create a consistent background material
+  const backgroundMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#2200cc"),
+      transparent: false,
+    });
+  }, []);
+
   return (
     <group ref={groupRef}>
       {/* Brighter blue-violet background that fills the entire kasina */}
       <mesh position={[0, 0, -0.008]}>
         <circleGeometry args={[1.0, 64]} />
-        <meshBasicMaterial color="#2200cc" />
+        <primitive object={backgroundMaterial} />
       </mesh>
       
       {/* Ultra-compressed rainbow rings with glow effect */}
@@ -254,10 +262,10 @@ const RainbowKasina = () => {
         <primitive object={greenGlowMaterial} />
       </mesh>
       
-      {/* Blue-violet center */}
+      {/* Blue-violet center - use the same consistent background material */}
       <mesh position={[0, 0, 0.001]}>
         <circleGeometry args={[0.51, 64]} />
-        <meshBasicMaterial color="#2200cc" />
+        <primitive object={backgroundMaterial} />
       </mesh>
     </group>
   );
