@@ -436,9 +436,6 @@ const Reflection = () => {
       <Card className="bg-gray-800 text-white border-gray-700">
         <CardHeader>
           <CardTitle>Session History</CardTitle>
-          <CardDescription className="text-gray-300">
-            Log of your meditation sessions
-          </CardDescription>
         </CardHeader>
         <CardContent>
           {filteredSessions.length === 0 ? (
@@ -468,7 +465,9 @@ const Reflection = () => {
                           <span className="mr-2">{KASINA_EMOJIS[session.kasinaType] || '🧿'}</span>
                           {session.kasinaType === 'clear_light_thigle' 
                             ? 'Clear Light Kasina'
-                            : KASINA_NAMES[session.kasinaType] || session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
+                            : session.kasinaType.includes('kasina')
+                              ? session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ')
+                              : session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
                           }
                         </td>
                         <td className="py-3 px-4">
