@@ -65,39 +65,45 @@ const Reflection = () => {
     const elementalSessions: KasinaSession[] = [];
     const vajrayanaSessions: KasinaSession[] = [];
     
-    // Categorize all sessions
+    // Direct approach: manually identify and sort each session type
+    // Create direct mappings of sessions
     filteredSessions.forEach((session) => {
       if (!session.kasinaType) return;
       
-      const kasinaType = String(session.kasinaType).toLowerCase();
+      // Normalize the type to lowercase for consistent comparison
+      const type = String(session.kasinaType).toLowerCase();
       
-      // Extra debugging for Vajrayana sessions
-      console.log("Processing session:", session);
+      // Handle Vajrayana kasinas first with EXPLICIT, DIRECT matching
+      // For debugging purposes only
+      console.log("ACTUAL RAW SESSION DATA:", JSON.stringify(session));
       
-      // Categorize Vajrayana sessions first - very explicit matching
-      if (kasinaType === 'om_kasina' || kasinaType.includes('om')) {
-        console.log("Found OM Kasina session:", session);
-        // Deep clone to avoid reference issues
+      // OM Kasina - check both 'om_kasina' and any string containing 'om'
+      if (type === 'om_kasina' || type.includes('om')) {
+        console.log("MATCHED OM KASINA:", session.id, type);
+        // Make a copy with the correct type to ensure consistent categorization
         vajrayanaSessions.push({...session, kasinaType: 'om_kasina' as KasinaType});
       }
-      else if (kasinaType === 'ah_kasina' || kasinaType.includes('ah')) {
-        console.log("Found AH Kasina session:", session);
+      // AH Kasina - check both 'ah_kasina' and any string containing 'ah'
+      else if (type === 'ah_kasina' || type.includes('ah')) {
+        console.log("MATCHED AH KASINA:", session.id, type);
         vajrayanaSessions.push({...session, kasinaType: 'ah_kasina' as KasinaType});
       }
-      else if (kasinaType === 'hum_kasina' || kasinaType.includes('hum')) {
-        console.log("Found HUM Kasina session:", session);
+      // HUM Kasina - check both 'hum_kasina' and any string containing 'hum'
+      else if (type === 'hum_kasina' || type.includes('hum')) {
+        console.log("MATCHED HUM KASINA:", session.id, type);
         vajrayanaSessions.push({...session, kasinaType: 'hum_kasina' as KasinaType});
       }
-      else if (kasinaType === 'clear_light_thigle' || kasinaType.includes('clear') || kasinaType.includes('thigle')) {
-        console.log("Found Clear Light Thigle session:", session);
+      // Clear Light Thigle - check known type and common substrings
+      else if (type === 'clear_light_thigle' || type.includes('clear') || type.includes('thigle')) {
+        console.log("MATCHED CLEAR LIGHT:", session.id, type);
         vajrayanaSessions.push({...session, kasinaType: 'clear_light_thigle' as KasinaType});
       }
       // Color kasinas
-      else if (['white', 'blue', 'red', 'yellow', 'custom'].includes(kasinaType)) {
+      else if (['white', 'blue', 'red', 'yellow', 'custom'].includes(type)) {
         colorSessions.push(session);
       }
       // Elemental kasinas
-      else if (['water', 'air', 'fire', 'earth', 'space', 'light'].includes(kasinaType)) {
+      else if (['water', 'air', 'fire', 'earth', 'space', 'light'].includes(type)) {
         elementalSessions.push(session);
       }
     });
