@@ -71,18 +71,25 @@ const Reflection = () => {
       
       const kasinaType = String(session.kasinaType).toLowerCase();
       
-      // Categorize Vajrayana sessions first
-      if (kasinaType.includes('om')) {
+      // Extra debugging for Vajrayana sessions
+      console.log("Processing session:", session);
+      
+      // Categorize Vajrayana sessions first - very explicit matching
+      if (kasinaType === 'om_kasina' || kasinaType.includes('om')) {
+        console.log("Found OM Kasina session:", session);
         // Deep clone to avoid reference issues
         vajrayanaSessions.push({...session, kasinaType: 'om_kasina' as KasinaType});
       }
-      else if (kasinaType.includes('ah')) {
+      else if (kasinaType === 'ah_kasina' || kasinaType.includes('ah')) {
+        console.log("Found AH Kasina session:", session);
         vajrayanaSessions.push({...session, kasinaType: 'ah_kasina' as KasinaType});
       }
-      else if (kasinaType.includes('hum')) {
+      else if (kasinaType === 'hum_kasina' || kasinaType.includes('hum')) {
+        console.log("Found HUM Kasina session:", session);
         vajrayanaSessions.push({...session, kasinaType: 'hum_kasina' as KasinaType});
       }
-      else if (kasinaType.includes('clear') || kasinaType.includes('thigle')) {
+      else if (kasinaType === 'clear_light_thigle' || kasinaType.includes('clear') || kasinaType.includes('thigle')) {
+        console.log("Found Clear Light Thigle session:", session);
         vajrayanaSessions.push({...session, kasinaType: 'clear_light_thigle' as KasinaType});
       }
       // Color kasinas

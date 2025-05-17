@@ -448,5 +448,29 @@
     "duration": 60,
     "timestamp": "2025-05-17T14:49:18.257Z",
     "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747495089051",
+    "kasinaType": "om_kasina",
+    "kasinaName": "Om_kasina (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T15:18:09.051Z",
+    "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747495166423",
+    "kasinaType": "clear_light_thigle",
+    "kasinaName": "Clear_light_thigle (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T15:19:26.423Z",
+    "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747495250216",
+    "kasinaType": "hum_kasina",
+    "kasinaName": "Hum_kasina (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T15:20:50.216Z",
+    "userEmail": "premium@kasina.app"
   }
 ]
