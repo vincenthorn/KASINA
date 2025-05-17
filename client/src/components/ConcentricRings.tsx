@@ -1,9 +1,8 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { Text } from "@react-three/drei";
 
-// Component that renders concentric rings for the White A Thigle kasina with Tibetan "A" symbol
+// Component that renders concentric rings for the White A Thigle kasina
 const ConcentricRings: React.FC = () => {
   const groupRef = useRef<THREE.Group>(null);
   
@@ -63,17 +62,26 @@ const ConcentricRings: React.FC = () => {
         <meshBasicMaterial color="#0055ff" />
       </mesh>
       
-      {/* Tibetan A symbol as text */}
-      <Text
-        position={[0, 0, 0.001]}
-        color="white"
-        fontSize={0.18}
-        font="/fonts/Inter-Bold.woff"
-        anchorX="center"
-        anchorY="middle"
-      >
-        ཨ
-      </Text>
+      {/* Tibetan A symbol approximation using simple geometries */}
+      <group position={[0, 0, 0.001]} scale={[0.15, 0.15, 0.15]}>
+        {/* Vertical line of the A */}
+        <mesh position={[-0.5, 0, 0]}>
+          <boxGeometry args={[0.2, 1.2, 0.01]} />
+          <meshBasicMaterial color="white" />
+        </mesh>
+        
+        {/* Top horizontal line */}
+        <mesh position={[0, 0.5, 0]} rotation={[0, 0, 0]}>
+          <boxGeometry args={[1.2, 0.2, 0.01]} />
+          <meshBasicMaterial color="white" />
+        </mesh>
+        
+        {/* Curved part approximated with angled line */}
+        <mesh position={[0.2, -0.3, 0]} rotation={[0, 0, Math.PI / 4]}>
+          <boxGeometry args={[1.0, 0.2, 0.01]} />
+          <meshBasicMaterial color="white" />
+        </mesh>
+      </group>
     </group>
   );
 };
