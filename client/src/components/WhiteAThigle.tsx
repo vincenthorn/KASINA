@@ -64,32 +64,11 @@ const WhiteAThigle: React.FC = () => {
         <meshBasicMaterial color="#0055ff" />
       </mesh>
       
-      {/* White letter A approximation */}
-      <group position={[0, 0, 0.001]}>
-        {/* Vertical line */}
-        <mesh position={[-0.04, 0, 0]}>
-          <boxGeometry args={[0.025, 0.14, 0.001]} />
-          <meshBasicMaterial color="white" />
-        </mesh>
-        
-        {/* Horizontal line */}
-        <mesh position={[0, 0.05, 0]}>
-          <boxGeometry args={[0.12, 0.025, 0.001]} />
-          <meshBasicMaterial color="white" />
-        </mesh>
-        
-        {/* Diagonal line */}
-        <mesh position={[0.04, 0, 0]} rotation={[0, 0, -0.3]}>
-          <boxGeometry args={[0.025, 0.14, 0.001]} />
-          <meshBasicMaterial color="white" />
-        </mesh>
-        
-        {/* Curved bottom part */}
-        <mesh position={[-0.02, -0.05, 0]}>
-          <circleGeometry args={[0.035, 32, Math.PI, Math.PI]} />
-          <meshBasicMaterial color="white" />
-        </mesh>
-      </group>
+      {/* White dot in center */}
+      <mesh position={[0, 0, 0.001]}>
+        <circleGeometry args={[0.08, 32]} />
+        <meshBasicMaterial color="white" />
+      </mesh>
     </group>
   );
 };
