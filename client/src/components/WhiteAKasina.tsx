@@ -93,9 +93,19 @@ const WhiteAKasina = () => {
         <meshBasicMaterial color="#0055ff" />
       </mesh>
       
+      {/* Add white glow effect around the Tibetan A symbol */}
+      <mesh position={[0, 0, 0.001]}>
+        <circleGeometry args={[0.16, 32]} />
+        <meshBasicMaterial 
+          color="#ffffff"
+          opacity={0.5}
+          transparent={true}
+        />
+      </mesh>
+
       {/* 3D Shadow effect for Tibetan 'A' symbol */}
-      <mesh position={[0.008, -0.008, 0.001]}>
-        <planeGeometry args={[0.3, 0.3]} />
+      <mesh position={[0.006, -0.006, 0.002]}>
+        <planeGeometry args={[0.4, 0.4]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
@@ -105,8 +115,8 @@ const WhiteAKasina = () => {
       </mesh>
       
       {/* Tibetan 'A' symbol - replacing the white dot */}
-      <mesh position={[0, 0, 0.002]}>
-        <planeGeometry args={[0.3, 0.3]} />
+      <mesh position={[0, 0, 0.003]}>
+        <planeGeometry args={[0.4, 0.4]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
