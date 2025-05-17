@@ -930,7 +930,7 @@ const TimerKasinas: React.FC = () => {
                           {isPremium ? (
                             // Premium users get access to the Vajrayana kasinas
                             <div className="grid grid-cols-2 gap-3">
-                              {/* Clear Light Thigle Kasina button */}
+                              {/* Clear Light Kasina button */}
                               <Button
                                 variant={selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? "default" : "outline"}
                                 onClick={() => setSelectedKasina(KASINA_TYPES.WHITE_A_THIGLE)}
@@ -942,6 +942,48 @@ const TimerKasinas: React.FC = () => {
                               >
                                 <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
                                 <span>Clear Light</span>
+                              </Button>
+                              
+                              {/* OM Kasina button */}
+                              <Button
+                                variant={selectedKasina === KASINA_TYPES.OM_KASINA ? "default" : "outline"}
+                                onClick={() => setSelectedKasina(KASINA_TYPES.OM_KASINA)}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.OM_KASINA ? KASINA_COLORS[KASINA_TYPES.OM_KASINA] : 'transparent',
+                                  color: selectedKasina === KASINA_TYPES.OM_KASINA ? 'black' : 'white'
+                                }}
+                              >
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.OM_KASINA]}</span>
+                                <span>OM</span>
+                              </Button>
+                              
+                              {/* AH Kasina button */}
+                              <Button
+                                variant={selectedKasina === KASINA_TYPES.AH_KASINA ? "default" : "outline"}
+                                onClick={() => setSelectedKasina(KASINA_TYPES.AH_KASINA)}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.AH_KASINA ? KASINA_COLORS[KASINA_TYPES.AH_KASINA] : 'transparent',
+                                  color: 'white'
+                                }}
+                              >
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.AH_KASINA]}</span>
+                                <span>AH</span>
+                              </Button>
+                              
+                              {/* HUM Kasina button */}
+                              <Button
+                                variant={selectedKasina === KASINA_TYPES.HUM_KASINA ? "default" : "outline"}
+                                onClick={() => setSelectedKasina(KASINA_TYPES.HUM_KASINA)}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.HUM_KASINA ? KASINA_COLORS[KASINA_TYPES.HUM_KASINA] : 'transparent',
+                                  color: 'white'
+                                }}
+                              >
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.HUM_KASINA]}</span>
+                                <span>HUM</span>
                               </Button>
                             </div>
                           ) : (
