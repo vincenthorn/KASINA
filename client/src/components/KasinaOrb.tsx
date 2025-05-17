@@ -969,9 +969,48 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     }
   }, [selectedKasina, isAdmin]);
   
-  // Use our separate imported component for White A Thigle
+  // Create a more direct rendering for White A Thigle
   if (isWhiteAThigle) {
-    return <ConcentricRings />;
+    // Use a direct mesh approach instead of a separate component
+    return (
+      <group ref={meshRef}>
+        {/* Blue background disc */}
+        <mesh position={[0, 0, -0.005]}>
+          <circleGeometry args={[1.3, 64]} />
+          <meshBasicMaterial color="#0055ff" />
+        </mesh>
+        
+        {/* Yellow ring (outermost) */}
+        <mesh position={[0, 0, -0.004]}>
+          <circleGeometry args={[1.2, 64]} />
+          <meshBasicMaterial color="#ffff00" />
+        </mesh>
+        
+        {/* Red ring */}
+        <mesh position={[0, 0, -0.003]}>
+          <circleGeometry args={[0.95, 64]} />
+          <meshBasicMaterial color="#ff0000" />
+        </mesh>
+        
+        {/* White ring */}
+        <mesh position={[0, 0, -0.002]}>
+          <circleGeometry args={[0.7, 64]} />
+          <meshBasicMaterial color="#ffffff" />
+        </mesh>
+        
+        {/* Green ring */}
+        <mesh position={[0, 0, -0.001]}>
+          <circleGeometry args={[0.5, 64]} />
+          <meshBasicMaterial color="#00cc00" />
+        </mesh>
+        
+        {/* Blue center */}
+        <mesh position={[0, 0, 0]}>
+          <circleGeometry args={[0.3, 64]} />
+          <meshBasicMaterial color="#0055ff" />
+        </mesh>
+      </group>
+    );
   } else {
     return (
       <mesh ref={meshRef}>
