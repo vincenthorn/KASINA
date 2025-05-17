@@ -10,6 +10,9 @@ const HumKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
+  // Load the HUM syllable texture
+  const humTexture = useTexture('/images/vajrayana/hum-syllable.svg');
+  
   // Get timer state directly from the store without subscription
   const timerState = useSimpleTimer.getState();
   
@@ -99,6 +102,16 @@ const HumKasina = () => {
       <mesh position={[0, 0, -0.001]}>
         <ringGeometry args={[0.28, 0.32, 32]} />
         <meshBasicMaterial color="#ffffff" />
+      </mesh>
+      
+      {/* HUM Syllable */}
+      <mesh position={[0, 0, 0.002]}>
+        <planeGeometry args={[0.5, 0.5]} />
+        <meshBasicMaterial 
+          map={humTexture} 
+          transparent={true}
+          opacity={0.95}
+        />
       </mesh>
       
       {/* Inner core */}
