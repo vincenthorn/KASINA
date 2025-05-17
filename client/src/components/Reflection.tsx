@@ -120,20 +120,19 @@ const Reflection = () => {
     // Process vajrayana kasinas
     const vajrayanaData = vajrayanaKasinas
       .map(type => {
-        // Add console log to debug sessions of this type
-        console.log(`Checking for Vajrayana type "${type}":`, filteredSessions.filter(s => s.kasinaType === type));
-        
-        // Special handling for OM Kasina - need to check for case-insensitive string matching
+        // Special handling for all Vajrayana kasinas
         let sessionsOfType;
+
+        // For OM Kasina, look for any session containing "om" regardless of case or format
         if (type === 'om_kasina') {
           sessionsOfType = filteredSessions.filter(s => 
             typeof s.kasinaType === 'string' && 
-            (s.kasinaType.toLowerCase() === 'om_kasina' || 
-             s.kasinaType.toLowerCase() === 'om kasina' ||
-             s.kasinaType.toLowerCase().includes('om'))
+            s.kasinaType.toLowerCase().includes('om')
           );
           console.log('Found OM Kasina sessions:', sessionsOfType);
-        } else {
+        } 
+        // For other Vajrayana kasinas, use the default filter
+        else {
           sessionsOfType = filteredSessions.filter(s => s.kasinaType === type);
         }
         
