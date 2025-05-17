@@ -296,5 +296,21 @@
     "duration": 60,
     "timestamp": "2025-05-16T22:04:16.058Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1747434132289",
+    "kasinaType": "space",
+    "kasinaName": "Space (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-16T22:22:12.289Z",
+    "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1747443002379",
+    "kasinaType": "earth",
+    "kasinaName": "Earth (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-17T00:50:02.379Z",
+    "userEmail": "user@kasina.app"
   }
 ]
