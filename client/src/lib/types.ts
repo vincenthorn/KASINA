@@ -30,7 +30,7 @@ export const getKasinaEmoji = (type: KasinaType): string => {
     earth: "🌍",
     space: "✨",
     light: "☀️",
-    WHITE_A_THIGLE: "💀",
+    white_a_thigle: "💀",
   };
   
   return emojis[type] || "🟠";
@@ -122,7 +122,7 @@ export const getOrbConfig = (type: KasinaType, customColor?: string): OrbConfig 
       particles: true 
     },
     // Vajrayana kasinas
-    WHITE_A_THIGLE: {
+    white_a_thigle: {
       color: "#FFFFFF",
       emissive: "#FFFFFF",
       speed: 0.2,

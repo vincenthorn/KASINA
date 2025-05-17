@@ -692,6 +692,9 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         
         // Add a very subtle rotation while still facing the camera
         meshRef.current.rotation.z = Math.sin(time * 0.2) * 0.03;
+        
+        // Log for debugging
+        console.log("Rendering White A Thigle kasina");
       }
       // Special rotation handling for Light kasina
       else if (selectedKasina === KASINA_TYPES.LIGHT) {
@@ -872,6 +875,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       case KASINA_TYPES.WHITE_A_THIGLE:
         // Only for admin users, else fall back to white kasina
         if (isAdmin) {
+          console.log("Creating White A Thigle shader material for admin");
           const material = new THREE.ShaderMaterial({
             ...whiteAThigleShader, 
             transparent: true
@@ -880,6 +884,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
           material.uniforms.map.value = whiteATexture;
           return material;
         } else {
+          console.log("Non-admin tried to access White A Thigle kasina, falling back to white");
           return new THREE.MeshBasicMaterial({ 
             color: KASINA_COLORS.white,
             transparent: true
@@ -911,6 +916,13 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   // For White A Thigle, we want a flat plane that faces the camera
   // rather than a sphere, to show the Tibetan letter properly
   const isWhiteAThigle = selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && isAdmin;
+  
+  // Debug
+  useEffect(() => {
+    if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE) {
+      console.log("White A Thigle selected, admin status:", isAdmin);
+    }
+  }, [selectedKasina, isAdmin]);
   
   if (isWhiteAThigle) {
     return (
