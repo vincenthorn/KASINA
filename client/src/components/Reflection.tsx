@@ -8,13 +8,13 @@ import { KASINA_EMOJIS, KASINA_NAMES } from "../lib/constants";
 import { Button } from './ui/button';
 
 // Define our types for chart organization
-type ChartMode = 'overview' | 'color' | 'elemental';
+type ChartMode = 'overview' | 'color' | 'elemental' | 'vajrayana';
 type ChartDataItem = {
   name: string;
   value: number;
   emoji: string;
   displayName: string;
-  category?: 'color' | 'elemental';
+  category?: 'color' | 'elemental' | 'vajrayana';
 };
 
 const Reflection = () => {
@@ -30,10 +30,12 @@ const Reflection = () => {
     overview: ChartDataItem[];
     color: ChartDataItem[];
     elemental: ChartDataItem[];
+    vajrayana: ChartDataItem[];
   }>({
     overview: [],
     color: [],
-    elemental: []
+    elemental: [],
+    vajrayana: []
   });
 
   // Filter sessions based on selected time range
@@ -107,8 +109,13 @@ const Reflection = () => {
     const elementalTotal = detailedChartData
       .filter(item => item.category === 'elemental')
       .reduce((sum, item) => sum + item.value, 0);
+      
+    // Calculate vajrayana total
+    const vajrayanaTotal = detailedChartData
+      .filter(item => item.category === 'vajrayana')
+      .reduce((sum, item) => sum + item.value, 0);
     
-    // Create overview data (color vs elemental)
+    // Create overview data (color vs elemental vs vajrayana)
     const overviewData: ChartDataItem[] = [
       {
         name: 'color',
@@ -121,18 +128,26 @@ const Reflection = () => {
         value: elementalTotal,
         emoji: '✨',
         displayName: 'Elemental'
+      },
+      {
+        name: 'vajrayana',
+        value: vajrayanaTotal,
+        emoji: '🕉️',
+        displayName: 'Vajrayana'
       }
     ].filter(item => item.value > 0);
     
-    // Filter to only get color or elemental kasinas
+    // Filter to only get color, elemental, or vajrayana kasinas
     const colorData = detailedChartData.filter(item => item.category === 'color');
     const elementalData = detailedChartData.filter(item => item.category === 'elemental');
+    const vajrayanaData = detailedChartData.filter(item => item.category === 'vajrayana');
     
     // Store all data sets
     setAllChartData({
       overview: overviewData,
       color: colorData,
-      elemental: elementalData
+      elemental: elementalData,
+      vajrayana: vajrayanaData
     });
     
     // Set the current view based on chartMode
@@ -140,8 +155,10 @@ const Reflection = () => {
       setPieData(overviewData);
     } else if (chartMode === 'color') {
       setPieData(colorData);
-    } else {
+    } else if (chartMode === 'elemental') {
       setPieData(elementalData);
+    } else if (chartMode === 'vajrayana') {
+      setPieData(vajrayanaData);
     }
     
   }, [filteredSessions, chartMode]);
