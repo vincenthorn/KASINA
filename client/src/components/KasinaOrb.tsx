@@ -676,9 +676,9 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   // Check if user is admin
   const isAdmin = email === "admin@kasina.app";
   
-  // For White A Thigle - load both SVG and direct image texture
+  // For White A Thigle - load the concentric rings SVG
   const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
-  const whiteAImageTexture = useTexture('/images/vajrayana/white-a-thigle-texture.webp');
+  const whiteAImageTexture = useTexture('/images/vajrayana/a-thigle-concentric-rings.svg');
   
   useFrame(({ clock, camera }) => {
     if (meshRef.current) {
@@ -971,9 +971,9 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   if (isWhiteAThigle) {
     return (
       <group>
-        {/* Use a simple plane with direct texture mapping for reliable display */}
+        {/* Use a perfectly square plane to maintain the image aspect ratio */}
         <mesh ref={meshRef}>
-          <planeGeometry args={[2, 2]} />
+          <planeGeometry args={[1.8, 1.8]} /> {/* Size adjusted to be more proportional */}
           <meshBasicMaterial 
             map={whiteAImageTexture}
             transparent={true} 
