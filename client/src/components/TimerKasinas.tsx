@@ -999,6 +999,20 @@ const TimerKasinas: React.FC = () => {
                                 <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
                                 <span>Clear Light</span>
                               </Button>
+                              
+                              {/* Rainbow Kasina button */}
+                              <Button
+                                variant={selectedKasina === KASINA_TYPES.RAINBOW_KASINA ? "default" : "outline"}
+                                onClick={() => setSelectedKasina(KASINA_TYPES.RAINBOW_KASINA)}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.RAINBOW_KASINA ? KASINA_COLORS[KASINA_TYPES.RAINBOW_KASINA] : 'transparent',
+                                  color: 'white'
+                                }}
+                              >
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.RAINBOW_KASINA]}</span>
+                                <span>Rainbow</span>
+                              </Button>
                             </div>
                           ) : (
                             // Non-premium users see a subscription message

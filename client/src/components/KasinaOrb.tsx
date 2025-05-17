@@ -11,6 +11,7 @@ import WhiteAKasina from "./WhiteAKasina";
 import OmKasina from "./OmKasina";
 import AhKasina from "./AhKasina";
 import HumKasina from "./HumKasina";
+import RainbowKasina from "./RainbowKasina";
 
 // Shader materials for the elemental kasinas
 const waterShader = {
@@ -983,7 +984,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     selectedKasina === KASINA_TYPES.WHITE_A_KASINA ||
     selectedKasina === KASINA_TYPES.OM_KASINA ||
     selectedKasina === KASINA_TYPES.AH_KASINA ||
-    selectedKasina === KASINA_TYPES.HUM_KASINA
+    selectedKasina === KASINA_TYPES.HUM_KASINA ||
+    selectedKasina === KASINA_TYPES.RAINBOW_KASINA
   );
   
   // Debug
@@ -1008,6 +1010,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         {selectedKasina === KASINA_TYPES.OM_KASINA && <OmKasina />}
         {selectedKasina === KASINA_TYPES.AH_KASINA && <AhKasina />}
         {selectedKasina === KASINA_TYPES.HUM_KASINA && <HumKasina />}
+        {selectedKasina === KASINA_TYPES.RAINBOW_KASINA && <RainbowKasina />}
       </>
     );
   } else {

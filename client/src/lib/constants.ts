@@ -16,7 +16,8 @@ export const KASINA_TYPES = {
   WHITE_A_KASINA: "white_a_kasina", // New White A Kasina
   OM_KASINA: "om_kasina",
   AH_KASINA: "ah_kasina",
-  HUM_KASINA: "hum_kasina"
+  HUM_KASINA: "hum_kasina",
+  RAINBOW_KASINA: "rainbow_kasina" // New Rainbow Kasina
 };
 
 // Kasina names
@@ -39,7 +40,8 @@ export const KASINA_NAMES: Record<string, string> = {
   [KASINA_TYPES.WHITE_A_KASINA]: "White A",
   [KASINA_TYPES.OM_KASINA]: "OM",
   [KASINA_TYPES.AH_KASINA]: "AH",
-  [KASINA_TYPES.HUM_KASINA]: "HUM"
+  [KASINA_TYPES.HUM_KASINA]: "HUM",
+  [KASINA_TYPES.RAINBOW_KASINA]: "Rainbow"
 };
 
 // Kasina colors (hex codes)
@@ -62,7 +64,8 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.WHITE_A_KASINA]: "#FFFFFF", // Pure white for the Tibetan letter A
   [KASINA_TYPES.OM_KASINA]: "#FFFFFF", // Radiant white orb
   [KASINA_TYPES.AH_KASINA]: "#FF1111", // Deep red orb with golden glow
-  [KASINA_TYPES.HUM_KASINA]: "#0022AA" // Deep blue orb
+  [KASINA_TYPES.HUM_KASINA]: "#0022AA", // Deep blue orb
+  [KASINA_TYPES.RAINBOW_KASINA]: "#1a0080" // Deep blue-violet background color for Rainbow kasina
 };
 
 // Background colors for elemental kasinas
@@ -105,7 +108,8 @@ export const KASINA_EMOJIS: Record<string, string> = {
   [KASINA_TYPES.WHITE_A_KASINA]: "Ⓐ",
   [KASINA_TYPES.OM_KASINA]: "🕉️",
   [KASINA_TYPES.AH_KASINA]: "🔮",
-  [KASINA_TYPES.HUM_KASINA]: "🌀"
+  [KASINA_TYPES.HUM_KASINA]: "🌀",
+  [KASINA_TYPES.RAINBOW_KASINA]: "🌈"
 };
 
 // Kasina series groupings
@@ -126,11 +130,12 @@ export const KASINA_SERIES = {
     KASINA_TYPES.LIGHT
   ],
   VAJRAYANA: [
-    KASINA_TYPES.WHITE_A_THIGLE,
-    KASINA_TYPES.WHITE_A_KASINA,
     KASINA_TYPES.OM_KASINA,
     KASINA_TYPES.AH_KASINA,
-    KASINA_TYPES.HUM_KASINA
+    KASINA_TYPES.HUM_KASINA,
+    KASINA_TYPES.WHITE_A_KASINA,
+    KASINA_TYPES.WHITE_A_THIGLE,
+    KASINA_TYPES.RAINBOW_KASINA
   ]
 };
 
