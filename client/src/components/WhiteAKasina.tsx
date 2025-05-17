@@ -63,37 +63,37 @@ const WhiteAKasina = () => {
       
       {/* Yellow ring - use full circles instead of rings to avoid gaps */}
       <mesh position={[0, 0, -0.005]}>
-        <circleGeometry args={[0.95, 64]} />
+        <circleGeometry args={[0.9, 64]} />
         <meshBasicMaterial color="#ffff00" />
       </mesh>
       
       {/* Red ring */}
       <mesh position={[0, 0, -0.004]}>
-        <circleGeometry args={[0.73, 64]} />
+        <circleGeometry args={[0.7, 64]} />
         <meshBasicMaterial color="#ff0000" />
       </mesh>
       
       {/* White ring */}
       <mesh position={[0, 0, -0.003]}>
-        <circleGeometry args={[0.53, 64]} />
+        <circleGeometry args={[0.5, 64]} />
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
       {/* Green ring */}
       <mesh position={[0, 0, -0.002]}>
-        <circleGeometry args={[0.33, 64]} />
+        <circleGeometry args={[0.35, 64]} />
         <meshBasicMaterial color="#00cc00" />
       </mesh>
       
-      {/* Blue center */}
+      {/* Blue center - 40% larger */}
       <mesh position={[0, 0, -0.001]}>
-        <circleGeometry args={[0.20, 64]} />
+        <circleGeometry args={[0.28, 64]} />
         <meshBasicMaterial color="#0055ff" />
       </mesh>
       
       {/* 3D Shadow effect for Tibetan 'A' symbol */}
-      <mesh position={[0.01, -0.01, 0.002]}>
-        <planeGeometry args={[0.25, 0.25]} />
+      <mesh position={[0.02, -0.02, 0.002]}>
+        <planeGeometry args={[0.55, 0.55]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
@@ -102,9 +102,9 @@ const WhiteAKasina = () => {
         />
       </mesh>
       
-      {/* Tibetan 'A' symbol - larger size */}
+      {/* Tibetan 'A' symbol - 4x larger */}
       <mesh position={[0, 0, 0.003]}>
-        <planeGeometry args={[0.25, 0.25]} />
+        <planeGeometry args={[0.55, 0.55]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
