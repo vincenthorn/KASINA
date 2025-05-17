@@ -47,8 +47,20 @@ const TimerKasinas: React.FC = () => {
   const { timeRemaining, duration } = useSimpleTimer();
   const { email } = useAuth(); // Get user email to check if admin
   
-  // Check if user is admin
+  // Check if user is admin or premium
   const isAdmin = email === "admin@kasina.app";
+  
+  // Define premium users - these users get access to Vajrayana kasinas
+  const premiumEmails = [
+    'admin@kasina.app',   // Admin always has premium features
+    'brian@terma.asia',   // Premium users
+    'emilywhorn@gmail.com',
+    'ryan@ryanoelke.com',
+    'ksowocki@gmail.com'
+  ];
+  
+  // Check if current user is premium
+  const isPremium = email ? premiumEmails.includes(email) : false;
   
   // Add this ref to prevent multiple session saves
   const sessionSavedRef = useRef(false);
@@ -681,17 +693,18 @@ const TimerKasinas: React.FC = () => {
                               <span>Elemental Kasinas</span>
                             </span>
                           </SelectItem>
-                          {/* Vajrayana Kasinas - only visible to admin users */}
-                          {isAdmin && (
-                            <SelectItem value="vajrayana" className="hover:bg-white/10 focus:bg-white/10 py-2">
-                              <span className="flex items-center">
-                                <span className="flex gap-1 mr-2">
-                                  <span>💀</span>
-                                </span>
-                                <span>Vajrayana Kasinas</span>
+                          {/* Vajrayana Kasinas - visible to everyone but with different states */}
+                          <SelectItem value="vajrayana" className="hover:bg-white/10 focus:bg-white/10 py-2">
+                            <span className="flex items-center">
+                              <span className="flex gap-1 mr-2">
+                                <span>💀</span>
                               </span>
-                            </SelectItem>
-                          )}
+                              <span>
+                                Vajrayana Kasinas
+                                {!isPremium && <span className="ml-2 text-yellow-400 text-xs">✦ Premium</span>}
+                              </span>
+                            </span>
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
