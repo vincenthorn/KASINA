@@ -883,7 +883,7 @@ const TimerKasinas: React.FC = () => {
                       {/* Vajrayana Kasinas - Only visible to admin users */}
                       {isAdmin && kasinaTab === 'vajrayana' && (
                         <div className="grid grid-cols-2 gap-3 py-1">
-                          {/* White A Thigle button */}
+                          {/* White A Thigle Kasina button */}
                           <Button
                             variant={selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? "default" : "outline"}
                             onClick={() => setSelectedKasina(KASINA_TYPES.WHITE_A_THIGLE)}
@@ -893,7 +893,7 @@ const TimerKasinas: React.FC = () => {
                               color: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? 'black' : 'white'
                             }}
                           >
-                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
+                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.white_a_thigle]}</span>
                             <span>White A Thigle</span>
                           </Button>
                         </div>

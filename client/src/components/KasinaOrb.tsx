@@ -677,7 +677,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   const isAdmin = email === "admin@kasina.app";
   
   // For White A Thigle - load texture
-  const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.jpeg');
+  const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
   
   useFrame(({ clock, camera }) => {
     if (meshRef.current) {

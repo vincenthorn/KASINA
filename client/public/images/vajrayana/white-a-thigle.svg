@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circular mask for the thigle shape -->
+  <circle cx="256" cy="256" r="230" fill="black"/>
+  
+  <!-- White center circle - the thigle -->
+  <circle cx="256" cy="256" r="200" fill="white"/>
+  
+  <!-- Tibetan/Sanskrit "A" letter in black -->
+  <g transform="translate(100, 70) scale(1.5)">
+    <path d="M95 65 L145 310 M95 65 L166 65 M120 190 L170 190" 
+          stroke="black" 
+          stroke-width="20" 
+          stroke-linecap="round" 
+          fill="none"/>
+  </g>
+  
+  <!-- Subtle energy lines -->
+  <g opacity="0.2">
+    <path d="M256 56 L256 456" stroke="white" stroke-width="2"/>
+    <path d="M156 256 L356 256" stroke="white" stroke-width="2"/>
+    <circle cx="256" cy="256" r="150" stroke="white" stroke-width="1" fill="none"/>
+    <circle cx="256" cy="256" r="100" stroke="white" stroke-width="1" fill="none"/>
+  </g>
+</svg>
