@@ -92,7 +92,7 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
                     <div className="mr-2">
                       <h3 className="text-white font-semibold text-lg leading-tight truncate">
                         {session.kasinaType === 'clear_light_thigle' 
-                          ? 'Clear Light Thigle Kasina'
+                          ? 'Clear Light Kasina'
                           : session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
                         }
                       </h3>

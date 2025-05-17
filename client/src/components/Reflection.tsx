@@ -417,7 +417,7 @@ const Reflection = () => {
                         <td className="py-3 px-4">
                           <span className="mr-2">{KASINA_EMOJIS[session.kasinaType] || '🧿'}</span>
                           {session.kasinaType === 'clear_light_thigle' 
-                            ? 'Clear Light Thigle Kasina'
+                            ? 'Clear Light Kasina'
                             : KASINA_NAMES[session.kasinaType] || session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
                           }
                         </td>

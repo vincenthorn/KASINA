@@ -31,7 +31,7 @@ export const KASINA_NAMES: Record<string, string> = {
   [KASINA_TYPES.SPACE]: "Space",
   [KASINA_TYPES.LIGHT]: "Light",
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "Clear Light Thigle"
+  [KASINA_TYPES.WHITE_A_THIGLE]: "Clear Light"
 };
 
 // Kasina colors (hex codes)

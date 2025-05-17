@@ -941,7 +941,7 @@ const TimerKasinas: React.FC = () => {
                                 }}
                               >
                                 <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
-                                <span>Clear Light Thigle</span>
+                                <span>Clear Light</span>
                               </Button>
                             </div>
                           ) : (
