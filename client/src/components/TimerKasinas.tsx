@@ -907,22 +907,48 @@ const TimerKasinas: React.FC = () => {
                         </div>
                       )}
                       
-                      {/* Vajrayana Kasinas - Only visible to admin users */}
-                      {isAdmin && kasinaTab === 'vajrayana' && (
-                        <div className="grid grid-cols-2 gap-3 py-1">
-                          {/* White A Thigle Kasina button */}
-                          <Button
-                            variant={selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? "default" : "outline"}
-                            onClick={() => setSelectedKasina(KASINA_TYPES.WHITE_A_THIGLE)}
-                            className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
-                            style={{ 
-                              backgroundColor: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? KASINA_COLORS[KASINA_TYPES.WHITE_A_THIGLE] : 'transparent',
-                              color: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? 'black' : 'white'
-                            }}
-                          >
-                            <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
-                            <span>White A Thigle</span>
-                          </Button>
+                      {/* Vajrayana Kasinas - With different content based on user type */}
+                      {kasinaTab === 'vajrayana' && (
+                        <div className="py-1">
+                          {isPremium ? (
+                            // Premium users get access to the Vajrayana kasinas
+                            <div className="grid grid-cols-2 gap-3">
+                              {/* White A Thigle Kasina button */}
+                              <Button
+                                variant={selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? "default" : "outline"}
+                                onClick={() => setSelectedKasina(KASINA_TYPES.WHITE_A_THIGLE)}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? KASINA_COLORS[KASINA_TYPES.WHITE_A_THIGLE] : 'transparent',
+                                  color: selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ? 'black' : 'white'
+                                }}
+                              >
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_THIGLE]}</span>
+                                <span>White A Thigle</span>
+                              </Button>
+                            </div>
+                          ) : (
+                            // Non-premium users see a subscription message
+                            <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-md border border-indigo-500/20">
+                              <div className="text-center mb-4">
+                                <h3 className="text-2xl font-bold text-white mb-3">
+                                  <span className="mr-2">💀</span>
+                                  Vajrayana Kasinas
+                                </h3>
+                                <p className="text-indigo-200 mb-4">
+                                  Access advanced meditation techniques with our premium subscription.
+                                </p>
+                              </div>
+                              <a 
+                                href="https://www.contemplative.technology/subscribe" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-md font-medium shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all"
+                              >
+                                Upgrade to Premium
+                              </a>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
