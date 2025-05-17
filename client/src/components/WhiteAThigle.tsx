@@ -42,12 +42,12 @@ const WhiteAThigle = () => {
       groupRef.current.position.x = 0;
       groupRef.current.scale.set(scale, scale, scale);
     } else {
-      // Normal floating animation when not in countdown
-      groupRef.current.position.y = Math.sin(time * 0.5) * 0.08;
-      groupRef.current.position.x = Math.sin(time * 0.3) * 0.04;
+      // Keep the kasina stationary (no floating animation)
+      groupRef.current.position.y = 0;
+      groupRef.current.position.x = 0;
       
-      // Subtle breathing/pulsing effect
-      const pulse = 1.0 + Math.sin(time * 0.4) * 0.02;
+      // Very minimal pulsing effect
+      const pulse = 1.0 + Math.sin(time * 0.2) * 0.01;
       groupRef.current.scale.set(pulse, pulse, pulse);
     }
   });
