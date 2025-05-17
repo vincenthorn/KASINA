@@ -6,14 +6,14 @@ import { KASINA_NAMES, KASINA_COLORS, KASINA_EMOJIS } from "../lib/constants";
 import { Button } from './ui/button';
 
 // Define chart data types and categories
-type ChartMode = 'overview' | 'color' | 'elemental';
+type ChartMode = 'overview' | 'color' | 'elemental' | 'vajrayana';
 type ChartDataItem = {
   name: string;
   value: number;
   emoji: string;
   displayName: string;
   color: string;
-  category?: 'color' | 'elemental';
+  category?: 'color' | 'elemental' | 'vajrayana';
   kasinaType?: string;
 };
 
@@ -122,13 +122,17 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
     
     // Prepare data based on current mode
     if (chartMode === 'overview') {
-      // Create overview data (Color vs Elemental)
+      // Create overview data (Color vs Elemental vs Vajrayana)
       const colorTotal = sessions
         .filter(s => colorKasinas.includes(s.kasinaType))
         .reduce((sum, s) => sum + s.duration, 0);
         
       const elementalTotal = sessions
         .filter(s => elementalKasinas.includes(s.kasinaType))
+        .reduce((sum, s) => sum + s.duration, 0);
+      
+      const vajrayanaTotal = sessions
+        .filter(s => vajrayanaKasinas.includes(s.kasinaType))
         .reduce((sum, s) => sum + s.duration, 0);
         
       return [
@@ -147,6 +151,14 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
           displayName: 'Elemental Kasinas',
           color: '#3b82f6',
           category: 'elemental' as const
+        },
+        {
+          name: 'vajrayana',
+          value: vajrayanaTotal,
+          emoji: '💀',
+          displayName: 'Vajrayana Kasinas',
+          color: '#8855ff',
+          category: 'vajrayana' as const
         }
       ].filter(item => item.value > 0);
       
@@ -184,6 +196,24 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
             emoji: KASINA_EMOJIS[type] || '✨',
             displayName: KASINA_NAMES[type] || type,
             color: KASINA_COLORS[type] || '#ffffff'
+          };
+        })
+        .filter(item => item.value > 0);
+    } else if (chartMode === 'vajrayana') {
+      // Show detailed breakdown of Vajrayana kasinas
+      return vajrayanaKasinas
+        .map(type => {
+          const totalTime = sessions
+            .filter(s => s.kasinaType === type)
+            .reduce((sum, s) => sum + s.duration, 0);
+            
+          return {
+            name: type,
+            kasinaType: type,
+            value: totalTime,
+            emoji: KASINA_EMOJIS[type] || '💀',
+            displayName: KASINA_NAMES[type] || type,
+            color: KASINA_COLORS[type] || '#8855ff'
           };
         })
         .filter(item => item.value > 0);
@@ -287,7 +317,9 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
               ? 'Practice Overview' 
               : chartMode === 'color' 
                 ? 'Color Kasinas' 
-                : 'Elemental Kasinas'}
+                : chartMode === 'elemental'
+                  ? 'Elemental Kasinas'
+                  : 'Vajrayana Kasinas'}
           </CardTitle>
           {chartMode !== 'overview' && (
             <CardDescription className="text-gray-400">
