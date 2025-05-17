@@ -6,7 +6,7 @@ import { useKasina } from "../lib/stores/useKasina";
 import { KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from "../lib/constants";
 import { KasinaType } from "../lib/types";
 import { useAuth } from "../lib/stores/useAuth";
-import ConcentricRings from "./ConcentricRings";
+import WhiteAThigle from "./WhiteAThigle";
 
 // Shader materials for the elemental kasinas
 const waterShader = {
@@ -969,80 +969,14 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
     }
   }, [selectedKasina, isAdmin]);
   
-  // Create a more direct rendering for White A Thigle
+  // Use our new WhiteAThigle component for White A Thigle, regular mesh for others
   if (isWhiteAThigle) {
-    // Use a direct mesh approach instead of a separate component
-    return (
-      // Don't use meshRef (which is for regular Mesh) for a group 
-      <group>
-        {/* Blue background disc */}
-        <mesh position={[0, 0, -0.005]}>
-          <circleGeometry args={[1.3, 64]} />
-          <meshBasicMaterial color="#0055ff" />
-        </mesh>
-        
-        {/* Yellow ring (outermost) */}
-        <mesh position={[0, 0, -0.004]}>
-          <circleGeometry args={[1.2, 64]} />
-          <meshBasicMaterial color="#ffff00" />
-        </mesh>
-        
-        {/* Red ring */}
-        <mesh position={[0, 0, -0.003]}>
-          <circleGeometry args={[0.95, 64]} />
-          <meshBasicMaterial color="#ff0000" />
-        </mesh>
-        
-        {/* White ring */}
-        <mesh position={[0, 0, -0.002]}>
-          <circleGeometry args={[0.7, 64]} />
-          <meshBasicMaterial color="#ffffff" />
-        </mesh>
-        
-        {/* Green ring */}
-        <mesh position={[0, 0, -0.001]}>
-          <circleGeometry args={[0.5, 64]} />
-          <meshBasicMaterial color="#00cc00" />
-        </mesh>
-        
-        {/* Blue center */}
-        <mesh position={[0, 0, 0]}>
-          <circleGeometry args={[0.3, 64]} />
-          <meshBasicMaterial color="#0055ff" />
-        </mesh>
-        
-        {/* Simple white Tibetan A symbol made with geometries */}
-        <group position={[0, 0, 0.001]}>
-          {/* Vertical stem */}
-          <mesh position={[-0.05, 0, 0]}>
-            <boxGeometry args={[0.03, 0.18, 0.01]} />
-            <meshBasicMaterial color="white" />
-          </mesh>
-          
-          {/* Top horizontal bar */}
-          <mesh position={[0, 0.08, 0]}>
-            <boxGeometry args={[0.2, 0.03, 0.01]} />
-            <meshBasicMaterial color="white" />
-          </mesh>
-          
-          {/* Right vertical line */}
-          <mesh position={[0.09, 0.03, 0]}>
-            <boxGeometry args={[0.03, 0.13, 0.01]} />
-            <meshBasicMaterial color="white" />
-          </mesh>
-          
-          {/* Curved part (simplified with a small circle) */}
-          <mesh position={[-0.03, -0.06, 0]}>
-            <circleGeometry args={[0.05, 32]} />
-            <meshBasicMaterial color="white" />
-          </mesh>
-        </group>
-      </group>
-    );
+    return <WhiteAThigle />;
   } else {
     return (
       <mesh ref={meshRef}>
         <sphereGeometry args={[1, 64, 64]} />
+        {/* The material will be set by the effect above based on kasina type */}
       </mesh>
     );
   }
