@@ -2,6 +2,7 @@ import React from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
+import { useTexture } from '@react-three/drei';
 
 // Component for the HUM Kasina 
 // Deep blue orb with pulsing inner light

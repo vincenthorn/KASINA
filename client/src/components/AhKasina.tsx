@@ -2,12 +2,16 @@ import React from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
+import { useTexture } from '@react-three/drei';
 
 // Component for the AH Kasina 
 // Deep red orb with golden glow and fiery, ember-like core
 const AhKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
+  
+  // Load the AH syllable texture
+  const ahTexture = useTexture('/images/vajrayana/ah-syllable.svg');
   
   // Get timer state directly from the store without subscription
   const timerState = useSimpleTimer.getState();
@@ -96,6 +100,16 @@ const AhKasina = () => {
       <mesh position={[0, 0, -0.001]}>
         <circleGeometry args={[0.3, 64]} />
         <meshBasicMaterial color="#ff3300" />
+      </mesh>
+      
+      {/* AH Syllable */}
+      <mesh position={[0, 0, 0.002]}>
+        <planeGeometry args={[0.5, 0.5]} />
+        <meshBasicMaterial 
+          map={ahTexture} 
+          transparent={true}
+          opacity={0.95}
+        />
       </mesh>
       
       {/* Ember core */}

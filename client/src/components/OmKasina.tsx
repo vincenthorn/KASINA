@@ -2,12 +2,16 @@ import React from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
+import { useTexture } from '@react-three/drei';
 
 // Component for the OM Kasina 
 // Radiant white orb with space-like properties
 const OmKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
+  
+  // Load the OM syllable texture
+  const omTexture = useTexture('/images/vajrayana/om-syllable.svg');
   
   // Get timer state directly from the store without subscription
   const timerState = useSimpleTimer.getState();
@@ -86,14 +90,24 @@ const OmKasina = () => {
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
-      {/* Center OM symbol */}
+      {/* Center OM symbol area */}
       <mesh position={[0, 0, 0.001]}>
         <circleGeometry args={[0.3, 64]} />
         <meshBasicMaterial color="#f0f0ff" />
       </mesh>
       
-      {/* Inner dot */}
+      {/* OM Syllable */}
       <mesh position={[0, 0, 0.002]}>
+        <planeGeometry args={[0.5, 0.5]} />
+        <meshBasicMaterial 
+          map={omTexture} 
+          transparent={true}
+          opacity={0.95}
+        />
+      </mesh>
+      
+      {/* Inner dot */}
+      <mesh position={[0, 0, 0.001]}>
         <circleGeometry args={[0.05, 32]} />
         <meshBasicMaterial color="#ffffff" />
       </mesh>
