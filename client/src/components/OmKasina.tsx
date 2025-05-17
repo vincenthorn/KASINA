@@ -10,8 +10,8 @@ const OmKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
-  // Load the OM syllable texture (improved dark blue version with larger size)
-  const omTexture = useTexture('/images/vajrayana/om-syllable-improved.svg');
+  // Load the OM syllable texture with adjusted color and position
+  const omTexture = useTexture('/images/vajrayana/om-syllable-final.svg');
   
   // Get timer state directly from the store without subscription
   const timerState = useSimpleTimer.getState();
