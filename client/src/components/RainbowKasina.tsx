@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
+import { extend } from '@react-three/fiber';
 
 // Standalone component to render the Rainbow Kasina - a glowing rainbow circle
 // with green on the inside, followed by yellow, orange, red, with blue-violet background
@@ -49,42 +50,132 @@ const RainbowKasina = () => {
     }
   });
   
+  // Create glow materials with bloom effect for each color
+  const redGlowMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#ff0000"),
+      transparent: true,
+      opacity: 0.9,
+    });
+  }, []);
+  
+  const orangeGlowMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#ff8800"),
+      transparent: true,
+      opacity: 0.9,
+    });
+  }, []);
+  
+  const yellowGlowMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#ffff00"),
+      transparent: true,
+      opacity: 0.9,
+    });
+  }, []);
+  
+  const greenGlowMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#00cc00"),
+      transparent: true,
+      opacity: 0.9,
+    });
+  }, []);
+  
+  // Create lower opacity versions for the blur/glow effect
+  const redBlurMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#ff0000"),
+      transparent: true,
+      opacity: 0.5,
+    });
+  }, []);
+  
+  const orangeBlurMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#ff8800"),
+      transparent: true,
+      opacity: 0.5,
+    });
+  }, []);
+  
+  const yellowBlurMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#ffff00"),
+      transparent: true,
+      opacity: 0.5,
+    });
+  }, []);
+  
+  const greenBlurMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#00cc00"),
+      transparent: true,
+      opacity: 0.5,
+    });
+  }, []);
+
   return (
     <group ref={groupRef}>
       {/* Brighter blue-violet background that fills the entire kasina */}
-      <mesh position={[0, 0, -0.006]}>
+      <mesh position={[0, 0, -0.008]}>
         <circleGeometry args={[1.0, 64]} />
         <meshBasicMaterial color="#2200cc" />
       </mesh>
       
-      {/* Ultra-compressed rainbow rings - 30x more compressed than original */}
+      {/* Ultra-compressed rainbow rings with glow effect */}
       
-      {/* Red outer ring of the rainbow */}
-      <mesh position={[0, 0, -0.005]}>
+      {/* Red outer ring - glow effect (slightly larger) */}
+      <mesh position={[0, 0, -0.007]}>
+        <circleGeometry args={[0.57, 64]} />
+        <primitive object={redBlurMaterial} />
+      </mesh>
+      
+      {/* Red outer ring */}
+      <mesh position={[0, 0, -0.006]}>
         <circleGeometry args={[0.55, 64]} />
-        <meshBasicMaterial color="#ff0000" />
+        <primitive object={redGlowMaterial} />
+      </mesh>
+      
+      {/* Orange ring - glow effect (slightly larger) */}
+      <mesh position={[0, 0, -0.005]}>
+        <circleGeometry args={[0.56, 64]} />
+        <primitive object={orangeBlurMaterial} />
       </mesh>
       
       {/* Orange ring */}
       <mesh position={[0, 0, -0.004]}>
         <circleGeometry args={[0.54, 64]} />
-        <meshBasicMaterial color="#ff8800" />
+        <primitive object={orangeGlowMaterial} />
+      </mesh>
+      
+      {/* Yellow ring - glow effect (slightly larger) */}
+      <mesh position={[0, 0, -0.003]}>
+        <circleGeometry args={[0.55, 64]} />
+        <primitive object={yellowBlurMaterial} />
       </mesh>
       
       {/* Yellow ring */}
-      <mesh position={[0, 0, -0.003]}>
+      <mesh position={[0, 0, -0.002]}>
         <circleGeometry args={[0.53, 64]} />
-        <meshBasicMaterial color="#ffff00" />
+        <primitive object={yellowGlowMaterial} />
+      </mesh>
+      
+      {/* Green inner ring - glow effect (slightly larger) */}
+      <mesh position={[0, 0, -0.001]}>
+        <circleGeometry args={[0.54, 64]} />
+        <primitive object={greenBlurMaterial} />
       </mesh>
       
       {/* Green inner ring */}
-      <mesh position={[0, 0, -0.002]}>
+      <mesh position={[0, 0, 0]}>
         <circleGeometry args={[0.52, 64]} />
-        <meshBasicMaterial color="#00cc00" />
+        <primitive object={greenGlowMaterial} />
       </mesh>
       
       {/* Blue-violet center */}
-      <mesh position={[0, 0, -0.001]}>
+      <mesh position={[0, 0, 0.001]}>
         <circleGeometry args={[0.51, 64]} />
         <meshBasicMaterial color="#2200cc" />
       </mesh>
