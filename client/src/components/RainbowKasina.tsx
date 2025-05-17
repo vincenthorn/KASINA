@@ -4,6 +4,9 @@ import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { extend } from '@react-three/fiber';
 
+// Consistent background color for the Rainbow Kasina
+const BACKGROUND_COLOR = "#2200cc";
+
 // Standalone component to render the Rainbow Kasina - a glowing rainbow circle
 // with green on the inside, followed by yellow, orange, red, with blue-violet background
 const RainbowKasina = () => {
@@ -199,73 +202,68 @@ const RainbowKasina = () => {
   // Create a consistent background material
   const backgroundMaterial = useMemo(() => {
     return new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#2200cc"),
+      color: new THREE.Color(BACKGROUND_COLOR),
       transparent: false,
     });
   }, []);
 
   return (
     <group ref={groupRef}>
-      {/* Brighter blue-violet background that fills the entire kasina */}
-      <mesh position={[0, 0, -0.008]}>
+      {/* Unified background circle that fills the entire kasina */}
+      <mesh position={[0, 0, -0.01]}>
         <circleGeometry args={[1.0, 64]} />
         <primitive object={backgroundMaterial} />
       </mesh>
       
       {/* Ultra-compressed rainbow rings with glow effect */}
       
-      {/* Red outer ring - glow effect (slightly larger) */}
+      {/* Rainbow rings with their glow layers */}
+      {/* Red ring (outermost) */}
       <mesh position={[0, 0, -0.007]}>
-        <circleGeometry args={[0.57, 64]} />
-        <primitive object={redBlurMaterial} />
-      </mesh>
-      
-      {/* Red outer ring */}
-      <mesh position={[0, 0, -0.006]}>
-        <circleGeometry args={[0.55, 64]} />
+        <ringGeometry args={[0.54, 0.57, 64]} />
         <primitive object={redGlowMaterial} />
       </mesh>
       
-      {/* Orange ring - glow effect (slightly larger) */}
-      <mesh position={[0, 0, -0.005]}>
-        <circleGeometry args={[0.56, 64]} />
-        <primitive object={orangeBlurMaterial} />
+      {/* Red ring blur/glow effect */}
+      <mesh position={[0, 0, -0.006]}>
+        <ringGeometry args={[0.53, 0.58, 64]} />
+        <primitive object={redBlurMaterial} />
       </mesh>
       
       {/* Orange ring */}
-      <mesh position={[0, 0, -0.004]}>
-        <circleGeometry args={[0.54, 64]} />
+      <mesh position={[0, 0, -0.005]}>
+        <ringGeometry args={[0.53, 0.545, 64]} />
         <primitive object={orangeGlowMaterial} />
       </mesh>
       
-      {/* Yellow ring - glow effect (slightly larger) */}
-      <mesh position={[0, 0, -0.003]}>
-        <circleGeometry args={[0.55, 64]} />
-        <primitive object={yellowBlurMaterial} />
+      {/* Orange ring blur/glow */}
+      <mesh position={[0, 0, -0.004]}>
+        <ringGeometry args={[0.52, 0.55, 64]} />
+        <primitive object={orangeBlurMaterial} />
       </mesh>
       
       {/* Yellow ring */}
-      <mesh position={[0, 0, -0.002]}>
-        <circleGeometry args={[0.53, 64]} />
+      <mesh position={[0, 0, -0.003]}>
+        <ringGeometry args={[0.52, 0.535, 64]} />
         <primitive object={yellowGlowMaterial} />
       </mesh>
       
-      {/* Green inner ring - glow effect (slightly larger) */}
-      <mesh position={[0, 0, -0.001]}>
-        <circleGeometry args={[0.54, 64]} />
-        <primitive object={greenBlurMaterial} />
+      {/* Yellow ring blur/glow */}
+      <mesh position={[0, 0, -0.002]}>
+        <ringGeometry args={[0.51, 0.54, 64]} />
+        <primitive object={yellowBlurMaterial} />
       </mesh>
       
-      {/* Green inner ring */}
-      <mesh position={[0, 0, 0]}>
-        <circleGeometry args={[0.52, 64]} />
+      {/* Green ring (innermost) */}
+      <mesh position={[0, 0, -0.001]}>
+        <ringGeometry args={[0.51, 0.525, 64]} />
         <primitive object={greenGlowMaterial} />
       </mesh>
       
-      {/* Blue-violet center - use the same consistent background material */}
-      <mesh position={[0, 0, 0.001]}>
-        <circleGeometry args={[0.51, 64]} />
-        <primitive object={backgroundMaterial} />
+      {/* Green ring blur/glow */}
+      <mesh position={[0, 0, 0]}>
+        <ringGeometry args={[0.50, 0.53, 64]} />
+        <primitive object={greenBlurMaterial} />
       </mesh>
     </group>
   );
