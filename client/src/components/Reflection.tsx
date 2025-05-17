@@ -18,7 +18,9 @@ type ChartDataItem = {
 };
 
 const Reflection = () => {
-  const { sessions } = useKasina();
+  // Get sessions from Kasina store
+  const kasina = useKasina();
+  const sessions = kasina.sessions || [];
   const [timeFilter, setTimeFilter] = useState<'week' | 'month' | 'all'>('all');
   const [filteredSessions, setFilteredSessions] = useState<KasinaSession[]>([]);
   const [pieData, setPieData] = useState<ChartDataItem[]>([]);
@@ -45,7 +47,7 @@ const Reflection = () => {
     
     if (timeFilter === 'week') {
       const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-      filtered = sessions.filter(session => new Date(session.date) >= oneWeekAgo);
+      filtered = sessions.filter((session: KasinaSession) => new Date(session.date) >= oneWeekAgo);
     } else if (timeFilter === 'month') {
       const oneMonthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
       filtered = sessions.filter(session => new Date(session.date) >= oneMonthAgo);
@@ -58,8 +60,8 @@ const Reflection = () => {
 
   // Prepare pie chart data
   useEffect(() => {
-    // Normalize session types for consistency
-    const processedSessions = filteredSessions.map(session => {
+    // First, normalize the session types for consistency
+    const normalizedSessions = filteredSessions.map(session => {
       // Handle missing kasinaType
       if (!session.kasinaType) {
         return session;
@@ -67,22 +69,19 @@ const Reflection = () => {
       
       const kasinaType = String(session.kasinaType).toLowerCase();
       
-      // Handle OM Kasina detection
+      // Handle Vajrayana kasina types
       if (kasinaType.includes('om')) {
         return { ...session, kasinaType: 'om_kasina' as KasinaType };
       }
       
-      // Handle AH Kasina detection
       if (kasinaType.includes('ah')) {
         return { ...session, kasinaType: 'ah_kasina' as KasinaType };
       }
       
-      // Handle HUM Kasina detection
       if (kasinaType.includes('hum')) {
         return { ...session, kasinaType: 'hum_kasina' as KasinaType };
       }
       
-      // Handle Clear Light Kasina detection
       if (kasinaType.includes('clear') || kasinaType.includes('thigle')) {
         return { ...session, kasinaType: 'clear_light_thigle' as KasinaType };
       }
@@ -90,10 +89,9 @@ const Reflection = () => {
       return session;
     });
     
-    // Add debug logging
-    console.log('Normalized sessions:', processedSessions);
-    console.log('OM Kasina sessions:', 
-      processedSessions.filter(s => s.kasinaType === 'om_kasina')
+    // For logging purposes
+    console.log('Normalized OM Kasina sessions:', 
+      normalizedSessions.filter(s => s.kasinaType === 'om_kasina')
     );
     
     // Directly use the kasina series from constants
@@ -109,7 +107,7 @@ const Reflection = () => {
     // Process color kasinas
     const colorData = colorKasinas
       .map(type => {
-        const sessionsOfType = processedSessions.filter(s => s.kasinaType === type);
+        const sessionsOfType = normalizedSessions.filter(s => s.kasinaType === type);
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
         colorTotal += duration;
         
@@ -129,7 +127,7 @@ const Reflection = () => {
     // Process elemental kasinas
     const elementalData = elementalKasinas
       .map(type => {
-        const sessionsOfType = processedSessions.filter(s => s.kasinaType === type);
+        const sessionsOfType = normalizedSessions.filter(s => s.kasinaType === type);
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
         elementalTotal += duration;
         
@@ -150,7 +148,7 @@ const Reflection = () => {
     const vajrayanaData = vajrayanaKasinas
       .map(type => {
         // Using our normalized sessions data
-        const sessionsOfType = processedSessions.filter(s => s.kasinaType === type);
+        const sessionsOfType = normalizedSessions.filter(s => s.kasinaType === type);
         console.log(`Found ${type} sessions:`, sessionsOfType);
         
         const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
@@ -222,7 +220,7 @@ const Reflection = () => {
       setPieData(vajrayanaData);
     }
     
-  }, [processedSessions, chartMode]);
+  }, [normalizedSessions, chartMode]);
 
   // Colors for pie chart
   const COLORS = [
