@@ -980,6 +980,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   // Check if a Vajrayana kasina is selected by a premium user
   const isVajrayanaKasina = isPremium && (
     selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ||
+    selectedKasina === KASINA_TYPES.WHITE_A_KASINA ||
     selectedKasina === KASINA_TYPES.OM_KASINA ||
     selectedKasina === KASINA_TYPES.AH_KASINA ||
     selectedKasina === KASINA_TYPES.HUM_KASINA
