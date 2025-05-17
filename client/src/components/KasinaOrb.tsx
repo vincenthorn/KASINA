@@ -1003,6 +1003,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         
         {/* Add the visual Vajrayana component based on selection */}
         {selectedKasina === KASINA_TYPES.WHITE_A_THIGLE && <WhiteAThigle />}
+        {selectedKasina === KASINA_TYPES.WHITE_A_KASINA && <WhiteAKasina />}
         {selectedKasina === KASINA_TYPES.OM_KASINA && <OmKasina />}
         {selectedKasina === KASINA_TYPES.AH_KASINA && <AhKasina />}
         {selectedKasina === KASINA_TYPES.HUM_KASINA && <HumKasina />}

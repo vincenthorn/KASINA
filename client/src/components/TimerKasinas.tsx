@@ -972,6 +972,20 @@ const TimerKasinas: React.FC = () => {
                                 <span>AH</span>
                               </Button>
                               
+                              {/* White A Kasina button */}
+                              <Button
+                                variant={selectedKasina === KASINA_TYPES.WHITE_A_KASINA ? "default" : "outline"}
+                                onClick={() => setSelectedKasina(KASINA_TYPES.WHITE_A_KASINA)}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.WHITE_A_KASINA ? KASINA_COLORS[KASINA_TYPES.WHITE_A_KASINA] : 'transparent',
+                                  color: selectedKasina === KASINA_TYPES.WHITE_A_KASINA ? 'black' : 'white'
+                                }}
+                              >
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.WHITE_A_KASINA]}</span>
+                                <span>White A</span>
+                              </Button>
+                              
                               {/* HUM Kasina button */}
                               <Button
                                 variant={selectedKasina === KASINA_TYPES.HUM_KASINA ? "default" : "outline"}
