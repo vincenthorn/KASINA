@@ -936,7 +936,7 @@ const TimerKasinas: React.FC = () => {
                                   Vajrayana Kasinas
                                 </h3>
                                 <p className="text-indigo-100 mb-8 text-lg max-w-md">
-                                  Access advanced meditation techniques with our premium subscription.
+                                  Access advanced meditation objects with our premium subscription.
                                 </p>
                               </div>
                               <a 
