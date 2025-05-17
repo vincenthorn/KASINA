@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-import { useKasina } from "../lib/stores/useKasina";
-import { KasinaSession, KasinaType } from "../lib/types";
-import { PieChart, Pie, Cell, ResponsiveContainer, Sector } from 'recharts';
-import { KASINA_EMOJIS, KASINA_NAMES, KASINA_SERIES } from "../lib/constants";
+import React, { useEffect, useState } from 'react';
+import { KasinaSession } from '@/lib/types';
+import PracticeChart from './PracticeChart';
+import PracticeLog from './PracticeLog';
 import { Button } from './ui/button';
+import { KASINA_EMOJIS, KASINA_NAMES } from '@/lib/constants';
 
-// Define our types for chart organization
+// Chart data type definitions
 type ChartMode = 'overview' | 'color' | 'elemental' | 'vajrayana';
 type ChartDataItem = {
   name: string;
@@ -17,475 +15,405 @@ type ChartDataItem = {
   category?: 'color' | 'elemental' | 'vajrayana';
 };
 
-const Reflection = () => {
-  // Get sessions from Kasina store
-  const kasina = useKasina();
-  const sessions = kasina.sessions || [];
-  const [timeFilter, setTimeFilter] = useState<'week' | 'month' | 'all'>('all');
-  const [filteredSessions, setFilteredSessions] = useState<KasinaSession[]>([]);
-  const [pieData, setPieData] = useState<ChartDataItem[]>([]);
-  const [totalTime, setTotalTime] = useState(0);
+const ReflectionFixed: React.FC = () => {
+  const [sessions, setSessions] = useState<KasinaSession[]>([]);
   const [chartMode, setChartMode] = useState<ChartMode>('overview');
+  const [timeRange, setTimeRange] = useState<'all' | 'week' | 'month'>('all');
+  const [isLoading, setIsLoading] = useState(true);
+  const [totalTime, setTotalTime] = useState(0);
+  const [vajrayanaTime, setVajrayanaTime] = useState(0);
+  const [colorTime, setColorTime] = useState(0);
+  const [elementalTime, setElementalTime] = useState(0);
+
+  // Fetch sessions from the API
+  useEffect(() => {
+    const fetchSessions = async () => {
+      try {
+        const response = await fetch('/api/sessions');
+        if (!response.ok) throw new Error('Failed to fetch sessions');
+        const data = await response.json();
+        setSessions(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching sessions:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchSessions();
+  }, []);
+
+  // Process data for charts when sessions or timeRange changes
+  const [chartData, setChartData] = useState<ChartDataItem[]>([]);
   
-  // Store all data categories for easy switching
-  const [allChartData, setAllChartData] = useState<{
-    overview: ChartDataItem[];
-    color: ChartDataItem[];
-    elemental: ChartDataItem[];
-    vajrayana: ChartDataItem[];
-  }>({
-    overview: [],
-    color: [],
-    elemental: [],
-    vajrayana: []
-  });
-
-  // Filter sessions based on selected time range
   useEffect(() => {
+    if (sessions.length === 0) return;
+
+    // Filter sessions based on time range
+    let filteredSessions = [...sessions];
+    console.log("All sessions:", filteredSessions.length);
+    
     const now = new Date();
-    let filtered: KasinaSession[];
-    
-    if (timeFilter === 'week') {
+    if (timeRange === 'week') {
       const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-      filtered = sessions.filter((session: KasinaSession) => new Date(session.date) >= oneWeekAgo);
-    } else if (timeFilter === 'month') {
-      const oneMonthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
-      filtered = sessions.filter((session: KasinaSession) => new Date(session.date) >= oneMonthAgo);
-    } else {
-      filtered = [...sessions];
+      filteredSessions = sessions.filter((session: KasinaSession) => new Date(session.timestamp) >= oneWeekAgo);
+      console.log("Week sessions:", filteredSessions.length);
+    } else if (timeRange === 'month') {
+      const oneMonthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+      filteredSessions = sessions.filter((session: KasinaSession) => new Date(session.timestamp) >= oneMonthAgo);
+      console.log("Month sessions:", filteredSessions.length);
     }
-    
-    setFilteredSessions(filtered);
-  }, [sessions, timeFilter]);
 
-  // Prepare pie chart data
-  useEffect(() => {
-    // Create separate arrays for each kasina type
+    // Create arrays for different session types
     const colorSessions: KasinaSession[] = [];
     const elementalSessions: KasinaSession[] = [];
     const vajrayanaSessions: KasinaSession[] = [];
     
-    // Categorize all sessions
-    filteredSessions.forEach((session) => {
+    // Clear and log every session for debugging
+    console.log("PROCESSING SESSIONS:", JSON.stringify(filteredSessions));
+
+    filteredSessions.forEach(session => {
+      // Skip sessions without kasinaType
       if (!session.kasinaType) return;
       
-      const kasinaType = String(session.kasinaType).toLowerCase();
+      // Normalize type for consistent handling
+      const type = String(session.kasinaType).toLowerCase();
+      console.log(`Processing session: ${session.id}, type: ${type}`);
       
-      // Categorize Vajrayana sessions first
-      if (kasinaType.includes('om')) {
-        // Deep clone to avoid reference issues
-        vajrayanaSessions.push({...session, kasinaType: 'om_kasina' as KasinaType});
+      // EXPLICIT Vajrayana mapping
+      if (type === 'om_kasina' || type.includes('om')) {
+        console.log(`Found OM Kasina: ${session.id}`);
+        vajrayanaSessions.push(session);
       }
-      else if (kasinaType.includes('ah')) {
-        vajrayanaSessions.push({...session, kasinaType: 'ah_kasina' as KasinaType});
+      else if (type === 'ah_kasina' || type.includes('ah')) {
+        console.log(`Found AH Kasina: ${session.id}`);
+        vajrayanaSessions.push(session);
       }
-      else if (kasinaType.includes('hum')) {
-        vajrayanaSessions.push({...session, kasinaType: 'hum_kasina' as KasinaType});
+      else if (type === 'hum_kasina' || type.includes('hum')) {
+        console.log(`Found HUM Kasina: ${session.id}`);
+        vajrayanaSessions.push(session);
       }
-      else if (kasinaType.includes('clear') || kasinaType.includes('thigle')) {
-        vajrayanaSessions.push({...session, kasinaType: 'clear_light_thigle' as KasinaType});
+      else if (type === 'clear_light_thigle' || type.includes('clear') || type.includes('thigle')) {
+        console.log(`Found Clear Light: ${session.id}`);
+        vajrayanaSessions.push(session);
       }
       // Color kasinas
-      else if (['white', 'blue', 'red', 'yellow', 'custom'].includes(kasinaType)) {
+      else if (['white', 'blue', 'red', 'yellow', 'custom'].includes(type)) {
         colorSessions.push(session);
       }
       // Elemental kasinas
-      else if (['water', 'air', 'fire', 'earth', 'space', 'light'].includes(kasinaType)) {
+      else if (['water', 'air', 'fire', 'earth', 'space', 'light'].includes(type)) {
         elementalSessions.push(session);
       }
     });
+
+    console.log("After categorization:");
+    console.log("Color sessions:", colorSessions.length);
+    console.log("Elemental sessions:", elementalSessions.length);
+    console.log("Vajrayana sessions:", vajrayanaSessions.length);
+
+    // Calculate total times for each category
+    const colorTotal = colorSessions.reduce((sum, s) => sum + s.duration, 0);
+    setColorTime(colorTotal);
     
-    // Calculate total durations for each category
-    let colorTotal = 0;
-    let elementalTotal = 0;
-    let vajrayanaTotal = 0;
+    const elementalTotal = elementalSessions.reduce((sum, s) => sum + s.duration, 0);
+    setElementalTime(elementalTotal);
     
-    // Color data
-    const colorData: ChartDataItem[] = [];
-    KASINA_SERIES.COLOR.forEach(type => {
-      const sessionsOfType = colorSessions.filter(s => s.kasinaType === type);
-      const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
-      colorTotal += duration;
-      
-      if (duration > 0) {
-        colorData.push({
-          name: type,
-          value: duration,
-          emoji: KASINA_EMOJIS[type] || '⚪',
-          displayName: KASINA_NAMES[type] || type,
-          category: 'color'
-        });
-      }
-    });
+    const vajrayanaTotal = vajrayanaSessions.reduce((sum, s) => sum + s.duration, 0);
+    setVajrayanaTime(vajrayanaTotal);
     
-    // Elemental data
-    const elementalData: ChartDataItem[] = [];
-    KASINA_SERIES.ELEMENTAL.forEach(type => {
-      const sessionsOfType = elementalSessions.filter(s => s.kasinaType === type);
-      const duration = sessionsOfType.reduce((sum, s) => sum + s.duration, 0);
-      elementalTotal += duration;
-      
-      if (duration > 0) {
-        elementalData.push({
-          name: type,
-          value: duration,
-          emoji: KASINA_EMOJIS[type] || '💧',
-          displayName: KASINA_NAMES[type] || type,
-          category: 'elemental'
-        });
-      }
-    });
-    
-    // Vajrayana data - manually calculate for each type
-    const vajrayanaData: ChartDataItem[] = [];
-    
-    // Calculate OM Kasina
-    const omSessions = vajrayanaSessions.filter(s => s.kasinaType === 'om_kasina');
-    const omDuration = omSessions.reduce((sum, s) => sum + s.duration, 0);
-    vajrayanaTotal += omDuration;
-    if (omDuration > 0) {
-      vajrayanaData.push({
-        name: 'om_kasina',
-        value: omDuration,
-        emoji: KASINA_EMOJIS['om_kasina'] || '🕉️',
-        displayName: 'OM Kasina',
-        category: 'vajrayana'
-      });
-    }
-    
-    // Calculate AH Kasina
-    const ahSessions = vajrayanaSessions.filter(s => s.kasinaType === 'ah_kasina');
-    const ahDuration = ahSessions.reduce((sum, s) => sum + s.duration, 0);
-    vajrayanaTotal += ahDuration;
-    if (ahDuration > 0) {
-      vajrayanaData.push({
-        name: 'ah_kasina',
-        value: ahDuration,
-        emoji: KASINA_EMOJIS['ah_kasina'] || '🔮',
-        displayName: 'AH Kasina',
-        category: 'vajrayana'
-      });
-    }
-    
-    // Calculate HUM Kasina
-    const humSessions = vajrayanaSessions.filter(s => s.kasinaType === 'hum_kasina');
-    const humDuration = humSessions.reduce((sum, s) => sum + s.duration, 0);
-    vajrayanaTotal += humDuration;
-    if (humDuration > 0) {
-      vajrayanaData.push({
-        name: 'hum_kasina',
-        value: humDuration,
-        emoji: KASINA_EMOJIS['hum_kasina'] || '🌀',
-        displayName: 'HUM Kasina',
-        category: 'vajrayana'
-      });
-    }
-    
-    // Calculate Clear Light Thigle
-    const clearLightSessions = vajrayanaSessions.filter(s => s.kasinaType === 'clear_light_thigle');
-    const clearLightDuration = clearLightSessions.reduce((sum, s) => sum + s.duration, 0);
-    vajrayanaTotal += clearLightDuration;
-    if (clearLightDuration > 0) {
-      vajrayanaData.push({
-        name: 'clear_light_thigle',
-        value: clearLightDuration,
-        emoji: KASINA_EMOJIS['clear_light_thigle'] || '🌈',
-        displayName: 'Clear Light',
-        category: 'vajrayana'
-      });
-    }
-    
-    // Logging for debugging
-    console.log('Found OM sessions:', omSessions.length, 'with duration:', omDuration);
-    console.log('Vajrayana data:', vajrayanaData);
-    
-    // Create overview data
-    const overviewData: ChartDataItem[] = [];
-    
-    if (colorTotal > 0) {
-      overviewData.push({
-        name: 'color',
-        value: colorTotal,
-        emoji: '🎨',
-        displayName: 'Color'
-      });
-    }
-    
-    if (elementalTotal > 0) {
-      overviewData.push({
-        name: 'elemental',
-        value: elementalTotal,
-        emoji: '🌍',
-        displayName: 'Elemental'
-      });
-    }
-    
-    if (vajrayanaTotal > 0) {
-      overviewData.push({
-        name: 'vajrayana',
-        value: vajrayanaTotal,
-        emoji: '☸️',
-        displayName: 'Vajrayana'
-      });
-    }
-    
-    const totalSessionsTime = colorTotal + elementalTotal + vajrayanaTotal;
-    
-    // Update the state
-    setTotalTime(totalSessionsTime);
-    setAllChartData({
-      overview: overviewData,
-      color: colorData,
-      elemental: elementalData,
-      vajrayana: vajrayanaData
-    });
-    
-    // Set the current view based on chartMode
+    setTotalTime(colorTotal + elementalTotal + vajrayanaTotal);
+
+    // Process data for the selected chart mode
     if (chartMode === 'overview') {
-      setPieData(overviewData);
-    } else if (chartMode === 'color') {
-      setPieData(colorData);
-    } else if (chartMode === 'elemental') {
-      setPieData(elementalData);
-    } else if (chartMode === 'vajrayana') {
-      setPieData(vajrayanaData);
+      // Create summary data for the overview chart
+      const overviewData: ChartDataItem[] = [];
+      
+      if (colorTotal > 0) {
+        overviewData.push({
+          name: 'color',
+          value: colorTotal,
+          emoji: '🎨',
+          displayName: 'Color'
+        });
+      }
+      
+      if (elementalTotal > 0) {
+        overviewData.push({
+          name: 'elemental',
+          value: elementalTotal,
+          emoji: '🌍',
+          displayName: 'Elemental'
+        });
+      }
+      
+      if (vajrayanaTotal > 0) {
+        overviewData.push({
+          name: 'vajrayana',
+          value: vajrayanaTotal,
+          emoji: '🕉️',
+          displayName: 'Vajrayana'
+        });
+      }
+      
+      setChartData(overviewData);
+    } 
+    else if (chartMode === 'color') {
+      // Detailed breakdown for color kasinas
+      const colorData: ChartDataItem[] = [];
+      const colorTypes = ['white', 'blue', 'red', 'yellow', 'custom'];
+      
+      colorTypes.forEach(type => {
+        const sessionsByType = colorSessions.filter(s => s.kasinaType?.toLowerCase() === type);
+        const duration = sessionsByType.reduce((sum, s) => sum + s.duration, 0);
+        
+        if (duration > 0) {
+          colorData.push({
+            name: type,
+            value: duration,
+            emoji: KASINA_EMOJIS[type] || '⚪',
+            displayName: KASINA_NAMES[type] || type.charAt(0).toUpperCase() + type.slice(1),
+            category: 'color'
+          });
+        }
+      });
+      
+      setChartData(colorData);
+    } 
+    else if (chartMode === 'elemental') {
+      // Detailed breakdown for elemental kasinas
+      const elementalData: ChartDataItem[] = [];
+      const elementalTypes = ['water', 'air', 'fire', 'earth', 'space', 'light'];
+      
+      elementalTypes.forEach(type => {
+        const sessionsByType = elementalSessions.filter(s => s.kasinaType?.toLowerCase() === type);
+        const duration = sessionsByType.reduce((sum, s) => sum + s.duration, 0);
+        
+        if (duration > 0) {
+          elementalData.push({
+            name: type,
+            value: duration,
+            emoji: KASINA_EMOJIS[type] || '⚪',
+            displayName: KASINA_NAMES[type] || type.charAt(0).toUpperCase() + type.slice(1),
+            category: 'elemental'
+          });
+        }
+      });
+      
+      setChartData(elementalData);
+    } 
+    else if (chartMode === 'vajrayana') {
+      // Detailed breakdown for vajrayana kasinas - individually process each type
+      const vajrayanaData: ChartDataItem[] = [];
+      
+      // Directly process OM Kasina sessions
+      const omSessions = vajrayanaSessions.filter(s => 
+        s.kasinaType?.toLowerCase() === 'om_kasina' || 
+        s.kasinaType?.toLowerCase().includes('om')
+      );
+      const omDuration = omSessions.reduce((sum, s) => sum + s.duration, 0);
+      
+      console.log("OM Kasina sessions found:", omSessions.length, "Total duration:", omDuration);
+      
+      if (omDuration > 0) {
+        vajrayanaData.push({
+          name: 'om_kasina',
+          value: omDuration,
+          emoji: KASINA_EMOJIS['om_kasina'] || '🕉️',
+          displayName: 'OM Kasina',
+          category: 'vajrayana'
+        });
+      }
+      
+      // Process AH Kasina sessions
+      const ahSessions = vajrayanaSessions.filter(s => 
+        s.kasinaType?.toLowerCase() === 'ah_kasina' || 
+        s.kasinaType?.toLowerCase().includes('ah')
+      );
+      const ahDuration = ahSessions.reduce((sum, s) => sum + s.duration, 0);
+      
+      console.log("AH Kasina sessions found:", ahSessions.length, "Total duration:", ahDuration);
+      
+      if (ahDuration > 0) {
+        vajrayanaData.push({
+          name: 'ah_kasina',
+          value: ahDuration,
+          emoji: KASINA_EMOJIS['ah_kasina'] || '🔮',
+          displayName: 'AH Kasina',
+          category: 'vajrayana'
+        });
+      }
+      
+      // Process HUM Kasina sessions
+      const humSessions = vajrayanaSessions.filter(s => 
+        s.kasinaType?.toLowerCase() === 'hum_kasina' || 
+        s.kasinaType?.toLowerCase().includes('hum')
+      );
+      const humDuration = humSessions.reduce((sum, s) => sum + s.duration, 0);
+      
+      console.log("HUM Kasina sessions found:", humSessions.length, "Total duration:", humDuration);
+      
+      if (humDuration > 0) {
+        vajrayanaData.push({
+          name: 'hum_kasina',
+          value: humDuration,
+          emoji: KASINA_EMOJIS['hum_kasina'] || '🌀',
+          displayName: 'HUM Kasina',
+          category: 'vajrayana'
+        });
+      }
+      
+      // Process Clear Light Thigle sessions
+      const clearLightSessions = vajrayanaSessions.filter(s => 
+        s.kasinaType?.toLowerCase() === 'clear_light_thigle' || 
+        s.kasinaType?.toLowerCase().includes('clear') || 
+        s.kasinaType?.toLowerCase().includes('thigle')
+      );
+      const clearLightDuration = clearLightSessions.reduce((sum, s) => sum + s.duration, 0);
+      
+      console.log("Clear Light sessions found:", clearLightSessions.length, "Total duration:", clearLightDuration);
+      
+      if (clearLightDuration > 0) {
+        vajrayanaData.push({
+          name: 'clear_light_thigle',
+          value: clearLightDuration,
+          emoji: KASINA_EMOJIS['clear_light_thigle'] || '🌈',
+          displayName: 'Clear Light',
+          category: 'vajrayana'
+        });
+      }
+      
+      setChartData(vajrayanaData);
     }
     
-  }, [filteredSessions, chartMode]);
+  }, [sessions, timeRange, chartMode]);
 
-  // Colors for pie chart
-  const COLORS = [
-    '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', 
-    '#9966FF', '#FF9F40', '#2ECC71', '#E74C3C', 
-    '#3498DB', '#F1C40F'
-  ];
-
-  const formatTime = (seconds: number) => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
+  // Format time for display
+  const formatTime = (minutes: number): string => {
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
     
     if (hours > 0) {
-      return `${hours}h ${minutes}m`;
+      return `${hours}h ${mins}m`;
     }
-    
-    return `${minutes}m`;
+    return `${mins}m`;
   };
 
-  // Format date for display
-  const formatDate = (date: string | Date) => {
-    const d = new Date(date);
-    const month = d.toLocaleString('default', { month: 'short' });
-    const day = d.getDate();
-    const year = d.getFullYear();
-    const hours = d.getHours();
-    const minutes = d.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    const displayHours = hours % 12 || 12;
-    
-    return `${month} ${day}, ${year}, ${displayHours}:${minutes} ${ampm}`;
+  // Get the correct total time based on chart mode
+  const getDisplayTime = (): number => {
+    switch (chartMode) {
+      case 'color':
+        return colorTime;
+      case 'elemental':
+        return elementalTime;
+      case 'vajrayana':
+        return vajrayanaTime;
+      default:
+        return totalTime;
+    }
   };
-  
-  // Custom active shape for the pie chart
-  const renderActiveShape = (props: any) => {
-    const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill, payload } = props;
-    
+
+  if (isLoading) {
+    return <div className="flex justify-center items-center h-64">Loading...</div>;
+  }
+
+  if (sessions.length === 0) {
     return (
-      <g>
-        <text x={cx} y={cy} dy={-20} textAnchor="middle" fill="#e4e4e7" fontSize={18}>
-          {payload.emoji}
-        </text>
-        <text x={cx} y={cy + 10} textAnchor="middle" fill="#e4e4e7" fontSize={14}>
-          {payload.displayName}
-        </text>
-        <text x={cx} y={cy + 30} textAnchor="middle" fill="#e4e4e7" fontSize={12} fontWeight="bold">
-          {formatTime(payload.value)}
-        </text>
-        <Sector
-          cx={cx}
-          cy={cy}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          fill={fill}
-        />
-        <Sector
-          cx={cx}
-          cy={cy}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          innerRadius={outerRadius + 6}
-          outerRadius={outerRadius + 10}
-          fill={fill}
-        />
-      </g>
+      <div className="flex flex-col items-center justify-center h-64 text-center">
+        <h2 className="text-2xl font-bold mb-2">No Practice Data</h2>
+        <p className="text-gray-600 mb-6">
+          Your practice history will appear here once you complete your first meditation session.
+        </p>
+      </div>
     );
-  };
-  
-  // State to track active index in the pie chart
-  const [activeIndex, setActiveIndex] = useState(0);
-  
+  }
+
   return (
-    <div className="space-y-4">
-      <Card>
-        <CardHeader className="pb-2">
-          <div className="flex justify-between items-center">
-            <div>
-              <CardTitle>
-                {chartMode === 'overview' ? 'Practice Overview' : 
-                 chartMode === 'color' ? 'Color Kasinas' :
-                 chartMode === 'elemental' ? 'Elemental Kasinas' : 'Vajrayana Kasinas'}
-              </CardTitle>
-              <CardDescription>
-                {chartMode === 'overview' 
-                  ? 'Overview of all sessions' 
-                  : `Click segments for details or select to overview`}
-              </CardDescription>
-            </div>
-            {chartMode !== 'overview' && (
-              <Button size="sm" variant="outline" onClick={() => setChartMode('overview')}>
-                Back to Overview
+    <div className="flex flex-col gap-6">
+      {/* Time range selector */}
+      <div className="flex flex-wrap gap-2 justify-center">
+        <Button
+          variant={timeRange === 'all' ? 'default' : 'outline'}
+          onClick={() => setTimeRange('all')}
+          className="text-sm"
+        >
+          All Time
+        </Button>
+        <Button
+          variant={timeRange === 'month' ? 'default' : 'outline'}
+          onClick={() => setTimeRange('month')}
+          className="text-sm"
+        >
+          Past Month
+        </Button>
+        <Button
+          variant={timeRange === 'week' ? 'default' : 'outline'}
+          onClick={() => setTimeRange('week')}
+          className="text-sm"
+        >
+          Past Week
+        </Button>
+      </div>
+
+      {/* Chart section */}
+      <div className="bg-card rounded-lg p-4 shadow">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <h2 className="text-xl font-bold">Practice Distribution</h2>
+            <div className="flex gap-2 flex-wrap justify-center">
+              <Button
+                variant={chartMode === 'overview' ? 'default' : 'outline'}
+                onClick={() => setChartMode('overview')}
+                className="text-xs"
+                size="sm"
+              >
+                Overview
               </Button>
-            )}
-          </div>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <div className="flex">
-            <div className="flex-1">
-              <div className="h-[200px]">
-                {pieData.length > 0 ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        activeIndex={activeIndex}
-                        activeShape={renderActiveShape}
-                        data={pieData}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={55}
-                        outerRadius={70}
-                        fill="#8884d8"
-                        dataKey="value"
-                        onMouseEnter={(_, index) => setActiveIndex(index)}
-                        onClick={(data) => {
-                          if (chartMode === 'overview' && data.name) {
-                            setChartMode(data.name as ChartMode);
-                          }
-                        }}
-                      >
-                        {pieData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                      </Pie>
-                    </PieChart>
-                  </ResponsiveContainer>
-                ) : (
-                  <div className="flex items-center justify-center h-full">
-                    <p className="text-gray-400">No data for selected period</p>
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="ml-4 flex-1">
-              <div className="text-center mb-2">
-                <h3 className="text-lg font-medium text-gray-300">Total Meditation Time</h3>
-                <p className="text-3xl font-bold">{formatTime(totalTime)}</p>
-                <p className="text-sm text-gray-400">
-                  {chartMode === 'overview' 
-                    ? 'Overview of all sessions' 
-                    : `Viewing ${chartMode} Kasinas`}
-                </p>
-              </div>
-              
-              <div className="mt-4 flex flex-wrap justify-center gap-2">
-                {allChartData.overview.map(category => (
-                  <Button
-                    key={category.name}
-                    size="sm"
-                    variant={chartMode === category.name ? "default" : "outline"}
-                    onClick={() => setChartMode(category.name as ChartMode)}
-                    className="flex items-center space-x-1"
-                  >
-                    <span>{category.emoji}</span>
-                    <span>{category.displayName}</span>
-                    <span className="ml-1 text-xs">{formatTime(category.value)}</span>
-                  </Button>
-                ))}
-              </div>
+              <Button
+                variant={chartMode === 'color' ? 'default' : 'outline'}
+                onClick={() => setChartMode('color')}
+                className="text-xs"
+                size="sm"
+              >
+                Color
+              </Button>
+              <Button
+                variant={chartMode === 'elemental' ? 'default' : 'outline'}
+                onClick={() => setChartMode('elemental')}
+                className="text-xs"
+                size="sm"
+              >
+                Elemental
+              </Button>
+              <Button
+                variant={chartMode === 'vajrayana' ? 'default' : 'outline'}
+                onClick={() => setChartMode('vajrayana')}
+                className="text-xs"
+                size="sm"
+              >
+                Vajrayana
+              </Button>
             </div>
           </div>
-          
-          <div className="mt-4">
-            <Select 
-              value={timeFilter} 
-              onValueChange={(value) => setTimeFilter(value as 'week' | 'month' | 'all')}
-            >
-              <SelectTrigger className="w-[180px] bg-gray-800 border-gray-700">
-                <SelectValue placeholder="Select time period" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="week">Last 7 days</SelectItem>
-                <SelectItem value="month">Last 30 days</SelectItem>
-                <SelectItem value="all">All time</SelectItem>
-              </SelectContent>
-            </Select>
+
+          <div className="flex flex-col items-center">
+            <div className="text-sm text-gray-600 mb-2">
+              Total Meditation Time: <span className="font-semibold">{formatTime(getDisplayTime())}</span>
+            </div>
+            <div className="w-full max-w-md h-64">
+              <PracticeChart data={chartData} />
+            </div>
           </div>
-        </CardContent>
-      </Card>
-      
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="flex items-center">
-            <span className="mr-2">📝</span>
-            Practice Log
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          {filteredSessions.length === 0 ? (
-            <div className="text-center py-8">
-              <p className="text-gray-400">No practice sessions recorded yet</p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto rounded-md">
-              <table className="w-full">
-                <thead className="bg-gray-800">
-                  <tr>
-                    <th className="py-3 px-4 text-left font-medium text-gray-300">Date</th>
-                    <th className="py-3 px-4 text-left font-medium text-gray-300">Kasina</th>
-                    <th className="py-3 px-4 text-left font-medium text-gray-300">Duration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredSessions
-                    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-                    .map((session, index) => (
-                      <tr 
-                        key={index} 
-                        className="border-b border-gray-700 hover:bg-gray-700/50 transition-colors"
-                      >
-                        <td className="py-3 px-4">{formatDate(session.date)}</td>
-                        <td className="py-3 px-4">
-                          <span className="mr-2">{KASINA_EMOJIS[session.kasinaType] || '🧿'}</span>
-                          {session.kasinaType === 'clear_light_thigle' 
-                            ? 'Clear Light Kasina'
-                            : KASINA_NAMES[session.kasinaType] || session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
-                          }
-                        </td>
-                        <td className="py-3 px-4">
-                          <span className="px-3 py-1 bg-indigo-600/30 text-indigo-200 rounded-full text-sm font-medium">
-                            {formatTime(session.duration)}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
+
+      {/* Session Log */}
+      <div className="bg-card rounded-lg p-4 shadow">
+        <h2 className="text-xl font-bold mb-4">Practice Log</h2>
+        <PracticeLog sessions={sessions} timeRange={timeRange} />
+      </div>
     </div>
   );
 };
 
-export default Reflection;
+export default ReflectionFixed;
