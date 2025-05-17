@@ -4,7 +4,8 @@ import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useTexture } from '@react-three/drei';
 
-// Standalone component to render the White A Kasina - with proper Tibetan letter A
+// Standalone component to render the White A Kasina - using Clear Light Thigle colors
+// but with Tibetan letter "A" replacing the white dot in center
 const WhiteAKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
@@ -54,39 +55,56 @@ const WhiteAKasina = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Dark blue background */}
+      {/* Blue background - use a larger circle for the entire background */}
       <mesh position={[0, 0, -0.006]}>
         <circleGeometry args={[1.0, 64]} />
-        <meshBasicMaterial color="#000033" />
+        <meshBasicMaterial color="#0055ff" />
       </mesh>
       
-      {/* Deep blue outer ring */}
+      {/* Yellow ring - use full circles instead of rings to avoid gaps */}
       <mesh position={[0, 0, -0.005]}>
-        <circleGeometry args={[0.9, 64]} />
-        <meshBasicMaterial color="#0022aa" />
+        <circleGeometry args={[0.95, 64]} />
+        <meshBasicMaterial color="#ffff00" />
       </mesh>
       
-      {/* Medium blue middle ring */}
+      {/* Red ring */}
       <mesh position={[0, 0, -0.004]}>
-        <circleGeometry args={[0.7, 64]} />
-        <meshBasicMaterial color="#4455cc" />
+        <circleGeometry args={[0.73, 64]} />
+        <meshBasicMaterial color="#ff0000" />
       </mesh>
       
       {/* White ring */}
       <mesh position={[0, 0, -0.003]}>
-        <circleGeometry args={[0.5, 64]} />
+        <circleGeometry args={[0.53, 64]} />
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
-      {/* Blue center where the A symbol will appear */}
+      {/* Green ring */}
       <mesh position={[0, 0, -0.002]}>
-        <circleGeometry args={[0.3, 64]} />
-        <meshBasicMaterial color="#0022aa" />
+        <circleGeometry args={[0.33, 64]} />
+        <meshBasicMaterial color="#00cc00" />
       </mesh>
       
-      {/* Tibetan letter A character */}
-      <mesh position={[0, 0, 0.001]}>
-        <planeGeometry args={[0.5, 0.5]} />
+      {/* Blue center */}
+      <mesh position={[0, 0, -0.001]}>
+        <circleGeometry args={[0.20, 64]} />
+        <meshBasicMaterial color="#0055ff" />
+      </mesh>
+      
+      {/* 3D Shadow effect for Tibetan 'A' symbol */}
+      <mesh position={[0.01, -0.01, 0.002]}>
+        <planeGeometry args={[0.25, 0.25]} />
+        <meshBasicMaterial 
+          map={aTexture} 
+          transparent={true}
+          opacity={0.5}
+          color="#000066"
+        />
+      </mesh>
+      
+      {/* Tibetan 'A' symbol - larger size */}
+      <mesh position={[0, 0, 0.003]}>
+        <planeGeometry args={[0.25, 0.25]} />
         <meshBasicMaterial 
           map={aTexture} 
           transparent={true}
