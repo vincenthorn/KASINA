@@ -85,7 +85,11 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.LIGHT]: "#000000", // Pure black
   // Vajrayana Series
   [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff",  // More vibrant royal blue background for Clear Light Thigle
-  [KASINA_TYPES.WHITE_A_KASINA]: "#0055ff"   // Same royal blue background for White A Kasina
+  [KASINA_TYPES.WHITE_A_KASINA]: "#0055ff",  // Same royal blue background for White A Kasina
+  [KASINA_TYPES.OM_KASINA]: "#000000",       // Black background for OM Kasina
+  [KASINA_TYPES.AH_KASINA]: "#000000",       // Black background for AH Kasina
+  [KASINA_TYPES.HUM_KASINA]: "#000000",      // Black background for HUM Kasina
+  [KASINA_TYPES.RAINBOW_KASINA]: "#2200cc"   // Blue-violet background for Rainbow Kasina
 };
 
 // Kasina emojis
