@@ -492,13 +492,13 @@ const AdminPage: React.FC = () => {
                     </thead>
                     <tbody>
                       {members.slice(0, displayCount).map((member, index) => {
-                        // Determine user status based on email
-                        const isAdmin = member.email === "admin@kasina.app";
-                        const isFreemium = member.email === "user@kasina.app";
-                        const isPremium = !isAdmin && !isFreemium;
+                        // Use the status returned from the server API
+                        const status = member.status || "Freemium";
                         
-                        // Set status based on conditions
-                        const status = isAdmin ? "Admin" : isPremium ? "Premium" : "Freemium";
+                        // Set status badge colors based on the status
+                        const isAdmin = status === "Admin";
+                        const isPremium = status === "Premium";
+                        const isFreemium = status === "Freemium";
                         
                         // Set status badge colors
                         const statusColorClass = isAdmin 
