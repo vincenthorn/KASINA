@@ -797,16 +797,15 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
             (materialRef.current as THREE.ShaderMaterial).transparent = true;
           }
         }
-      } else {
+      } else if ((selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.FIRE) && 
+              (remainingTime === null || remainingTime > 60)) {
         // Reset timer tracking when not in countdown
         if (meshRef.current.userData.countdown) {
           meshRef.current.userData.countdown.startTime = null;
           meshRef.current.userData.countdown.initialRemainingTime = null;
         }
-      } 
-      // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
-      else if ((selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.FIRE) && 
-              (remainingTime === null || remainingTime > 60)) {
+        
+        // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
         const time = clock.getElapsedTime();
         
         // Use cubic-bezier-like timing function for smoother animation
