@@ -527,7 +527,11 @@ const AdminPage: React.FC = () => {
                               {/* Don't show delete button for protected accounts */}
                               {member.email !== "admin@kasina.app" && 
                                member.email !== "premium@kasina.app" && 
-                               member.email !== "user@kasina.app" && (
+                               member.email !== "user@kasina.app" &&
+                               member.email !== "brian@terma.asia" &&
+                               member.email !== "emilywhorn@gmail.com" &&
+                               member.email !== "ryan@ryanoelke.com" &&
+                               member.email !== "ksowocki@gmail.com" && (
                                 <button 
                                   onClick={() => handleDeleteUser(member.email, member.status)}
                                   className="text-red-400 hover:text-red-300 transition-colors"

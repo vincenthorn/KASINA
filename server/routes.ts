@@ -1121,10 +1121,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log(`Attempting to delete user: ${normalizedEmail} (${userType})`);
       
       // Protect special accounts from deletion
-      const protectedEmails = ["admin@kasina.app", "premium@kasina.app", "user@kasina.app"];
-      if (protectedEmails.includes(normalizedEmail)) {
+      // System accounts
+      const systemAccounts = ["admin@kasina.app", "premium@kasina.app", "user@kasina.app"];
+      // Core premium users that must be preserved
+      const protectedPremiumUsers = [
+        "brian@terma.asia",
+        "emilywhorn@gmail.com",
+        "ryan@ryanoelke.com",
+        "ksowocki@gmail.com"
+      ];
+      
+      const allProtectedEmails = [...systemAccounts, ...protectedPremiumUsers];
+      
+      if (allProtectedEmails.includes(normalizedEmail)) {
         return res.status(400).json({ 
-          message: "Cannot delete protected system accounts" 
+          message: "Cannot delete protected user account" 
         });
       }
       
