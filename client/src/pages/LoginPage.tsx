@@ -149,20 +149,6 @@ const LoginPage: React.FC = () => {
               </span>
             </p>
             <p style={listItemStyles}>
-              ♾️ Color Options: 🎨
-              <span style={{ 
-                color: "#FFD700", 
-                fontSize: "12px", 
-                fontWeight: "bold", 
-                marginLeft: "8px", 
-                backgroundColor: "rgba(138, 43, 226, 0.2)", 
-                padding: "2px 6px", 
-                borderRadius: "4px" 
-              }}>
-                ✦ PREMIUM
-              </span>
-            </p>
-            <p style={listItemStyles}>
               6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️
               <span style={{ 
                 color: "#4AA8D8", 
@@ -174,20 +160,6 @@ const LoginPage: React.FC = () => {
                 borderRadius: "4px" 
               }}>
                 ✧ FREEMIUM
-              </span>
-            </p>
-            <p style={listItemStyles}>
-              6️⃣ Vajrayana Kasinas: 🕉️ 🔮 🌀 ⚡️ 🌈 Ⓐ
-              <span style={{ 
-                color: "#FFD700", 
-                fontSize: "12px", 
-                fontWeight: "bold", 
-                marginLeft: "8px", 
-                backgroundColor: "rgba(138, 43, 226, 0.2)", 
-                padding: "2px 6px", 
-                borderRadius: "4px" 
-              }}>
-                ✦ PREMIUM
               </span>
             </p>
             <p style={listItemStyles}>
@@ -216,6 +188,34 @@ const LoginPage: React.FC = () => {
                 borderRadius: "4px" 
               }}>
                 ✧ FREEMIUM
+              </span>
+            </p>
+            <p style={listItemStyles}>
+              ♾️ Color Options: 🎨
+              <span style={{ 
+                color: "#FFD700", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "8px", 
+                backgroundColor: "rgba(138, 43, 226, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px" 
+              }}>
+                ✦ PREMIUM
+              </span>
+            </p>
+            <p style={listItemStyles}>
+              6️⃣ Vajrayana Kasinas: 🕉️ 🔮 🌀 ⚡️ 🌈 Ⓐ
+              <span style={{ 
+                color: "#FFD700", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "8px", 
+                backgroundColor: "rgba(138, 43, 226, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px" 
+              }}>
+                ✦ PREMIUM
               </span>
             </p>
             <div style={{ height: "70px" }} className="w-full"></div>
