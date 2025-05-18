@@ -65,6 +65,24 @@ const HumKasina = () => {
       }
     }
     
+    // Add floating animation to the HUM symbol
+    if (shimmerRef.current) {
+      // Create a subtle floating effect
+      const floatAmplitude = 0.015; // very subtle vertical movement
+      const floatFrequency = 0.5;   // slow, gentle floating
+      const floatOffset = Math.sin(time * floatFrequency) * floatAmplitude;
+      
+      // Subtle z-axis oscillation for depth illusion
+      const depthAmplitude = 0.005;
+      const depthFrequency = 0.3;
+      const depthOffset = Math.sin(time * depthFrequency) * depthAmplitude;
+      
+      // Apply floating movement to the HUM symbol
+      // Base position is [0, 0.1, 0.003] - we just add the slight hover movement
+      shimmerRef.current.position.y = 0.1 + floatOffset;
+      shimmerRef.current.position.z = 0.003 + depthOffset;
+    }
+    
     // Check if we should show the countdown animation
     const inFinalCountdown = isRunning && 
                          timeRemaining !== null && 
@@ -161,8 +179,12 @@ const HumKasina = () => {
       
       {/* White outline removed as requested */}
       
-      {/* HUM Syllable - increased by 10% and properly centered */}
-      <mesh position={[0, 0, 0.003]} scale={[0.88, 0.88, 0.88]}>
+      {/* HUM Syllable - moved up by 10 pixels with hover animation */}
+      <mesh 
+        position={[0, 0.1, 0.003]} 
+        scale={[0.88, 0.88, 0.88]}
+        ref={shimmerRef}
+      >
         <planeGeometry args={[1, 1]} />
         <meshBasicMaterial 
           map={humTexture} 
