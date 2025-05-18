@@ -134,86 +134,86 @@ const LoginPage: React.FC = () => {
           </p>
           
           <div style={{ maxWidth: "512px", margin: "0 auto" }}>
-            <p style={listItemStyles}>
-              4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵
+            <p style={{...listItemStyles, display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+              <span>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</span>
               <span style={{ 
                 color: "#4AA8D8", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
-                marginLeft: "8px", 
                 backgroundColor: "rgba(74, 168, 216, 0.2)", 
                 padding: "2px 6px", 
-                borderRadius: "4px" 
+                borderRadius: "4px",
+                marginLeft: "10px"
               }}>
                 ✧ FREEMIUM
               </span>
             </p>
-            <p style={listItemStyles}>
-              6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️
+            <p style={{...listItemStyles, display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+              <span>6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</span>
               <span style={{ 
                 color: "#4AA8D8", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
-                marginLeft: "8px", 
                 backgroundColor: "rgba(74, 168, 216, 0.2)", 
                 padding: "2px 6px", 
-                borderRadius: "4px" 
+                borderRadius: "4px",
+                marginLeft: "10px"
               }}>
                 ✧ FREEMIUM
               </span>
             </p>
-            <p style={listItemStyles}>
-              📊 Reflect on your meditation practice history
+            <p style={{...listItemStyles, display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+              <span>📊 Reflect on your meditation practice history</span>
               <span style={{ 
                 color: "#4AA8D8", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
-                marginLeft: "8px", 
                 backgroundColor: "rgba(74, 168, 216, 0.2)", 
                 padding: "2px 6px", 
-                borderRadius: "4px" 
+                borderRadius: "4px",
+                marginLeft: "10px"
               }}>
                 ✧ FREEMIUM
               </span>
             </p>
-            <p style={listItemStyles}>
-              ⏱️ Kasina selection mode with meditation timer
+            <p style={{...listItemStyles, display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+              <span>⏱️ Kasina selection mode with meditation timer</span>
               <span style={{ 
                 color: "#4AA8D8", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
-                marginLeft: "8px", 
                 backgroundColor: "rgba(74, 168, 216, 0.2)", 
                 padding: "2px 6px", 
-                borderRadius: "4px" 
+                borderRadius: "4px",
+                marginLeft: "10px"
               }}>
                 ✧ FREEMIUM
               </span>
             </p>
-            <p style={listItemStyles}>
-              ♾️ Color Options: 🎨
+            <p style={{...listItemStyles, display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+              <span>♾️ Color Options: 🎨</span>
               <span style={{ 
                 color: "#FFD700", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
-                marginLeft: "8px", 
                 backgroundColor: "rgba(138, 43, 226, 0.2)", 
                 padding: "2px 6px", 
-                borderRadius: "4px" 
+                borderRadius: "4px",
+                marginLeft: "10px"
               }}>
                 ✦ PREMIUM
               </span>
             </p>
-            <p style={listItemStyles}>
-              6️⃣ Vajrayana Kasinas: 🕉️ 🔮 🌀 ⚡️ 🌈 Ⓐ
+            <p style={{...listItemStyles, display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+              <span>6️⃣ Vajrayana Kasinas: 🕉️ 🔮 🌀 ⚡️ 🌈 Ⓐ</span>
               <span style={{ 
                 color: "#FFD700", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
-                marginLeft: "8px", 
                 backgroundColor: "rgba(138, 43, 226, 0.2)", 
                 padding: "2px 6px", 
-                borderRadius: "4px" 
+                borderRadius: "4px",
+                marginLeft: "10px"
               }}>
                 ✦ PREMIUM
               </span>
