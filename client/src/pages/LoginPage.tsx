@@ -136,7 +136,6 @@ const LoginPage: React.FC = () => {
           <div style={{ maxWidth: "512px", margin: "0 auto" }}>
             <p style={listItemStyles}>⏱️ Kasina mode with 10 visual orbs plus meditation timer</p>
             <p style={listItemStyles}>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</p>
-            <p style={listItemStyles}>6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</p>
             <p style={listItemStyles}>
               ♾️ Color Options: 🎨
               <span style={{ 
@@ -151,6 +150,7 @@ const LoginPage: React.FC = () => {
                 ✦ PREMIUM
               </span>
             </p>
+            <p style={listItemStyles}>6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</p>
             <p style={listItemStyles}>
               6️⃣ Vajrayana Kasinas: 🕉️ 🔮 🌀 ⚡️ 🌈 Ⓐ
               <span style={{ 
