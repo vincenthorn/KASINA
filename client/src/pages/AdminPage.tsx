@@ -165,6 +165,8 @@ const AdminPage: React.FC = () => {
   const handleDeleteUser = async (email: string, userStatus: string) => {
     if (window.confirm(`Are you sure you want to delete ${email}? This action cannot be undone.`)) {
       try {
+        setLoading(true); // Show loading state
+        
         const response = await fetch(`/api/admin/delete-user`, {
           method: 'DELETE',
           headers: {
@@ -179,11 +181,18 @@ const AdminPage: React.FC = () => {
         
         toast.success(`Successfully deleted ${email}`);
         
-        // Refresh whitelist data
+        // Remove the deleted user from the local state immediately
+        setMembers(prevMembers => prevMembers.filter(member => 
+          member.email.toLowerCase() !== email.toLowerCase()
+        ));
+        
+        // Also refresh the full whitelist data from the server
         fetchWhitelistData();
       } catch (error) {
         console.error('Error deleting user:', error);
         toast.error('Failed to delete user');
+      } finally {
+        setLoading(false);
       }
     }
   };

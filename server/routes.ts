@@ -1149,7 +1149,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Split into lines and filter out the email to delete
       const lines = whitelistData
         .split('\n')
-        .filter(line => line.trim().toLowerCase() !== normalizedEmail);
+        .map(line => line.trim())
+        .filter(line => line && line.toLowerCase() !== normalizedEmail && line !== "email");
+      
+      // Ensure 'email' header is present
+      if (!lines.includes("email")) {
+        lines.unshift("email");
+      }
       
       // Write the updated whitelist back to the file
       await fs.promises.writeFile(targetFile, lines.join('\n'), 'utf-8');
@@ -1158,7 +1164,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const legacyWhitelistData = await fs.promises.readFile(whitelistPath, 'utf-8');
       const legacyLines = legacyWhitelistData
         .split('\n')
-        .filter(line => line.trim().toLowerCase() !== normalizedEmail);
+        .map(line => line.trim())
+        .filter(line => line && line.toLowerCase() !== normalizedEmail && line !== "email");
+      
+      // Ensure 'email' header is present
+      if (!legacyLines.includes("email")) {
+        legacyLines.unshift("email");
+      }
+      
       await fs.promises.writeFile(whitelistPath, legacyLines.join('\n'), 'utf-8');
       
       console.log(`Deleted user ${normalizedEmail} from ${userType} whitelist`);
