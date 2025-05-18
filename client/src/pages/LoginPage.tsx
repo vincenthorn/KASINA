@@ -137,6 +137,34 @@ const LoginPage: React.FC = () => {
             <p style={listItemStyles}>⏱️ Kasina mode with 10 visual orbs plus meditation timer</p>
             <p style={listItemStyles}>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</p>
             <p style={listItemStyles}>6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</p>
+            <p style={listItemStyles}>
+              ♾️ Color Options: 🎨
+              <span style={{ 
+                color: "#FFD700", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "8px", 
+                backgroundColor: "rgba(138, 43, 226, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px" 
+              }}>
+                ✦ PREMIUM
+              </span>
+            </p>
+            <p style={listItemStyles}>
+              6️⃣ Vajrayana Kasinas: 🕉️ OM, 🔮 AH, 🌀 HUM, ⚡️ Clear Light, 🌈 Rainbow, Ⓐ White A
+              <span style={{ 
+                color: "#FFD700", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "8px", 
+                backgroundColor: "rgba(138, 43, 226, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px" 
+              }}>
+                ✦ PREMIUM
+              </span>
+            </p>
             <p style={listItemStyles}>📊 Reflect on your meditation practice history</p>
             <div style={{ height: "70px" }} className="w-full"></div>
           </div>
