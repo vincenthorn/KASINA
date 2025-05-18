@@ -152,7 +152,7 @@ const LoginPage: React.FC = () => {
               </span>
             </p>
             <p style={listItemStyles}>
-              6️⃣ Vajrayana Kasinas: 🕉️ OM, 🔮 AH, 🌀 HUM, ⚡️ Clear Light, 🌈 Rainbow, Ⓐ White A
+              6️⃣ Vajrayana Kasinas: 🕉️ 🔮 🌀 ⚡️ 🌈 Ⓐ
               <span style={{ 
                 color: "#FFD700", 
                 fontSize: "12px", 
