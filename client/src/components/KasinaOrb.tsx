@@ -758,7 +758,10 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       }
       
       // Shrinking effect for end of session (when remaining time is <= 60 seconds)
-      if (remainingTime !== null && remainingTime <= 60) {
+      // Only activate during an actual running meditation session with a timer
+      const isInTimedSession = remainingTime !== null && remainingTime <= 60 && remainingTime > 0;
+      
+      if (isInTimedSession) {
         // TRUE SMOOTH ANIMATION APPROACH with high-precision timer
         const now = performance.now();
         
