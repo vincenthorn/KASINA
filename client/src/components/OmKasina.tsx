@@ -93,56 +93,56 @@ const OmKasina = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Deep indigo background */}
+      {/* Dark background to make the glow stand out */}
       <mesh position={[0, 0, -0.006]}>
         <circleGeometry args={[1.0, 64]} />
-        <meshBasicMaterial color="#000033" />
+        <meshBasicMaterial color="#000022" />
       </mesh>
       
-      {/* Outer glow - space-like radiance */}
+      {/* Outer halo - slight bluish-gray tint to suggest vast space */}
       <mesh position={[0, 0, -0.005]}>
         <circleGeometry args={[0.9, 64]} />
         <meshBasicMaterial 
-          color="#3333aa" 
+          color="#a0a0ff" 
           transparent={true}
           opacity={0.8}
         />
       </mesh>
       
-      {/* Inner white glow */}
+      {/* Mid glow - soft gray */}
       <mesh position={[0, 0, -0.004]}>
         <circleGeometry args={[0.7, 64]} />
         <meshBasicMaterial 
-          color="#aaaaff" 
+          color="#e0e0e0" 
           transparent={true}
           opacity={0.9}
         />
       </mesh>
       
-      {/* White orb body */}
+      {/* Inner core - pure white */}
       <mesh position={[0, 0, -0.002]}>
         <circleGeometry args={[0.5, 64]} />
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
-      {/* Center OM symbol area */}
+      {/* Center OM symbol area - pure white */}
       <mesh position={[0, 0, 0.001]}>
         <circleGeometry args={[0.3, 64]} />
-        <meshBasicMaterial color="#f0f0ff" />
+        <meshBasicMaterial color="#ffffff" />
       </mesh>
       
-      {/* 3D Shadow effect for OM Syllable - adjusted vertical position */}
+      {/* 3D Shadow effect for OM Syllable */}
       <mesh position={[0.008, -0.058, 0.001]}>
         <planeGeometry args={[0.8, 0.8]} /> 
         <meshBasicMaterial 
           map={omTexture} 
           transparent={true}
-          opacity={0.5}
-          color="#222266"
+          opacity={0.4}
+          color="#282850"
         />
       </mesh>
       
-      {/* OM Syllable - larger and vertically centered in the inner circle */}
+      {/* OM Syllable */}
       <mesh position={[0, -0.05, 0.002]}>
         <planeGeometry args={[0.8, 0.8]} /> 
         <meshBasicMaterial 
@@ -153,10 +153,10 @@ const OmKasina = () => {
         />
       </mesh>
       
-      {/* Inner dot - keeping it as part of the design */}
-      <mesh position={[0, 0, 0.001]}>
-        <circleGeometry args={[0.05, 32]} />
-        <meshBasicMaterial color="#ffffff" />
+      {/* Radial gradient effect for glow (simulated with concentric circles) */}
+      <mesh position={[0, 0, -0.0015]}>
+        <circleGeometry args={[0.6, 64]} />
+        <meshBasicMaterial color="#ffffff" transparent={true} opacity={0.3} />
       </mesh>
     </group>
   );
