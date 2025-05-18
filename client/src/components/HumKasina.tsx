@@ -9,6 +9,8 @@ import { useTexture } from '@react-three/drei';
 const HumKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
+  const waveRef = React.useRef<THREE.Mesh>(null);
+  const shimmerRef = React.useRef<THREE.Mesh>(null);
   
   // Load the HUM syllable texture
   const humTexture = useTexture('/images/vajrayana/hum-syllable.svg');
@@ -25,7 +27,7 @@ const HumKasina = () => {
     initialRemainingTime: null
   });
   
-  // Animation to make the orb face the camera but stay stationary
+  // Animation for ocean/water-like wave effects
   useFrame(({ clock, camera }) => {
     if (!groupRef.current) return;
     
@@ -39,6 +41,29 @@ const HumKasina = () => {
     // Calculate time and animation values
     const time = clock.getElapsedTime();
     let scale = 1.0;
+    
+    // Animate the wave and shimmer effects when not in countdown
+    if (waveRef.current) {
+      // Create a gentle ocean wave effect with smooth sine wave
+      const waveAmplitude = 0.02; // subtle wave
+      const waveFrequency = 0.4;  // slow, breath-like
+      const wave = Math.sin(time * waveFrequency) * waveAmplitude;
+      
+      // Apply wave effect to the oceanic layer
+      waveRef.current.scale.set(
+        1.0 + wave,
+        1.0 + wave,
+        1.0
+      );
+      
+      // Gently vary the opacity for subtle shimmer
+      const material = waveRef.current.material as THREE.MeshBasicMaterial;
+      if (material) {
+        // Create subtle shimmer effect with slight opacity variation
+        const shimmerEffect = 0.9 + Math.sin(time * 1.2) * 0.05;
+        material.opacity = shimmerEffect;
+      }
+    }
     
     // Check if we should show the countdown animation
     const inFinalCountdown = isRunning && 
@@ -84,50 +109,54 @@ const HumKasina = () => {
       groupRef.current.position.y = 0;
       groupRef.current.position.x = 0;
       
-      // Very subtle pulsing effect
-      const pulse = 1.0 + Math.sin(time * 0.2) * 0.01;
+      // Smooth breath-like pulsing for the overall kasina
+      const pulse = 1.0 + Math.sin(time * 0.3) * 0.015;
       groupRef.current.scale.set(pulse, pulse, pulse);
     }
   });
   
   return (
     <group ref={groupRef}>
-      {/* Black background with hint of blue */}
+      {/* Dark background to contrast with the blue */}
       <mesh position={[0, 0, -0.006]}>
         <circleGeometry args={[1.0, 64]} />
         <meshBasicMaterial color="#000022" />
       </mesh>
       
-      {/* Outer dark blue aura */}
+      {/* Outer halo - light blue aura */}
       <mesh position={[0, 0, -0.005]}>
         <circleGeometry args={[0.85, 64]} />
         <meshBasicMaterial 
-          color="#000066" 
+          color="#99ccff" 
           transparent={true}
           opacity={0.7}
         />
       </mesh>
       
-      {/* Medium blue layer */}
+      {/* Mid glow - deep indigo/navy */}
       <mesh position={[0, 0, -0.004]}>
         <circleGeometry args={[0.7, 64]} />
         <meshBasicMaterial 
-          color="#0000aa" 
+          color="#003366" 
           transparent={true}
           opacity={0.85}
         />
       </mesh>
       
-      {/* Deep blue orb body */}
-      <mesh position={[0, 0, -0.003]}>
+      {/* Oceanic depth transition layer */}
+      <mesh position={[0, 0, -0.003]} ref={waveRef}>
         <circleGeometry args={[0.55, 64]} />
-        <meshBasicMaterial color="#0022aa" />
+        <meshBasicMaterial 
+          color="#0066cc" 
+          transparent={true}
+          opacity={0.9}
+        />
       </mesh>
       
-      {/* HUM symbol area - electric blue */}
+      {/* Inner core - brilliant blue */}
       <mesh position={[0, 0, -0.002]}>
         <circleGeometry args={[0.3, 64]} />
-        <meshBasicMaterial color="#0044ff" />
+        <meshBasicMaterial color="#3399ff" />
       </mesh>
       
       {/* White outline around the symbol */}
