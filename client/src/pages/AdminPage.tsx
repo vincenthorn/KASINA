@@ -204,7 +204,7 @@ const AdminPage: React.FC = () => {
       {/* Top row with stats cards */}
       <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Total Practice Time Card */}
-        <div className="bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg p-6 shadow-lg">
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-900 to-purple-900 p-6 shadow-lg" style={{ borderRadius: '1rem' }}>
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 mb-2">
               <Clock className="h-5 w-5 text-indigo-300" />
@@ -225,7 +225,7 @@ const AdminPage: React.FC = () => {
         </div>
         
         {/* Total Users Card */}
-        <div className="bg-gradient-to-r from-green-900 to-teal-900 rounded-lg p-6 shadow-lg">
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-green-900 to-teal-900 p-6 shadow-lg" style={{ borderRadius: '1rem' }}>
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 mb-2">
               <Users className="h-5 w-5 text-teal-300" />
