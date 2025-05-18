@@ -6,6 +6,7 @@ import { useKasina } from "../lib/stores/useKasina";
 import { KASINA_TYPES, KASINA_COLORS, KASINA_BACKGROUNDS } from "../lib/constants";
 import { KasinaType } from "../lib/types";
 import { useAuth } from "../lib/stores/useAuth";
+import { useSimpleTimer } from "../lib/stores/useSimpleTimer";
 import WhiteAThigle from "./WhiteAThigle";
 import WhiteAKasina from "./WhiteAKasina";
 import OmKasina from "./OmKasina";
@@ -674,9 +675,8 @@ const lightShader = {
 
 // Dynamic Orb component with shader materials
 const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime = null }) => {
-  // Get the timer state directly for accurate preview vs active session detection
-  const timerStore = useSimpleTimer();
-  const isTimerRunning = timerStore.isRunning;
+  // We'll use a ref to track if we're in preview mode
+  const isPreviewMode = useRef(true);
   const { selectedKasina, customColor } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
@@ -760,12 +760,22 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         };
       }
       
-      // For the shrinking effect, only activate at the end of an actual meditation session
-      // This ensures it doesn't happen during preview mode
+      // Check if we're in preview mode or active session
+      // We use a simple range check - in preview mode, timer is usually set to standard values
+      // like 60, 300, 600, etc. - not fractional values that happen during a countdown
       
-      // Shrinking effect for end of session (when remaining time is <= 60 seconds)
-      // Only activate when in the last 60 seconds of a timer
-      const isInTimedSession = remainingTime !== null && remainingTime <= 60 && remainingTime > 0;
+      // For preview mode detection: if the remainingTime is exactly equal to a standard duration,
+      // then it's likely in preview mode and not an active countdown
+      const isStandardDuration = remainingTime === 60 || remainingTime === 300 || 
+                              remainingTime === 600 || remainingTime === 900 || 
+                              remainingTime === 1800 || remainingTime === 3600;
+      
+      // Only trigger the shrinking effect for active timer sessions in the final countdown
+      // and avoid it during preview mode with standard durations
+      const isInTimedSession = remainingTime !== null && 
+                              remainingTime <= 60 && 
+                              remainingTime > 0 && 
+                              !isStandardDuration;
       
       if (isInTimedSession) {
         // TRUE SMOOTH ANIMATION APPROACH with high-precision timer
