@@ -619,7 +619,7 @@ const TimerKasinas: React.FC = () => {
                   <div className="w-full h-full">
                     <KasinaOrb 
                       type={typedKasina} 
-                      remainingTime={timeRemaining} 
+                      remainingTime={isRunning ? timeRemaining : null} 
                     />
                   </div>
                 </div>
