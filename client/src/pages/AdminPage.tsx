@@ -31,6 +31,7 @@ const AdminPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [displayCount, setDisplayCount] = useState(10); // Initially show 10 members
   const [totalPracticeTime, setTotalPracticeTime] = useState<string>('0h 0m');
+  const [selectedUserType, setSelectedUserType] = useState<'freemium'|'premium'|'admin'>('freemium');
   const { email, isAuthenticated } = useAuth();
   
   // List of admin emails
@@ -119,6 +120,10 @@ const AdminPage: React.FC = () => {
     try {
       const formData = new FormData();
       formData.append("csv", file);
+      formData.append("userType", selectedUserType);
+      
+      // Update the button text based on selected user type
+      const userTypeLabel = selectedUserType.charAt(0).toUpperCase() + selectedUserType.slice(1);
       
       const response = await fetch("/api/admin/upload-whitelist", {
         method: "POST",
@@ -130,7 +135,7 @@ const AdminPage: React.FC = () => {
       }
       
       const data = await response.json();
-      toast.success(`Successfully updated whitelist with ${data.count} emails`);
+      toast.success(`Successfully updated ${userTypeLabel} whitelist with ${data.count} emails`);
       setFile(null);
       setPreviewData([]);
       
@@ -270,22 +275,92 @@ const AdminPage: React.FC = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="flex flex-col space-y-2">
-                <label htmlFor="csv-upload" className="text-white font-medium flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-indigo-400" />
-                  CSV File
-                </label>
-                <input
-                  id="csv-upload"
-                  type="file"
-                  accept=".csv"
-                  onChange={handleFileChange}
-                  className="p-2 rounded bg-gray-700/60 text-white border border-indigo-900/40 focus:border-indigo-500 focus:outline-none"
-                />
-                <p className="text-sm text-indigo-200/80">
-                  The CSV file should include an "Email" column with user email addresses. 
-                  A "Name" column is also supported for displaying member names.
-                </p>
+              <div className="flex flex-col space-y-4">
+                <div>
+                  <label className="text-white font-medium flex items-center gap-2 mb-2">
+                    <Users className="h-4 w-4 text-indigo-400" />
+                    User Type
+                  </label>
+                  <div className="flex flex-wrap gap-4">
+                    <div 
+                      className={`flex items-center gap-2 p-3 rounded-md cursor-pointer border ${
+                        selectedUserType === 'freemium' 
+                          ? 'bg-blue-900/40 border-blue-700/60' 
+                          : 'bg-gray-800/40 border-gray-700/40 hover:bg-gray-800/60'
+                      }`}
+                      onClick={() => setSelectedUserType('freemium')}
+                    >
+                      <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                        selectedUserType === 'freemium' ? 'border-blue-400' : 'border-gray-500'
+                      }`}>
+                        {selectedUserType === 'freemium' && (
+                          <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                        )}
+                      </div>
+                      <span className={selectedUserType === 'freemium' ? 'text-blue-200' : 'text-gray-300'}>
+                        Freemium Users
+                      </span>
+                    </div>
+                    
+                    <div 
+                      className={`flex items-center gap-2 p-3 rounded-md cursor-pointer border ${
+                        selectedUserType === 'premium' 
+                          ? 'bg-amber-900/40 border-amber-700/60' 
+                          : 'bg-gray-800/40 border-gray-700/40 hover:bg-gray-800/60'
+                      }`}
+                      onClick={() => setSelectedUserType('premium')}
+                    >
+                      <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                        selectedUserType === 'premium' ? 'border-amber-400' : 'border-gray-500'
+                      }`}>
+                        {selectedUserType === 'premium' && (
+                          <div className="w-2 h-2 rounded-full bg-amber-400"></div>
+                        )}
+                      </div>
+                      <span className={selectedUserType === 'premium' ? 'text-amber-200' : 'text-gray-300'}>
+                        Premium Users
+                      </span>
+                    </div>
+                    
+                    <div 
+                      className={`flex items-center gap-2 p-3 rounded-md cursor-pointer border ${
+                        selectedUserType === 'admin' 
+                          ? 'bg-purple-900/40 border-purple-700/60' 
+                          : 'bg-gray-800/40 border-gray-700/40 hover:bg-gray-800/60'
+                      }`}
+                      onClick={() => setSelectedUserType('admin')}
+                    >
+                      <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                        selectedUserType === 'admin' ? 'border-purple-400' : 'border-gray-500'
+                      }`}>
+                        {selectedUserType === 'admin' && (
+                          <div className="w-2 h-2 rounded-full bg-purple-400"></div>
+                        )}
+                      </div>
+                      <span className={selectedUserType === 'admin' ? 'text-purple-200' : 'text-gray-300'}>
+                        Admin Users
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col space-y-2">
+                  <label htmlFor="csv-upload" className="text-white font-medium flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-indigo-400" />
+                    CSV File
+                  </label>
+                  <input
+                    id="csv-upload"
+                    type="file"
+                    accept=".csv"
+                    onChange={handleFileChange}
+                    className="p-2 rounded bg-gray-700/60 text-white border border-indigo-900/40 focus:border-indigo-500 focus:outline-none"
+                  />
+                  <p className="text-sm text-indigo-200/80">
+                    The CSV file should include an "Email" column with user email addresses. 
+                    A "Name" column is also supported for displaying member names.
+                  </p>
+                </div>
               </div>
               
               {previewData.length > 0 && (

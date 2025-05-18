@@ -20,50 +20,85 @@ declare module "express-session" {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Define path to whitelist CSV file
-const whitelistPath = path.join(__dirname, "../whitelist.csv");
+// Define paths to whitelist CSV files for different user types
+const freemiumWhitelistPath = path.join(__dirname, "../whitelist-freemium.csv");
+const premiumWhitelistPath = path.join(__dirname, "../whitelist-premium.csv");
+const adminWhitelistPath = path.join(__dirname, "../whitelist-admin.csv");
+const whitelistPath = path.join(__dirname, "../whitelist.csv"); // Legacy whitelist file, still used for now
 
-// Helper to read whitelist CSV
+// Helper to ensure a whitelist file exists with protected emails
+async function ensureWhitelistFile(filePath: string, protectedEmails: string[]): Promise<void> {
+  // If whitelist doesn't exist, create empty file with protected emails
+  if (!fs.existsSync(filePath)) {
+    const initialContent = [
+      "email",
+      ...protectedEmails
+    ].join("\n") + "\n";
+    
+    await fs.promises.writeFile(filePath, initialContent, "utf-8");
+  }
+}
+
+// Helper to read whitelist CSV (from all three whitelists)
 async function readWhitelist(): Promise<string[]> {
   try {
-    // Define protected emails that are always included
-    const protectedEmails = [
-      "admin@kasina.app", 
-      "user@kasina.app", 
+    // Define protected user emails for each user type
+    const adminProtectedEmails = ["admin@kasina.app"];
+    const premiumProtectedEmails = [
       "premium@kasina.app", // Test premium account
-      // Premium users that should always be permanent
       "brian@terma.asia", 
       "emilywhorn@gmail.com", 
-      "ryan@ryanoelke.com"
+      "ryan@ryanoelke.com",
+      "ksowocki@gmail.com"
     ];
+    const freemiumProtectedEmails = ["user@kasina.app"];
     
-    // If whitelist doesn't exist, create empty file with protected emails
-    if (!fs.existsSync(whitelistPath)) {
-      const initialContent = [
-        "email",
-        ...protectedEmails
-      ].join("\n") + "\n";
-      
-      fs.writeFileSync(whitelistPath, initialContent, "utf-8");
-    }
+    // Ensure all whitelist files exist
+    await Promise.all([
+      ensureWhitelistFile(adminWhitelistPath, adminProtectedEmails),
+      ensureWhitelistFile(premiumWhitelistPath, premiumProtectedEmails),
+      ensureWhitelistFile(freemiumWhitelistPath, freemiumProtectedEmails),
+      ensureWhitelistFile(whitelistPath, [...adminProtectedEmails, ...premiumProtectedEmails, ...freemiumProtectedEmails]) // Legacy file
+    ]);
     
-    const data = await fs.promises.readFile(whitelistPath, "utf-8");
+    // Read all whitelist files
+    const [adminData, premiumData, freemiumData, legacyData] = await Promise.all([
+      fs.promises.readFile(adminWhitelistPath, "utf-8"),
+      fs.promises.readFile(premiumWhitelistPath, "utf-8"),
+      fs.promises.readFile(freemiumWhitelistPath, "utf-8"),
+      fs.promises.readFile(whitelistPath, "utf-8")
+    ]);
     
-    // Parse CSV (simple implementation for basic CSV)
-    const emails = data
-      .split("\n")
-      .map(line => line.trim())
-      .filter(line => line && !line.startsWith("#") && line !== "email"); // Skip header and comments
+    // Parse CSVs from all files
+    const parseFileData = (data: string): string[] => {
+      return data
+        .split("\n")
+        .map(line => line.trim())
+        .filter(line => line && !line.startsWith("#") && line !== "email"); // Skip header and comments
+    };
     
-    // Always ensure protected emails are included
-    const allEmails = Array.from(new Set([...emails, ...protectedEmails]));
+    const adminEmails = parseFileData(adminData);
+    const premiumEmails = parseFileData(premiumData);
+    const freemiumEmails = parseFileData(freemiumData);
+    const legacyEmails = parseFileData(legacyData);
+    
+    // Merge all emails, removing duplicates
+    const allProtectedEmails = [...adminProtectedEmails, ...premiumProtectedEmails, ...freemiumProtectedEmails];
+    const allEmails = Array.from(new Set([
+      ...adminEmails, 
+      ...premiumEmails, 
+      ...freemiumEmails, 
+      ...legacyEmails, // Include legacy emails for backward compatibility
+      ...allProtectedEmails // Always ensure protected emails are included
+    ]));
     
     return allEmails;
   } catch (error) {
-    console.error("Error reading whitelist:", error);
-    // Return protected emails as fallback when file can't be read
+    console.error("Error reading whitelists:", error);
+    // Return protected emails as fallback when files can't be read
     return [
-      "admin@kasina.app", 
+      "admin@kasina.app",
+      "premium@kasina.app",
       "user@kasina.app",
       "brian@terma.asia", 
       "emilywhorn@gmail.com", 
