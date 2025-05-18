@@ -65,7 +65,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.OM_KASINA]: "#FFFFFF", // Radiant white orb
   [KASINA_TYPES.AH_KASINA]: "#FF1111", // Deep red orb with golden glow
   [KASINA_TYPES.HUM_KASINA]: "#0022AA", // Deep blue orb
-  [KASINA_TYPES.RAINBOW_KASINA]: "#2200cc" // Brighter blue-violet background color for Rainbow kasina
+  [KASINA_TYPES.RAINBOW_KASINA]: "#FF0000" // Main color for Rainbow kasina rings
 };
 
 // Background colors for elemental kasinas
@@ -89,7 +89,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.OM_KASINA]: "#000000",       // Black background for OM Kasina
   [KASINA_TYPES.AH_KASINA]: "#000000",       // Black background for AH Kasina
   [KASINA_TYPES.HUM_KASINA]: "#000000",      // Black background for HUM Kasina
-  [KASINA_TYPES.RAINBOW_KASINA]: "#2200cc"   // Blue-violet background for Rainbow Kasina
+  [KASINA_TYPES.RAINBOW_KASINA]: "#2000CC"   // Pure blue-violet background for Rainbow Kasina
 };
 
 // Kasina emojis

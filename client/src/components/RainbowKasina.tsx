@@ -4,8 +4,11 @@ import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { extend } from '@react-three/fiber';
 
-// Consistent background color for the Rainbow Kasina
-const BACKGROUND_COLOR = "#2200cc";
+// Import the background color from constants to ensure consistency
+import { KASINA_BACKGROUNDS, KASINA_TYPES } from '../lib/constants';
+
+// Get the background color from constants for consistency
+const BACKGROUND_COLOR = KASINA_BACKGROUNDS[KASINA_TYPES.RAINBOW_KASINA];
 
 // Standalone component to render the Rainbow Kasina - a glowing rainbow circle
 // with green on the inside, followed by yellow, orange, red, with blue-violet background
