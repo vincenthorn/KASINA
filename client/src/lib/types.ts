@@ -156,6 +156,18 @@ export const getOrbConfig = (type: KasinaType, customColor?: string): OrbConfig 
       speed: 0.3,
       complexity: 2
     },
+    white_a_kasina: {
+      color: "#FFFFFF",
+      emissive: "#FFFFFF",
+      speed: 0.25,
+      complexity: 2
+    },
+    rainbow_kasina: {
+      color: "#FF00FF",
+      emissive: "#FF88FF",
+      speed: 0.3,
+      complexity: 3
+    },
   };
   
   return configs[type] || configs.blue;
