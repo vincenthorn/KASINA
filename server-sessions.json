@@ -528,5 +528,13 @@
     "duration": 60,
     "timestamp": "2025-05-18T13:16:02.460Z",
     "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747574502041",
+    "kasinaType": "clear_light_thigle",
+    "kasinaName": "Clear_light_thigle (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-18T13:21:42.041Z",
+    "userEmail": "premium@kasina.app"
   }
 ]
