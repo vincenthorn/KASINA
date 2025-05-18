@@ -60,12 +60,12 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.SPACE]: "#330066", // Deep purple
   [KASINA_TYPES.LIGHT]: "#FFFFCC", // Light yellowish white with significantly increased brightness
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "#FFFFFF", // Pure white for the Tibetan letter in Clear Light Thigle
+  [KASINA_TYPES.WHITE_A_THIGLE]: "#FFCC00", // Gold/amber for Clear Light Thigle
   [KASINA_TYPES.WHITE_A_KASINA]: "#FFFFFF", // Pure white for the Tibetan letter A
   [KASINA_TYPES.OM_KASINA]: "#FFFFFF", // Radiant white orb
-  [KASINA_TYPES.AH_KASINA]: "#FF1111", // Deep red orb with golden glow
-  [KASINA_TYPES.HUM_KASINA]: "#0022AA", // Deep blue orb
-  [KASINA_TYPES.RAINBOW_KASINA]: "#FF0000" // Main color for Rainbow kasina rings
+  [KASINA_TYPES.AH_KASINA]: "#FF0000", // Deep red orb with golden glow
+  [KASINA_TYPES.HUM_KASINA]: "#0000FF", // Deep blue orb
+  [KASINA_TYPES.RAINBOW_KASINA]: "#FF69B4" // Pink for Rainbow kasina in charts
 };
 
 // Background colors for elemental kasinas
