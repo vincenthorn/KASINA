@@ -412,7 +412,7 @@ const AdminPage: React.FC = () => {
                 ) : (
                   <>
                     <Upload className="h-4 w-4 mr-2" />
-                    Upload and Update Whitelist
+                    Upload {selectedUserType.charAt(0).toUpperCase() + selectedUserType.slice(1)} Whitelist
                   </>
                 )}
               </Button>
