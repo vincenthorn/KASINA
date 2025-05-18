@@ -201,23 +201,47 @@ const AdminPage: React.FC = () => {
     <Layout>
       <h1 className="text-2xl font-bold text-white mb-6">Admin Dashboard</h1>
       
-      {/* Total Network Time Card */}
-      <div className="mb-8 bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg p-6 shadow-lg">
-        <div className="flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-2">
-            <Clock className="h-5 w-5 text-indigo-300" />
-            <h2 className="text-xl font-bold text-white">Total Practice Time</h2>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-purple-200">
-              {totalPracticeTime}
+      {/* Top row with stats cards */}
+      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Total Practice Time Card */}
+        <div className="bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg p-6 shadow-lg">
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-2 mb-2">
+              <Clock className="h-5 w-5 text-indigo-300" />
+              <h2 className="text-xl font-bold text-white">Total Practice Time</h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-purple-200">
+                {totalPracticeTime}
+              </div>
+            </div>
+            <div className="flex items-center gap-2 mt-2 text-indigo-200">
+              <Clock className="h-4 w-4" />
+              <p className="text-center">
+                Combined practice time of all community members
+              </p>
             </div>
           </div>
-          <div className="flex items-center gap-2 mt-2 text-indigo-200">
-            <Users className="h-4 w-4" />
-            <p className="text-center">
-              Combined practice time of all community members
-            </p>
+        </div>
+        
+        {/* Total Users Card */}
+        <div className="bg-gradient-to-r from-green-900 to-teal-900 rounded-lg p-6 shadow-lg">
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-2 mb-2">
+              <Users className="h-5 w-5 text-teal-300" />
+              <h2 className="text-xl font-bold text-white">Total Users</h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-teal-200">
+                {members.length}
+              </div>
+            </div>
+            <div className="flex items-center gap-2 mt-2 text-teal-200">
+              <Users className="h-4 w-4" />
+              <p className="text-center">
+                Total number of registered users
+              </p>
+            </div>
           </div>
         </div>
       </div>
