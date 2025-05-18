@@ -38,8 +38,17 @@ const AhKasina = () => {
                          timeRemaining > 0;
     
     if (inFinalCountdown) {
-      // During final countdown, calculate scale based on remaining time
-      scale = Math.max(0.1, (timeRemaining as number) / 60);
+      // Get the integer and fractional parts of the remaining time for smooth animation
+      const remainingSecs = timeRemaining as number;
+      const prevSecond = Math.ceil(remainingSecs);
+      const nextSecond = Math.floor(remainingSecs);
+      const fraction = remainingSecs - nextSecond;
+      
+      // Calculate a smooth scale that changes continuously rather than in steps
+      // This now includes the fractional part of the remaining time
+      const nextScale = Math.max(0.1, nextSecond / 60);
+      const prevScale = Math.max(0.1, prevSecond / 60);
+      scale = prevScale * fraction + nextScale * (1 - fraction);
       
       // Apply position and scale for countdown
       groupRef.current.position.y = 0;
