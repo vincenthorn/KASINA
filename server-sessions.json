@@ -584,5 +584,13 @@
     "duration": 60,
     "timestamp": "2025-05-18T15:52:38.554Z",
     "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747584389475",
+    "kasinaType": "rainbow_kasina",
+    "kasinaName": "Rainbow_kasina (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-18T16:06:29.475Z",
+    "userEmail": "premium@kasina.app"
   }
 ]
