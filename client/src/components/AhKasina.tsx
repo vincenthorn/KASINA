@@ -138,8 +138,8 @@ const AhKasina = () => {
       </mesh>
       
       {/* 3D Shadow effect for AH Syllable - increased by 20% */}
-      <mesh position={[0.008, -0.008, 0.002]}>
-        <planeGeometry args={[0.96, 0.96]} />
+      <mesh position={[0.01, -0.01, 0.002]} scale={[0.55, 0.55, 0.55]}>
+        <planeGeometry args={[1, 1]} />
         <meshBasicMaterial 
           map={ahTexture} 
           transparent={true}
@@ -149,8 +149,8 @@ const AhKasina = () => {
       </mesh>
       
       {/* AH Syllable - increased by 20% with black color */}
-      <mesh position={[0, 0, 0.003]}>
-        <planeGeometry args={[0.96, 0.96]} />
+      <mesh position={[0, 0, 0.003]} scale={[0.55, 0.55, 0.55]}>
+        <planeGeometry args={[1, 1]} />
         <meshBasicMaterial 
           map={ahTexture} 
           transparent={true}
