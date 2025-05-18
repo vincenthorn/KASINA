@@ -654,7 +654,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
           return data
             .split("\n")
             .map((line: string) => line.trim())
-            .filter((line: string) => line && !line.startsWith("#") && line !== "email");
+            .filter((line: string) => line && !line.startsWith("#") && line !== "email")
+            .map((line: string) => line.toLowerCase()); // Normalize all emails to lowercase
         };
         
         const adminEmails = parseFileData(adminData);
@@ -762,9 +763,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
           
           // Determine user status based on which list they're in
           let status = "Freemium";
-          if (adminEmails.includes(email)) {
+          if (adminEmails.includes(email.toLowerCase())) {
             status = "Admin";
-          } else if (premiumEmails.includes(email)) {
+          } else if (premiumEmails.includes(email.toLowerCase())) {
             status = "Premium";
           }
           
@@ -983,7 +984,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
             return data
               .split("\n")
               .map(line => line.trim())
-              .filter(line => line && !line.startsWith("#") && line !== "email");
+              .filter(line => line && !line.startsWith("#") && line !== "email")
+              .map(line => line.toLowerCase()); // Normalize all emails to lowercase
           };
           
           const currentAdminEmails = parseFileData(currentAdminData);
