@@ -134,7 +134,20 @@ const LoginPage: React.FC = () => {
           </p>
           
           <div style={{ maxWidth: "512px", margin: "0 auto" }}>
-            <p style={listItemStyles}>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</p>
+            <p style={listItemStyles}>
+              4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵
+              <span style={{ 
+                color: "#4AA8D8", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "8px", 
+                backgroundColor: "rgba(74, 168, 216, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px" 
+              }}>
+                ✧ FREEMIUM
+              </span>
+            </p>
             <p style={listItemStyles}>
               ♾️ Color Options: 🎨
               <span style={{ 
@@ -149,7 +162,20 @@ const LoginPage: React.FC = () => {
                 ✦ PREMIUM
               </span>
             </p>
-            <p style={listItemStyles}>6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️</p>
+            <p style={listItemStyles}>
+              6️⃣ Elemental Orbs: 🌎 💧 🔥 💨 ✨ ☀️
+              <span style={{ 
+                color: "#4AA8D8", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "8px", 
+                backgroundColor: "rgba(74, 168, 216, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px" 
+              }}>
+                ✧ FREEMIUM
+              </span>
+            </p>
             <p style={listItemStyles}>
               6️⃣ Vajrayana Kasinas: 🕉️ 🔮 🌀 ⚡️ 🌈 Ⓐ
               <span style={{ 
@@ -164,8 +190,34 @@ const LoginPage: React.FC = () => {
                 ✦ PREMIUM
               </span>
             </p>
-            <p style={listItemStyles}>📊 Reflect on your meditation practice history</p>
-            <p style={listItemStyles}>⏱️ Kasina selection mode with meditation timer</p>
+            <p style={listItemStyles}>
+              📊 Reflect on your meditation practice history
+              <span style={{ 
+                color: "#4AA8D8", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "8px", 
+                backgroundColor: "rgba(74, 168, 216, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px" 
+              }}>
+                ✧ FREEMIUM
+              </span>
+            </p>
+            <p style={listItemStyles}>
+              ⏱️ Kasina selection mode with meditation timer
+              <span style={{ 
+                color: "#4AA8D8", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "8px", 
+                backgroundColor: "rgba(74, 168, 216, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px" 
+              }}>
+                ✧ FREEMIUM
+              </span>
+            </p>
             <div style={{ height: "70px" }} className="w-full"></div>
           </div>
         </div>
