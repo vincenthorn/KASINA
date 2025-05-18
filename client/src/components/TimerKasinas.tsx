@@ -44,7 +44,7 @@ function isColorLight(color: string): boolean {
 const TimerKasinas: React.FC = () => {
   const { selectedKasina, customColor, setSelectedKasina, setCustomColor, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
-  const { timeRemaining, duration } = useSimpleTimer();
+  const { timeRemaining, duration, isRunning } = useSimpleTimer();
   const { email } = useAuth(); // Get user email to check if admin
   
   // Check if user is admin or premium
@@ -619,7 +619,7 @@ const TimerKasinas: React.FC = () => {
                   <div className="w-full h-full">
                     <KasinaOrb 
                       type={typedKasina} 
-                      remainingTime={isRunning ? timeRemaining : null} 
+                      remainingTime={timeRemaining} 
                     />
                   </div>
                 </div>

@@ -674,6 +674,9 @@ const lightShader = {
 
 // Dynamic Orb component with shader materials
 const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime = null }) => {
+  // Get the timer state directly for accurate preview vs active session detection
+  const timerStore = useSimpleTimer();
+  const isTimerRunning = timerStore.isRunning;
   const { selectedKasina, customColor } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
@@ -757,9 +760,11 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         };
       }
       
+      // For the shrinking effect, only activate at the end of an actual meditation session
+      // This ensures it doesn't happen during preview mode
+      
       // Shrinking effect for end of session (when remaining time is <= 60 seconds)
-      // Only activate during an actual running meditation session with a timer
-      // We'll rely on the remainingTime prop which is passed from the parent component
+      // Only activate when in the last 60 seconds of a timer
       const isInTimedSession = remainingTime !== null && remainingTime <= 60 && remainingTime > 0;
       
       if (isInTimedSession) {
