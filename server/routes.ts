@@ -642,18 +642,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const whitelistEmails = await readWhitelist();
         
         // Read individual whitelists for status determination
-        const [adminData, premiumData, freemiumData] = await Promise.all([
+        const [adminData, premiumData, freemiumData, legacyData] = await Promise.all([
           fs.existsSync(adminWhitelistPath) ? fs.promises.readFile(adminWhitelistPath, 'utf-8') : "email",
           fs.existsSync(premiumWhitelistPath) ? fs.promises.readFile(premiumWhitelistPath, 'utf-8') : "email",
-          fs.existsSync(freemiumWhitelistPath) ? fs.promises.readFile(freemiumWhitelistPath, 'utf-8') : "email"
+          fs.existsSync(freemiumWhitelistPath) ? fs.promises.readFile(freemiumWhitelistPath, 'utf-8') : "email",
+          fs.existsSync(whitelistPath) ? fs.promises.readFile(whitelistPath, 'utf-8') : "email"
         ]);
         
         // Parse each whitelist
         const parseFileData = (data: string): string[] => {
           return data
             .split("\n")
-            .map(line => line.trim())
-            .filter(line => line && !line.startsWith("#") && line !== "email");
+            .map((line: string) => line.trim())
+            .filter((line: string) => line && !line.startsWith("#") && line !== "email");
         };
         
         const adminEmails = parseFileData(adminData);
@@ -661,6 +662,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const freemiumEmails = parseFileData(freemiumData);
         
         // Parse CSV to extract names and emails
+        const csvData = legacyData; // Use legacy whitelist data
         const lines = csvData.split("\n").filter(line => line.trim());
         const headers = lines[0].split(",");
         
@@ -758,9 +760,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
           const hours = Math.floor(practiceDuration / 3600);
           const minutes = Math.floor((practiceDuration % 3600) / 60);
           
+          // Determine user status based on which list they're in
+          let status = "Freemium";
+          if (adminEmails.includes(email)) {
+            status = "Admin";
+          } else if (premiumEmails.includes(email)) {
+            status = "Premium";
+          }
+          
           return {
             email: email,
             name: nameMap[email.toLowerCase()] || "",
+            status, // Add status field
             practiceTimeSeconds: practiceDuration,
             practiceTimeFormatted: `${hours}h ${minutes}m`
           };
