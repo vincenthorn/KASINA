@@ -638,13 +638,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
     isAdmin,
     async (req, res) => {
       try {
-        // Read whitelist from CSV
+        // Read all whitelists
         const whitelistEmails = await readWhitelist();
         
-        // Read raw CSV data to get full names when available
-        const csvData = fs.existsSync(whitelistPath) 
-          ? await fs.promises.readFile(whitelistPath, "utf-8") 
-          : "";
+        // Read individual whitelists for status determination
+        const [adminData, premiumData, freemiumData] = await Promise.all([
+          fs.existsSync(adminWhitelistPath) ? fs.promises.readFile(adminWhitelistPath, 'utf-8') : "email",
+          fs.existsSync(premiumWhitelistPath) ? fs.promises.readFile(premiumWhitelistPath, 'utf-8') : "email",
+          fs.existsSync(freemiumWhitelistPath) ? fs.promises.readFile(freemiumWhitelistPath, 'utf-8') : "email"
+        ]);
+        
+        // Parse each whitelist
+        const parseFileData = (data: string): string[] => {
+          return data
+            .split("\n")
+            .map(line => line.trim())
+            .filter(line => line && !line.startsWith("#") && line !== "email");
+        };
+        
+        const adminEmails = parseFileData(adminData);
+        const premiumEmails = parseFileData(premiumData);
+        const freemiumEmails = parseFileData(freemiumData);
         
         // Parse CSV to extract names and emails
         const lines = csvData.split("\n").filter(line => line.trim());
@@ -780,12 +794,222 @@ export async function registerRoutes(app: Express): Promise<Server> {
           return res.status(400).json({ message: "No CSV file uploaded" });
         }
         
-        // Process the uploaded CSV
-        const emails = await updateWhitelistFromCSV(req.file.buffer);
+        // Get the user type from the request (defaults to 'freemium' if not specified)
+        const userType = (req.body.userType as 'freemium' | 'premium' | 'admin') || 'freemium';
+        
+        console.log(`Uploading whitelist for user type: ${userType}`);
+        
+        // Use different protected emails based on user type
+        let targetWhitelistPath: string;
+        const adminProtectedEmails = ["admin@kasina.app"];
+        const premiumProtectedEmails = [
+          "premium@kasina.app", // Test premium account
+          "brian@terma.asia", 
+          "emilywhorn@gmail.com", 
+          "ryan@ryanoelke.com",
+          "ksowocki@gmail.com"
+        ];
+        const freemiumProtectedEmails = ["user@kasina.app"];
+        
+        // Set the target whitelist file based on user type
+        switch (userType) {
+          case 'admin':
+            targetWhitelistPath = adminWhitelistPath;
+            break;
+          case 'premium':
+            targetWhitelistPath = premiumWhitelistPath;
+            break;
+          case 'freemium':
+          default:
+            targetWhitelistPath = freemiumWhitelistPath;
+            break;
+        }
+        
+        // Parse CSV data
+        const records = parse(req.file.buffer, {
+          columns: true,
+          skip_empty_lines: true,
+          trim: true,
+        });
+        
+        if (!records || records.length === 0) {
+          throw new Error("No data found in the CSV file");
+        }
+        
+        // Determine which column contains emails
+        const firstRecord = records[0];
+        const possibleEmailColumns = [
+          "Email", "email", "EmailAddress", "Email Address", 
+          "email_address", "e-mail", "User Email"
+        ];
+        
+        let emailColumnName: string | null = null;
+        
+        // Find email column
+        for (const colName of possibleEmailColumns) {
+          if (firstRecord[colName] !== undefined) {
+            emailColumnName = colName;
+            break;
+          }
+        }
+        
+        // Try to find any column containing emails
+        if (!emailColumnName) {
+          for (const key of Object.keys(firstRecord)) {
+            if (firstRecord[key] && firstRecord[key].includes('@')) {
+              emailColumnName = key;
+              break;
+            }
+          }
+        }
+        
+        // Last resort: use first column
+        if (!emailColumnName && Object.keys(firstRecord).length > 0) {
+          emailColumnName = Object.keys(firstRecord)[0];
+          console.log(`No email column identified, defaulting to first column: ${emailColumnName}`);
+        }
+        
+        if (!emailColumnName) {
+          throw new Error("Could not identify email column in CSV");
+        }
+        
+        console.log(`Using column headers: [ '${emailColumnName}' ]`);
+        
+        // Create name map for storing user names
+        const nameMap: Record<string, string> = {};
+        const nameMapPath = path.join(process.cwd(), 'name-map.json');
+        let existingNameMap = {};
+        
+        // Load existing name map if it exists
+        try {
+          if (fs.existsSync(nameMapPath)) {
+            const nameMapData = await fs.promises.readFile(nameMapPath, 'utf-8');
+            existingNameMap = JSON.parse(nameMapData);
+            console.log(`Loaded ${Object.keys(existingNameMap).length} names from name-map.json`);
+          }
+        } catch (err) {
+          console.warn("Could not read existing name map, creating new one");
+        }
+        
+        // Check if there's a name column
+        const nameColumnName = 
+          firstRecord.Name !== undefined ? "Name" : 
+          firstRecord.name !== undefined ? "name" : 
+          firstRecord.FullName !== undefined ? "FullName" :
+          firstRecord["Full Name"] !== undefined ? "Full Name" : null;
+        
+        if (nameColumnName) {
+          console.log(`Found name column: ${nameColumnName}`);
+        } else {
+          console.log("No name column found in the CSV");
+        }
+        
+        // Extract emails from CSV
+        const emails: string[] = [];
+        for (const record of records) {
+          const email = record[emailColumnName];
+          
+          // Skip if email is missing or doesn't contain @ symbol
+          if (!email || !email.includes('@')) {
+            continue;
+          }
+          
+          // Normalize email to lowercase
+          const normalizedEmail = email.trim().toLowerCase();
+          emails.push(normalizedEmail);
+          
+          // If name column exists, store the name for this email
+          if (nameColumnName && record[nameColumnName]) {
+            nameMap[normalizedEmail] = record[nameColumnName];
+          }
+        }
+        
+        // Check if there are any emails in the data
+        if (emails.length === 0) {
+          throw new Error("No valid email addresses found in the CSV file");
+        }
+        
+        // Determine which protected emails to include based on user type
+        let protectedEmails: string[] = [];
+        switch (userType) {
+          case 'admin':
+            protectedEmails = adminProtectedEmails;
+            break;
+          case 'premium':
+            protectedEmails = premiumProtectedEmails;
+            break;
+          case 'freemium':
+            protectedEmails = freemiumProtectedEmails;
+            break;
+        }
+        
+        // Add protected emails to ensure they're never removed
+        const emailsWithProtected = [...emails, ...protectedEmails];
+        const combinedEmails = Array.from(new Set(emailsWithProtected)) as string[];
+        
+        console.log(`${userType.toUpperCase()} Whitelist update: ${emails.length} emails in CSV, ${combinedEmails.length} after adding protected accounts`);
+        
+        // Create CSV content
+        const csvContent = [
+          "email",
+          ...combinedEmails
+        ].join("\n");
+        
+        // Write to the specific whitelist file
+        await fs.promises.writeFile(targetWhitelistPath, csvContent, "utf-8");
+        
+        // Also update legacy whitelist file to maintain backward compatibility
+        if (targetWhitelistPath !== whitelistPath) {
+          // Read all current whitelist files
+          const [currentAdminData, currentPremiumData, currentFreemiumData] = await Promise.all([
+            fs.existsSync(adminWhitelistPath) ? fs.promises.readFile(adminWhitelistPath, 'utf-8') : "email",
+            fs.existsSync(premiumWhitelistPath) ? fs.promises.readFile(premiumWhitelistPath, 'utf-8') : "email",
+            fs.existsSync(freemiumWhitelistPath) ? fs.promises.readFile(freemiumWhitelistPath, 'utf-8') : "email"
+          ]);
+          
+          // Parse whitelist data
+          const parseFileData = (data: string): string[] => {
+            return data
+              .split("\n")
+              .map(line => line.trim())
+              .filter(line => line && !line.startsWith("#") && line !== "email");
+          };
+          
+          const currentAdminEmails = parseFileData(currentAdminData);
+          const currentPremiumEmails = parseFileData(currentPremiumData);
+          const currentFreemiumEmails = parseFileData(currentFreemiumData);
+          
+          // Combine all emails for the legacy whitelist
+          const allEmails = Array.from(new Set([
+            ...currentAdminEmails,
+            ...currentPremiumEmails,
+            ...currentFreemiumEmails,
+            ...adminProtectedEmails,
+            ...premiumProtectedEmails,
+            ...freemiumProtectedEmails
+          ]));
+          
+          // Create and write the legacy whitelist
+          const legacyCsvContent = [
+            "email",
+            ...allEmails
+          ].join("\n");
+          
+          await fs.promises.writeFile(whitelistPath, legacyCsvContent, "utf-8");
+          console.log(`Updated legacy whitelist with ${allEmails.length} combined emails`);
+        }
+        
+        // Merge and save name map
+        const mergedNameMap = { ...existingNameMap, ...nameMap };
+        if (Object.keys(mergedNameMap).length > 0) {
+          await fs.promises.writeFile(nameMapPath, JSON.stringify(mergedNameMap, null, 2));
+          console.log(`Saved ${Object.keys(mergedNameMap).length} names to name-map.json`);
+        }
         
         return res.status(200).json({ 
-          message: "Whitelist updated successfully", 
-          count: emails.length 
+          message: `${userType.charAt(0).toUpperCase() + userType.slice(1)} whitelist updated successfully`, 
+          count: combinedEmails.length,
+          userType
         });
       } catch (error) {
         console.error("Error processing whitelist upload:", error);
