@@ -21,6 +21,9 @@ const ReflectionPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { email } = useAuth();
   
+  // State to track the currently selected kasina type from chart
+  const [selectedKasinaType, setSelectedKasinaType] = useState<string | null>(null);
+  
   // Check if user is admin
   const isAdmin = email === 'admin@kasina.app';
 
@@ -274,8 +277,15 @@ const ReflectionPage: React.FC = () => {
           </div>
         ) : (
           <div className="space-y-8">
-            <PracticeChart sessions={sessions} />
-            <PracticeLog sessions={sessions} />
+            <PracticeChart 
+              sessions={sessions} 
+              selectedKasinaType={selectedKasinaType}
+              onSelectKasinaType={setSelectedKasinaType}
+            />
+            <PracticeLog 
+              sessions={sessions} 
+              selectedKasinaType={selectedKasinaType}
+            />
           </div>
         )}
       </div>

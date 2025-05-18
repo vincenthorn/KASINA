@@ -25,6 +25,8 @@ interface PracticeChartProps {
     duration: number;
     timestamp: string;
   }[];
+  selectedKasinaType: string | null;
+  onSelectKasinaType: (kasinaType: string | null) => void;
 }
 
 // Component for the active segment in the chart
@@ -90,7 +92,11 @@ const ActiveShape = (props: any) => {
   );
 };
 
-const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
+const PracticeChart: React.FC<PracticeChartProps> = ({ 
+  sessions, 
+  selectedKasinaType, 
+  onSelectKasinaType 
+}) => {
   // State for tracking active section and chart mode
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [chartMode, setChartMode] = useState<ChartMode>('overview');
@@ -236,13 +242,24 @@ const PracticeChart: React.FC<PracticeChartProps> = ({ sessions }) => {
       setChartMode(category as ChartMode);
       setActiveIndex(null);
       
+      // Clear any selected kasina type when switching views
+      onSelectKasinaType(null);
+      
       // Re-enable tooltips after a short delay
       setTimeout(() => {
         setShowTooltips(true);
       }, 500);
     } else {
       // In detailed view, clicking toggles the active section
-      setActiveIndex(activeIndex === index ? null : index);
+      const newActiveIndex = activeIndex === index ? null : index;
+      setActiveIndex(newActiveIndex);
+      
+      // Update selected kasina type for highlighting in practice log
+      if (newActiveIndex !== null && data.kasinaType) {
+        onSelectKasinaType(data.kasinaType);
+      } else {
+        onSelectKasinaType(null);
+      }
     }
   };
   

@@ -14,6 +14,7 @@ interface Session {
 
 interface PracticeLogProps {
   sessions: Session[];
+  selectedKasinaType: string | null;
 }
 
 // Initial number of sessions to display
@@ -21,7 +22,7 @@ const INITIAL_DISPLAY_COUNT = 12;
 // Number of additional sessions to load when "Load More" is clicked
 const LOAD_INCREMENT = 6;
 
-const PracticeLog: React.FC<PracticeLogProps> = ({ sessions }) => {
+const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType }) => {
   const { getKasinaEmoji } = useKasina();
   // State to track how many sessions to display
   const [displayCount, setDisplayCount] = useState(INITIAL_DISPLAY_COUNT);
