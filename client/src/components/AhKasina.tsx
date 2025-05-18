@@ -41,25 +41,15 @@ const AhKasina = () => {
     const time = clock.getElapsedTime();
     let scale = 1.0;
     
-    // Flame-like flickering effect for the flame layer
+    // Keep flame layer static (no flickering effect)
     if (flameRef.current) {
-      // Create randomized flickering effect by combining multiple sin waves of different frequencies
-      const flicker1 = Math.sin(time * 2.5) * 0.03;
-      const flicker2 = Math.sin(time * 3.7) * 0.02;
-      const flicker3 = Math.sin(time * 5.1) * 0.01;
-      const combinedFlicker = flicker1 + flicker2 + flicker3;
+      // Set consistent scale without flickering
+      flameRef.current.scale.set(1.0, 1.0, 1.0);
       
-      // Apply the flickering effect to the flame layer's scale
-      flameRef.current.scale.set(
-        1.0 + combinedFlicker,
-        1.0 + combinedFlicker,
-        1.0
-      );
-      
-      // Also slightly adjust the opacity for more realistic flame effect
+      // Use static opacity
       const material = flameRef.current.material as THREE.MeshBasicMaterial;
       if (material) {
-        material.opacity = 0.6 + combinedFlicker * 2;
+        material.opacity = 0.6;
       }
     }
     
