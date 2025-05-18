@@ -749,11 +749,39 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         meshRef.current.rotation.y = clock.getElapsedTime() * 0.05; // Reduced from 0.1 to 0.05 (half speed)
       }
       
+      // We'll store our timer data in component instance to persist between frames
+      if (!meshRef.current.userData.countdown) {
+        meshRef.current.userData.countdown = {
+          startTime: null,
+          initialRemainingTime: null
+        };
+      }
+      
       // Shrinking effect for end of session (when remaining time is <= 60 seconds)
       if (remainingTime !== null && remainingTime <= 60) {
-        // Calculate scale factor: from 1.0 (at 60s) to 0.0 (at 0s)
-        // This creates a smooth shrinking effect over the last 60 seconds
-        const endingScale = remainingTime / 60;
+        // TRUE SMOOTH ANIMATION APPROACH with high-precision timer
+        const now = performance.now();
+        
+        // Get reference to our countdown timer data
+        const countdownData = meshRef.current.userData.countdown;
+        
+        // Initialize or recalibrate the timer when needed
+        if (
+          countdownData.startTime === null || 
+          countdownData.initialRemainingTime === null ||
+          countdownData.initialRemainingTime !== remainingTime
+        ) {
+          countdownData.startTime = now;
+          countdownData.initialRemainingTime = remainingTime;
+        }
+        
+        // Calculate precise remaining time with millisecond precision
+        const elapsedMs = now - countdownData.startTime;
+        const elapsedSeconds = elapsedMs / 1000;
+        const preciseRemainingTime = Math.max(0, countdownData.initialRemainingTime - elapsedSeconds);
+        
+        // Calculate scale based on the precise remaining time (out of 60)
+        const endingScale = Math.max(0.1, preciseRemainingTime / 60);
         
         // Apply the shrinking scale
         meshRef.current.scale.set(endingScale, endingScale, endingScale);
@@ -769,9 +797,12 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
             (materialRef.current as THREE.ShaderMaterial).transparent = true;
           }
         }
-        
-        // Log the shrinking effect (for debugging)
-        // console.log(`Shrinking kasina: ${remainingTime}s remaining, scale: ${endingScale.toFixed(2)} (of 60s fade)`);
+      } else {
+        // Reset timer tracking when not in countdown
+        if (meshRef.current.userData.countdown) {
+          meshRef.current.userData.countdown.startTime = null;
+          meshRef.current.userData.countdown.initialRemainingTime = null;
+        }
       } 
       // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
       else if ((selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.FIRE) && 
