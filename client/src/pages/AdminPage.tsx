@@ -20,6 +20,7 @@ interface Member {
   name: string;
   practiceTimeSeconds: number;
   practiceTimeFormatted: string;
+  status: string; // "Admin", "Premium", or "Freemium"
 }
 
 const AdminPage: React.FC = () => {
@@ -373,23 +374,46 @@ const AdminPage: React.FC = () => {
                       <tr className="border-b border-indigo-900/30 bg-gray-800/70">
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">Name</th>
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">Email Address</th>
+                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Status</th>
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">All-Time Practice</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {members.slice(0, displayCount).map((member, index) => (
-                        <tr key={member.email} className="border-b border-indigo-900/20 hover:bg-indigo-900/10 transition-colors">
-                          <td className="px-4 py-3">
-                            {member.name || "—"}
-                          </td>
-                          <td className="px-4 py-3">
-                            {member.email}
-                          </td>
-                          <td className="px-4 py-3 font-medium text-indigo-200">
-                            {member.practiceTimeFormatted}
-                          </td>
-                        </tr>
-                      ))}
+                      {members.slice(0, displayCount).map((member, index) => {
+                        // Determine user status based on email
+                        const isAdmin = member.email === "admin@kasina.app";
+                        const isFreemium = member.email === "user@kasina.app";
+                        const isPremium = !isAdmin && !isFreemium;
+                        
+                        // Set status based on conditions
+                        const status = isAdmin ? "Admin" : isPremium ? "Premium" : "Freemium";
+                        
+                        // Set status badge colors
+                        const statusColorClass = isAdmin 
+                          ? "bg-purple-900/50 text-purple-200 border-purple-700/40" 
+                          : isPremium 
+                            ? "bg-amber-900/40 text-amber-200 border-amber-700/40"
+                            : "bg-blue-900/40 text-blue-200 border-blue-700/40";
+
+                        return (
+                          <tr key={member.email} className="border-b border-indigo-900/20 hover:bg-indigo-900/10 transition-colors">
+                            <td className="px-4 py-3">
+                              {member.name || "—"}
+                            </td>
+                            <td className="px-4 py-3">
+                              {member.email}
+                            </td>
+                            <td className="px-4 py-3">
+                              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-md ${statusColorClass} text-xs font-medium border`}>
+                                {status}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3 font-medium text-indigo-200">
+                              {member.practiceTimeFormatted}
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
