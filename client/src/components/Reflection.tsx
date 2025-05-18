@@ -65,13 +65,13 @@ const Reflection = () => {
     const kasinaTypes: KasinaType[] = [
       'white', 'blue', 'red', 'yellow', 
       'water', 'air', 'fire', 'earth', 'space', 'light',
-      'clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina'
+      'clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina', 'white_a_kasina', 'rainbow_kasina'
     ];
     
     // Define which kasinas belong to which category
     const colorKasinas: KasinaType[] = ['white', 'blue', 'red', 'yellow'];
     const elementalKasinas: KasinaType[] = ['water', 'air', 'fire', 'earth', 'space', 'light'];
-    const vajrayanaKasinas: KasinaType[] = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina'];
+    const vajrayanaKasinas: KasinaType[] = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina', 'white_a_kasina', 'rainbow_kasina'];
     
     // Sum duration by kasina type
     const durationByType = kasinaTypes.reduce((acc, type) => {
@@ -86,7 +86,7 @@ const Reflection = () => {
       .filter(([_, duration]) => duration > 0)
       .map(([type, duration]) => {
         // Check type directly for Vajrayana kasinas first
-        if (type === 'clear_light_thigle' || type === 'om_kasina' || type === 'ah_kasina' || type === 'hum_kasina') {
+        if (type === 'clear_light_thigle' || type === 'om_kasina' || type === 'ah_kasina' || type === 'hum_kasina' || type === 'white_a_kasina' || type === 'rainbow_kasina') {
           return {
             name: type,
             value: duration,

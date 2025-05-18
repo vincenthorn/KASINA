@@ -17,7 +17,9 @@ export type KasinaType =
   | "clear_light_thigle" // Renamed from white_a_thigle
   | "om_kasina"
   | "ah_kasina"
-  | "hum_kasina";
+  | "hum_kasina"
+  | "white_a_kasina"
+  | "rainbow_kasina";
 
 // Emojis for different kasina types
 export const getKasinaEmoji = (type: KasinaType): string => {
@@ -33,10 +35,12 @@ export const getKasinaEmoji = (type: KasinaType): string => {
     earth: "🌍",
     space: "✨",
     light: "☀️",
-    clear_light_thigle: "🌈", // Updated from 💀 to 🌈
+    clear_light_thigle: "⚡️", // Using the lightning emoji for Clear Light
     om_kasina: "🕉️",
     ah_kasina: "🔮",
-    hum_kasina: "🌀"
+    hum_kasina: "🌀",
+    white_a_kasina: "Ⓐ",
+    rainbow_kasina: "🌈"
   };
   
   return emojis[type] || "🟠";
