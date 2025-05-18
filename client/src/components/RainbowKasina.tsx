@@ -1,33 +1,129 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
-import { extend } from '@react-three/fiber';
 
-// Import the background color from constants to ensure consistency
-import { KASINA_BACKGROUNDS, KASINA_TYPES } from '../lib/constants';
-
-// Get the background color from constants for consistency
-const BACKGROUND_COLOR = KASINA_BACKGROUNDS[KASINA_TYPES.RAINBOW_KASINA];
-
-// Standalone component to render the Rainbow Kasina - a glowing rainbow circle
-// with green on the inside, followed by yellow, orange, red, with blue-violet background
+// Rainbow Kasina with blended colors using a shader approach
 const RainbowKasina = () => {
-  // Create refs for meshes so we can animate them
-  const groupRef = React.useRef<THREE.Group>(null);
+  // Create ref for the group
+  const groupRef = useRef<THREE.Group>(null);
   
-  // Materials references for animation
-  const redMatRef = React.useRef<THREE.MeshBasicMaterial | null>(null);
-  const orangeMatRef = React.useRef<THREE.MeshBasicMaterial | null>(null);
-  const yellowMatRef = React.useRef<THREE.MeshBasicMaterial | null>(null);
-  const greenMatRef = React.useRef<THREE.MeshBasicMaterial | null>(null);
+  // Create ref for the shader material
+  const shaderRef = useRef<THREE.ShaderMaterial | null>(null);
   
-  const redBlurRef = React.useRef<THREE.MeshBasicMaterial | null>(null);
-  const orangeBlurRef = React.useRef<THREE.MeshBasicMaterial | null>(null);
-  const yellowBlurRef = React.useRef<THREE.MeshBasicMaterial | null>(null);
-  const greenBlurRef = React.useRef<THREE.MeshBasicMaterial | null>(null);
+  // Define the rainbow shader - this will create smooth, blended rainbow colors
+  const rainbowShader = useMemo(() => {
+    return {
+      uniforms: {
+        time: { value: 0 },
+        innerRadius: { value: 0.48 },
+        outerRadius: { value: 0.57 },
+        rainbowWidth: { value: 0.09 },
+        glowStrength: { value: 0.4 },
+        pulseIntensity: { value: 0.0 }
+      },
+      vertexShader: `
+        varying vec2 vUv;
+        varying vec3 vPosition;
+        
+        void main() {
+          vUv = uv;
+          vPosition = position;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform float time;
+        uniform float innerRadius;
+        uniform float outerRadius;
+        uniform float rainbowWidth;
+        uniform float glowStrength;
+        uniform float pulseIntensity;
+        
+        varying vec2 vUv;
+        varying vec3 vPosition;
+        
+        // Convert HSV to RGB
+        vec3 hsv2rgb(vec3 c) {
+          vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+          vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+          return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+        }
+        
+        void main() {
+          // Distance from center (0,0)
+          float dist = length(vPosition.xy);
+          
+          // Create smooth blue-violet background (#1F00CC)
+          vec3 bgColor = vec3(0.123, 0.0, 0.8); // blue-violet
+          
+          // Initialize with background color
+          vec3 finalColor = bgColor;
+          float alpha = 1.0;
+          
+          // Rainbow ring parameters
+          float ringCenter = (innerRadius + outerRadius) * 0.5;
+          float normalizedPos = (dist - innerRadius) / rainbowWidth;
+          
+          // Base glow effect around the ring
+          float glow = smoothstep(outerRadius + 0.05, outerRadius - 0.05, dist) - 
+                       smoothstep(innerRadius + 0.05, innerRadius - 0.05, dist);
+          glow = pow(glow, 1.5) * glowStrength;
+          
+          // Soft falloff at edges
+          float edgeFade = smoothstep(outerRadius + 0.02, outerRadius - 0.02, dist) - 
+                           smoothstep(innerRadius + 0.02, innerRadius - 0.02, dist);
+          
+          // Only render rainbow in the ring area
+          if (dist >= innerRadius && dist <= outerRadius) {
+            // Animate hue shift over time
+            float timeShift = sin(time * 0.2) * 0.01;
+            
+            // Create rainbow colors that blend naturally
+            // Map position within the ring to hue (0-1)
+            // Green in the middle, red on outside, yellow in between
+            float hue = mix(0.3, 0.0, normalizedPos) + timeShift;
+            
+            // Make saturation and value slightly pulse
+            float sat = 0.9 + sin(time * 0.5 + normalizedPos * 6.0) * 0.1;
+            float val = 0.9 + sin(time * 0.3 + normalizedPos * 4.0) * 0.1;
+            
+            // Convert HSV to RGB
+            vec3 rainbowColor = hsv2rgb(vec3(hue, sat, val));
+            
+            // Add subtle pulsing/breathing to the entire rainbow
+            float pulse = 1.0 + sin(time * 0.3) * pulseIntensity;
+            rainbowColor *= pulse;
+            
+            // Create soft blur effect by adding glow
+            rainbowColor += glow * 0.5;
+            
+            // Blend with background based on edge fade
+            finalColor = mix(bgColor, rainbowColor, edgeFade);
+          } else {
+            // Add subtle glow outside the ring
+            finalColor += glow * mix(vec3(1.0, 0.4, 0.2), vec3(0.4, 0.8, 0.0), 0.5) * 0.25;
+          }
+          
+          gl_FragColor = vec4(finalColor, alpha);
+        }
+      `
+    };
+  }, []);
   
-  // Animation to make the orb face the camera and handle timer countdown, plus color pulsing
+  // Create the shader material
+  const shaderMaterial = useMemo(() => {
+    const material = new THREE.ShaderMaterial({
+      uniforms: rainbowShader.uniforms,
+      vertexShader: rainbowShader.vertexShader,
+      fragmentShader: rainbowShader.fragmentShader,
+      transparent: true,
+    });
+    shaderRef.current = material;
+    return material;
+  }, [rainbowShader]);
+  
+  // Animation to make the orb face the camera and update shader uniforms
   useFrame(({ clock, camera }) => {
     if (!groupRef.current) return;
     
@@ -42,57 +138,12 @@ const RainbowKasina = () => {
     const time = clock.getElapsedTime();
     let scale = 1.0;
     
-    // Animate rainbow bands with rippling, pulsing effects but without position change
-    if (redMatRef.current && orangeMatRef.current && yellowMatRef.current && greenMatRef.current) {
-      // Vary the opacity of each color slightly over time but with different frequencies
-      // This creates a subtle rippling, flowing effect through the rainbow
-      const redPulse = 0.8 + Math.sin(time * 0.7) * 0.2;
-      const orangePulse = 0.8 + Math.sin(time * 0.5 + 1) * 0.2;
-      const yellowPulse = 0.8 + Math.sin(time * 0.9 + 2) * 0.2;
-      const greenPulse = 0.8 + Math.sin(time * 0.6 + 3) * 0.2;
+    // Update shader time uniform
+    if (shaderRef.current) {
+      shaderRef.current.uniforms.time.value = time;
       
-      // Applying opacity variations
-      redMatRef.current.opacity = redPulse;
-      orangeMatRef.current.opacity = orangePulse;
-      yellowMatRef.current.opacity = yellowPulse;
-      greenMatRef.current.opacity = greenPulse;
-      
-      // Also animate the glow/blur layers with a slightly different phase
-      if (redBlurRef.current && orangeBlurRef.current && yellowBlurRef.current && greenBlurRef.current) {
-        redBlurRef.current.opacity = redPulse * 0.6;
-        orangeBlurRef.current.opacity = orangePulse * 0.6;
-        yellowBlurRef.current.opacity = yellowPulse * 0.6;
-        greenBlurRef.current.opacity = greenPulse * 0.6;
-      }
-      
-      // Subtly shift the hue of each color over time
-      // Red shifts between deeper red and brighter red
-      redMatRef.current.color.setHSL(
-        0, // Red hue
-        1, // Full saturation
-        0.4 + Math.sin(time * 0.3) * 0.1 // Brightness varies
-      );
-      
-      // Orange shifts slightly in warmth
-      orangeMatRef.current.color.setHSL(
-        0.05 + Math.sin(time * 0.25) * 0.01, // Slight hue shift
-        1, // Full saturation
-        0.5 + Math.sin(time * 0.4 + 1) * 0.08 // Brightness varies
-      );
-      
-      // Yellow shifts in brightness
-      yellowMatRef.current.color.setHSL(
-        0.15, // Yellow hue
-        1, // Full saturation
-        0.5 + Math.sin(time * 0.5 + 2) * 0.06 // Brightness varies
-      );
-      
-      // Green shifts between deeper and brighter green
-      greenMatRef.current.color.setHSL(
-        0.33 + Math.sin(time * 0.2) * 0.02, // Slight hue shift
-        1, // Full saturation
-        0.4 + Math.sin(time * 0.45 + 3) * 0.08 // Brightness varies
-      );
+      // Add subtle pulsing effect
+      shaderRef.current.uniforms.pulseIntensity.value = 0.05;
     }
     
     // Check if we should show the countdown animation
@@ -119,154 +170,13 @@ const RainbowKasina = () => {
       groupRef.current.scale.set(pulse, pulse, pulse);
     }
   });
-  
-  // Create glow materials with bloom effect for each color
-  const redGlowMaterial = useMemo(() => {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#ff0000"),
-      transparent: true,
-      opacity: 0.9,
-    });
-    redMatRef.current = material;
-    return material;
-  }, []);
-  
-  const orangeGlowMaterial = useMemo(() => {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#ff8800"),
-      transparent: true,
-      opacity: 0.9,
-    });
-    orangeMatRef.current = material;
-    return material;
-  }, []);
-  
-  const yellowGlowMaterial = useMemo(() => {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#ffff00"),
-      transparent: true,
-      opacity: 0.9,
-    });
-    yellowMatRef.current = material;
-    return material;
-  }, []);
-  
-  const greenGlowMaterial = useMemo(() => {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#00cc00"),
-      transparent: true,
-      opacity: 0.9,
-    });
-    greenMatRef.current = material;
-    return material;
-  }, []);
-  
-  // Create lower opacity versions for the blur/glow effect
-  const redBlurMaterial = useMemo(() => {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#ff0000"),
-      transparent: true,
-      opacity: 0.5,
-    });
-    redBlurRef.current = material;
-    return material;
-  }, []);
-  
-  const orangeBlurMaterial = useMemo(() => {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#ff8800"),
-      transparent: true,
-      opacity: 0.5,
-    });
-    orangeBlurRef.current = material;
-    return material;
-  }, []);
-  
-  const yellowBlurMaterial = useMemo(() => {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#ffff00"),
-      transparent: true,
-      opacity: 0.5,
-    });
-    yellowBlurRef.current = material;
-    return material;
-  }, []);
-  
-  const greenBlurMaterial = useMemo(() => {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#00cc00"),
-      transparent: true,
-      opacity: 0.5,
-    });
-    greenBlurRef.current = material;
-    return material;
-  }, []);
-
-  // Create a consistent background material
-  const backgroundMaterial = useMemo(() => {
-    return new THREE.MeshBasicMaterial({
-      color: new THREE.Color(BACKGROUND_COLOR),
-      transparent: false,
-    });
-  }, []);
 
   return (
     <group ref={groupRef}>
-      {/* Unified background circle that fills the entire kasina */}
-      <mesh position={[0, 0, -0.01]}>
-        <circleGeometry args={[1.0, 64]} />
-        <primitive object={backgroundMaterial} />
-      </mesh>
-      
-      {/* Ultra-compressed rainbow rings with glow effect */}
-      
-      {/* Rainbow rings with their glow layers */}
-      {/* Red ring (outermost) */}
-      <mesh position={[0, 0, -0.007]}>
-        <ringGeometry args={[0.54, 0.57, 64]} />
-        <primitive object={redGlowMaterial} />
-      </mesh>
-      
-      {/* Red ring blur/glow effect */}
-      <mesh position={[0, 0, -0.006]}>
-        <ringGeometry args={[0.53, 0.58, 64]} />
-        <primitive object={redBlurMaterial} />
-      </mesh>
-      
-      {/* Orange ring */}
-      <mesh position={[0, 0, -0.005]}>
-        <ringGeometry args={[0.53, 0.545, 64]} />
-        <primitive object={orangeGlowMaterial} />
-      </mesh>
-      
-      {/* Orange ring blur/glow */}
-      <mesh position={[0, 0, -0.004]}>
-        <ringGeometry args={[0.52, 0.55, 64]} />
-        <primitive object={orangeBlurMaterial} />
-      </mesh>
-      
-      {/* Yellow ring */}
-      <mesh position={[0, 0, -0.003]}>
-        <ringGeometry args={[0.52, 0.535, 64]} />
-        <primitive object={yellowGlowMaterial} />
-      </mesh>
-      
-      {/* Yellow ring blur/glow */}
-      <mesh position={[0, 0, -0.002]}>
-        <ringGeometry args={[0.51, 0.54, 64]} />
-        <primitive object={yellowBlurMaterial} />
-      </mesh>
-      
-      {/* Green ring (innermost) */}
-      <mesh position={[0, 0, -0.001]}>
-        <ringGeometry args={[0.51, 0.525, 64]} />
-        <primitive object={greenGlowMaterial} />
-      </mesh>
-      
-      {/* Green ring blur/glow */}
+      {/* Single mesh with shader material for entire rainbow kasina */}
       <mesh position={[0, 0, 0]}>
-        <ringGeometry args={[0.50, 0.53, 64]} />
-        <primitive object={greenBlurMaterial} />
+        <circleGeometry args={[1.0, 64]} />
+        <primitive object={shaderMaterial} />
       </mesh>
     </group>
   );
