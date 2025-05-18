@@ -1108,6 +1108,73 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // Delete a user from the whitelist (admin only)
+  app.delete("/api/admin/delete-user", isAdmin, async (req, res) => {
+    try {
+      const { email, userType } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ message: "Email is required" });
+      }
+      
+      const normalizedEmail = email.trim().toLowerCase();
+      
+      // Protect special accounts from deletion
+      const protectedEmails = ["admin@kasina.app", "premium@kasina.app", "user@kasina.app"];
+      if (protectedEmails.includes(normalizedEmail)) {
+        return res.status(400).json({ 
+          message: "Cannot delete protected system accounts" 
+        });
+      }
+      
+      // Determine which file to remove the email from
+      let targetFile: string;
+      switch (userType.toLowerCase()) {
+        case 'admin':
+          targetFile = adminWhitelistPath;
+          break;
+        case 'premium':
+          targetFile = premiumWhitelistPath;
+          break;
+        case 'freemium':
+          targetFile = freemiumWhitelistPath;
+          break;
+        default:
+          targetFile = freemiumWhitelistPath; // Default to freemium
+      }
+      
+      // Read the current whitelist file
+      const whitelistData = await fs.promises.readFile(targetFile, 'utf-8');
+      
+      // Split into lines and filter out the email to delete
+      const lines = whitelistData
+        .split('\n')
+        .filter(line => line.trim().toLowerCase() !== normalizedEmail);
+      
+      // Write the updated whitelist back to the file
+      await fs.promises.writeFile(targetFile, lines.join('\n'), 'utf-8');
+      
+      // Also update the legacy whitelist for backward compatibility
+      const legacyWhitelistData = await fs.promises.readFile(whitelistPath, 'utf-8');
+      const legacyLines = legacyWhitelistData
+        .split('\n')
+        .filter(line => line.trim().toLowerCase() !== normalizedEmail);
+      await fs.promises.writeFile(whitelistPath, legacyLines.join('\n'), 'utf-8');
+      
+      console.log(`Deleted user ${normalizedEmail} from ${userType} whitelist`);
+      
+      return res.status(200).json({ 
+        message: `Successfully deleted ${email} from the ${userType} whitelist` 
+      });
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      return res.status(500).json({ 
+        message: "Failed to delete user",
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+  
   // Sessions routes - protected by authentication
   app.get("/api/sessions", (req, res) => {
     if (!req.session?.user?.email) {
