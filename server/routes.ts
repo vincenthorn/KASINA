@@ -755,23 +755,36 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
         const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
         
+        // Add debug logs
+        console.log("Freemium emails:", freemiumEmails);
+        
         // Build the member list with all data
         const members = whitelistEmails.map(email => {
           const practiceDuration = userPracticeTimes[email.toLowerCase()] || 0;
           const hours = Math.floor(practiceDuration / 3600);
           const minutes = Math.floor((practiceDuration % 3600) / 60);
+          const lowercaseEmail = email.toLowerCase();
           
           // Determine user status based on which list they're in
           let status = "Freemium";
-          if (adminEmails.includes(email.toLowerCase())) {
+          if (adminEmails.includes(lowercaseEmail)) {
             status = "Admin";
-          } else if (premiumEmails.includes(email.toLowerCase())) {
+          } else if (premiumEmails.includes(lowercaseEmail)) {
+            // Check if the email exists in the premium list
             status = "Premium";
+          } else if (freemiumEmails.includes(lowercaseEmail)) {
+            // Make sure we're checking if the email is in the freemium list
+            status = "Freemium";
+          }
+          
+          // Debug log for problem emails
+          if (freemiumEmails.includes(lowercaseEmail) && status !== "Freemium") {
+            console.log(`Email status issue: ${lowercaseEmail} should be Freemium but is ${status}`);
           }
           
           return {
             email: email,
-            name: nameMap[email.toLowerCase()] || "",
+            name: nameMap[lowercaseEmail] || "",
             status, // Add status field
             practiceTimeSeconds: practiceDuration,
             practiceTimeFormatted: `${hours}h ${minutes}m`
