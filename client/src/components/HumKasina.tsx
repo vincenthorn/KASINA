@@ -16,6 +16,15 @@ const HumKasina = () => {
   // Get timer state directly from the store without subscription
   const timerState = useSimpleTimer.getState();
   
+  // Store timer-related info for smooth counting
+  const timerRef = React.useRef<{
+    startTime: number | null;
+    initialRemainingTime: number | null;
+  }>({
+    startTime: null,
+    initialRemainingTime: null
+  });
+  
   // Animation to make the orb face the camera but stay stationary
   useFrame(({ clock, camera }) => {
     if (!groupRef.current) return;
@@ -38,23 +47,39 @@ const HumKasina = () => {
                          timeRemaining > 0;
     
     if (inFinalCountdown) {
-      // Get the integer and fractional parts of the remaining time for smooth animation
-      const remainingSecs = timeRemaining as number;
-      const prevSecond = Math.ceil(remainingSecs);
-      const nextSecond = Math.floor(remainingSecs);
-      const fraction = remainingSecs - nextSecond;
+      // TRUE SMOOTH ANIMATION APPROACH
+      // Detect if we just entered the countdown or need to recalibrate
+      const now = performance.now();
+      if (
+        timerRef.current.startTime === null || 
+        timerRef.current.initialRemainingTime === null ||
+        timerRef.current.initialRemainingTime !== timeRemaining
+      ) {
+        // Initialize or recalibrate the high-precision timer
+        timerRef.current.startTime = now;
+        timerRef.current.initialRemainingTime = timeRemaining;
+      }
       
-      // Calculate a smooth scale that changes continuously rather than in steps
-      // This now includes the fractional part of the remaining time
-      const nextScale = Math.max(0.1, nextSecond / 60);
-      const prevScale = Math.max(0.1, prevSecond / 60);
-      scale = prevScale * fraction + nextScale * (1 - fraction);
+      // Time elapsed since we started counting the current second (in milliseconds)
+      const elapsedSinceLastSecond = now - timerRef.current.startTime;
+      
+      // Convert to seconds for easier calculation
+      const elapsedSeconds = elapsedSinceLastSecond / 1000;
+      
+      // Calculate precise remaining time with millisecond precision
+      const preciseRemainingTime = Math.max(0, timerRef.current.initialRemainingTime - elapsedSeconds);
+      
+      // Calculate scale based on the precise remaining time (out of 60)
+      scale = Math.max(0.1, preciseRemainingTime / 60);
       
       // Apply position and scale for countdown
       groupRef.current.position.y = 0;
       groupRef.current.position.x = 0;
       groupRef.current.scale.set(scale, scale, scale);
     } else {
+      // Reset timer tracking when not in countdown
+      timerRef.current.startTime = null;
+      timerRef.current.initialRemainingTime = null;
       // Keep the kasina stationary as requested
       groupRef.current.position.y = 0;
       groupRef.current.position.x = 0;
