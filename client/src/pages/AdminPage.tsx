@@ -12,7 +12,7 @@ import { Button } from "../components/ui/button";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
 import { Navigate, Link } from "react-router-dom";
-import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette } from "lucide-react";
+import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette, Trash2, XCircle } from "lucide-react";
 
 // Define type for member data
 interface Member {
@@ -159,6 +159,33 @@ const AdminPage: React.FC = () => {
   // Refresh the whitelist data
   const refreshData = () => {
     fetchWhitelistData();
+  };
+  
+  // Handle user deletion
+  const handleDeleteUser = async (email: string, userStatus: string) => {
+    if (window.confirm(`Are you sure you want to delete ${email}? This action cannot be undone.`)) {
+      try {
+        const response = await fetch(`/api/admin/delete-user`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, userType: userStatus.toLowerCase() })
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to delete user');
+        }
+        
+        toast.success(`Successfully deleted ${email}`);
+        
+        // Refresh whitelist data
+        fetchWhitelistData();
+      } catch (error) {
+        console.error('Error deleting user:', error);
+        toast.error('Failed to delete user');
+      }
+    }
   };
   
   return (
@@ -451,6 +478,7 @@ const AdminPage: React.FC = () => {
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">Email Address</th>
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">Status</th>
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">All-Time Practice</th>
+                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -485,6 +513,20 @@ const AdminPage: React.FC = () => {
                             </td>
                             <td className="px-4 py-3 font-medium text-indigo-200">
                               {member.practiceTimeFormatted}
+                            </td>
+                            <td className="px-4 py-3">
+                              {/* Don't show delete button for protected accounts */}
+                              {member.email !== "admin@kasina.app" && 
+                               member.email !== "premium@kasina.app" && 
+                               member.email !== "user@kasina.app" && (
+                                <button 
+                                  onClick={() => handleDeleteUser(member.email, member.status)}
+                                  className="text-red-400 hover:text-red-300 transition-colors"
+                                  title={`Delete ${member.email}`}
+                                >
+                                  <XCircle className="h-5 w-5" />
+                                </button>
+                              )}
                             </td>
                           </tr>
                         );
