@@ -1118,6 +1118,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const normalizedEmail = email.trim().toLowerCase();
+      console.log(`Attempting to delete user: ${normalizedEmail} (${userType})`);
       
       // Protect special accounts from deletion
       const protectedEmails = ["admin@kasina.app", "premium@kasina.app", "user@kasina.app"];
@@ -1146,33 +1147,70 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Read the current whitelist file
       const whitelistData = await fs.promises.readFile(targetFile, 'utf-8');
       
+      // Log before deletion
+      console.log(`Current whitelist content for ${userType}:`, whitelistData);
+      
       // Split into lines and filter out the email to delete
       const lines = whitelistData
         .split('\n')
         .map(line => line.trim())
-        .filter(line => line && line.toLowerCase() !== normalizedEmail && line !== "email");
+        .filter(line => {
+          // Skip empty lines, keep the email header
+          if (!line || line === "email") {
+            return line === "email"; // Keep only the email header
+          }
+          
+          // Filter out the email to be deleted (case insensitive)
+          return line.toLowerCase() !== normalizedEmail;
+        });
       
-      // Ensure 'email' header is present
+      // Ensure 'email' header is present at the beginning
       if (!lines.includes("email")) {
+        lines.unshift("email");
+      } else if (lines.indexOf("email") !== 0) {
+        // If email isn't the first element, remove it and put it at the beginning
+        lines.splice(lines.indexOf("email"), 1);
         lines.unshift("email");
       }
       
+      const updatedContent = lines.join('\n');
+      console.log(`Updated whitelist content for ${userType}:`, updatedContent);
+      
       // Write the updated whitelist back to the file
-      await fs.promises.writeFile(targetFile, lines.join('\n'), 'utf-8');
+      await fs.promises.writeFile(targetFile, updatedContent, 'utf-8');
       
       // Also update the legacy whitelist for backward compatibility
       const legacyWhitelistData = await fs.promises.readFile(whitelistPath, 'utf-8');
+      
+      // Log before deletion
+      console.log(`Current legacy whitelist content:`, legacyWhitelistData);
+      
       const legacyLines = legacyWhitelistData
         .split('\n')
         .map(line => line.trim())
-        .filter(line => line && line.toLowerCase() !== normalizedEmail && line !== "email");
+        .filter(line => {
+          // Skip empty lines, keep the email header
+          if (!line || line === "email") {
+            return line === "email"; // Keep only the email header
+          }
+          
+          // Filter out the email to be deleted (case insensitive)
+          return line.toLowerCase() !== normalizedEmail;
+        });
       
-      // Ensure 'email' header is present
+      // Ensure 'email' header is present at the beginning
       if (!legacyLines.includes("email")) {
+        legacyLines.unshift("email");
+      } else if (legacyLines.indexOf("email") !== 0) {
+        // If email isn't the first element, remove it and put it at the beginning
+        legacyLines.splice(legacyLines.indexOf("email"), 1);
         legacyLines.unshift("email");
       }
       
-      await fs.promises.writeFile(whitelistPath, legacyLines.join('\n'), 'utf-8');
+      const updatedLegacyContent = legacyLines.join('\n');
+      console.log(`Updated legacy whitelist content:`, updatedLegacyContent);
+      
+      await fs.promises.writeFile(whitelistPath, updatedLegacyContent, 'utf-8');
       
       console.log(`Deleted user ${normalizedEmail} from ${userType} whitelist`);
       
