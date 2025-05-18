@@ -757,9 +757,13 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         };
       }
       
+      // Get the timer state to check if we're in an active timer session
+      const timerState = useSimpleTimer.getState();
+      const isRunning = timerState.isRunning;
+      
       // Shrinking effect for end of session (when remaining time is <= 60 seconds)
       // Only activate during an actual running meditation session with a timer
-      const isInTimedSession = remainingTime !== null && remainingTime <= 60 && remainingTime > 0;
+      const isInTimedSession = isRunning && remainingTime !== null && remainingTime <= 60 && remainingTime > 0;
       
       if (isInTimedSession) {
         // TRUE SMOOTH ANIMATION APPROACH with high-precision timer
