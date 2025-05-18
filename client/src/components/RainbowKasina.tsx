@@ -16,9 +16,9 @@ const RainbowKasina = () => {
     return {
       uniforms: {
         time: { value: 0 },
-        innerRadius: { value: 0.65 },
-        outerRadius: { value: 0.85 },
-        rainbowWidth: { value: 0.2 },
+        innerRadius: { value: 0.8 },
+        outerRadius: { value: 0.9 },
+        rainbowWidth: { value: 0.1 },
         glowStrength: { value: 0.4 },
         pulseIntensity: { value: 0.0 }
       },
