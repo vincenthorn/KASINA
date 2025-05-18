@@ -159,11 +159,7 @@ const HumKasina = () => {
         <meshBasicMaterial color="#3399ff" />
       </mesh>
       
-      {/* White outline around the symbol */}
-      <mesh position={[0, 0, -0.001]}>
-        <ringGeometry args={[0.28, 0.32, 32]} />
-        <meshBasicMaterial color="#ffffff" />
-      </mesh>
+      {/* White outline removed as requested */}
       
       {/* HUM Syllable - increased by 10% and properly centered */}
       <mesh position={[0, 0, 0.003]} scale={[0.88, 0.88, 0.88]}>
