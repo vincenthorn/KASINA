@@ -9,6 +9,7 @@ import { useTexture } from '@react-three/drei';
 const AhKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
+  const flameRef = React.useRef<THREE.Mesh>(null);
   
   // Load the AH syllable texture
   const ahTexture = useTexture('/images/vajrayana/ah-syllable.svg');
@@ -25,7 +26,7 @@ const AhKasina = () => {
     initialRemainingTime: null
   });
   
-  // Animation to make the orb background float but keep the AH syllable stationary
+  // Animation to make the orb flicker with flame-like properties
   useFrame(({ clock, camera }) => {
     if (!groupRef.current) return;
     
@@ -39,6 +40,28 @@ const AhKasina = () => {
     // Calculate time and animation values
     const time = clock.getElapsedTime();
     let scale = 1.0;
+    
+    // Flame-like flickering effect for the flame layer
+    if (flameRef.current) {
+      // Create randomized flickering effect by combining multiple sin waves of different frequencies
+      const flicker1 = Math.sin(time * 2.5) * 0.03;
+      const flicker2 = Math.sin(time * 3.7) * 0.02;
+      const flicker3 = Math.sin(time * 5.1) * 0.01;
+      const combinedFlicker = flicker1 + flicker2 + flicker3;
+      
+      // Apply the flickering effect to the flame layer's scale
+      flameRef.current.scale.set(
+        1.0 + combinedFlicker,
+        1.0 + combinedFlicker,
+        1.0
+      );
+      
+      // Also slightly adjust the opacity for more realistic flame effect
+      const material = flameRef.current.material as THREE.MeshBasicMaterial;
+      if (material) {
+        material.opacity = 0.6 + combinedFlicker * 2;
+      }
+    }
     
     // Check if we should show the countdown animation
     const inFinalCountdown = isRunning && 
@@ -80,12 +103,12 @@ const AhKasina = () => {
       // Reset timer tracking when not in countdown
       timerRef.current.startTime = null;
       timerRef.current.initialRemainingTime = null;
-      // Only animate the background with subtle pulsing
+      
       // Keep the AH syllable stationary by not changing x and y positions
       groupRef.current.position.y = 0;
       groupRef.current.position.x = 0;
       
-      // Subtle fiery flickering effect with slower, gentler pulses
+      // Subtle fiery pulsing for the overall kasina
       const pulse = 1.0 + Math.sin(time * 0.4) * 0.02;
       groupRef.current.scale.set(pulse, pulse, pulse);
     }
@@ -93,48 +116,52 @@ const AhKasina = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Dark background - black with hint of red */}
+      {/* Dark background */}
       <mesh position={[0, 0, -0.006]}>
         <circleGeometry args={[1.0, 64]} />
         <meshBasicMaterial color="#220000" />
       </mesh>
       
-      {/* Outer golden glow */}
+      {/* Outer fiery orange halo */}
       <mesh position={[0, 0, -0.005]}>
         <circleGeometry args={[0.9, 64]} />
         <meshBasicMaterial 
-          color="#663300" 
+          color="#ffcc99" 
           transparent={true}
           opacity={0.7}
         />
       </mesh>
       
-      {/* Inner golden glow */}
+      {/* Mid glow - deep red */}
       <mesh position={[0, 0, -0.004]}>
         <circleGeometry args={[0.75, 64]} />
         <meshBasicMaterial 
-          color="#995500" 
+          color="#cc0000" 
           transparent={true}
           opacity={0.85}
         />
       </mesh>
       
-      {/* Deep red orb body */}
-      <mesh position={[0, 0, -0.003]}>
-        <circleGeometry args={[0.6, 64]} />
-        <meshBasicMaterial color="#cc0000" />
+      {/* Additional flame-like gradient layer */}
+      <mesh position={[0, 0, -0.0035]} ref={flameRef}>
+        <circleGeometry args={[0.65, 64]} />
+        <meshBasicMaterial 
+          color="#ff6600" 
+          transparent={true}
+          opacity={0.6}
+        />
       </mesh>
       
-      {/* Brighter fiery core */}
+      {/* Inner core - bright red */}
       <mesh position={[0, 0, -0.002]}>
-        <circleGeometry args={[0.45, 64]} />
-        <meshBasicMaterial color="#ff2200" />
+        <circleGeometry args={[0.5, 64]} />
+        <meshBasicMaterial color="#ff4d4d" />
       </mesh>
       
-      {/* Center AH symbol area */}
+      {/* Center AH symbol area - bright red */}
       <mesh position={[0, 0, -0.001]}>
         <circleGeometry args={[0.3, 64]} />
-        <meshBasicMaterial color="#ff3300" />
+        <meshBasicMaterial color="#ff4d4d" />
       </mesh>
       
       {/* 3D Shadow effect for AH Syllable - increased by 20% */}
