@@ -29,7 +29,7 @@ const AdminPage: React.FC = () => {
   const [previewData, setPreviewData] = useState<Record<string, string>[]>([]);
   const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState(false);
-  const [displayCount, setDisplayCount] = useState(10); // Initially show 10 members
+  const [displayCount, setDisplayCount] = useState(100); // Initially show 100 members
   const [totalPracticeTime, setTotalPracticeTime] = useState<string>('0h 0m');
   const [selectedUserType, setSelectedUserType] = useState<'freemium'|'premium'|'admin'>('freemium');
   const { email, isAuthenticated } = useAuth();
@@ -153,7 +153,7 @@ const AdminPage: React.FC = () => {
 
   // Handle loading more members
   const handleLoadMore = () => {
-    setDisplayCount(prev => prev + 10);
+    setDisplayCount(prev => prev + 100);
   };
   
   // Refresh the whitelist data
