@@ -134,7 +134,6 @@ const LoginPage: React.FC = () => {
           </p>
           
           <div style={{ maxWidth: "512px", margin: "0 auto" }}>
-            <p style={listItemStyles}>⏱️ Kasina selection mode with meditation timer</p>
             <p style={listItemStyles}>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</p>
             <p style={listItemStyles}>
               ♾️ Color Options: 🎨
@@ -166,6 +165,7 @@ const LoginPage: React.FC = () => {
               </span>
             </p>
             <p style={listItemStyles}>📊 Reflect on your meditation practice history</p>
+            <p style={listItemStyles}>⏱️ Kasina selection mode with meditation timer</p>
             <div style={{ height: "70px" }} className="w-full"></div>
           </div>
         </div>
