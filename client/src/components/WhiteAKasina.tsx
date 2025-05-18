@@ -22,7 +22,10 @@ const WhiteAKasina = () => {
     initialRemainingTime: null
   });
   
-  // Animation to make the orb face the camera
+  // Reference for the Tibetan A symbol to add hover effect
+  const aSymbolRef = React.useRef<THREE.Mesh>(null);
+  
+  // Animation to make the orb face the camera and add hover effect to the symbol
   useFrame(({ clock, camera }) => {
     if (!groupRef.current) return;
     
@@ -36,6 +39,13 @@ const WhiteAKasina = () => {
     // Calculate time and animation values
     const time = clock.getElapsedTime();
     let scale = 1.0;
+    
+    // Apply subtle hover effect to the Tibetan A symbol
+    if (aSymbolRef.current) {
+      // Create a gentle hovering effect
+      const hoverOffset = Math.sin(time * 0.7) * 0.01;
+      aSymbolRef.current.position.y = -0.05 + hoverOffset; // Dropped slightly with hovering
+    }
     
     // Check if we should show the countdown animation
     const inFinalCountdown = isRunning && 
@@ -126,8 +136,8 @@ const WhiteAKasina = () => {
         <meshBasicMaterial color="#0055ff" />
       </mesh>
       
-      {/* Tibetan 'A' symbol - increased by another 20% */}
-      <mesh position={[0, 0, 0.003]}>
+      {/* Tibetan 'A' symbol - with subtle hover effect and dropped position */}
+      <mesh position={[0, -0.05, 0.003]} ref={aSymbolRef}>
         <planeGeometry args={[1.62, 1.62]} />
         <meshBasicMaterial 
           map={aTexture} 

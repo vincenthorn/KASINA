@@ -62,7 +62,7 @@ export const KASINA_COLORS: Record<string, string> = {
   // Vajrayana Series
   [KASINA_TYPES.WHITE_A_THIGLE]: "#FFCC00", // Gold/amber for Clear Light Thigle
   [KASINA_TYPES.WHITE_A_KASINA]: "#FFFFFF", // Pure white for the Tibetan letter A
-  [KASINA_TYPES.OM_KASINA]: "#CCCCCC", // Light grey for OM in charts
+  [KASINA_TYPES.OM_KASINA]: "#EEEEEE", // Very light grey for OM in charts
   [KASINA_TYPES.AH_KASINA]: "#FF0000", // Deep red orb with golden glow
   [KASINA_TYPES.HUM_KASINA]: "#0000FF", // Deep blue orb
   [KASINA_TYPES.RAINBOW_KASINA]: "#FF69B4" // Pink for Rainbow kasina in charts
