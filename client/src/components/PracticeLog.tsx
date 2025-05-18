@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { format } from "date-fns";
 import { useKasina } from "../lib/stores/useKasina";
@@ -44,13 +44,32 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
     setDisplayCount(prevCount => prevCount + LOAD_INCREMENT);
   };
 
+  // Prioritize and sort sessions based on selectedKasinaType
+  const prioritizedSessions = useMemo(() => {
+    if (!selectedKasinaType) {
+      // If no kasina type is selected, just return the chronologically sorted sessions
+      return sortedSessions;
+    }
+
+    // Split the sessions into matching and non-matching groups
+    const matchingSessions = sortedSessions.filter(
+      session => session.kasinaType === selectedKasinaType
+    );
+    const nonMatchingSessions = sortedSessions.filter(
+      session => session.kasinaType !== selectedKasinaType
+    );
+
+    // Return matching sessions first, followed by non-matching sessions
+    return [...matchingSessions, ...nonMatchingSessions];
+  }, [sortedSessions, selectedKasinaType]);
+  
   // Get only the sessions to be displayed
-  const sessionsToDisplay = sortedSessions.slice(0, displayCount);
+  const sessionsToDisplay = prioritizedSessions.slice(0, displayCount);
   
   // Determine if there are more sessions to load
-  const hasMoreSessions = displayCount < sortedSessions.length;
+  const hasMoreSessions = displayCount < prioritizedSessions.length;
 
-  if (sortedSessions.length === 0) {
+  if (prioritizedSessions.length === 0) {
     return (
       <Card className="bg-gray-900 border-gray-700">
         <CardHeader>
