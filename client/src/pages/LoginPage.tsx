@@ -134,7 +134,7 @@ const LoginPage: React.FC = () => {
           </p>
           
           <div style={{ maxWidth: "512px", margin: "0 auto" }}>
-            <p style={listItemStyles}>⏱️ Kasina mode with 10 visual orbs plus meditation timer</p>
+            <p style={listItemStyles}>⏱️ Kasina selection mode with meditation timer</p>
             <p style={listItemStyles}>4️⃣ Color Orbs: ⚪ 🟡 🔴 🔵</p>
             <p style={listItemStyles}>
               ♾️ Color Options: 🎨
