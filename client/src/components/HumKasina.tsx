@@ -165,9 +165,9 @@ const HumKasina = () => {
         <meshBasicMaterial color="#ffffff" />
       </mesh>
       
-      {/* HUM Syllable - without 3D effect */}
-      <mesh position={[0, 0, 0.003]}>
-        <planeGeometry args={[0.8, 0.8]} />
+      {/* HUM Syllable - increased by 10% and properly centered */}
+      <mesh position={[0, 0, 0.003]} scale={[0.88, 0.88, 0.88]}>
+        <planeGeometry args={[1, 1]} />
         <meshBasicMaterial 
           map={humTexture} 
           transparent={true}
