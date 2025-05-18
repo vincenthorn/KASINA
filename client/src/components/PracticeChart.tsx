@@ -280,6 +280,9 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
     setChartMode('overview');
     setActiveIndex(null);
     
+    // Clear any selected kasina type
+    onSelectKasinaType(null);
+    
     // Re-enable tooltips after a short delay
     setTimeout(() => {
       setShowTooltips(true);

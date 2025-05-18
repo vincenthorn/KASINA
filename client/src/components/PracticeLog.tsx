@@ -80,10 +80,18 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
             {sessionsToDisplay.map((session) => (
               <div 
                 key={session.id} 
-                className="flex items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors rounded-lg border border-gray-700"
+                className={`flex items-center p-4 transition-colors rounded-lg border ${
+                  selectedKasinaType === session.kasinaType
+                    ? 'bg-gray-700 border-indigo-500 shadow-lg shadow-indigo-900/20'
+                    : 'bg-gray-800 hover:bg-gray-700 border-gray-700'
+                }`}
               >
                 <div 
-                  className="text-3xl mr-4 bg-gray-700 p-2 rounded-full flex items-center justify-center h-12 w-12 flex-shrink-0" 
+                  className={`text-3xl mr-4 p-2 rounded-full flex items-center justify-center h-12 w-12 flex-shrink-0 transition-all ${
+                    selectedKasinaType === session.kasinaType
+                      ? 'bg-indigo-600 scale-110 shadow-lg shadow-indigo-900/30' 
+                      : 'bg-gray-700'
+                  }`}
                   title={`${session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1)} Kasina`}
                 >
                   {getKasinaEmoji(session.kasinaType)}
@@ -91,7 +99,11 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-center flex-wrap">
                     <div className="mr-2">
-                      <h3 className="text-white font-semibold text-lg leading-tight truncate">
+                      <h3 className={`font-semibold text-lg leading-tight truncate ${
+                        selectedKasinaType === session.kasinaType 
+                          ? 'text-indigo-300' 
+                          : 'text-white'
+                      }`}>
                         {session.kasinaType === 'clear_light_thigle' 
                           ? 'Clear Light Kasina'
                           : session.kasinaType.includes('kasina')
