@@ -13,7 +13,7 @@ import { Input } from "../components/ui/input";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
 import { Navigate, Link } from "react-router-dom";
-import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette, Trash2, XCircle, ArrowUp, ArrowDown, Edit, Check, X } from "lucide-react";
+import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette, Trash2, XCircle, ArrowUp, ArrowDown, Edit, Check, X, Search } from "lucide-react";
 
 // Define type for member data
 interface Member {
@@ -41,6 +41,7 @@ const AdminPage: React.FC = () => {
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [editingEmail, setEditingEmail] = useState<string | null>(null);
   const [editedName, setEditedName] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const editInputRef = useRef<HTMLInputElement>(null);
   const { email, isAuthenticated } = useAuth();
   
@@ -272,9 +273,19 @@ const AdminPage: React.FC = () => {
     }
   };
   
-  // Get sorted members
-  const getSortedMembers = () => {
-    return [...members].sort((a, b) => {
+  // Filter and sort members
+  const getFilteredAndSortedMembers = () => {
+    // First filter by search query
+    const filtered = searchQuery 
+      ? members.filter(member => 
+          member.email.toLowerCase().includes(searchQuery.toLowerCase()) || 
+          (member.name && member.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
+          member.status.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      : members;
+      
+    // Then sort the filtered results
+    return [...filtered].sort((a, b) => {
       // Special handling for empty/dash names
       if (sortField === 'name') {
         const nameA = a.name || '';
@@ -644,13 +655,40 @@ const AdminPage: React.FC = () => {
         <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-indigo-900/10 pointer-events-none"></div>
           <CardHeader className="relative">
-            <CardTitle className="text-white flex items-center gap-2">
-              <Clock className="h-5 w-5 text-indigo-400" />
-              Whitelist Member Data
-            </CardTitle>
-            <CardDescription className="text-indigo-200">
-              Member list with names, email addresses, and all-time practice duration.
-            </CardDescription>
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+              <div>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Clock className="h-5 w-5 text-indigo-400" />
+                  Whitelist Member Data
+                </CardTitle>
+                <CardDescription className="text-indigo-200">
+                  Member list with names, email addresses, and all-time practice duration.
+                </CardDescription>
+              </div>
+              
+              {/* Search Input */}
+              <div className="relative w-full md:w-64">
+                <Input
+                  type="text"
+                  placeholder="Search members..."
+                  className="bg-gray-800/60 border-gray-700 text-white placeholder-gray-500 pr-8"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                {searchQuery ? (
+                  <button 
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                ) : (
+                  <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                    <Search className="h-4 w-4" />
+                  </span>
+                )}
+              </div>
+            </div>
           </CardHeader>
           <CardContent>
             {loading ? (
