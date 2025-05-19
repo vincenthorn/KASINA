@@ -193,6 +193,15 @@ const AdminPage: React.FC = () => {
     setDisplayCount(prev => prev + 100);
   };
   
+  // Get the total count of filtered members
+  const filteredMemberCount = searchQuery 
+    ? members.filter(member => 
+        member.email.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        (member.name && member.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        member.status.toLowerCase().includes(searchQuery.toLowerCase())
+      ).length
+    : members.length;
+  
   // Refresh the whitelist data
   const refreshData = () => {
     fetchWhitelistData();
@@ -761,7 +770,7 @@ const AdminPage: React.FC = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {getSortedMembers().slice(0, displayCount).map((member, index) => {
+                      {getFilteredAndSortedMembers().slice(0, displayCount).map((member, index) => {
                         // Use the status returned from the server API
                         const status = member.status || "Freemium";
                         
@@ -859,20 +868,24 @@ const AdminPage: React.FC = () => {
                   </table>
                 </div>
                 
-                {displayCount < members.length && (
+                {displayCount < filteredMemberCount && (
                   <div className="flex justify-center mt-4">
                     <Button 
                       variant="outline"
                       className="bg-gradient-to-r from-indigo-700/80 to-purple-700/80 hover:from-indigo-600 hover:to-purple-600 text-white border-indigo-500/30"
                       onClick={handleLoadMore}
                     >
-                      Load More ({members.length - displayCount} remaining)
+                      Load More ({filteredMemberCount - displayCount} remaining)
                     </Button>
                   </div>
                 )}
                 
                 <div className="text-center text-sm text-indigo-200/80 mt-2">
-                  Showing {Math.min(displayCount, members.length)} of {members.length} members
+                  {searchQuery ? (
+                    <>Found {filteredMemberCount} {filteredMemberCount === 1 ? 'member' : 'members'} matching <span className="text-white font-medium">"{searchQuery}"</span></>
+                  ) : (
+                    <>Showing {Math.min(displayCount, filteredMemberCount)} of {members.length} members</>
+                  )}
                 </div>
                 
                 <div className="flex justify-end mt-4">
