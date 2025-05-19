@@ -201,6 +201,13 @@ const AdminPage: React.FC = () => {
         member.status.toLowerCase().includes(searchQuery.toLowerCase())
       ).length
     : members.length;
+    
+  // Get counts for each user type
+  const userCounts = {
+    freemium: members.filter(member => member.status.toLowerCase() === 'freemium').length,
+    premium: members.filter(member => member.status.toLowerCase() === 'premium').length,
+    admin: members.filter(member => member.status.toLowerCase() === 'admin').length
+  };
   
   // Refresh the whitelist data
   const refreshData = () => {
@@ -382,7 +389,7 @@ const AdminPage: React.FC = () => {
       <h1 className="text-2xl font-bold text-white mb-6">Admin Dashboard</h1>
       
       {/* Top row with stats cards */}
-      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Total Practice Time Card */}
         <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-900 to-purple-900 p-6 shadow-lg" style={{ borderRadius: '1rem' }}>
           <div className="flex flex-col items-center">
@@ -421,6 +428,54 @@ const AdminPage: React.FC = () => {
               <p className="text-center">
                 Total number of registered users
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* User categories row */}
+      <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Freemium Users Card */}
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900 to-cyan-900 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-2 mb-1">
+              <Users className="h-5 w-5 text-blue-300" />
+              <h2 className="text-lg font-bold text-white">Freemium Users</h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-cyan-200">
+                {userCounts.freemium}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Premium Users Card */}
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-amber-900 to-yellow-800 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-2 mb-1">
+              <Users className="h-5 w-5 text-amber-300" />
+              <h2 className="text-lg font-bold text-white">Premium Users</h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-yellow-200">
+                {userCounts.premium}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Admin Users Card */}
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-purple-900 to-fuchsia-900 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-2 mb-1">
+              <Users className="h-5 w-5 text-purple-300" />
+              <h2 className="text-lg font-bold text-white">Admin Users</h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-fuchsia-200">
+                {userCounts.admin}
+              </div>
             </div>
           </div>
         </div>
