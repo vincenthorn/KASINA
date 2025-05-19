@@ -1109,46 +1109,63 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   
   // Delete a user from the whitelist (admin only)
-  // Update user name endpoint
-  app.put("/api/admin/update-user-name", isAdmin, async (req, res) => {
+  // Update user name endpoint with better error handling
+  app.put("/api/admin/update-user-name", async (req, res) => {
+    // First check if user is authenticated and is an admin
+    if (!req.session.user || req.session.user.email !== "admin@kasina.app") {
+      console.log("Unauthorized access attempt to update-user-name:", req.session.user);
+      return res.status(401).json({ success: false, message: "Unauthorized access" });
+    }
+    
+    console.log("Received update-user-name request with body:", req.body);
+    
     try {
       const { email, name } = req.body;
       
       if (!email) {
-        return res.status(400).json({ message: "Email is required" });
+        return res.status(400).json({ success: false, message: "Email is required" });
       }
       
       // Load existing name map
       const nameMapPath = path.join(process.cwd(), 'name-map.json');
       let nameMap: Record<string, string> = {};
       
-      if (fs.existsSync(nameMapPath)) {
-        const nameMapContent = await fs.promises.readFile(nameMapPath, 'utf-8');
-        nameMap = JSON.parse(nameMapContent);
-      }
-      
-      // Update name or remove it if empty
-      const normalizedEmail = email.trim().toLowerCase();
-      if (name && name.trim()) {
-        nameMap[normalizedEmail] = name.trim();
-        console.log(`Updated name for ${normalizedEmail} to "${name.trim()}"`);
-      } else {
-        // If name is empty, remove from map
-        if (nameMap[normalizedEmail]) {
-          delete nameMap[normalizedEmail];
-          console.log(`Removed name entry for ${normalizedEmail}`);
+      try {
+        if (fs.existsSync(nameMapPath)) {
+          const nameMapContent = await fs.promises.readFile(nameMapPath, 'utf-8');
+          nameMap = JSON.parse(nameMapContent);
         }
+        
+        // Update name or remove it if empty
+        const normalizedEmail = email.trim().toLowerCase();
+        if (name && name.trim()) {
+          nameMap[normalizedEmail] = name.trim();
+          console.log(`Updated name for ${normalizedEmail} to "${name.trim()}"`);
+        } else {
+          // If name is empty, remove from map
+          if (nameMap[normalizedEmail]) {
+            delete nameMap[normalizedEmail];
+            console.log(`Removed name entry for ${normalizedEmail}`);
+          }
+        }
+        
+        // Save updated name map
+        await fs.promises.writeFile(nameMapPath, JSON.stringify(nameMap, null, 2));
+        
+        return res.status(200).json({
+          success: true,
+          message: name && name.trim() 
+            ? `Successfully updated name for ${email}` 
+            : `Successfully removed name for ${email}`
+        });
+      } catch (fsError) {
+        console.error("File system error while updating name map:", fsError);
+        return res.status(500).json({
+          success: false,
+          message: "Error saving to name-map.json",
+          error: fsError instanceof Error ? fsError.message : "Unknown file system error"
+        });
       }
-      
-      // Save updated name map
-      await fs.promises.writeFile(nameMapPath, JSON.stringify(nameMap, null, 2));
-      
-      return res.status(200).json({
-        success: true,
-        message: name && name.trim() 
-          ? `Successfully updated name for ${email}` 
-          : `Successfully removed name for ${email}`
-      });
     } catch (error) {
       console.error("Error updating user name:", error);
       return res.status(500).json({

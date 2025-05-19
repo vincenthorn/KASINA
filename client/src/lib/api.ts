@@ -6,27 +6,36 @@ export const apiRequest = baseApiRequest;
 // Admin-specific API functions
 export const updateUserName = async (email: string, name: string) => {
   try {
-    const response = await fetch('/api/admin/update-user-name', {
+    // Add a unique timestamp to prevent caching
+    const queryParam = `?t=${Date.now()}`;
+    
+    const response = await fetch(`/api/admin/update-user-name${queryParam}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache'
       },
       credentials: 'include',
       body: JSON.stringify({ email, name })
     });
     
-    if (!response.ok) {
-      // Try to parse the error response
-      let errorData;
-      try {
-        errorData = await response.json();
-      } catch (e) {
-        throw new Error(`Request failed with status ${response.status}`);
-      }
-      throw new Error(errorData.message || `Request failed with status ${response.status}`);
+    // Always try to parse the response as JSON
+    let data;
+    const textResponse = await response.text();
+    
+    try {
+      data = JSON.parse(textResponse);
+    } catch (e) {
+      console.error('Failed to parse response as JSON:', textResponse);
+      throw new Error(`Invalid response format. Server returned: ${textResponse.substring(0, 100)}...`);
     }
     
-    return await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || `Request failed with status ${response.status}`);
+    }
+    
+    return data;
   } catch (error) {
     console.error('Error updating user name:', error);
     throw error;
