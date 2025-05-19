@@ -16,11 +16,11 @@
   <circle cx="600" cy="315" r="156" fill="url(#whiteGlow)" />
   <circle cx="600" cy="315" r="117" fill="#FFFCE8" />
   
-  <!-- Logo Text with EXACT styling from the app in the center with dark text for contrast -->
-  <text x="600" y="310" font-family="Nunito, sans-serif" font-size="42" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#121212" style="text-transform: uppercase;">KASINA</text>
+  <!-- Logo Text with EXACT styling from the app in the center with blue text -->
+  <text x="600" y="310" font-family="Nunito, sans-serif" font-size="42" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#3399ff" style="text-transform: uppercase;">KASINA</text>
   
-  <!-- Tagline in proper size with dark text for contrast -->
-  <text x="600" y="340" font-family="Inter, sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#121212">A Dynamic Meditation Object</text>
+  <!-- Tagline in proper size with blue text -->
+  <text x="600" y="340" font-family="Inter, sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3399ff">A Dynamic Meditation Object</text>
   
   <!-- Gradient definitions for the orbs -->
   <defs>
