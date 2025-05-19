@@ -96,7 +96,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       timerState.stopTimer();
       
       try {
-        // Log the session with actual elapsed time
+        // Calculate the actual elapsed time in minutes (rounded up)
+        const elapsedMinutes = Math.max(1, Math.ceil(timerState.elapsedTime / 60));
+        console.log(`FocusMode - Session ended early: ${elapsedMinutes} minutes (${timerState.elapsedTime} seconds)`);
+        
+        // Log the session with actual elapsed time in seconds
         await sessionLogger.logSession({
           kasinaType: selectedKasina as KasinaType,
           duration: timerState.elapsedTime,
