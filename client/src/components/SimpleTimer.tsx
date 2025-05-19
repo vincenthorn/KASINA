@@ -85,8 +85,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             const kasina = window.__KASINA_DEBUG;
             const kasinaType = kasina.selectedKasina;
             
-            // Calculate minutes (rounded up)
-            const minutes = Math.ceil(duration / 60);
+            // Calculate minutes based on actual elapsed time (rounded up)
+            // This ensures partial sessions are properly recorded
+            const actualDuration = Math.max(elapsedTime, 30); // Minimum 30 seconds
+            const minutes = Math.ceil(actualDuration / 60);
             
             console.log(`⚡ AUTO-STOPPING: Using guaranteed save for ${kasinaType} (${minutes} min)`);
             
@@ -122,11 +124,15 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
             const originalDuration = duration || 0;
             console.log(`⏰ TIMER COMPLETED - Original duration: ${originalDuration}s`);
             
-            // Calculate actual minutes (round up to match UI)
-            const minutes = Math.ceil(originalDuration / 60);
+            // BUGFIX: Use the elapsed time to calculate actual session duration
+            // This ensures partial sessions are properly recorded with their actual duration
+            const actualDuration = Math.max(elapsedTime, 30); // Minimum 30 seconds
+            
+            // Calculate minutes based on actual elapsed time (round up to match UI)
+            const minutes = Math.ceil(actualDuration / 60);
             const minuteText = minutes === 1 ? "minute" : "minutes";
             
-            console.log(`🕒 Completed timer: ${minutes} ${minuteText}`);
+            console.log(`🕒 Completed timer: ${minutes} ${minuteText} (actual time: ${actualDuration}s)`);
             
             // Get kasina type from window object - this should be reliable
             if (window.__KASINA_DEBUG) {
