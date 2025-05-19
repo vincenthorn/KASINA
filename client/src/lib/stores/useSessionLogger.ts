@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { toast } from 'sonner';
 import { KasinaType } from '../types';
+import { useAuth } from './useAuth';
 
 /**
  * A dedicated store for reliable session logging
@@ -55,6 +56,10 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
       const kasinaTypeNormalized = kasinaType.toLowerCase() as KasinaType;
       const kasinaName = `${kasinaTypeNormalized.charAt(0).toUpperCase() + kasinaTypeNormalized.slice(1)} (${minutes}-${minuteText})`;
       
+      // Get the current user's email from auth store
+      const authState = useAuth.getState();
+      const userEmail = authState.email;
+      
       // Create the session payload with all required fields
       const payload = {
         kasinaType: kasinaTypeNormalized,
@@ -62,6 +67,7 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
         duration: minutes * 60, // Always use whole minutes in seconds
         durationInMinutes: minutes,
         timestamp: new Date().toISOString(),
+        userEmail: userEmail || null, // Include the user's email for proper attribution
         _guaranteedSession: true // This flag tells the server to prioritize this session
       };
       
@@ -73,7 +79,8 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           kasinaType: kasinaTypeNormalized,
-          minutes: minutes // Add this to ensure accurate minute recording
+          minutes: minutes, // Add this to ensure accurate minute recording
+          userEmail: userEmail // Include user email in the request
         })
       });
       
