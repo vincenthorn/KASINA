@@ -1908,7 +1908,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // This is a higher-priority route that will catch Zapier webhook requests
   // before they get redirected to the React app
-  app.post("/zapier/webhook/add-freemium", async (req, res) => {
+  app.post("/zapier/webhook/freemium", async (req, res) => {
     try {
       // Security check - require API key for this endpoint
       const providedKey = req.headers['x-api-key'];
@@ -1938,7 +1938,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
-  app.post("/zapier/webhook/add-premium", async (req, res) => {
+  app.post("/zapier/webhook/premium", async (req, res) => {
     try {
       // Security check - require API key for this endpoint
       const providedKey = req.headers['x-api-key'];
