@@ -115,6 +115,19 @@ const LoginPage: React.FC = () => {
         
         {/* Description Section */}
         <div style={sectionStyles}>
+          {/* "What is KASINA?" header */}
+          <p style={{
+            color: "#9d64ff", /* Same purple shade as other headers */
+            fontSize: "20px", 
+            fontWeight: "bold",
+            marginBottom: "20px",
+            textAlign: "center",
+            maxWidth: "512px", // Match login card width
+            margin: "0 auto 20px auto" // Center and maintain bottom margin
+          }}>
+            What is KASINA?
+          </p>
+          
           <p style={paragraphStyles}>
             <b>KASINA</b> is visual meditation software for those ready to deepen their concentration with a dynamic meditation object. 
             Inspired by ancient <i style={{ fontStyle: 'italic' }}>kasina</i> practices, reimagined for the modern meditator.
