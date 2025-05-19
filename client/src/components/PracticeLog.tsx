@@ -143,14 +143,21 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
               <div 
                 key={session.id} 
                 className={`flex items-center p-4 transition-colors rounded-lg border ${
-                  selectedKasinaType === session.kasinaType
+                  // Check if we should highlight this session
+                  // 1. Direct match with the kasinaType
+                  // 2. Compound selection with this kasinaType
+                  (selectedKasinaType === session.kasinaType || 
+                   (selectedKasinaType?.includes('+') && 
+                    selectedKasinaType.split('+')[1] === session.kasinaType))
                     ? 'bg-gray-700 border-indigo-500 shadow-lg shadow-indigo-900/20'
                     : 'bg-gray-800 hover:bg-gray-700 border-gray-700'
                 }`}
               >
                 <div 
                   className={`text-3xl mr-4 p-2 rounded-full flex items-center justify-center h-12 w-12 flex-shrink-0 transition-all ${
-                    selectedKasinaType === session.kasinaType
+                    (selectedKasinaType === session.kasinaType || 
+                     (selectedKasinaType?.includes('+') && 
+                      selectedKasinaType.split('+')[1] === session.kasinaType))
                       ? 'bg-indigo-600 scale-110 shadow-lg shadow-indigo-900/30' 
                       : 'bg-gray-700'
                   }`}
