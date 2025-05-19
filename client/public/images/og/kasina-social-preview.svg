@@ -7,8 +7,8 @@
   <circle cx="600" cy="215" r="150" fill="#FFFCE8" />
   <circle cx="600" cy="215" r="270" fill="url(#orbGlow)" />
   
-  <!-- Logo Text in Nunito font with the exact same styling as login page -->
-  <text x="600" y="470" font-family="Nunito, sans-serif" font-size="110" font-weight="700" letter-spacing="12" text-anchor="middle" fill="#FFFCE8" style="text-transform: uppercase;">KASINA</text>
+  <!-- Logo Text with EXACT styling from the app: Nunito, letter-spacing 2px, font-weight 700 but with the cream/white color -->
+  <text x="600" y="470" font-family="Nunito, sans-serif" font-size="110" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#FFFCE8" style="text-transform: uppercase;">KASINA</text>
   
   <!-- Tagline in proper size -->
   <text x="600" y="535" font-family="Inter, sans-serif" font-size="28" font-weight="400" text-anchor="middle" fill="#FFFFFF">A Dynamic Meditation Object</text>
