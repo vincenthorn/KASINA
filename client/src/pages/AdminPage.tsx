@@ -12,7 +12,7 @@ import { Button } from "../components/ui/button";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
 import { Navigate, Link } from "react-router-dom";
-import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette, Trash2, XCircle } from "lucide-react";
+import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette, Trash2, XCircle, ArrowUp, ArrowDown } from "lucide-react";
 
 // Define type for member data
 interface Member {
@@ -23,6 +23,10 @@ interface Member {
   status: string; // "Admin", "Premium", or "Freemium"
 }
 
+// Sorting type definitions
+type SortField = 'name' | 'email' | 'status' | 'practiceTimeSeconds';
+type SortDirection = 'asc' | 'desc';
+
 const AdminPage: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -32,6 +36,8 @@ const AdminPage: React.FC = () => {
   const [displayCount, setDisplayCount] = useState(100); // Initially show 100 members
   const [totalPracticeTime, setTotalPracticeTime] = useState<string>('0h 0m');
   const [selectedUserType, setSelectedUserType] = useState<'freemium'|'premium'|'admin'>('freemium');
+  const [sortField, setSortField] = useState<SortField>('email');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const { email, isAuthenticated } = useAuth();
   
   // List of admin emails
@@ -159,6 +165,67 @@ const AdminPage: React.FC = () => {
   // Refresh the whitelist data
   const refreshData = () => {
     fetchWhitelistData();
+  };
+  
+  // Handle sorting
+  const handleSort = (field: SortField) => {
+    // If clicking the same field, toggle direction
+    if (sortField === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      // If clicking a new field, set it as sort field and reset to ascending
+      setSortField(field);
+      setSortDirection('asc');
+    }
+  };
+  
+  // Get sorted members
+  const getSortedMembers = () => {
+    return [...members].sort((a, b) => {
+      // Special handling for empty/dash names
+      if (sortField === 'name') {
+        const nameA = a.name || '';
+        const nameB = b.name || '';
+        
+        // Handle empty names (displayed as "-")
+        if (nameA === '' && nameB === '') return 0;
+        if (nameA === '') return sortDirection === 'asc' ? 1 : -1;
+        if (nameB === '') return sortDirection === 'asc' ? -1 : 1;
+        
+        const comparison = nameA.localeCompare(nameB);
+        return sortDirection === 'asc' ? comparison : -comparison;
+      }
+      
+      // Email sorting
+      if (sortField === 'email') {
+        const comparison = a.email.localeCompare(b.email);
+        return sortDirection === 'asc' ? comparison : -comparison;
+      }
+      
+      // Status sorting
+      if (sortField === 'status') {
+        // Custom order: Admin (highest), Premium, Freemium (lowest)
+        const getStatusValue = (status: string) => {
+          if (status === 'Admin') return 3;
+          if (status === 'Premium') return 2;
+          return 1; // Freemium
+        };
+        
+        const statusA = getStatusValue(a.status);
+        const statusB = getStatusValue(b.status);
+        
+        const comparison = statusB - statusA; // Descending by default (Admin first)
+        return sortDirection === 'asc' ? -comparison : comparison;
+      }
+      
+      // Practice time sorting (using the seconds for accurate sorting)
+      if (sortField === 'practiceTimeSeconds') {
+        const comparison = a.practiceTimeSeconds - b.practiceTimeSeconds;
+        return sortDirection === 'asc' ? comparison : -comparison;
+      }
+      
+      return 0;
+    });
   };
   
   // Handle user deletion
@@ -507,15 +574,63 @@ const AdminPage: React.FC = () => {
                   <table className="min-w-full text-sm text-white">
                     <thead>
                       <tr className="border-b border-indigo-900/30 bg-gray-800/70">
-                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Name</th>
-                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Email Address</th>
-                        <th className="px-4 py-3 text-left font-medium text-indigo-200">Status</th>
-                        <th className="px-4 py-3 text-left font-medium text-indigo-200">All-Time Practice</th>
+                        <th 
+                          className="px-4 py-3 text-left font-medium text-indigo-200 cursor-pointer hover:bg-indigo-900/30 transition-colors"
+                          onClick={() => handleSort('name')}
+                        >
+                          <div className="flex items-center gap-1">
+                            Name
+                            {sortField === 'name' && (
+                              sortDirection === 'asc' ? 
+                                <ArrowUp className="h-3 w-3 text-indigo-400" /> : 
+                                <ArrowDown className="h-3 w-3 text-indigo-400" />
+                            )}
+                          </div>
+                        </th>
+                        <th 
+                          className="px-4 py-3 text-left font-medium text-indigo-200 cursor-pointer hover:bg-indigo-900/30 transition-colors"
+                          onClick={() => handleSort('email')}
+                        >
+                          <div className="flex items-center gap-1">
+                            Email Address
+                            {sortField === 'email' && (
+                              sortDirection === 'asc' ? 
+                                <ArrowUp className="h-3 w-3 text-indigo-400" /> : 
+                                <ArrowDown className="h-3 w-3 text-indigo-400" />
+                            )}
+                          </div>
+                        </th>
+                        <th 
+                          className="px-4 py-3 text-left font-medium text-indigo-200 cursor-pointer hover:bg-indigo-900/30 transition-colors"
+                          onClick={() => handleSort('status')}
+                        >
+                          <div className="flex items-center gap-1">
+                            Status
+                            {sortField === 'status' && (
+                              sortDirection === 'asc' ? 
+                                <ArrowUp className="h-3 w-3 text-indigo-400" /> : 
+                                <ArrowDown className="h-3 w-3 text-indigo-400" />
+                            )}
+                          </div>
+                        </th>
+                        <th 
+                          className="px-4 py-3 text-left font-medium text-indigo-200 cursor-pointer hover:bg-indigo-900/30 transition-colors"
+                          onClick={() => handleSort('practiceTimeSeconds')}
+                        >
+                          <div className="flex items-center gap-1">
+                            All-Time Practice
+                            {sortField === 'practiceTimeSeconds' && (
+                              sortDirection === 'asc' ? 
+                                <ArrowUp className="h-3 w-3 text-indigo-400" /> : 
+                                <ArrowDown className="h-3 w-3 text-indigo-400" />
+                            )}
+                          </div>
+                        </th>
                         <th className="px-4 py-3 text-left font-medium text-indigo-200">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {members.slice(0, displayCount).map((member, index) => {
+                      {getSortedMembers().slice(0, displayCount).map((member, index) => {
                         // Use the status returned from the server API
                         const status = member.status || "Freemium";
                         
