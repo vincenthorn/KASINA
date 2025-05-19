@@ -1,5 +1,6 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 import { 
   Mesh, 
   Group, 
@@ -136,10 +137,13 @@ const ElementalKasina = ({
         };
       case "air":
         return { 
-          roughness: 0.3, 
+          roughness: 0.2, 
           metalness: 0.1, 
           transparent: true, 
-          opacity: 0.4  // Increased transparency
+          opacity: 0.25,  // Even more transparent
+          clearcoat: 0.9, // Add clearcoat for more diaphanous appearance
+          clearcoatRoughness: 0.05,
+          transmission: 0.6 // Add light transmission for truly diaphanous effect
         };
       case "fire":
         return { 
@@ -351,7 +355,7 @@ const ElementalKasina = ({
             opacity={type === "water" ? 0.6 : type === "air" ? 0.7 : 0.8} // Adjusted transparency
             depthWrite={false}
             sizeAttenuation={true} // Makes particles appear larger when closer to camera
-            {...(type === "air" && { blending: THREE.AdditiveBlending })} // Additive blending for air particles for a glowing effect
+            blending={type === "air" ? THREE.AdditiveBlending : THREE.NormalBlending} // Additive blending for air particles for a glowing effect
           />
         </points>
       )}
