@@ -249,7 +249,7 @@ const LoginPage: React.FC = () => {
             <p style={listItemStyles}>
               To access the KASINA app it's recommended you be on a <b>Desktop Computer</b>. 
               <br/><br/>
-              If you need an account, go to <a href="https://www.contemplative.technology/subscribe" target="_blank" rel="noopener noreferrer" style={{ color: "#a78bfa", fontWeight: "bold", textDecoration: "underline" }}>contemplative.technology</a> and either sign-up for a free account, which will give you access to all of the <span style={{ 
+              <u>If you need an account</u>, go to <a href="https://www.contemplative.technology/subscribe" target="_blank" rel="noopener noreferrer" style={{ color: "#a78bfa", fontWeight: "bold", textDecoration: "underline" }}>contemplative.technology</a> and either sign-up for a free account, which will give you access to all of the <span style={{ 
                 color: "#4AA8D8", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
