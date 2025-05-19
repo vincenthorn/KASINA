@@ -140,11 +140,15 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               const kasinaType = kasina.selectedKasina;
               console.log(`Retrieved kasina type from debug object: ${kasinaType}`);
               
-              // USE OUR UNIFIED GUARANTEEDSESSIONSAVE UTILITY
-              console.log(`🧿 TIMER COMPLETED: Using guaranteedSessionSave for ${kasinaType} (${minutes} min)`);
+              // Calculate minutes based on actual elapsed time instead of originally scheduled time
+              // This ensures partial sessions are correctly recorded
+              const actualElapsedMinutes = Math.max(1, Math.ceil(elapsedTime / 60));
               
-              // Use our guaranteed session save utility
-              guaranteedSessionSave(kasinaType, minutes)
+              // USE OUR UNIFIED GUARANTEEDSESSIONSAVE UTILITY
+              console.log(`🧿 TIMER COMPLETED: Using guaranteedSessionSave for ${kasinaType} (${actualElapsedMinutes} min) - Used actual elapsed time of ${elapsedTime}s`);
+              
+              // Use our guaranteed session save utility with actual elapsed time
+              guaranteedSessionSave(kasinaType, actualElapsedMinutes)
                 .then(success => {
                   if (success) {
                     console.log(`✅ TIMER COMPLETE: Session saved successfully via guarantee utility`);

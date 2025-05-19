@@ -330,10 +330,10 @@ const TimerKasinas: React.FC = () => {
       storeState.stopTimer();
       
       // Calculate minutes (round up to match UI expectations)
-      const minutes = Math.max(1, Math.ceil(duration / 60));
+      const minutes = Math.max(1, Math.ceil(elapsed / 60)); // Use actual elapsed time instead of duration
       const minuteText = minutes === 1 ? "minute" : "minutes";
       
-      console.log(`⚡ FORCE-STOP: Saving ${selectedKasina} session (${minutes} ${minuteText})`);
+      console.log(`⚡ FORCE-STOP: Saving ${selectedKasina} session (${minutes} ${minuteText}) - Used actual elapsed time of ${elapsed}s`);
       
       // Use our guaranteed session save utility with explicit notification control
       guaranteedSessionSave(selectedKasina, minutes, true) // true = show notification
