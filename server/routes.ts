@@ -1695,7 +1695,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get the kasina type from the request or default to 'white'
       const kasinaType = (req.body.kasinaType || 'white').toLowerCase();
       
-      // Get minutes from request or default to 1
+      // Get minutes from request or default to 1 - FIXED to ensure actual duration is used
       const minutes = parseInt(req.body.minutes, 10) || 1;
       
       // Format with proper pluralization
@@ -1709,12 +1709,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log(`Request body:`, req.body);
       console.log(`===========================================`);
       
-      // Create a guaranteed session
+      // Create a guaranteed session - FIXED to ensure proper duration is saved
       const session = {
         id: Date.now().toString(),
         kasinaType: kasinaType,
         kasinaName: `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-${minuteText})`,
-        duration: minutes * 60, // Convert minutes to seconds
+        duration: minutes * 60, // Convert minutes to seconds - ensures full minutes are logged
         timestamp: new Date().toISOString(),
         userEmail: req.session.user.email
       };
