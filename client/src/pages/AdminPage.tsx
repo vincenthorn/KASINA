@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "../components/Layout";
-import { apiRequest } from "../lib/api";
+import { apiRequest, updateUserName } from "../lib/api";
 import {
   Card,
   CardContent,
@@ -199,22 +199,10 @@ const AdminPage: React.FC = () => {
       // Use a local loading state just for the save button
       setSavingName(true);
       
-      // Use fetch with credentials to ensure cookies are sent
-      const response = await fetch('/api/admin/update-user-name', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include', // Important: this ensures session cookies are sent
-        body: JSON.stringify({
-          email: editingEmail,
-          name: editedName.trim()
-        })
-      });
+      // Use our dedicated API utility for updating user names
+      const data = await updateUserName(editingEmail, editedName.trim());
       
-      const data = await response.json();
-      
-      if (!response.ok || !data.success) {
+      if (!data.success) {
         console.error('Server returned error:', data);
         throw new Error(data.message || 'Failed to update name');
       }
