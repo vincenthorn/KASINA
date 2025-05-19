@@ -1109,28 +1109,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   
   // Delete a user from the whitelist (admin only)
-  // Update user name endpoint - simplified and robust
+  // Update user name endpoint - fixed for correct JSON responses
   app.put("/api/admin/update-user-name", (req, res) => {
     // First check authentication
     if (!req.session.user || req.session.user.email !== "admin@kasina.app") {
-      return res.status(401).send(JSON.stringify({ 
+      return res.json({ 
         success: false, 
         message: "Unauthorized access" 
-      }));
+      });
     }
-    
-    // Set content type explicitly
-    res.setHeader('Content-Type', 'application/json');
     
     try {
       const { email, name } = req.body;
       console.log("Processing name update:", { email, name });
       
       if (!email) {
-        return res.status(400).send(JSON.stringify({ 
+        return res.json({ 
           success: false, 
           message: "Email is required" 
-        }));
+        });
       }
       
       // Load existing name map
@@ -1165,17 +1162,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
         : `Successfully removed name for ${email}`;
       
       console.log("Name update success:", successMessage);
-      return res.status(200).send(JSON.stringify({ 
+      return res.json({ 
         success: true, 
         message: successMessage 
-      }));
+      });
       
     } catch (error) {
       console.error("Error updating user name:", error);
-      return res.status(500).send(JSON.stringify({
+      return res.status(500).json({
         success: false,
         message: "Failed to update user name"
-      }));
+      });
     }
   });
 
