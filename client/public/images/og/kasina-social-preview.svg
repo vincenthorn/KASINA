@@ -3,23 +3,49 @@
   <!-- Background with deep dark blue gradient like the app -->
   <rect width="1200" height="630" fill="#0A0A14" />
   
-  <!-- Orb with soft glow effect exactly like the login page -->
-  <circle cx="600" cy="215" r="150" fill="#FFFCE8" />
-  <circle cx="600" cy="215" r="270" fill="url(#orbGlow)" />
+  <!-- Concentric Kasina Orbs: Blue (outer), Red (middle), White (inner) -->
+  <!-- Blue outer kasina with glow -->
+  <circle cx="600" cy="315" r="250" fill="url(#blueGlow)" />
+  <circle cx="600" cy="315" r="220" fill="#3399ff" opacity="0.7" />
   
-  <!-- Logo Text with EXACT styling from the app: Nunito, letter-spacing 2px, font-weight 700 but with the cream/white color -->
-  <text x="600" y="470" font-family="Nunito, sans-serif" font-size="110" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#FFFCE8" style="text-transform: uppercase;">KASINA</text>
+  <!-- Red middle kasina with glow -->
+  <circle cx="600" cy="315" r="180" fill="url(#redGlow)" />
+  <circle cx="600" cy="315" r="150" fill="#ff4d4d" opacity="0.8" />
+  
+  <!-- White inner kasina with glow -->
+  <circle cx="600" cy="315" r="120" fill="url(#whiteGlow)" />
+  <circle cx="600" cy="315" r="90" fill="#FFFCE8" />
+  
+  <!-- Center content container - semi-transparent dark circle -->
+  <circle cx="600" cy="315" r="70" fill="rgba(10,10,20,0.8)" />
+  
+  <!-- Logo Text with EXACT styling from the app in the center -->
+  <text x="600" y="310" font-family="Nunito, sans-serif" font-size="40" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#FFFCE8" style="text-transform: uppercase;">KASINA</text>
   
   <!-- Tagline in proper size -->
-  <text x="600" y="535" font-family="Inter, sans-serif" font-size="28" font-weight="400" text-anchor="middle" fill="#FFFFFF">A Dynamic Meditation Object</text>
+  <text x="600" y="340" font-family="Inter, sans-serif" font-size="14" font-weight="400" text-anchor="middle" fill="#FFFFFF">A Dynamic Meditation Object</text>
   
-  <!-- Gradient definitions - more subtle like the login page -->
+  <!-- Gradient definitions for the orbs -->
   <defs>
-    <radialGradient id="orbGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
-      <stop offset="55%" stop-color="#FFFCE8" stop-opacity="0.35" />
-      <stop offset="75%" stop-color="#FFFCE8" stop-opacity="0.2" />
-      <stop offset="90%" stop-color="#FFFCE8" stop-opacity="0.05" />
+    <!-- White kasina glow -->
+    <radialGradient id="whiteGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="55%" stop-color="#FFFCE8" stop-opacity="0.5" />
+      <stop offset="75%" stop-color="#FFFCE8" stop-opacity="0.3" />
       <stop offset="100%" stop-color="#FFFCE8" stop-opacity="0" />
+    </radialGradient>
+    
+    <!-- Red kasina glow -->
+    <radialGradient id="redGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="55%" stop-color="#ff4d4d" stop-opacity="0.5" />
+      <stop offset="75%" stop-color="#ff4d4d" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ff4d4d" stop-opacity="0" />
+    </radialGradient>
+    
+    <!-- Blue kasina glow -->
+    <radialGradient id="blueGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="55%" stop-color="#3399ff" stop-opacity="0.5" />
+      <stop offset="75%" stop-color="#3399ff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#3399ff" stop-opacity="0" />
     </radialGradient>
   </defs>
 </svg>
