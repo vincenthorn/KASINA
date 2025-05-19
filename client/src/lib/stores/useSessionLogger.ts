@@ -59,6 +59,26 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
       // Get the current user's email from auth store
       const authState = useAuth.getState();
       const userEmail = authState.email;
+
+      // RELIABILITY FIX: Save session data in localStorage as a backup 
+      // in case the network request fails
+      const sessionBackup = {
+        id: Date.now().toString(),
+        kasinaType: kasinaTypeNormalized,
+        kasinaName,
+        duration: minutes * 60, // Always use whole minutes in seconds
+        durationInMinutes: minutes,
+        timestamp: new Date().toISOString(),
+        userEmail: userEmail || null
+      };
+      
+      try {
+        localStorage.setItem('lastSessionBackup', JSON.stringify(sessionBackup));
+        localStorage.setItem('sessionBackupStatus', 'pending');
+        console.log("💾 Saved session backup to localStorage");
+      } catch (e) {
+        console.warn("Failed to save session backup to localStorage:", e);
+      }
       
       // Create the session payload with all required fields
       const payload = {
@@ -68,7 +88,8 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
         durationInMinutes: minutes,
         timestamp: new Date().toISOString(),
         userEmail: userEmail || null, // Include the user's email for proper attribution
-        _guaranteedSession: true // This flag tells the server to prioritize this session
+        _guaranteedSession: true, // This flag tells the server to prioritize this session
+        _critical: true // Mark as critical to ensure it's saved
       };
       
       console.log("🚀 SessionLogger - Saving session:", payload);
@@ -81,12 +102,20 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
           kasinaType: kasinaTypeNormalized,
           minutes: minutes, // Add this to ensure accurate minute recording
           userEmail: userEmail, // Include user email in the request
-          _ensureUserTracking: true // Flag to tell server this must have user tracking
+          _ensureUserTracking: true, // Flag to tell server this must have user tracking
+          _critical: true // Mark this as a critical session save
         })
       });
       
       if (response.ok) {
         console.log("✅ SessionLogger - Session saved successfully");
+        
+        // Mark backup as completed
+        try {
+          localStorage.setItem('sessionBackupStatus', 'completed');
+        } catch (e) {
+          console.warn("Failed to update session backup status:", e);
+        }
         
         // Show success toast
         if (showToast) {
@@ -101,14 +130,30 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
         
         return true;
       } else {
+        // Try fallback method if direct API fails
+        console.log("⚠️ Primary session save failed, trying fallback method");
+        
+        try {
+          // Use image beacon as ultra-reliable fallback (works even when fetch fails)
+          const imgBeacon = new Image();
+          const beaconUrl = `/api/save-session/${encodeURIComponent(kasinaTypeNormalized)}/${minutes}`;
+          imgBeacon.src = beaconUrl;
+          console.log(`📡 Emergency beacon created: ${beaconUrl}`);
+          
+          // Mark this as attempted rescue
+          localStorage.setItem('sessionBackupStatus', 'rescue-attempted');
+        } catch (e) {
+          console.error("Failed to create emergency beacon:", e);
+        }
+        
         throw new Error(`Server returned ${response.status}`);
       }
     } catch (error) {
       console.error("❌ SessionLogger - Error saving session:", error);
       
-      // Show error toast
+      // Show error toast and offer recovery
       if (showToast) {
-        toast.error("Failed to save session. Please try again.");
+        toast.error("Session save failed. Your session will be saved when you reconnect.");
       }
       
       // Update state

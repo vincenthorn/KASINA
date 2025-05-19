@@ -6,6 +6,7 @@ import { useAuth } from "./lib/stores/useAuth";
 import { Toaster } from "sonner";
 import { ColorProvider } from "./lib/contexts/ColorContext";
 import ErrorBoundary from "./components/ErrorBoundary";
+import SessionRecovery from "./components/SessionRecovery";
 
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
@@ -128,6 +129,7 @@ function App() {
             </Routes>
           </Router>
           <Toaster position="top-center" />
+          <SessionRecovery />
         </ColorProvider>
       </QueryClientProvider>
     </ErrorBoundary>
