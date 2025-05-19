@@ -230,7 +230,7 @@ const LoginPage: React.FC = () => {
               maxWidth: "512px", // Match login card width
               margin: "40px auto 20px auto" // Center with top margin
             }}>
-              How to Access
+              How to Access:
             </p>
             
             <p style={listItemStyles}>
