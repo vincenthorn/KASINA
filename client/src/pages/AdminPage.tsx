@@ -199,11 +199,13 @@ const AdminPage: React.FC = () => {
       // Use a local loading state just for the save button
       setSavingName(true);
       
+      // Use fetch with credentials to ensure cookies are sent
       const response = await fetch('/api/admin/update-user-name', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include', // Important: this ensures session cookies are sent
         body: JSON.stringify({
           email: editingEmail,
           name: editedName.trim()
