@@ -1906,6 +1906,68 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // This is a higher-priority route that will catch Zapier webhook requests
+  // before they get redirected to the React app
+  app.post("/zapier/webhook/add-freemium", async (req, res) => {
+    try {
+      // Security check - require API key for this endpoint
+      const providedKey = req.headers['x-api-key'];
+      
+      // For security, in production you'd use an environment variable or secret store
+      const apiKey = process.env.ZAPIER_API_KEY || "kasina-zapier-integration-key";
+      
+      if (providedKey !== apiKey) {
+        console.log("❌ API KEY ERROR: Invalid API key provided for freemium webhook");
+        return res.status(401).json({ success: false, message: "Invalid API key" });
+      }
+      
+      // Get email from request
+      const { email } = req.body;
+      
+      // Add email to freemium whitelist
+      const result = await addEmailToWhitelist(email, 'freemium');
+      
+      return res.status(200).json(result);
+    } catch (error) {
+      console.error("❌ ERROR in Zapier freemium webhook:", error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "Failed to update freemium whitelist",
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+  
+  app.post("/zapier/webhook/add-premium", async (req, res) => {
+    try {
+      // Security check - require API key for this endpoint
+      const providedKey = req.headers['x-api-key'];
+      
+      // For security, in production you'd use an environment variable or secret store
+      const apiKey = process.env.ZAPIER_API_KEY || "kasina-zapier-integration-key";
+      
+      if (providedKey !== apiKey) {
+        console.log("❌ API KEY ERROR: Invalid API key provided for premium webhook");
+        return res.status(401).json({ success: false, message: "Invalid API key" });
+      }
+      
+      // Get email from request
+      const { email } = req.body;
+      
+      // Add email to premium whitelist
+      const result = await addEmailToWhitelist(email, 'premium');
+      
+      return res.status(200).json(result);
+    } catch (error) {
+      console.error("❌ ERROR in Zapier premium webhook:", error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "Failed to update premium whitelist",
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+
   // Helper function for Zapier whitelist updates
   async function addEmailToWhitelist(email: string, whitelistType: 'freemium' | 'premium') {
     if (!email) {
