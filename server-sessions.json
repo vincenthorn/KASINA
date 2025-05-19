@@ -4,52 +4,46 @@
     "kasinaType": "yellow",
     "kasinaName": "Yellow",
     "duration": 5,
-    "timestamp": "2025-04-25T03:57:18.033Z",
-    "userEmail": "user@kasina.app"
+    "timestamp": "2025-04-25T03:57:18.033Z"
   },
   {
     "id": "1745553808774",
     "kasinaType": "red",
     "kasinaName": "Red",
     "duration": 60,
-    "timestamp": "2025-04-25T04:03:28.296Z",
-    "userEmail": "user@kasina.app"
+    "timestamp": "2025-04-25T04:03:28.296Z"
   },
   {
     "id": "1745554062826",
     "kasinaType": "blue",
     "kasinaName": "Blue",
     "duration": 60,
-    "timestamp": "2025-04-25T04:07:42.608Z",
-    "userEmail": "user@kasina.app"
+    "timestamp": "2025-04-25T04:07:42.608Z"
   },
   {
     "id": "1745586091886",
     "kasinaType": "red",
     "kasinaName": "Red",
     "duration": 60,
-    "timestamp": "2025-04-25T13:01:31.704Z",
-    "userEmail": "user@kasina.app"
+    "timestamp": "2025-04-25T13:01:31.704Z"
   },
   {
     "id": "1745610297445",
     "kasinaType": "red",
     "kasinaName": "Red",
     "duration": 30,
-    "timestamp": "2025-04-25T19:44:57.311Z",
-    "userEmail": "user@kasina.app"
+    "timestamp": "2025-04-25T19:44:57.311Z"
   },
   {
     "id": "1745640347959",
     "kasinaType": "fire",
     "kasinaName": "Fire",
     "duration": 59,
-    "timestamp": "2025-04-26T04:05:47.812Z",
-    "userEmail": "user@kasina.app"
+    "timestamp": "2025-04-26T04:05:47.812Z"
   },
   {
     "id": "1745641225966",
-    "userEmail": "user@kasina.app",
+    "userEmail": null,
     "kasinaType": "space",
     "kasinaName": "Space",
     "duration": 59,
@@ -710,5 +704,13 @@
     "duration": 60,
     "timestamp": "2025-05-19T22:28:48.163Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1747695136088",
+    "kasinaType": "white",
+    "kasinaName": "White (3-minutes)",
+    "duration": 180,
+    "timestamp": "2025-05-19T22:52:16.088Z",
+    "userEmail": "vjhorn@gmail.com"
   }
 ]
