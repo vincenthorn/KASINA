@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import { apiRequest } from "../lib/api";
 import {
@@ -9,10 +9,11 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
 import { Navigate, Link } from "react-router-dom";
-import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette, Trash2, XCircle, ArrowUp, ArrowDown } from "lucide-react";
+import { Loader2, Clock, Users, Upload, DownloadCloud, Image, Palette, Trash2, XCircle, ArrowUp, ArrowDown, Edit, Check, X } from "lucide-react";
 
 // Define type for member data
 interface Member {
@@ -38,6 +39,9 @@ const AdminPage: React.FC = () => {
   const [selectedUserType, setSelectedUserType] = useState<'freemium'|'premium'|'admin'>('freemium');
   const [sortField, setSortField] = useState<SortField>('email');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+  const [editingEmail, setEditingEmail] = useState<string | null>(null);
+  const [editedName, setEditedName] = useState<string>('');
+  const editInputRef = useRef<HTMLInputElement>(null);
   const { email, isAuthenticated } = useAuth();
   
   // List of admin emails
@@ -165,6 +169,76 @@ const AdminPage: React.FC = () => {
   // Refresh the whitelist data
   const refreshData = () => {
     fetchWhitelistData();
+  };
+  
+  // Start editing a member's name
+  const startEditing = (memberEmail: string, currentName: string) => {
+    setEditingEmail(memberEmail);
+    setEditedName(currentName || '');
+    // Focus on the input after it renders
+    setTimeout(() => {
+      if (editInputRef.current) {
+        editInputRef.current.focus();
+      }
+    }, 50);
+  };
+  
+  // Cancel editing
+  const cancelEditing = () => {
+    setEditingEmail(null);
+    setEditedName('');
+  };
+  
+  // Save the edited name
+  const saveEditedName = async () => {
+    if (!editingEmail) return;
+    
+    try {
+      setLoading(true);
+      
+      const response = await fetch('/api/admin/update-user-name', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: editingEmail,
+          name: editedName.trim()
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to update name');
+      }
+      
+      const data = await response.json();
+      
+      // Update the local state
+      setMembers(prevMembers => 
+        prevMembers.map(member => 
+          member.email.toLowerCase() === editingEmail.toLowerCase()
+            ? { ...member, name: editedName.trim() }
+            : member
+        )
+      );
+      
+      toast.success(`Successfully updated name for ${editingEmail}`);
+      cancelEditing();
+    } catch (error) {
+      console.error('Error updating name:', error);
+      toast.error('Failed to update name');
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  // Handle pressing Enter or Escape in the name input
+  const handleNameInputKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      saveEditedName();
+    } else if (e.key === 'Escape') {
+      cancelEditing();
+    }
   };
   
   // Handle sorting
