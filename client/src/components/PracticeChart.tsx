@@ -419,7 +419,20 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                         : 'bg-gray-800 hover:bg-gray-700 border border-transparent'}`}
                     onClick={() => {
                       const index = chartData.findIndex(item => item.name === entry.name);
-                      setActiveIndex(activeIndex === index ? null : index);
+                      const newActiveIndex = activeIndex === index ? null : index;
+                      setActiveIndex(newActiveIndex);
+                      
+                      // Update the selected kasina type for practice log highlighting
+                      if (newActiveIndex !== null && chartMode !== 'overview') {
+                        // For detailed views, use the specific kasina type
+                        onSelectKasinaType(entry.kasinaType || null);
+                      } else if (newActiveIndex !== null && chartMode === 'overview') {
+                        // For overview, don't highlight anything in the practice log
+                        onSelectKasinaType(null);
+                      } else {
+                        // Clear selection when deselecting
+                        onSelectKasinaType(null);
+                      }
                     }}
                     style={{
                       cursor: 'pointer',
