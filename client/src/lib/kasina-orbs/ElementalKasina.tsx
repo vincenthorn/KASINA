@@ -66,8 +66,15 @@ const ElementalKasina = ({
         // Large outer radius for the toroid, plus some volume
         radius = 1.0 + Math.sin(phi * 4) * 0.15 + Math.random() * 0.3;
       } else if (type === "air") {
-        // Air particles are more dispersed
-        radius = 1 + Math.random() * 1.2;
+        // Air particles are more dispersed with layered distribution
+        // Create a mix of inner and outer particles for digital flow effect
+        if (i % 3 === 0) {
+          // Inner particles
+          radius = 0.7 + Math.random() * 0.8;
+        } else {
+          // Outer particles that appear to flow through the orb
+          radius = 1.4 + Math.random() * 1.0;
+        }
         theta = Math.random() * Math.PI * 2;
         phi = Math.random() * Math.PI;
       } else if (type === "fire") {
@@ -129,10 +136,10 @@ const ElementalKasina = ({
         };
       case "air":
         return { 
-          roughness: 0.6, 
-          metalness: 0.2, 
+          roughness: 0.3, 
+          metalness: 0.1, 
           transparent: true, 
-          opacity: 0.7 
+          opacity: 0.4  // Increased transparency
         };
       case "fire":
         return { 
@@ -238,8 +245,26 @@ const ElementalKasina = ({
         particlesRef.current.rotation.x = Math.sin(time * speed * 0.2) * 0.2;
         particlesRef.current.rotation.z = Math.sin(time * speed * 0.3) * 0.2;
       } else if (type === "air") {
-        // Make air particles swirl
+        // Enhanced digital air particle animation with swirling and flowing effects
         particlesRef.current.rotation.z = time * speed * 0.2;
+        particlesRef.current.rotation.x = Math.sin(time * speed * 0.15) * 0.3;
+        particlesRef.current.rotation.y = Math.cos(time * speed * 0.1) * 0.2;
+        
+        // Access and modify particle positions directly for flowing effect
+        if (particlesRef.current.geometry instanceof BufferGeometry) {
+          const positions = particlesRef.current.geometry.attributes.position;
+          if (positions) {
+            const array = positions.array as Float32Array;
+            for (let i = 0; i < array.length; i += 3) {
+              // Apply a subtle sine wave movement to create a flowing digital particle effect
+              const offset = i / 3 % 10; // Create varied timing
+              array[i] += Math.sin(time * 0.5 + offset) * 0.003;
+              array[i+1] += Math.cos(time * 0.3 + offset) * 0.003;
+              array[i+2] += Math.sin(time * 0.4 + offset) * 0.003;
+            }
+            positions.needsUpdate = true;
+          }
+        }
       } else if (type === "space") {
         // Make space particles rotate in galaxy-like pattern
         particlesRef.current.rotation.z = time * speed * 0.05;
@@ -320,11 +345,13 @@ const ElementalKasina = ({
         <points ref={particlesRef}>
           <primitive object={particles} />
           <pointsMaterial
-            size={type === "water" ? 0.03 : 0.05} // Smaller particles for water for smoother appearance
+            size={type === "water" ? 0.03 : type === "air" ? 0.08 : 0.05} // Larger particles for air for digital effect
             vertexColors
             transparent
-            opacity={type === "water" ? 0.6 : 0.8} // More transparency for water
+            opacity={type === "water" ? 0.6 : type === "air" ? 0.7 : 0.8} // Adjusted transparency
             depthWrite={false}
+            sizeAttenuation={true} // Makes particles appear larger when closer to camera
+            {...(type === "air" && { blending: THREE.AdditiveBlending })} // Additive blending for air particles for a glowing effect
           />
         </points>
       )}
