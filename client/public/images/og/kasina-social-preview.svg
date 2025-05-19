@@ -12,19 +12,15 @@
   <circle cx="600" cy="315" r="180" fill="url(#redGlow)" />
   <circle cx="600" cy="315" r="150" fill="#ff4d4d" opacity="0.8" />
   
-  <!-- White inner kasina with glow -->
+  <!-- White inner kasina with glow and no black center -->
   <circle cx="600" cy="315" r="120" fill="url(#whiteGlow)" />
   <circle cx="600" cy="315" r="90" fill="#FFFCE8" />
   
-  <!-- Center content container - solid dark circle with rim highlight -->
-  <circle cx="600" cy="315" r="72" fill="#121212" stroke="#333333" stroke-width="2" />
-  <circle cx="600" cy="315" r="70" fill="#121212" />
+  <!-- Logo Text with EXACT styling from the app in the center with dark text for contrast -->
+  <text x="600" y="310" font-family="Nunito, sans-serif" font-size="42" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#121212" style="text-transform: uppercase;">KASINA</text>
   
-  <!-- Logo Text with EXACT styling from the app in the center with improved contrast -->
-  <text x="600" y="310" font-family="Nunito, sans-serif" font-size="42" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#FFFFFF" style="text-transform: uppercase;">KASINA</text>
-  
-  <!-- Tagline in proper size with improved contrast -->
-  <text x="600" y="340" font-family="Inter, sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#FFFFFF">A Dynamic Meditation Object</text>
+  <!-- Tagline in proper size with dark text for contrast -->
+  <text x="600" y="340" font-family="Inter, sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#121212">A Dynamic Meditation Object</text>
   
   <!-- Gradient definitions for the orbs -->
   <defs>
