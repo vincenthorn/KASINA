@@ -141,7 +141,7 @@ const LoginPage: React.FC = () => {
             marginBottom: "20px",
             textAlign: "center",
             maxWidth: "512px", // Match login card width
-            margin: "50px auto 20px auto" // Added 50px top margin
+            margin: "150px auto 20px auto" // Increased to 150px top margin
           }}>
             Featuring:
           </p>
@@ -237,11 +237,11 @@ const LoginPage: React.FC = () => {
               color: "#9d64ff", /* Same purple shade as "Featuring" */
               fontSize: "20px", 
               fontWeight: "bold",
-              marginTop: "50px",
+              marginTop: "150px",
               marginBottom: "20px",
               textAlign: "center",
               maxWidth: "512px", // Match login card width
-              margin: "50px auto 20px auto" // Increased top margin to 50px
+              margin: "150px auto 20px auto" // Increased to 150px top margin
             }}>
               How to Access:
             </p>
