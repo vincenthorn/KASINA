@@ -51,26 +51,46 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
       return sortedSessions;
     }
 
-    // Check if this is a category filter (e.g., 'category:color')
+    // Check if this is a category filter (e.g., 'category:color' or 'category:color+white')
     if (selectedKasinaType.startsWith('category:')) {
-      const category = selectedKasinaType.split(':')[1];
-      
       // Define which kasina types belong to each category
       const colorKasinas = ['white', 'blue', 'red', 'yellow', 'custom'];
       const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
       const vajrayanaKasinas = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina', 'white_a_kasina', 'rainbow_kasina'];
       
-      // Filter sessions based on the selected category
+      // Parse the selection to check for compound format (category + specific type)
+      const parts = selectedKasinaType.substring(9).split('+'); // Remove 'category:' prefix and split
+      const category = parts[0]; // The first part is always the category
+      const specificType = parts.length > 1 ? parts[1] : null; // Check if there's a specific type
+      
+      // First filter by category
+      let categoryFilteredSessions;
       if (category === 'color') {
-        return sortedSessions.filter(session => colorKasinas.includes(session.kasinaType));
+        categoryFilteredSessions = sortedSessions.filter(session => colorKasinas.includes(session.kasinaType));
       } else if (category === 'elemental') {
-        return sortedSessions.filter(session => elementalKasinas.includes(session.kasinaType));
+        categoryFilteredSessions = sortedSessions.filter(session => elementalKasinas.includes(session.kasinaType));
       } else if (category === 'vajrayana') {
-        return sortedSessions.filter(session => vajrayanaKasinas.includes(session.kasinaType));
+        categoryFilteredSessions = sortedSessions.filter(session => vajrayanaKasinas.includes(session.kasinaType));
+      } else {
+        // Fallback to all sessions if category doesn't match
+        categoryFilteredSessions = sortedSessions;
       }
       
-      // Fallback to all sessions if category doesn't match
-      return sortedSessions;
+      // If we also have a specific type, prioritize that type within the category
+      if (specificType) {
+        const matchingSessions = categoryFilteredSessions.filter(
+          session => session.kasinaType === specificType
+        );
+        const nonMatchingSessions = categoryFilteredSessions.filter(
+          session => session.kasinaType !== specificType
+        );
+        
+        // Return matching sessions first, followed by other sessions from the same category
+        return [...matchingSessions, ...nonMatchingSessions];
+      }
+      
+      // If no specific type, just return the category-filtered sessions
+      return categoryFilteredSessions;
     }
 
     // For specific kasina type selection (not a category)

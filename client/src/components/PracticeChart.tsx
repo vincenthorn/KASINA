@@ -461,12 +461,19 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                         if (newActiveIndex !== null) {
                           // If we're selecting an item, find the kasinaType if it exists
                           const selectedItem = chartData[newActiveIndex];
-                          // Only use selectedItem.name as the kasina type if we're in a detailed view
-                          const kasinaType = selectedItem?.name || null;
-                          onSelectKasinaType(kasinaType);
+                          
+                          // For highlighting, we'll create a compound selection that includes both
+                          // the category and the specific kasina type
+                          const specificKasinaType = selectedItem?.name || null;
+                          
+                          // Create a compound selection string that maintains category context
+                          // "category:color+white" means "show color kasinas and highlight white"
+                          const compoundSelection = `category:${chartMode}+${specificKasinaType}`;
+                          
+                          onSelectKasinaType(compoundSelection);
                         } else {
-                          // Clear selection when deselecting
-                          onSelectKasinaType(null);
+                          // When deselecting, keep showing only the current category
+                          onSelectKasinaType(`category:${chartMode}`);
                         }
                       }
                     }}
