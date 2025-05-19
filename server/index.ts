@@ -36,6 +36,13 @@ app.use((req, res, next) => {
   const path = req.path;
   let capturedJsonResponse: Record<string, any> | undefined = undefined;
 
+  // Log ALL incoming requests for debugging Zapier
+  console.log(`📥 INCOMING REQUEST: ${req.method} ${path}`);
+  if (path.includes('zapier')) {
+    console.log(`📋 ZAPIER HEADERS: ${JSON.stringify(req.headers)}`);
+    console.log(`📋 ZAPIER BODY: ${JSON.stringify(req.body)}`);
+  }
+
   const originalResJson = res.json;
   res.json = function (bodyJson, ...args) {
     capturedJsonResponse = bodyJson;
@@ -44,7 +51,7 @@ app.use((req, res, next) => {
 
   res.on("finish", () => {
     const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
+    if (path.startsWith("/api") || path.includes('zapier')) {
       let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
