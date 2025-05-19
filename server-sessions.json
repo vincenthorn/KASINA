@@ -648,5 +648,13 @@
     "duration": 60,
     "timestamp": "2025-05-19T04:11:17.457Z",
     "userEmail": "user@kasina.app"
+  },
+  {
+    "id": "1747628476612",
+    "kasinaType": "air",
+    "kasinaName": "Air (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-19T04:21:16.612Z",
+    "userEmail": "premium@kasina.app"
   }
 ]
