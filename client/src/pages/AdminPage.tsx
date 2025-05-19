@@ -199,8 +199,33 @@ const AdminPage: React.FC = () => {
       // Use a local loading state just for the save button
       setSavingName(true);
       
-      // Use our dedicated API utility for updating user names
-      const data = await updateUserName(editingEmail, editedName.trim());
+      // Direct fetch approach with strict error handling
+      console.log(`Updating name for ${editingEmail} to "${editedName.trim()}"`);
+      
+      const response = await fetch('/api/admin/update-user-name', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Cache-Control': 'no-cache'
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          email: editingEmail,
+          name: editedName.trim()
+        })
+      });
+      
+      // Handle non-JSON responses gracefully
+      let data;
+      const responseText = await response.text();
+      
+      try {
+        data = JSON.parse(responseText);
+      } catch (e) {
+        console.error('Failed to parse response as JSON:', responseText);
+        throw new Error('Invalid server response format');
+      }
       
       if (!data.success) {
         console.error('Server returned error:', data);

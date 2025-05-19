@@ -1109,70 +1109,73 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   
   // Delete a user from the whitelist (admin only)
-  // Update user name endpoint with better error handling
-  app.put("/api/admin/update-user-name", async (req, res) => {
-    // First check if user is authenticated and is an admin
+  // Update user name endpoint - simplified and robust
+  app.put("/api/admin/update-user-name", (req, res) => {
+    // First check authentication
     if (!req.session.user || req.session.user.email !== "admin@kasina.app") {
-      console.log("Unauthorized access attempt to update-user-name:", req.session.user);
-      return res.status(401).json({ success: false, message: "Unauthorized access" });
+      return res.status(401).send(JSON.stringify({ 
+        success: false, 
+        message: "Unauthorized access" 
+      }));
     }
     
-    console.log("Received update-user-name request with body:", req.body);
+    // Set content type explicitly
+    res.setHeader('Content-Type', 'application/json');
     
     try {
       const { email, name } = req.body;
+      console.log("Processing name update:", { email, name });
       
       if (!email) {
-        return res.status(400).json({ success: false, message: "Email is required" });
+        return res.status(400).send(JSON.stringify({ 
+          success: false, 
+          message: "Email is required" 
+        }));
       }
       
       // Load existing name map
       const nameMapPath = path.join(process.cwd(), 'name-map.json');
       let nameMap: Record<string, string> = {};
       
-      try {
-        if (fs.existsSync(nameMapPath)) {
-          const nameMapContent = await fs.promises.readFile(nameMapPath, 'utf-8');
-          nameMap = JSON.parse(nameMapContent);
+      if (fs.existsSync(nameMapPath)) {
+        try {
+          const content = fs.readFileSync(nameMapPath, 'utf-8');
+          nameMap = JSON.parse(content);
+        } catch (e) {
+          console.error("Error reading name map:", e);
+          nameMap = {}; // Reset to empty if corrupted
         }
-        
-        // Update name or remove it if empty
-        const normalizedEmail = email.trim().toLowerCase();
-        if (name && name.trim()) {
-          nameMap[normalizedEmail] = name.trim();
-          console.log(`Updated name for ${normalizedEmail} to "${name.trim()}"`);
-        } else {
-          // If name is empty, remove from map
-          if (nameMap[normalizedEmail]) {
-            delete nameMap[normalizedEmail];
-            console.log(`Removed name entry for ${normalizedEmail}`);
-          }
-        }
-        
-        // Save updated name map
-        await fs.promises.writeFile(nameMapPath, JSON.stringify(nameMap, null, 2));
-        
-        return res.status(200).json({
-          success: true,
-          message: name && name.trim() 
-            ? `Successfully updated name for ${email}` 
-            : `Successfully removed name for ${email}`
-        });
-      } catch (fsError) {
-        console.error("File system error while updating name map:", fsError);
-        return res.status(500).json({
-          success: false,
-          message: "Error saving to name-map.json",
-          error: fsError instanceof Error ? fsError.message : "Unknown file system error"
-        });
       }
+      
+      // Update name
+      const normalizedEmail = email.trim().toLowerCase();
+      if (name && name.trim()) {
+        nameMap[normalizedEmail] = name.trim();
+        console.log(`Updated name for ${normalizedEmail} to "${name.trim()}"`);
+      } else if (nameMap[normalizedEmail]) {
+        delete nameMap[normalizedEmail];
+        console.log(`Removed name entry for ${normalizedEmail}`);
+      }
+      
+      // Save updated map
+      fs.writeFileSync(nameMapPath, JSON.stringify(nameMap, null, 2), 'utf-8');
+      
+      const successMessage = name && name.trim() 
+        ? `Successfully updated name for ${email}` 
+        : `Successfully removed name for ${email}`;
+      
+      console.log("Name update success:", successMessage);
+      return res.status(200).send(JSON.stringify({ 
+        success: true, 
+        message: successMessage 
+      }));
+      
     } catch (error) {
       console.error("Error updating user name:", error);
-      return res.status(500).json({
+      return res.status(500).send(JSON.stringify({
         success: false,
-        message: "Failed to update user name",
-        error: error instanceof Error ? error.message : "Unknown error"
-      });
+        message: "Failed to update user name"
+      }));
     }
   });
 
