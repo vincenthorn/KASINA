@@ -418,20 +418,41 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                         ? 'bg-gray-700 border border-gray-500 shadow-lg scale-110' 
                         : 'bg-gray-800 hover:bg-gray-700 border border-transparent'}`}
                     onClick={() => {
-                      const index = chartData.findIndex(item => item.name === entry.name);
-                      const newActiveIndex = activeIndex === index ? null : index;
-                      setActiveIndex(newActiveIndex);
-                      
-                      // Update the selected kasina type for practice log highlighting
-                      if (newActiveIndex !== null && chartMode !== 'overview') {
-                        // For detailed views, use the specific kasina type
-                        onSelectKasinaType(entry.kasinaType || null);
-                      } else if (newActiveIndex !== null && chartMode === 'overview') {
-                        // For overview, don't highlight anything in the practice log
-                        onSelectKasinaType(null);
+                      // Handle click based on the current mode and data
+                      if (chartMode === 'overview') {
+                        // In overview mode, clicking should navigate to the detailed category view
+                        // First check if this entry refers to a category (color, elemental, vajrayana)
+                        if (entry.name === 'color' || entry.name === 'elemental' || entry.name === 'vajrayana') {
+                          // Temporarily disable tooltips during transition
+                          setShowTooltips(false);
+                          // Switch to the detailed view for this category
+                          setChartMode(entry.name as ChartMode);
+                          // Reset active index for the new view
+                          setActiveIndex(null);
+                          // Clear any selected kasina type when switching views
+                          onSelectKasinaType(null);
+                          // Re-enable tooltips after a short delay
+                          setTimeout(() => {
+                            setShowTooltips(true);
+                          }, 500);
+                          return;
+                        }
                       } else {
-                        // Clear selection when deselecting
-                        onSelectKasinaType(null);
+                        // In detailed view, clicking should highlight the specific kasina type
+                        const index = chartData.findIndex(item => item.name === entry.name);
+                        const newActiveIndex = activeIndex === index ? null : index;
+                        setActiveIndex(newActiveIndex);
+                        
+                        if (newActiveIndex !== null) {
+                          // If we're selecting an item, find the kasinaType if it exists
+                          const selectedItem = chartData[newActiveIndex];
+                          // Only use selectedItem.name as the kasina type if we're in a detailed view
+                          const kasinaType = selectedItem?.name || null;
+                          onSelectKasinaType(kasinaType);
+                        } else {
+                          // Clear selection when deselecting
+                          onSelectKasinaType(null);
+                        }
                       }
                     }}
                     style={{
