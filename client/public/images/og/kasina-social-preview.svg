@@ -11,7 +11,7 @@
   <text x="600" y="450" font-family="'Nunito', sans-serif" font-size="120" font-weight="800" letter-spacing="12" text-anchor="middle" fill="#6366F1" style="text-transform: uppercase;">KASINA</text>
   
   <!-- Tagline -->
-  <text x="600" y="520" font-family="'Inter', sans-serif" font-size="42" font-weight="400" text-anchor="middle" fill="#FFFFFF">A Visual Meditation Tool</text>
+  <text x="600" y="520" font-family="'Inter', sans-serif" font-size="42" font-weight="400" text-anchor="middle" fill="#FFFFFF">A Dynamic Meditation Object</text>
   
   <!-- Gradient definitions -->
   <defs>
