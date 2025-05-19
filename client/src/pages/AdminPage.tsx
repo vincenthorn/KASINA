@@ -190,11 +190,14 @@ const AdminPage: React.FC = () => {
   };
   
   // Save the edited name
+  const [savingName, setSavingName] = useState<boolean>(false);
+  
   const saveEditedName = async () => {
-    if (!editingEmail) return;
+    if (!editingEmail || savingName) return;
     
     try {
-      setLoading(true);
+      // Use a local loading state just for the save button
+      setSavingName(true);
       
       const response = await fetch('/api/admin/update-user-name', {
         method: 'PUT',
@@ -207,11 +210,12 @@ const AdminPage: React.FC = () => {
         })
       });
       
-      if (!response.ok) {
-        throw new Error('Failed to update name');
-      }
-      
       const data = await response.json();
+      
+      if (!response.ok || !data.success) {
+        console.error('Server returned error:', data);
+        throw new Error(data.message || 'Failed to update name');
+      }
       
       // Update the local state
       setMembers(prevMembers => 
@@ -226,9 +230,9 @@ const AdminPage: React.FC = () => {
       cancelEditing();
     } catch (error) {
       console.error('Error updating name:', error);
-      toast.error('Failed to update name');
+      toast.error(error instanceof Error ? error.message : 'Failed to update name');
     } finally {
-      setLoading(false);
+      setSavingName(false);
     }
   };
   
@@ -735,10 +739,15 @@ const AdminPage: React.FC = () => {
                                   />
                                   <button
                                     onClick={saveEditedName}
-                                    className="p-1 hover:bg-green-900/40 rounded-md text-green-400"
+                                    disabled={savingName}
+                                    className="p-1 hover:bg-green-900/40 rounded-md text-green-400 disabled:opacity-50"
                                     title="Save"
                                   >
-                                    <Check className="h-4 w-4" />
+                                    {savingName ? (
+                                      <Loader2 className="h-4 w-4 animate-spin" />
+                                    ) : (
+                                      <Check className="h-4 w-4" />
+                                    )}
                                   </button>
                                   <button
                                     onClick={cancelEditing}
