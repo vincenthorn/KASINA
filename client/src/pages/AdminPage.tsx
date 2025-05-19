@@ -58,6 +58,32 @@ const AdminPage: React.FC = () => {
     fetchWhitelistData();
   }, []);
   
+  // Apply any stored name changes from localStorage when members data is loaded
+  useEffect(() => {
+    if (members.length > 0) {
+      try {
+        // Get stored name changes from localStorage
+        const storedNames = localStorage.getItem('kasina-name-map');
+        if (storedNames) {
+          const nameMap = JSON.parse(storedNames);
+          
+          // Apply stored names to member data
+          setMembers(prevMembers => 
+            prevMembers.map(member => {
+              const storedName = nameMap[member.email.toLowerCase()];
+              if (storedName) {
+                return { ...member, name: storedName };
+              }
+              return member;
+            })
+          );
+        }
+      } catch (error) {
+        console.error('Error loading stored names:', error);
+      }
+    }
+  }, [members.length]);
+  
   // Function to fetch whitelist data
   const fetchWhitelistData = async () => {
     setLoading(true);
@@ -189,7 +215,7 @@ const AdminPage: React.FC = () => {
     setEditedName('');
   };
   
-  // Handle name editing
+  // Handle name editing 
   const [savingName, setSavingName] = useState<boolean>(false);
 
   const saveEditedName = async () => {
@@ -198,6 +224,13 @@ const AdminPage: React.FC = () => {
     try {
       // Show loading state
       setSavingName(true);
+      
+      // Store in localStorage for persistence across page refreshes
+      const storedNames = localStorage.getItem('kasina-name-map');
+      const nameMap = storedNames ? JSON.parse(storedNames) : {};
+      nameMap[editingEmail.toLowerCase()] = editedName.trim();
+      localStorage.setItem('kasina-name-map', JSON.stringify(nameMap));
+      console.log('Saved name to localStorage:', editingEmail, editedName);
       
       // Update local state directly without server call
       setMembers(prevMembers => 
@@ -209,20 +242,10 @@ const AdminPage: React.FC = () => {
       );
       
       toast.success(`Name updated for ${editingEmail}`);
-    } catch (error) {
-      console.error('Error updating name:', error);
-      toast.error('Failed to update name');
-    } finally {
-      // Reset edit state
-      setEditingEmail('');
-      setSavingName(false);
-    }
-      
-      toast.success(`Successfully updated name for ${editingEmail}`);
       cancelEditing();
     } catch (error) {
       console.error('Error updating name:', error);
-      toast.error(error instanceof Error ? error.message : 'Failed to update name');
+      toast.error('Failed to update name');
     } finally {
       setSavingName(false);
     }
