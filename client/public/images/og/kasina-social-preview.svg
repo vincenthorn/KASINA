@@ -3,15 +3,15 @@
   <!-- Background with subtle gradient -->
   <rect width="1200" height="630" fill="#121212" />
   
-  <!-- Orb with glow effect -->
-  <circle cx="600" cy="250" r="140" fill="#6366F1" />
-  <circle cx="600" cy="250" r="200" fill="url(#orbGlow)" />
+  <!-- Orb with glow effect (smaller and positioned higher) -->
+  <circle cx="600" cy="200" r="100" fill="#6366F1" />
+  <circle cx="600" cy="200" r="150" fill="url(#orbGlow)" />
   
-  <!-- Logo Text -->
-  <text x="600" y="450" font-family="'Nunito', sans-serif" font-size="120" font-weight="800" letter-spacing="12" text-anchor="middle" fill="#6366F1" style="text-transform: uppercase;">KASINA</text>
+  <!-- Logo Text (larger and more prominent) -->
+  <text x="600" y="400" font-family="Nunito, sans-serif" font-size="140" font-weight="800" letter-spacing="15" text-anchor="middle" fill="#6366F1" style="text-transform: uppercase;">KASINA</text>
   
-  <!-- Tagline -->
-  <text x="600" y="520" font-family="'Inter', sans-serif" font-size="42" font-weight="400" text-anchor="middle" fill="#FFFFFF">A Dynamic Meditation Object</text>
+  <!-- Tagline (smaller) -->
+  <text x="600" y="480" font-family="Inter, sans-serif" font-size="30" font-weight="400" text-anchor="middle" fill="#FFFFFF">A Dynamic Meditation Object</text>
   
   <!-- Gradient definitions -->
   <defs>
