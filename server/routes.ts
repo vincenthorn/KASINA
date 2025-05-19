@@ -1671,6 +1671,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     }
     
+    // CRITICAL USER TRACKING FIX: Always ensure user email is included for accurate practice tracking
+    if (req.body._ensureUserTracking && !req.session.user.email) {
+      console.log("⚠️ CRITICAL USER TRACKING ERROR: No user email found for session tracking!");
+      return res.status(400).json({ 
+        message: "User email required for session tracking",
+        error: "missing_user_email" 
+      });
+    }
+    
     // Validate finalDuration is sensible
     if (isNaN(finalDuration) || finalDuration <= 0) {
       console.warn("Session too short or invalid duration - not saving");
@@ -1764,6 +1773,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Get minutes from request or default to 1 - FIXED to ensure actual duration is used
       const minutes = parseInt(req.body.minutes, 10) || 1;
+      
+      // Add extra validation to ensure user email is always available
+      if (!req.session.user.email) {
+        console.log("⚠️ WARNING: Missing user email in session - this should never happen!");
+        return res.status(400).json({ message: "User email required for session tracking" });
+      }
       
       // Format with proper pluralization
       const minuteText = minutes === 1 ? "minute" : "minutes";

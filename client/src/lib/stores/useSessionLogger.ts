@@ -80,7 +80,8 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
         body: JSON.stringify({ 
           kasinaType: kasinaTypeNormalized,
           minutes: minutes, // Add this to ensure accurate minute recording
-          userEmail: userEmail // Include user email in the request
+          userEmail: userEmail, // Include user email in the request
+          _ensureUserTracking: true // Flag to tell server this must have user tracking
         })
       });
       
