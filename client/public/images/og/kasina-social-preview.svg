@@ -3,24 +3,24 @@
   <!-- Background with blue color matching the outer kasina -->
   <rect width="1200" height="630" fill="#3399ff" />
   
-  <!-- Concentric Kasina Orbs: Blue (outer), Red (middle), White (inner) - 30% larger -->
+  <!-- Concentric Kasina Orbs: Blue (outer), Red (middle), White (inner) - 50% larger -->
   <!-- Blue outer kasina with glow -->
-  <circle cx="600" cy="315" r="325" fill="url(#blueGlow)" />
-  <circle cx="600" cy="315" r="286" fill="#3399ff" opacity="0.7" />
+  <circle cx="600" cy="315" r="487" fill="url(#blueGlow)" />
+  <circle cx="600" cy="315" r="429" fill="#3399ff" opacity="0.7" />
   
   <!-- Red middle kasina with glow -->
-  <circle cx="600" cy="315" r="234" fill="url(#redGlow)" />
-  <circle cx="600" cy="315" r="195" fill="#ff4d4d" opacity="0.8" />
+  <circle cx="600" cy="315" r="351" fill="url(#redGlow)" />
+  <circle cx="600" cy="315" r="292" fill="#ff4d4d" opacity="0.8" />
   
   <!-- White inner kasina with glow and no black center -->
-  <circle cx="600" cy="315" r="156" fill="url(#whiteGlow)" />
-  <circle cx="600" cy="315" r="117" fill="#FFFCE8" />
+  <circle cx="600" cy="315" r="234" fill="url(#whiteGlow)" />
+  <circle cx="600" cy="315" r="175" fill="#FFFCE8" />
   
-  <!-- Logo Text with EXACT styling from the app in the center with blue text -->
-  <text x="600" y="310" font-family="Nunito, sans-serif" font-size="42" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#3399ff" style="text-transform: uppercase;">KASINA</text>
+  <!-- Logo Text with EXACT styling from the app in the center with blue text - 50% larger -->
+  <text x="600" y="310" font-family="Nunito, sans-serif" font-size="63" font-weight="700" letter-spacing="2px" text-anchor="middle" fill="#3399ff" style="text-transform: uppercase;">KASINA</text>
   
-  <!-- Tagline in proper size with blue text -->
-  <text x="600" y="340" font-family="Inter, sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3399ff">A Dynamic Meditation Object</text>
+  <!-- Tagline in proper size with blue text - 50% larger -->
+  <text x="600" y="350" font-family="Inter, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#3399ff">A Dynamic Meditation Object</text>
   
   <!-- Gradient definitions for the orbs -->
   <defs>
