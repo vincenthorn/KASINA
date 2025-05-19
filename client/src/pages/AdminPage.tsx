@@ -199,37 +199,50 @@ const AdminPage: React.FC = () => {
       // Use a local loading state just for the save button
       setSavingName(true);
       
-      // Direct fetch approach with strict error handling
-      console.log(`Updating name for ${editingEmail} to "${editedName.trim()}"`);
-      
-      const response = await fetch('/api/admin/update-user-name', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Cache-Control': 'no-cache'
-        },
-        credentials: 'include',
-        body: JSON.stringify({
-          email: editingEmail,
-          name: editedName.trim()
-        })
-      });
-      
-      // Handle non-JSON responses gracefully
-      let data;
-      const responseText = await response.text();
+          // Try a much simpler approach with proper error handling
+      console.log("Saving name:", editingEmail, editedName.trim());
       
       try {
-        data = JSON.parse(responseText);
-      } catch (e) {
-        console.error('Failed to parse response as JSON:', responseText);
-        throw new Error('Invalid server response format');
-      }
-      
-      if (!data.success) {
-        console.error('Server returned error:', data);
-        throw new Error(data.message || 'Failed to update name');
+        // Using a different endpoint for better reliability
+        await new Promise<void>((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          
+          xhr.open('PUT', '/api/admin/update-name', true);
+          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.withCredentials = true;
+          
+          xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              try {
+                const response = JSON.parse(xhr.responseText);
+                if (!response.success) {
+                  reject(new Error(response.message || 'Operation failed'));
+                } else {
+                  resolve();
+                }
+              } catch (e) {
+                console.error('Response parsing error:', xhr.responseText);
+                reject(new Error('Invalid response format from server'));
+              }
+            } else {
+              reject(new Error(`Request failed with status ${xhr.status}`));
+            }
+          };
+          
+          xhr.onerror = function() {
+            reject(new Error('Network error occurred'));
+          };
+          
+          xhr.send(JSON.stringify({
+            email: editingEmail,
+            name: editedName.trim()
+          }));
+        });
+        
+        console.log('Name update successful');
+      } catch (error) {
+        console.error('Name update failed:', error);
+        throw error;
       }
       
       // Update the local state

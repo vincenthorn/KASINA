@@ -1109,8 +1109,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   
   // Delete a user from the whitelist (admin only)
-  // Update user name endpoint - fixed for correct JSON responses
-  app.put("/api/admin/update-user-name", (req, res) => {
+  // Create a separate route for name updates that uses simple approach
+  app.put("/api/admin/update-name", (req, res) => {
     // First check authentication
     if (!req.session.user || req.session.user.email !== "admin@kasina.app") {
       return res.json({ 
