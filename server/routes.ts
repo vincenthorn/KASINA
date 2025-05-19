@@ -1906,23 +1906,117 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Zapier Integration API for automated whitelist updates
-  app.post("/api/webhook/add-subscriber", async (req, res) => {
+  // Helper function for Zapier whitelist updates
+  async function addEmailToWhitelist(email: string, whitelistType: 'freemium' | 'premium') {
+    if (!email) {
+      throw new Error("Email is required");
+    }
+
+    // Normalize the email
+    const normalizedEmail = email.toLowerCase().trim();
+    
+    // Determine which whitelist file to update
+    const targetWhitelistPath = whitelistType === 'premium' 
+      ? premiumWhitelistPath 
+      : freemiumWhitelistPath;
+    
+    console.log(`📨 ZAPIER WEBHOOK: Adding ${normalizedEmail} to ${whitelistType} whitelist`);
+    
+    // Read the current whitelist
+    let currentEmails: string[] = [];
+    
+    try {
+      if (fs.existsSync(targetWhitelistPath)) {
+        const whitelistData = await fs.promises.readFile(targetWhitelistPath, 'utf-8');
+        
+        // Parse the CSV, skipping empty lines and comments
+        currentEmails = whitelistData
+          .split('\n')
+          .map(line => line.trim())
+          .filter(line => line && !line.startsWith('#') && line !== 'email');
+      }
+    } catch (err) {
+      console.warn(`Could not read existing ${whitelistType} whitelist, will create a new one`);
+    }
+    
+    // Check if email is already in the whitelist
+    if (currentEmails.includes(normalizedEmail)) {
+      console.log(`ℹ️ Email ${normalizedEmail} is already in the ${whitelistType} whitelist`);
+      return { 
+        success: true, 
+        message: `Email already exists in ${whitelistType} whitelist`,
+        alreadyExists: true,
+        count: currentEmails.length
+      };
+    }
+    
+    // Add the new email to the list
+    currentEmails.push(normalizedEmail);
+    
+    // Create the updated CSV content
+    const csvContent = [
+      "email",
+      ...currentEmails
+    ].join("\n");
+    
+    // Write the updated whitelist back to the file
+    await fs.promises.writeFile(targetWhitelistPath, csvContent, 'utf-8');
+    
+    // Also update the legacy whitelist for backward compatibility
+    // Read the current legacy whitelist
+    let legacyEmails: string[] = [];
+    try {
+      if (fs.existsSync(whitelistPath)) {
+        const legacyData = await fs.promises.readFile(whitelistPath, 'utf-8');
+        legacyEmails = legacyData
+          .split('\n')
+          .map(line => line.trim())
+          .filter(line => line && !line.startsWith('#') && line !== 'email');
+      }
+      
+      // Add the new email if it's not already in the legacy whitelist
+      if (!legacyEmails.includes(normalizedEmail)) {
+        legacyEmails.push(normalizedEmail);
+        
+        // Create the updated legacy whitelist content
+        const legacyContent = [
+          "email",
+          ...legacyEmails
+        ].join("\n");
+        
+        // Write the updated legacy whitelist
+        await fs.promises.writeFile(whitelistPath, legacyContent, 'utf-8');
+      }
+    } catch (err) {
+      console.warn("Could not update legacy whitelist file:", err);
+    }
+    
+    console.log(`✅ SUCCESS: Added ${normalizedEmail} to ${whitelistType} whitelist`);
+    console.log(`Updated ${whitelistType} whitelist now has ${currentEmails.length} emails`);
+    
+    return { 
+      success: true, 
+      message: `Successfully added ${normalizedEmail} to ${whitelistType} whitelist`,
+      count: currentEmails.length
+    };
+  }
+
+  // Zapier webhook for adding Freemium subscribers
+  app.post("/api/webhook/add-freemium-subscriber", async (req, res) => {
     try {
       // Security check - require API key for this endpoint
       const providedKey = req.headers['x-api-key'];
       
       // For security, in production you'd use an environment variable or secret store
-      // This is a basic validation - use a strong secret key in production
       const apiKey = process.env.ZAPIER_API_KEY || "kasina-zapier-integration-key";
       
       if (providedKey !== apiKey) {
-        console.log("❌ API KEY ERROR: Invalid API key provided");
+        console.log("❌ API KEY ERROR: Invalid API key provided for freemium webhook");
         return res.status(401).json({ success: false, message: "Invalid API key" });
       }
       
-      // Get email and subscription type from request
-      const { email, subscriptionType } = req.body;
+      // Get email from request
+      const { email } = req.body;
       
       // Validate required fields
       if (!email) {
@@ -1932,104 +2026,54 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // Normalize the email
-      const normalizedEmail = email.toLowerCase().trim();
+      // Add email to freemium whitelist
+      const result = await addEmailToWhitelist(email, 'freemium');
       
-      // Validate subscription type
-      const validTypes = ['freemium', 'premium'];
-      const userType = subscriptionType && validTypes.includes(subscriptionType.toLowerCase()) 
-        ? subscriptionType.toLowerCase() 
-        : 'freemium'; // Default to freemium
+      return res.status(200).json(result);
+    } catch (error) {
+      console.error("❌ ERROR in Zapier freemium webhook:", error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "Failed to update freemium whitelist",
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+  
+  // Zapier webhook for adding Premium subscribers
+  app.post("/api/webhook/add-premium-subscriber", async (req, res) => {
+    try {
+      // Security check - require API key for this endpoint
+      const providedKey = req.headers['x-api-key'];
       
-      // Determine which whitelist file to update
-      const targetWhitelistPath = userType === 'premium' 
-        ? premiumWhitelistPath 
-        : freemiumWhitelistPath;
+      // For security, in production you'd use an environment variable or secret store
+      const apiKey = process.env.ZAPIER_API_KEY || "kasina-zapier-integration-key";
       
-      console.log(`📨 ZAPIER WEBHOOK: Adding ${normalizedEmail} to ${userType} whitelist`);
-      
-      // Read the current whitelist
-      let currentEmails: string[] = [];
-      
-      try {
-        if (fs.existsSync(targetWhitelistPath)) {
-          const whitelistData = await fs.promises.readFile(targetWhitelistPath, 'utf-8');
-          
-          // Parse the CSV, skipping empty lines and comments
-          currentEmails = whitelistData
-            .split('\n')
-            .map(line => line.trim())
-            .filter(line => line && !line.startsWith('#') && line !== 'email');
-        }
-      } catch (err) {
-        console.warn(`Could not read existing ${userType} whitelist, will create a new one`);
+      if (providedKey !== apiKey) {
+        console.log("❌ API KEY ERROR: Invalid API key provided for premium webhook");
+        return res.status(401).json({ success: false, message: "Invalid API key" });
       }
       
-      // Check if email is already in the whitelist
-      if (currentEmails.includes(normalizedEmail)) {
-        console.log(`ℹ️ Email ${normalizedEmail} is already in the ${userType} whitelist`);
-        return res.status(200).json({ 
-          success: true, 
-          message: `Email already exists in ${userType} whitelist`,
-          alreadyExists: true
+      // Get email from request
+      const { email } = req.body;
+      
+      // Validate required fields
+      if (!email) {
+        return res.status(400).json({ 
+          success: false, 
+          message: "Email is required" 
         });
       }
       
-      // Add the new email to the list
-      currentEmails.push(normalizedEmail);
+      // Add email to premium whitelist
+      const result = await addEmailToWhitelist(email, 'premium');
       
-      // Create the updated CSV content
-      const csvContent = [
-        "email",
-        ...currentEmails
-      ].join("\n");
-      
-      // Write the updated whitelist back to the file
-      await fs.promises.writeFile(targetWhitelistPath, csvContent, 'utf-8');
-      
-      // Also update the legacy whitelist for backward compatibility
-      // Read the current legacy whitelist
-      let legacyEmails: string[] = [];
-      try {
-        if (fs.existsSync(whitelistPath)) {
-          const legacyData = await fs.promises.readFile(whitelistPath, 'utf-8');
-          legacyEmails = legacyData
-            .split('\n')
-            .map(line => line.trim())
-            .filter(line => line && !line.startsWith('#') && line !== 'email');
-        }
-        
-        // Add the new email if it's not already in the legacy whitelist
-        if (!legacyEmails.includes(normalizedEmail)) {
-          legacyEmails.push(normalizedEmail);
-          
-          // Create the updated legacy whitelist content
-          const legacyContent = [
-            "email",
-            ...legacyEmails
-          ].join("\n");
-          
-          // Write the updated legacy whitelist
-          await fs.promises.writeFile(whitelistPath, legacyContent, 'utf-8');
-        }
-      } catch (err) {
-        console.warn("Could not update legacy whitelist file:", err);
-      }
-      
-      console.log(`✅ SUCCESS: Added ${normalizedEmail} to ${userType} whitelist`);
-      console.log(`Updated ${userType} whitelist now has ${currentEmails.length} emails`);
-      
-      // Return success response
-      return res.status(200).json({ 
-        success: true, 
-        message: `Successfully added ${normalizedEmail} to ${userType} whitelist`,
-        count: currentEmails.length
-      });
+      return res.status(200).json(result);
     } catch (error) {
-      console.error("❌ ERROR in Zapier webhook:", error);
+      console.error("❌ ERROR in Zapier premium webhook:", error);
       return res.status(500).json({ 
         success: false, 
-        message: "Failed to update whitelist",
+        message: "Failed to update premium whitelist",
         error: error instanceof Error ? error.message : "Unknown error" 
       });
     }
