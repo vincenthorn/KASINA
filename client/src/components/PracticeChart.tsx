@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui/card";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from "recharts";
 import { useKasina } from "../lib/stores/useKasina";
@@ -100,6 +100,21 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
   // State for tracking active section and chart mode
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [chartMode, setChartMode] = useState<ChartMode>('overview');
+
+  // Notify parent component when chart mode changes
+  useEffect(() => {
+    // Update the parent component with chart mode changes
+    // We do this by selecting a special category marker that the ReflectionPage can use
+    if (chartMode === 'overview') {
+      onSelectKasinaType(null); // Clear selected kasina type in overview mode
+    } else if (chartMode === 'color') {
+      onSelectKasinaType('category:color');
+    } else if (chartMode === 'elemental') {
+      onSelectKasinaType('category:elemental');
+    } else if (chartMode === 'vajrayana') {
+      onSelectKasinaType('category:vajrayana');
+    }
+  }, [chartMode, onSelectKasinaType]);
 
   // Calculate total time spent for all sessions
   const totalTimeInSeconds = useMemo(() => {

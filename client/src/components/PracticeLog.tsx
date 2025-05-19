@@ -51,6 +51,29 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
       return sortedSessions;
     }
 
+    // Check if this is a category filter (e.g., 'category:color')
+    if (selectedKasinaType.startsWith('category:')) {
+      const category = selectedKasinaType.split(':')[1];
+      
+      // Define which kasina types belong to each category
+      const colorKasinas = ['white', 'blue', 'red', 'yellow', 'custom'];
+      const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
+      const vajrayanaKasinas = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina', 'white_a_kasina', 'rainbow_kasina'];
+      
+      // Filter sessions based on the selected category
+      if (category === 'color') {
+        return sortedSessions.filter(session => colorKasinas.includes(session.kasinaType));
+      } else if (category === 'elemental') {
+        return sortedSessions.filter(session => elementalKasinas.includes(session.kasinaType));
+      } else if (category === 'vajrayana') {
+        return sortedSessions.filter(session => vajrayanaKasinas.includes(session.kasinaType));
+      }
+      
+      // Fallback to all sessions if category doesn't match
+      return sortedSessions;
+    }
+
+    // For specific kasina type selection (not a category)
     // Split the sessions into matching and non-matching groups
     const matchingSessions = sortedSessions.filter(
       session => session.kasinaType === selectedKasinaType
