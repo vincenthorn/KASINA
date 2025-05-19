@@ -723,7 +723,43 @@ const AdminPage: React.FC = () => {
                         return (
                           <tr key={member.email} className="border-b border-indigo-900/20 hover:bg-indigo-900/10 transition-colors">
                             <td className="px-4 py-3">
-                              {member.name || "—"}
+                              {editingEmail === member.email ? (
+                                <div className="flex items-center gap-2">
+                                  <Input
+                                    ref={editInputRef}
+                                    value={editedName}
+                                    onChange={(e) => setEditedName(e.target.value)}
+                                    onKeyDown={handleNameInputKeyDown}
+                                    className="h-8 text-sm bg-gray-800 border-indigo-800 focus:border-indigo-600 w-48"
+                                    placeholder="Enter name"
+                                  />
+                                  <button
+                                    onClick={saveEditedName}
+                                    className="p-1 hover:bg-green-900/40 rounded-md text-green-400"
+                                    title="Save"
+                                  >
+                                    <Check className="h-4 w-4" />
+                                  </button>
+                                  <button
+                                    onClick={cancelEditing}
+                                    className="p-1 hover:bg-red-900/40 rounded-md text-red-400"
+                                    title="Cancel"
+                                  >
+                                    <X className="h-4 w-4" />
+                                  </button>
+                                </div>
+                              ) : (
+                                <div className="flex items-center justify-between group">
+                                  <span>{member.name || "—"}</span>
+                                  <button
+                                    onClick={() => startEditing(member.email, member.name)}
+                                    className="p-1 opacity-0 group-hover:opacity-100 hover:bg-indigo-900/40 rounded-md text-indigo-400 transition-opacity"
+                                    title="Edit name"
+                                  >
+                                    <Edit className="h-3.5 w-3.5" />
+                                  </button>
+                                </div>
+                              )}
                             </td>
                             <td className="px-4 py-3">
                               {member.email}
