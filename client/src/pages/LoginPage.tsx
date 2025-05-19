@@ -218,6 +218,51 @@ const LoginPage: React.FC = () => {
                 ✦ PREMIUM
               </span>
             </p>
+            
+            {/* "How to Access" section */}
+            <p style={{
+              color: "#9d64ff", /* Same purple shade as "Featuring" */
+              fontSize: "20px", 
+              fontWeight: "bold",
+              marginTop: "40px",
+              marginBottom: "20px",
+              textAlign: "center",
+              maxWidth: "512px", // Match login card width
+              margin: "40px auto 20px auto" // Center with top margin
+            }}>
+              How to Access
+            </p>
+            
+            <p style={listItemStyles}>
+              To access the KASINA app it's recommended you be on a Desktop Computer. If you need an account, go to <a href="https://www.contemplative.technology/subscribe" target="_blank" rel="noopener noreferrer" style={{ color: "#a78bfa", fontWeight: "bold", textDecoration: "underline" }}>contemplative.technology</a> and either sign-up for a free account, which will give you access to all of the <span style={{ 
+                color: "#4AA8D8", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "4px", 
+                marginRight: "4px",
+                backgroundColor: "rgba(74, 168, 216, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px",
+                display: "inline-block",
+                verticalAlign: "middle"
+              }}>
+                ✧ FREEMIUM
+              </span> app features, or sign-up for a paid account, which will give you access to all of the <span style={{ 
+                color: "#FFD700", 
+                fontSize: "12px", 
+                fontWeight: "bold", 
+                marginLeft: "4px", 
+                marginRight: "4px",
+                backgroundColor: "rgba(138, 43, 226, 0.2)", 
+                padding: "2px 6px", 
+                borderRadius: "4px",
+                display: "inline-block",
+                verticalAlign: "middle"
+              }}>
+                ✦ PREMIUM
+              </span> app features.
+            </p>
+            
             <div style={{ height: "70px" }} className="w-full"></div>
           </div>
         </div>
