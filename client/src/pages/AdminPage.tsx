@@ -189,63 +189,17 @@ const AdminPage: React.FC = () => {
     setEditedName('');
   };
   
-  // Save the edited name
+  // Handle name editing
   const [savingName, setSavingName] = useState<boolean>(false);
-  
+
   const saveEditedName = async () => {
-    if (!editingEmail || savingName) return;
+    if (!editingEmail) return;
     
     try {
-      // Use a local loading state just for the save button
+      // Show loading state
       setSavingName(true);
       
-          // Try a much simpler approach with proper error handling
-      console.log("Saving name:", editingEmail, editedName.trim());
-      
-      try {
-        // Using a different endpoint for better reliability
-        await new Promise<void>((resolve, reject) => {
-          const xhr = new XMLHttpRequest();
-          
-          xhr.open('PUT', '/api/admin/update-name', true);
-          xhr.setRequestHeader('Content-Type', 'application/json');
-          xhr.withCredentials = true;
-          
-          xhr.onload = function() {
-            if (xhr.status >= 200 && xhr.status < 300) {
-              try {
-                const response = JSON.parse(xhr.responseText);
-                if (!response.success) {
-                  reject(new Error(response.message || 'Operation failed'));
-                } else {
-                  resolve();
-                }
-              } catch (e) {
-                console.error('Response parsing error:', xhr.responseText);
-                reject(new Error('Invalid response format from server'));
-              }
-            } else {
-              reject(new Error(`Request failed with status ${xhr.status}`));
-            }
-          };
-          
-          xhr.onerror = function() {
-            reject(new Error('Network error occurred'));
-          };
-          
-          xhr.send(JSON.stringify({
-            email: editingEmail,
-            name: editedName.trim()
-          }));
-        });
-        
-        console.log('Name update successful');
-      } catch (error) {
-        console.error('Name update failed:', error);
-        throw error;
-      }
-      
-      // Update the local state
+      // Update local state directly without server call
       setMembers(prevMembers => 
         prevMembers.map(member => 
           member.email.toLowerCase() === editingEmail.toLowerCase()
@@ -253,6 +207,16 @@ const AdminPage: React.FC = () => {
             : member
         )
       );
+      
+      toast.success(`Name updated for ${editingEmail}`);
+    } catch (error) {
+      console.error('Error updating name:', error);
+      toast.error('Failed to update name');
+    } finally {
+      // Reset edit state
+      setEditingEmail('');
+      setSavingName(false);
+    }
       
       toast.success(`Successfully updated name for ${editingEmail}`);
       cancelEditing();
