@@ -22,6 +22,9 @@
   <!-- Tagline in proper size with blue text - 50% larger -->
   <text x="600" y="350" font-family="Inter, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#1a66cc">A Dynamic Meditation Object</text>
   
+  <!-- Website URL in bottom right corner -->
+  <text x="1150" y="600" font-family="Nunito, sans-serif" font-size="18" font-weight="300" text-anchor="end" fill="#000000">www.kasina.app</text>
+  
   <!-- Gradient definitions for the orbs -->
   <defs>
     <!-- White kasina glow -->
