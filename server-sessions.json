@@ -712,5 +712,13 @@
     "duration": 180,
     "timestamp": "2025-05-19T22:52:16.088Z",
     "userEmail": "vjhorn@gmail.com"
+  },
+  {
+    "id": "1747744948102",
+    "kasinaType": "fire",
+    "kasinaName": "Fire (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-20T12:42:28.102Z",
+    "userEmail": "user@kasina.app"
   }
 ]

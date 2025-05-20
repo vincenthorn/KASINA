@@ -385,12 +385,12 @@
 /* Air kasina animation - semi-transparent and swept by the air */
 .air-animation {
   animation: air-float 10s infinite ease-in-out;
-  box-shadow: 0 0 30px rgba(60, 180, 255, 0.7);
+  box-shadow: 0 0 30px rgba(60, 180, 255, 0.5); /* 30% more transparent (0.7 -> 0.5) */
   position: relative;
   overflow: hidden;
   border: none !important; /* Remove border to fix edge artifacts */
   backdrop-filter: blur(1px); /* Add subtle blur for airy effect */
-  background: linear-gradient(135deg, #a0d6f7 0%, #78c6ff 100%); /* Base blue gradient */
+  background: linear-gradient(135deg, rgba(160, 214, 247, 0.7) 0%, rgba(120, 198, 255, 0.7) 100%); /* 30% more transparent base gradient */
 }
 
 /* Add a second wind/mist layer to enhance the airy quality */
@@ -405,17 +405,17 @@
   background: 
     linear-gradient(
       135deg, 
-      rgba(255, 255, 255, 0.4) 0%, 
-      rgba(170, 220, 255, 0.2) 50%, 
-      rgba(120, 200, 255, 0.1) 100%
+      rgba(255, 255, 255, 0.28) 0%, /* 30% more transparent (0.4 -> 0.28) */
+      rgba(170, 220, 255, 0.14) 50%, /* 30% more transparent (0.2 -> 0.14) */
+      rgba(120, 200, 255, 0.07) 100% /* 30% more transparent (0.1 -> 0.07) */
     ),
     /* Wind streaks */
     repeating-linear-gradient(
       80deg,
       transparent,
       transparent 10px,
-      rgba(255, 255, 255, 0.06) 10px,
-      rgba(255, 255, 255, 0.06) 12px,
+      rgba(255, 255, 255, 0.042) 10px, /* 30% more transparent (0.06 -> 0.042) */
+      rgba(255, 255, 255, 0.042) 12px, /* 30% more transparent (0.06 -> 0.042) */
       transparent 12px,
       transparent 14px
     ),
@@ -423,10 +423,10 @@
       170deg,
       transparent,
       transparent 15px,
-      rgba(255, 255, 255, 0.04) 15px,
-      rgba(255, 255, 255, 0.04) 17px
+      rgba(255, 255, 255, 0.028) 15px, /* 30% more transparent (0.04 -> 0.028) */
+      rgba(255, 255, 255, 0.028) 17px /* 30% more transparent (0.04 -> 0.028) */
     );
-  opacity: 0.7;
+  opacity: 0.49; /* 30% more transparent (0.7 -> 0.49) */
   animation: air-mist 25s infinite linear;
   pointer-events: none;
 }
@@ -442,11 +442,11 @@
   background: 
     radial-gradient(
       circle, 
-      rgba(124, 195, 255, 0.7) 0%, 
-      rgba(160, 214, 247, 0.65) 50%, 
-      rgba(113, 175, 232, 0.5) 100%
+      rgba(124, 195, 255, 0.49) 0%, /* 30% more transparent (0.7 -> 0.49) */
+      rgba(160, 214, 247, 0.455) 50%, /* 30% more transparent (0.65 -> 0.455) */
+      rgba(113, 175, 232, 0.35) 100% /* 30% more transparent (0.5 -> 0.35) */
     );
-  opacity: 0.9;
+  opacity: 0.63; /* 30% more transparent (0.9 -> 0.63) */
   animation: air-swirl 15s infinite linear;
 }
 
