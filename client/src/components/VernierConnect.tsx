@@ -106,13 +106,38 @@ const VernierConnect = () => {
                 const dataView = new DataView(rawBytes.buffer);
                 
                 try {
-                  // Force reading starts at byte 3 (after header and dropped count)
-                  const forceReading = dataView.getFloat32(3, true); // little-endian
+                  // Let's print the ENTIRE data buffer to see what we're actually getting
+                  const dataArray = [];
+                  for (let i = 0; i < rawBytes.length; i++) {
+                    dataArray.push(rawBytes[i]);
+                  }
+                  console.log(`COMPLETE DATA PACKET: [${dataArray.join(', ')}]`);
                   
-                  if (!isNaN(forceReading)) {
-                    // Cap extremely high readings to prevent visualization issues
-                    const normalizedReading = Math.min(forceReading, 0.5);
-                    console.log(`Force reading: ${normalizedReading.toFixed(4)}N (original: ${forceReading.toFixed(4)}N)`);
+                  // The respiration belt may use a different data format than expected
+                  // Try a range of offset positions for the force reading
+                  let bestReading = 0;
+                  
+                  // Try each position for float32 data (typically 4 bytes)
+                  for (let offset = 0; offset < rawBytes.length - 3; offset++) {
+                    try {
+                      const testReading = dataView.getFloat32(offset, true); // little-endian
+                      // If we find a reasonable, non-zero value, use it
+                      if (!isNaN(testReading) && testReading > 0.01 && testReading < 10.0) {
+                        console.log(`Found possible force reading at offset ${offset}: ${testReading.toFixed(4)}N`);
+                        if (testReading > bestReading) {
+                          bestReading = testReading;
+                        }
+                      }
+                    } catch (e) {
+                      // Skip errors
+                    }
+                  }
+                  
+                  // If we found a usable reading anywhere in the packet
+                  if (bestReading > 0) {
+                    // Use a reasonable force reading with cap for visualization
+                    const normalizedReading = Math.min(bestReading, 0.5);
+                    console.log(`Using force reading: ${normalizedReading.toFixed(4)}N (original: ${bestReading.toFixed(4)}N)`);
                     
                     // Store the normalized force reading for visualization
                     localStorage.setItem('latestBreathReading', normalizedReading.toString());
@@ -122,10 +147,44 @@ const VernierConnect = () => {
                     const prevReading = parseFloat(localStorage.getItem('prevBreathReading') || '0');
                     if (normalizedReading > prevReading) {
                       localStorage.setItem('breathPhase', 'inhale');
+                      // Add debug info about breath pattern
+                      console.log(`BREATH PATTERN: INHALING (${prevReading.toFixed(3)} → ${normalizedReading.toFixed(3)})`);
                     } else {
                       localStorage.setItem('breathPhase', 'exhale');
+                      console.log(`BREATH PATTERN: EXHALING (${prevReading.toFixed(3)} → ${normalizedReading.toFixed(3)})`);
                     }
                     localStorage.setItem('prevBreathReading', normalizedReading.toString());
+                    
+                    // Calculate breathing rate based on time between breath phase changes
+                    const lastPhaseChange = parseInt(localStorage.getItem('lastPhaseChangeTime') || '0');
+                    const currentTime = Date.now();
+                    const currentPhase = localStorage.getItem('breathPhase');
+                    const lastPhase = localStorage.getItem('lastPhase') || '';
+                    
+                    // If we detect a phase change (inhale to exhale or vice versa)
+                    if (currentPhase !== lastPhase) {
+                      // Store this phase 
+                      localStorage.setItem('lastPhase', currentPhase || '');
+                      
+                      if (lastPhaseChange > 0) {
+                        // Measure time between phase changes
+                        const timeDiff = currentTime - lastPhaseChange; // ms
+                        
+                        // A full breath cycle is inhale + exhale (two phase changes)
+                        // Convert to breaths per minute (60000ms in a minute)
+                        // 2 phase changes = 1 full breath
+                        const breathRate = 60000 / (timeDiff * 2);
+                        
+                        // Only use reasonable rates (4-30 breaths per minute)
+                        if (breathRate >= 4 && breathRate <= 30) {
+                          console.log(`BREATH RATE: ${breathRate.toFixed(1)} breaths/min`);
+                          localStorage.setItem('breathingRate', breathRate.toString());
+                        }
+                      }
+                      
+                      // Record time of this phase change
+                      localStorage.setItem('lastPhaseChangeTime', currentTime.toString());
+                    }
                   }
                 } catch (e) {
                   console.error('Error parsing force reading:', e);
@@ -219,45 +278,51 @@ const VernierConnect = () => {
         localStorage.setItem('breathDeviceConnected', 'false');
       });
       
-      // Initialize the device using Vernier's documented protocol
+      // Initialize the device using Vernier's documented protocol with optimizations
       console.log('Initializing Vernier Go Direct Respiration Belt...');
       
-      // According to Vernier Go Direct BLE protocol in https://www.vernier.com/til/19229
-      // Following the exact sequence from official documentation
+      // Reset any existing device state first - necessary for reliability
+      await commandChar.writeValue(new Uint8Array([0x00])); // Reset command
+      await new Promise(resolve => setTimeout(resolve, 300));
       
       // Step 1: Get device info (command 0x55)
       console.log('Step 1: Getting device info...');
       await commandChar.writeValue(new Uint8Array([0x55]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 300));
       
       // Step 2: Get sensor list (command 0x56)
       console.log('Step 2: Getting sensor list...');
       await commandChar.writeValue(new Uint8Array([0x56]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 300));
       
       // Step 3: Get detailed info for sensor 1 (command 0x50, sensor number 0x01)
       // For respiration belt, channel 1 is the Force channel
       console.log('Step 3: Getting sensor info for Force sensor (channel 1)...');
       await commandChar.writeValue(new Uint8Array([0x50, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Step 4: Enable the Force sensor (channel 1)
-      // Command 0x11, sensor number 0x01, enabled 0x01
-      console.log('Step 4: Enabling Force sensor (channel 1)...');
-      await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // The Respiration Belt has multiple channels - try enabling them all
+      // This ensures we get all available data from the device
+      console.log('Step 4: Enabling all possible sensor channels...');
       
-      // Step 5: Set measurement period to 100ms (0x64) for 10Hz sampling
-      // Command 0x12, period low byte 0x64, period high byte 0x00
-      console.log('Step 5: Setting measurement period to 100ms (10Hz)...');
-      await commandChar.writeValue(new Uint8Array([0x12, 0x64, 0x00]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Force channel (most important)
+      await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01])); 
+      await new Promise(resolve => setTimeout(resolve, 200));
       
-      // Step 6: Start measurements
-      // Command 0x18, sensor mask 0x01 (channel 1)
-      console.log('Step 6: Starting measurements on Force sensor...');
-      await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Try additional channels that might be on the respiration belt
+      // Channel 2 (sometimes used for derivative values like breathing rate)
+      await commandChar.writeValue(new Uint8Array([0x11, 0x02, 0x01]));
+      await new Promise(resolve => setTimeout(resolve, 200));
+      
+      // Set fast sampling rate (50ms = 20Hz) for more responsive readings
+      console.log('Step 5: Setting faster sampling rate (20Hz)...');
+      await commandChar.writeValue(new Uint8Array([0x12, 0x32, 0x00])); // 0x32 = 50ms
+      await new Promise(resolve => setTimeout(resolve, 300));
+      
+      // Start measurements on all channels (mask 0x03 = channels 1 and 2)
+      console.log('Step 6: Starting measurements on ALL sensors...');
+      await commandChar.writeValue(new Uint8Array([0x18, 0x03])); 
+      await new Promise(resolve => setTimeout(resolve, 300));
       
       // According to the official Vernier protocol, once we've started measurements
       // with command 0x18, the device will automatically start streaming data
