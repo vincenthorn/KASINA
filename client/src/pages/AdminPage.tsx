@@ -202,11 +202,22 @@ const AdminPage: React.FC = () => {
       ).length
     : members.length;
     
+  // List of permanent premium users to exclude from the premium count
+  const permanentPremiumUsers = [
+    "permanent.premium@kasina.app",
+    "founder@kasina.app",
+    "earlyaccess@kasina.app"
+  ];
+  
   // Get counts for each user type
   const userCounts = {
     freemium: members.filter(member => member.status.toLowerCase() === 'freemium').length,
-    premium: members.filter(member => member.status.toLowerCase() === 'premium').length,
-    admin: members.filter(member => member.status.toLowerCase() === 'admin').length
+    premium: members.filter(member => 
+      member.status.toLowerCase() === 'premium' && 
+      !permanentPremiumUsers.includes(member.email.toLowerCase())
+    ).length,
+    admin: members.filter(member => member.status.toLowerCase() === 'admin').length,
+    totalPremium: members.filter(member => member.status.toLowerCase() === 'premium').length // For reference
   };
   
   // Refresh the whitelist data
@@ -455,12 +466,15 @@ const AdminPage: React.FC = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1">
               <Users className="h-5 w-5 text-amber-300" />
-              <h2 className="text-lg font-bold text-white">Premium Users</h2>
+              <h2 className="text-lg font-bold text-white">Premium Subscribers</h2>
             </div>
             <div className="flex items-center gap-2">
               <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-yellow-200">
                 {userCounts.premium}
               </div>
+            </div>
+            <div className="text-xs text-amber-200/70 mt-1">
+              (excludes permanent members)
             </div>
           </div>
         </div>
