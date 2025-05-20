@@ -280,7 +280,7 @@ const TimerFreestyle: React.FC = () => {
           {/* Right column - Kasina Orb */}
           <div className="flex-1 relative flex items-center justify-center rounded-lg" 
                style={{ minHeight: '400px' }}>
-            <div className="w-full h-full" style={{ minHeight: '400px' }}>
+            <div className={`w-full h-full ${selectedKasina === KASINA_TYPES.AIR ? 'air-kasina-container' : ''}`} style={{ minHeight: '400px' }}>
               <KasinaOrb 
                 type={typedKasina} 
                 remainingTime={timeRemaining} 
