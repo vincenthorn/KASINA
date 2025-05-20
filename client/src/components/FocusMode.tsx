@@ -250,7 +250,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         >
           {/* Controls group - visible on mouse movement (Exit and Fullscreen buttons) */}
           <div 
-            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'} flex gap-2`}
+            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'} flex gap-2`}
           >
             {/* Fullscreen toggle button */}
             <Button 
@@ -272,41 +272,12 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               <span className="sr-only">{isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}</span>
             </Button>
             
-            {/* Exit button */}
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={(e) => {
-                // Don't treat this as normal mouse movement
-                e.stopPropagation();
-                
-                if (timerState.isRunning) {
-                  // If timer is running, end the session completely
-                  handleEndSession();
-                } else {
-                  // If no timer, just exit focus mode
-                  disableFocusMode();
-                }
-              }}
-              className={`${timerState.isRunning ? 'border-red-700 text-red-300 hover:bg-red-950' : 'border-gray-700 text-gray-300 hover:bg-gray-900'}`}
-            >
-              {timerState.isRunning ? (
-                <>
-                  <X className="h-4 w-4 mr-1" />
-                  Exit Session
-                </>
-              ) : (
-                <>
-                  <Minimize2 className="h-4 w-4 mr-1" />
-                  Exit Focus Mode
-                </>
-              )}
-            </Button>
+            {/* Removed Exit button - only use ESC key to exit */}
           </div>
           
           {/* Zoom controls - visible on mouse movement */}
           <div 
-            className={`fixed top-4 left-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`fixed top-4 left-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}
           >
             <div className="bg-black/50 text-white text-sm px-3 py-1 rounded-md border border-gray-800 flex items-center gap-2">
               <button 
@@ -382,7 +353,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           
           {/* Timer display - visible on mouse movement */}
           <div 
-            className={`fixed top-16 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`fixed top-16 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}
           >
             {/* Only show timer when it's running */}
             {timerState.isRunning && (
@@ -399,7 +370,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           
           {/* Timer controls - visible on mouse movement */}
           <div 
-            className={`fixed bottom-8 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`fixed bottom-8 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}
           >
             {React.Children.map(children, (child) => {
               if (React.isValidElement(child)) {
