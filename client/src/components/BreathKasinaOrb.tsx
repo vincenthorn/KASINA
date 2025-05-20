@@ -40,12 +40,21 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       switch (effectType) {
         case 'expand-contract': {
           // Calculate target scale based on breath amplitude and intensity
-          const baseScale = 0.7; // Smaller base size to allow for more dramatic expansion
-          const maxExpansion = 1.6; // Dramatically increased expansion range for very noticeable effect
-          const targetScale = baseScale + (maxExpansion * breathAmplitude * intensity);
+          const baseScale = 0.6; // Even smaller base size for maximum contrast
+          const maxExpansion = 2.5; // Extreme expansion range for unmistakable visual effect
           
-          // Much faster interpolation for immediate visual response
-          setScale(prev => prev + (targetScale - prev) * 0.4);
+          // Calculate scale with custom emphasis on the amplitude
+          // Apply an exponent to create more dramatic expansion
+          const emphasisFactor = Math.pow(breathAmplitude, 0.7); // Make changes more visible
+          const targetScale = baseScale + (maxExpansion * emphasisFactor * intensity);
+          
+          // Very fast interpolation for immediate visual feedback
+          setScale(prev => prev + (targetScale - prev) * 0.7); // Higher value = faster response
+          
+          // Log out the current scale for debugging
+          if (Date.now() % 1000 < 50) {
+            console.log(`Orb scale: ${targetScale.toFixed(2)}, Breath amplitude: ${breathAmplitude.toFixed(2)}`);
+          }
           break;
         }
           
@@ -54,10 +63,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         case 'color-shift':
         default: {
           // Default to expand-contract for now
-          const baseScale = 0.7; // Smaller base size to match expand-contract
-          const maxExpansion = 1.6; // Match the dramatically increased expansion range
-          const defaultScale = baseScale + (maxExpansion * breathAmplitude * intensity);
-          setScale(prev => prev + (defaultScale - prev) * 0.4); // Faster response
+          const baseScale = 0.6; // Smaller base size for maximum contrast
+          const maxExpansion = 2.5; // Extreme expansion range for unmistakable visual effect
+          
+          // Calculate scale with custom emphasis on the amplitude
+          const emphasisFactor = Math.pow(breathAmplitude, 0.7); // Make changes more visible
+          const defaultScale = baseScale + (maxExpansion * emphasisFactor * intensity);
+          
+          // Very fast interpolation for immediate visual feedback
+          setScale(prev => prev + (defaultScale - prev) * 0.7); // Higher value = faster response
         }
           break;
       }

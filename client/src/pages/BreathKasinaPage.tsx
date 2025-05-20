@@ -16,34 +16,39 @@ interface BreathData {
   normalizedValue: number;
 }
 
-// Mock simulation of breath data for testing
+// Mock simulation of breath data that's visually obvious for testing
 const simulateBreathData = (): { breathData: BreathData, rawValue: number } => {
   const now = Date.now();
   
-  // Simulate breathing with a sine wave (period of about 5 seconds per breath)
-  // This creates a more pronounced breathing cycle (10 seconds total per breath cycle)
-  const breathCycleSeconds = 5; // seconds per inhale or exhale
+  // Create a much more obvious breathing pattern with very slow cycles
+  // This creates a 7-second total cycle (inhale 3.5 sec, exhale 3.5 sec)
+  const breathCycleSeconds = 3.5;
   const millisPerCycle = breathCycleSeconds * 1000;
   
-  // Create more pronounced peaks and valleys by using Math.pow
+  // Generate a sine wave based on the current time
   const rawValue = Math.sin((now % (millisPerCycle * 2)) / millisPerCycle * Math.PI);
   
-  // Apply some non-linearity to make the breathing pattern more natural
-  // This creates sharper peaks (inhales) and more gradual valleys (exhales)
-  const shapedValue = Math.sign(rawValue) * Math.pow(Math.abs(rawValue), 0.8);
+  // Create very exaggerated peaks and valleys with a power function
+  // This makes the transitions between inhale and exhale more obvious
+  const shapedValue = Math.sign(rawValue) * Math.pow(Math.abs(rawValue), 0.6);
   
-  // Normalize to 0-1 range for visualization
+  // Normalize to 0-1 range for visualization, using a wider range for more obvious effect
   const normalizedValue = (shapedValue + 1) / 2;
   
-  // Generate a realistic sensor value in Newtons (typical range for respiration belt: 0-20 N)
-  // Base value of 5N when relaxed, up to 18N at peak inhalation
-  const baseForce = 5; // Base force in Newtons at rest
-  const maxForce = 18;  // Maximum force in Newtons at peak inhalation
+  // Generate a very obvious sensor value in Newtons with larger range
+  // Making the swing in values much more dramatic for visibility
+  const baseForce = 4; // Lower minimum force when exhaling
+  const maxForce = 20; // Higher maximum force when inhaling
   const sensorForce = baseForce + normalizedValue * (maxForce - baseForce);
   
-  // Add some realistic noise to the sensor value (±0.2N)
-  const noise = (Math.random() - 0.5) * 0.4;
-  const sensorValueWithNoise = sensorForce + noise;
+  // Add minimal noise to keep the visualization clean and readable
+  const minimalNoise = (Math.random() - 0.5) * 0.2;
+  const sensorValueWithNoise = sensorForce + minimalNoise;
+  
+  // Console log for debugging - helps see the values changing
+  if (now % 500 < 50) { // Log every 500ms to avoid console spam
+    console.log(`Breath value: ${normalizedValue.toFixed(2)}, Force: ${sensorValueWithNoise.toFixed(2)}N`);
+  }
   
   return {
     breathData: {
