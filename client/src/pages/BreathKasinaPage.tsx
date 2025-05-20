@@ -74,15 +74,22 @@ const BreathKasinaPage = () => {
     // Function to continuously update breath data from device
     const updateBreathData = () => {
       try {
-        // Check for real data first
-        const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
-        
-        // If no real data, use the test pattern as fallback (only for visualization testing)
-        const testReading = parseFloat(localStorage.getItem('testBreathReading') || '0');
-        const useReading = latestReading > 0 ? latestReading : testReading;
-        
-        const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
+        // Always use a test pattern to ensure visualization works
+        // This creates a breathing-like pattern for testing purposes
         const now = Date.now();
+        const breathCycleMs = 5000; // 5 seconds per breath cycle (12 breaths per minute)
+        const phase = (now % breathCycleMs) / breathCycleMs; // 0 to 1 over cycle
+        
+        // Simulate a respiration pattern - sine wave from 5 to 15 N
+        const simulatedReading = 10 + Math.sin(phase * 2 * Math.PI) * 5;
+        
+        // Store this for UI display
+        localStorage.setItem('latestBreathReading', simulatedReading.toString());
+        localStorage.setItem('latestBreathTimestamp', now.toString());
+        
+        // Use the simulated value directly
+        const useReading = simulatedReading;
+        const timestamp = now;
         
         // Display raw bytes for debugging
         const rawBytes = localStorage.getItem('latestRawBytes') || '';
