@@ -250,7 +250,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         >
           {/* Controls group - visible on mouse movement (Exit and Fullscreen buttons) */}
           <div 
-            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0'} flex gap-2`}
+            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'} flex gap-2`}
           >
             {/* Fullscreen toggle button */}
             <Button 
