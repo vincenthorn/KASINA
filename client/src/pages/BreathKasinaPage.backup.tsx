@@ -9,6 +9,7 @@ import { Maximize, Wind, Activity } from 'lucide-react';
 import FocusMode from '@/components/FocusMode';
 import BreathKasinaOrb from '@/components/BreathKasinaOrb';
 import { useFocusMode } from '@/lib/stores/useFocusMode';
+// Remove any unused imports
 
 interface BreathData {
   timestamp: number;
@@ -46,6 +47,9 @@ const BreathKasinaPage = () => {
       setIsUsingRealData(true);
       console.log('Using real device data from:', deviceName || 'Unknown device');
       
+      // In a production app, we would need to reconnect to the device here
+      // We would use the device ID stored in localStorage to reconnect
+      
       // For now, we'll just mark as connected immediately
       setIsConnected(true);
     } else {
@@ -61,7 +65,7 @@ const BreathKasinaPage = () => {
     }
   }, []);
 
-  // Breath data stream management - use hardware data
+  // Breath data stream management - only using real hardware data
   useEffect(() => {
     if (!isConnected) return;
     
@@ -78,7 +82,7 @@ const BreathKasinaPage = () => {
         const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
         const dataAge = now - timestamp;
         
-        // Default to no movement when there's no data
+        // Static amplitude when there's no data
         let amplitude = 0.5; // Default value
         
         // Only use real data from the belt
@@ -91,6 +95,7 @@ const BreathKasinaPage = () => {
             amplitude = 0.3 + (amplitude * 7); // Boost small readings
           }
           
+          // Update the breath amplitude display
           setBreathData({
             timestamp: now,
             amplitude: amplitude,
@@ -117,7 +122,7 @@ const BreathKasinaPage = () => {
       animationFrameRef.current = requestAnimationFrame(updateBreathData);
     };
     
-    // Start the update loop
+    // Start polling for device data
     animationFrameRef.current = requestAnimationFrame(updateBreathData);
     
     // Cleanup function
@@ -125,6 +130,103 @@ const BreathKasinaPage = () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
+    };
+  }, [isConnected]);
+          // Convert the force reading (Newtons) to a normalized value (0-1)
+          // Typical respiration belt readings range from 0-20 Newtons
+          const minForce = 4;   // minimum baseline force (relaxed)
+          const maxForce = 22;  // maximum force (deep breath)
+          
+          // Normalize the value between 0-1 for animation
+          let normalizedValue = Math.min(1, Math.max(0, 
+            (useReading - minForce) / (maxForce - minForce)
+          ));
+          
+          // Create a new data point
+          const newBreathData = {
+            timestamp: now,
+            amplitude: normalizedValue,
+            normalizedValue: normalizedValue
+          };
+          
+          // Update UI state with the real data
+          setBreathData(newBreathData);
+          setRawSensorValue(useReading);
+          
+          // Calculate breathing rate when we detect a breath cycle
+          const previousData = breathData;
+          if (previousData) {
+            // Detect inhalation cycle transitions for breathing rate
+            if (previousData.normalizedValue < 0.3 && normalizedValue > 0.7) {
+              // Detected start of inhale
+              setBreathCycles(prev => {
+                // Keep only the last 5 cycles for rate calculation
+                const newCycles = [...prev, { timestamp: now, isInhale: true }].slice(-10);
+                
+                // Calculate breathing rate if we have enough cycles
+                if (newCycles.length >= 4) {
+                  const timeSpan = (newCycles[newCycles.length - 1].timestamp - newCycles[0].timestamp) / 1000; // in seconds
+                  const cycles = newCycles.length - 1;
+                  const rate = (cycles / timeSpan) * 60; // breaths per minute
+                  setBreathingRate(Math.round(rate * 10) / 10); // round to 1 decimal place
+                }
+                
+                return newCycles;
+              });
+            }
+          }
+          
+          // Log data (less frequently to avoid console spam)
+          if (now % 1000 < 50) {
+            console.log(`Breath data: ${normalizedValue.toFixed(2)}, Force: ${useReading.toFixed(2)}N`);
+          }
+        } else {
+          // No data available - keep display static
+          // If we have no breath data at all, initialize with a default
+          if (!breathData) {
+            const staticData = {
+              timestamp: now,
+              amplitude: 0.5,
+              normalizedValue: 0.5
+            };
+            setBreathData(staticData);
+            setRawSensorValue(0);
+          }
+          
+          // Log only occasionally to reduce spam
+          if (now % 3000 < 50) {
+            console.log('Waiting for device data from Vernier Go Direct Respiration Belt...');
+          }
+        }
+      } catch (error) {
+        console.error('Error processing device data:', error);
+      }
+      
+      // Continue polling for device data
+      animationFrameRef.current = requestAnimationFrame(updateBreathData);
+    };
+
+    // Start polling for device data immediately
+    animationFrameRef.current = requestAnimationFrame(updateBreathData);
+
+    // Also set up a periodic forced refresh from localStorage
+    const refreshInterval = setInterval(() => {
+      try {
+        const reading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+        if (!isNaN(reading)) {
+          setRawSensorValue(reading);
+        }
+      } catch (e) {
+        console.error('Error in force refresh:', e);
+      }
+    }, 500); // Check every 500ms
+
+    // Cleanup function
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+      clearInterval(refreshInterval);
     };
   }, [isConnected]);
 
@@ -162,7 +264,7 @@ const BreathKasinaPage = () => {
                 )}
                 {rawSensorValue !== null && (
                   <span className="ml-4 px-3 py-1 bg-gray-800 rounded-full text-white font-mono text-sm">
-                    {rawSensorValue.toFixed(2)} N
+                    {rawSensorValue} N
                   </span>
                 )}
               </div>
