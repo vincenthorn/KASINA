@@ -326,8 +326,61 @@ const BreathKasinaPage = () => {
                       localStorage.setItem('breathTestMode', useSimulation ? 'still' : 'simulate');
                     }}
                   >
-                    {useSimulation ? "Switch to Still Mode" : "Test with Animation"}
+                    {useSimulation ? "Disable Animation" : "Enable Breath Animation"}
                   </Button>
+                </div>
+              </div>
+              
+              {/* Testing tools for development */}
+              <div className="flex justify-center mb-6">
+                <div className="flex flex-col gap-2 items-center">
+                  <p className="text-xs text-gray-400">Development Testing Tools</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="text-xs bg-green-600 text-white hover:bg-green-700 border-green-600"
+                      onClick={() => {
+                        // Simulate inhale data
+                        localStorage.setItem('latestBreathReading', '18.5');
+                        localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                        localStorage.setItem('breathDataSource', 'real');
+                        setIsUsingRealData(true);
+                      }}
+                    >
+                      Simulate Inhale
+                    </Button>
+                    
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="text-xs bg-blue-600 text-white hover:bg-blue-700 border-blue-600"
+                      onClick={() => {
+                        // Simulate exhale data
+                        localStorage.setItem('latestBreathReading', '6.5');
+                        localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                        localStorage.setItem('breathDataSource', 'real');
+                        setIsUsingRealData(true);
+                      }}
+                    >
+                      Simulate Exhale
+                    </Button>
+                    
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="text-xs bg-yellow-600 text-white hover:bg-yellow-700 border-yellow-600"
+                      onClick={() => {
+                        // Reset to still mode (no animation)
+                        setUseSimulation(false);
+                        localStorage.setItem('breathDataSource', 'simulation');
+                        localStorage.setItem('breathTestMode', 'still');
+                        setIsUsingRealData(false);
+                      }}
+                    >
+                      Reset to Still
+                    </Button>
+                  </div>
                 </div>
               </div>
             </>
