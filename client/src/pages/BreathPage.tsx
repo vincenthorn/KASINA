@@ -171,7 +171,7 @@ const BreathPage = () => {
       localStorage.setItem('breathDataSource', 'simulation');
       
       // Navigate to the breath kasina experience with simulated data
-      navigate('/breath/kasina');
+      navigate('/breath-kasina');
       
     } catch (error) {
       console.error('Error connecting to respiration belt:', error);
