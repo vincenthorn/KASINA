@@ -51,6 +51,8 @@ const BreathPage = () => {
           
           // Store the device and server in localStorage to maintain connection data
           localStorage.setItem('breathBluetoothDevice', device.id);
+          // Mark that we're using real data
+          localStorage.setItem('breathDataSource', 'real');
           
           // In a production app, we would:
           // 1. Get the specific service for the Vernier Respiration Belt
@@ -72,9 +74,12 @@ const BreathPage = () => {
       
       // If we reach here, either the user canceled the Bluetooth dialog or
       // something went wrong with the real connection, so we'll use simulation
-      alert("Using simulated respiration data for testing purposes.");
+      alert("Using simulated respiration data for testing purposes. No real device data will be used.");
       await new Promise(resolve => setTimeout(resolve, 500));
       setIsConnected(true);
+      
+      // Store in localStorage that we're using simulated data
+      localStorage.setItem('breathDataSource', 'simulation');
       
       // Navigate to the breath kasina experience with simulated data
       navigate('/breath/kasina');

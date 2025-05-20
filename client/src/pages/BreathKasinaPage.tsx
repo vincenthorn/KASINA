@@ -64,6 +64,7 @@ const BreathKasinaPage = () => {
   const [breathingRate, setBreathingRate] = useState<number>(12); // breaths per minute
   const [breathCycles, setBreathCycles] = useState<{timestamp: number, isInhale: boolean}[]>([]);
   const [rawSensorValue, setRawSensorValue] = useState<number | null>(null); // Raw sensor reading in Newtons (N)
+  const [isUsingRealData, setIsUsingRealData] = useState<boolean>(false); // Flag to track if we're getting real device data
   const animationFrameRef = useRef<number | null>(null);
 
   // Make sure we have a default kasina selected
@@ -73,9 +74,16 @@ const BreathKasinaPage = () => {
     }
   }, [selectedKasina, setSelectedKasina]);
 
-  // This is where we would connect to the Bluetooth device
-  // For now, we'll simulate being connected
+  // Check data source type when component mounts
   useEffect(() => {
+    // Check if we're using real data or simulation
+    const dataSource = localStorage.getItem('breathDataSource');
+    if (dataSource === 'real') {
+      setIsUsingRealData(true);
+    } else {
+      setIsUsingRealData(false);
+    }
+    
     // Simulate connection delay
     const timer = setTimeout(() => {
       setIsConnected(true);
@@ -153,21 +161,44 @@ const BreathKasinaPage = () => {
           </p>
           
           {isConnected && (
-            <div className="text-green-600 font-medium flex items-center justify-center mb-4">
-              <div className="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-              Respiration Belt Connected
-              {breathingRate && (
-                <span className="ml-4 text-blue-600">
-                  <Activity className="inline h-4 w-4 mr-1" /> 
-                  {breathingRate} breaths/min
-                </span>
-              )}
-              {rawSensorValue !== null && (
-                <span className="ml-4 px-3 py-1 bg-gray-800 rounded-full text-white font-mono text-sm">
-                  {rawSensorValue} N
-                </span>
-              )}
-            </div>
+            <>
+              <div className="text-green-600 font-medium flex items-center justify-center mb-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                Respiration Belt Connected
+                {breathingRate && (
+                  <span className="ml-4 text-blue-600">
+                    <Activity className="inline h-4 w-4 mr-1" /> 
+                    {breathingRate} breaths/min
+                  </span>
+                )}
+                {rawSensorValue !== null && (
+                  <span className="ml-4 px-3 py-1 bg-gray-800 rounded-full text-white font-mono text-sm">
+                    {rawSensorValue} N
+                  </span>
+                )}
+              </div>
+              
+              {/* Clear indicator for simulation vs real data */}
+              <div className={`flex justify-center mb-4 ${isUsingRealData ? "text-green-600" : "text-amber-500"}`}>
+                <div className={`px-3 py-1 ${isUsingRealData ? "bg-green-100 border-green-200" : "bg-amber-100 border-amber-200"} border rounded-full font-semibold text-sm flex items-center`}>
+                  {isUsingRealData ? (
+                    <>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Using Real Device Data
+                    </>
+                  ) : (
+                    <>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      Using Simulated Data (Not Real Device)
+                    </>
+                  )}
+                </div>
+              </div>
+            </>
           )}
         </div>
         
