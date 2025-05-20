@@ -89,53 +89,65 @@ const BreathPage = () => {
                 console.log('Starting notifications for respiratory data...');
                 await responseChar.startNotifications();
                 
-                // Set up listener for data received from the device
-                responseChar.addEventListener('characteristicvaluechanged', (event: Event) => {
+                // Set up listener for data received from the device - critical for respiration belt functionality
+                responseChar.addEventListener('characteristicvaluechanged', function(event: Event) {
                   try {
-                    // Type assertion for event.target
-                    const target = event.target as BluetoothRemoteGATTCharacteristic;
-                    const dataView = target.value as DataView;
+                    // Safely access the value from the event target using type assertion and optional chaining
+                    const target = event.target as any; // Cast to any first to avoid TypeScript errors
+                    const dataView = target?.value;
                     
-                    if (dataView) {
-                      // Log raw data for debugging
-                      const rawData = new Uint8Array(dataView.buffer);
-                      console.log('Raw data received:', Array.from(rawData).join(','));
+                    if (dataView && dataView instanceof DataView) {
+                      // Create a UInt8Array to inspect raw buffer directly
+                      const rawBytes = new Uint8Array(dataView.buffer);
+                      console.log('Raw bytes:', Array.from(rawBytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
                       
-                      // Parse the respiratory data and save it
-                      const forceReading = parseRespiratoryData(dataView);
+                      // Try different parsing approaches to find the force value
+                      let forceValue = 0;
+                      let dataFound = false;
                       
-                      // Store the latest reading for use in the kasina page
-                      localStorage.setItem('latestBreathReading', forceReading.toString());
-                      localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                      // Approach 1: Try to read all possible Float32 values in the buffer (sliding window)
+                      console.log('All possible float values in buffer:');
+                      for (let i = 0; i <= dataView.byteLength - 4; i += 4) {
+                        const val = dataView.getFloat32(i, true); // little-endian
+                        console.log(`  Offset ${i}: ${val.toFixed(4)}`);
+                        
+                        // If we find a value in a reasonable range (0.1-30), use it
+                        if (!isNaN(val) && val > 0.1 && val < 30) {
+                          forceValue = val;
+                          dataFound = true;
+                          console.log('  ^ Found likely force value');
+                        }
+                      }
                       
-                      console.log('Processed respiratory force:', forceReading, 'N');
+                      // Approach 2: If no reasonable value found, try specific positions
+                      if (!dataFound && dataView.byteLength >= 8) {
+                        forceValue = dataView.getFloat32(4, true);
+                      } else if (!dataFound && dataView.byteLength >= 4) {
+                        forceValue = dataView.getFloat32(0, true);
+                      }
+                      
+                      // Final sanity check
+                      forceValue = Math.abs(forceValue);
+                      if (forceValue > 30) forceValue = 0; // Ignore unrealistic values
+                      
+                      // Only store valid readings
+                      if (forceValue > 0.1) {
+                        console.log('Force reading: ' + forceValue.toFixed(2) + ' N');
+                        
+                        // Store in localStorage for use by BreathKasinaPage
+                        localStorage.setItem('latestBreathReading', forceValue.toString());
+                        localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                        localStorage.setItem('breathDataSource', 'real');
+                      } else {
+                        console.log('Received data but no valid force value found');
+                      }
+                    } else {
+                      console.log('No DataView available in event');
                     }
                   } catch (error) {
-                    console.error('Error processing respiratory data:', error);
+                    console.error('Error processing breath data:', error);
                   }
                 });
-                
-                // Function to parse respiratory data from the device
-                // This needs to be customized based on Vernier's data format
-                function parseRespiratoryData(dataView: DataView): number {
-                  try {
-                    // According to Vernier documentation for Go Direct devices
-                    // Data is typically in a structured format that varies by sensor type
-                    
-                    // For respiration belt, data might be a force measurement in Newtons
-                    // For proper implementation, consult the Vernier Go Direct protocol documentation
-                    
-                    if (dataView.byteLength >= 4) {
-                      // Extract a float from the first 4 bytes (assuming little-endian)
-                      const value = dataView.getFloat32(0, true); // true = little-endian
-                      return Math.abs(value); // Force in Newtons (absolute value)
-                    }
-                    return 0;
-                  } catch (e) {
-                    console.error('Error parsing data:', e);
-                    return 0;
-                  }
-                }
                 
                 // Send command to start data streaming (adjust based on Vernier protocol)
                 console.log('Sending command to start data streaming...');

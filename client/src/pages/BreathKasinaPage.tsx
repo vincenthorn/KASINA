@@ -107,128 +107,90 @@ const BreathKasinaPage = () => {
     }
   }, []);
 
-  // Initialize test mode preference
-  useEffect(() => {
-    const testMode = localStorage.getItem('breathTestMode');
-    if (testMode === 'simulate') {
-      setUseSimulation(true);
-    } else {
-      setUseSimulation(false);
-    }
-  }, []);
-
-  // Breath data stream management - handles real hardware and testing modes
+  // Breath data stream management - focus only on real hardware connection
   useEffect(() => {
     if (!isConnected) return;
-
-    // Set up a static display when no real device is connected
-    if (!isUsingRealData && !useSimulation) {
-      // When no real data is available and not in simulation mode,
-      // keep the kasina completely still by setting fixed, unchanging values
-      const staticBreathData = {
-        timestamp: Date.now(),
-        amplitude: 0.5,  // Fixed mid-point value (no movement)
-        normalizedValue: 0.5  // Fixed mid-point value (no movement)
-      };
-      
-      // Set the data just once (no animation)
-      setBreathData(staticBreathData);
-      setRawSensorValue(0.0);  // Zero or null would be best to indicate no real data
-      setBreathingRate(0);     // No breathing rate when no real data
-      
-      console.log('Still mode active - no animation');
-      
-      // No animation frames needed - the orb should remain static
-      return;
-    }
     
-    // Choose whether to process real data or simulation
+    // Function to continuously update breath data from device
     const updateBreathData = () => {
-      // If we're using real data, poll from localStorage
-      if (isUsingRealData) {
-        try {
-          // Read latest breath data from localStorage (set by the Bluetooth event listener)
-          const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
-          const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
-          const now = Date.now();
-          
-          // Check if we have fresh data (within last 2 seconds)
-          const isFreshData = (now - timestamp) < 2000;
-          
-          if (isFreshData && !isNaN(latestReading)) {
-            // Convert the force reading (Newtons) to a normalized value (0-1)
-            // Typical respiration belt readings range from 0-20 Newtons
-            const minForce = 5;   // minimum baseline force (relaxed)
-            const maxForce = 20;  // maximum force (deep breath)
-            
-            // Normalize the value between 0-1 for animation
-            let normalizedValue = Math.min(1, Math.max(0, 
-              (latestReading - minForce) / (maxForce - minForce)
-            ));
-            
-            // Create a new data point
-            const newBreathData = {
-              timestamp: now,
-              amplitude: normalizedValue,
-              normalizedValue: normalizedValue
-            };
-            
-            // Update UI state with the real data
-            setBreathData(newBreathData);
-            setRawSensorValue(latestReading);
-            
-            // Calculate breathing rate
-            updateBreathingRate(breathData, normalizedValue, now);
-            
-            console.log(`Real breath data: ${normalizedValue.toFixed(2)}, Force: ${latestReading.toFixed(2)}N`);
-          } else {
-            // If data is too old, keep the last value but log it
-            console.log('Waiting for fresh device data...');
-          }
-        } catch (error) {
-          console.error('Error processing device data:', error);
-        }
-      } 
-      // Use simulation if requested for testing
-      else if (useSimulation) {
-        // Grab simulated data
-        const simData = simulateBreathData();
-        setBreathData(simData.breathData);
-        setRawSensorValue(simData.rawValue);
+      try {
+        // Read latest breath data from localStorage (set by the Bluetooth event listener)
+        const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+        const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
+        const now = Date.now();
         
-        // Calculate breathing rate
-        updateBreathingRate(breathData, simData.breathData.normalizedValue, Date.now());
+        // Check if we have fresh data (within last 2 seconds)
+        const isFreshData = (now - timestamp) < 2000;
+        
+        if (isFreshData && !isNaN(latestReading)) {
+          // Convert the force reading (Newtons) to a normalized value (0-1)
+          // Typical respiration belt readings range from 0-20 Newtons
+          const minForce = 4;   // minimum baseline force (relaxed)
+          const maxForce = 22;  // maximum force (deep breath)
+          
+          // Normalize the value between 0-1 for animation
+          let normalizedValue = Math.min(1, Math.max(0, 
+            (latestReading - minForce) / (maxForce - minForce)
+          ));
+          
+          // Create a new data point
+          const newBreathData = {
+            timestamp: now,
+            amplitude: normalizedValue,
+            normalizedValue: normalizedValue
+          };
+          
+          // Update UI state with the real data
+          setBreathData(newBreathData);
+          setRawSensorValue(latestReading);
+          
+          // Calculate breathing rate when we detect a breath cycle
+          const previousData = breathData;
+          if (previousData) {
+            // Detect inhalation cycle transitions for breathing rate
+            if (previousData.normalizedValue < 0.3 && normalizedValue > 0.7) {
+              // Detected start of inhale
+              setBreathCycles(prev => {
+                // Keep only the last 5 cycles for rate calculation
+                const newCycles = [...prev, { timestamp: now, isInhale: true }].slice(-10);
+                
+                // Calculate breathing rate if we have enough cycles
+                if (newCycles.length >= 4) {
+                  const timeSpan = (newCycles[newCycles.length - 1].timestamp - newCycles[0].timestamp) / 1000; // in seconds
+                  const cycles = newCycles.length - 1;
+                  const rate = (cycles / timeSpan) * 60; // breaths per minute
+                  setBreathingRate(Math.round(rate * 10) / 10); // round to 1 decimal place
+                }
+                
+                return newCycles;
+              });
+            }
+          }
+          
+          console.log(`Breath data: ${normalizedValue.toFixed(2)}, Force: ${latestReading.toFixed(2)}N`);
+        } else {
+          // If no data is coming in, use a fallback static value
+          if (!breathData) {
+            const staticData = {
+              timestamp: now,
+              amplitude: 0.5,
+              normalizedValue: 0.5
+            };
+            setBreathData(staticData);
+            setRawSensorValue(0);
+          }
+          
+          console.log('Waiting for fresh device data from Vernier Go Direct Respiration Belt...');
+        }
+      } catch (error) {
+        console.error('Error processing device data:', error);
       }
       
-      // Continue animation loop regardless of mode
+      // Continue polling for device data
       animationFrameRef.current = requestAnimationFrame(updateBreathData);
     };
-    
-    // Helper function to calculate breathing rate
-    const updateBreathingRate = (previousData: BreathData | null, currentValue: number, timestamp: number) => {
-      if (previousData) {
-        // Detect inhalation cycle transitions for breathing rate
-        if (previousData.normalizedValue < 0.3 && currentValue > 0.7) {
-          // Detected start of inhale
-          setBreathCycles(prev => {
-            // Keep only the last 5 cycles for rate calculation
-            const newCycles = [...prev, { timestamp, isInhale: true }].slice(-10);
-            
-            // Calculate breathing rate if we have enough cycles
-            if (newCycles.length >= 4) {
-              const timeSpan = (newCycles[newCycles.length - 1].timestamp - newCycles[0].timestamp) / 1000; // in seconds
-              const cycles = newCycles.length - 1;
-              const rate = (cycles / timeSpan) * 60; // breaths per minute
-              setBreathingRate(Math.round(rate * 10) / 10); // round to 1 decimal place
-            }
-            
-            return newCycles;
-          });
-        }
-      }
-    };
 
-    // Start the animation loop
+    // Start polling for device data
     animationFrameRef.current = requestAnimationFrame(updateBreathData);
 
     // Cleanup function
@@ -237,7 +199,7 @@ const BreathKasinaPage = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [isConnected, isUsingRealData, breathData]);
+  }, [isConnected, breathData]);
 
   // Start the meditation experience with the chosen effect
   const startMeditation = () => {
@@ -279,110 +241,28 @@ const BreathKasinaPage = () => {
               </div>
               
               {/* Clear indicator for simulation vs real data */}
-              <div className="flex justify-center mb-4 items-center flex-wrap gap-2">
-                <div className={`px-3 py-1 ${isUsingRealData ? "bg-green-100 border-green-200 text-green-600" : "bg-amber-100 border-amber-200 text-amber-500"} border rounded-full font-semibold text-sm flex items-center`}>
-                  {isUsingRealData ? (
-                    <>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      Using Real Device Data: {localStorage.getItem('breathDeviceName') || 'Connected Device'}
-                    </>
-                  ) : (
-                    <>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      Using Simulated Data (Not Real Device)
-                    </>
-                  )}
+              <div className="flex justify-center mb-4 items-center">
+                <div className="px-3 py-1 bg-green-100 border-green-200 text-green-600 border rounded-full font-semibold text-sm flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Connected to: {localStorage.getItem('breathDeviceName') || 'Respiration Belt'}
                 </div>
                 
-                <div className="flex space-x-2">
-                  {!isUsingRealData && (
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="text-xs bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
-                      onClick={() => {
-                        // Go back to the device connection page
-                        window.location.href = '/breath'; 
-                      }}
-                    >
-                      Connect Real Device
-                    </Button>
-                  )}
-                  
-                  {/* Toggle for testing animated vs. still mode */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className={`text-xs ${useSimulation ? "bg-purple-500 text-white border-purple-500" : "bg-gray-200 text-gray-700 border-gray-300"}`}
-                    onClick={() => {
-                      // Toggle simulation mode for testing
-                      setUseSimulation(!useSimulation);
-                      
-                      // Update localStorage to reflect the change
-                      localStorage.setItem('breathTestMode', useSimulation ? 'still' : 'simulate');
-                    }}
-                  >
-                    {useSimulation ? "Disable Animation" : "Enable Breath Animation"}
-                  </Button>
-                </div>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="ml-2 text-xs bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
+                  onClick={() => {
+                    // Go back to the device connection page to reconnect
+                    window.location.href = '/breath'; 
+                  }}
+                >
+                  Reconnect Device
+                </Button>
               </div>
               
-              {/* Testing tools for development */}
-              <div className="flex justify-center mb-6">
-                <div className="flex flex-col gap-2 items-center">
-                  <p className="text-xs text-gray-400">Development Testing Tools</p>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="text-xs bg-green-600 text-white hover:bg-green-700 border-green-600"
-                      onClick={() => {
-                        // Simulate inhale data
-                        localStorage.setItem('latestBreathReading', '18.5');
-                        localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                        localStorage.setItem('breathDataSource', 'real');
-                        setIsUsingRealData(true);
-                      }}
-                    >
-                      Simulate Inhale
-                    </Button>
-                    
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="text-xs bg-blue-600 text-white hover:bg-blue-700 border-blue-600"
-                      onClick={() => {
-                        // Simulate exhale data
-                        localStorage.setItem('latestBreathReading', '6.5');
-                        localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                        localStorage.setItem('breathDataSource', 'real');
-                        setIsUsingRealData(true);
-                      }}
-                    >
-                      Simulate Exhale
-                    </Button>
-                    
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="text-xs bg-yellow-600 text-white hover:bg-yellow-700 border-yellow-600"
-                      onClick={() => {
-                        // Reset to still mode (no animation)
-                        setUseSimulation(false);
-                        localStorage.setItem('breathDataSource', 'simulation');
-                        localStorage.setItem('breathTestMode', 'still');
-                        setIsUsingRealData(false);
-                      }}
-                    >
-                      Reset to Still
-                    </Button>
-                  </div>
-                </div>
-              </div>
+
             </>
           )}
         </div>
