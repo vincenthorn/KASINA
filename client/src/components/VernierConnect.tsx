@@ -122,32 +122,61 @@ const VernierConnect = () => {
         }
       });
       
-      // Initialize the device
-      console.log('Initializing Vernier device...');
+      // Setup response handlers
+      device.addEventListener('gattserverdisconnected', () => {
+        console.log('Device disconnected');
+        localStorage.setItem('breathDeviceConnected', 'false');
+      });
       
-      // Send device info request
-      console.log('Sending device info request...');
+      // Initialize the device using Vernier's documented protocol
+      console.log('Initializing Vernier Go Direct Respiration Belt...');
+      
+      // Step 1: Get the device info (command 0x55)
+      console.log('Step 1: Getting device info...');
       await commandChar.writeValue(new Uint8Array([0x55]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 1000)); // longer delay for response
       
-      // Enable force sensor (channel 1)
-      console.log('Enabling force sensor...');
+      // Step 2: Get sensor IDs (command 0x56)
+      console.log('Step 2: Getting sensor IDs...');
+      await commandChar.writeValue(new Uint8Array([0x56]));
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Step 3: Request sensor info for sensor 1 (Force)
+      console.log('Step 3: Getting sensor info...');
+      await commandChar.writeValue(new Uint8Array([0x50, 0x01]));
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Step 4: Enable sensor channel 1 (Force) with command 0x11
+      console.log('Step 4: Enabling force sensor (channel 1)...');
       await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Set sampling period (100ms = 10Hz)
-      console.log('Setting sampling period to 100ms...');
+      // Step 5: Set the sample period to 100ms (10Hz) with command 0x12
+      console.log('Step 5: Setting sampling rate to 100ms (10Hz)...');
       await commandChar.writeValue(new Uint8Array([0x12, 0x64, 0x00]));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Start measurements
-      console.log('Starting measurements...');
+      // Step 6: Start measurements on channel 1 with command 0x18
+      console.log('Step 6: Starting measurements...');
       await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Request a reading to test connection
-      console.log('Requesting initial reading...');
+      // Request specific sensor readings via command 0x07
+      console.log('Requesting sensor readings...');
+      
+      // Request from sensor 1 (Force)
+      await new Promise(resolve => setTimeout(resolve, 500));
       await commandChar.writeValue(new Uint8Array([0x07, 0x01]));
+      
+      // Set polling interval to continuously request readings (every 500ms)
+      const pollingInterval = setInterval(async () => {
+        try {
+          // Periodically request new readings
+          await commandChar.writeValue(new Uint8Array([0x07, 0x01]));
+        } catch (e) {
+          console.error('Error polling device:', e);
+          clearInterval(pollingInterval);
+        }
+      }, 500);
       
       // Store connection info
       localStorage.setItem('breathBluetoothDevice', device.id);
