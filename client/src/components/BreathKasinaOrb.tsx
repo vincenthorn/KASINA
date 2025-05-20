@@ -23,11 +23,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Calculate intensity based on breathing rate
   // As breathing slows down to 4 breaths per minute, visual intensity decreases
   const calculateIntensity = (bpm: number) => {
-    if (bpm <= 4) return 0.1; // Minimal intensity at 4 bpm or lower
+    if (bpm <= 4) return 0.3; // Increased minimum intensity for visibility
     if (bpm >= 12) return 1.0; // Full intensity at 12 bpm or higher
     
     // Linear scaling between 4 and 12 bpm
-    return 0.1 + ((bpm - 4) / 8) * 0.9;
+    return 0.3 + ((bpm - 4) / 8) * 0.7;
   };
   
   useEffect(() => {
@@ -41,11 +41,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         case 'expand-contract': {
           // Calculate target scale based on breath amplitude and intensity
           const baseScale = 1.0; // Base size
-          const maxExpansion = 0.3; // Maximum additional scale factor
+          const maxExpansion = 0.8; // Increased maximum expansion for more noticeable effect
           const targetScale = baseScale + (maxExpansion * breathAmplitude * intensity);
           
-          // Smooth interpolation for scale changes
-          setScale(prev => prev + (targetScale - prev) * 0.1);
+          // Faster interpolation for more responsive scale changes
+          setScale(prev => prev + (targetScale - prev) * 0.2);
           break;
         }
           
@@ -55,9 +55,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         default: {
           // Default to expand-contract for now
           const baseScale = 1.0; // Base size
-          const maxExpansion = 0.3; // Maximum additional scale factor
+          const maxExpansion = 0.8; // Match the increased expansion from expand-contract
           const defaultScale = baseScale + (maxExpansion * breathAmplitude * intensity);
-          setScale(prev => prev + (defaultScale - prev) * 0.1);
+          setScale(prev => prev + (defaultScale - prev) * 0.2);
         }
           break;
       }

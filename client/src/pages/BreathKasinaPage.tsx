@@ -19,13 +19,26 @@ interface BreathData {
 // Mock simulation of breath data for testing
 const simulateBreathData = (): BreathData => {
   const now = Date.now();
-  // Simulate breathing with a sine wave (period of about 5 seconds)
-  const amplitude = Math.sin(now / 2500) * 0.5 + 0.5; // Value between 0 and 1
+  
+  // Simulate breathing with a sine wave (period of about 5 seconds per breath)
+  // This creates a more pronounced breathing cycle (10 seconds total per breath cycle)
+  const breathCycleSeconds = 5; // seconds per inhale or exhale
+  const millisPerCycle = breathCycleSeconds * 1000;
+  
+  // Create more pronounced peaks and valleys by using Math.pow
+  const rawValue = Math.sin((now % (millisPerCycle * 2)) / millisPerCycle * Math.PI);
+  
+  // Apply some non-linearity to make the breathing pattern more natural
+  // This creates sharper peaks (inhales) and more gradual valleys (exhales)
+  const shapedValue = Math.sign(rawValue) * Math.pow(Math.abs(rawValue), 0.8);
+  
+  // Normalize to 0-1 range
+  const normalizedValue = (shapedValue + 1) / 2;
   
   return {
     timestamp: now,
-    amplitude: amplitude,
-    normalizedValue: amplitude
+    amplitude: normalizedValue,
+    normalizedValue: normalizedValue
   };
 };
 
