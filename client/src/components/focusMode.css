@@ -1,0 +1,4 @@
+/* Hide the dialog close button in focus mode */
+[data-radix-dialog-content] .absolute.right-4.top-4 {
+  display: none !important;
+}

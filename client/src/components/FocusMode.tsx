@@ -11,6 +11,7 @@ import KasinaOrb from './KasinaOrb';
 import { Dialog, DialogContent } from './ui/dialog';
 import useWakeLock from '../lib/useWakeLock';
 import { useNavigate } from 'react-router-dom';
+import '../styles/focusMode.css';
 
 interface FocusModeProps {
   children: React.ReactNode;
