@@ -27,7 +27,9 @@ const BreathPage = () => {
       // Real Web Bluetooth API connection for Vernier Go Direct Respiration Belt
       try {
         // The Go Direct devices use a specific service and characteristics
-        // These are the actual Vernier Go Direct UUIDs
+        // These are the documented Vernier Go Direct UUIDs
+        // Source: https://github.com/VernierST/godirect-examples
+        // and https://github.com/VernierST/godirect-js
         const VERNIER_SERVICE_UUID = 'd91714ef-28b9-4f91-ba16-f0d9a604f112';
         const COMMAND_CHARACTERISTIC_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb';
         const RESPONSE_CHARACTERISTIC_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe';
