@@ -8,11 +8,7 @@ import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { KASINA_BACKGROUNDS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import KasinaOrb from './KasinaOrb';
-import { 
-  MeditationDialog, 
-  MeditationDialogContent,
-  MeditationDialogClose
-} from './ui/meditation-dialog';
+import { Dialog, DialogContent, DialogClose } from './ui/dialog';
 import useWakeLock from '../lib/useWakeLock';
 import { useNavigate } from 'react-router-dom';
 import '../styles/focusMode.css';
@@ -227,7 +223,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       </div>
       
       {/* Focus Mode Dialog */}
-      <MeditationDialog 
+      <Dialog 
         open={isFocusModeActive} 
         onOpenChange={(open) => {
           if (!open) {
@@ -241,7 +237,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           }
         }}
       >
-        <MeditationDialogContent 
+        <DialogContent 
           className="focus-mode-content border-none max-w-full h-screen p-0 flex items-center justify-center"
           onMouseMove={handleMouseMove}
           onWheel={handleWheel}
@@ -253,8 +249,6 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             position: 'relative' /* Added to ensure absolute positioning of children works properly */
           }}
         >
-          {/* Removed Controls group completely from top-right corner */}
-          
           {/* Zoom controls - visible on mouse movement */}
           <div 
             className={`fixed top-4 left-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}
@@ -328,8 +322,6 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
               />
             </div>
           </div>
-          
-          {/* Wake lock is enabled but indicator is hidden - functionality remains */}
           
           {/* Timer display - visible on mouse movement */}
           <div 
@@ -406,7 +398,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             })}
           </div>
           
-          {/* Fullscreen and Exit buttons */}
+          {/* Fullscreen & Exit button - show in top-right when UI visible */}
           <div 
             className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}
           >
@@ -418,16 +410,16 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
                 {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
               </button>
               
-              <MeditationDialogClose asChild>
+              <DialogClose asChild>
                 <button className="hover:bg-gray-700 rounded p-1 transition-colors">
                   <X className="h-4 w-4" />
                   <span className="sr-only">Exit</span>
                 </button>
-              </MeditationDialogClose>
+              </DialogClose>
             </div>
           </div>
-        </MeditationDialogContent>
-      </MeditationDialog>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
