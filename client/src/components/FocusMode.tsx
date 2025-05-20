@@ -248,32 +248,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             position: 'relative' /* Added to ensure absolute positioning of children works properly */
           }}
         >
-          {/* Controls group - visible on mouse movement (Exit and Fullscreen buttons) */}
-          <div 
-            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'} flex gap-2`}
-          >
-            {/* Fullscreen toggle button */}
-            <Button 
-              variant="outline" 
-              size="icon"
-              onClick={(e) => {
-                // Don't treat this as normal mouse movement
-                e.stopPropagation();
-                toggleFullscreen();
-              }}
-              className="rounded-full bg-black/50 border-gray-700 text-white hover:bg-gray-900 h-9 w-9 p-0"
-              title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
-            >
-              {isFullscreen ? (
-                <Minimize className="h-4 w-4" />
-              ) : (
-                <Maximize className="h-4 w-4" />
-              )}
-              <span className="sr-only">{isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}</span>
-            </Button>
-            
-            {/* Removed Exit button - only use ESC key to exit */}
-          </div>
+          {/* Removed Controls group completely from top-right corner */}
           
           {/* Zoom controls - visible on mouse movement */}
           <div 
