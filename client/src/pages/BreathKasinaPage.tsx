@@ -106,72 +106,58 @@ const BreathKasinaPage = () => {
     }
   }, []);
 
-  // Breath data stream management - handles both real and simulated data
+  // Breath data stream management - real hardware connection only
   useEffect(() => {
     if (!isConnected) return;
 
-    // Function to update breath data
-    const updateBreathData = () => {
-      // Use different data sources depending on connection type
-      if (isUsingRealData) {
-        // For real hardware device:
-        // In a production app, we would read from the connected Bluetooth device here
-        // However, since we need to explicitly show simulation, we'll use a separate flow
-        
-        // NOTE TO USER: Real device implementation would use the following steps:
-        // 1. Read from the connected device characteristics
-        // 2. Parse the raw sensor data based on Vernier's protocol
-        // 3. Convert to normalized values and force readings
-        
-        // For now, we can use a placeholder but clearly indicate this is not real data
-        console.log("Would read from real device here if properly connected");
-        
-        // Check if the user is holding still for the real device test
-        // We'll manually set values that don't change to simulate a paused breath
-        const staticData = {
-          timestamp: Date.now(),
-          amplitude: 0.5,
-          normalizedValue: 0.5
-        };
-        
-        setBreathData(staticData);
-        setRawSensorValue(12.0); // Static value to show it's not changing
-        
-      } else {
-        // Use simulated breathing pattern data
-        const simulationResult = simulateBreathData();
-        const newData = simulationResult.breathData;
-        setBreathData(newData);
-        setRawSensorValue(simulationResult.rawValue);
-        
-        // Detect breath cycles for calculating breathing rate
-        const previousData = breathData;
-        if (previousData && previousData.normalizedValue < 0.3 && newData.normalizedValue > 0.7) {
-          // Detected start of inhale
-          const now = Date.now();
-          setBreathCycles(prev => {
-            // Keep only the last 5 cycles for rate calculation
-            const newCycles = [...prev, { timestamp: now, isInhale: true }].slice(-10);
-            
-            // Calculate breathing rate if we have enough cycles
-            if (newCycles.length >= 4) {
-              const timeSpan = (newCycles[newCycles.length - 1].timestamp - newCycles[0].timestamp) / 1000; // in seconds
-              const cycles = newCycles.length - 1;
-              const rate = (cycles / timeSpan) * 60; // breaths per minute
-              setBreathingRate(Math.round(rate * 10) / 10); // round to 1 decimal place
-            }
-            
-            return newCycles;
-          });
-        }
-      }
+    // Set up a static display when no real device is connected
+    if (!isUsingRealData) {
+      // When no real data is available, keep the kasina completely still
+      // by setting fixed, unchanging values
+      const staticBreathData = {
+        timestamp: Date.now(),
+        amplitude: 0.5,  // Fixed mid-point value (no movement)
+        normalizedValue: 0.5  // Fixed mid-point value (no movement)
+      };
       
-      // Request next animation frame
-      animationFrameRef.current = requestAnimationFrame(updateBreathData);
+      // Set the data just once (no animation)
+      setBreathData(staticBreathData);
+      setRawSensorValue(0.0);  // Zero or null would be best to indicate no real data
+      setBreathingRate(0);     // No breathing rate when no real data
+      
+      // No animation frames needed - the orb should remain static
+      return;
+    }
+    
+    // Only continue with animation if we have real device data
+    // Function to update breath data from real device
+    const updateRealBreathData = () => {
+      // Here we would normally read from the connected Bluetooth device
+      // Since we don't have the device connected right now, we'll use
+      // static placeholder values to indicate the need for real connection
+      
+      // This would be replaced with actual device data reading code
+      
+      // For testing purposes only - this would be replaced with actual device data:
+      const staticData = {
+        timestamp: Date.now(),
+        amplitude: 0.5,
+        normalizedValue: 0.5
+      };
+      
+      setBreathData(staticData);
+      setRawSensorValue(0.0);  // Zero indicates waiting for real device data
+      
+      // Request next animation frame only if using real data
+      if (isUsingRealData) {
+        animationFrameRef.current = requestAnimationFrame(updateRealBreathData);
+      }
     };
 
-    // Start the animation loop
-    animationFrameRef.current = requestAnimationFrame(updateBreathData);
+    // Only start animation if we're using real data
+    if (isUsingRealData) {
+      animationFrameRef.current = requestAnimationFrame(updateRealBreathData);
+    }
 
     // Cleanup function
     return () => {
@@ -179,7 +165,7 @@ const BreathKasinaPage = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [isConnected, breathData, isUsingRealData]);
+  }, [isConnected, isUsingRealData]);
 
   // Start the meditation experience with the chosen effect
   const startMeditation = () => {
