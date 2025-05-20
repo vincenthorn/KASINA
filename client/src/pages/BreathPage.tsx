@@ -23,32 +23,60 @@ const BreathPage = () => {
     
     try {
       setIsConnecting(true);
-      // Web Bluetooth API connection code will go here
-      // For a production implementation, we would use the Web Bluetooth API:
-      /*
-      const device = await (navigator as any).bluetooth.requestDevice({
-        filters: [
-          { services: ['battery_service'] },  // Replace with the actual service UUID from Vernier
-          { namePrefix: 'Go Direct' }
-        ],
-        optionalServices: ['battery_service']  // Replace with actual service UUID
-      });
       
-      const server = await device.gatt.connect();
-      const service = await server.getPrimaryService('battery_service');  // Replace with actual service UUID
-      const characteristic = await service.getCharacteristic('battery_level');  // Replace with actual characteristic UUID
-      await characteristic.startNotifications();
-      characteristic.addEventListener('characteristicvaluechanged', (event: any) => {
-        const value = event.target.value.getUint8(0);
-        console.log('Breath sensor reading:', value);
-      });
-      */
+      // Real Web Bluetooth API connection - This will show a device picker dialog
+      try {
+        const device = await (navigator as any).bluetooth.requestDevice({
+          // Accept all devices - will show a picker for user to select from
+          acceptAllDevices: true,
+          // Optionally filter for specific devices
+          // filters: [{ namePrefix: 'Go Direct' }],
+          optionalServices: [
+            '0000180f-0000-1000-8000-00805f9b34fb', // Standard Battery Service
+            '00001809-0000-1000-8000-00805f9b34fb', // Health Thermometer
+            '00001800-0000-1000-8000-00805f9b34fb', // Generic Access
+            '00001801-0000-1000-8000-00805f9b34fb'  // Generic Attribute
+            // We'd add actual Vernier service UUIDs in production
+          ]
+        });
+        
+        console.log('Device selected:', device.name || 'Unknown device');
+        
+        // Attempt to connect to the device
+        console.log('Connecting to GATT server...');
+        const server = await device.gatt?.connect();
+        
+        if (server) {
+          console.log('Connected to GATT server');
+          
+          // Store the device and server in localStorage to maintain connection data
+          localStorage.setItem('breathBluetoothDevice', device.id);
+          
+          // In a production app, we would:
+          // 1. Get the specific service for the Vernier Respiration Belt
+          // 2. Get the characteristic that provides the respiration data
+          // 3. Start notifications on that characteristic
+          
+          // For now, we'll proceed as if connection was successful
+          setIsConnected(true);
+          
+          // Navigate to the breath kasina experience
+          navigate('/breath/kasina');
+          
+          return;
+        }
+      } catch (bluetoothError) {
+        console.error('Bluetooth connection error:', bluetoothError);
+        // Fall back to simulation if real connection fails
+      }
       
-      // For now, simulate a connection
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // If we reach here, either the user canceled the Bluetooth dialog or
+      // something went wrong with the real connection, so we'll use simulation
+      alert("Using simulated respiration data for testing purposes.");
+      await new Promise(resolve => setTimeout(resolve, 500));
       setIsConnected(true);
       
-      // Navigate to the breath kasina experience once connected
+      // Navigate to the breath kasina experience with simulated data
       navigate('/breath/kasina');
       
     } catch (error) {

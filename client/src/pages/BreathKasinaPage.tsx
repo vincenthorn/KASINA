@@ -17,7 +17,7 @@ interface BreathData {
 }
 
 // Mock simulation of breath data for testing
-const simulateBreathData = (): BreathData => {
+const simulateBreathData = (): { breathData: BreathData, rawValue: number } => {
   const now = Date.now();
   
   // Simulate breathing with a sine wave (period of about 5 seconds per breath)
@@ -32,13 +32,26 @@ const simulateBreathData = (): BreathData => {
   // This creates sharper peaks (inhales) and more gradual valleys (exhales)
   const shapedValue = Math.sign(rawValue) * Math.pow(Math.abs(rawValue), 0.8);
   
-  // Normalize to 0-1 range
+  // Normalize to 0-1 range for visualization
   const normalizedValue = (shapedValue + 1) / 2;
   
+  // Generate a realistic sensor value in Newtons (typical range for respiration belt: 0-20 N)
+  // Base value of 5N when relaxed, up to 18N at peak inhalation
+  const baseForce = 5; // Base force in Newtons at rest
+  const maxForce = 18;  // Maximum force in Newtons at peak inhalation
+  const sensorForce = baseForce + normalizedValue * (maxForce - baseForce);
+  
+  // Add some realistic noise to the sensor value (±0.2N)
+  const noise = (Math.random() - 0.5) * 0.4;
+  const sensorValueWithNoise = sensorForce + noise;
+  
   return {
-    timestamp: now,
-    amplitude: normalizedValue,
-    normalizedValue: normalizedValue
+    breathData: {
+      timestamp: now,
+      amplitude: normalizedValue,
+      normalizedValue: normalizedValue
+    },
+    rawValue: Number(sensorValueWithNoise.toFixed(2)) // Round to 2 decimal places
   };
 };
 
@@ -50,6 +63,7 @@ const BreathKasinaPage = () => {
   const [selectedEffect, setSelectedEffect] = useState<string>('expand-contract');
   const [breathingRate, setBreathingRate] = useState<number>(12); // breaths per minute
   const [breathCycles, setBreathCycles] = useState<{timestamp: number, isInhale: boolean}[]>([]);
+  const [rawSensorValue, setRawSensorValue] = useState<number | null>(null); // Raw sensor reading in Newtons (N)
   const animationFrameRef = useRef<number | null>(null);
 
   // Make sure we have a default kasina selected
@@ -76,12 +90,14 @@ const BreathKasinaPage = () => {
 
     // Function to update breath data
     const updateBreathData = () => {
-      const newData = simulateBreathData();
+      const simulationResult = simulateBreathData();
+      const newData = simulationResult.breathData;
       setBreathData(newData);
+      setRawSensorValue(simulationResult.rawValue);
       
       // Detect breath cycles for calculating breathing rate
       const previousData = breathData;
-      if (previousData && previousData.amplitude < 0.3 && newData.amplitude > 0.7) {
+      if (previousData && previousData.normalizedValue < 0.3 && newData.normalizedValue > 0.7) {
         // Detected start of inhale
         const now = Date.now();
         setBreathCycles(prev => {
@@ -144,6 +160,11 @@ const BreathKasinaPage = () => {
                 <span className="ml-4 text-blue-600">
                   <Activity className="inline h-4 w-4 mr-1" /> 
                   {breathingRate} breaths/min
+                </span>
+              )}
+              {rawSensorValue !== null && (
+                <span className="ml-4 px-3 py-1 bg-gray-800 rounded-full text-white font-mono text-sm">
+                  {rawSensorValue} N
                 </span>
               )}
             </div>
