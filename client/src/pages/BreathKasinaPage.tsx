@@ -16,50 +16,6 @@ interface BreathData {
   normalizedValue: number;
 }
 
-// Mock simulation of breath data that's visually obvious for testing
-const simulateBreathData = (): { breathData: BreathData, rawValue: number } => {
-  const now = Date.now();
-  
-  // Create a much more obvious breathing pattern with very slow cycles
-  // This creates a 7-second total cycle (inhale 3.5 sec, exhale 3.5 sec)
-  const breathCycleSeconds = 3.5;
-  const millisPerCycle = breathCycleSeconds * 1000;
-  
-  // Generate a sine wave based on the current time
-  const rawValue = Math.sin((now % (millisPerCycle * 2)) / millisPerCycle * Math.PI);
-  
-  // Create very exaggerated peaks and valleys with a power function
-  // This makes the transitions between inhale and exhale more obvious
-  const shapedValue = Math.sign(rawValue) * Math.pow(Math.abs(rawValue), 0.6);
-  
-  // Normalize to 0-1 range for visualization, using a wider range for more obvious effect
-  const normalizedValue = (shapedValue + 1) / 2;
-  
-  // Generate a very obvious sensor value in Newtons with larger range
-  // Making the swing in values much more dramatic for visibility
-  const baseForce = 4; // Lower minimum force when exhaling
-  const maxForce = 20; // Higher maximum force when inhaling
-  const sensorForce = baseForce + normalizedValue * (maxForce - baseForce);
-  
-  // Add minimal noise to keep the visualization clean and readable
-  const minimalNoise = (Math.random() - 0.5) * 0.2;
-  const sensorValueWithNoise = sensorForce + minimalNoise;
-  
-  // Console log for debugging - helps see the values changing
-  if (now % 500 < 50) { // Log every 500ms to avoid console spam
-    console.log(`Breath value: ${normalizedValue.toFixed(2)}, Force: ${sensorValueWithNoise.toFixed(2)}N`);
-  }
-  
-  return {
-    breathData: {
-      timestamp: now,
-      amplitude: normalizedValue,
-      normalizedValue: normalizedValue
-    },
-    rawValue: Number(sensorValueWithNoise.toFixed(2)) // Round to 2 decimal places
-  };
-};
-
 const BreathKasinaPage = () => {
   const { selectedKasina, setSelectedKasina } = useKasina();
   const { enableFocusMode } = useFocusMode();
@@ -70,7 +26,6 @@ const BreathKasinaPage = () => {
   const [breathCycles, setBreathCycles] = useState<{timestamp: number, isInhale: boolean}[]>([]);
   const [rawSensorValue, setRawSensorValue] = useState<number | null>(null); // Raw sensor reading in Newtons (N)
   const [isUsingRealData, setIsUsingRealData] = useState<boolean>(false); // Flag to track if we're getting real device data
-  const [useSimulation, setUseSimulation] = useState<boolean>(false); // Flag to toggle testing simulation
   const animationFrameRef = useRef<number | null>(null);
 
   // Make sure we have a default kasina selected
@@ -96,7 +51,7 @@ const BreathKasinaPage = () => {
       setIsConnected(true);
     } else {
       setIsUsingRealData(false);
-      console.log('Using simulated breath data');
+      console.log('No device connected, waiting for connection');
       
       // Delay to simulate connection process
       const timer = setTimeout(() => {
@@ -240,7 +195,7 @@ const BreathKasinaPage = () => {
                 )}
               </div>
               
-              {/* Clear indicator for simulation vs real data */}
+              {/* Clear indicator for device connection */}
               <div className="flex justify-center mb-4 items-center flex-wrap gap-2">
                 <div className="px-3 py-1 bg-green-100 border-green-200 text-green-600 border rounded-full font-semibold text-sm flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -310,101 +265,14 @@ const BreathKasinaPage = () => {
                   </p>
                 </div>
                 
-                {/* Manual Test Mode */}
-                <div className="mt-4">
-                  <div className="bg-gray-900 border border-gray-700 rounded-md p-4">
-                    <h4 className="text-white font-semibold mb-4">Breath Visualization Testing</h4>
-                    <p className="text-gray-400 text-sm mb-2">Visualizing your breathing with a blue kasina</p>
-                    
-                    <div className="mb-4">
-                      <p className="text-gray-400 text-sm mb-1">Current Breath Amplitude:</p>
-                      <input
-                        type="range"
-                        min="0"
-                        max="1"
-                        step="0.01"
-                        value={breathData?.normalizedValue || 0}
-                        onChange={(e) => {
-                          const value = parseFloat(e.target.value);
-                          // Set manual test data
-                          const testForce = 5 + (value * 15); // Generate force in N (5-20N range)
-                          const newBreathData = {
-                            timestamp: Date.now(),
-                            amplitude: value,
-                            normalizedValue: value
-                          };
-                          setBreathData(newBreathData);
-                          setRawSensorValue(testForce);
-                          
-                          // Manually calculate breathing rate for testing
-                          if (value > 0.7 && !wasBreathPeak) {
-                            setWasBreathPeak(true);
-                            const now = Date.now();
-                            const newBreathMarks = [...breathMarks, now].slice(-10);
-                            setBreathMarks(newBreathMarks);
-                            
-                            // Calculate breaths per minute if we have at least 2 marks
-                            if (newBreathMarks.length >= 2) {
-                              const timeSpan = (newBreathMarks[newBreathMarks.length - 1] - newBreathMarks[0]) / 1000;
-                              const breathCount = newBreathMarks.length - 1;
-                              const rate = Math.round((breathCount / timeSpan) * 60);
-                              setBreathingRate(rate);
-                            }
-                          } else if (value < 0.3) {
-                            setWasBreathPeak(false);
-                          }
-                        }}
-                        className="w-full h-4 bg-blue-900"
-                      />
-                      <div className="flex justify-between text-xs text-gray-500 mt-1">
-                        <span>Exhale (5N)</span>
-                        <span>Inhale (20N)</span>
-                      </div>
-                    </div>
-                    
-                    <button
-                      onClick={() => {
-                        // Generate a natural breathing pattern
-                        const startTest = async () => {
-                          // Simulate natural breathing (12 breaths/min)
-                          for (let i = 0; i < 10; i++) {
-                            // Inhale (value rises from 0.2 to 0.8)
-                            for (let j = 0.2; j <= 0.8; j += 0.05) {
-                              const testForce = 5 + (j * 15);
-                              setBreathData({
-                                timestamp: Date.now(),
-                                amplitude: j,
-                                normalizedValue: j
-                              });
-                              setRawSensorValue(testForce);
-                              await new Promise(r => setTimeout(r, 100));
-                            }
-                            
-                            // Exhale (value drops from 0.8 to 0.2)
-                            for (let j = 0.8; j >= 0.2; j -= 0.05) {
-                              const testForce = 5 + (j * 15);
-                              setBreathData({
-                                timestamp: Date.now(),
-                                amplitude: j,
-                                normalizedValue: j
-                              });
-                              setRawSensorValue(testForce);
-                              await new Promise(r => setTimeout(r, 100));
-                            }
-                          }
-                        };
-                        
-                        startTest();
-                      }}
-                      className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md"
-                    >
-                      Test Visualization
-                    </button>
-                  </div>
+                <div className="mt-4 p-3 border border-blue-900 rounded-md bg-blue-950 bg-opacity-30">
+                  <p className="text-white text-xs">
+                    <span className="block text-blue-300 font-semibold mb-1">Connection Details:</span>
+                    Make sure the Vernier Go Direct Respiration Belt is properly positioned and the green tension light is visible.
+                    The blue kasina will automatically respond to your breathing pattern when connected.
+                  </p>
                 </div>
               </div>
-              
-
             </>
           )}
         </div>
@@ -412,84 +280,47 @@ const BreathKasinaPage = () => {
         <div className="max-w-4xl mx-auto">
           <Card className="shadow-md">
             <CardHeader>
-              <CardTitle>Breath Visualization Testing</CardTitle>
+              <CardTitle>Breath Kasina Visualization</CardTitle>
               <CardDescription>
-                Visualizing your breathing with a blue kasina
+                The orb will respond to your breathing pattern
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="pt-4">
-                  <h3 className="text-sm font-medium mb-2">Current Breath Amplitude</h3>
-                  <div className="h-8 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-blue-500 transition-all duration-100 ease-in-out"
-                      style={{ width: `${breathData ? breathData.normalizedValue * 100 : 0}%` }}
-                    />
-                  </div>
+            <CardContent className="flex flex-col items-center">
+              <div className="relative w-full h-[400px] flex justify-center items-center">
+                {/* Main orb visualization */}
+                <div className="w-4/5 h-4/5 flex items-center justify-center">
+                  <BreathKasinaOrb 
+                    breathData={breathData || { timestamp: Date.now(), amplitude: 0.5, normalizedValue: 0.5 }}
+                    effect={selectedEffect}
+                  />
                 </div>
               </div>
             </CardContent>
-            <CardFooter>
-              <Button 
-                className="w-full bg-blue-600 hover:bg-blue-700" 
+            <CardFooter className="flex justify-end space-x-2">
+              <Button
                 onClick={startMeditation}
                 disabled={!isConnected}
+                className="bg-blue-600 hover:bg-blue-700"
               >
-                Test Visualization
+                <Maximize className="w-4 h-4 mr-2" />
+                Enter Fullscreen Mode
               </Button>
             </CardFooter>
           </Card>
         </div>
         
-        <div className="mt-8 text-center text-gray-600 max-w-xl mx-auto">
-          <p className="text-sm">
-            <strong>Breath Kasina Guidance:</strong> This visualization responds to your breathing in real-time.
-            As your breathing slows down below 4 breaths per minute, the visualizations will become more subtle,
-            supporting deeper states of concentration.
-          </p>
-        </div>
-      </div>
-      
-      {/* Focus Mode Component - Handles the visualization experience */}
-      <FocusMode>
-        <div className="flex flex-col items-center justify-center h-full bg-black">
-          {/* Breath visualization - uses our special BreathKasinaOrb component */}
-          <div className="relative" style={{ width: '350px', height: '350px' }}>
-            {breathData && (
-              <BreathKasinaOrb
-                type={selectedKasina as KasinaType}
-                breathAmplitude={breathData.normalizedValue}
-                breathingRate={breathingRate}
-                effectType={selectedEffect as 'expand-contract'}
-                remainingTime={null}
+        {/* The FocusMode component is used to create the fullscreen meditation experience */}
+        <FocusMode>
+          <div className="w-full h-full flex items-center justify-center bg-black">
+            <div className="w-4/5 h-4/5 flex items-center justify-center">
+              <BreathKasinaOrb 
+                breathData={breathData || { timestamp: Date.now(), amplitude: 0.5, normalizedValue: 0.5 }}
+                effect={selectedEffect}
               />
-            )}
-            
-            {/* Display real-time readings directly in the visualization */}
-            <div className="absolute bottom-4 left-0 right-0 text-center space-y-3">
-              {rawSensorValue !== null && (
-                <div>
-                  <span className="px-4 py-2 bg-gray-800 bg-opacity-75 rounded-full text-white font-mono text-lg">
-                    Force: {rawSensorValue} N
-                  </span>
-                </div>
-              )}
-              
-              {breathingRate && (
-                <div>
-                  <span className="px-4 py-2 bg-blue-800 bg-opacity-75 rounded-full text-white font-mono text-lg flex items-center justify-center inline-flex">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    {breathingRate} breaths/min
-                  </span>
-                </div>
-              )}
             </div>
           </div>
-        </div>
-      </FocusMode>
+        </FocusMode>
+      </div>
     </Layout>
   );
 };
