@@ -309,6 +309,99 @@ const BreathKasinaPage = () => {
                     showing correct tension. The blue orb should expand and contract with your breathing.
                   </p>
                 </div>
+                
+                {/* Manual Test Mode */}
+                <div className="mt-4">
+                  <div className="bg-gray-900 border border-gray-700 rounded-md p-4">
+                    <h4 className="text-white font-semibold mb-4">Breath Visualization Testing</h4>
+                    <p className="text-gray-400 text-sm mb-2">Visualizing your breathing with a blue kasina</p>
+                    
+                    <div className="mb-4">
+                      <p className="text-gray-400 text-sm mb-1">Current Breath Amplitude:</p>
+                      <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value={breathData?.normalizedValue || 0}
+                        onChange={(e) => {
+                          const value = parseFloat(e.target.value);
+                          // Set manual test data
+                          const testForce = 5 + (value * 15); // Generate force in N (5-20N range)
+                          const newBreathData = {
+                            timestamp: Date.now(),
+                            amplitude: value,
+                            normalizedValue: value
+                          };
+                          setBreathData(newBreathData);
+                          setRawSensorValue(testForce);
+                          
+                          // Manually calculate breathing rate for testing
+                          if (value > 0.7 && !wasBreathPeak) {
+                            setWasBreathPeak(true);
+                            const now = Date.now();
+                            const newBreathMarks = [...breathMarks, now].slice(-10);
+                            setBreathMarks(newBreathMarks);
+                            
+                            // Calculate breaths per minute if we have at least 2 marks
+                            if (newBreathMarks.length >= 2) {
+                              const timeSpan = (newBreathMarks[newBreathMarks.length - 1] - newBreathMarks[0]) / 1000;
+                              const breathCount = newBreathMarks.length - 1;
+                              const rate = Math.round((breathCount / timeSpan) * 60);
+                              setBreathingRate(rate);
+                            }
+                          } else if (value < 0.3) {
+                            setWasBreathPeak(false);
+                          }
+                        }}
+                        className="w-full h-4 bg-blue-900"
+                      />
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>Exhale (5N)</span>
+                        <span>Inhale (20N)</span>
+                      </div>
+                    </div>
+                    
+                    <button
+                      onClick={() => {
+                        // Generate a natural breathing pattern
+                        const startTest = async () => {
+                          // Simulate natural breathing (12 breaths/min)
+                          for (let i = 0; i < 10; i++) {
+                            // Inhale (value rises from 0.2 to 0.8)
+                            for (let j = 0.2; j <= 0.8; j += 0.05) {
+                              const testForce = 5 + (j * 15);
+                              setBreathData({
+                                timestamp: Date.now(),
+                                amplitude: j,
+                                normalizedValue: j
+                              });
+                              setRawSensorValue(testForce);
+                              await new Promise(r => setTimeout(r, 100));
+                            }
+                            
+                            // Exhale (value drops from 0.8 to 0.2)
+                            for (let j = 0.8; j >= 0.2; j -= 0.05) {
+                              const testForce = 5 + (j * 15);
+                              setBreathData({
+                                timestamp: Date.now(),
+                                amplitude: j,
+                                normalizedValue: j
+                              });
+                              setRawSensorValue(testForce);
+                              await new Promise(r => setTimeout(r, 100));
+                            }
+                          }
+                        };
+                        
+                        startTest();
+                      }}
+                      className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md"
+                    >
+                      Test Visualization
+                    </button>
+                  </div>
+                </div>
               </div>
               
 
