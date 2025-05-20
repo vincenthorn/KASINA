@@ -8,6 +8,11 @@
   transform: translateZ(0); /* Trigger hardware acceleration without visual change */
 }
 
+/* Hide dialog close button in meditation mode for distraction-free experience */
+.focus-mode-dialog > button.absolute.right-4.top-4 {
+  display: none !important;
+}
+
 /* Target only the X button in dialog, not all buttons */
 [role="dialog"] > button.absolute.right-4.top-4 svg[class="h-4 w-4"] {
   display: none !important;
