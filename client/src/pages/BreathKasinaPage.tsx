@@ -297,6 +297,18 @@ const BreathKasinaPage = () => {
                     <span className="text-white font-mono">{breathData?.normalizedValue?.toFixed(3) || '0.000'}</span>
                   </div>
                 </div>
+                
+                <div className="mt-4 p-3 border border-blue-600 rounded-md bg-blue-900 bg-opacity-30">
+                  <h4 className="text-blue-400 font-semibold mb-2">Advanced Respiration Belt Integration</h4>
+                  <p className="text-white text-xs mb-2">
+                    We've implemented direct protocol communication with the Vernier Go Direct Respiration Belt. The system should be 
+                    capturing force readings from the belt when properly worn around the chest.
+                  </p>
+                  <p className="text-white text-xs mb-2">
+                    For best results: Ensure the belt is properly positioned just below the sternum, with the green light indicator 
+                    showing correct tension. The blue orb should expand and contract with your breathing.
+                  </p>
+                </div>
               </div>
               
 

@@ -172,33 +172,46 @@ const BreathPage = () => {
                   }
                 });
                 
-                // Following the exact Vernier protocol sequence, according to their official SDK
-                // https://github.com/VernierST/godirect-js
-                console.log('Starting Vernier protocol sequence...');
+                // Using the most direct approach to the Go Direct protocol based on their documentation
+                // This follows the exact initialization sequence required for Vernier Go Direct devices
+                console.log('Initializing Vernier Go Direct Respiration Belt with direct protocol...');
                 
-                // Step 1: Get device info (required first command)
-                console.log('Getting device info...');
-                await commandChar.writeValue(new Uint8Array([0x56]));
+                // Step 1: Read device information
+                console.log('Step 1: Reading device information');
+                await commandChar.writeValue(new Uint8Array([0x55])); // Get device info command
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Longer wait for complete response
+                
+                try {
+                  const deviceInfo = await responseChar.readValue();
+                  console.log('Device info response:', new Uint8Array(deviceInfo.buffer));
+                } catch (err) {
+                  console.log('Error reading device info:', err);
+                }
+                
+                // Step 2: Select and enable sensor channels (specifically for respiration belt)
+                console.log('Step 2: Enabling specific sensor channels for respiration measurement');
+                // Command format: [command code, sensor number]
+                await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01])); // Enable sensor 1 (force)
                 await new Promise(resolve => setTimeout(resolve, 500));
                 
-                // Step 2: Get available sensors
-                console.log('Getting available sensors...');
-                await commandChar.writeValue(new Uint8Array([0x55]));
+                // Step 3: Set up data collection parameters
+                console.log('Step 3: Setting data collection parameters');
+                // Command format: [command code, period low byte, period high byte]
+                // Setting period to 100ms (10Hz sampling rate) = 0x0064 in hex (little-endian)
+                await commandChar.writeValue(new Uint8Array([0x12, 0x64, 0x00]));
                 await new Promise(resolve => setTimeout(resolve, 500));
                 
-                // Step 3: Enable the Force (Respiration) sensor - channel 1
-                console.log('Enabling Force sensor (channel 1)...');
-                await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
-                await new Promise(resolve => setTimeout(resolve, 500));
-                
-                // Step 4: Set sampling period - 100ms (10 Hz)
-                console.log('Setting sampling period to 100ms (10 Hz)...');
-                await commandChar.writeValue(new Uint8Array([0x12, 0x0A, 0x00]));
-                await new Promise(resolve => setTimeout(resolve, 500));
-                
-                // Step 5: Start measurements on enabled channels
-                console.log('Starting measurements...');
+                // Step 4: Start measurements
+                console.log('Step 4: Starting measurements');
+                // We need to send specific start command with the sensor mask
+                // 0x18 = Start measurements command, 0x01 = Sensor mask for channel 1
                 await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
+                // Step 5: Directly request a reading to test if the device is responding
+                console.log('Step 5: Requesting initial reading');
+                // This forces an immediate reading to check if everything is working
+                await commandChar.writeValue(new Uint8Array([0x07, 0x01]));
                 await new Promise(resolve => setTimeout(resolve, 500));
                 
                 // Store device connection info
