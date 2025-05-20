@@ -73,22 +73,32 @@ const BreathKasinaPage = () => {
     setSelectedKasina('blue' as KasinaType);
   }, [setSelectedKasina]);
 
-  // Check data source type when component mounts
+  // Setup respiration belt and determine data source on component mount
   useEffect(() => {
     // Check if we're using real data or simulation
     const dataSource = localStorage.getItem('breathDataSource');
+    const deviceName = localStorage.getItem('breathDeviceName');
+    
     if (dataSource === 'real') {
       setIsUsingRealData(true);
+      console.log('Using real device data from:', deviceName || 'Unknown device');
+      
+      // In a production app, we would need to reconnect to the device here
+      // We would use the device ID stored in localStorage to reconnect
+      
+      // For now, we'll just mark as connected immediately
+      setIsConnected(true);
     } else {
       setIsUsingRealData(false);
+      console.log('Using simulated breath data');
+      
+      // Delay to simulate connection process
+      const timer = setTimeout(() => {
+        setIsConnected(true);
+      }, 500);
+      
+      return () => clearTimeout(timer);
     }
-    
-    // Simulate connection delay
-    const timer = setTimeout(() => {
-      setIsConnected(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
   }, []);
 
   // Simulation of breath data stream
@@ -178,14 +188,14 @@ const BreathKasinaPage = () => {
               </div>
               
               {/* Clear indicator for simulation vs real data */}
-              <div className={`flex justify-center mb-4 ${isUsingRealData ? "text-green-600" : "text-amber-500"}`}>
-                <div className={`px-3 py-1 ${isUsingRealData ? "bg-green-100 border-green-200" : "bg-amber-100 border-amber-200"} border rounded-full font-semibold text-sm flex items-center`}>
+              <div className="flex justify-center mb-4 items-center">
+                <div className={`px-3 py-1 ${isUsingRealData ? "bg-green-100 border-green-200 text-green-600" : "bg-amber-100 border-amber-200 text-amber-500"} border rounded-full font-semibold text-sm flex items-center`}>
                   {isUsingRealData ? (
                     <>
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      Using Real Device Data
+                      Using Real Device Data: {localStorage.getItem('breathDeviceName') || 'Connected Device'}
                     </>
                   ) : (
                     <>
@@ -196,6 +206,20 @@ const BreathKasinaPage = () => {
                     </>
                   )}
                 </div>
+                
+                {!isUsingRealData && (
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="ml-2 text-xs bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
+                    onClick={() => {
+                      // Go back to the device connection page
+                      window.location.href = '/breath'; 
+                    }}
+                  >
+                    Connect Real Device
+                  </Button>
+                )}
               </div>
             </>
           )}

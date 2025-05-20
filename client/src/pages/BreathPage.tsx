@@ -24,19 +24,24 @@ const BreathPage = () => {
     try {
       setIsConnecting(true);
       
-      // Real Web Bluetooth API connection - This will show a device picker dialog
+      // Real Web Bluetooth API connection for Vernier Go Direct Respiration Belt
       try {
+        // The Go Direct devices use a specific service and characteristics
+        // These are the actual Vernier Go Direct UUIDs
+        const VERNIER_SERVICE_UUID = 'd91714ef-28b9-4f91-ba16-f0d9a604f112';
+        const COMMAND_CHARACTERISTIC_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb';
+        const RESPONSE_CHARACTERISTIC_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe';
+        
+        // Request the device with specific filters for Go Direct devices
         const device = await (navigator as any).bluetooth.requestDevice({
-          // Accept all devices - will show a picker for user to select from
-          acceptAllDevices: true,
-          // Optionally filter for specific devices
-          // filters: [{ namePrefix: 'Go Direct' }],
+          filters: [
+            { namePrefix: 'GDX-RB' }, // Go Direct Respiration Belt prefix
+            { namePrefix: 'Go Direct' } // Fallback for other Vernier devices
+          ],
           optionalServices: [
+            VERNIER_SERVICE_UUID,
             '0000180f-0000-1000-8000-00805f9b34fb', // Standard Battery Service
             '00001809-0000-1000-8000-00805f9b34fb', // Health Thermometer
-            '00001800-0000-1000-8000-00805f9b34fb', // Generic Access
-            '00001801-0000-1000-8000-00805f9b34fb'  // Generic Attribute
-            // We'd add actual Vernier service UUIDs in production
           ]
         });
         
@@ -49,23 +54,45 @@ const BreathPage = () => {
         if (server) {
           console.log('Connected to GATT server');
           
-          // Store the device and server in localStorage to maintain connection data
-          localStorage.setItem('breathBluetoothDevice', device.id);
-          // Mark that we're using real data
-          localStorage.setItem('breathDataSource', 'real');
-          
-          // In a production app, we would:
-          // 1. Get the specific service for the Vernier Respiration Belt
-          // 2. Get the characteristic that provides the respiration data
-          // 3. Start notifications on that characteristic
-          
-          // For now, we'll proceed as if connection was successful
-          setIsConnected(true);
-          
-          // Navigate to the breath kasina experience
-          navigate('/breath/kasina');
-          
-          return;
+          try {
+            // Now get the specific Vernier service
+            console.log('Getting Vernier service...');
+            const vernierService = await server.getPrimaryService(VERNIER_SERVICE_UUID);
+            
+            if (vernierService) {
+              console.log('Found Vernier service');
+              
+              // Get command characteristic
+              console.log('Getting command characteristic...');
+              const commandChar = await vernierService.getCharacteristic(COMMAND_CHARACTERISTIC_UUID);
+              
+              // Get response characteristic
+              console.log('Getting response characteristic...');
+              const responseChar = await vernierService.getCharacteristic(RESPONSE_CHARACTERISTIC_UUID);
+              
+              if (commandChar && responseChar) {
+                console.log('Successfully got Vernier characteristics');
+                
+                // Store device connection info
+                localStorage.setItem('breathBluetoothDevice', device.id);
+                localStorage.setItem('breathDataSource', 'real');
+                
+                // Store device name for display
+                if (device.name) {
+                  localStorage.setItem('breathDeviceName', device.name);
+                }
+                
+                // Real connection is successful!
+                setIsConnected(true);
+                
+                // Navigate to the breath kasina experience
+                navigate('/breath/kasina');
+                return;
+              }
+            }
+          } catch (serviceError) {
+            console.error('Error accessing Vernier services:', serviceError);
+          }
         }
       } catch (bluetoothError) {
         console.error('Bluetooth connection error:', bluetoothError);
