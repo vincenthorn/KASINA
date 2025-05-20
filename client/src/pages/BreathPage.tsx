@@ -75,6 +75,62 @@ const BreathPage = () => {
               if (commandChar && responseChar) {
                 console.log('Successfully got Vernier characteristics');
                 
+                // Enable notifications to receive data in real-time
+                console.log('Starting notifications for respiratory data...');
+                await responseChar.startNotifications();
+                
+                // Set up listener for data received from the device
+                responseChar.addEventListener('characteristicvaluechanged', (event: Event) => {
+                  try {
+                    // Type assertion for event.target
+                    const target = event.target as BluetoothRemoteGATTCharacteristic;
+                    const dataView = target.value as DataView;
+                    
+                    if (dataView) {
+                      // Log raw data for debugging
+                      const rawData = new Uint8Array(dataView.buffer);
+                      console.log('Raw data received:', Array.from(rawData).join(','));
+                      
+                      // Parse the respiratory data and save it
+                      const forceReading = parseRespiratoryData(dataView);
+                      
+                      // Store the latest reading for use in the kasina page
+                      localStorage.setItem('latestBreathReading', forceReading.toString());
+                      localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                      
+                      console.log('Processed respiratory force:', forceReading, 'N');
+                    }
+                  } catch (error) {
+                    console.error('Error processing respiratory data:', error);
+                  }
+                });
+                
+                // Function to parse respiratory data from the device
+                // This needs to be customized based on Vernier's data format
+                function parseRespiratoryData(dataView: DataView): number {
+                  try {
+                    // According to Vernier documentation for Go Direct devices
+                    // Data is typically in a structured format that varies by sensor type
+                    
+                    // For respiration belt, data might be a force measurement in Newtons
+                    // For proper implementation, consult the Vernier Go Direct protocol documentation
+                    
+                    if (dataView.byteLength >= 4) {
+                      // Extract a float from the first 4 bytes (assuming little-endian)
+                      const value = dataView.getFloat32(0, true); // true = little-endian
+                      return Math.abs(value); // Force in Newtons (absolute value)
+                    }
+                    return 0;
+                  } catch (e) {
+                    console.error('Error parsing data:', e);
+                    return 0;
+                  }
+                }
+                
+                // Send command to start data streaming (adjust based on Vernier protocol)
+                console.log('Sending command to start data streaming...');
+                await commandChar.writeValue(new Uint8Array([0x01, 0x01]));
+                
                 // Store device connection info
                 localStorage.setItem('breathBluetoothDevice', device.id);
                 localStorage.setItem('breathDataSource', 'real');
@@ -84,11 +140,15 @@ const BreathPage = () => {
                   localStorage.setItem('breathDeviceName', device.name);
                 }
                 
+                // Initialize data storage
+                localStorage.setItem('latestBreathReading', '0');
+                localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                
                 // Real connection is successful!
                 setIsConnected(true);
                 
                 // Navigate to the breath kasina experience
-                navigate('/breath/kasina');
+                navigate('/breath-kasina');
                 return;
               }
             }

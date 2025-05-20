@@ -70,6 +70,7 @@ const BreathKasinaPage = () => {
   const [breathCycles, setBreathCycles] = useState<{timestamp: number, isInhale: boolean}[]>([]);
   const [rawSensorValue, setRawSensorValue] = useState<number | null>(null); // Raw sensor reading in Newtons (N)
   const [isUsingRealData, setIsUsingRealData] = useState<boolean>(false); // Flag to track if we're getting real device data
+  const [useSimulation, setUseSimulation] = useState<boolean>(false); // Flag to toggle testing simulation
   const animationFrameRef = useRef<number | null>(null);
 
   // Make sure we have a default kasina selected
@@ -106,14 +107,24 @@ const BreathKasinaPage = () => {
     }
   }, []);
 
-  // Breath data stream management - real hardware connection only
+  // Initialize test mode preference
+  useEffect(() => {
+    const testMode = localStorage.getItem('breathTestMode');
+    if (testMode === 'simulate') {
+      setUseSimulation(true);
+    } else {
+      setUseSimulation(false);
+    }
+  }, []);
+
+  // Breath data stream management - handles real hardware and testing modes
   useEffect(() => {
     if (!isConnected) return;
 
     // Set up a static display when no real device is connected
-    if (!isUsingRealData) {
-      // When no real data is available, keep the kasina completely still
-      // by setting fixed, unchanging values
+    if (!isUsingRealData && !useSimulation) {
+      // When no real data is available and not in simulation mode,
+      // keep the kasina completely still by setting fixed, unchanging values
       const staticBreathData = {
         timestamp: Date.now(),
         amplitude: 0.5,  // Fixed mid-point value (no movement)
@@ -125,39 +136,100 @@ const BreathKasinaPage = () => {
       setRawSensorValue(0.0);  // Zero or null would be best to indicate no real data
       setBreathingRate(0);     // No breathing rate when no real data
       
+      console.log('Still mode active - no animation');
+      
       // No animation frames needed - the orb should remain static
       return;
     }
     
-    // Only continue with animation if we have real device data
-    // Function to update breath data from real device
-    const updateRealBreathData = () => {
-      // Here we would normally read from the connected Bluetooth device
-      // Since we don't have the device connected right now, we'll use
-      // static placeholder values to indicate the need for real connection
-      
-      // This would be replaced with actual device data reading code
-      
-      // For testing purposes only - this would be replaced with actual device data:
-      const staticData = {
-        timestamp: Date.now(),
-        amplitude: 0.5,
-        normalizedValue: 0.5
-      };
-      
-      setBreathData(staticData);
-      setRawSensorValue(0.0);  // Zero indicates waiting for real device data
-      
-      // Request next animation frame only if using real data
+    // Choose whether to process real data or simulation
+    const updateBreathData = () => {
+      // If we're using real data, poll from localStorage
       if (isUsingRealData) {
-        animationFrameRef.current = requestAnimationFrame(updateRealBreathData);
+        try {
+          // Read latest breath data from localStorage (set by the Bluetooth event listener)
+          const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+          const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
+          const now = Date.now();
+          
+          // Check if we have fresh data (within last 2 seconds)
+          const isFreshData = (now - timestamp) < 2000;
+          
+          if (isFreshData && !isNaN(latestReading)) {
+            // Convert the force reading (Newtons) to a normalized value (0-1)
+            // Typical respiration belt readings range from 0-20 Newtons
+            const minForce = 5;   // minimum baseline force (relaxed)
+            const maxForce = 20;  // maximum force (deep breath)
+            
+            // Normalize the value between 0-1 for animation
+            let normalizedValue = Math.min(1, Math.max(0, 
+              (latestReading - minForce) / (maxForce - minForce)
+            ));
+            
+            // Create a new data point
+            const newBreathData = {
+              timestamp: now,
+              amplitude: normalizedValue,
+              normalizedValue: normalizedValue
+            };
+            
+            // Update UI state with the real data
+            setBreathData(newBreathData);
+            setRawSensorValue(latestReading);
+            
+            // Calculate breathing rate
+            updateBreathingRate(breathData, normalizedValue, now);
+            
+            console.log(`Real breath data: ${normalizedValue.toFixed(2)}, Force: ${latestReading.toFixed(2)}N`);
+          } else {
+            // If data is too old, keep the last value but log it
+            console.log('Waiting for fresh device data...');
+          }
+        } catch (error) {
+          console.error('Error processing device data:', error);
+        }
+      } 
+      // Use simulation if requested for testing
+      else if (useSimulation) {
+        // Grab simulated data
+        const simData = simulateBreathData();
+        setBreathData(simData.breathData);
+        setRawSensorValue(simData.rawValue);
+        
+        // Calculate breathing rate
+        updateBreathingRate(breathData, simData.breathData.normalizedValue, Date.now());
+      }
+      
+      // Continue animation loop regardless of mode
+      animationFrameRef.current = requestAnimationFrame(updateBreathData);
+    };
+    
+    // Helper function to calculate breathing rate
+    const updateBreathingRate = (previousData: BreathData | null, currentValue: number, timestamp: number) => {
+      if (previousData) {
+        // Detect inhalation cycle transitions for breathing rate
+        if (previousData.normalizedValue < 0.3 && currentValue > 0.7) {
+          // Detected start of inhale
+          setBreathCycles(prev => {
+            // Keep only the last 5 cycles for rate calculation
+            const newCycles = [...prev, { timestamp, isInhale: true }].slice(-10);
+            
+            // Calculate breathing rate if we have enough cycles
+            if (newCycles.length >= 4) {
+              const timeSpan = (newCycles[newCycles.length - 1].timestamp - newCycles[0].timestamp) / 1000; // in seconds
+              const cycles = newCycles.length - 1;
+              const rate = (cycles / timeSpan) * 60; // breaths per minute
+              setBreathingRate(Math.round(rate * 10) / 10); // round to 1 decimal place
+            }
+            
+            return newCycles;
+          });
+        }
       }
     };
 
-    // Only start animation if we're using real data
-    if (isUsingRealData) {
-      animationFrameRef.current = requestAnimationFrame(updateRealBreathData);
-    }
+    // Start the animation loop
+    animationFrameRef.current = requestAnimationFrame(updateBreathData);
 
     // Cleanup function
     return () => {
@@ -165,7 +237,7 @@ const BreathKasinaPage = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [isConnected, isUsingRealData]);
+  }, [isConnected, isUsingRealData, breathData]);
 
   // Start the meditation experience with the chosen effect
   const startMeditation = () => {
@@ -207,7 +279,7 @@ const BreathKasinaPage = () => {
               </div>
               
               {/* Clear indicator for simulation vs real data */}
-              <div className="flex justify-center mb-4 items-center">
+              <div className="flex justify-center mb-4 items-center flex-wrap gap-2">
                 <div className={`px-3 py-1 ${isUsingRealData ? "bg-green-100 border-green-200 text-green-600" : "bg-amber-100 border-amber-200 text-amber-500"} border rounded-full font-semibold text-sm flex items-center`}>
                   {isUsingRealData ? (
                     <>
@@ -226,19 +298,37 @@ const BreathKasinaPage = () => {
                   )}
                 </div>
                 
-                {!isUsingRealData && (
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="ml-2 text-xs bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
+                <div className="flex space-x-2">
+                  {!isUsingRealData && (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="text-xs bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
+                      onClick={() => {
+                        // Go back to the device connection page
+                        window.location.href = '/breath'; 
+                      }}
+                    >
+                      Connect Real Device
+                    </Button>
+                  )}
+                  
+                  {/* Toggle for testing animated vs. still mode */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className={`text-xs ${useSimulation ? "bg-purple-500 text-white border-purple-500" : "bg-gray-200 text-gray-700 border-gray-300"}`}
                     onClick={() => {
-                      // Go back to the device connection page
-                      window.location.href = '/breath'; 
+                      // Toggle simulation mode for testing
+                      setUseSimulation(!useSimulation);
+                      
+                      // Update localStorage to reflect the change
+                      localStorage.setItem('breathTestMode', useSimulation ? 'still' : 'simulate');
                     }}
                   >
-                    Connect Real Device
+                    {useSimulation ? "Switch to Still Mode" : "Test with Animation"}
                   </Button>
-                )}
+                </div>
               </div>
             </>
           )}
