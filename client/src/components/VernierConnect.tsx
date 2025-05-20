@@ -110,20 +110,22 @@ const VernierConnect = () => {
                   const forceReading = dataView.getFloat32(3, true); // little-endian
                   
                   if (!isNaN(forceReading)) {
-                    console.log(`Force reading: ${forceReading.toFixed(4)}N`);
+                    // Cap extremely high readings to prevent visualization issues
+                    const normalizedReading = Math.min(forceReading, 0.5);
+                    console.log(`Force reading: ${normalizedReading.toFixed(4)}N (original: ${forceReading.toFixed(4)}N)`);
                     
-                    // Store the force reading for visualization
-                    localStorage.setItem('latestBreathReading', forceReading.toString());
+                    // Store the normalized force reading for visualization
+                    localStorage.setItem('latestBreathReading', normalizedReading.toString());
                     localStorage.setItem('latestBreathTimestamp', Date.now().toString());
                     
                     // Store breath phase for better visualization
                     const prevReading = parseFloat(localStorage.getItem('prevBreathReading') || '0');
-                    if (forceReading > prevReading) {
+                    if (normalizedReading > prevReading) {
                       localStorage.setItem('breathPhase', 'inhale');
                     } else {
                       localStorage.setItem('breathPhase', 'exhale');
                     }
-                    localStorage.setItem('prevBreathReading', forceReading.toString());
+                    localStorage.setItem('prevBreathReading', normalizedReading.toString());
                   }
                 } catch (e) {
                   console.error('Error parsing force reading:', e);

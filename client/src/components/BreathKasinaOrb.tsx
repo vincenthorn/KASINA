@@ -41,39 +41,39 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         case 'expand-contract': {
           // Calculate target scale based on breath amplitude and intensity
           // Dramatically enhance the visual response for even the tiniest readings
-          const baseScale = 0.6; // Small base size for maximum contrast
-          const maxExpansion = 4.0; // Even more extreme expansion for unmistakable visual feedback
+          const baseScale = 0.9; // Larger base size so the orb is still clearly visible when small
+          const maxExpansion = 1.5; // Much more reasonable expansion range
           
-          // Make sure real breathing data from the belt creates dramatic visual movements
-          // This is critical as the actual force readings from the belt might be subtle
+          // Apply a much more moderate amplification that won't cause the orb to get too huge
+          // Based on the screenshot, we need to reduce the amplification considerably
           
-          // Start with base amplification - convert any reading to visible range
+          // Start with base amplification
           let amplifiedAmplitude = breathAmplitude;
           
-          // Special handling for different amplitude ranges
+          // Much gentler amplification for all ranges
           if (breathAmplitude > 0 && breathAmplitude < 0.1) {
-            // Tiny readings (0.01-0.1N): dramatically amplify for visibility
-            amplifiedAmplitude = 0.4 + (breathAmplitude * 6); 
+            // Tiny readings (0.01-0.1N): moderate amplification
+            amplifiedAmplitude = 0.1 + (breathAmplitude * 2); 
             console.log(`Amplifying small reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
           } 
           else if (breathAmplitude >= 0.1 && breathAmplitude < 1.0) {
-            // Medium readings (0.1-1.0N): substantial amplification
-            amplifiedAmplitude = 0.5 + (breathAmplitude * 3);
+            // Medium readings (0.1-1.0N): slight amplification
+            amplifiedAmplitude = 0.2 + (breathAmplitude * 0.8);
             console.log(`Amplifying medium reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
           }
           else if (breathAmplitude >= 1.0) {
-            // Larger readings (>1.0N): moderate amplification
-            amplifiedAmplitude = 0.7 + (breathAmplitude * 0.5);
+            // Larger readings (>1.0N): very minimal amplification
+            amplifiedAmplitude = 0.3 + (breathAmplitude * 0.2);
             console.log(`Amplifying large reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
           }
           
-          // Calculate scale with custom emphasis on the amplitude
-          // Apply a smaller exponent for more immediate visual feedback
-          const emphasisFactor = Math.pow(amplifiedAmplitude, 0.5); // Make changes even more visible
-          const targetScale = baseScale + (maxExpansion * emphasisFactor * intensity);
+          // Apply much gentler scaling to avoid the orb getting too large
+          // We need a subtle animation rather than dramatic expansion
+          const emphasisFactor = Math.pow(amplifiedAmplitude, 0.5);
+          const targetScale = baseScale + (maxExpansion * emphasisFactor * intensity) * 0.3; // Reduce by 70%
           
-          // Very fast interpolation for immediate visual feedback
-          setScale(prev => prev + (targetScale - prev) * 0.7); // Higher value = faster response
+          // Slower interpolation for smoother, less dramatic changes
+          setScale(prev => prev + (targetScale - prev) * 0.2); // Lower value = gentler response
           
           // Log out the current scale for debugging
           if (Date.now() % 1000 < 50) {
