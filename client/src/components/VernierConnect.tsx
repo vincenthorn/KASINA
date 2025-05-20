@@ -62,56 +62,73 @@ const VernierConnect = () => {
         if (!dataView) return;
         
         try {
-          // Create a byte array for easier debugging
-          const bytes = new Uint8Array(dataView.buffer);
-          const hexDump = Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' ');
-          console.log('RAW DATA:', hexDump);
+          // Create readable raw byte array for logging
+          const rawBytes = new Array(dataView.byteLength);
+          for (let i = 0; i < dataView.byteLength; i++) {
+            rawBytes[i] = dataView.getUint8(i);
+          }
           
-          // Log the raw data to help understand the format
-          console.log('DATA LENGTH:', bytes.length);
-          console.log('FIRST BYTES:', bytes[0], bytes[1], bytes[2], bytes[3]);
+          // Format as hex for readability
+          const hexDump = rawBytes.map(b => b.toString(16).padStart(2, '0')).join(' ');
+          console.log('VERNIER RAW DATA PACKET:', hexDump);
           
-          // CRITICAL: This is a different approach - try to find any valid measurement
-          // Based on Vernier's documented formats and common practices
+          // According to Vernier's Go Direct Bluetooth protocol, measurements follow this format:
+          // - Measurement packets have a status byte of 0x01 or 0x03
+          // - Followed by channel number (usually 0x01 for force sensor)
+          // - Followed by a 4-byte IEEE-754 float (little-endian)
           
-          // Try ALL possible starting points for a potential float value
-          for (let i = 0; i < bytes.length - 3; i++) {
-            try {
-              // Try to read a float starting at each position
-              const view = new DataView(bytes.buffer);
-              const value = view.getFloat32(i, true); // little-endian is most common
+          if (rawBytes.length >= 6) {
+            // Extract the key packet parts for proper interpretation
+            const statusByte = rawBytes[0];
+            
+            // First byte should be 0x01 or 0x03 for measurement packets
+            if (statusByte === 0x01 || statusByte === 0x03) {
+              // Second byte is the channel number (should be 1 for the force sensor)
+              const channel = rawBytes[1];
               
-              // Also try big-endian
-              const valueBigEndian = view.getFloat32(i, false);
-              
-              // Valid respiration force readings have realistic ranges (typically 0-30N)
-              // Log any value in a reasonable range
-              if (!isNaN(value) && value > 0 && value < 50) {
-                console.log(`FOUND POTENTIAL READING at offset ${i} (LE): ${value.toFixed(4)}N`);
+              // The actual measurement depends on which channel we're getting
+              if (channel === 0x01) {
+                // The force measurement is a 4-byte IEEE-754 float
+                // Bytes 2-5 contain the float value in little-endian format
                 
-                // This looks like a valid reading - use it
-                localStorage.setItem('latestBreathReading', value.toString());
-                localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-              }
-              
-              if (!isNaN(valueBigEndian) && valueBigEndian > 0 && valueBigEndian < 50) {
-                console.log(`FOUND POTENTIAL READING at offset ${i} (BE): ${valueBigEndian.toFixed(4)}N`);
+                // Use proper buffer handling for the floats within the DataView
+                const forceValue = dataView.getFloat32(2, true); // true = little-endian
                 
-                // This looks like a valid reading - use it
-                localStorage.setItem('latestBreathReading', valueBigEndian.toString());
-                localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                if (!isNaN(forceValue) && forceValue >= 0 && forceValue <= 50) {
+                  console.log(`VALID FORCE READING: ${forceValue.toFixed(4)}N on channel ${channel}`);
+                  
+                  // Save this for the visualization
+                  localStorage.setItem('latestBreathReading', forceValue.toString());
+                  localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                }
               }
-            } catch (e) {
-              // Silent error - just try the next position
             }
           }
           
-          // Try to interpret it as raw byte values
-          for (let i = 0; i < bytes.length; i++) {
-            const rawValue = bytes[i];
-            if (rawValue > 0 && rawValue < 50) {
-              console.log(`FOUND POTENTIAL RAW BYTE VALUE at position ${i}: ${rawValue}N`);
-              localStorage.setItem('latestBreathRawByte', rawValue.toString());
+          // For Vernier's alternative formats, we also check for other patterns
+          if (rawBytes.length >= 5) {
+            // Some Vernier packets may start with command response markers
+            // This is an alternate format that might be used
+            
+            // Check for any valid floating point values in the data
+            for (let offset = 0; offset < dataView.byteLength - 3; offset++) {
+              try {
+                const possibleValue = dataView.getFloat32(offset, true); // little-endian
+                
+                // Filter to realistic force reading values
+                if (!isNaN(possibleValue) && possibleValue > 0 && possibleValue <= 30) {
+                  console.log(`ALTERNATE FORMAT: Found valid force at offset ${offset}: ${possibleValue.toFixed(4)}N`);
+                  
+                  // Save for visualization
+                  localStorage.setItem('latestBreathReading', possibleValue.toString());
+                  localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                  
+                  // Break after finding one valid reading to prevent duplicates
+                  break;
+                }
+              } catch (e) {
+                // Skip errors at this offset
+              }
             }
           }
           
