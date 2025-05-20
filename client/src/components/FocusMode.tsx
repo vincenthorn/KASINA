@@ -238,7 +238,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         }}
       >
         <DialogContent 
-          className="border-none max-w-full h-screen p-0 flex items-center justify-center"
+          className="focus-mode-content border-none max-w-full h-screen p-0 flex items-center justify-center"
           onMouseMove={handleMouseMove}
           onWheel={handleWheel}
           ref={contentRef}
