@@ -64,78 +64,59 @@ const VernierConnect = () => {
         try {
           // Create a byte array for easier debugging
           const bytes = new Uint8Array(dataView.buffer);
-          console.log('Received data:', Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
+          const hexDump = Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' ');
+          console.log('RAW DATA:', hexDump);
           
-          // Try to extract force readings from Vernier format
-          if (bytes.length >= 8) {
-            // The Vernier Go Direct devices typically send data in a specific format
-            // For force readings, we're looking for packets that contain Float values
+          // Log the raw data to help understand the format
+          console.log('DATA LENGTH:', bytes.length);
+          console.log('FIRST BYTES:', bytes[0], bytes[1], bytes[2], bytes[3]);
+          
+          // CRITICAL: This is a different approach - try to find any valid measurement
+          // Based on Vernier's documented formats and common practices
+          
+          // Try ALL possible starting points for a potential float value
+          for (let i = 0; i < bytes.length - 3; i++) {
             try {
-              // Extract data from all possible formats Vernier uses
-              // Try several data packet formats
+              // Try to read a float starting at each position
+              const view = new DataView(bytes.buffer);
+              const value = view.getFloat32(i, true); // little-endian is most common
               
-              // Format 1: Direct measurement packet (most common)
-              if (bytes[0] === 0x01 || bytes[0] === 0x03) {
-                try {
-                  const value = dataView.getFloat32(4, true); // true for little-endian
-                  
-                  if (!isNaN(value) && value >= 0 && value <= 50) {
-                    console.log(`Format 1 - Valid force reading: ${value.toFixed(2)}N`);
-                    
-                    // Store the reading for use by the visualization
-                    localStorage.setItem('latestBreathReading', value.toString());
-                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                    
-                    // Alert on the first successful reading
-                    if (!localStorage.getItem('firstReadingReceived')) {
-                      localStorage.setItem('firstReadingReceived', 'true');
-                      console.log('✅ Respiration data received successfully!');
-                    }
-                  }
-                } catch (e) {
-                  // Ignore parsing errors in this format
-                }
+              // Also try big-endian
+              const valueBigEndian = view.getFloat32(i, false);
+              
+              // Valid respiration force readings have realistic ranges (typically 0-30N)
+              // Log any value in a reasonable range
+              if (!isNaN(value) && value > 0 && value < 50) {
+                console.log(`FOUND POTENTIAL READING at offset ${i} (LE): ${value.toFixed(4)}N`);
+                
+                // This looks like a valid reading - use it
+                localStorage.setItem('latestBreathReading', value.toString());
+                localStorage.setItem('latestBreathTimestamp', Date.now().toString());
               }
               
-              // Format 2: Alternative data format
-              if (bytes.length >= 5) {
-                try {
-                  // Try every possible 4-byte sequence for a valid float
-                  for (let i = 0; i <= bytes.length - 4; i++) {
-                    try {
-                      const value = dataView.getFloat32(i, true);
-                      
-                      // Valid force readings are typically in the range of 5-20N
-                      if (!isNaN(value) && value > 0 && value < 50) {
-                        console.log(`Format 2 - Valid force at offset ${i}: ${value.toFixed(2)}N`);
-                        
-                        // Use this reading
-                        localStorage.setItem('latestBreathReading', value.toString());
-                        localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                        
-                        // Only use the first valid value we find
-                        break;
-                      }
-                    } catch (e) {
-                      // Ignore parsing errors at this offset
-                    }
-                  }
-                } catch (e) {
-                  // Ignore overall parsing errors
-                }
+              if (!isNaN(valueBigEndian) && valueBigEndian > 0 && valueBigEndian < 50) {
+                console.log(`FOUND POTENTIAL READING at offset ${i} (BE): ${valueBigEndian.toFixed(4)}N`);
+                
+                // This looks like a valid reading - use it
+                localStorage.setItem('latestBreathReading', valueBigEndian.toString());
+                localStorage.setItem('latestBreathTimestamp', Date.now().toString());
               }
-              
-              // Format 3: For debugging, store raw bytes for later analysis
-              localStorage.setItem('latestRawBytes', Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
-              
-              // Generate a test pattern that varies
-              const testValue = 10 + Math.sin(Date.now() / 1000) * 5;
-              localStorage.setItem('testBreathReading', testValue.toString());
-              localStorage.setItem('testBreathTimestamp', Date.now().toString());
-            } catch (error) {
-              console.error('Error parsing force data:', error);
+            } catch (e) {
+              // Silent error - just try the next position
             }
           }
+          
+          // Try to interpret it as raw byte values
+          for (let i = 0; i < bytes.length; i++) {
+            const rawValue = bytes[i];
+            if (rawValue > 0 && rawValue < 50) {
+              console.log(`FOUND POTENTIAL RAW BYTE VALUE at position ${i}: ${rawValue}N`);
+              localStorage.setItem('latestBreathRawByte', rawValue.toString());
+            }
+          }
+          
+          // Store the raw bytes for debugging
+          localStorage.setItem('latestRawBytes', hexDump);
         } catch (error) {
           console.error('Error processing incoming data:', error);
         }
