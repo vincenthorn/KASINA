@@ -97,46 +97,61 @@ const BreathPage = () => {
                     const dataView = target?.value;
                     
                     if (dataView && dataView instanceof DataView) {
-                      // Parse according to Go Direct Respiration Belt manual
-                    // The sensor returns data in a specific format based on the manual
-                    console.log('Received data from respiration belt, parsing...');
-                    
-                    // Create a UInt8Array to inspect raw buffer directly
-                    const rawBytes = new Uint8Array(dataView.buffer);
-                    console.log('Raw bytes:', Array.from(rawBytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
-                    
-                    // Based on the manual, the data format should be:
-                    // Byte 0: Packet header (often 0x01 or similar)
-                    // Byte 1: Channel ID
-                    // Bytes 2-5: Force measurement (float, little-endian)
-                    
-                    let forceValue = 0;
-                    
-                    // For Go Direct Respiration Belt, the force value is typically at offset 2
-                    // The data might be shifted by a header byte or two
-                    if (dataView.byteLength >= 6) { // Header + channel + float (4 bytes)
-                      forceValue = dataView.getFloat32(2, true); // true = little-endian
-                      console.log('Force reading at offset 2:', forceValue.toFixed(4), 'N');
-                    }
-                    
-                    // Fallback: Check for force at other possible offsets
-                    if (isNaN(forceValue) || forceValue === 0) {
-                      // Try each possible starting position for the float value
-                      for (let offset = 0; offset <= dataView.byteLength - 4; offset++) {
-                        const testValue = dataView.getFloat32(offset, true);
-                        console.log(`  Testing offset ${offset}: ${testValue.toFixed(4)} N`);
+                      // Raw data debugging - this will help identify the exact format
+                      console.log('Data received from Vernier Go Direct belt');
+                      
+                      // Create a UInt8Array for better visualization of the data
+                      const rawBytes = new Uint8Array(dataView.buffer);
+                      
+                      // Log the full buffer as hexadecimal bytes
+                      console.log('Raw bytes: [' + 
+                        Array.from(rawBytes).map(b => '0x' + b.toString(16).padStart(2, '0')).join(', ') + 
+                        ']');
+                      
+                      // According to Vernier documentation for the Go Direct respiration belt
+                      // The first byte (0) is typically a header/command code
+                      // The second byte (1) is the sensor channel number
+                      // If message is a measurement packet, bytes 2-5 contain the float value (little-endian)
+                      
+                      let forceValue = 0;
+                      let measurementFound = false;
+                      
+                      // Check if this is a measurement packet (typically starts with 0x01)
+                      if (dataView.byteLength >= 6 && rawBytes[0] === 0x01) {
+                        // This is likely a measurement packet
+                        const channelNumber = rawBytes[1];
+                        console.log(`Measurement packet for channel ${channelNumber}`);
                         
-                        // Force readings for respiration are typically 0.5-30 N according to the manual
-                        if (!isNaN(testValue) && testValue > 0.1 && testValue < 30) {
-                          forceValue = testValue;
-                          console.log(`  Found likely force reading at offset ${offset}`);
-                          break;
+                        // Extract the force measurement (4-byte float, little-endian)
+                        forceValue = dataView.getFloat32(2, true);
+                        measurementFound = true;
+                        
+                        console.log(`Force reading: ${forceValue.toFixed(4)} N`);
+                      } 
+                      // Also try other potential data formats
+                      else {
+                        console.log('Not a standard measurement packet, testing alternatives...');
+                        
+                        // Try to find a float value in the expected range anywhere in the buffer
+                        for (let i = 0; i <= dataView.byteLength - 4; i++) {
+                          const value = dataView.getFloat32(i, true);
+                          
+                          // Only log reasonable values to avoid console spam
+                          if (!isNaN(value) && Math.abs(value) < 100) {
+                            console.log(`  Potential value at offset ${i}: ${value.toFixed(4)} N`);
+                            
+                            // If value is in a reasonable range for respiration (0.1-40 N)
+                            if (Math.abs(value) > 0.1 && Math.abs(value) < 40) {
+                              forceValue = value;
+                              measurementFound = true;
+                              console.log(`  Using value from offset ${i}`);
+                            }
+                          }
                         }
                       }
-                    }
-                    
-                    // Ensure positive value (tension is always positive)
-                    forceValue = Math.abs(forceValue);
+                      
+                      // Ensure force value is positive (tension is always positive on a belt)
+                      forceValue = Math.abs(forceValue);
                       
                       // Only store valid readings
                       if (forceValue > 0.1) {
@@ -157,40 +172,34 @@ const BreathPage = () => {
                   }
                 });
                 
-                // Based on the Go Direct Respiration Belt manual
-                // The sensor has 4 channels: Force, Respiration Rate, Steps, and Step Rate
-                // We need to enable the Force channel for our measurements
-                console.log('Sending initialization commands to respiration belt...');
+                // Following the exact Vernier protocol sequence, according to their official SDK
+                // https://github.com/VernierST/godirect-js
+                console.log('Starting Vernier protocol sequence...');
                 
-                // Step 1: Select the Force channel (channel 1)
-                console.log('Enabling Force channel...');
-                const enableChannel = new Uint8Array([0x55, 0x01]);
-                await commandChar.writeValue(enableChannel);
-                await new Promise(resolve => setTimeout(resolve, 300)); // Wait for processing
+                // Step 1: Get device info (required first command)
+                console.log('Getting device info...');
+                await commandChar.writeValue(new Uint8Array([0x56]));
+                await new Promise(resolve => setTimeout(resolve, 500));
                 
-                // Step 2: Enable real-time data collection
-                console.log('Enabling real-time measurements...');
-                const enableRealTime = new Uint8Array([0x18, 0x01, 0x01, 0x01]);
-                await commandChar.writeValue(enableRealTime);
-                await new Promise(resolve => setTimeout(resolve, 300)); // Wait for processing
+                // Step 2: Get available sensors
+                console.log('Getting available sensors...');
+                await commandChar.writeValue(new Uint8Array([0x55]));
+                await new Promise(resolve => setTimeout(resolve, 500));
                 
-                // Step 3: Set sampling rate to 10 samples per second for respiration
-                console.log('Setting sampling rate...');
-                const setSamplingRate = new Uint8Array([0x13, 0x01, 0x0A]); // 10 Hz
-                await commandChar.writeValue(setSamplingRate);
-                await new Promise(resolve => setTimeout(resolve, 300)); // Wait for processing
+                // Step 3: Enable the Force (Respiration) sensor - channel 1
+                console.log('Enabling Force sensor (channel 1)...');
+                await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
+                await new Promise(resolve => setTimeout(resolve, 500));
                 
-                // Step 3a: Explicitly select and enable the Force channel using channel number
-                console.log('Explicitly enabling Force sensor channel...');
-                // This command selects sensor 1 (Force) as the active channel
-                const selectForceChannel = new Uint8Array([0x02, 0x01, 0x01]);
-                await commandChar.writeValue(selectForceChannel);
-                await new Promise(resolve => setTimeout(resolve, 300)); // Wait for processing
+                // Step 4: Set sampling period - 100ms (10 Hz)
+                console.log('Setting sampling period to 100ms (10 Hz)...');
+                await commandChar.writeValue(new Uint8Array([0x12, 0x0A, 0x00]));
+                await new Promise(resolve => setTimeout(resolve, 500));
                 
-                // Step 4: Request device info for debugging
-                console.log('Requesting device information...');
-                const deviceInfoCmd = new Uint8Array([0x57]);
-                await commandChar.writeValue(deviceInfoCmd);
+                // Step 5: Start measurements on enabled channels
+                console.log('Starting measurements...');
+                await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
+                await new Promise(resolve => setTimeout(resolve, 500));
                 
                 // Store device connection info
                 localStorage.setItem('breathBluetoothDevice', device.id);
