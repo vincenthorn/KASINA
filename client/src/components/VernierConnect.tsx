@@ -23,7 +23,6 @@ const VernierConnect = () => {
       const VERNIER_SERVICE_UUID = 'd91714ef-28b9-4f91-ba16-f0d9a604f112';
       const COMMAND_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb';
       const RESPONSE_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe';
-      const NOTIFICATION_UUID = 'b41e6676-a329-40e0-aa01-44d2f444babe'; // Direct sensor readings
 
       // Request the device immediately in response to the button click
       console.log('Requesting Bluetooth device...');
@@ -53,66 +52,14 @@ const VernierConnect = () => {
       const commandChar = await service.getCharacteristic(COMMAND_UUID);
       const responseChar = await service.getCharacteristic(RESPONSE_UUID);
       
-      // The notification characteristic is different from response char - this is where sensor readings come from
-      console.log('Getting notification characteristic...');
-      const notificationChar = await service.getCharacteristic(NOTIFICATION_UUID);
-      
-      // Start notifications on both channels
-      console.log('Starting notifications...');
+      // Start notifications on the response characteristic
+      console.log('Starting notifications on response characteristic...');
       await responseChar.startNotifications();
-      await notificationChar.startNotifications();
       
       // Set up listener for incoming data
-      console.log('Setting up data listeners...');
+      console.log('Setting up data listener...');
       
-      // Add listener for the notification characteristic (where sensor readings come from)
-      notificationChar.addEventListener('characteristicvaluechanged', (event: any) => {
-        const dataView = event.target.value;
-        if (!dataView) return;
-        
-        try {
-          // Log the raw notification data for analysis
-          const rawBytes = [];
-          for (let i = 0; i < dataView.byteLength; i++) {
-            rawBytes.push(dataView.getUint8(i));
-          }
-          
-          console.log('NOTIFICATION DATA:', rawBytes.map(b => b.toString(16).padStart(2, '0')).join(' '));
-          
-          // According to Vernier docs, notification data may contain the actual sensor readings
-          // The format is typically [status, channel, ...data]
-          
-          // Check for real-time measurements (usually 20+ bytes)
-          if (dataView.byteLength >= 5) {
-            // For each measurement packet, try to extract the force reading
-            for (let offset = 0; offset < dataView.byteLength - 4; offset++) {
-              try {
-                // Force readings come as a little-endian float
-                const possibleForce = dataView.getFloat32(offset, true);
-                
-                // A valid force reading would be within a realistic range (0-30N)
-                if (!isNaN(possibleForce) && possibleForce > 0 && possibleForce < 30) {
-                  console.log(`FOUND FORCE READING: ${possibleForce.toFixed(2)}N at offset ${offset}`);
-                  
-                  // Store for visualization
-                  localStorage.setItem('latestBreathReading', possibleForce.toString());
-                  localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                  localStorage.setItem('breathDataSource', 'notification');
-                  
-                  // No need to check further offsets once we find a valid reading
-                  break;
-                }
-              } catch (e) {
-                // Skip errors parsing at this offset
-              }
-            }
-          }
-        } catch (error) {
-          console.error('Error processing notification data:', error);
-        }
-      });
-      
-      // Original response characteristic listener
+      // Only use the response characteristic listener
       responseChar.addEventListener('characteristicvaluechanged', (event: any) => {
         const dataView = event.target.value;
         if (!dataView) return;
