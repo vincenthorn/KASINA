@@ -116,7 +116,11 @@ const BreathPage = () => {
                       let forceValue = 0;
                       let measurementFound = false;
                       
-                      // Check if this is a measurement packet (typically starts with 0x01)
+                      // Based on Vernier Graphical Analysis, the data pattern shows:
+                      // Normal breathing typically delivers values between 5-15 N
+                      // Try different known command and data patterns
+                      
+                      // Pattern 1: Check if this is a measurement packet (typically starts with 0x01)
                       if (dataView.byteLength >= 6 && rawBytes[0] === 0x01) {
                         // This is likely a measurement packet
                         const channelNumber = rawBytes[1];
@@ -127,24 +131,45 @@ const BreathPage = () => {
                         measurementFound = true;
                         
                         console.log(`Force reading: ${forceValue.toFixed(4)} N`);
-                      } 
+                      }
+                      // Pattern 2: Common alternative format (starts with 0x20)
+                      else if (dataView.byteLength >= 6 && rawBytes[0] === 0x20) {
+                        console.log('Detected 0x20 packet format');
+                        // Try to extract the force value from bytes 2-5
+                        forceValue = dataView.getFloat32(2, true);
+                        measurementFound = true;
+                        console.log(`Force reading (0x20 format): ${forceValue.toFixed(4)} N`);
+                      }
+                      // Pattern 3: Other possible formats based on Vernier docs
+                      else if (dataView.byteLength >= 6 && [0x21, 0x22, 0x23].includes(rawBytes[0])) {
+                        console.log(`Detected 0x${rawBytes[0].toString(16)} format packet`);
+                        forceValue = dataView.getFloat32(2, true);
+                        measurementFound = true;
+                        console.log(`Force reading: ${forceValue.toFixed(4)} N`);
+                      }
                       // Also try other potential data formats
                       else {
                         console.log('Not a standard measurement packet, testing alternatives...');
                         
-                        // Try to find a float value in the expected range anywhere in the buffer
+                        // Try to find a float value specifically in the expected range for respiration (5-20 N)
+                        // This matches what we saw in Vernier's Graphical Analysis
                         for (let i = 0; i <= dataView.byteLength - 4; i++) {
                           const value = dataView.getFloat32(i, true);
                           
-                          // Only log reasonable values to avoid console spam
-                          if (!isNaN(value) && Math.abs(value) < 100) {
+                          // Specifically target values in the typical respiration range
+                          if (!isNaN(value) && value >= 3 && value <= 25) {
+                            console.log(`  High confidence value at offset ${i}: ${value.toFixed(4)} N`);
+                            forceValue = value;
+                            measurementFound = true;
+                            console.log(`  Using value from offset ${i}`);
+                            break; // Stop after finding the first good value
+                          }
+                          // Fallback for other reasonable values
+                          else if (!isNaN(value) && Math.abs(value) > 0.5 && Math.abs(value) < 40) {
                             console.log(`  Potential value at offset ${i}: ${value.toFixed(4)} N`);
-                            
-                            // If value is in a reasonable range for respiration (0.1-40 N)
-                            if (Math.abs(value) > 0.1 && Math.abs(value) < 40) {
+                            if (!measurementFound) {
                               forceValue = value;
                               measurementFound = true;
-                              console.log(`  Using value from offset ${i}`);
                             }
                           }
                         }
