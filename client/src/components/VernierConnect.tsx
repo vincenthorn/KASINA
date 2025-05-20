@@ -142,8 +142,62 @@ const VernierConnect = () => {
             }
           }
           
+          // Try simpler directly readable values from sensor
+          // Sometimes force sensors just use single byte or 16-bit values
+          
+          // Try processing as unsigned int values at various positions
+          for (let i = 0; i < rawBytes.length; i++) {
+            const rawByteValue = rawBytes[i];
+            console.log(`BYTE VALUE at ${i}: ${rawByteValue} (0x${rawByteValue.toString(16)})`);
+          }
+          
+          // Check if we have reasonable-looking 16-bit values
+          if (rawBytes.length >= 2) {
+            const uint16Value = (rawBytes[0] << 8) | rawBytes[1]; // big-endian
+            const uint16Value_le = (rawBytes[1] << 8) | rawBytes[0]; // little-endian
+            console.log(`16-BIT VALUE (BE): ${uint16Value} (hex: 0x${uint16Value.toString(16)})`);
+            console.log(`16-BIT VALUE (LE): ${uint16Value_le} (hex: 0x${uint16Value_le.toString(16)})`);
+          }
+          
+          // Try as a direct float value from the start
+          if (rawBytes.length >= 4) {
+            try {
+              const floatVal = dataView.getFloat32(0, true); // little-endian
+              const floatVal_be = dataView.getFloat32(0, false); // big-endian
+              console.log(`FLOAT32 VALUE (LE): ${floatVal.toFixed(4)}`);
+              console.log(`FLOAT32 VALUE (BE): ${floatVal_be.toFixed(4)}`);
+            } catch (e) {
+              console.log('Error parsing float:', e);
+            }
+          }
+          
           // Store the raw bytes for debugging
           localStorage.setItem('latestRawBytes', hexDump);
+          
+          // Try a last-resort approach - just use any non-zero value as evidence of breathing
+          let anyNonZero = false;
+          for (let i = 0; i < rawBytes.length; i++) {
+            if (rawBytes[i] > 0) {
+              anyNonZero = true;
+              break;
+            }
+          }
+          
+          if (anyNonZero) {
+            console.log('NON-ZERO VALUES DETECTED IN PACKET!');
+            
+            // Find the largest byte value in the packet
+            const maxByte = Math.max(...rawBytes);
+            if (maxByte > 0) {
+              // Use this as a simple indicator (range 0-255 scaled to 0-25.5N)
+              const simpleForce = maxByte / 10; 
+              console.log(`USING SIMPLE FORCE CALCULATION: ${simpleForce.toFixed(2)}N`);
+              
+              // Store this for visualization
+              localStorage.setItem('latestBreathReading', simpleForce.toString());
+              localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+            }
+          }
         } catch (error) {
           console.error('Error processing incoming data:', error);
         }
