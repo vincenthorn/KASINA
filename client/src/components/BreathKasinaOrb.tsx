@@ -44,15 +44,27 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           const baseScale = 0.6; // Small base size for maximum contrast
           const maxExpansion = 4.0; // Even more extreme expansion for unmistakable visual feedback
           
-          // IMPORTANT: Amplify tiny readings (0.01N) to create visible movement
-          // If we have ANY reading, make sure it shows visibly
+          // Make sure real breathing data from the belt creates dramatic visual movements
+          // This is critical as the actual force readings from the belt might be subtle
+          
+          // Start with base amplification - convert any reading to visible range
           let amplifiedAmplitude = breathAmplitude;
           
-          // For very small readings (0.01-0.1), dramatically amplify the visual effect
+          // Special handling for different amplitude ranges
           if (breathAmplitude > 0 && breathAmplitude < 0.1) {
-            // Exponentially amplify small readings 
-            amplifiedAmplitude = 0.3 + (breathAmplitude * 5); // Boost tiny readings to visible range
+            // Tiny readings (0.01-0.1N): dramatically amplify for visibility
+            amplifiedAmplitude = 0.4 + (breathAmplitude * 6); 
             console.log(`Amplifying small reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
+          } 
+          else if (breathAmplitude >= 0.1 && breathAmplitude < 1.0) {
+            // Medium readings (0.1-1.0N): substantial amplification
+            amplifiedAmplitude = 0.5 + (breathAmplitude * 3);
+            console.log(`Amplifying medium reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
+          }
+          else if (breathAmplitude >= 1.0) {
+            // Larger readings (>1.0N): moderate amplification
+            amplifiedAmplitude = 0.7 + (breathAmplitude * 0.5);
+            console.log(`Amplifying large reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
           }
           
           // Calculate scale with custom emphasis on the amplitude
