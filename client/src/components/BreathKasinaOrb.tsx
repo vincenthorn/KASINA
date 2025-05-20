@@ -38,7 +38,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       // Different effects based on the selected effect type
       switch (effectType) {
-        case 'expand-contract':
+        case 'expand-contract': {
           // Calculate target scale based on breath amplitude and intensity
           const baseScale = 1.0; // Base size
           const maxExpansion = 0.3; // Maximum additional scale factor
@@ -47,14 +47,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           // Smooth interpolation for scale changes
           setScale(prev => prev + (targetScale - prev) * 0.1);
           break;
+        }
           
         // Future effect types will be implemented here
         case 'brighten-darken':
         case 'color-shift':
-        default:
+        default: {
           // Default to expand-contract for now
+          const baseScale = 1.0; // Base size
+          const maxExpansion = 0.3; // Maximum additional scale factor
           const defaultScale = baseScale + (maxExpansion * breathAmplitude * intensity);
           setScale(prev => prev + (defaultScale - prev) * 0.1);
+        }
           break;
       }
       

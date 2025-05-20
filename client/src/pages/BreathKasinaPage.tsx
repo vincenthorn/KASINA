@@ -7,6 +7,7 @@ import { useKasina } from '@/lib/stores/useKasina';
 import { KasinaType } from '@/lib/types';
 import { Maximize, Minimize, Wind, Activity } from 'lucide-react';
 import FocusMode from '@/components/FocusMode';
+import BreathKasinaOrb from '@/components/BreathKasinaOrb';
 import { useFocusMode } from '@/lib/stores/useFocusMode';
 
 interface BreathData {
@@ -233,6 +234,19 @@ const BreathKasinaPage = () => {
       {/* Focus Mode Component - Handles the actual meditation experience */}
       <FocusMode>
         <div className="flex flex-col items-center justify-center h-full">
+          {/* Breath visualization - uses our special BreathKasinaOrb component */}
+          <div className="mb-8 relative" style={{ width: '300px', height: '300px' }}>
+            {breathData && (
+              <BreathKasinaOrb
+                type={selectedKasina as KasinaType}
+                breathAmplitude={breathData.normalizedValue}
+                breathingRate={breathingRate}
+                effectType={selectedEffect as 'expand-contract'}
+                remainingTime={null}
+              />
+            )}
+          </div>
+          
           {/* Timer controls will be automatically inserted by FocusMode */}
           <div className="space-x-2">
             <Button 
