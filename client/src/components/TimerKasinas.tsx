@@ -616,7 +616,7 @@ const TimerKasinas: React.FC = () => {
                 {/* On mobile - square aspect ratio */}
                 <div className="md:hidden pb-[100%] w-full"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-full h-full">
+                  <div className={`w-full h-full ${selectedKasina === KASINA_TYPES.AIR ? 'air-kasina-container' : ''}`}>
                     <KasinaOrb 
                       type={typedKasina} 
                       remainingTime={timeRemaining} 

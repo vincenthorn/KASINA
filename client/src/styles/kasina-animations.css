@@ -606,18 +606,46 @@
 @keyframes air-particles {
   0% {
     transform: translate(0, 0);
+    opacity: 0.5;
   }
   25% {
     transform: translate(-3%, 5%);
+    opacity: 0.7;
   }
   50% {
     transform: translate(-7%, 10%);
+    opacity: 0.9;
   }
   75% {
     transform: translate(-3%, 15%);
+    opacity: 0.7;
   }
   100% {
     transform: translate(0, 20%);
+    opacity: 0.5;
+  }
+}
+
+@keyframes air-swirl {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: rotate(90deg) scale(1.03);
+    opacity: 0.7;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.06);
+    opacity: 0.8;
+  }
+  75% {
+    transform: rotate(270deg) scale(1.03);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.5;
   }
 }
 
