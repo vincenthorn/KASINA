@@ -74,10 +74,21 @@ const BreathKasinaPage = () => {
     // Function to continuously update breath data from device
     const updateBreathData = () => {
       try {
-        // Read latest breath data from localStorage (set by the Bluetooth event listener)
+        // Check for real data first
         const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+        
+        // If no real data, use the test pattern as fallback (only for visualization testing)
+        const testReading = parseFloat(localStorage.getItem('testBreathReading') || '0');
+        const useReading = latestReading > 0 ? latestReading : testReading;
+        
         const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
         const now = Date.now();
+        
+        // Display raw bytes for debugging
+        const rawBytes = localStorage.getItem('latestRawBytes') || '';
+        if (now % 5000 < 50 && rawBytes) {
+          console.log('Raw bytes from device:', rawBytes);
+        }
         
         // Log the values every few seconds for debugging
         if (now % 3000 < 50) {

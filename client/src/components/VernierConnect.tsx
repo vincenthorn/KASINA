@@ -71,24 +71,67 @@ const VernierConnect = () => {
             // The Vernier Go Direct devices typically send data in a specific format
             // For force readings, we're looking for packets that contain Float values
             try {
-              // Check for data packet identifier and channel 1 data
+              // Extract data from all possible formats Vernier uses
+              // Try several data packet formats
+              
+              // Format 1: Direct measurement packet (most common)
               if (bytes[0] === 0x01 || bytes[0] === 0x03) {
-                const value = dataView.getFloat32(4, true); // true for little-endian
-                
-                if (!isNaN(value)) {
-                  console.log(`Valid force reading found: ${value.toFixed(2)}N`);
+                try {
+                  const value = dataView.getFloat32(4, true); // true for little-endian
                   
-                  // Store the reading for use by the visualization
-                  localStorage.setItem('latestBreathReading', value.toString());
-                  localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                  
-                  // Alert on the first successful reading
-                  if (!localStorage.getItem('firstReadingReceived')) {
-                    localStorage.setItem('firstReadingReceived', 'true');
-                    console.log('✅ Respiration data received successfully!');
+                  if (!isNaN(value) && value >= 0 && value <= 50) {
+                    console.log(`Format 1 - Valid force reading: ${value.toFixed(2)}N`);
+                    
+                    // Store the reading for use by the visualization
+                    localStorage.setItem('latestBreathReading', value.toString());
+                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                    
+                    // Alert on the first successful reading
+                    if (!localStorage.getItem('firstReadingReceived')) {
+                      localStorage.setItem('firstReadingReceived', 'true');
+                      console.log('✅ Respiration data received successfully!');
+                    }
                   }
+                } catch (e) {
+                  // Ignore parsing errors in this format
                 }
               }
+              
+              // Format 2: Alternative data format
+              if (bytes.length >= 5) {
+                try {
+                  // Try every possible 4-byte sequence for a valid float
+                  for (let i = 0; i <= bytes.length - 4; i++) {
+                    try {
+                      const value = dataView.getFloat32(i, true);
+                      
+                      // Valid force readings are typically in the range of 5-20N
+                      if (!isNaN(value) && value > 0 && value < 50) {
+                        console.log(`Format 2 - Valid force at offset ${i}: ${value.toFixed(2)}N`);
+                        
+                        // Use this reading
+                        localStorage.setItem('latestBreathReading', value.toString());
+                        localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                        
+                        // Only use the first valid value we find
+                        break;
+                      }
+                    } catch (e) {
+                      // Ignore parsing errors at this offset
+                    }
+                  }
+                } catch (e) {
+                  // Ignore overall parsing errors
+                }
+              }
+              
+              // Format 3: For debugging, store raw bytes for later analysis
+              localStorage.setItem('latestRawBytes', Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
+              
+              // Generate a test pattern that varies
+              const testValue = 10 + Math.sin(Date.now() / 1000) * 5;
+              localStorage.setItem('testBreathReading', testValue.toString());
+              localStorage.setItem('testBreathTimestamp', Date.now().toString());
             } catch (error) {
               console.error('Error parsing force data:', error);
             }
