@@ -17,6 +17,7 @@ import ReflectionPage from "./pages/ReflectionPage";
 import AdminPage from "./pages/AdminPage";
 import LogoExportPage from "./pages/LogoExportPage";
 import BreathPage from "./pages/BreathPage";
+import BreathKasinaPage from "./pages/BreathKasinaPage";
 
 import NotFound from "./pages/not-found";
 
@@ -121,6 +122,16 @@ function App() {
                   <AuthenticatedRoute>
                     <ErrorBoundary>
                       <BreathPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+              <Route
+                path="/breath/kasina"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <BreathKasinaPage />
                     </ErrorBoundary>
                   </AuthenticatedRoute>
                 }

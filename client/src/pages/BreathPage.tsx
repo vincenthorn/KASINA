@@ -24,13 +24,32 @@ const BreathPage = () => {
     try {
       setIsConnecting(true);
       // Web Bluetooth API connection code will go here
+      // For a production implementation, we would use the Web Bluetooth API:
+      /*
+      const device = await (navigator as any).bluetooth.requestDevice({
+        filters: [
+          { services: ['battery_service'] },  // Replace with the actual service UUID from Vernier
+          { namePrefix: 'Go Direct' }
+        ],
+        optionalServices: ['battery_service']  // Replace with actual service UUID
+      });
+      
+      const server = await device.gatt.connect();
+      const service = await server.getPrimaryService('battery_service');  // Replace with actual service UUID
+      const characteristic = await service.getCharacteristic('battery_level');  // Replace with actual characteristic UUID
+      await characteristic.startNotifications();
+      characteristic.addEventListener('characteristicvaluechanged', (event: any) => {
+        const value = event.target.value.getUint8(0);
+        console.log('Breath sensor reading:', value);
+      });
+      */
       
       // For now, simulate a connection
       await new Promise(resolve => setTimeout(resolve, 2000));
       setIsConnected(true);
       
       // Navigate to the breath kasina experience once connected
-      // navigate('/breath/kasina');
+      navigate('/breath/kasina');
       
     } catch (error) {
       console.error('Error connecting to respiration belt:', error);
