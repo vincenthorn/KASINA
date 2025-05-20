@@ -258,14 +258,27 @@ const BreathKasinaPage = () => {
               />
             )}
             
-            {/* Display current force reading directly in the visualization */}
-            {rawSensorValue !== null && (
-              <div className="absolute bottom-4 left-0 right-0 text-center">
-                <span className="px-4 py-2 bg-gray-800 bg-opacity-75 rounded-full text-white font-mono text-lg">
-                  {rawSensorValue} N
-                </span>
-              </div>
-            )}
+            {/* Display real-time readings directly in the visualization */}
+            <div className="absolute bottom-4 left-0 right-0 text-center space-y-3">
+              {rawSensorValue !== null && (
+                <div>
+                  <span className="px-4 py-2 bg-gray-800 bg-opacity-75 rounded-full text-white font-mono text-lg">
+                    Force: {rawSensorValue} N
+                  </span>
+                </div>
+              )}
+              
+              {breathingRate && (
+                <div>
+                  <span className="px-4 py-2 bg-blue-800 bg-opacity-75 rounded-full text-white font-mono text-lg flex items-center justify-center inline-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    {breathingRate} breaths/min
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </FocusMode>
