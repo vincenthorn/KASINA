@@ -122,9 +122,9 @@ const VernierConnect = () => {
       console.log('Connected successfully! Redirecting to Breath Kasina page');
       navigate('/breath-kasina');
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Bluetooth connection error:', error);
-      alert(`Connection error: ${(error as Error).message || 'Unknown error'}. Please make sure the device is on and nearby.`);
+      alert(`Connection error: ${error.message || 'Unknown error'}. Please make sure the device is on and nearby.`);
     } finally {
       setIsConnecting(false);
     }

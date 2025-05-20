@@ -31,8 +31,10 @@ const BreathKasinaPage = () => {
   // Make sure we have a default kasina selected
   useEffect(() => {
     // Always default to blue kasina
-    setSelectedKasina('blue' as KasinaType);
-  }, [setSelectedKasina]);
+    if (!selectedKasina) {
+      setSelectedKasina('blue' as KasinaType);
+    }
+  }, [setSelectedKasina, selectedKasina]);
 
   // Setup respiration belt and determine data source on component mount
   useEffect(() => {
@@ -290,8 +292,10 @@ const BreathKasinaPage = () => {
                 {/* Main orb visualization */}
                 <div className="w-4/5 h-4/5 flex items-center justify-center">
                   <BreathKasinaOrb 
-                    breathData={breathData || { timestamp: Date.now(), amplitude: 0.5, normalizedValue: 0.5 }}
-                    effect={selectedEffect}
+                    type={selectedKasina as KasinaType}
+                    breathAmplitude={(breathData?.normalizedValue || 0.5)}
+                    breathingRate={breathingRate}
+                    effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
                   />
                 </div>
               </div>
@@ -314,8 +318,10 @@ const BreathKasinaPage = () => {
           <div className="w-full h-full flex items-center justify-center bg-black">
             <div className="w-4/5 h-4/5 flex items-center justify-center">
               <BreathKasinaOrb 
-                breathData={breathData || { timestamp: Date.now(), amplitude: 0.5, normalizedValue: 0.5 }}
-                effect={selectedEffect}
+                type={selectedKasina as KasinaType}
+                breathAmplitude={(breathData?.normalizedValue || 0.5)}
+                breathingRate={breathingRate}
+                effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
               />
             </div>
           </div>
