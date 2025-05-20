@@ -40,12 +40,24 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       switch (effectType) {
         case 'expand-contract': {
           // Calculate target scale based on breath amplitude and intensity
-          const baseScale = 0.6; // Even smaller base size for maximum contrast
-          const maxExpansion = 2.5; // Extreme expansion range for unmistakable visual effect
+          // Dramatically enhance the visual response for even the tiniest readings
+          const baseScale = 0.6; // Small base size for maximum contrast
+          const maxExpansion = 4.0; // Even more extreme expansion for unmistakable visual feedback
+          
+          // IMPORTANT: Amplify tiny readings (0.01N) to create visible movement
+          // If we have ANY reading, make sure it shows visibly
+          let amplifiedAmplitude = breathAmplitude;
+          
+          // For very small readings (0.01-0.1), dramatically amplify the visual effect
+          if (breathAmplitude > 0 && breathAmplitude < 0.1) {
+            // Exponentially amplify small readings 
+            amplifiedAmplitude = 0.3 + (breathAmplitude * 5); // Boost tiny readings to visible range
+            console.log(`Amplifying small reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
+          }
           
           // Calculate scale with custom emphasis on the amplitude
-          // Apply an exponent to create more dramatic expansion
-          const emphasisFactor = Math.pow(breathAmplitude, 0.7); // Make changes more visible
+          // Apply a smaller exponent for more immediate visual feedback
+          const emphasisFactor = Math.pow(amplifiedAmplitude, 0.5); // Make changes even more visible
           const targetScale = baseScale + (maxExpansion * emphasisFactor * intensity);
           
           // Very fast interpolation for immediate visual feedback
@@ -66,8 +78,17 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           const baseScale = 0.6; // Smaller base size for maximum contrast
           const maxExpansion = 2.5; // Extreme expansion range for unmistakable visual effect
           
+          // IMPORTANT: Apply the same amplitude amplification here as in the expand-contract case
+          let amplifiedAmplitude = breathAmplitude;
+          
+          // For very small readings (0.01-0.1), dramatically amplify the visual effect
+          if (breathAmplitude > 0 && breathAmplitude < 0.1) {
+            // Exponentially amplify small readings 
+            amplifiedAmplitude = 0.3 + (breathAmplitude * 5); // Boost tiny readings to visible range
+          }
+          
           // Calculate scale with custom emphasis on the amplitude
-          const emphasisFactor = Math.pow(breathAmplitude, 0.7); // Make changes more visible
+          const emphasisFactor = Math.pow(amplifiedAmplitude, 0.5); // Make changes more visible
           const defaultScale = baseScale + (maxExpansion * emphasisFactor * intensity);
           
           // Very fast interpolation for immediate visual feedback
