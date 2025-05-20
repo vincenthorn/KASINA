@@ -76,8 +76,54 @@ const BreathKasinaPage = () => {
       try {
         // Read the real-time data from the respiration belt - NO SIMULATION
         const now = Date.now();
-        const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
-        const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
+        
+        // Try alternate reading methods if the primary one isn't working
+        // This is important as different device firmware may store data in different formats
+        let latestReading = 0;
+        let timestamp = 0;
+        
+        // Check our primary reading first
+        const primaryReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+        const primaryTimestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
+        
+        // If primary reading is valid, use it
+        if (!isNaN(primaryReading) && primaryReading > 0 && primaryTimestamp > 0) {
+          latestReading = primaryReading;
+          timestamp = primaryTimestamp;
+        } 
+        // Try 16-bit reading as backup
+        else {
+          const bit16Reading = parseFloat(localStorage.getItem('latest16bitReading') || '0');
+          if (!isNaN(bit16Reading) && bit16Reading > 0) {
+            latestReading = bit16Reading;
+            timestamp = now; // We don't have a real timestamp, so use current time
+            console.log(`Using 16-bit reading: ${latestReading.toFixed(2)}N`);
+          } 
+          // Try direct byte reading as last resort
+          else {
+            const byteReading = parseFloat(localStorage.getItem('latestByteReading') || '0');
+            if (!isNaN(byteReading) && byteReading > 0) {
+              // Scale the byte reading (0-255) to a reasonable force range (0-25.5N)
+              latestReading = byteReading / 10;
+              timestamp = now; // We don't have a real timestamp, so use current time
+              console.log(`Using byte reading: ${latestReading.toFixed(2)}N`);
+            }
+          }
+        }
+        
+        // Check the freshness of the data
+        const dataAge = now - timestamp;
+        if (latestReading > 0) {
+          if (dataAge < 2000) {
+            // Fresh data
+            console.log(`Reading data from device: ${latestReading.toFixed(2)}N (age: ${dataAge}ms)`);
+          } else if (now % 3000 < 50) {
+            // Stale data - log less frequently
+            console.log(`Stale data from device: ${latestReading.toFixed(2)}N (age: ${dataAge}ms) - waiting for fresh readings`);
+          }
+        } else if (now % 5000 < 50) {
+          console.log('No valid readings available from the device');
+        }
         
         // Only use real data from the respiration belt
         const useReading = latestReading;

@@ -249,19 +249,33 @@ const VernierConnect = () => {
       // Let's use command 0x07 to request readings from channel 1 (force sensor)
       await commandChar.writeValue(new Uint8Array([0x07, 0x01]));
       
-      // Start a more frequent polling cycle with detailed logging
+      // Start a more aggressive polling cycle to ensure we get continuous data
       const pollingInterval = setInterval(async () => {
         try {
-          // Send command to request force readings
+          // Send multiple commands to request force readings with different approaches
+          // First standard approach - request sensor reading directly
           await commandChar.writeValue(new Uint8Array([0x07, 0x01]));
           
-          // Log our polling attempts
-          console.log('Requesting force reading from belt...');
+          // After a short delay, try an alternative command to keep readings flowing
+          setTimeout(async () => {
+            try {
+              // Alternate command to ensure data keeps flowing
+              await commandChar.writeValue(new Uint8Array([0x18, 0x01])); // Restart measurements
+            } catch (err) {
+              console.error('Error with secondary polling:', err);
+            }
+          }, 50);
+          
+          // Log our polling attempts with timestamp
+          console.log(`Requesting force reading from belt... ${new Date().toISOString()}`);
         } catch (e) {
           console.error('Error polling device:', e);
-          clearInterval(pollingInterval);
+          // Don't clear the interval - keep trying even if there are temporary errors
         }
-      }, 300); // Poll more frequently (every 300ms)
+      }, 200); // Even more frequent polling (every 200ms)
+      
+      // Store the fact that polling is active, but we don't need to store the actual ID
+      localStorage.setItem('pollingActive', 'true');
       
       // Store connection info
       localStorage.setItem('breathBluetoothDevice', device.id);
