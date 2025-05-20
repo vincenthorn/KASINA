@@ -241,7 +241,7 @@ const BreathKasinaPage = () => {
               </div>
               
               {/* Clear indicator for simulation vs real data */}
-              <div className="flex justify-center mb-4 items-center">
+              <div className="flex justify-center mb-4 items-center flex-wrap gap-2">
                 <div className="px-3 py-1 bg-green-100 border-green-200 text-green-600 border rounded-full font-semibold text-sm flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -252,7 +252,7 @@ const BreathKasinaPage = () => {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="ml-2 text-xs bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
+                  className="text-xs bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
                   onClick={() => {
                     // Go back to the device connection page to reconnect
                     window.location.href = '/breath'; 
@@ -260,6 +260,43 @@ const BreathKasinaPage = () => {
                 >
                   Reconnect Device
                 </Button>
+              </div>
+              
+              {/* Bluetooth Connection Debug Info */}
+              <div className="flex flex-col items-center mb-6 mt-4 bg-gray-900 bg-opacity-50 p-4 rounded-lg">
+                <h3 className="text-md text-white mb-2">Bluetooth Connection Troubleshooting</h3>
+                <p className="text-xs text-gray-400 mb-3">Connection details for Vernier Go Direct Respiration Belt</p>
+                
+                <div className="grid grid-cols-1 gap-2 w-full max-w-lg text-xs">
+                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
+                    <span className="text-gray-400">Device Name:</span>
+                    <span className="text-white font-mono">{localStorage.getItem('breathDeviceName') || 'Unknown'}</span>
+                  </div>
+                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
+                    <span className="text-gray-400">Data Source:</span>
+                    <span className="text-white font-mono">{localStorage.getItem('breathDataSource') || 'None'}</span>
+                  </div>
+                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
+                    <span className="text-gray-400">Latest Reading:</span>
+                    <span className="text-white font-mono">{localStorage.getItem('latestBreathReading') || '0'} N</span>
+                  </div>
+                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
+                    <span className="text-gray-400">Latest Timestamp:</span>
+                    <span className="text-white font-mono">
+                      {localStorage.getItem('latestBreathTimestamp') 
+                        ? new Date(parseInt(localStorage.getItem('latestBreathTimestamp') || '0')).toLocaleTimeString() 
+                        : 'None'}
+                    </span>
+                  </div>
+                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
+                    <span className="text-gray-400">Breathing Rate:</span>
+                    <span className="text-white font-mono">{breathingRate || 0} breaths/min</span>
+                  </div>
+                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
+                    <span className="text-gray-400">Current Normalized Value:</span>
+                    <span className="text-white font-mono">{breathData?.normalizedValue?.toFixed(3) || '0.000'}</span>
+                  </div>
+                </div>
               </div>
               
 

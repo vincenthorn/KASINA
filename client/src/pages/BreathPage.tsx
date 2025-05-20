@@ -180,6 +180,13 @@ const BreathPage = () => {
                 await commandChar.writeValue(setSamplingRate);
                 await new Promise(resolve => setTimeout(resolve, 300)); // Wait for processing
                 
+                // Step 3a: Explicitly select and enable the Force channel using channel number
+                console.log('Explicitly enabling Force sensor channel...');
+                // This command selects sensor 1 (Force) as the active channel
+                const selectForceChannel = new Uint8Array([0x02, 0x01, 0x01]);
+                await commandChar.writeValue(selectForceChannel);
+                await new Promise(resolve => setTimeout(resolve, 300)); // Wait for processing
+                
                 // Step 4: Request device info for debugging
                 console.log('Requesting device information...');
                 const deviceInfoCmd = new Uint8Array([0x57]);
