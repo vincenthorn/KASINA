@@ -395,22 +395,26 @@ const BreathPage = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button 
-                  className="w-full bg-blue-600 hover:bg-blue-700"
-                  onClick={connectToRespirationBelt}
-                  disabled={isConnecting || isConnected}
-                >
-                  {isConnecting ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                      Connecting...
-                    </>
-                  ) : isConnected ? (
-                    "Connected"
+                <div className="w-full">
+                  {/* Import our specialized Vernier Connect component */}
+                  {/* This ensures the Bluetooth connection happens directly in response to a user action */}
+                  {isConnected ? (
+                    <Button 
+                      className="w-full bg-green-600 hover:bg-green-700"
+                      disabled={true}
+                    >
+                      Connected ✓
+                    </Button>
                   ) : (
-                    "Connect Respiration Belt"
+                    <React.Suspense fallback={<Button className="w-full" disabled>Loading...</Button>}>
+                      {/* Dynamically import the VernierConnect component */}
+                      {(() => {
+                        const VernierConnect = React.lazy(() => import('@/components/VernierConnect'));
+                        return <VernierConnect />;
+                      })()}
+                    </React.Suspense>
                   )}
-                </Button>
+                </div>
               </CardFooter>
             </Card>
           )}
