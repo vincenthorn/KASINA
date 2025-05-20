@@ -127,7 +127,7 @@ function App() {
                 }
               />
               <Route
-                path="/breath/kasina"
+                path="/breath-kasina"
                 element={
                   <AuthenticatedRoute>
                     <ErrorBoundary>

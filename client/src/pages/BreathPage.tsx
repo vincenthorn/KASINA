@@ -6,6 +6,16 @@ import { Wind, Activity, Crown, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 
+// Type definitions for Web Bluetooth API
+interface BluetoothRemoteGATTCharacteristic {
+  value: DataView;
+  addEventListener: (type: string, listener: EventListener) => void;
+  readValue: () => Promise<DataView>;
+  writeValue: (value: BufferSource) => Promise<void>;
+  startNotifications: () => Promise<BluetoothRemoteGATTCharacteristic>;
+  stopNotifications: () => Promise<BluetoothRemoteGATTCharacteristic>;
+}
+
 const BreathPage = () => {
   const { email } = useAuth();
   const navigate = useNavigate();
