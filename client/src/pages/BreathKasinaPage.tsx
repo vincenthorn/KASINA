@@ -5,8 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useKasina } from '@/lib/stores/useKasina';
 import { KasinaType } from '@/lib/types';
-import { useCallback } from 'react';
-import { Maximize, Minimize, Wind, Activity } from 'lucide-react';
+import { Maximize, Wind, Activity } from 'lucide-react';
 import FocusMode from '@/components/FocusMode';
 import BreathKasinaOrb from '@/components/BreathKasinaOrb';
 import { useFocusMode } from '@/lib/stores/useFocusMode';
@@ -65,7 +64,7 @@ const BreathKasinaPage = () => {
     }
   }, []);
 
-  // Breath data stream management - focus only on real hardware connection
+  // Breath data stream management - only using real hardware data
   useEffect(() => {
     if (!isConnected) return;
     
@@ -74,78 +73,64 @@ const BreathKasinaPage = () => {
     // Function to continuously update breath data from device
     const updateBreathData = () => {
       try {
-        // Read the real-time data from the respiration belt - NO SIMULATION
+        // Get current time
         const now = Date.now();
         
-        // Try alternate reading methods if the primary one isn't working
-        // This is important as different device firmware may store data in different formats
-        let latestReading = 0;
-        let timestamp = 0;
-        
-        // Check our primary reading first
-        const primaryReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
-        const primaryTimestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
-        
-        // If primary reading is valid, use it
-        if (!isNaN(primaryReading) && primaryReading > 0 && primaryTimestamp > 0) {
-          latestReading = primaryReading;
-          timestamp = primaryTimestamp;
-        } 
-        // Try 16-bit reading as backup
-        else {
-          const bit16Reading = parseFloat(localStorage.getItem('latest16bitReading') || '0');
-          if (!isNaN(bit16Reading) && bit16Reading > 0) {
-            latestReading = bit16Reading;
-            timestamp = now; // We don't have a real timestamp, so use current time
-            console.log(`Using 16-bit reading: ${latestReading.toFixed(2)}N`);
-          } 
-          // Try direct byte reading as last resort
-          else {
-            const byteReading = parseFloat(localStorage.getItem('latestByteReading') || '0');
-            if (!isNaN(byteReading) && byteReading > 0) {
-              // Scale the byte reading (0-255) to a reasonable force range (0-25.5N)
-              latestReading = byteReading / 10;
-              timestamp = now; // We don't have a real timestamp, so use current time
-              console.log(`Using byte reading: ${latestReading.toFixed(2)}N`);
-            }
-          }
-        }
-        
-        // Check the freshness of the data
+        // Get the latest reading from the device (via localStorage)
+        const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+        const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
         const dataAge = now - timestamp;
-        if (latestReading > 0) {
-          if (dataAge < 2000) {
-            // Fresh data
-            console.log(`Reading data from device: ${latestReading.toFixed(2)}N (age: ${dataAge}ms)`);
-          } else if (now % 3000 < 50) {
-            // Stale data - log less frequently
-            console.log(`Stale data from device: ${latestReading.toFixed(2)}N (age: ${dataAge}ms) - waiting for fresh readings`);
+        
+        // Static amplitude when there's no data
+        let amplitude = 0.5; // Default value
+        
+        // Only use real data from the belt
+        if (latestReading > 0 && dataAge < 5000) {
+          // Scale 0-30N range to 0-1 normalized value (most belts read 0-20N)
+          amplitude = Math.min(1, Math.max(0, latestReading / 20));
+          
+          // For very small readings (like 0.01N), amplify the effect
+          if (amplitude < 0.1) {
+            amplitude = 0.3 + (amplitude * 7); // Boost small readings
           }
-        } else if (now % 5000 < 50) {
-          console.log('No valid readings available from the device');
-        }
-        
-        // Only use real data from the respiration belt
-        const useReading = latestReading;
-        
-        // Display raw bytes for debugging
-        const rawBytes = localStorage.getItem('latestRawBytes') || '';
-        if (now % 5000 < 50 && rawBytes) {
-          console.log('Raw bytes from device:', rawBytes);
-        }
-        
-        // Log the values every few seconds for debugging
-        if (now % 3000 < 50) {
-          console.log('Debug breath data:', {
-            useReading,
-            timestamp,
-            timeSinceUpdate: now - timestamp,
-            currentData: breathData
+          
+          // Update the breath amplitude display
+          setBreathData({
+            timestamp: now,
+            amplitude: amplitude,
+            normalizedValue: amplitude
           });
+          
+          // Also update the raw sensor value display
+          setRawSensorValue(latestReading);
+          
+          if (now % 1000 < 50) {
+            console.log(`Breath data: ${amplitude.toFixed(2)}, Force: ${latestReading.toFixed(2)}N`);
+          }
+        } else {
+          // If no recent data, keep the visualization static
+          if (now % 3000 < 50) {
+            console.log('No recent device data, keeping visualization static');
+          }
         }
-        
-        // Check if we have any real data
-        if (!isNaN(useReading) && useReading > 0) {
+      } catch (error) {
+        console.error('Error processing breath data:', error);
+      }
+      
+      // Continue the animation loop
+      animationFrameRef.current = requestAnimationFrame(updateBreathData);
+    };
+    
+    // Start polling for device data
+    animationFrameRef.current = requestAnimationFrame(updateBreathData);
+    
+    // Cleanup function
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [isConnected]);
           // Convert the force reading (Newtons) to a normalized value (0-1)
           // Typical respiration belt readings range from 0-20 Newtons
           const minForce = 4;   // minimum baseline force (relaxed)
