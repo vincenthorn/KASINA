@@ -69,10 +69,9 @@ const BreathKasinaPage = () => {
 
   // Make sure we have a default kasina selected
   useEffect(() => {
-    if (!selectedKasina) {
-      setSelectedKasina('air' as KasinaType);
-    }
-  }, [selectedKasina, setSelectedKasina]);
+    // Always default to blue kasina
+    setSelectedKasina('blue' as KasinaType);
+  }, [setSelectedKasina]);
 
   // Check data source type when component mounts
   useEffect(() => {
@@ -202,68 +201,16 @@ const BreathKasinaPage = () => {
           )}
         </div>
         
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-4xl mx-auto">
           <Card className="shadow-md">
             <CardHeader>
-              <CardTitle>Kasina Selection</CardTitle>
+              <CardTitle>Breath Visualization Testing</CardTitle>
               <CardDescription>
-                Choose which kasina you want to visualize with breath effects
+                Visualizing your breathing with a blue kasina
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Kasina Type</label>
-                  <Select
-                    value={selectedKasina}
-                    onValueChange={(value) => setSelectedKasina(value as KasinaType)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a kasina" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="air">Air</SelectItem>
-                      <SelectItem value="fire">Fire</SelectItem>
-                      <SelectItem value="water">Water</SelectItem>
-                      <SelectItem value="earth">Earth</SelectItem>
-                      <SelectItem value="blue">Blue</SelectItem>
-                      <SelectItem value="red">Red</SelectItem>
-                      <SelectItem value="white">White</SelectItem>
-                      <SelectItem value="yellow">Yellow</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle>Breath Effect</CardTitle>
-              <CardDescription>
-                Choose how your breathing affects the kasina visualization
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Effect Type</label>
-                  <Select
-                    value={selectedEffect}
-                    onValueChange={setSelectedEffect}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select an effect" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="expand-contract">Expand & Contract</SelectItem>
-                      {/* Future effects to be added later */}
-                      <SelectItem value="brighten-darken" disabled>Brighten & Darken (Coming Soon)</SelectItem>
-                      <SelectItem value="color-shift" disabled>Color Shift (Coming Soon)</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
                 <div className="pt-4">
                   <h3 className="text-sm font-medium mb-2">Current Breath Amplitude</h3>
                   <div className="h-8 bg-gray-200 rounded-full overflow-hidden">
@@ -281,7 +228,7 @@ const BreathKasinaPage = () => {
                 onClick={startMeditation}
                 disabled={!isConnected}
               >
-                Start Meditation
+                Test Visualization
               </Button>
             </CardFooter>
           </Card>
@@ -296,11 +243,11 @@ const BreathKasinaPage = () => {
         </div>
       </div>
       
-      {/* Focus Mode Component - Handles the actual meditation experience */}
+      {/* Focus Mode Component - Handles the visualization experience */}
       <FocusMode>
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className="flex flex-col items-center justify-center h-full bg-black">
           {/* Breath visualization - uses our special BreathKasinaOrb component */}
-          <div className="mb-8 relative" style={{ width: '300px', height: '300px' }}>
+          <div className="relative" style={{ width: '350px', height: '350px' }}>
             {breathData && (
               <BreathKasinaOrb
                 type={selectedKasina as KasinaType}
@@ -310,34 +257,15 @@ const BreathKasinaPage = () => {
                 remainingTime={null}
               />
             )}
-          </div>
-          
-          {/* Timer controls will be automatically inserted by FocusMode */}
-          <div className="space-x-2">
-            <Button 
-              variant="outline" 
-              className="w-20 bg-gray-800 border-gray-700 hover:bg-gray-700 text-white"
-            >
-              5 Min
-            </Button>
-            <Button 
-              variant="outline"
-              className="w-20 bg-gray-800 border-gray-700 hover:bg-gray-700 text-white"
-            >
-              10 Min
-            </Button>
-            <Button 
-              variant="outline"
-              className="w-20 bg-gray-800 border-gray-700 hover:bg-gray-700 text-white"
-            >
-              20 Min
-            </Button>
-            <Button 
-              variant="outline"
-              className="w-20 bg-gray-800 border-gray-700 hover:bg-gray-700 text-white"
-            >
-              30 Min
-            </Button>
+            
+            {/* Display current force reading directly in the visualization */}
+            {rawSensorValue !== null && (
+              <div className="absolute bottom-4 left-0 right-0 text-center">
+                <span className="px-4 py-2 bg-gray-800 bg-opacity-75 rounded-full text-white font-mono text-lg">
+                  {rawSensorValue} N
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </FocusMode>
