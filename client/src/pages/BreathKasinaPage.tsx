@@ -69,6 +69,8 @@ const BreathKasinaPage = () => {
   useEffect(() => {
     if (!isConnected) return;
     
+    console.log('Setting up real-time breath data polling');
+    
     // Function to continuously update breath data from device
     const updateBreathData = () => {
       try {
@@ -77,10 +79,18 @@ const BreathKasinaPage = () => {
         const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
         const now = Date.now();
         
-        // Check if we have fresh data (within last 2 seconds)
-        const isFreshData = (now - timestamp) < 2000;
+        // Log the values every few seconds for debugging
+        if (now % 3000 < 50) {
+          console.log('Debug breath data:', {
+            latestReading,
+            timestamp,
+            timeSinceUpdate: now - timestamp,
+            currentData: breathData
+          });
+        }
         
-        if (isFreshData && !isNaN(latestReading)) {
+        // Check if we have any data at all
+        if (!isNaN(latestReading)) {
           // Convert the force reading (Newtons) to a normalized value (0-1)
           // Typical respiration belt readings range from 0-20 Newtons
           const minForce = 4;   // minimum baseline force (relaxed)
@@ -125,20 +135,30 @@ const BreathKasinaPage = () => {
             }
           }
           
-          console.log(`Breath data: ${normalizedValue.toFixed(2)}, Force: ${latestReading.toFixed(2)}N`);
+          // Log data (less frequently to avoid console spam)
+          if (now % 1000 < 50) {
+            console.log(`Breath data: ${normalizedValue.toFixed(2)}, Force: ${latestReading.toFixed(2)}N`);
+          }
         } else {
+          // Create a simple static variation to show the system is alive
+          const now = Date.now();
+          const staticValue = 0.5 + Math.sin(now / 2000) * 0.05;
+          
           // If no data is coming in, use a fallback static value
           if (!breathData) {
             const staticData = {
               timestamp: now,
-              amplitude: 0.5,
-              normalizedValue: 0.5
+              amplitude: staticValue,
+              normalizedValue: staticValue
             };
             setBreathData(staticData);
             setRawSensorValue(0);
           }
           
-          console.log('Waiting for fresh device data from Vernier Go Direct Respiration Belt...');
+          // Log only occasionally to reduce spam
+          if (now % 3000 < 50) {
+            console.log('Waiting for device data from Vernier Go Direct Respiration Belt...');
+          }
         }
       } catch (error) {
         console.error('Error processing device data:', error);
@@ -148,16 +168,29 @@ const BreathKasinaPage = () => {
       animationFrameRef.current = requestAnimationFrame(updateBreathData);
     };
 
-    // Start polling for device data
+    // Start polling for device data immediately
     animationFrameRef.current = requestAnimationFrame(updateBreathData);
+
+    // Also set up a periodic forced refresh from localStorage
+    const refreshInterval = setInterval(() => {
+      try {
+        const reading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+        if (!isNaN(reading)) {
+          setRawSensorValue(reading);
+        }
+      } catch (e) {
+        console.error('Error in force refresh:', e);
+      }
+    }, 500); // Check every 500ms
 
     // Cleanup function
     return () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
+      clearInterval(refreshInterval);
     };
-  }, [isConnected, breathData]);
+  }, [isConnected]);
 
   // Start the meditation experience with the chosen effect
   const startMeditation = () => {
@@ -273,14 +306,13 @@ const BreathKasinaPage = () => {
               <div className="relative w-full h-[400px] flex justify-center items-center">
                 {/* Main orb visualization */}
                 <div className="w-4/5 h-4/5 flex items-center justify-center">
-                  {!useFocusMode.getState().isFocusModeEnabled && (
-                    <BreathKasinaOrb 
-                      type={breathKasina}
-                      breathAmplitude={(breathData?.normalizedValue || 0.5)}
-                      breathingRate={breathingRate}
-                      effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
-                    />
-                  )}
+                  {/* Only show one orb on the page */}
+                  <BreathKasinaOrb 
+                    type={breathKasina}
+                    breathAmplitude={(breathData?.normalizedValue || 0.5)}
+                    breathingRate={breathingRate}
+                    effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
+                  />
                 </div>
               </div>
             </CardContent>
@@ -297,19 +329,22 @@ const BreathKasinaPage = () => {
           </Card>
         </div>
         
-        {/* The FocusMode component is used to create the fullscreen meditation experience */}
-        <FocusMode>
-          <div className="w-full h-full flex items-center justify-center bg-black">
-            <div className="w-4/5 h-4/5 flex items-center justify-center">
-              <BreathKasinaOrb 
-                type={breathKasina}
-                breathAmplitude={(breathData?.normalizedValue || 0.5)}
-                breathingRate={breathingRate}
-                effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
-              />
+        {/* The FocusMode component is used to create the fullscreen meditation experience 
+             Only shown when actually in focus mode to prevent duplicate orbs */}
+        {useFocusMode().isFocusModeActive && (
+          <FocusMode>
+            <div className="w-full h-full flex items-center justify-center bg-black">
+              <div className="w-4/5 h-4/5 flex items-center justify-center">
+                <BreathKasinaOrb 
+                  type={breathKasina}
+                  breathAmplitude={(breathData?.normalizedValue || 0.5)}
+                  breathingRate={breathingRate}
+                  effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
+                />
+              </div>
             </div>
-          </div>
-        </FocusMode>
+          </FocusMode>
+        )}
       </div>
     </Layout>
   );
