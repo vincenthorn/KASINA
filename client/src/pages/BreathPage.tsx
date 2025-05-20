@@ -149,9 +149,28 @@ const BreathPage = () => {
                   }
                 });
                 
-                // Send command to start data streaming (adjust based on Vernier protocol)
-                console.log('Sending command to start data streaming...');
+                // Send proper commands to initialize and start data streaming
+                // Based on Vernier Go Direct protocol documentation
+                console.log('Sending initialization commands to respiration belt...');
+                
+                // Step 1: Enable sensor channel
+                console.log('Enabling sensor channel...');
                 await commandChar.writeValue(new Uint8Array([0x01, 0x01]));
+                await new Promise(resolve => setTimeout(resolve, 200)); // Wait for processing
+                
+                // Step 2: Set sensor to real-time mode (fast sampling)
+                console.log('Setting real-time measurement mode...');
+                await commandChar.writeValue(new Uint8Array([0x02, 0x01, 0x01])); 
+                await new Promise(resolve => setTimeout(resolve, 200)); // Wait for processing
+                
+                // Step 3: Start measurements - critical command for the respiration belt
+                console.log('Starting measurements...');
+                await commandChar.writeValue(new Uint8Array([0x18, 0x01, 0x01]));
+                await new Promise(resolve => setTimeout(resolve, 200)); // Wait for processing
+                
+                // Additional debug info
+                console.log('Requesting sensor info...');
+                await commandChar.writeValue(new Uint8Array([0x55, 0x01]));
                 
                 // Store device connection info
                 localStorage.setItem('breathBluetoothDevice', device.id);
