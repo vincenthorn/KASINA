@@ -24,9 +24,13 @@ const VernierConnect = () => {
 
       // The specific Vernier Go Direct service UUID
       // Vernier Go Direct official UUIDs
+      // From Vernier documentation at https://www.vernier.com/til/19229
+      // Go Direct Service UUID
       const VERNIER_SERVICE_UUID = 'd91714ef-28b9-4f91-ba16-f0d9a604f112';
-      const COMMAND_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb';
-      const RESPONSE_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe';
+      
+      // Standard BLE protocol for Go Direct devices
+      const COMMAND_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb'; // Command characteristic
+      const RESPONSE_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe'; // Response characteristic
 
       // Request the device immediately in response to the button click
       console.log('Requesting Bluetooth device...');
@@ -63,193 +67,143 @@ const VernierConnect = () => {
       // Set up listener for incoming data
       console.log('Setting up data listener...');
       
-      // Only use the response characteristic listener
+      // Process data according to Vernier Go Direct protocol documentation
       responseChar.addEventListener('characteristicvaluechanged', (event: any) => {
         const dataView = event.target.value;
         if (!dataView) return;
         
         try {
-          // Create readable raw byte array for logging
-          const rawBytes = new Array(dataView.byteLength);
-          for (let i = 0; i < dataView.byteLength; i++) {
-            rawBytes[i] = dataView.getUint8(i);
-          }
+          // Create an array from the raw data for easier access
+          const rawBytes = new Uint8Array(dataView.buffer);
           
           // Format as hex for readability
-          const hexDump = rawBytes.map(b => b.toString(16).padStart(2, '0')).join(' ');
-          console.log('VERNIER RAW DATA PACKET:', hexDump);
+          const hexDump = Array.from(rawBytes)
+            .map(b => b.toString(16).padStart(2, '0'))
+            .join(' ');
           
-          // FUNDAMENTAL APPROACH CHANGE: Let's examine the exact data coming from this specific belt model
-          console.log('PACKET DETAILS:');
-          console.log(`- Packet Length: ${rawBytes.length} bytes`);
-          console.log(`- Raw Data: ${Array.from(rawBytes).join(', ')}`);
+          console.log('VERNIER DATA PACKET:', hexDump);
           
-          // Try EVERY possible interpretation of the data
+          // According to Vernier protocol documentation from https://www.vernier.com/til/19229
+          // First byte in the response indicates the packet type
+          console.log(`Packet length: ${rawBytes.length} bytes`);
           
-          // 1. Try each byte as a direct force reading (0-40N range)
-          for (let i = 0; i < rawBytes.length; i++) {
-            const singleByteValue = rawBytes[i];
-            if (singleByteValue > 0 && singleByteValue < 40) {
-              console.log(`POSSIBLE DIRECT READING: Byte ${i} = ${singleByteValue}N`);
+          if (rawBytes.length > 0) {
+            const packetType = rawBytes[0];
+            console.log(`Packet type: 0x${packetType.toString(16)}`);
+            
+            // Handle different packet types based on Vernier documentation
+            if (packetType === 0x01 && rawBytes.length >= 7) {
+              // Measurement data packet (type 0x01)
+              // Format: [header(1), droppedCount(2), measurements...]
               
-              // Store any promising value
-              localStorage.setItem('latestByteReading', singleByteValue.toString());
-              localStorage.setItem('latestBytePosition', i.toString());
-            }
-          }
-          
-          // 2. Try interpreting as 16-bit integers at every position
-          for (let i = 0; i < rawBytes.length - 1; i++) {
-            try {
-              // Try as 16-bit value (both little and big endian)
-              const uint16Value = (rawBytes[i+1] << 8) | rawBytes[i]; // Little-endian
-              const uint16ValueBE = (rawBytes[i] << 8) | rawBytes[i+1]; // Big-endian
+              // Extract dropped packet count (2 bytes, little-endian)
+              const droppedCount = rawBytes[1] | (rawBytes[2] << 8);
               
-              // Scales: divide by 100 or 10 for appropriate range
-              const scaledValue = uint16Value / 100;
-              const scaledValueBE = uint16ValueBE / 100;
-              
-              if (scaledValue > 0 && scaledValue < 40) {
-                console.log(`POSSIBLE 16-BIT LE: Bytes ${i}-${i+1} = ${scaledValue.toFixed(2)}N`);
-                localStorage.setItem('latest16bitReading', scaledValue.toString());
+              // The rest contains sensor readings (4 bytes per sensor, IEEE-754 float)
+              // For the respiration belt, the force sensor is the first one
+              if (rawBytes.length >= 7) {
+                // Create a DataView for reliable float extraction
+                const dataView = new DataView(rawBytes.buffer);
+                
+                try {
+                  // Force reading starts at byte 3 (after header and dropped count)
+                  const forceReading = dataView.getFloat32(3, true); // little-endian
+                  
+                  if (!isNaN(forceReading)) {
+                    console.log(`Force reading: ${forceReading.toFixed(4)}N`);
+                    
+                    // Store the force reading for visualization
+                    localStorage.setItem('latestBreathReading', forceReading.toString());
+                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                    
+                    // Store breath phase for better visualization
+                    const prevReading = parseFloat(localStorage.getItem('prevBreathReading') || '0');
+                    if (forceReading > prevReading) {
+                      localStorage.setItem('breathPhase', 'inhale');
+                    } else {
+                      localStorage.setItem('breathPhase', 'exhale');
+                    }
+                    localStorage.setItem('prevBreathReading', forceReading.toString());
+                  }
+                } catch (e) {
+                  console.error('Error parsing force reading:', e);
+                }
               }
-              
-              if (scaledValueBE > 0 && scaledValueBE < 40) {
-                console.log(`POSSIBLE 16-BIT BE: Bytes ${i}-${i+1} = ${scaledValueBE.toFixed(2)}N`);
-                localStorage.setItem('latest16bitReadingBE', scaledValueBE.toString());
-              }
-            } catch (e) {
-              // Skip errors
             }
-          }
-          
-          // 3. Try as standard 32-bit floats
-          for (let i = 0; i < rawBytes.length - 3; i++) {
-            try {
-              // Try IEEE-754 float at each position
-              const floatValue = dataView.getFloat32(i, true); // Little-endian
-              const floatValueBE = dataView.getFloat32(i, false); // Big-endian
+            // Command response packets
+            else if (packetType === 0x55) {
+              // Device info response
+              console.log('Received device info response');
               
-              if (!isNaN(floatValue) && floatValue > 0 && floatValue < 40) {
-                console.log(`FOUND FLOAT32 LE: Offset ${i} = ${floatValue.toFixed(4)}N`);
-                localStorage.setItem('latestBreathReading', floatValue.toString());
-                localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+              // Extract device info if needed
+              if (rawBytes.length > 2) {
+                const deviceFamily = rawBytes[1];
+                console.log(`Device family: ${deviceFamily}`);
               }
+            }
+            else if (packetType === 0x56) {
+              // Sensor list response
+              console.log('Received sensor list response');
               
-              if (!isNaN(floatValueBE) && floatValueBE > 0 && floatValueBE < 40) {
-                console.log(`FOUND FLOAT32 BE: Offset ${i} = ${floatValueBE.toFixed(4)}N`);
-                localStorage.setItem('latestBreathReading', floatValueBE.toString());
-                localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+              // Parse sensor IDs if needed
+              if (rawBytes.length > 2) {
+                const sensorCount = rawBytes[1];
+                console.log(`Available sensors: ${sensorCount}`);
               }
-            } catch (e) {
-              // Skip errors at this offset
             }
-          }
-          
-          // Try simpler directly readable values from sensor
-          // Sometimes force sensors just use single byte or 16-bit values
-          
-          // Try processing as unsigned int values at various positions
-          for (let i = 0; i < rawBytes.length; i++) {
-            const rawByteValue = rawBytes[i];
-            console.log(`BYTE VALUE at ${i}: ${rawByteValue} (0x${rawByteValue.toString(16)})`);
-          }
-          
-          // Check if we have reasonable-looking 16-bit values
-          if (rawBytes.length >= 2) {
-            const uint16Value = (rawBytes[0] << 8) | rawBytes[1]; // big-endian
-            const uint16Value_le = (rawBytes[1] << 8) | rawBytes[0]; // little-endian
-            console.log(`16-BIT VALUE (BE): ${uint16Value} (hex: 0x${uint16Value.toString(16)})`);
-            console.log(`16-BIT VALUE (LE): ${uint16Value_le} (hex: 0x${uint16Value_le.toString(16)})`);
-          }
-          
-          // Try as a direct float value from the start
-          if (rawBytes.length >= 4) {
-            try {
-              const floatVal = dataView.getFloat32(0, true); // little-endian
-              const floatVal_be = dataView.getFloat32(0, false); // big-endian
-              console.log(`FLOAT32 VALUE (LE): ${floatVal.toFixed(4)}`);
-              console.log(`FLOAT32 VALUE (BE): ${floatVal_be.toFixed(4)}`);
-            } catch (e) {
-              console.log('Error parsing float:', e);
+            else if (packetType === 0x50) {
+              // Sensor info response
+              console.log('Received sensor info response');
             }
-          }
-          
-          // Store the raw bytes for debugging
-          localStorage.setItem('latestRawBytes', hexDump);
-          
-          // Based on Vernier documentation, we need to extract the Force value
-          // The Respiration Belt provides force measurements in Newtons
-          
-          // First, look for patterns in the data from the Vernier belt
-          console.log(`Raw data packet from respiration belt: ${hexDump}`);
-          
-          // Scan through the bytes looking for a value pattern that resembles force data
-          // Vernier sensors typically encode data as float or 16-bit integers
-          
-          // For this specific respiration belt model, we've observed it returns
-          // small values around 0.01N. When a person breathes, we should see
-          // some changes in the raw data bytes
-          
-          // Compare current packet to previous one to detect breathing activity
-          const prevRawPacket = localStorage.getItem('prevRawPacket') || '';
-          
-          // Store a force reading that's based on actual device data
-          let forceReading = 0;
-          
-          // First try to extract a meaningful float value from the data
-          for (let i = 0; i < rawBytes.length - 3; i++) {
-            try {
-              const floatVal = dataView.getFloat32(i, true);  // little-endian
+            else if (packetType === 0x52) {
+              // Status info
+              console.log('Received status info');
+            }
+            else {
+              // Unknown packet type - attempt to find any usable data
+              console.log(`Unknown packet type: 0x${packetType.toString(16)}`);
               
-              // Check if this looks like a valid force reading (typically 0-30N)
-              if (!isNaN(floatVal) && floatVal >= 0 && floatVal <= 30) {
-                console.log(`Force reading found at offset ${i}: ${floatVal.toFixed(2)}N`);
-                forceReading = floatVal;
-                break;
-              }
-            } catch (e) {
-              // Skip errors at this offset
-            }
-          }
-          
-          // If we didn't find a valid float, try the raw bytes
-          if (forceReading === 0) {
-            // If we detect any change in the packet, use it to generate a reading
-            if (hexDump !== prevRawPacket && hexDump.length > 0) {
-              // Compute a real value based on the byte differences
-              // Look for byte values that might represent force
-              for (let i = 0; i < rawBytes.length; i++) {
-                if (rawBytes[i] > 0 && rawBytes[i] < 50) {
-                  // Found a byte that's potentially our force reading
-                  // Scale appropriately to get Newtons (0-255 → 0-25.5N)
-                  forceReading = rawBytes[i] / 10;
-                  console.log(`Force derived from byte ${i}: ${forceReading.toFixed(2)}N`);
-                  break;
+              // As a fallback, scan for any value that looks like a force reading
+              let foundForceReading = false;
+              
+              // First try as a 32-bit float at various offsets
+              for (let i = 0; i < rawBytes.length - 3; i++) {
+                try {
+                  const dataView = new DataView(rawBytes.buffer);
+                  const value = dataView.getFloat32(i, true); // little-endian
+                  
+                  if (!isNaN(value) && value >= 0 && value < 40) {
+                    console.log(`Potential force value at offset ${i}: ${value.toFixed(4)}N`);
+                    
+                    // Store as our reading
+                    localStorage.setItem('latestBreathReading', value.toString());
+                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                    foundForceReading = true;
+                    break;
+                  }
+                } catch (e) {
+                  // Skip errors
                 }
               }
               
-              // If nothing specific found, but packet changed, use default
-              if (forceReading === 0) {
-                forceReading = 0.01; // Minimum non-zero reading
+              // If no float found, check if any bytes could represent force directly
+              if (!foundForceReading) {
+                for (let i = 0; i < rawBytes.length; i++) {
+                  if (rawBytes[i] > 0 && rawBytes[i] < 40) {
+                    const forceValue = rawBytes[i];
+                    console.log(`Using byte ${i} as direct force reading: ${forceValue}N`);
+                    
+                    localStorage.setItem('latestBreathReading', forceValue.toString());
+                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                    break;
+                  }
+                }
               }
             }
           }
           
-          // Store any force reading we obtained
-          if (forceReading > 0) {
-            console.log(`Using force reading: ${forceReading.toFixed(2)}N`);
-            localStorage.setItem('latestBreathReading', forceReading.toString());
-            localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-          } else {
-            // No valid force reading found, use minimum value
-            console.log('No valid force reading detected');
-            localStorage.setItem('latestBreathReading', '0.01');
-            localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-          }
-          
-          // Remember this packet for next comparison
-          localStorage.setItem('prevRawPacket', hexDump);
+          // Store raw data for debugging
+          localStorage.setItem('latestRawBytes', hexDump);
           
           // Remove redundant check since we've already processed the packet above
         } catch (error) {
@@ -266,67 +220,62 @@ const VernierConnect = () => {
       // Initialize the device using Vernier's documented protocol
       console.log('Initializing Vernier Go Direct Respiration Belt...');
       
-      // Step 1: Get the device info (command 0x55)
+      // According to Vernier Go Direct BLE protocol in https://www.vernier.com/til/19229
+      // Following the exact sequence from official documentation
+      
+      // Step 1: Get device info (command 0x55)
       console.log('Step 1: Getting device info...');
       await commandChar.writeValue(new Uint8Array([0x55]));
-      await new Promise(resolve => setTimeout(resolve, 1000)); // longer delay for response
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Step 2: Get sensor IDs (command 0x56)
-      console.log('Step 2: Getting sensor IDs...');
+      // Step 2: Get sensor list (command 0x56)
+      console.log('Step 2: Getting sensor list...');
       await commandChar.writeValue(new Uint8Array([0x56]));
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Step 3: Request sensor info for sensor 1 (Force)
-      console.log('Step 3: Getting sensor info...');
+      // Step 3: Get detailed info for sensor 1 (command 0x50, sensor number 0x01)
+      // For respiration belt, channel 1 is the Force channel
+      console.log('Step 3: Getting sensor info for Force sensor (channel 1)...');
       await commandChar.writeValue(new Uint8Array([0x50, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Step 4: Enable sensor channel 1 (Force) with command 0x11
-      console.log('Step 4: Enabling force sensor (channel 1)...');
+      // Step 4: Enable the Force sensor (channel 1)
+      // Command 0x11, sensor number 0x01, enabled 0x01
+      console.log('Step 4: Enabling Force sensor (channel 1)...');
       await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Step 5: Set the sample period to 100ms (10Hz) with command 0x12
-      console.log('Step 5: Setting sampling rate to 100ms (10Hz)...');
+      // Step 5: Set measurement period to 100ms (0x64) for 10Hz sampling
+      // Command 0x12, period low byte 0x64, period high byte 0x00
+      console.log('Step 5: Setting measurement period to 100ms (10Hz)...');
       await commandChar.writeValue(new Uint8Array([0x12, 0x64, 0x00]));
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Step 6: Start measurements on channel 1 with command 0x18
-      console.log('Step 6: Starting measurements...');
+      // Step 6: Start measurements
+      // Command 0x18, sensor mask 0x01 (channel 1)
+      console.log('Step 6: Starting measurements on Force sensor...');
       await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // For the Vernier GDX-RB respiration belt, we need to try a direct approach
-      console.log('Setting up direct sensor communication...');
+      // According to the official Vernier protocol, once we've started measurements
+      // with command 0x18, the device will automatically start streaming data
+      // We don't need to continually poll with additional commands
+      console.log('Data streaming started. Waiting for measurements...');
       
-      // Based on Vernier documentation, we need to focus on the Force channel
-      // Command 0x07 is "Get Reading" and 0x01 is channel 1 which is Force 
-      await commandChar.writeValue(new Uint8Array([0x07, 0x01]));
-      
-      // Set up a more structured polling system based on Vernier's sensor protocol
-      const pollingInterval = setInterval(async () => {
+      // Still, we'll use a keepalive mechanism to ensure the connection stays active
+      // According to docs, command 0x01 is a keepalive command
+      const keepaliveInterval = setInterval(async () => {
         try {
-          // Request a reading from the Force channel
-          await commandChar.writeValue(new Uint8Array([0x07, 0x01]));
+          // Send keepalive command every second
+          await commandChar.writeValue(new Uint8Array([0x01]));
           
-          // After a short delay, keep measurements flowing with a "Start Measurements" command
-          setTimeout(async () => {
-            try {
-              // Command 0x18 is "Start Measurements" and 0x01 is the channel (Force)
-              await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
-            } catch (err) {
-              console.error('Error maintaining data flow:', err);
-            }
-          }, 50);
-          
-          if (Date.now() % 2000 < 100) {
-            console.log(`Polling respiration belt for Force readings at ${new Date().toLocaleTimeString()}`);
+          if (Date.now() % 5000 < 100) {
+            console.log(`Sent keepalive to respiration belt at ${new Date().toLocaleTimeString()}`);
           }
         } catch (e) {
-          console.error('Belt polling error:', e);
-          // Continue polling despite errors
+          console.error('Error sending keepalive to belt:', e);
         }
-      }, 100); // Poll very frequently for responsive readings
+      }, 1000); // Once per second is sufficient for keepalive
       
       // Store the fact that polling is active, but we don't need to store the actual ID
       localStorage.setItem('pollingActive', 'true');
