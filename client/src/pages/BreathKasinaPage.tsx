@@ -74,22 +74,13 @@ const BreathKasinaPage = () => {
     // Function to continuously update breath data from device
     const updateBreathData = () => {
       try {
-        // Always use a test pattern to ensure visualization works
-        // This creates a breathing-like pattern for testing purposes
+        // Read the real-time data from the respiration belt - NO SIMULATION
         const now = Date.now();
-        const breathCycleMs = 5000; // 5 seconds per breath cycle (12 breaths per minute)
-        const phase = (now % breathCycleMs) / breathCycleMs; // 0 to 1 over cycle
+        const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+        const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
         
-        // Simulate a respiration pattern - sine wave from 5 to 15 N
-        const simulatedReading = 10 + Math.sin(phase * 2 * Math.PI) * 5;
-        
-        // Store this for UI display
-        localStorage.setItem('latestBreathReading', simulatedReading.toString());
-        localStorage.setItem('latestBreathTimestamp', now.toString());
-        
-        // Use the simulated value directly
-        const useReading = simulatedReading;
-        const timestamp = now;
+        // Only use real data from the respiration belt
+        const useReading = latestReading;
         
         // Display raw bytes for debugging
         const rawBytes = localStorage.getItem('latestRawBytes') || '';
@@ -100,15 +91,15 @@ const BreathKasinaPage = () => {
         // Log the values every few seconds for debugging
         if (now % 3000 < 50) {
           console.log('Debug breath data:', {
-            latestReading,
+            useReading,
             timestamp,
             timeSinceUpdate: now - timestamp,
             currentData: breathData
           });
         }
         
-        // Check if we have any data at all
-        if (!isNaN(latestReading)) {
+        // Check if we have any real data
+        if (!isNaN(useReading) && useReading > 0) {
           // Convert the force reading (Newtons) to a normalized value (0-1)
           // Typical respiration belt readings range from 0-20 Newtons
           const minForce = 4;   // minimum baseline force (relaxed)
@@ -116,7 +107,7 @@ const BreathKasinaPage = () => {
           
           // Normalize the value between 0-1 for animation
           let normalizedValue = Math.min(1, Math.max(0, 
-            (latestReading - minForce) / (maxForce - minForce)
+            (useReading - minForce) / (maxForce - minForce)
           ));
           
           // Create a new data point
@@ -128,7 +119,7 @@ const BreathKasinaPage = () => {
           
           // Update UI state with the real data
           setBreathData(newBreathData);
-          setRawSensorValue(latestReading);
+          setRawSensorValue(useReading);
           
           // Calculate breathing rate when we detect a breath cycle
           const previousData = breathData;
@@ -155,19 +146,16 @@ const BreathKasinaPage = () => {
           
           // Log data (less frequently to avoid console spam)
           if (now % 1000 < 50) {
-            console.log(`Breath data: ${normalizedValue.toFixed(2)}, Force: ${latestReading.toFixed(2)}N`);
+            console.log(`Breath data: ${normalizedValue.toFixed(2)}, Force: ${useReading.toFixed(2)}N`);
           }
         } else {
-          // Create a simple static variation to show the system is alive
-          const now = Date.now();
-          const staticValue = 0.5 + Math.sin(now / 2000) * 0.05;
-          
-          // If no data is coming in, use a fallback static value
+          // No data available - keep display static
+          // If we have no breath data at all, initialize with a default
           if (!breathData) {
             const staticData = {
               timestamp: now,
-              amplitude: staticValue,
-              normalizedValue: staticValue
+              amplitude: 0.5,
+              normalizedValue: 0.5
             };
             setBreathData(staticData);
             setRawSensorValue(0);
