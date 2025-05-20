@@ -206,7 +206,12 @@ const AdminPage: React.FC = () => {
   const permanentPremiumUsers = [
     "permanent.premium@kasina.app",
     "founder@kasina.app",
-    "earlyaccess@kasina.app"
+    "earlyaccess@kasina.app",
+    "premium@kasina.app",
+    "brian@terma.asia",
+    "emilywhorn@gmail.com",
+    "ryan@ryanoelke.com",
+    "ksowocki@gmail.com"
   ];
   
   // Get counts for each user type
