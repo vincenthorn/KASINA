@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useKasina } from '@/lib/stores/useKasina';
 import { KasinaType } from '@/lib/types';
+import { useCallback } from 'react';
 import { Maximize, Minimize, Wind, Activity } from 'lucide-react';
 import FocusMode from '@/components/FocusMode';
 import BreathKasinaOrb from '@/components/BreathKasinaOrb';
@@ -28,13 +29,13 @@ const BreathKasinaPage = () => {
   const [isUsingRealData, setIsUsingRealData] = useState<boolean>(false); // Flag to track if we're getting real device data
   const animationFrameRef = useRef<number | null>(null);
 
-  // Make sure we have a default kasina selected
+  // Define a strict kasina for breath visualization - always blue
+  const breathKasina: KasinaType = 'blue';
+  
+  // Set blue kasina when component mounts
   useEffect(() => {
-    // Always default to blue kasina
-    if (!selectedKasina) {
-      setSelectedKasina('blue' as KasinaType);
-    }
-  }, [setSelectedKasina, selectedKasina]);
+    setSelectedKasina(breathKasina);
+  }, [setSelectedKasina]);
 
   // Setup respiration belt and determine data source on component mount
   useEffect(() => {
@@ -292,7 +293,7 @@ const BreathKasinaPage = () => {
                 {/* Main orb visualization */}
                 <div className="w-4/5 h-4/5 flex items-center justify-center">
                   <BreathKasinaOrb 
-                    type={selectedKasina as KasinaType}
+                    type={breathKasina}
                     breathAmplitude={(breathData?.normalizedValue || 0.5)}
                     breathingRate={breathingRate}
                     effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
@@ -318,7 +319,7 @@ const BreathKasinaPage = () => {
           <div className="w-full h-full flex items-center justify-center bg-black">
             <div className="w-4/5 h-4/5 flex items-center justify-center">
               <BreathKasinaOrb 
-                type={selectedKasina as KasinaType}
+                type={breathKasina}
                 breathAmplitude={(breathData?.normalizedValue || 0.5)}
                 breathingRate={breathingRate}
                 effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
