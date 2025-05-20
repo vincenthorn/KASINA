@@ -148,11 +148,6 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       const delta = -Math.sign(e.deltaY) * zoomSpeed;
       const newZoom = Math.max(minZoom, Math.min(maxZoom, zoomLevel + delta));
       setZoomLevel(newZoom);
-      
-      // Do not show UI when just scrolling/zooming
-      // UI should only be shown on actual mouse movement
-      // setLastActivity(Date.now());
-      // setIsUIVisible(true);
     }
   };
   
@@ -238,7 +233,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
         }}
       >
         <DialogContent 
-          className="focus-mode-content border-none max-w-full h-screen p-0 flex items-center justify-center"
+          className="focus-mode-content border-none max-w-full h-screen p-0 flex items-center justify-center focus-mode-dialog"
           onMouseMove={handleMouseMove}
           onWheel={handleWheel}
           ref={contentRef}
@@ -400,7 +395,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           
           {/* Fullscreen & Exit button - show in top-right when UI visible */}
           <div 
-            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}
+            className={`fixed top-4 right-4 transition-opacity duration-300 z-[100] ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}
           >
             <div className="bg-black/50 text-white text-sm px-3 py-1 rounded-md border border-gray-800 flex items-center gap-2">
               <button 
