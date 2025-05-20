@@ -22,12 +22,13 @@ const VernierConnect = () => {
       const VERNIER_SERVICE_UUID = 'd91714ef-28b9-4f91-ba16-f0d9a604f112';
       const COMMAND_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb';
       const RESPONSE_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe';
-      const NOTIFICATION_UUID = 'b41e6676-a329-40e0-aa01-44d2f444babe';
 
       // Request the device immediately in response to the button click
+      console.log('Requesting Bluetooth device...');
       const device = await (navigator as any).bluetooth.requestDevice({
         filters: [
-          { namePrefix: 'GDX-RB' } // Go Direct Respiration Belt
+          { namePrefix: 'GDX-RB' }, // Go Direct Respiration Belt
+          { namePrefix: 'Go Direct' } // Fallback for other Vernier devices
         ],
         optionalServices: [VERNIER_SERVICE_UUID]
       });
@@ -51,9 +52,11 @@ const VernierConnect = () => {
       const responseChar = await service.getCharacteristic(RESPONSE_UUID);
       
       // Start notifications
+      console.log('Starting notifications...');
       await responseChar.startNotifications();
       
       // Set up listener for incoming data
+      console.log('Setting up data listener...');
       responseChar.addEventListener('characteristicvaluechanged', (event: any) => {
         const dataView = event.target.value;
         if (!dataView) return;
@@ -63,61 +66,71 @@ const VernierConnect = () => {
           const bytes = new Uint8Array(dataView.buffer);
           console.log('Received data:', Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
           
-          // Try to extract force readings from different data formats
-          let force = null;
-          
-          // Check several possible formats based on what we've seen from Vernier devices
-          if (bytes.length >= 6) {
-            // Try to find a valid force reading (usually a floating point number)
-            for (let i = 0; i <= bytes.length - 4; i++) {
-              try {
-                const value = dataView.getFloat32(i, true); // true for little-endian
+          // Try to extract force readings from Vernier format
+          if (bytes.length >= 8) {
+            // The Vernier Go Direct devices typically send data in a specific format
+            // For force readings, we're looking for packets that contain Float values
+            try {
+              // Check for data packet identifier and channel 1 data
+              if (bytes[0] === 0x01 || bytes[0] === 0x03) {
+                const value = dataView.getFloat32(4, true); // true for little-endian
                 
-                // Look for values in the expected range for respiration (5-20N)
-                if (!isNaN(value) && value >= 3 && value <= 25) {
-                  force = value;
-                  break;
+                if (!isNaN(value)) {
+                  console.log(`Valid force reading found: ${value.toFixed(2)}N`);
+                  
+                  // Store the reading for use by the visualization
+                  localStorage.setItem('latestBreathReading', value.toString());
+                  localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                  
+                  // Alert on the first successful reading
+                  if (!localStorage.getItem('firstReadingReceived')) {
+                    localStorage.setItem('firstReadingReceived', 'true');
+                    console.log('✅ Respiration data received successfully!');
+                  }
                 }
-              } catch (e) {
-                // Ignore parsing errors and continue
               }
+            } catch (error) {
+              console.error('Error parsing force data:', error);
             }
           }
-          
-          if (force !== null) {
-            // Store the reading for use by the visualization
-            localStorage.setItem('latestBreathReading', force.toString());
-            localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-            console.log(`Force reading: ${force.toFixed(2)}N`);
-          }
         } catch (error) {
-          console.error('Error processing data:', error);
+          console.error('Error processing incoming data:', error);
         }
       });
       
       // Initialize the device
-      console.log('Initializing device...');
+      console.log('Initializing Vernier device...');
       
       // Send device info request
+      console.log('Sending device info request...');
       await commandChar.writeValue(new Uint8Array([0x55]));
       await new Promise(resolve => setTimeout(resolve, 500));
       
       // Enable force sensor (channel 1)
+      console.log('Enabling force sensor...');
       await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
       await new Promise(resolve => setTimeout(resolve, 500));
       
       // Set sampling period (100ms = 10Hz)
+      console.log('Setting sampling period to 100ms...');
       await commandChar.writeValue(new Uint8Array([0x12, 0x64, 0x00]));
       await new Promise(resolve => setTimeout(resolve, 500));
       
       // Start measurements
+      console.log('Starting measurements...');
       await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
       await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Request a reading to test connection
+      console.log('Requesting initial reading...');
+      await commandChar.writeValue(new Uint8Array([0x07, 0x01]));
       
       // Store connection info
       localStorage.setItem('breathBluetoothDevice', device.id);
       localStorage.setItem('breathDataSource', 'real');
       localStorage.setItem('breathDeviceName', device.name || 'Respiration Belt');
+      localStorage.setItem('latestBreathReading', '0');
+      localStorage.setItem('latestBreathTimestamp', Date.now().toString());
       
       console.log('Connected successfully! Redirecting to Breath Kasina page');
       navigate('/breath-kasina');
