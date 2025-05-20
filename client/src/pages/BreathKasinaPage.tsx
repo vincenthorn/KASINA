@@ -220,59 +220,40 @@ const BreathKasinaPage = () => {
                 </Button>
               </div>
               
-              {/* Bluetooth Connection Debug Info */}
-              <div className="flex flex-col items-center mb-6 mt-4 bg-gray-900 bg-opacity-50 p-4 rounded-lg">
-                <h3 className="text-md text-white mb-2">Bluetooth Connection Troubleshooting</h3>
-                <p className="text-xs text-gray-400 mb-3">Connection details for Vernier Go Direct Respiration Belt</p>
+              {/* Sensor readings display - simplified for better user experience */}
+              <div className="flex flex-col items-center mb-6 mt-4 bg-gray-50 border border-gray-200 p-4 rounded-lg">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Respiration Belt Data</h3>
                 
-                <div className="grid grid-cols-1 gap-2 w-full max-w-lg text-xs">
-                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
-                    <span className="text-gray-400">Device Name:</span>
-                    <span className="text-white font-mono">{localStorage.getItem('breathDeviceName') || 'Unknown'}</span>
+                <div className="w-full flex justify-between mb-4">
+                  <div className="text-center">
+                    <div className="text-sm text-gray-500">Force Reading</div>
+                    <div className="text-2xl font-mono font-bold text-blue-600">
+                      {rawSensorValue !== null ? `${rawSensorValue.toFixed(1)} N` : '- N'}
+                    </div>
                   </div>
-                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
-                    <span className="text-gray-400">Data Source:</span>
-                    <span className="text-white font-mono">{localStorage.getItem('breathDataSource') || 'None'}</span>
+                  
+                  <div className="text-center">
+                    <div className="text-sm text-gray-500">Breathing Rate</div>
+                    <div className="text-2xl font-mono font-bold text-green-600">
+                      {breathingRate} <span className="text-xs">BPM</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
-                    <span className="text-gray-400">Latest Reading:</span>
-                    <span className="text-white font-mono">{localStorage.getItem('latestBreathReading') || '0'} N</span>
-                  </div>
-                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
-                    <span className="text-gray-400">Latest Timestamp:</span>
-                    <span className="text-white font-mono">
+                  
+                  <div className="text-center">
+                    <div className="text-sm text-gray-500">Last Update</div>
+                    <div className="text-base font-mono text-gray-800">
                       {localStorage.getItem('latestBreathTimestamp') 
                         ? new Date(parseInt(localStorage.getItem('latestBreathTimestamp') || '0')).toLocaleTimeString() 
-                        : 'None'}
-                    </span>
-                  </div>
-                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
-                    <span className="text-gray-400">Breathing Rate:</span>
-                    <span className="text-white font-mono">{breathingRate || 0} breaths/min</span>
-                  </div>
-                  <div className="flex justify-between px-3 py-1 bg-gray-800 rounded">
-                    <span className="text-gray-400">Current Normalized Value:</span>
-                    <span className="text-white font-mono">{breathData?.normalizedValue?.toFixed(3) || '0.000'}</span>
+                        : '-'}
+                    </div>
                   </div>
                 </div>
                 
-                <div className="mt-4 p-3 border border-blue-600 rounded-md bg-blue-900 bg-opacity-30">
-                  <h4 className="text-blue-400 font-semibold mb-2">Advanced Respiration Belt Integration</h4>
-                  <p className="text-white text-xs mb-2">
-                    We've implemented direct protocol communication with the Vernier Go Direct Respiration Belt. The system should be 
-                    capturing force readings from the belt when properly worn around the chest.
-                  </p>
-                  <p className="text-white text-xs mb-2">
-                    For best results: Ensure the belt is properly positioned just below the sternum, with the green light indicator 
-                    showing correct tension. The blue orb should expand and contract with your breathing.
-                  </p>
-                </div>
-                
-                <div className="mt-4 p-3 border border-blue-900 rounded-md bg-blue-950 bg-opacity-30">
-                  <p className="text-white text-xs">
-                    <span className="block text-blue-300 font-semibold mb-1">Connection Details:</span>
-                    Make sure the Vernier Go Direct Respiration Belt is properly positioned and the green tension light is visible.
-                    The blue kasina will automatically respond to your breathing pattern when connected.
+                <div className="w-full p-3 bg-blue-50 border border-blue-100 rounded-md">
+                  <p className="text-sm text-blue-800">
+                    <span className="font-semibold">How it works:</span> The respiration belt measures the force created 
+                    when you breathe. For best results, make sure the belt is snug around your lower abdomen
+                    and the green light indicator is on.
                   </p>
                 </div>
               </div>
@@ -285,19 +266,21 @@ const BreathKasinaPage = () => {
             <CardHeader>
               <CardTitle>Breath Kasina Visualization</CardTitle>
               <CardDescription>
-                The orb will respond to your breathing pattern
+                The orb will respond to your breathing pattern in real-time
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center">
               <div className="relative w-full h-[400px] flex justify-center items-center">
                 {/* Main orb visualization */}
                 <div className="w-4/5 h-4/5 flex items-center justify-center">
-                  <BreathKasinaOrb 
-                    type={breathKasina}
-                    breathAmplitude={(breathData?.normalizedValue || 0.5)}
-                    breathingRate={breathingRate}
-                    effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
-                  />
+                  {!useFocusMode.getState().isFocusModeEnabled && (
+                    <BreathKasinaOrb 
+                      type={breathKasina}
+                      breathAmplitude={(breathData?.normalizedValue || 0.5)}
+                      breathingRate={breathingRate}
+                      effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
+                    />
+                  )}
                 </div>
               </div>
             </CardContent>
