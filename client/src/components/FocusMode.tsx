@@ -8,7 +8,11 @@ import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { KASINA_BACKGROUNDS } from '../lib/constants';
 import { KasinaType } from '../lib/types';
 import KasinaOrb from './KasinaOrb';
-import { Dialog, DialogContent } from './ui/dialog';
+import { 
+  MeditationDialog, 
+  MeditationDialogContent,
+  MeditationDialogClose
+} from './ui/meditation-dialog';
 import useWakeLock from '../lib/useWakeLock';
 import { useNavigate } from 'react-router-dom';
 import '../styles/focusMode.css';
@@ -223,7 +227,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
       </div>
       
       {/* Focus Mode Dialog */}
-      <Dialog 
+      <MeditationDialog 
         open={isFocusModeActive} 
         onOpenChange={(open) => {
           if (!open) {
@@ -237,7 +241,7 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
           }
         }}
       >
-        <DialogContent 
+        <MeditationDialogContent 
           className="focus-mode-content border-none max-w-full h-screen p-0 flex items-center justify-center"
           onMouseMove={handleMouseMove}
           onWheel={handleWheel}
@@ -402,9 +406,28 @@ const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
             })}
           </div>
           
-          {/* Fullscreen button moved to top-right with Exit button */}
-        </DialogContent>
-      </Dialog>
+          {/* Fullscreen and Exit buttons */}
+          <div 
+            className={`fixed top-4 right-4 transition-opacity duration-300 z-50 ${isUIVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}
+          >
+            <div className="bg-black/50 text-white text-sm px-3 py-1 rounded-md border border-gray-800 flex items-center gap-2">
+              <button 
+                onClick={toggleFullscreen}
+                className="hover:bg-gray-700 rounded p-1 transition-colors"
+              >
+                {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
+              </button>
+              
+              <MeditationDialogClose asChild>
+                <button className="hover:bg-gray-700 rounded p-1 transition-colors">
+                  <X className="h-4 w-4" />
+                  <span className="sr-only">Exit</span>
+                </button>
+              </MeditationDialogClose>
+            </div>
+          </div>
+        </MeditationDialogContent>
+      </MeditationDialog>
     </>
   );
 };
