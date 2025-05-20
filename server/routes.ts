@@ -719,11 +719,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
         try {
           // Try to load sessions directly from file if needed
           if (!Array.isArray(sessions) || sessions.length === 0) {
-            const sessionsPath = path.join(process.cwd(), 'sessions.json');
-            if (fs.existsSync(sessionsPath)) {
-              const sessionsData = await fs.promises.readFile(sessionsPath, 'utf-8');
+            // Try server-sessions.json first (actual file name used in the app)
+            const serverSessionsPath = path.join(process.cwd(), 'server-sessions.json');
+            const legacySessionsPath = path.join(process.cwd(), 'sessions.json');
+            
+            if (fs.existsSync(serverSessionsPath)) {
+              const sessionsData = await fs.promises.readFile(serverSessionsPath, 'utf-8');
               allSessions = JSON.parse(sessionsData);
-              console.log(`Loaded ${allSessions.length} sessions directly from file`);
+              console.log(`Loaded ${allSessions.length} sessions from server-sessions.json`);
+            } 
+            // Fallback to the legacy path as a backup
+            else if (fs.existsSync(legacySessionsPath)) {
+              const sessionsData = await fs.promises.readFile(legacySessionsPath, 'utf-8');
+              allSessions = JSON.parse(sessionsData);
+              console.log(`Loaded ${allSessions.length} sessions from legacy sessions.json`);
             }
           } else {
             allSessions = sessions;
