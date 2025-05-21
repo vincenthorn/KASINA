@@ -182,26 +182,45 @@ const VernierConnect = () => {
       await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.GET_SENSOR_LIST]));
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // STEP 4: Set a more aggressive device setup
-      addLog('Starting complete device initialization sequence...');
+      // First reset the device to ensure clean state
+      addLog('Resetting device...');
+      await commandChar.writeValue(new Uint8Array([0x00]));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // 1. Use This Real Activation Command
-      addLog('Sending the Vernier respiration belt activation command from Python SDK...');
+      // Then start notifications
+      addLog('Starting notifications...');
+      await responseChar.startNotifications();
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Use the exact activation command from Python SDK
+      // STEP 1: Send device identification command
+      addLog('Getting device info...');
+      await commandChar.writeValue(new Uint8Array([0x55]));
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // STEP 2: Now send the EXACT activation command from Python SDK
+      addLog('Sending the Python SDK activation command...');
       const enableSensorCommand = new Uint8Array([
         0x58, 0x19, 0xFE, 0x3F, 0x1A, 0xA5, 0x4A, 0x06,
         0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
         0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
       ]);
       
-      // Send the command to the device
+      // Send the exact command
       await commandChar.writeValue(enableSensorCommand);
       console.log("✅ Sensor activation command sent to device");
       addLog("✅ Sensor activation command sent to device");
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Wait to ensure the command is processed
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // STEP 3: Enable sensor channel 1 (force sensor)
+      addLog('Enabling force sensor...');
+      await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // STEP 4: Start measurements
+      addLog('Starting measurements...');
+      await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
+      console.log("✅ Started measurements on sensor channel");
+      await new Promise(resolve => setTimeout(resolve, 500));
       
       // 2. Start Notifications on the Response Characteristic
       addLog('Starting notifications on response characteristic...');
