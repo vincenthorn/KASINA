@@ -258,21 +258,27 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
         }
       }, 3000); // Every 3 seconds
       
-      // Provide a single initial test data point to check our visualization pipeline
-      console.log('🧪 Sending test data to verify visualization...');
-      const testData = new Uint8Array([0, 200, 0, 0]); // Strong breath in value for testing
-      if (onDataReceived) {
-        onDataReceived(testData);
-      }
+      // We'll skip sending test data now that we have real connection
+      // Let the actual device provide all the data for the visualization
       
-      // After 2 seconds, send another test value to confirm animation works
-      setTimeout(() => {
-        if (device && device.gatt.connected && onDataReceived) {
-          console.log('🧪 Sending second test data point...');
-          const testData2 = new Uint8Array([0, 50, 0, 0]); // Breath out value
-          onDataReceived(testData2);
+      // Just add a small handler to show when real data comes in
+      (window as any).lastDataReceived = Date.now();
+      
+      // Add a monitor to check for real data flow
+      (window as any).dataFlowMonitor = setInterval(() => {
+        const lastReceived = (window as any).lastDataReceived || 0;
+        const now = Date.now();
+        
+        // If it's been more than 5 seconds with no data, send a command to request data
+        if (now - lastReceived > 5000 && device && device.gatt.connected && commandCharacteristic) {
+          try {
+            console.log('⏱️ No data received in 5s, sending request command...');
+            commandCharacteristic.writeValue(COMMANDS.START_FAST);
+          } catch (e) {
+            console.error('Error requesting data:', e);
+          }
         }
-      }, 2000);
+      }, 5000);
       
       console.log('✅ Active data polling activated')
       

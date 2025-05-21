@@ -29,11 +29,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // This will make it very obvious when the orb is receiving real breath data
     switch (effectType) {
       case 'expand-contract':
-        // Map amplitude to scale with a MASSIVE range (0.5 to 3.0)
-        // This creates an extremely dramatic breathing effect
-        const newScale = 0.5 + (breathAmplitude * 2.5);
+        // Map amplitude to scale with an even more dramatic range (0.6 to 3.5)
+        // This creates an extremely noticeable breathing effect for even small data changes
+        const newScale = 0.6 + (breathAmplitude * 2.9);
         setScale(newScale);
-        setOpacity(0.8);
+        setOpacity(0.9); // Slightly higher opacity for better visibility
         setHue(240); // Keep blue
         
         // Log the dramatic scaling to help diagnose if we're receiving real data
