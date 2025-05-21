@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
+// Vernier Go Direct Respiration Belt (GDX-RB) Bluetooth specifications
+const VERNIER_SERVICE_UUID = 'd91714ef-28b9-4f91-ba16-f0d9a604f112';
+const COMMAND_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb';
+const RESPONSE_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe';
+
 // This component provides a dedicated button for connecting to Vernier devices
 // It ensures the Bluetooth connection happens in direct response to a user action
 const VernierConnect = () => {
@@ -22,15 +27,7 @@ const VernierConnect = () => {
       setIsConnecting(true);
       console.log('Starting Vernier connection in direct response to user action');
 
-      // The specific Vernier Go Direct service UUID
-      // Vernier Go Direct official UUIDs
-      // From Vernier documentation at https://www.vernier.com/til/19229
-      // Go Direct Service UUID
-      const VERNIER_SERVICE_UUID = 'd91714ef-28b9-4f91-ba16-f0d9a604f112';
-      
-      // Standard BLE protocol for Go Direct devices
-      const COMMAND_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb'; // Command characteristic
-      const RESPONSE_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe'; // Response characteristic
+      // Using the predefined Vernier Go Direct Respiration Belt (GDX-RB) constants
 
       // Request the device immediately in response to the button click
       console.log('Requesting Bluetooth device...');
@@ -64,46 +61,50 @@ const VernierConnect = () => {
       console.log('Starting notifications on response characteristic...');
       await responseChar.startNotifications();
       
-      // Set up listener for incoming data
-      console.log('Setting up data listener...');
+      // Set up listener for incoming data from the respiration belt
+      console.log('Setting up data listener for respiration measurements...');
       
-      // Process data according to Vernier Go Direct protocol documentation
+      // Handle incoming sensor data according to the Vernier documentation
       responseChar.addEventListener('characteristicvaluechanged', (event: any) => {
         const dataView = event.target.value;
         if (!dataView) return;
         
         try {
-          // Create an array from the raw data for easier access
+          // Convert to Uint8Array for easier processing
           const rawBytes = new Uint8Array(dataView.buffer);
           
-          // Format as hex for readability
+          // Create debug hex representation for logging
           const hexDump = Array.from(rawBytes)
             .map(b => b.toString(16).padStart(2, '0'))
             .join(' ');
           
-          console.log('VERNIER DATA PACKET:', hexDump);
+          // Log the complete raw data for analysis
+          console.log('COMPLETE RAW DATA:', Array.from(rawBytes));
+          console.log('HEX DATA:', hexDump);
           
-          // According to Vernier protocol documentation from https://www.vernier.com/til/19229
-          // First byte in the response indicates the packet type
+          // Parse incoming data according to the instructions for Vernier Go Direct Respiration Belt
           console.log(`Packet length: ${rawBytes.length} bytes`);
           
           if (rawBytes.length > 0) {
             const packetType = rawBytes[0];
             console.log(`Packet type: 0x${packetType.toString(16)}`);
             
-            // Handle different packet types based on Vernier documentation
+            // Store raw data for debugging purposes
+            localStorage.setItem('latestRawBytes', hexDump);
+            
+            // Process measurement data packets (type 0x01)
             if (packetType === 0x01 && rawBytes.length >= 7) {
-              // Measurement data packet (type 0x01)
-              // Format: [header(1), droppedCount(2), measurements...]
+              console.log('Processing measurement packet (type 0x01)');
+              
+              // Format should be: [header(1), droppedCount(2), measurements...]
+              // The force measurement should be a 4-byte float starting at offset 3
               
               // Extract dropped packet count (2 bytes, little-endian)
               const droppedCount = rawBytes[1] | (rawBytes[2] << 8);
+              console.log(`Dropped packets: ${droppedCount}`);
               
-              // The rest contains sensor readings (4 bytes per sensor, IEEE-754 float)
-              // For the respiration belt, the force sensor is the first one
-              if (rawBytes.length >= 7) {
-                // Create a DataView for reliable float extraction
-                const dataView = new DataView(rawBytes.buffer);
+              // Create a DataView for properly extracting typed values
+              const dataView = new DataView(rawBytes.buffer);
                 
                 try {
                   // Let's print the ENTIRE data buffer to see what we're actually getting
@@ -278,50 +279,38 @@ const VernierConnect = () => {
         localStorage.setItem('breathDeviceConnected', 'false');
       });
       
-      // Initialize the device using Vernier's documented protocol with optimizations
+      // Initialize the device for respiration data using the protocol from documentation
       console.log('Initializing Vernier Go Direct Respiration Belt...');
       
-      // Reset any existing device state first - necessary for reliability
-      await commandChar.writeValue(new Uint8Array([0x00])); // Reset command
+      // STEP 1: Reset the device to ensure clean state
+      console.log('Step 1: Resetting device...');
+      await commandChar.writeValue(new Uint8Array([0x00]));
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Step 1: Get device info (command 0x55)
-      console.log('Step 1: Getting device info...');
+      // STEP 2: Get device info (command 0x55)
+      console.log('Step 2: Getting device info...');
       await commandChar.writeValue(new Uint8Array([0x55]));
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Step 2: Get sensor list (command 0x56)
-      console.log('Step 2: Getting sensor list...');
+      // STEP 3: Get sensor list (command 0x56)
+      console.log('Step 3: Getting sensor list...');
       await commandChar.writeValue(new Uint8Array([0x56]));
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Step 3: Get detailed info for sensor 1 (command 0x50, sensor number 0x01)
-      // For respiration belt, channel 1 is the Force channel
-      console.log('Step 3: Getting sensor info for Force sensor (channel 1)...');
-      await commandChar.writeValue(new Uint8Array([0x50, 0x01]));
+      // STEP 4: Enable the Force sensor (channel 1)
+      // This is where the respiration belt force measurements come from
+      console.log('Step 4: Enabling force sensor (channel 1)...');
+      await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // The Respiration Belt has multiple channels - try enabling them all
-      // This ensures we get all available data from the device
-      console.log('Step 4: Enabling all possible sensor channels...');
-      
-      // Force channel (most important)
-      await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01])); 
-      await new Promise(resolve => setTimeout(resolve, 200));
-      
-      // Try additional channels that might be on the respiration belt
-      // Channel 2 (sometimes used for derivative values like breathing rate)
-      await commandChar.writeValue(new Uint8Array([0x11, 0x02, 0x01]));
-      await new Promise(resolve => setTimeout(resolve, 200));
-      
-      // Set fast sampling rate (50ms = 20Hz) for more responsive readings
-      console.log('Step 5: Setting faster sampling rate (20Hz)...');
-      await commandChar.writeValue(new Uint8Array([0x12, 0x32, 0x00])); // 0x32 = 50ms
+      // STEP 5: Set fast sampling rate for responsive readings (50ms = 20Hz)
+      console.log('Step 5: Setting sampling rate to 20Hz...');
+      await commandChar.writeValue(new Uint8Array([0x12, 0x32, 0x00]));
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Start measurements on all channels (mask 0x03 = channels 1 and 2)
-      console.log('Step 6: Starting measurements on ALL sensors...');
-      await commandChar.writeValue(new Uint8Array([0x18, 0x03])); 
+      // STEP 6: Start measurements on the enabled sensor
+      console.log('Step 6: Starting measurements...');
+      await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
       await new Promise(resolve => setTimeout(resolve, 300));
       
       // According to the official Vernier protocol, once we've started measurements
