@@ -202,22 +202,30 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       console.log('✅ Event listener added for notifications');
       
-      // SIMPLIFIED COMMAND SEQUENCE - Based on Vernier specification
-      console.log('⭐️ Starting simplified Vernier protocol...');
+      // ULTRA-SIMPLIFIED COMMAND SEQUENCE
+      console.log('⭐️ Starting minimal Vernier protocol...');
       
-      // 1. First, send the basic activation command (always required)
-      await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
-      console.log('✅ BASIC SENSOR ACTIVATION COMPLETE');
-      
-      // Wait for device to initialize (crucial timing)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // 2. Send the standard start command - most likely to work across devices
-      await commandCharacteristic.writeValue(COMMANDS.START_MEDIUM);
-      console.log('✅ START MEASUREMENT COMMAND SENT');
-      
-      // Wait for measurement mode to activate
-      await new Promise(resolve => setTimeout(resolve, 500));
+      try {
+        // 1. Enable the sensor with a simple command
+        await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
+        console.log('✅ Basic sensor enabled');
+        
+        // Essential pause between commands
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // 2. Start measurements at medium speed (most reliable)
+        await commandCharacteristic.writeValue(COMMANDS.START_MEDIUM);
+        console.log('✅ Started measurements at medium speed');
+        
+        // Pause to let it initialize
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // 3. Send a third command in case the first two weren't enough
+        await commandCharacteristic.writeValue(COMMANDS.START_FAST);
+        console.log('✅ Sent high-speed measurement request');
+      } catch (error) {
+        console.error('Error during command sequence:', error);
+      }
       
       // Much simpler approach - use notification handlers as intended
       console.log('📣 Setting up standard notification handling...');
@@ -235,9 +243,13 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       (window as any).connectionHeartbeat = setInterval(async () => {
         if (device && device.gatt.connected && commandCharacteristic) {
           try {
-            // Simple keep-alive command
+            // Alternate between two simple commands to maintain data flow
+            const heartbeatCommands = [COMMANDS.START_MEDIUM, COMMANDS.START_FAST];
+            const commandToUse = heartbeatCommands[(window as any).heartbeatIndex || 0];
+            (window as any).heartbeatIndex = ((window as any).heartbeatIndex || 0) ? 0 : 1;
+            
             console.log('💓 Sending connection heartbeat...');
-            await commandCharacteristic.writeValue(COMMANDS.START_MEDIUM);
+            await commandCharacteristic.writeValue(commandToUse);
           } catch (err) {
             console.error('Error in heartbeat:', err);
           }

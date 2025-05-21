@@ -8,44 +8,24 @@ export const VERNIER_SERVICE_UUID = "d91714ef-28b9-4f91-ba16-f0d9a604f112";
 export const COMMAND_CHARACTERISTIC_UUID = "f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb";
 export const RESPONSE_CHARACTERISTIC_UUID = "b41e6675-a329-40e0-aa01-44d2f444babe";
 
-// Commands
+// Commands - Properly formatted for Web Bluetooth API
 export const COMMANDS = {
-  // Activation command specifically for the respiration belt
-  ENABLE_SENSOR: new Uint8Array([
-    0x58, 0x19, 0xFE, 0x3F, 0x1A, 0xA5, 0x4A, 0x06,
-    0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
-    0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
-  ]),
+  // Simplified command set for Vernier Go Direct Respiration Belt
+  // Each command must be a valid ArrayBufferView
   
-  // RESPIRATION BELT SPECIFIC COMMANDS
-  // These are based on reverse engineering the Vernier Go Direct protocol
+  // Initialization command
+  ENABLE_SENSOR: new Uint8Array([0x01, 0x01]),
   
-  // Command to select the correct sensor channel (Force/Pressure)
-  SELECT_FORCE_CHANNEL: new Uint8Array([0x01, 0x01, 0x01]),
-  
-  // Start data collection at default rate
-  START_DEFAULT: new Uint8Array([0x01, 0x01]),
-  
-  // Start data collection at medium rate
+  // Start commands at different rates
+  START_SLOW: new Uint8Array([0x01, 0x01]),  
   START_MEDIUM: new Uint8Array([0x01, 0x0A]),
+  START_FAST: new Uint8Array([0x01, 0x1E]),
   
-  // Start data collection at high rate (30Hz)
-  START_HIGH: new Uint8Array([0x01, 0x1E]),
+  // Stop measurement
+  STOP: new Uint8Array([0x01, 0x00]),
   
-  // Explicitly request one sample of data
-  REQUEST_SAMPLE: new Uint8Array([0x07, 0x00]),
-  
-  // Enable real-time data mode
-  ENABLE_REALTIME: new Uint8Array([0x01, 0x15]),
-  
-  // Set up continuous flow
-  SETUP_CONTINUOUS: new Uint8Array([0x55, 0x02, 0x01]),
-  
-  // Activate internal sensor sampling
-  ACTIVATE_INTERNAL: new Uint8Array([0xAA, 0x01, 0x01, 0x00, 0x00]),
-  
-  // Command to stop measurements
-  STOP_MEASUREMENTS: new Uint8Array([0x01, 0x00])
+  // Single sample request (for manual polling)
+  SAMPLE: new Uint8Array([0x01, 0x01])
 };
 
 /**
