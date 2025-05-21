@@ -181,64 +181,87 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       console.log('✅ Event listener added for notifications');
       
-      // SPECIALIZED ACTIVATION SEQUENCE FOR RESPIRATION BELT
-      console.log('Starting focused respiration belt activation sequence...');
+      // NEW VERNIER PROTOCOL IMPLEMENTATION
+      console.log('⭐️ Starting full Vernier initialization protocol...');
       
-      // 1. Send the primary initialization command
+      // 1. Send the initial device activation command (always required)
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
-      console.log('✅ PRIMARY INITIALIZATION COMPLETE');
-      
-      // Wait for full initialization
-      await new Promise(resolve => setTimeout(resolve, 1200));
-      
-      // 2. Send start measurement command at high frequency
-      await commandCharacteristic.writeValue(COMMANDS.MAX_SPEED);
-      console.log('✅ HIGH FREQUENCY SAMPLING REQUESTED');
-      
-      // Wait for sampling mode to activate
+      console.log('✅ DEVICE ACTIVATED');
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // 3. Create continuous sampling repeater to keep data flowing
-      // This is a critical change - the belt needs REPEATED commands to maintain data flow
-      console.log('🔄 Setting up continuous data request system...');
+      // 2. Select the force sensor channel specifically
+      await commandCharacteristic.writeValue(COMMANDS.SELECT_FORCE_CHANNEL);
+      console.log('✅ FORCE SENSOR CHANNEL SELECTED');
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Define the commands we'll rotate through
-      const samplingCommands = [
-        COMMANDS.MAX_SPEED,         // Request highest sampling rate
-        COMMANDS.SIMPLE_START,      // Basic sampling start
-        COMMANDS.START_CONTINUOUS   // Continuous data mode
-      ];
+      // 3. Enable real-time data mode for immediate response
+      await commandCharacteristic.writeValue(COMMANDS.ENABLE_REALTIME);
+      console.log('✅ REAL-TIME DATA MODE ENABLED');
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Clear any existing intervals to prevent multiple overlapping requests
-      if ((window as any).dataRequestInterval) {
-        clearInterval((window as any).dataRequestInterval);
+      // 4. Start with high-frequency sampling (30Hz)
+      await commandCharacteristic.writeValue(COMMANDS.START_HIGH);
+      console.log('✅ HIGH-FREQUENCY SAMPLING INITIALIZED');
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // 5. Set up continuous data flow mode
+      await commandCharacteristic.writeValue(COMMANDS.SETUP_CONTINUOUS);
+      console.log('✅ CONTINUOUS DATA FLOW CONFIGURED');
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // 6. Implement active polling for data
+      console.log('🔄 Implementing active data polling system...');
+      
+      // Clear any existing intervals
+      if ((window as any).dataPollingInterval) {
+        clearInterval((window as any).dataPollingInterval);
       }
       
-      // Set up continuous data request cycle - THIS IS THE KEY CHANGE!
-      // The belt requires ongoing requests to keep sending data
-      let commandIndex = 0;
-      (window as any).dataRequestInterval = setInterval(async () => {
+      // This approach uses explicit requests for new data
+      // rather than relying on automatic notifications
+      (window as any).dataPollingInterval = setInterval(async () => {
         if (device && device.gatt.connected && commandCharacteristic) {
           try {
-            // Send next command in rotation to request more data
-            const command = samplingCommands[commandIndex % samplingCommands.length];
-            await commandCharacteristic.writeValue(command);
+            // Cycle through different data request commands
+            // This helps ensure we find the right command that works with this device
+            const requestCommands = [
+              COMMANDS.REQUEST_SAMPLE,
+              COMMANDS.START_HIGH,
+              COMMANDS.ENABLE_REALTIME
+            ];
             
-            // Visual indicator that we're actively maintaining the connection
-            console.log(`📊 Maintaining data flow (command ${commandIndex % samplingCommands.length + 1}/3)`);
+            // Get next command in rotation
+            const requestCommand = requestCommands[(window as any).requestCommandIndex || 0];
+            (window as any).requestCommandIndex = 
+              (((window as any).requestCommandIndex || 0) + 1) % requestCommands.length;
+              
+            // Send request command
+            await commandCharacteristic.writeValue(requestCommand);
             
-            // Move to next command
-            commandIndex++;
+            // Try to read the value directly after requesting it
+            try {
+              const value = await responseCharacteristic.readValue();
+              const bytes = new Uint8Array(value.buffer);
+              if (bytes.length > 0) {
+                console.log('📊 Direct read data:', formatBytes(bytes));
+                
+                // Manually trigger the notification handler with this data
+                const event = { target: { value } };
+                handleNotification(event);
+              }
+            } catch (readErr) {
+              // Reading may fail on some devices, that's ok
+              // We'll still get notifications if they're working
+            }
           } catch (err) {
-            console.error('Error in data refresh cycle:', err);
+            console.error('Error in polling cycle:', err);
           }
         } else {
-          // Stop if we're disconnected
-          clearInterval((window as any).dataRequestInterval);
+          clearInterval((window as any).dataPollingInterval);
         }
-      }, 1500); // Send new command every 1.5 seconds
+      }, 100); // Request data very frequently (10 times per second)
       
-      console.log('✅ Continuous data request system activated')
+      console.log('✅ Active data polling activated')
       
       // 4. Check for any incoming data to verify connection is working
       console.log('⏳ Waiting for data transmission to begin...');

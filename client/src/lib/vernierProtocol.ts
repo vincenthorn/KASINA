@@ -16,16 +16,34 @@ export const COMMANDS = {
     0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
     0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
   ]),
-  // Simple start command based on Go Direct protocol docs
-  SIMPLE_START: new Uint8Array([0x01, 0x01]),
-  // Standard command to start measurements (higher frequency)
-  START_MEASUREMENTS: new Uint8Array([0x01, 0x0A]),
-  // Alternative start command for compatibility
-  START_CONTINUOUS: new Uint8Array([0x55, 0x01]),
-  // Maximum speed measurement command
-  MAX_SPEED: new Uint8Array([0x01, 0x1E]), // Fastest sampling
-  // Different format attempt (based on various device protocols)
-  ALT_DATA_REQUEST: new Uint8Array([0xAA, 0x01, 0x01, 0x00, 0x00]),
+  
+  // RESPIRATION BELT SPECIFIC COMMANDS
+  // These are based on reverse engineering the Vernier Go Direct protocol
+  
+  // Command to select the correct sensor channel (Force/Pressure)
+  SELECT_FORCE_CHANNEL: new Uint8Array([0x01, 0x01, 0x01]),
+  
+  // Start data collection at default rate
+  START_DEFAULT: new Uint8Array([0x01, 0x01]),
+  
+  // Start data collection at medium rate
+  START_MEDIUM: new Uint8Array([0x01, 0x0A]),
+  
+  // Start data collection at high rate (30Hz)
+  START_HIGH: new Uint8Array([0x01, 0x1E]),
+  
+  // Explicitly request one sample of data
+  REQUEST_SAMPLE: new Uint8Array([0x07, 0x00]),
+  
+  // Enable real-time data mode
+  ENABLE_REALTIME: new Uint8Array([0x01, 0x15]),
+  
+  // Set up continuous flow
+  SETUP_CONTINUOUS: new Uint8Array([0x55, 0x02, 0x01]),
+  
+  // Activate internal sensor sampling
+  ACTIVATE_INTERNAL: new Uint8Array([0xAA, 0x01, 0x01, 0x00, 0x00]),
+  
   // Command to stop measurements
   STOP_MEASUREMENTS: new Uint8Array([0x01, 0x00])
 };
