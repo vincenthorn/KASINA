@@ -109,6 +109,14 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
       console.log("✅ Sensor activation command sent");
       
+      // Wait a short time to allow the device to process the activation
+      await new Promise(resolve => setTimeout(resolve, 300));
+      
+      // Send a second command to start measurements
+      console.log('Starting continuous measurements...');
+      await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
+      console.log("✅ Measurement started");
+      
       // Notify parent component of successful connection
       onConnect(device, responseCharacteristic);
       
