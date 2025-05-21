@@ -88,6 +88,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       {/* Main orb */}
       <div 
+        id="breath-orb"
         className="rounded-full shadow-xl relative overflow-hidden"
         style={{
           width: `${200 * scale}px`,
