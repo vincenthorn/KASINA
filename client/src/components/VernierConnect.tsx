@@ -194,8 +194,31 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       
     } catch (error) {
       console.error('Connection error:', error);
-      setError(error instanceof Error ? error.message : String(error));
-      console.warn("⚠️ No BLE data received. Is your belt already connected to another app?");
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      
+      // Check for common Bluetooth errors and provide user-friendly messages
+      let userFriendlyMessage = errorMessage;
+      
+      if (errorMessage.includes("already connected") || 
+          errorMessage.includes("with this ID") ||
+          errorMessage.includes("connecting to GATT server") ||
+          errorMessage.includes("another app")) {
+        userFriendlyMessage = "⚠️ This respiration belt is already connected to another app! Please close nRF Connect or any other Bluetooth apps, then try again.";
+      } else if (errorMessage.includes("timeout")) {
+        userFriendlyMessage = "⚠️ Connection timed out. Make sure your respiration belt is turned on, charged, and nearby.";
+      } else if (errorMessage.includes("cancelled")) {
+        userFriendlyMessage = "Bluetooth connection was cancelled.";
+      } else if (errorMessage.includes("Bluetooth")) {
+        userFriendlyMessage = `⚠️ Bluetooth error: ${errorMessage}`;
+      }
+      
+      // Show the user-friendly error message
+      setError(userFriendlyMessage);
+      
+      // Also display in an alert for high visibility of critical errors
+      if (userFriendlyMessage.includes("⚠️")) {
+        alert(userFriendlyMessage);
+      }
       
       // Clean up any partial connection
       if (device && device.gatt.connected) {
