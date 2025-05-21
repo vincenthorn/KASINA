@@ -174,22 +174,34 @@ const BreathKasinaPage: React.FC = () => {
                   // Calculate breathing rate from data points
                   calculateBreathingRate();
                   
-                  // Get the orb element and update it directly for immediate visual feedback
+                  // Use the Web Animations API for smoother, more performant animations
+                  // This bypasses React rendering and CSS transitions for immediate visual feedback
                   const orbElement = document.getElementById("breath-orb");
                   if (orbElement) {
-                    // SUPER DRAMATIC scaling (0.5 to 3.0 scale range) to make it unmistakable
-                    const newScale = 0.5 + (force * 3.0);
-                    orbElement.style.transform = `scale(${newScale})`;
+                    // Create an extreme animation (MUCH more dramatic scale change)
+                    // This will make it very obvious when the orb is receiving breath data
+                    const newScale = 0.5 + (force * 5.0); // Extreme 0.5 to 5.5 scaling
                     
-                    // Brighter glow that intensifies dramatically with breath
-                    const glowSize = 30 + (force * 100); // Much larger glow
-                    orbElement.style.boxShadow = `0 0 ${glowSize}px ${glowSize/2}px rgba(0, 100, 255, ${0.6 + (force * 0.4)})`;
+                    // Stop any existing animations
+                    const animations = orbElement.getAnimations();
+                    animations.forEach(animation => animation.cancel());
                     
-                    // Make transitions immediate for testing
-                    orbElement.style.transition = 'transform 0.15s ease, box-shadow 0.15s ease';
+                    // Create a new animation with keyframes
+                    orbElement.animate([
+                      // Start with current size
+                      { transform: `scale(1.0)`, 
+                        boxShadow: `0 0 30px 15px rgba(0, 100, 255, 0.6)` },
+                      // Animate to new size based on breath
+                      { transform: `scale(${newScale})`, 
+                        boxShadow: `0 0 ${60 + (force * 100)}px ${30 + (force * 50)}px rgba(0, 100, 255, ${0.6 + (force * 0.4)})` }
+                    ], {
+                      duration: 100, // Very fast animation
+                      fill: 'forwards', // Keep the end state
+                      easing: 'ease-out'
+                    });
                     
-                    // Log the direct visual effect we're applying
-                    console.log(`Applied visual effect: scale(${newScale.toFixed(2)}), glow: ${glowSize.toFixed(0)}px`);
+                    // Log the animation values
+                    console.log(`Animating to scale(${newScale.toFixed(2)}), based on force: ${force.toFixed(4)}`);
                   }
                 } catch (error) {
                   console.error("Error processing breath data:", error);
