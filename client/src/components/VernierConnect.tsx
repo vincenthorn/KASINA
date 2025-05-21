@@ -181,75 +181,64 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       console.log('✅ Event listener added for notifications');
       
-      // ADVANCED ACTIVATION SEQUENCE - Trying all approaches
-      console.log('Starting enhanced Vernier activation sequence...');
+      // SPECIALIZED ACTIVATION SEQUENCE FOR RESPIRATION BELT
+      console.log('Starting focused respiration belt activation sequence...');
       
-      // 1. First, send the primary enable command (always required)
+      // 1. Send the primary initialization command
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
-      console.log('✅ PRIMARY ACTIVATION COMMAND SENT');
+      console.log('✅ PRIMARY INITIALIZATION COMPLETE');
       
-      // Wait longer to ensure device has fully processed the initialization
+      // Wait for full initialization
+      await new Promise(resolve => setTimeout(resolve, 1200));
+      
+      // 2. Send start measurement command at high frequency
+      await commandCharacteristic.writeValue(COMMANDS.MAX_SPEED);
+      console.log('✅ HIGH FREQUENCY SAMPLING REQUESTED');
+      
+      // Wait for sampling mode to activate
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // 2. Try the fastest possible measurement speed
-      await commandCharacteristic.writeValue(COMMANDS.MAX_SPEED);
-      console.log('✅ MAX SPEED MEASUREMENT COMMAND SENT');
+      // 3. Create continuous sampling repeater to keep data flowing
+      // This is a critical change - the belt needs REPEATED commands to maintain data flow
+      console.log('🔄 Setting up continuous data request system...');
       
-      // Wait for device to process
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      // 3. Now send the simple start command
-      await commandCharacteristic.writeValue(COMMANDS.SIMPLE_START);
-      console.log('✅ SIMPLE START COMMAND SENT');
-      
-      // 4. Set up a cycling system to try different commands if no data appears
-      const commandRotation = [
-        { name: 'START_MEASUREMENTS', command: COMMANDS.START_MEASUREMENTS },
-        { name: 'ALT_DATA_REQUEST', command: COMMANDS.ALT_DATA_REQUEST },
-        { name: 'START_CONTINUOUS', command: COMMANDS.START_CONTINUOUS },
-        { name: 'MAX_SPEED', command: COMMANDS.MAX_SPEED }
+      // Define the commands we'll rotate through
+      const samplingCommands = [
+        COMMANDS.MAX_SPEED,         // Request highest sampling rate
+        COMMANDS.SIMPLE_START,      // Basic sampling start
+        COMMANDS.START_CONTINUOUS   // Continuous data mode
       ];
       
+      // Clear any existing intervals to prevent multiple overlapping requests
+      if ((window as any).dataRequestInterval) {
+        clearInterval((window as any).dataRequestInterval);
+      }
+      
+      // Set up continuous data request cycle - THIS IS THE KEY CHANGE!
+      // The belt requires ongoing requests to keep sending data
       let commandIndex = 0;
-      let dataReceived = false;
-      
-      // Use a global flag that our data handler can set when data arrives
-      (window as any).vernierDataReceived = false;
-      
-      // Function to cycle through commands until data appears
-      const tryNextCommand = async () => {
-        // Check if we've received data or if device is disconnected
-        if ((window as any).vernierDataReceived || !device || !device.gatt.connected) {
-          console.log('Data received or device disconnected, stopping command rotation');
-          if ((window as any).commandRotationInterval) {
-            clearInterval((window as any).commandRotationInterval);
+      (window as any).dataRequestInterval = setInterval(async () => {
+        if (device && device.gatt.connected && commandCharacteristic) {
+          try {
+            // Send next command in rotation to request more data
+            const command = samplingCommands[commandIndex % samplingCommands.length];
+            await commandCharacteristic.writeValue(command);
+            
+            // Visual indicator that we're actively maintaining the connection
+            console.log(`📊 Maintaining data flow (command ${commandIndex % samplingCommands.length + 1}/3)`);
+            
+            // Move to next command
+            commandIndex++;
+          } catch (err) {
+            console.error('Error in data refresh cycle:', err);
           }
-          return;
+        } else {
+          // Stop if we're disconnected
+          clearInterval((window as any).dataRequestInterval);
         }
-        
-        // Try the next command
-        const currentCommand = commandRotation[commandIndex];
-        console.log(`⏳ Trying alternative command: ${currentCommand.name}`);
-        
-        try {
-          await commandCharacteristic.writeValue(currentCommand.command);
-          console.log(`✅ Sent ${currentCommand.name} command`);
-        } catch (err) {
-          console.error(`Error sending ${currentCommand.name}:`, err);
-        }
-        
-        // Move to next command in rotation
-        commandIndex = (commandIndex + 1) % commandRotation.length;
-      };
+      }, 1500); // Send new command every 1.5 seconds
       
-      // Start the rotation after an initial delay
-      (window as any).commandRotationTimeout = setTimeout(() => {
-        // Only start rotation if no data received yet
-        if (!(window as any).vernierDataReceived) {
-          console.log('No data received yet, starting command rotation...');
-          (window as any).commandRotationInterval = setInterval(tryNextCommand, 2000);
-        }
-      }, 5000); // Wait 5 seconds before starting rotation
+      console.log('✅ Continuous data request system activated')
       
       // 4. Check for any incoming data to verify connection is working
       console.log('⏳ Waiting for data transmission to begin...');
