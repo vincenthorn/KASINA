@@ -202,58 +202,35 @@ const VernierConnect = () => {
       // STEP 4: Set a more aggressive device setup
       addLog('Starting complete device initialization sequence...');
       
-      // Step 4a: Reset the device first
+      // Simplify the approach - focus only on the key steps
+      // First, perform a clean reset to ensure the device is in a known state
       addLog('Resetting device...');
-      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.RESET]));
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Longer wait after reset
+      await commandChar.writeValue(new Uint8Array([0x00])); // Reset command
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Step 4b: Get device info (important step based on official documentation)
-      addLog('Getting device info...');
-      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.GET_DEVICE_INFO]));
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      // Step 4c: Get sensor list (required before enabling sensors)
-      addLog('Getting sensor list...');
-      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.GET_SENSOR_LIST]));
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      // Step 4d: Enable the Force sensor (channel 1) - using multiple approaches
-      addLog('Enabling force sensor (channel 1)...');
-      
-      // Format from the official Vernier examples - VERY IMPORTANT
-      await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
-      addLog('✅ Standard sensor activation sent: [0x11, 0x01, 0x01]');
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      // Step 4e: Direct command format from the instructions
-      await commandChar.writeValue(new Uint8Array([0x01, 0x02, 0x01]));
-      addLog('✅ Direct sensor activation sent: [0x01, 0x02, 0x01]');
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      // STEP 5: Set sampling rate to exactly 10Hz (100ms period)
-      addLog('Setting sample rate to 10Hz (100ms)...');
+      // STEP 5: Set the sampling rate to 10Hz (100ms period) - this is critical
+      addLog('Setting sampling rate to 10Hz (100ms)...');
       await commandChar.writeValue(new Uint8Array([0x12, 0x64, 0x00])); // 0x64 = 100ms period
-      addLog('✅ Sample rate command sent: [0x12, 0x64, 0x00]');
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // STEP 6: Send the real Vernier Respiration Belt activation command
-      // This is the actual command used by the Vernier Python SDK to enable the Force sensor
-      addLog('Sending real Vernier Respiration Belt activation command...');
+      // STEP 6: Send ONLY the real Vernier Respiration Belt activation command
+      // This is the EXACT command from the Vernier Python SDK as specified in the instructions
+      addLog('Sending the official Vernier respiration belt activation command...');
       
-      // Using the exact command array from the Vernier Python SDK per the provided instructions
+      // Use EXACTLY the command array provided in the instructions - no modifications
       const enableSensorCommand = new Uint8Array([
         0x58, 0x19, 0xFE, 0x3F, 0x1A, 0xA5, 0x4A, 0x06,
         0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
         0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
       ]);
       
-      // Send the actual sensor activation command exactly as instructed
+      // Send the exact command as specified
       await commandChar.writeValue(enableSensorCommand);
       console.log("✅ Sent full sensor activation command");
       addLog("✅ Sent full sensor activation command");
       
-      // Wait longer to make sure the device has time to process this extended command
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Use a longer wait to ensure the command is fully processed
+      await new Promise(resolve => setTimeout(resolve, 3000));
       
       // STEP 7: Make sure BLE notifications are active as specified in the instructions
       addLog('Ensuring notifications are active and will log raw data correctly...');
