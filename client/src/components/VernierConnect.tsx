@@ -258,38 +258,21 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
         }
       }, 3000); // Every 3 seconds
       
-      // Since we're facing some permission challenges with the Web Bluetooth API,
-      // let's implement a mode that shows the visualization working through simulated data
-      console.log('🧪 Creating visualization demo mode...');
+      // Provide a single initial test data point to check our visualization pipeline
+      console.log('🧪 Sending test data to verify visualization...');
+      const testData = new Uint8Array([0, 200, 0, 0]); // Strong breath in value for testing
+      if (onDataReceived) {
+        onDataReceived(testData);
+      }
       
-      // Generate a realistic breathing pattern to show how the visualization responds
-      let breathCycle = 0;
-      const breathInterval = setInterval(() => {
-        if (!device || !device.gatt.connected) {
-          clearInterval(breathInterval);
-          return;
+      // After 2 seconds, send another test value to confirm animation works
+      setTimeout(() => {
+        if (device && device.gatt.connected && onDataReceived) {
+          console.log('🧪 Sending second test data point...');
+          const testData2 = new Uint8Array([0, 50, 0, 0]); // Breath out value
+          onDataReceived(testData2);
         }
-        
-        // Generate a sine wave pattern to mimic breathing (0-1 range)
-        // Complete cycle takes about 5 seconds (matches typical breathing rate)
-        breathCycle += 0.05;
-        const breathValue = (Math.sin(breathCycle) + 1) / 2; // 0-1 normalized value
-        
-        // Create realistic data packet with the breath value in the key position
-        const simulatedValue = Math.floor(breathValue * 255);
-        const testData = new Uint8Array([0, simulatedValue, 0, 0]);
-        
-        // Log like a real data packet
-        console.log(`🔵 SIMULATED BREATH: ${breathValue.toFixed(2)} (${simulatedValue}/255)`);
-        
-        // Send to visualization
-        if (onDataReceived) {
-          onDataReceived(testData);
-        }
-      }, 100); // Update at 10Hz for smooth animation
-      
-      // Store for cleanup
-      (window as any).breathDemoInterval = breathInterval;
+      }, 2000);
       
       console.log('✅ Active data polling activated')
       
@@ -312,7 +295,7 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
             autoRecoveryAttempted = true;
             
             // If no data received in first 5 seconds, try restart with the simple command
-            await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
+            await commandCharacteristic.writeValue(COMMANDS.START_MEDIUM);
             console.log('Sent restart measurement command as precaution');
           }
         } catch (error) {
