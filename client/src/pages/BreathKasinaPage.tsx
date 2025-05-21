@@ -146,35 +146,36 @@ const BreathKasinaPage: React.FC = () => {
                 console.log("Disconnected from respiration belt");
               }}
               onDataReceived={(bytes) => {
-                // Process incoming data using the simplified placeholder decoder
+                // Process incoming data exactly as specified in requirements
                 try {
-                  // Get force value from the handleBreathData function
-                  const force = handleBreathData(bytes);
+                  // Simple placeholder implementation as described in instructions
+                  const force = bytes[3] / 255; // TEMP: crude normalization
+                  console.log("Normalized force:", force);
                   
-                  // Create breath data point
+                  // Create breath data point for tracking
                   const newData: BreathData = {
                     timestamp: Date.now(),
-                    amplitude: force,
-                    normalizedValue: force // Already normalized 0-1
+                    amplitude: force * 20 - 10, // Convert to -10 to +10 range for raw value
+                    normalizedValue: force // Keep normalized 0-1 value
                   };
                   
-                  // Update state
-                  setBreathData(prev => [...prev, newData].slice(-100));
+                  // Update state for React rendering
+                  setBreathData(prev => [...prev, newData].slice(-100)); // Keep last 100 points
                   setCurrentAmplitude(force);
                   
-                  // Determine breath direction
+                  // Determine breath direction (inhaling or exhaling)
                   if (breathData.length > 1) {
                     const prevValue = breathData[breathData.length - 1].normalizedValue;
                     setIsExpanding(force > prevValue);
                   }
                   
-                  // Calculate breathing rate
+                  // Calculate breathing rate from data points
                   calculateBreathingRate();
                   
-                  // Get reference to the orb element if we want to update it directly
-                  // This is shown here for demonstration but we're using React state instead
-                  // const orbElement = document.getElementById("breath-orb");
-                  // updateOrb(force, orbElement);
+                  // Get the orb element and update it directly as specified in instructions
+                  const orbElement = document.getElementById("breath-orb");
+                  orbElement.style.transform = `scale(${0.8 + force * 0.6})`;
+                  orbElement.style.opacity = `${0.5 + force * 0.5}`;
                 } catch (error) {
                   console.error("Error processing breath data:", error);
                 }
