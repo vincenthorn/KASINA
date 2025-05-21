@@ -223,19 +223,38 @@ const VernierConnect = () => {
       addLog('✅ Sample rate command sent: [0x12, 0x64, 0x00]');
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // STEP 6: Start measurements - CRITICAL STEP
-      addLog('Starting measurements...');
+      // STEP 6: Try every possible sensor activation command
+      addLog('Trying multiple sensor activation commands...');
       
-      // Format from the official documentation (most reliable)
-      await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
-      addLog('✅ Start measurements command sent: [0x18, 0x01]');
-      await new Promise(resolve => setTimeout(resolve, 1000));  // Longer wait after start
+      // Try all known combinations from the Vernier SDK documentation
+      const sensorActivationCommands = [
+        { desc: "Format A - Enable channel 1", cmd: new Uint8Array([0x11, 0x01, 0x01]) },
+        { desc: "Format B - Request data stream", cmd: new Uint8Array([0x07, 0x01]) },
+        { desc: "Format C - Start measurements", cmd: new Uint8Array([0x18, 0x01]) },
+        { desc: "Format D - Alternative enable", cmd: new Uint8Array([0x01, 0x01]) }
+      ];
       
-      // STEP 7: Force a reading request to jump-start the data stream
-      addLog('Sending explicit reading request...');
-      await commandChar.writeValue(new Uint8Array([0x07, 0x00, 0x00, 0x00, 0x01]));
-      addLog('✅ Force reading request sent: [0x07, 0x00, 0x00, 0x00, 0x01]');
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Send each command in sequence
+      for (const command of sensorActivationCommands) {
+        addLog(`Sending ${command.desc}: [${Array.from(command.cmd).map(b => "0x" + b.toString(16)).join(', ')}]`);
+        await commandChar.writeValue(command.cmd);
+        // Wait for response
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+      
+      // STEP 7: Force start continuous data sampling
+      addLog('Initiating continuous data sampling...');
+      
+      // This is more aggressive - using commands from Go Direct specifications
+      // Use the start realtime command with the sensor mask (bit for sensor 1)
+      await commandChar.writeValue(new Uint8Array([0x29, 0x01])); // Start real-time measurements
+      addLog('✅ Real-time measurement mode enabled: [0x29, 0x01]');
+      await new Promise(resolve => setTimeout(resolve, 1000));  // Longer wait after important command
+      
+      // Try secondary start command (used in some Vernier implementations)
+      await commandChar.writeValue(new Uint8Array([0x18, 0x01, 0xff, 0xff]));
+      addLog('✅ Extended start command sent: [0x18, 0x01, 0xff, 0xff]');
+      await new Promise(resolve => setTimeout(resolve, 1000));  // Wait for activation
       
       // Use a keepalive to ensure the connection stays active
       const keepaliveInterval = setInterval(async () => {
