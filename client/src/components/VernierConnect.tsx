@@ -36,6 +36,15 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
     
     console.log('✅ Raw BLE data received:', formatBytes(bytes));
     
+    // Track when we receive actual data packets for debugging
+    console.log(`Data packet received at: ${new Date().toISOString()}`);
+    
+    // Look for patterns in the data to help understand the format
+    if (bytes.length > 1) {
+      // The second byte (index 1) often contains the primary sensor reading in Vernier devices
+      console.log(`Key sensor byte value: ${bytes[1]} (${(bytes[1]/255).toFixed(4)})`);
+    }
+    
     // Pass data to parent if callback provided
     if (onDataReceived) {
       onDataReceived(bytes);
@@ -152,15 +161,29 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       console.log('✅ Event listener added for notifications');
       
-      // SIMPLIFIED ACTIVATION SEQUENCE - Based on nRF Connect logs
-      // 1. Send primary activation command
-      await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
-      console.log('✅ Primary activation command sent');
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // IMPROVED ACTIVATION SEQUENCE - Based on Vernier protocol
+      console.log('Starting Vernier activation sequence...');
       
-      // 2. Send data activation command - simplest form to avoid issues
+      // 1. First, send the primary enable command
+      await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
+      console.log('✅ Primary sensor enable command sent');
+      
+      // Wait for device to process
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // 2. Send start measurements command
+      await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
+      console.log('✅ Start measurements command (0x01, 0x0A) sent');
+      
+      // Wait for device to process
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // 3. Send basic activation command to ensure data stream
       await commandCharacteristic.writeValue(COMMANDS.ACTIVATE_DATA_STREAM);
-      console.log('✅ Basic data stream activation command sent');
+      console.log('✅ Basic data stream activation (0x01, 0x01) sent');
+      
+      // 4. Check for any incoming data to verify connection is working
+      console.log('⏳ Waiting for data transmission to begin...');
       
       // Set a flag to avoid endless attempts to fix connection
       let autoRecoveryAttempted = false;

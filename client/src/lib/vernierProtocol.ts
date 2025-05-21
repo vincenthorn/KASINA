@@ -49,22 +49,25 @@ export function isRespirationBelt(device: any): boolean {
  */
 export function bytesToForce(bytes: Uint8Array): number | null {
   // Check if we have enough data
-  if (bytes.length < 8) {
+  if (bytes.length < 4) {
     return null;
   }
   
-  // Extract force data (actual format will depend on device)
-  // This is a placeholder based on general Vernier protocol patterns
-  // The format may need to be adjusted
+  // Extract force data based on Vernier Go Direct protocol
   try {
-    // Bytes 4-7 might contain a float32 value
-    const dataView = new DataView(bytes.buffer);
-    const forceValue = dataView.getFloat32(4, true); // true = little endian
+    // Based on the nRF Connect logs and Vernier protocol documentation
+    // The second byte often contains the primary sensor reading
+    // We'll focus on this as our main data point
+    const primaryByte = bytes[1];
     
-    // Log for debugging
-    console.log(`Raw bytes: ${formatBytes(bytes)}, Force value: ${forceValue}`);
+    // Convert to a force value between 0 and 1
+    // The range of the respiration belt force should be proportional to this value
+    const normalizedForce = primaryByte / 255;
     
-    return forceValue;
+    // Log all data for debugging
+    console.log(`Raw bytes: ${formatBytes(bytes)}, Primary byte: ${primaryByte}, Normalized: ${normalizedForce.toFixed(4)}`);
+    
+    return normalizedForce;
   } catch (error) {
     console.error("Error parsing force data:", error);
     return null;
@@ -83,42 +86,47 @@ let lastTimestamp = Date.now();
 let lastNormalizedValue = 0.5;
 
 export function handleBreathData(raw: Uint8Array): number {
-  // Log raw data for debugging
+  // Log raw data for debugging to help identify patterns
   console.log(`Raw breath data: ${formatBytes(raw)}`);
   
-  // In the actual data pattern: b8 1a 00 e0 1a fe 55 aa 56 a9 57 a8 58 a7 59 a6 5a a5 5b a4 5c a3 5d a2 5e a1
-  // We need to extract meaningful changes even from repeating data
+  // Based on Vernier protocol analysis and nRF Connect logs
+  // The most reliable data appears to be in the first few bytes
+  // This simplified approach focuses on the most relevant bytes
   
-  // Try different data patterns:
-  // 1. Check if we have indices 7+ as they contain what appears to be pressure wave data
-  if (raw.length >= 8) {
-    // Extract values from different parts of the data packet to find meaningful changes
-    // Try using bytes 7 and 8 (aa and 56 in example) for a different data point
-    const primaryValue = (raw[7] / 255) * 0.7 + (raw[8] / 255) * 0.3;
+  // Extract the main breath pressure value from the second byte (index 1)
+  // This byte often contains the primary sensor reading in Vernier devices
+  if (raw.length >= 2) {
+    // Get the raw value from byte 1
+    const primaryByte = raw[1]; 
     
-    // Ensure we apply enough scaling to see visual changes
-    const force = 0.3 + (primaryValue * 0.7); // Range 0.3 to 1.0
+    // Normalize to 0-1 range and apply scaling for better visualization
+    // We want the orb to respond visibly to even small changes
+    const normalizedValue = primaryByte / 255;
     
-    // Update last value
-    lastNormalizedValue = force;
+    // Calculate the force with a good visual range (0.3 to 1.0)
+    // This ensures the orb is still visible at minimum and expands significantly at maximum
+    const force = 0.3 + (normalizedValue * 0.7);
+    
+    // Update tracking variables
+    lastNormalizedValue = normalizedValue;
     lastTimestamp = Date.now();
     
-    console.log(`Processed breath value from data packet: ${force.toFixed(4)}`);
+    console.log(`Breath force calculated: ${force.toFixed(4)} from byte: ${primaryByte}`);
     return force;
   }
   
-  // Fallback to using first few bytes if data packet isn't long enough
-  const currentTimestamp = Date.now();
-  // Create a time-varying value that changes over time to ensure movement
-  // This helps us visualize the connection is working even with static data
-  const timeComponent = Math.sin((currentTimestamp - lastTimestamp) / 1000) * 0.2;
+  // If we somehow have data but not enough bytes, use a fallback
+  if (raw.length > 0) {
+    const value = raw[0] / 255;
+    const force = 0.3 + (value * 0.7);
+    
+    console.log(`Limited data available, using first byte: ${force.toFixed(4)}`);
+    return force;
+  }
   
-  // Combine the raw data with the time component
-  let baseValue = raw[1] / 255; // From original method
-  const force = 0.3 + (baseValue * 0.4) + (timeComponent * 0.3); // Range 0.3 to 1.0
-  
-  console.log(`Enhanced breath value: ${force.toFixed(4)}`);
-  return force;
+  // If we reach here, we couldn't extract meaningful data
+  console.log('Invalid or empty data received');
+  return 0.5; // Return a neutral value
 }
 
 /**
