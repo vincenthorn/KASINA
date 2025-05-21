@@ -85,44 +85,93 @@ const VernierConnect = () => {
           
           // Log the raw data immediately with detailed information
           const bytesInfo = Array.from(rawBytes).map(b => b.toString()).join(', ');
-          addLog(`✅ New raw sensor data received: [${bytesInfo}]`);
+          const hexInfo = Array.from(rawBytes).map(b => "0x" + b.toString(16).padStart(2, '0')).join(', ');
+          addLog(`✅ New data: [${bytesInfo}]`);
+          addLog(`✅ Hex: [${hexInfo}]`);
           
-          // Log byte-by-byte for detailed analysis
+          // Store raw data in local storage for visualization
+          localStorage.setItem('latestRawBytes', Vernier.createHexDump(rawBytes));
+          
+          // First, identify the packet type
           if (rawBytes.length > 0) {
-            // Store raw data in local storage for visualization
-            localStorage.setItem('latestRawBytes', Vernier.createHexDump(rawBytes));
+            const packetType = rawBytes[0];
+            addLog(`✅ Packet type: 0x${packetType.toString(16)}`);
             
-            // Log packet type
-            addLog(`✅ Packet type: 0x${rawBytes[0].toString(16)}`);
-            
-            // Try different data interpretation approaches
-            if (rawBytes.length >= 7) {
-              // Try as float32 at offset 3 (typical for sensor readings)
-              try {
-                const forceReading = dataView.getFloat32(3, true); // little-endian
-                if (!isNaN(forceReading) && forceReading >= 0) {
-                  addLog(`✅ FORCE READING: ${forceReading.toFixed(4)}N`);
-                  
-                  // Store valid reading for visualization
-                  const normalizedReading = Vernier.normalizeForceReading(forceReading);
-                  localStorage.setItem('latestBreathReading', normalizedReading.toString());
-                  localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                }
-              } catch (e) {
-                // Try as int16 values
+            // Handle different packet types
+            if (packetType === 0x01) {
+              // Format 1: Standard measurement packet for Vernier devices
+              if (rawBytes.length >= 7) {
                 try {
-                  for (let i = 1; i < rawBytes.length - 1; i++) {
-                    const uint16Value = dataView.getUint16(i, true);
-                    if (uint16Value > 0 && uint16Value < 1000) {
-                      const scaledValue = uint16Value / 100.0;
-                      addLog(`✅ POTENTIAL SCALED FORCE: ${scaledValue.toFixed(4)}N`);
-                      
-                      // Store for visualization
+                  // Measurement is typically a float at offset 3
+                  const forceReading = dataView.getFloat32(3, true); // little-endian
+                  addLog(`✅ Type 1 force reading: ${forceReading.toFixed(4)}N`);
+                  
+                  if (!isNaN(forceReading) && forceReading >= 0) {
+                    // Store for visualization
+                    const normalizedReading = Vernier.normalizeForceReading(forceReading);
+                    localStorage.setItem('latestBreathReading', normalizedReading.toString());
+                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                  }
+                } catch (e) {
+                  addLog(`Error processing type 1 packet: ${e instanceof Error ? e.message : String(e)}`);
+                }
+              }
+            } else if (packetType === 0x04) {
+              // Format 2: Common alternative format seen in Vernier devices
+              if (rawBytes.length >= 5) {
+                try {
+                  // Some devices use this format with a float at offset 1
+                  const forceReading = dataView.getFloat32(1, true);
+                  addLog(`✅ Type 2 force reading: ${forceReading.toFixed(4)}N`);
+                  
+                  if (!isNaN(forceReading) && forceReading >= 0) {
+                    localStorage.setItem('latestBreathReading', forceReading.toString());
+                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                  }
+                } catch (e) {
+                  addLog(`Error processing type 2 packet: ${e instanceof Error ? e.message : String(e)}`);
+                }
+              }
+            } else {
+              // Try all possible interpretations of the data
+              addLog("Trying all possible interpretations...");
+              
+              // Try all possible offsets for a float value
+              for (let i = 0; i <= dataView.byteLength - 4; i++) {
+                try {
+                  const value = dataView.getFloat32(i, true);
+                  
+                  // Look for values in the expected range for respiration (0.1-10N)
+                  if (!isNaN(value) && value > 0.1 && value < 10) {
+                    addLog(`✅ Valid float32 at offset ${i}: ${value.toFixed(4)}N`);
+                    
+                    // Found a good value, use it
+                    localStorage.setItem('latestBreathReading', value.toString());
+                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                    break;
+                  }
+                } catch (e) {
+                  // Skip errors at this offset
+                }
+              }
+              
+              // Try all possible offsets for a uint16 value that could be scaled
+              for (let i = 0; i <= dataView.byteLength - 2; i++) {
+                try {
+                  const rawValue = dataView.getUint16(i, true);
+                  
+                  // Check if this could be a scaled reading (divide by 100)
+                  if (rawValue > 10 && rawValue < 1000) {
+                    const scaledValue = rawValue / 100.0;
+                    addLog(`✅ Potential scaled value at offset ${i}: ${scaledValue.toFixed(4)}N`);
+                    
+                    // Store this as a potential reading
+                    if (!localStorage.getItem('latestBreathReading')) {
                       localStorage.setItem('latestBreathReading', scaledValue.toString());
                       localStorage.setItem('latestBreathTimestamp', Date.now().toString());
                     }
                   }
-                } catch (e2) {
+                } catch (e) {
                   // Skip errors
                 }
               }
@@ -158,38 +207,55 @@ const VernierConnect = () => {
       await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.GET_SENSOR_LIST]));
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // STEP 4: Enable the Force sensor (channel 1) - CRITICAL STEP
-      addLog('Step 4: Enabling force sensor (channel 1)...');
-      // Try simple sensor activation command first (this matches what's in the instructions)
-      const simpleEnableCommand = new Uint8Array([0x01, 0x02, 0x01]);
-      await commandChar.writeValue(simpleEnableCommand);
-      addLog(`✅ Explicit sensor activation command sent: [${Array.from(simpleEnableCommand).join(', ')}]`);
+      // STEP 4: Set a more aggressive device setup
+      addLog('Starting complete device initialization sequence...');
+      
+      // Step 4a: Reset the device first
+      addLog('Resetting device...');
+      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.RESET]));
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Longer wait after reset
+      
+      // Step 4b: Get device info (important step based on official documentation)
+      addLog('Getting device info...');
+      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.GET_DEVICE_INFO]));
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Alternative: Try the standard command from the protocol
-      await commandChar.writeValue(Vernier.ENABLE_SENSOR_1);
-      addLog(`✅ Alternate sensor activation command sent: [${Array.from(Vernier.ENABLE_SENSOR_1).join(', ')}]`);
+      // Step 4c: Get sensor list (required before enabling sensors)
+      addLog('Getting sensor list...');
+      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.GET_SENSOR_LIST]));
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // STEP 5: Set sampling rate to 10Hz (more stable for breath monitoring)
-      addLog('Step 5: Setting sampling rate to 10Hz...');
-      await commandChar.writeValue(Vernier.SET_SAMPLE_RATE_10HZ);
-      addLog(`✅ Sample rate command sent: [${Array.from(Vernier.SET_SAMPLE_RATE_10HZ).join(', ')}]`);
+      // Step 4d: Enable the Force sensor (channel 1) - using multiple approaches
+      addLog('Enabling force sensor (channel 1)...');
+      
+      // Format from the official Vernier examples - VERY IMPORTANT
+      await commandChar.writeValue(new Uint8Array([0x11, 0x01, 0x01]));
+      addLog('✅ Standard sensor activation sent: [0x11, 0x01, 0x01]');
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Step 4e: Direct command format from the instructions
+      await commandChar.writeValue(new Uint8Array([0x01, 0x02, 0x01]));
+      addLog('✅ Direct sensor activation sent: [0x01, 0x02, 0x01]');
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // STEP 5: Set sampling rate to exactly 10Hz (100ms period)
+      addLog('Setting sample rate to 10Hz (100ms)...');
+      await commandChar.writeValue(new Uint8Array([0x12, 0x64, 0x00])); // 0x64 = 100ms period
+      addLog('✅ Sample rate command sent: [0x12, 0x64, 0x00]');
       await new Promise(resolve => setTimeout(resolve, 500));
       
       // STEP 6: Start measurements - CRITICAL STEP
-      addLog('Step 6: Starting measurements...');
-      // Try the standard command approach
-      await commandChar.writeValue(Vernier.START_MEASUREMENTS);
-      addLog(`✅ Start measurements command sent: [${Array.from(Vernier.START_MEASUREMENTS).join(', ')}]`);
-      await new Promise(resolve => setTimeout(resolve, 500));
+      addLog('Starting measurements...');
       
-      // STEP 7: Alternative start measurements using code from the instructions
-      addLog('Step 7: Trying alternative measurement start command...');
-      // This is the specific format mentioned in the instructions: [0x01, 0x02, 0x01]
-      const alternativeStartCommand = new Uint8Array([0x07, 0x00, 0x00, 0x00, 0x01]);
-      await commandChar.writeValue(alternativeStartCommand);
-      addLog(`✅ Alternative start command sent: [${Array.from(alternativeStartCommand).join(', ')}]`);
+      // Format from the official documentation (most reliable)
+      await commandChar.writeValue(new Uint8Array([0x18, 0x01]));
+      addLog('✅ Start measurements command sent: [0x18, 0x01]');
+      await new Promise(resolve => setTimeout(resolve, 1000));  // Longer wait after start
+      
+      // STEP 7: Force a reading request to jump-start the data stream
+      addLog('Sending explicit reading request...');
+      await commandChar.writeValue(new Uint8Array([0x07, 0x00, 0x00, 0x00, 0x01]));
+      addLog('✅ Force reading request sent: [0x07, 0x00, 0x00, 0x00, 0x01]');
       await new Promise(resolve => setTimeout(resolve, 500));
       
       // Use a keepalive to ensure the connection stays active
@@ -220,6 +286,13 @@ const VernierConnect = () => {
       // before navigating away from this page
       addLog('Preparing to navigate to breath kasina visualization...');
       await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Stay on this page for 5 seconds to observe incoming data,
+      // This will help us debug any problems with data transmission
+      addLog("✅ Connection established, monitoring for incoming data...");
+      
+      // Wait 5 seconds before navigating to see if we get any data
+      await new Promise(resolve => setTimeout(resolve, 5000));
       
       // Navigate to the breath kasina page after successful connection
       // Use the correct path that matches our router configuration
