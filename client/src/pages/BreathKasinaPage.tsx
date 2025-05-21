@@ -5,7 +5,8 @@ import { Button } from "../components/ui/button";
 import FocusMode from "../components/FocusMode";
 import { useAuth } from "../lib/stores/useAuth";
 import BreathKasinaOrb from "../components/BreathKasinaOrb";
-import { isRespirationBelt } from "../lib/vernierProtocol";
+import VernierConnect from "../components/VernierConnect";
+import { COMMANDS, isRespirationBelt, parseSensorData } from "../lib/vernierProtocol";
 import { KasinaType } from "../types/kasina";
 
 interface BreathData {
@@ -54,107 +55,8 @@ const BreathKasinaPage: React.FC = () => {
     };
   }, []);
   
-  // Handle device connection
-  const connectToDevice = async () => {
-    try {
-      if (!navigator.bluetooth) {
-        throw new Error("WebBluetooth is not supported in this browser");
-      }
-      
-      // Request device
-      const device = await navigator.bluetooth.requestDevice({
-        filters: [
-          { namePrefix: "GDX-RB" }, // Vernier Go Direct Respiration Belt prefix
-        ],
-        optionalServices: ["d91714ef-28b9-4f91-ba16-f0d9a604f112"] // Vernier service UUID
-      });
-      
-      if (!isRespirationBelt(device)) {
-        throw new Error("Selected device is not a respiration belt");
-      }
-      
-      // Connect to the device
-      console.log("Connecting to device:", device.name);
-      const server = await device.gatt.connect();
-      
-      // Get the Vernier service
-      const service = await server.getPrimaryService("d91714ef-28b9-4f91-ba16-f0d9a604f112");
-      
-      // Get the characteristic for reading sensor data
-      const characteristic = await service.getCharacteristic("d91714ef-28b9-4f91-ba16-f0d9a604f112");
-      
-      // Store references
-      deviceRef.current = device;
-      characteristicRef.current = characteristic;
-      
-      // Subscribe to notifications
-      await characteristic.startNotifications();
-      
-      // Handle notifications
-      characteristic.addEventListener('characteristicvaluechanged', handleBreathData);
-      
-      // Update connection state
-      setIsConnected(true);
-      setDevice(device);
-      
-      console.log("Successfully connected to respiration belt");
-      
-      // Start measurements (specific command for Vernier devices)
-      const startCommand = new Uint8Array([0x01, 0x01]);
-      await characteristic.writeValue(startCommand);
-      
-    } catch (error) {
-      console.error("Connection error:", error);
-      alert(`Failed to connect: ${error instanceof Error ? error.message : String(error)}`);
-    }
-  };
-  
-  // Handle incoming breath data
-  const handleBreathData = (event: any) => {
-    const value = event.target.value;
-    if (!value) return;
-    
-    // Convert data buffer to ArrayBuffer
-    const buffer = value.buffer;
-    const dataView = new DataView(buffer);
-    
-    // Log full data packet for debugging
-    const bytes = new Uint8Array(buffer);
-    console.log("Raw data received:", Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
-    
-    // Extract force reading (this will need adjustment based on actual data format)
-    // Assuming the force data is at a specific offset and is a float32
-    try {
-      // This is a placeholder - actual byte positions will depend on device protocol
-      const forceReading = dataView.getFloat32(4, true); // true for little-endian
-      
-      // Normalize to a value between 0 and 1
-      const normalizedValue = Math.max(0, Math.min(1, (forceReading + 10) / 20));
-      
-      // Create breath data point
-      const newData: BreathData = {
-        timestamp: Date.now(),
-        amplitude: forceReading,
-        normalizedValue
-      };
-      
-      // Update state
-      setBreathData(prev => [...prev, newData].slice(-100)); // Keep last 100 points
-      setCurrentAmplitude(normalizedValue);
-      
-      // Determine if breath is expanding (inhale) or contracting (exhale)
-      if (breathData.length > 1) {
-        const prevValue = breathData[breathData.length - 1].normalizedValue;
-        setIsExpanding(normalizedValue > prevValue);
-      }
-      
-      // Calculate breathing rate (breaths per minute)
-      calculateBreathingRate();
-      
-    } catch (error) {
-      console.error("Error processing breath data:", error);
-    }
-  };
+  // Calculate breathing rate function is preserved since it's still used
+  // Data processing is now handled by the VernierConnect component's onDataReceived callback
   
   // Calculate breathing rate based on recent breath data
   const calculateBreathingRate = () => {
@@ -202,30 +104,7 @@ const BreathKasinaPage: React.FC = () => {
     setEffectType(effect);
   };
   
-  // Disconnect from device
-  const disconnect = async () => {
-    if (deviceRef.current && deviceRef.current.gatt.connected) {
-      try {
-        // Stop measurements if characteristic is available
-        if (characteristicRef.current) {
-          const stopCommand = new Uint8Array([0x01, 0x00]);
-          await characteristicRef.current.writeValue(stopCommand);
-        }
-        
-        // Disconnect
-        deviceRef.current.gatt.disconnect();
-        console.log("Disconnected from device");
-        
-        // Update state
-        setIsConnected(false);
-        setDevice(null);
-        setBreathData([]);
-        setCurrentAmplitude(0.5); // Reset to neutral
-      } catch (error) {
-        console.error("Error disconnecting:", error);
-      }
-    }
-  };
+  // Disconnection is now handled by the VernierConnect component
   
   // If in focus mode, show minimalist interface
   if (isFocusMode) {
@@ -248,31 +127,71 @@ const BreathKasinaPage: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">Breath Kasina</h1>
-          <div className="space-x-3">
-            {isConnected ? (
-              <>
-                <Button 
-                  variant="outline" 
-                  className="bg-red-700 hover:bg-red-800 border-red-600"
-                  onClick={disconnect}
-                >
-                  Disconnect
-                </Button>
-                <Button 
-                  variant="default" 
-                  className="bg-indigo-600 hover:bg-indigo-700"
-                  onClick={toggleFocusMode}
-                >
-                  Enter Focus Mode
-                </Button>
-              </>
-            ) : (
+          <div className="flex items-center space-x-3">
+            <VernierConnect 
+              onConnect={(device, characteristic) => {
+                setDevice(device);
+                deviceRef.current = device;
+                characteristicRef.current = characteristic;
+                setIsConnected(true);
+                console.log("Connected to respiration belt via VernierConnect");
+              }}
+              onDisconnect={() => {
+                setIsConnected(false);
+                setDevice(null);
+                deviceRef.current = null;
+                characteristicRef.current = null;
+                setBreathData([]);
+                setCurrentAmplitude(0.5);
+                console.log("Disconnected from respiration belt");
+              }}
+              onDataReceived={(bytes) => {
+                // Process incoming data
+                try {
+                  const result = parseSensorData(bytes);
+                  
+                  // Handle sensor readings
+                  if (result.type === 'reading' && typeof result.value === 'number') {
+                    // Create breath data point from sensor reading
+                    const forceReading = result.value;
+                    
+                    // Normalize to a value between 0 and 1
+                    const normalizedValue = Math.max(0, Math.min(1, (forceReading + 10) / 20));
+                    
+                    // Create data point
+                    const newData: BreathData = {
+                      timestamp: Date.now(),
+                      amplitude: forceReading,
+                      normalizedValue
+                    };
+                    
+                    // Update state
+                    setBreathData(prev => [...prev, newData].slice(-100));
+                    setCurrentAmplitude(normalizedValue);
+                    
+                    // Determine breath direction
+                    if (breathData.length > 1) {
+                      const prevValue = breathData[breathData.length - 1].normalizedValue;
+                      setIsExpanding(normalizedValue > prevValue);
+                    }
+                    
+                    // Calculate breathing rate
+                    calculateBreathingRate();
+                  }
+                } catch (error) {
+                  console.error("Error processing breath data:", error);
+                }
+              }}
+              isConnected={isConnected}
+            />
+            
+            {isConnected && (
               <Button 
                 variant="default" 
-                className="bg-blue-600 hover:bg-blue-700"
-                onClick={connectToDevice}
+                className="bg-indigo-600 hover:bg-indigo-700"
+                onClick={toggleFocusMode}
               >
-                Connect Belt
+                Enter Focus Mode
               </Button>
             )}
           </div>

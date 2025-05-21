@@ -223,7 +223,11 @@ const FocusMode: React.FC<FocusModeProps> = ({ children, onExit }) => {
         open={isFocusModeActive} 
         onOpenChange={(open) => {
           if (!open) {
-            if (timerState.isRunning) {
+            if (onExit) {
+              // Use custom exit handler if provided (for Breath Kasina)
+              onExit();
+              disableFocusMode();
+            } else if (timerState.isRunning) {
               // If timer is running, end the session properly
               handleEndSession();
             } else {
