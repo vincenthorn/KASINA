@@ -74,26 +74,25 @@ const VernierConnect = () => {
       // Set up listener for incoming data with explicit logging
       addLog('Setting up data listener for respiration measurements...');
       
-      // Handle incoming sensor data with specific logging and format display
+      // 3. Test the Full Data Flow
+      // Set up event listener for incoming data from the sensor
       responseChar.addEventListener('characteristicvaluechanged', (event: any) => {
         const dataView = event.target.value;
         if (!dataView) return;
         
         try {
           // Convert to Uint8Array for easier processing
-          const rawBytes = new Uint8Array(dataView.buffer);
+          const raw = new Uint8Array(dataView.buffer);
           
-          // Log the raw data as specified in the instructions
-          console.log("✅ Raw sensor data:", rawBytes);
+          // Log the raw data exactly as specified in the instructions
+          console.log("✅ Raw BLE data received:", raw);
           
-          // Log the raw data with detailed information
-          const bytesInfo = Array.from(rawBytes).map(b => b.toString()).join(', ');
-          const hexInfo = Array.from(rawBytes).map(b => "0x" + b.toString(16).padStart(2, '0')).join(', ');
-          addLog(`✅ Raw sensor data: [${bytesInfo}]`);
-          addLog(`✅ Hex: [${hexInfo}]`);
+          // For debugging, also log the raw data in hex format
+          const hexInfo = Array.from(raw).map(b => "0x" + b.toString(16).padStart(2, '0')).join(', ');
+          addLog(`✅ Raw BLE data received: [${hexInfo}]`);
           
           // Store raw data in local storage for visualization
-          localStorage.setItem('latestRawBytes', Vernier.createHexDump(rawBytes));
+          localStorage.setItem('latestRawBytes', Vernier.createHexDump(raw));
           
           // Track which bytes change during breathing to identify the force data
           // This will help us identify which bytes represent the breathing force
@@ -202,42 +201,31 @@ const VernierConnect = () => {
       // STEP 4: Set a more aggressive device setup
       addLog('Starting complete device initialization sequence...');
       
-      // Simplify the approach - focus only on the key steps
-      // First, perform a clean reset to ensure the device is in a known state
-      addLog('Resetting device...');
-      await commandChar.writeValue(new Uint8Array([0x00])); // Reset command
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // 1. Use This Real Activation Command
+      addLog('Sending the Vernier respiration belt activation command from Python SDK...');
       
-      // STEP 5: Set the sampling rate to 10Hz (100ms period) - this is critical
-      addLog('Setting sampling rate to 10Hz (100ms)...');
-      await commandChar.writeValue(new Uint8Array([0x12, 0x64, 0x00])); // 0x64 = 100ms period
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // STEP 6: Send ONLY the real Vernier Respiration Belt activation command
-      // This is the EXACT command from the Vernier Python SDK as specified in the instructions
-      addLog('Sending the official Vernier respiration belt activation command...');
-      
-      // Use EXACTLY the command array provided in the instructions - no modifications
+      // Use the exact activation command from Python SDK
       const enableSensorCommand = new Uint8Array([
         0x58, 0x19, 0xFE, 0x3F, 0x1A, 0xA5, 0x4A, 0x06,
         0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
         0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
       ]);
       
-      // Send the exact command as specified
+      // Send the command to the device
       await commandChar.writeValue(enableSensorCommand);
-      console.log("✅ Sent full sensor activation command");
-      addLog("✅ Sent full sensor activation command");
+      console.log("✅ Sensor activation command sent to device");
+      addLog("✅ Sensor activation command sent to device");
       
-      // Use a longer wait to ensure the command is fully processed
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      // Wait to ensure the command is processed
+      await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // STEP 7: Make sure BLE notifications are active as specified in the instructions
-      addLog('Ensuring notifications are active and will log raw data correctly...');
+      // 2. Start Notifications on the Response Characteristic
+      addLog('Starting notifications on response characteristic...');
       
-      // Re-enable notifications to ensure they're active
+      // Start notifications to listen for incoming data
       await responseChar.startNotifications();
-      addLog('✅ Notifications activated for response characteristic');
+      console.log("✅ Notifications started on response characteristic");
+      addLog('✅ Notifications started on response characteristic');
       
       // Small pause to let everything initialize properly
       await new Promise(resolve => setTimeout(resolve, 1000));

@@ -1,0 +1,99 @@
+Certainly. Here's a clearly structured, precise set of instructions to give directly to your **Replit AI Agent**, based on your recent success extracting the real sensor activation command from the Python SDK:
+
+---
+
+## 🚩 **Instructions for Replit AI Agent: Finalize Integration of Vernier Respiration Belt**
+
+### 🎯 **Goal:**
+
+Use the correct BLE sensor activation command (confirmed via Python SDK) to enable live breath data streaming from the Vernier Respiration Belt in the frontend. Then, log raw incoming data in the console to begin decoding.
+
+---
+
+## ✅ **BLE Setup**
+
+### ✅ **Command Characteristic UUID**
+
+Used to write configuration commands:
+`f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb`
+
+### ✅ **Response Characteristic UUID**
+
+Used to receive sensor notifications:
+`b41e6675-a329-40e0-aa01-44d2f444babe`
+
+---
+
+## 🔧 **Step-by-Step Integration Instructions**
+
+### 🔹 **1. Use This Real Activation Command**
+
+Replace any previous or placeholder commands with the following byte sequence:
+
+```javascript
+const enableSensorCommand = new Uint8Array([
+  0x58, 0x19, 0xFE, 0x3F, 0x1A, 0xA5, 0x4A, 0x06,
+  0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
+  0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
+]);
+
+await commandCharacteristic.writeValue(enableSensorCommand);
+console.log("✅ Sensor activation command sent to device");
+```
+
+---
+
+### 🔹 **2. Start Notifications on the Response Characteristic**
+
+Ensure that the app is properly listening to incoming BLE data via the response characteristic:
+
+```javascript
+await responseCharacteristic.startNotifications();
+console.log("✅ Notifications started on response characteristic");
+
+responseCharacteristic.addEventListener("characteristicvaluechanged", (event) => {
+  const raw = new Uint8Array(event.target.value.buffer);
+  console.log("✅ Raw BLE data received:", raw);
+});
+```
+
+---
+
+### 🔹 **3. Test the Full Data Flow**
+
+Once the belt is connected and activated:
+
+* Breathe slowly and normally into the belt
+* Watch the browser console logs for raw BLE notifications
+* Confirm that the logged data updates as you breathe (i.e., raw byte arrays change with inhale/exhale)
+
+---
+
+## 📈 **Next Step (Optional)**
+
+If raw BLE data is coming through, start identifying which bytes correlate with breath amplitude (force). Highlight changes between inhale and exhale in the logs.
+
+Example goal:
+
+```javascript
+// Later on, decode and pass to orb renderer
+const forceValue = extractForceFromRaw(raw); // to be implemented
+```
+
+---
+
+## ✅ **Checklist Summary**
+
+* [ ] Use the exact activation command from Python SDK
+* [ ] Start notifications on the correct characteristic
+* [ ] Log all raw BLE data packets with each breath
+* [ ] Prepare for next step: decoding breath force from raw values
+
+---
+
+Please follow these steps and report back with:
+
+* Confirmation of live BLE data in the console
+* At least one or two examples of the full raw byte arrays received
+
+Once the stream is live, Vince will support decoding the breath force signal for orb integration.
