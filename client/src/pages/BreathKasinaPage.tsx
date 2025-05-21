@@ -6,7 +6,7 @@ import FocusMode from "../components/FocusMode";
 import { useAuth } from "../lib/stores/useAuth";
 import BreathKasinaOrb from "../components/BreathKasinaOrb";
 import VernierConnect from "../components/VernierConnect";
-import { COMMANDS, isRespirationBelt, parseSensorData } from "../lib/vernierProtocol";
+import { isRespirationBelt, handleBreathData, updateOrb } from "../lib/vernierProtocol";
 import { KasinaType } from "../types/kasina";
 
 interface BreathData {
@@ -146,38 +146,35 @@ const BreathKasinaPage: React.FC = () => {
                 console.log("Disconnected from respiration belt");
               }}
               onDataReceived={(bytes) => {
-                // Process incoming data
+                // Process incoming data using the simplified placeholder decoder
                 try {
-                  const result = parseSensorData(bytes);
+                  // Get force value from the handleBreathData function
+                  const force = handleBreathData(bytes);
                   
-                  // Handle sensor readings
-                  if (result.type === 'reading' && typeof result.value === 'number') {
-                    // Create breath data point from sensor reading
-                    const forceReading = result.value;
-                    
-                    // Normalize to a value between 0 and 1
-                    const normalizedValue = Math.max(0, Math.min(1, (forceReading + 10) / 20));
-                    
-                    // Create data point
-                    const newData: BreathData = {
-                      timestamp: Date.now(),
-                      amplitude: forceReading,
-                      normalizedValue
-                    };
-                    
-                    // Update state
-                    setBreathData(prev => [...prev, newData].slice(-100));
-                    setCurrentAmplitude(normalizedValue);
-                    
-                    // Determine breath direction
-                    if (breathData.length > 1) {
-                      const prevValue = breathData[breathData.length - 1].normalizedValue;
-                      setIsExpanding(normalizedValue > prevValue);
-                    }
-                    
-                    // Calculate breathing rate
-                    calculateBreathingRate();
+                  // Create breath data point
+                  const newData: BreathData = {
+                    timestamp: Date.now(),
+                    amplitude: force,
+                    normalizedValue: force // Already normalized 0-1
+                  };
+                  
+                  // Update state
+                  setBreathData(prev => [...prev, newData].slice(-100));
+                  setCurrentAmplitude(force);
+                  
+                  // Determine breath direction
+                  if (breathData.length > 1) {
+                    const prevValue = breathData[breathData.length - 1].normalizedValue;
+                    setIsExpanding(force > prevValue);
                   }
+                  
+                  // Calculate breathing rate
+                  calculateBreathingRate();
+                  
+                  // Get reference to the orb element if we want to update it directly
+                  // This is shown here for demonstration but we're using React state instead
+                  // const orbElement = document.getElementById("breath-orb");
+                  // updateOrb(force, orbElement);
                 } catch (error) {
                   console.error("Error processing breath data:", error);
                 }

@@ -67,72 +67,28 @@ export function bytesToForce(bytes: Uint8Array): number | null {
 }
 
 /**
- * Parse the device info response
+ * Decodes breath force data from the respiration belt
+ * 
+ * This is a simplified placeholder implementation as specified in the requirements.
+ * It will be refined with actual data patterns once more testing is done.
  */
-export function parseDeviceInfo(bytes: Uint8Array): any {
-  // Sample implementation - will need to be adjusted based on actual device responses
-  try {
-    const dataView = new DataView(bytes.buffer);
-    const firmwareVersion = `${dataView.getUint8(1)}.${dataView.getUint8(2)}`;
-    const serialNumber = bytes.slice(3, 11).reduce((str, byte) => 
-      str + String.fromCharCode(byte), '');
-    
-    return {
-      firmwareVersion,
-      serialNumber,
-      raw: formatBytes(bytes)
-    };
-  } catch (error) {
-    console.error("Error parsing device info:", error);
-    return { raw: formatBytes(bytes) };
-  }
+export function handleBreathData(raw: Uint8Array): number {
+  // Log raw data for debugging
+  console.log(`Raw breath data: ${formatBytes(raw)}`);
+  
+  // Simple placeholder implementation as specified in requirements
+  // This will be replaced with more accurate decoding once we observe the actual data patterns
+  const force = raw[3] / 255; // TEMP: crude normalization
+  return force;
 }
 
 /**
- * Parse the sensor data packet
- * This is based on known Vernier protocols but may need adjusting
+ * Updates the visual representation of the breath orb based on force data
  */
-export function parseSensorData(bytes: Uint8Array): any {
-  // Log the raw data for debugging
-  console.log(`Sensor data packet: ${formatBytes(bytes)}`);
+export function updateOrb(force: number, orbElement: HTMLElement | null): void {
+  if (!orbElement) return;
   
-  try {
-    if (bytes.length < 4) {
-      return { type: 'unknown', raw: formatBytes(bytes) };
-    }
-    
-    // Check packet type (first byte often indicates type)
-    const packetType = bytes[0];
-    
-    switch (packetType) {
-      case 0x11: // Example: Sensor reading
-        if (bytes.length >= 8) {
-          const dataView = new DataView(bytes.buffer);
-          const channelIndex = bytes[1];
-          const value = dataView.getFloat32(4, true); // Little-endian float at position 4
-          
-          return {
-            type: 'reading',
-            channel: channelIndex,
-            value,
-            raw: formatBytes(bytes)
-          };
-        }
-        break;
-        
-      case 0x57: // Example: Device info response
-        return parseDeviceInfo(bytes);
-        
-      default:
-        return { 
-          type: 'unknown',
-          code: packetType,
-          raw: formatBytes(bytes)
-        };
-    }
-  } catch (error) {
-    console.error("Error parsing sensor data:", error);
-  }
-  
-  return { type: 'error', raw: formatBytes(bytes) };
+  // Apply visual changes to the orb based on breath force
+  orbElement.style.transform = `scale(${0.8 + force * 0.6})`;
+  orbElement.style.opacity = `${0.5 + force * 0.5}`;
 }

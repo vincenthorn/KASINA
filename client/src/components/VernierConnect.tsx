@@ -27,14 +27,14 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [deviceInfo, setDeviceInfo] = useState<string | null>(null);
   const [device, setDevice] = useState<any | null>(null);
-  const [characteristic, setCharacteristic] = useState<any | null>(null);
+  const [responseCharacteristic, setResponseCharacteristic] = useState<any | null>(null);
 
   // Handle notifications from the device
   const handleNotification = useCallback((event: any) => {
     const value = event.target.value;
     const bytes = new Uint8Array(value.buffer);
     
-    console.log('Data received:', formatBytes(bytes));
+    console.log('✅ Raw BLE data received:', formatBytes(bytes));
     
     // Pass data to parent if callback provided
     if (onDataReceived) {
@@ -66,7 +66,7 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
         throw new Error('Web Bluetooth is not supported in this browser');
       }
       
-      // Request device
+      // Request device with name starting with GDX-RB (Respiration Belt)
       console.log('Requesting Bluetooth device...');
       const device = await navigator.bluetooth.requestDevice({
         filters: [
@@ -90,39 +90,32 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       console.log('Getting primary service...');
       const service = await server.getPrimaryService(VERNIER_SERVICE_UUID);
       
-      // Get characteristic
-      console.log('Getting characteristic...');
-      const characteristic = await service.getCharacteristic(VERNIER_CHARACTERISTIC_UUID);
-      setCharacteristic(characteristic);
+      // Get command characteristic
+      console.log('Getting command characteristic...');
+      const commandCharacteristic = await service.getCharacteristic(COMMAND_CHARACTERISTIC_UUID);
       
-      // Set up notifications
+      // Get response characteristic
+      console.log('Getting response characteristic...');
+      const responseCharacteristic = await service.getCharacteristic(RESPONSE_CHARACTERISTIC_UUID);
+      setResponseCharacteristic(responseCharacteristic);
+      
+      // Set up notifications on the response characteristic
       console.log('Starting notifications...');
-      await characteristic.startNotifications();
-      characteristic.addEventListener('characteristicvaluechanged', handleNotification);
+      await responseCharacteristic.startNotifications();
+      responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       
-      // Send commands to initialize the device
-      console.log('Initializing device...');
+      // Send activation command to the command characteristic
+      console.log('Sending activation command to device...');
+      await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
+      console.log("✅ Sensor activation command sent");
       
-      // Request device info
-      await characteristic.writeValue(COMMANDS.GET_DEVICE_INFO);
-      
-      // Set sensor mask (to enable the force sensor)
-      await characteristic.writeValue(COMMANDS.SET_SENSOR_MASK);
-      
-      // Set sensor period (10ms = 100Hz sampling rate)
-      await characteristic.writeValue(COMMANDS.SET_SENSOR_PERIOD);
-      
-      // Start measurements
-      await characteristic.writeValue(COMMANDS.START_MEASUREMENTS);
-      
-      console.log('Device connected and initialized');
-      
-      // Notify parent component
-      onConnect(device, characteristic);
+      // Notify parent component of successful connection
+      onConnect(device, responseCharacteristic);
       
     } catch (error) {
       console.error('Connection error:', error);
       setError(error instanceof Error ? error.message : String(error));
+      console.warn("⚠️ No BLE data received. Is your belt already connected to another app?");
       
       // Clean up any partial connection
       if (device && device.gatt.connected) {
@@ -134,7 +127,7 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       }
       
       setDevice(null);
-      setCharacteristic(null);
+      setResponseCharacteristic(null);
       setDeviceInfo(null);
       
     } finally {
@@ -146,19 +139,23 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
   const disconnectDevice = async () => {
     if (device && device.gatt.connected) {
       try {
-        // Stop measurements if possible
-        if (characteristic) {
-          await characteristic.writeValue(COMMANDS.STOP_MEASUREMENTS);
-          characteristic.removeEventListener('characteristicvaluechanged', handleNotification);
+        // Stop notifications if characteristic is available
+        if (responseCharacteristic) {
+          try {
+            await responseCharacteristic.stopNotifications();
+            responseCharacteristic.removeEventListener('characteristicvaluechanged', handleNotification);
+          } catch (e) {
+            console.error('Error stopping notifications:', e);
+          }
         }
         
-        // Disconnect
+        // Disconnect from the device
         device.gatt.disconnect();
         console.log('Disconnected from device');
         
         // Reset state
         setDevice(null);
-        setCharacteristic(null);
+        setResponseCharacteristic(null);
         setDeviceInfo(null);
         
         // Notify parent
