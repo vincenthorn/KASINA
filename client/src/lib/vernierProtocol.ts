@@ -16,8 +16,11 @@ export const COMMANDS = {
     0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
     0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
   ]),
-  // Legacy commands kept for reference
-  START_MEASUREMENTS: new Uint8Array([0x01, 0x01]),
+  // Command to start continuous streaming measurements at max rate
+  START_MEASUREMENTS: new Uint8Array([0x01, 0x0A]), // Changed from 0x01 to 0x0A for faster streaming
+  // Alternative start command that might work better with some devices
+  START_CONTINUOUS: new Uint8Array([0x55, 0x01]),
+  // Command to stop measurements
   STOP_MEASUREMENTS: new Uint8Array([0x01, 0x00])
 };
 

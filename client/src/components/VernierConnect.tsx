@@ -104,18 +104,29 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       await responseCharacteristic.startNotifications();
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       
-      // Send activation command to the command characteristic
+      // Enhanced activation sequence for continuous data streaming
       console.log('Sending activation command to device...');
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
       console.log("✅ Sensor activation command sent");
       
-      // Wait a short time to allow the device to process the activation
-      await new Promise(resolve => setTimeout(resolve, 300));
+      // Wait for the device to process the activation
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Send a second command to start measurements
+      // Send high-frequency measurement command for continuous streaming
       console.log('Starting continuous measurements...');
       await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
       console.log("✅ Measurement started");
+      
+      // Send alternate start command after a delay to ensure continuous data
+      setTimeout(async () => {
+        try {
+          console.log('Sending continuous streaming command...');
+          await commandCharacteristic.writeValue(COMMANDS.START_CONTINUOUS);
+          console.log("✅ Continuous streaming enabled");
+        } catch (err) {
+          console.error("Error starting continuous mode:", err);
+        }
+      }, 800);
       
       // Notify parent component of successful connection
       onConnect(device, responseCharacteristic);
