@@ -66,30 +66,22 @@ const VernierConnect = () => {
       const commandChar = await service.getCharacteristic(Vernier.COMMAND_UUID);
       const responseChar = await service.getCharacteristic(Vernier.RESPONSE_UUID);
       
-      // Explicitly start notifications
-      addLog('Starting notifications on response characteristic...');
-      await responseChar.startNotifications();
-      addLog('✅ BLE notifications explicitly started on responseCharacteristic.');
-      
-      // Set up listener for incoming data with explicit logging
+      // Set up listener for incoming data with exact logging format
       addLog('Setting up data listener for respiration measurements...');
       
-      // 3. Test the Full Data Flow
       // Set up event listener for incoming data from the sensor
       responseChar.addEventListener('characteristicvaluechanged', (event: any) => {
         const dataView = event.target.value;
         if (!dataView) return;
         
         try {
-          // Convert to Uint8Array for easier processing
+          // Log the raw data exactly as requested
+          console.log('✅ Raw data received:', new Uint8Array(event.target.value.buffer));
+          
+          // For UI display, also log in hex format
           const raw = new Uint8Array(dataView.buffer);
-          
-          // Log the raw data exactly as specified in the instructions
-          console.log("✅ Raw BLE data received:", raw);
-          
-          // For debugging, also log the raw data in hex format
           const hexInfo = Array.from(raw).map(b => "0x" + b.toString(16).padStart(2, '0')).join(', ');
-          addLog(`✅ Raw BLE data received: [${hexInfo}]`);
+          addLog(`✅ Raw data received: [${hexInfo}]`);
           
           // Store raw data in local storage for visualization
           localStorage.setItem('latestRawBytes', Vernier.createHexDump(raw));
@@ -105,8 +97,8 @@ const VernierConnect = () => {
             // Compare previous and current data to detect changes
             const changedByteIndices = [];
             
-            for (let i = 0; i < Math.min(rawBytes.length, prevRawBytes.length); i++) {
-              if (rawBytes[i] !== prevRawBytes[i]) {
+            for (let i = 0; i < Math.min(raw.length, prevRawBytes.length); i++) {
+              if (raw[i] !== prevRawBytes[i]) {
                 changedByteIndices.push(i);
               }
             }
@@ -115,7 +107,7 @@ const VernierConnect = () => {
             if (changedByteIndices.length > 0) {
               addLog(`🔍 Bytes changed at indices: ${changedByteIndices.join(', ')}`);
               addLog(`🔍 Previous values: ${changedByteIndices.map(i => prevRawBytes[i]).join(', ')}`);
-              addLog(`🔍 Current values: ${changedByteIndices.map(i => rawBytes[i]).join(', ')}`);
+              addLog(`🔍 Current values: ${changedByteIndices.map(i => raw[i]).join(', ')}`);
               
               // Calculate and interpret force from changed bytes
               // This is an initial heuristic - we'll refine based on observed patterns
@@ -124,7 +116,7 @@ const VernierConnect = () => {
               // Let's focus on the first few bytes which often contain the primary sensor data
               for (const idx of changedByteIndices) {
                 if (idx < 4) {  // Focus on the first 4 bytes where sensor data is most likely
-                  const rawValue = rawBytes[idx];
+                  const rawValue = raw[idx];
                   // Scale to a reasonable force range (0-20N)
                   const forceValue = rawValue / 10.0;
                   
@@ -141,28 +133,20 @@ const VernierConnect = () => {
           }
           
           // Store current bytes for next comparison
-          localStorage.setItem('prevRawBytes', Array.from(rawBytes).join(','));
+          localStorage.setItem('prevRawBytes', Array.from(raw).join(','));
           
-          // For any packet type, also try to interpret as float values
-          // This covers the common format for sensor data in many devices
-          for (let i = 0; i < dataView.byteLength - 3; i++) {
-            try {
-              const value = dataView.getFloat32(i, true); // little-endian
-              
-              // Range check for plausible force values (0.1-30N)
-              if (!isNaN(value) && value > 0.1 && value < 30) {
-                addLog(`✅ Float32 force at offset ${i}: ${value.toFixed(2)}N`);
-                
-                // Store for visualization
-                localStorage.setItem('latestBreathReading', value.toString());
-                localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                localStorage.setItem('breathingRate', '12'); // Placeholder breath rate
-                localStorage.setItem('breathDataSource', 'real');
-                break; // Use first valid reading
-              }
-            } catch (e) {
-              // Skip errors at this offset
-            }
+          // Check if any bytes are changing between breath cycles
+          if (raw.length > 0) {
+            // Watch for patterns in the data that correlate with breathing
+            addLog(`Monitoring for breath patterns in the data...`);
+            
+            // The raw bytes likely contain the force readings
+            // Store the timestamp for data freshness tracking
+            localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+            
+            // Set a stable breath rate for now
+            localStorage.setItem('breathingRate', '12'); // Placeholder breath rate
+            localStorage.setItem('breathDataSource', 'real');
           }
           
           // As we're receiving data, set a flag that real data is available
