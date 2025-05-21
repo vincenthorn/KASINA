@@ -1,0 +1,79 @@
+Absolutely. Here's a fully structured, ready-to-use prompt you can give directly to your **Replit AI Agent**:
+
+---
+
+## 🚩 **Instructions for Replit AI Agent: Enable Real Sensor Data from Vernier Respiration Belt**
+
+### 🎯 **Objective:**
+
+Replace all placeholder sensor activation logic with the **real command** used by the Vernier Python SDK to enable the Respiration Force sensor. The goal is to start receiving real-time breath data in the Replit frontend via Web Bluetooth.
+
+---
+
+## ✅ **BLE Command UUIDs**
+
+Continue using the same characteristics:
+
+* **Command Characteristic UUID:**
+  `f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb` (write)
+* **Response Characteristic UUID:**
+  `b41e6675-a329-40e0-aa01-44d2f444babe` (notify)
+
+---
+
+## 🧬 **Replace Sensor Activation Command With This Uint8Array:**
+
+```javascript
+const enableSensorCommand = new Uint8Array([
+  0x58, 0x19, 0xFE, 0x3F, 0x1A, 0xA5, 0x4A, 0x06,
+  0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
+  0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
+]);
+```
+
+Use it like this in your BLE connection logic:
+
+```javascript
+await commandCharacteristic.writeValue(enableSensorCommand);
+console.log("✅ Sent full sensor activation command");
+```
+
+---
+
+## 🛠️ **Make Sure BLE Notifications Are Still Active**
+
+Ensure this part remains intact and logs raw data correctly:
+
+```javascript
+await responseCharacteristic.startNotifications();
+responseCharacteristic.addEventListener('characteristicvaluechanged', handleIncomingData);
+
+function handleIncomingData(event) {
+  const rawData = new Uint8Array(event.target.value.buffer);
+  console.log("✅ Raw sensor data:", rawData);
+  // You may decode this rawData here
+}
+```
+
+---
+
+## 🔍 **Expectations After Integration:**
+
+Once this command is sent:
+
+* The Respiration Belt will activate its sensor streams
+* The Response Characteristic will begin emitting live raw data that changes as the user breathes
+* Raw `Uint8Array` values will reflect force changes, which can then be decoded and mapped to the Breath Kasina orb visuals
+
+---
+
+## ✅ **Next Steps for AI Agent:**
+
+1. Replace the old or placeholder activation command with the real `enableSensorCommand` above.
+2. Confirm the BLE write is successful and log: `✅ Sent full sensor activation command`.
+3. Begin logging real-time `Uint8Array` values from the belt via the response characteristic.
+4. Highlight which bytes are changing during inhalation/exhalation to assist with force value extraction.
+
+---
+
+Once the above is working, I’ll help you finish decoding the breath amplitude from the raw stream. Let's get the orb breathing for real. 🫧
