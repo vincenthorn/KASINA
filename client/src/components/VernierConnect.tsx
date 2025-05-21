@@ -31,43 +31,57 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
 
   // Handle notifications from the device
   const handleNotification = useCallback((event: any) => {
-    const value = event.target.value;
-    const bytes = new Uint8Array(value.buffer);
-    
-    // Mark that we have successfully received data to stop the command rotation
-    (window as any).vernierDataReceived = true;
-    
-    // Log the full data packet in a readable format
-    console.log('🔵 DATA RECEIVED:', formatBytes(bytes));
-    console.log(`Timestamp: ${new Date().toISOString()}`);
-    
-    // Enhanced logging for troubleshooting
-    if (bytes.length > 0) {
-      // Format the bytes as HEX for debugging
-      const hexValues = Array.from(bytes).map(b => 
-        b.toString(16).padStart(2, '0')
-      ).join(' ');
-      
-      // Show detailed byte analysis
-      console.log(`📊 DATA ANALYSIS [Length: ${bytes.length}]:`);
-      console.log(`HEX: ${hexValues}`);
-      
-      // Log specific bytes of interest
-      if (bytes.length > 1) {
-        const byte1 = bytes[1];
-        const normalizedValue = byte1 / 255;
-        console.log(`KEY SENSOR BYTE: ${byte1} (Normalized: ${normalizedValue.toFixed(4)})`);
-        
-        // Generate visual indicator of signal strength
-        const barLength = Math.round(normalizedValue * 20);
-        const bar = '█'.repeat(barLength) + '░'.repeat(20 - barLength);
-        console.log(`Signal strength: ${bar} ${(normalizedValue * 100).toFixed(1)}%`);
+    try {
+      const value = event.target.value;
+      if (!value) {
+        console.log('Received notification but value is null/undefined');
+        return;
       }
-    }
-    
-    // Pass data to parent component for visualization
-    if (onDataReceived) {
-      onDataReceived(bytes);
+      
+      // Create a byte array from the data
+      const bytes = new Uint8Array(value.buffer);
+      
+      // Mark that we have successfully received data
+      (window as any).vernierDataReceived = true;
+      
+      // Super prominent logging to easily see data flow
+      console.log('🟢🟢🟢 DATA RECEIVED FROM BELT:', formatBytes(bytes));
+      
+      // Enhanced visual debugging
+      if (bytes.length > 0) {
+        // Find the key data byte - typically byte 1 for force data
+        let primaryByte = bytes.length > 1 ? bytes[1] : bytes[0];
+        const normalizedValue = primaryByte / 255;
+        
+        // Create a visual bar representing the force/pressure
+        const barLength = Math.floor(normalizedValue * 30);
+        const progressBar = '▓'.repeat(barLength) + '░'.repeat(30 - barLength);
+        
+        // Super clear formatted output in console
+        console.log(
+          `\n%c BREATH DATA: %c${normalizedValue.toFixed(4)} %c${progressBar} %c${(normalizedValue*100).toFixed(1)}%\n`,
+          'background:#2D46B9; color:white; font-weight:bold; padding:3px 5px; border-radius:3px;',
+          'color:#13B338; font-weight:bold; font-size:14px;',
+          'color:#437AF4; font-weight:bold;',
+          'background:#13B338; color:white; font-weight:bold; padding:2px 5px; border-radius:3px;'
+        );
+        
+        // For developers inspecting the raw data
+        console.table(Array.from(bytes).map((b, i) => ({ 
+          byte: i, 
+          decimal: b, 
+          hex: b.toString(16).padStart(2, '0'),
+          percent: (b/255*100).toFixed(1) + '%'
+        })));
+      }
+      
+      // Immediately pass to parent for visualization
+      if (onDataReceived && bytes.length > 0) {
+        // Force dramatic visual reaction to prove data is flowing
+        onDataReceived(bytes);
+      }
+    } catch (error) {
+      console.error('Error processing notification:', error);
     }
   }, [onDataReceived]);
 
@@ -104,12 +118,19 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       }
       
       // Request device with name starting with GDX-RB (Respiration Belt)
-      console.log('Requesting Bluetooth device...');
+      console.log('Requesting Bluetooth device with proper permissions...');
       const device = await navigator.bluetooth.requestDevice({
         filters: [
           { namePrefix: 'GDX-RB' }, // Vernier Go Direct Respiration Belt
         ],
-        optionalServices: [VERNIER_SERVICE_UUID]
+        // Important: Request ALL the characteristics we need access to
+        optionalServices: [
+          VERNIER_SERVICE_UUID,
+          // Add standard descriptors and services that might be needed
+          '00002902-0000-1000-8000-00805f9b34fb', // Client Characteristic Configuration Descriptor
+          '0000180a-0000-1000-8000-00805f9b34fb', // Device Information Service
+          '00002a00-0000-1000-8000-00805f9b34fb'  // Generic Access Service
+        ]
       });
       
       // Check if device was selected or the dialog was closed
@@ -181,85 +202,56 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       console.log('✅ Event listener added for notifications');
       
-      // NEW VERNIER PROTOCOL IMPLEMENTATION
-      console.log('⭐️ Starting full Vernier initialization protocol...');
+      // SIMPLIFIED COMMAND SEQUENCE - Based on Vernier specification
+      console.log('⭐️ Starting simplified Vernier protocol...');
       
-      // 1. Send the initial device activation command (always required)
+      // 1. First, send the basic activation command (always required)
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
-      console.log('✅ DEVICE ACTIVATED');
+      console.log('✅ BASIC SENSOR ACTIVATION COMPLETE');
+      
+      // Wait for device to initialize (crucial timing)
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // 2. Select the force sensor channel specifically
-      await commandCharacteristic.writeValue(COMMANDS.SELECT_FORCE_CHANNEL);
-      console.log('✅ FORCE SENSOR CHANNEL SELECTED');
+      // 2. Send the standard start command - most likely to work across devices
+      await commandCharacteristic.writeValue(COMMANDS.START_MEDIUM);
+      console.log('✅ START MEASUREMENT COMMAND SENT');
+      
+      // Wait for measurement mode to activate
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // 3. Enable real-time data mode for immediate response
-      await commandCharacteristic.writeValue(COMMANDS.ENABLE_REALTIME);
-      console.log('✅ REAL-TIME DATA MODE ENABLED');
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Much simpler approach - use notification handlers as intended
+      console.log('📣 Setting up standard notification handling...');
       
-      // 4. Start with high-frequency sampling (30Hz)
-      await commandCharacteristic.writeValue(COMMANDS.START_HIGH);
-      console.log('✅ HIGH-FREQUENCY SAMPLING INITIALIZED');
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // We won't try to poll directly - this was causing permission errors
+      // Instead, we'll rely on the standard notification system and make sure
+      // our visualization is extremely responsive to any data we do receive
       
-      // 5. Set up continuous data flow mode
-      await commandCharacteristic.writeValue(COMMANDS.SETUP_CONTINUOUS);
-      console.log('✅ CONTINUOUS DATA FLOW CONFIGURED');
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      // 6. Implement active polling for data
-      console.log('🔄 Implementing active data polling system...');
-      
-      // Clear any existing intervals
-      if ((window as any).dataPollingInterval) {
-        clearInterval((window as any).dataPollingInterval);
+      // Create a heartbeat to keep the connection active
+      if ((window as any).connectionHeartbeat) {
+        clearInterval((window as any).connectionHeartbeat);
       }
       
-      // This approach uses explicit requests for new data
-      // rather than relying on automatic notifications
-      (window as any).dataPollingInterval = setInterval(async () => {
+      // Send a heartbeat command every few seconds to maintain activity
+      (window as any).connectionHeartbeat = setInterval(async () => {
         if (device && device.gatt.connected && commandCharacteristic) {
           try {
-            // Cycle through different data request commands
-            // This helps ensure we find the right command that works with this device
-            const requestCommands = [
-              COMMANDS.REQUEST_SAMPLE,
-              COMMANDS.START_HIGH,
-              COMMANDS.ENABLE_REALTIME
-            ];
-            
-            // Get next command in rotation
-            const requestCommand = requestCommands[(window as any).requestCommandIndex || 0];
-            (window as any).requestCommandIndex = 
-              (((window as any).requestCommandIndex || 0) + 1) % requestCommands.length;
-              
-            // Send request command
-            await commandCharacteristic.writeValue(requestCommand);
-            
-            // Try to read the value directly after requesting it
-            try {
-              const value = await responseCharacteristic.readValue();
-              const bytes = new Uint8Array(value.buffer);
-              if (bytes.length > 0) {
-                console.log('📊 Direct read data:', formatBytes(bytes));
-                
-                // Manually trigger the notification handler with this data
-                const event = { target: { value } };
-                handleNotification(event);
-              }
-            } catch (readErr) {
-              // Reading may fail on some devices, that's ok
-              // We'll still get notifications if they're working
-            }
+            // Simple keep-alive command
+            console.log('💓 Sending connection heartbeat...');
+            await commandCharacteristic.writeValue(COMMANDS.START_MEDIUM);
           } catch (err) {
-            console.error('Error in polling cycle:', err);
+            console.error('Error in heartbeat:', err);
           }
         } else {
-          clearInterval((window as any).dataPollingInterval);
+          clearInterval((window as any).connectionHeartbeat);
         }
-      }, 100); // Request data very frequently (10 times per second)
+      }, 3000); // Every 3 seconds
+      
+      // Manually generate a test data point to verify our visualization pipeline
+      console.log('🧪 Generating test data point to verify visualization...');
+      const testData = new Uint8Array([0, 128, 0, 0]); // Mid-range value for testing
+      if (onDataReceived) {
+        onDataReceived(testData);
+      }
       
       console.log('✅ Active data polling activated')
       
