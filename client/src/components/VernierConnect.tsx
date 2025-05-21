@@ -34,18 +34,38 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
     const value = event.target.value;
     const bytes = new Uint8Array(value.buffer);
     
-    console.log('✅ Raw BLE data received:', formatBytes(bytes));
+    // Mark that we have successfully received data to stop the command rotation
+    (window as any).vernierDataReceived = true;
     
-    // Track when we receive actual data packets for debugging
-    console.log(`Data packet received at: ${new Date().toISOString()}`);
+    // Log the full data packet in a readable format
+    console.log('🔵 DATA RECEIVED:', formatBytes(bytes));
+    console.log(`Timestamp: ${new Date().toISOString()}`);
     
-    // Look for patterns in the data to help understand the format
-    if (bytes.length > 1) {
-      // The second byte (index 1) often contains the primary sensor reading in Vernier devices
-      console.log(`Key sensor byte value: ${bytes[1]} (${(bytes[1]/255).toFixed(4)})`);
+    // Enhanced logging for troubleshooting
+    if (bytes.length > 0) {
+      // Format the bytes as HEX for debugging
+      const hexValues = Array.from(bytes).map(b => 
+        b.toString(16).padStart(2, '0')
+      ).join(' ');
+      
+      // Show detailed byte analysis
+      console.log(`📊 DATA ANALYSIS [Length: ${bytes.length}]:`);
+      console.log(`HEX: ${hexValues}`);
+      
+      // Log specific bytes of interest
+      if (bytes.length > 1) {
+        const byte1 = bytes[1];
+        const normalizedValue = byte1 / 255;
+        console.log(`KEY SENSOR BYTE: ${byte1} (Normalized: ${normalizedValue.toFixed(4)})`);
+        
+        // Generate visual indicator of signal strength
+        const barLength = Math.round(normalizedValue * 20);
+        const bar = '█'.repeat(barLength) + '░'.repeat(20 - barLength);
+        console.log(`Signal strength: ${bar} ${(normalizedValue * 100).toFixed(1)}%`);
+      }
     }
     
-    // Pass data to parent if callback provided
+    // Pass data to parent component for visualization
     if (onDataReceived) {
       onDataReceived(bytes);
     }
