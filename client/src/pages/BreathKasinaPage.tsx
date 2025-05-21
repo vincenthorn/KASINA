@@ -148,8 +148,10 @@ const BreathKasinaPage: React.FC = () => {
               onDataReceived={(bytes) => {
                 // Process incoming data exactly as specified in requirements
                 try {
-                  // Simple placeholder implementation as described in instructions
-                  const force = bytes[3] / 255; // TEMP: crude normalization
+                  // Based on the actual data we're receiving from the belt
+                  // Looking at logs, we see the format differs from what we expected
+                  // Using byte at index 1 which seems to have meaningful values in our logs
+                  const force = bytes[1] / 255;
                   console.log("Normalized force:", force);
                   
                   // Create breath data point for tracking
@@ -172,10 +174,20 @@ const BreathKasinaPage: React.FC = () => {
                   // Calculate breathing rate from data points
                   calculateBreathingRate();
                   
-                  // Get the orb element and update it directly as specified in instructions
+                  // Get the orb element and update it directly for immediate visual feedback
                   const orbElement = document.getElementById("breath-orb");
-                  orbElement.style.transform = `scale(${0.8 + force * 0.6})`;
-                  orbElement.style.opacity = `${0.5 + force * 0.5}`;
+                  if (orbElement) {
+                    // Make the scale change more dramatic (0.7 to 2.0 scale range)
+                    orbElement.style.transform = `scale(${0.7 + force * 1.3})`;
+                    orbElement.style.opacity = `${0.5 + force * 0.5}`;
+                    
+                    // Add a glow effect that intensifies with breath
+                    const glowIntensity = 5 + (force * 15);
+                    orbElement.style.boxShadow = `0 0 ${glowIntensity}px ${glowIntensity/2}px rgba(0, 100, 255, ${0.6 + (force * 0.4)})`;
+                    
+                    // Add smoother transition for more fluid animation
+                    orbElement.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out';
+                  }
                 } catch (error) {
                   console.error("Error processing breath data:", error);
                 }

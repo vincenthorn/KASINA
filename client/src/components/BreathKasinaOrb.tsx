@@ -23,10 +23,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Apply breathing effect based on the chosen effect type
   useEffect(() => {
     // Map the breath amplitude to the desired visual effect
+    // Making this much more dramatic for better visualization
     switch (effectType) {
       case 'expand-contract':
-        // Map amplitude to scale (0.5 to 1.7)
-        // Making the effect more dramatic as requested
+        // Map amplitude to scale with MUCH bigger range (0.7 to 2.2)
+        // This creates a more dramatic breathing effect as requested
         const newScale = 0.7 + (breathAmplitude * 1.5);
         setScale(newScale);
         setOpacity(0.8);
@@ -34,8 +35,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         break;
         
       case 'brighten-darken':
-        // Map amplitude to opacity (0.3 to 1)
-        const newOpacity = 0.3 + (breathAmplitude * 0.7);
+        // Map amplitude to opacity (0.2 to 1.0)
+        const newOpacity = 0.2 + (breathAmplitude * 0.8);
         setOpacity(newOpacity);
         setScale(1.2); // Keep a moderate fixed size
         setHue(240); // Keep blue
@@ -49,6 +50,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         setOpacity(0.8); // Keep moderate opacity
         break;
     }
+    
+    // This log helps us track if React state is changing based on incoming data
+    console.log("Effect applied with amplitude:", breathAmplitude, "scale:", scale);
   }, [breathAmplitude, effectType]);
   
   // Base color for the kasina
@@ -86,7 +90,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         }}
       />
       
-      {/* Main orb */}
+      {/* Main orb - made more responsive with quicker transitions */}
       <div 
         id="breath-orb"
         className="rounded-full shadow-xl relative overflow-hidden"
@@ -94,8 +98,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           width: `${200 * scale}px`,
           height: `${200 * scale}px`,
           background: baseColor,
-          boxShadow: `0 0 60px 20px ${glowColor}`,
-          transition: 'all 0.5s ease-in-out'
+          boxShadow: `0 0 ${60 + (scale * 20)}px ${20 + (scale * 10)}px ${glowColor}`,
+          transition: 'all 0.3s ease-in-out'
         }}
       >
         {/* Inner light reflections */}

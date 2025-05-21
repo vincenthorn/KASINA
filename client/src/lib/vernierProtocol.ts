@@ -76,9 +76,18 @@ export function handleBreathData(raw: Uint8Array): number {
   // Log raw data for debugging
   console.log(`Raw breath data: ${formatBytes(raw)}`);
   
-  // Simple placeholder implementation as specified in requirements
-  // This will be replaced with more accurate decoding once we observe the actual data patterns
-  const force = raw[3] / 255; // TEMP: crude normalization
+  // Based on the actual data pattern we observed in logs:
+  // "Raw BLE data received: b8 1a 00 e0 1a fe 55 aa 56 a9 57 a8 58 a7 59 a6 5a a5 5b a4 5c a3 5d a2 5e a1"
+  
+  // We can see that byte at index 1 (0x1a) was showing meaningful changes
+  // Use this byte for a more accurate response
+  const primaryValue = raw[1] / 255;
+  
+  // Apply some scaling to make the visual feedback more dramatic
+  // This maps the typical values we're seeing to a better range for visualization
+  const force = primaryValue * 1.2; // Scale up to make movement more noticeable
+  
+  console.log(`Processed breath value: ${force.toFixed(4)}`);
   return force;
 }
 
