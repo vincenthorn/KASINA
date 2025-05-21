@@ -155,6 +155,28 @@ function App() {
                 }
               />
 
+              {/* Breath Kasina Routes - Premium Only */}
+              <Route
+                path="/breath"
+                element={
+                  <PremiumRoute>
+                    <ErrorBoundary>
+                      <BreathPage />
+                    </ErrorBoundary>
+                  </PremiumRoute>
+                }
+              />
+              <Route
+                path="/breath-kasina"
+                element={
+                  <PremiumRoute>
+                    <ErrorBoundary>
+                      <BreathKasinaPage />
+                    </ErrorBoundary>
+                  </PremiumRoute>
+                }
+              />
+              
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>

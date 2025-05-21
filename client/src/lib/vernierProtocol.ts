@@ -35,7 +35,7 @@ export function createHexDump(bytes: Uint8Array): string {
  * Checks if a device is likely a Vernier Go Direct Respiration Belt
  * based on the device name
  */
-export function isRespirationBelt(device: BluetoothDevice): boolean {
+export function isRespirationBelt(device: any): boolean {
   return device.name?.startsWith('GDX-RB') || false;
 }
 
