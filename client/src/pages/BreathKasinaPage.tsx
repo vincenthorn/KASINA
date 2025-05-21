@@ -9,6 +9,8 @@ import { Maximize, Wind, Activity } from 'lucide-react';
 import FocusMode from '@/components/FocusMode';
 import BreathKasinaOrb from '@/components/BreathKasinaOrb';
 import { useFocusMode } from '@/lib/stores/useFocusMode';
+import { useAuth } from '@/lib/stores/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 interface BreathData {
   timestamp: number;
@@ -17,6 +19,8 @@ interface BreathData {
 }
 
 const BreathKasinaPage = () => {
+  const navigate = useNavigate();
+  const { user, isPremium, isAdmin } = useAuth();
   const { selectedKasina, setSelectedKasina } = useKasina();
   const { enableFocusMode } = useFocusMode();
   const [breathData, setBreathData] = useState<BreathData | null>(null);
@@ -30,6 +34,13 @@ const BreathKasinaPage = () => {
 
   // Define a strict kasina for breath visualization - always blue
   const breathKasina: KasinaType = 'blue';
+  
+  // Check access permissions - redirect non-premium users
+  useEffect(() => {
+    if (!(isPremium || isAdmin)) {
+      navigate('/');
+    }
+  }, [isPremium, isAdmin, navigate]);
   
   // Set blue kasina when component mounts
   useEffect(() => {

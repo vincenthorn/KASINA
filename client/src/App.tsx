@@ -57,6 +57,34 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+// Special route that requires premium or admin access
+function PremiumRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, email, checkAuthStatus } = useAuth();
+
+  useEffect(() => {
+    checkAuthStatus();
+  }, [checkAuthStatus]);
+
+  // Check if user is authenticated
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
+  
+  // Check if user is admin or premium
+  const isPremiumUser = email.endsWith('@kasina.app') || 
+                        email === 'brian@terma.asia' || 
+                        email === 'emilywhorn@gmail.com' || 
+                        email === 'ryan@ryanoelke.com' || 
+                        email === 'ksowocki@gmail.com';
+  
+  // Redirect non-premium users to home page
+  if (!isPremiumUser) {
+    return <Navigate to="/" />;
+  }
+
+  return <>{children}</>;
+}
+
 function App() {
   return (
     <ErrorBoundary>
@@ -112,26 +140,6 @@ function App() {
                   <AuthenticatedRoute>
                     <ErrorBoundary>
                       <ReflectionPage />
-                    </ErrorBoundary>
-                  </AuthenticatedRoute>
-                }
-              />
-              <Route
-                path="/breath"
-                element={
-                  <AuthenticatedRoute>
-                    <ErrorBoundary>
-                      <BreathPage />
-                    </ErrorBoundary>
-                  </AuthenticatedRoute>
-                }
-              />
-              <Route
-                path="/breath-kasina"
-                element={
-                  <AuthenticatedRoute>
-                    <ErrorBoundary>
-                      <BreathKasinaPage />
                     </ErrorBoundary>
                   </AuthenticatedRoute>
                 }
