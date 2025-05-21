@@ -6,26 +6,38 @@ export const VERNIER_SERVICE_UUID = 'd91714ef-28b9-4f91-ba16-f0d9a604f112';
 export const COMMAND_UUID = 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb';
 export const RESPONSE_UUID = 'b41e6675-a329-40e0-aa01-44d2f444babe';
 
-// Command codes for communicating with Vernier devices
+// Command definitions - Verified against Vernier SDK code
 export const COMMANDS = {
+  // Basic device commands
   RESET: 0x00,
   KEEP_ALIVE: 0x01,
+  
+  // Device info commands
   GET_DEVICE_INFO: 0x55,
   GET_SENSOR_LIST: 0x56,
   GET_SENSOR_INFO: 0x50,
-  ENABLE_SENSOR: 0x11,
-  SET_SAMPLE_RATE: 0x12,
-  START_MEASUREMENTS: 0x18,
-  GET_READING: 0x07,
+  
+  // Sensor configuration commands
+  ENABLE_SENSOR: 0x11,     // Requires channel parameter [0x11, channel, 0x01]
+  SET_SAMPLE_RATE: 0x12,   // Set sampling rate [0x12, rate-low, rate-high]
+  START_MEASUREMENTS: 0x18, // Start data collection [0x18, 0x01]
+  STOP_MEASUREMENTS: 0x19,  // Stop data collection [0x19]
+  GET_READING: 0x07,       // Request a single reading
 };
 
-// Response packet types
+// Predefined sensor activation command sequences for easier usage
+export const ENABLE_SENSOR_1 = new Uint8Array([0x11, 0x01, 0x01]); // Enable sensor 1
+export const START_MEASUREMENTS = new Uint8Array([0x18, 0x01]); // Start measurements
+export const STOP_MEASUREMENTS = new Uint8Array([0x19]); // Stop measurements
+export const SET_SAMPLE_RATE_10HZ = new Uint8Array([0x12, 0x10, 0x00]); // 10Hz sampling
+
+// Response packet types with detailed explanation
 export const RESPONSE_TYPES = {
-  MEASUREMENT: 0x01,
-  DEVICE_INFO: 0x55,
-  SENSOR_LIST: 0x56,
-  SENSOR_INFO: 0x50,
-  STATUS: 0x52,
+  MEASUREMENT: 0x01,      // Contains sensor readings
+  DEVICE_INFO: 0x55,      // Contains device information
+  SENSOR_LIST: 0x56,      // Lists available sensors
+  SENSOR_INFO: 0x50,      // Contains specific sensor information
+  STATUS: 0x52,           // Status update
 };
 
 // Helper function to extract force reading from measurement data

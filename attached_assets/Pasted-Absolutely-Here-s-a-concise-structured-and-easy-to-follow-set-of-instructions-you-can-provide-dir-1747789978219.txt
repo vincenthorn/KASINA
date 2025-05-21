@@ -1,0 +1,117 @@
+Absolutely! Here's a concise, structured, and easy-to-follow set of instructions you can provide directly to your **Replit AI Agent** to explicitly resolve the current issue:
+
+---
+
+## 🚩 **Instructions for Replit AI Agent: Resolving Missing Real-Time Data from Vernier Go Direct Respiration Belt**
+
+### 🎯 **Primary Goal:**
+
+* Verify explicitly that sensor activation and BLE notifications are correctly implemented.
+* Ensure we start receiving real-time sensor data (raw bytes) from the Vernier respiration belt.
+
+---
+
+## ✅ **Explicit Steps to Implement Now:**
+
+### 🔸 **Step 1: Explicitly Confirm Sensor Activation Command**
+
+Right after establishing BLE connection to the belt, explicitly send a sensor activation command via the `commandCharacteristic`. Ensure the following code executes explicitly and logs clearly:
+
+```javascript
+// Explicit sensor activation command (placeholder)
+// If this doesn't work, we will inspect Python SDK further for exact bytes
+const enableSensorCommand = new Uint8Array([0x01, 0x02, 0x01]);
+await commandCharacteristic.writeValue(enableSensorCommand);
+console.log("✅ Sensor activation command sent:", enableSensorCommand);
+```
+
+* **Important**:
+  Explicitly confirm this log message (`✅ Sensor activation command sent:`) appears clearly in the console.
+
+---
+
+### 🔸 **Step 2: Explicitly Confirm BLE Notifications Setup**
+
+Ensure notifications are explicitly started on the response characteristic. Include a clear log message indicating notifications have started successfully:
+
+```javascript
+await responseCharacteristic.startNotifications();
+console.log("✅ BLE notifications explicitly started on responseCharacteristic.");
+
+responseCharacteristic.addEventListener('characteristicvaluechanged', handleIncomingData);
+```
+
+---
+
+### 🔸 **Step 3: Detailed Logging of Incoming Raw Sensor Data**
+
+Explicitly log all incoming data from the BLE characteristic. Add clear, unambiguous logs:
+
+```javascript
+function handleIncomingData(event) {
+  const rawData = new Uint8Array(event.target.value.buffer);
+  console.log("✅ New raw sensor data received:", rawData);
+
+  // (Optional) Keep your existing interpretation logic here.
+}
+```
+
+Ensure this log message (`✅ New raw sensor data received:`) explicitly appears in the console when data arrives.
+
+---
+
+### 🔸 **Step 4: Confirm Explicit Use of Correct UUIDs**
+
+Double-check that the exact UUIDs from the SDK source code are being used explicitly:
+
+* Command Characteristic (for sending commands):
+
+```
+f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb
+```
+
+* Response Characteristic (for notifications/data):
+
+```
+b41e6675-a329-40e0-aa01-44d2f444babe
+```
+
+Verify explicitly in the code and log their explicit use clearly:
+
+```javascript
+console.log("✅ Using command UUID:", commandUUID);
+console.log("✅ Using response UUID:", responseUUID);
+```
+
+---
+
+## ✅ **Expected Outcome (What to Verify Explicitly):**
+
+When you run this updated implementation:
+
+* You explicitly see logs confirming:
+
+  * ✅ **Sensor activation command sent**
+  * ✅ **Notifications explicitly started**
+  * ✅ **New raw sensor data received**
+
+* You explicitly see changing byte arrays appear in the console with inhalation/exhalation:
+
+```
+✅ New raw sensor data received: [10, 34, 56, 12, ...]
+```
+
+---
+
+## 📋 **Replit AI Agent Next Actions:**
+
+* Implement these instructions carefully and exactly.
+* Clearly document all explicit console outputs.
+* Provide Vince with a clear report of whether:
+
+  * Raw data is being explicitly received (and if so, provide exact examples).
+  * Any issues or errors encountered during these explicit verification steps.
+
+---
+
+Please execute these instructions now, and report back explicitly and clearly on the results.

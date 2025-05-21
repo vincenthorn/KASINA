@@ -67,103 +67,135 @@ const VernierConnect = () => {
           // Convert to Uint8Array for easier processing
           const rawBytes = new Uint8Array(dataView.buffer);
           
+          // Log the raw data immediately with checkmark to make it easier to find in logs
+          console.log("✅ New raw sensor data received:", Array.from(rawBytes));
+          
           // Create debug hex representation for logging
           const hexDump = Vernier.createHexDump(rawBytes);
+          console.log("✅ Hex representation:", hexDump);
           
-          // Log the complete raw data for analysis
-          console.log('COMPLETE RAW DATA:', Array.from(rawBytes));
-          console.log('HEX DATA:', hexDump);
+          // Log byte-by-byte for detailed analysis
+          console.log("✅ Byte-by-byte breakdown:");
+          for (let i = 0; i < rawBytes.length; i++) {
+            console.log(`Byte ${i}: ${rawBytes[i]} (0x${rawBytes[i].toString(16).padStart(2, '0')})`);
+          }
           
           // Parse incoming data according to the Vernier protocol
-          console.log(`Packet length: ${rawBytes.length} bytes`);
+          console.log(`✅ Packet length: ${rawBytes.length} bytes`);
           
           if (rawBytes.length === 0) return;
           
+          // Detailed data interpretation in multiple formats
+          console.log("✅ Trying all possible data interpretations:");
+          
+          // Check for float32 values (common for sensor data)
+          for (let offset = 0; offset < dataView.byteLength - 3; offset++) {
+            try {
+              const floatValue = dataView.getFloat32(offset, true); // little-endian
+              if (!isNaN(floatValue)) {
+                console.log(`Float32 at offset ${offset}: ${floatValue}`);
+                
+                // Look for values that seem like reasonable force readings
+                if (floatValue > 0 && floatValue < 10) {
+                  console.log(`  ✅ POTENTIAL FORCE READING at offset ${offset}: ${floatValue.toFixed(4)}N`);
+                  
+                  // Store any valid-looking reading for visualization
+                  const normalizedReading = Vernier.normalizeForceReading(floatValue);
+                  localStorage.setItem('latestBreathReading', normalizedReading.toString());
+                  localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+                }
+              }
+            } catch (e) {
+              // Skip errors at this offset
+            }
+          }
+          
+          // Check for uint16 values that might represent force
+          for (let offset = 0; offset < dataView.byteLength - 1; offset++) {
+            try {
+              const uint16Value = dataView.getUint16(offset, true); // little-endian
+              if (uint16Value > 0) {
+                console.log(`Uint16 at offset ${offset}: ${uint16Value}`);
+                
+                // Force might be an integer with an implied decimal point
+                const scaledValue = uint16Value / 100.0; // Typical scaling factor
+                if (scaledValue > 0 && scaledValue < 10) {
+                  console.log(`  ✅ POTENTIAL SCALED FORCE at offset ${offset}: ${scaledValue.toFixed(4)}N`);
+                }
+              }
+            } catch (e) {
+              // Skip errors
+            }
+          }
+          
+          // Try to detect the packet type based on the first byte
           const packetType = rawBytes[0];
-          console.log(`Packet type: 0x${packetType.toString(16)}`);
+          console.log(`✅ Packet type: 0x${packetType.toString(16)}`);
           
           // Store raw data for debugging purposes
           localStorage.setItem('latestRawBytes', hexDump);
           
           // Process measurement data (type 0x01)
           if (packetType === Vernier.RESPONSE_TYPES.MEASUREMENT && rawBytes.length >= 7) {
-            console.log('Processing measurement packet');
+            console.log('✅ Processing measurement packet');
             
-            // Look for force reading in the expected position first (byte 3)
-            const forceReading = Vernier.extractForceReading(dataView);
-            
-            if (forceReading !== null) {
-              // We found a valid force reading
-              const normalizedReading = Vernier.normalizeForceReading(forceReading);
-              console.log(`Force reading: ${normalizedReading.toFixed(4)}N (original: ${forceReading.toFixed(4)}N)`);
+            // For Vernier respiration belt, force reading is usually a float32 at offset 3
+            try {
+              // Get force reading at the known offset
+              const forceReading = dataView.getFloat32(3, true); // little-endian
               
-              // Store the reading for visualization
-              localStorage.setItem('latestBreathReading', normalizedReading.toString());
-              localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-              
-              // Detect breathing phase
-              const prevReading = parseFloat(localStorage.getItem('prevBreathReading') || '0');
-              if (normalizedReading > prevReading) {
-                localStorage.setItem('breathPhase', 'inhale');
-                console.log(`BREATH PHASE: INHALING (${prevReading.toFixed(3)} → ${normalizedReading.toFixed(3)})`);
-              } else {
-                localStorage.setItem('breathPhase', 'exhale');
-                console.log(`BREATH PHASE: EXHALING (${prevReading.toFixed(3)} → ${normalizedReading.toFixed(3)})`);
-              }
-              localStorage.setItem('prevBreathReading', normalizedReading.toString());
-              
-              // Calculate breathing rate when phase changes
-              const lastPhaseChange = parseInt(localStorage.getItem('lastPhaseChangeTime') || '0');
-              const currentTime = Date.now();
-              const currentPhase = localStorage.getItem('breathPhase');
-              const lastPhase = localStorage.getItem('lastPhase') || '';
-              
-              if (currentPhase !== lastPhase) {
-                // Store this phase change
-                localStorage.setItem('lastPhase', currentPhase || '');
+              if (!isNaN(forceReading) && forceReading >= 0) {
+                console.log(`✅ FORCE READING: ${forceReading.toFixed(4)}N`);
                 
-                if (lastPhaseChange > 0) {
-                  // Time between phase changes
-                  const timeDiff = currentTime - lastPhaseChange; // ms
-                  
-                  // Calculate breaths per minute (one breath = inhale + exhale)
-                  const breathRate = 60000 / (timeDiff * 2); // ms to minutes, 2 phase changes = 1 breath
-                  
-                  // Only use realistic breath rates
-                  if (breathRate >= 4 && breathRate <= 30) {
-                    console.log(`BREATH RATE: ${breathRate.toFixed(1)} breaths/min`);
-                    localStorage.setItem('breathingRate', breathRate.toString());
-                  }
-                }
-                
-                // Remember this phase change time
-                localStorage.setItem('lastPhaseChangeTime', currentTime.toString());
-              }
-            } else {
-              // If we couldn't find a reading in the expected position, scan the packet
-              console.log('Standard force reading not found, scanning packet...');
-              const possibleReadings = Vernier.scanForForceReadings(dataView);
-              
-              if (possibleReadings.length > 0) {
-                // Use the largest reading found
-                const bestReading = Math.max(...possibleReadings);
-                const normalizedReading = Vernier.normalizeForceReading(bestReading);
-                
-                console.log(`Found alternate force reading: ${normalizedReading.toFixed(4)}N`);
+                // Normalize and store the reading
+                const normalizedReading = Vernier.normalizeForceReading(forceReading);
                 localStorage.setItem('latestBreathReading', normalizedReading.toString());
                 localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-              } else {
-                console.log('No valid force readings found in packet');
+                
+                // Detect breathing phase
+                const prevReading = parseFloat(localStorage.getItem('prevBreathReading') || '0');
+                if (normalizedReading > prevReading) {
+                  localStorage.setItem('breathPhase', 'inhale');
+                  console.log(`BREATH PHASE: INHALING (${prevReading.toFixed(3)} → ${normalizedReading.toFixed(3)})`);
+                } else {
+                  localStorage.setItem('breathPhase', 'exhale');
+                  console.log(`BREATH PHASE: EXHALING (${prevReading.toFixed(3)} → ${normalizedReading.toFixed(3)})`);
+                }
+                localStorage.setItem('prevBreathReading', normalizedReading.toString());
+                
+                // Calculate breathing rate
+                const lastPhaseChange = parseInt(localStorage.getItem('lastPhaseChangeTime') || '0');
+                const currentTime = Date.now();
+                const currentPhase = localStorage.getItem('breathPhase');
+                const lastPhase = localStorage.getItem('lastPhase') || '';
+                
+                if (currentPhase !== lastPhase) {
+                  localStorage.setItem('lastPhase', currentPhase || '');
+                  
+                  if (lastPhaseChange > 0) {
+                    const timeDiff = currentTime - lastPhaseChange; // ms
+                    const breathRate = 60000 / (timeDiff * 2); // ms to minutes, 2 phase changes = 1 breath
+                    
+                    if (breathRate >= 4 && breathRate <= 30) {
+                      console.log(`BREATH RATE: ${breathRate.toFixed(1)} breaths/min`);
+                      localStorage.setItem('breathingRate', breathRate.toString());
+                    }
+                  }
+                  
+                  localStorage.setItem('lastPhaseChangeTime', currentTime.toString());
+                }
               }
+            } catch (error) {
+              console.error('Error extracting force reading:', error);
             }
           }
           // Process device info response
           else if (packetType === Vernier.RESPONSE_TYPES.DEVICE_INFO) {
-            console.log('Received device info response');
+            console.log('✅ Received device info response');
           }
           // Process sensor list response
           else if (packetType === Vernier.RESPONSE_TYPES.SENSOR_LIST) {
-            console.log('Received sensor list response');
+            console.log('✅ Received sensor list response');
             if (rawBytes.length > 1) {
               console.log(`Available sensors: ${rawBytes[1]}`);
             }
@@ -199,17 +231,20 @@ const VernierConnect = () => {
       
       // STEP 4: Enable the Force sensor (channel 1)
       console.log('Step 4: Enabling force sensor (channel 1)...');
-      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.ENABLE_SENSOR, 0x01, 0x01]));
+      await commandChar.writeValue(Vernier.ENABLE_SENSOR_1);
+      console.log("✅ Sensor activation command sent:", Array.from(Vernier.ENABLE_SENSOR_1));
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // STEP 5: Set sampling rate to 20Hz
-      console.log('Step 5: Setting sampling rate to 20Hz...');
-      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.SET_SAMPLE_RATE, 0x32, 0x00]));
+      // STEP 5: Set sampling rate to 10Hz (more stable for breath monitoring)
+      console.log('Step 5: Setting sampling rate to 10Hz...');
+      await commandChar.writeValue(Vernier.SET_SAMPLE_RATE_10HZ);
+      console.log("✅ Sample rate command sent:", Array.from(Vernier.SET_SAMPLE_RATE_10HZ));
       await new Promise(resolve => setTimeout(resolve, 300));
       
       // STEP 6: Start measurements
       console.log('Step 6: Starting measurements...');
-      await commandChar.writeValue(new Uint8Array([Vernier.COMMANDS.START_MEASUREMENTS, 0x01]));
+      await commandChar.writeValue(Vernier.START_MEASUREMENTS);
+      console.log("✅ Start measurements command sent:", Array.from(Vernier.START_MEASUREMENTS));
       await new Promise(resolve => setTimeout(resolve, 300));
       
       // Use a keepalive to ensure the connection stays active
