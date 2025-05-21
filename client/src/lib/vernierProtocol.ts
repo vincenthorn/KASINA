@@ -186,6 +186,26 @@ export function createHexDump(bytes: Uint8Array): string {
 // Helper function to normalize a force reading for visualization
 // This caps extremely high values and ensures we have a reasonable range
 export function normalizeForceReading(reading: number): number {
-  // Cap at 0.5N for visualization purposes (prevents the orb from getting too large)
-  return Math.min(reading, 0.5);
+  // Map to range 0.3-1.0 to make the visualization more dramatic
+  // This will make the breath kasina expand and contract more visibly
+  return 0.3 + Math.min(0.7, reading * 0.7);
+}
+
+// Parse the specific "9c 87 81 d6 01 00 31" pattern we've observed in logs
+export function parseRespirationBeltPacket(bytes: Uint8Array): number | null {
+  // Check if this is the pattern we've observed (starts with 0x9c)
+  if (bytes.length >= 7 && bytes[0] === 0x9c) {
+    // Based on the observed data and breathing pattern,
+    // it looks like the second byte (0x87 in the example) represents the reading
+    const value = bytes[1];
+    
+    // Convert to a normalized value (0.0-1.0) for visualization
+    // Scale based on observed ranges (typically 0x80-0x90)
+    const baseValue = 0.5; // Default center point
+    const normalized = baseValue + ((value - 0x87) / 20);
+    
+    // Return a value scaled for force display (0-5N typical for respiration)
+    return Math.max(0, normalized * 5);
+  }
+  return null;
 }

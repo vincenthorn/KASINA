@@ -92,91 +92,70 @@ const VernierConnect = () => {
           // Store raw data in local storage for visualization
           localStorage.setItem('latestRawBytes', Vernier.createHexDump(rawBytes));
           
-          // First, identify the packet type
-          if (rawBytes.length > 0) {
+          // First, check if this is the specific pattern we've observed in the logs
+          // Pattern: "9c 87 81 d6 01 00 31"
+          if (rawBytes.length > 0 && rawBytes[0] === 0x9c) {
+            addLog(`✅ Detected respiration belt packet pattern (0x9c)`);
+            
+            // Use our specialized parser for the identified pattern
+            const forceReading = Vernier.parseRespirationBeltPacket(rawBytes);
+            
+            if (forceReading !== null) {
+              addLog(`✅ Parsed force reading: ${forceReading.toFixed(4)}N`);
+              
+              // Store for visualization
+              localStorage.setItem('latestBreathReading', forceReading.toString());
+              localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+              
+              // Calculate estimated breathing rate based on recent readings
+              // This would normally be calculated over multiple breath cycles
+              // For now, just set a placeholder value
+              localStorage.setItem('breathingRate', '12');
+              
+              // Set data source flag to indicate real data
+              localStorage.setItem('breathDataSource', 'real');
+            }
+          } else {
+            // For all other packet types, try with generic detection approaches
+            addLog(`Trying general data interpretation...`);
+            
+            // First, identify the packet type
             const packetType = rawBytes[0];
             addLog(`✅ Packet type: 0x${packetType.toString(16)}`);
             
-            // Handle different packet types
-            if (packetType === 0x01) {
-              // Format 1: Standard measurement packet for Vernier devices
-              if (rawBytes.length >= 7) {
-                try {
-                  // Measurement is typically a float at offset 3
-                  const forceReading = dataView.getFloat32(3, true); // little-endian
-                  addLog(`✅ Type 1 force reading: ${forceReading.toFixed(4)}N`);
+            let forceReading = null;
+            
+            // Try all possible interpretations of the data
+            addLog("Trying all possible interpretations...");
+            
+            // Try all possible offsets for a float value
+            for (let i = 0; i <= dataView.byteLength - 4; i++) {
+              try {
+                const value = dataView.getFloat32(i, true);
+                
+                // Look for values in the expected range for respiration (0.1-10N)
+                if (!isNaN(value) && value > 0.1 && value < 10) {
+                  addLog(`✅ Valid float32 at offset ${i}: ${value.toFixed(4)}N`);
                   
-                  if (!isNaN(forceReading) && forceReading >= 0) {
-                    // Store for visualization
-                    const normalizedReading = Vernier.normalizeForceReading(forceReading);
-                    localStorage.setItem('latestBreathReading', normalizedReading.toString());
-                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                  }
-                } catch (e) {
-                  addLog(`Error processing type 1 packet: ${e instanceof Error ? e.message : String(e)}`);
+                  forceReading = value;
+                  break;
                 }
-              }
-            } else if (packetType === 0x04) {
-              // Format 2: Common alternative format seen in Vernier devices
-              if (rawBytes.length >= 5) {
-                try {
-                  // Some devices use this format with a float at offset 1
-                  const forceReading = dataView.getFloat32(1, true);
-                  addLog(`✅ Type 2 force reading: ${forceReading.toFixed(4)}N`);
-                  
-                  if (!isNaN(forceReading) && forceReading >= 0) {
-                    localStorage.setItem('latestBreathReading', forceReading.toString());
-                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                  }
-                } catch (e) {
-                  addLog(`Error processing type 2 packet: ${e instanceof Error ? e.message : String(e)}`);
-                }
-              }
-            } else {
-              // Try all possible interpretations of the data
-              addLog("Trying all possible interpretations...");
-              
-              // Try all possible offsets for a float value
-              for (let i = 0; i <= dataView.byteLength - 4; i++) {
-                try {
-                  const value = dataView.getFloat32(i, true);
-                  
-                  // Look for values in the expected range for respiration (0.1-10N)
-                  if (!isNaN(value) && value > 0.1 && value < 10) {
-                    addLog(`✅ Valid float32 at offset ${i}: ${value.toFixed(4)}N`);
-                    
-                    // Found a good value, use it
-                    localStorage.setItem('latestBreathReading', value.toString());
-                    localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                    break;
-                  }
-                } catch (e) {
-                  // Skip errors at this offset
-                }
-              }
-              
-              // Try all possible offsets for a uint16 value that could be scaled
-              for (let i = 0; i <= dataView.byteLength - 2; i++) {
-                try {
-                  const rawValue = dataView.getUint16(i, true);
-                  
-                  // Check if this could be a scaled reading (divide by 100)
-                  if (rawValue > 10 && rawValue < 1000) {
-                    const scaledValue = rawValue / 100.0;
-                    addLog(`✅ Potential scaled value at offset ${i}: ${scaledValue.toFixed(4)}N`);
-                    
-                    // Store this as a potential reading
-                    if (!localStorage.getItem('latestBreathReading')) {
-                      localStorage.setItem('latestBreathReading', scaledValue.toString());
-                      localStorage.setItem('latestBreathTimestamp', Date.now().toString());
-                    }
-                  }
-                } catch (e) {
-                  // Skip errors
-                }
+              } catch (e) {
+                // Skip errors at this offset
               }
             }
+            
+            // If we found a valid reading, store it
+            if (forceReading !== null) {
+              localStorage.setItem('latestBreathReading', forceReading.toString());
+              localStorage.setItem('latestBreathTimestamp', Date.now().toString());
+              localStorage.setItem('breathDataSource', 'real');
+            }
           }
+          
+          // As we're receiving data, set a flag that real data is available
+          localStorage.setItem('realDataAvailable', 'true');
+          
         } catch (error) {
           console.error('Error processing incoming data:', error);
           addLog(`Error: ${error instanceof Error ? error.message : String(error)}`);
