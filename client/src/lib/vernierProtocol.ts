@@ -3,20 +3,22 @@
  * This file contains the protocol implementation for the respiration belt
  */
 
-// Service and characteristic UUIDs
+// Service and characteristic UUIDs - updated per specific requirements
 export const VERNIER_SERVICE_UUID = "d91714ef-28b9-4f91-ba16-f0d9a604f112";
-export const VERNIER_CHARACTERISTIC_UUID = "f4bf14a6-c7d5-4b6d-8aa8-df535a628a63";
+export const COMMAND_CHARACTERISTIC_UUID = "f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb";
+export const RESPONSE_CHARACTERISTIC_UUID = "b41e6675-a329-40e0-aa01-44d2f444babe";
 
 // Commands
 export const COMMANDS = {
+  // Activation command specifically for the respiration belt
+  ENABLE_SENSOR: new Uint8Array([
+    0x58, 0x19, 0xFE, 0x3F, 0x1A, 0xA5, 0x4A, 0x06,
+    0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0A,
+    0x45, 0x0B, 0x44, 0x0C, 0x43, 0x0D, 0x42, 0x0E, 0x41
+  ]),
+  // Legacy commands kept for reference
   START_MEASUREMENTS: new Uint8Array([0x01, 0x01]),
-  STOP_MEASUREMENTS: new Uint8Array([0x01, 0x00]),
-  SET_SENSOR_MASK: new Uint8Array([0x02, 0x30, 0x00, 0x00, 0x01]),
-  SET_SENSOR_PERIOD: new Uint8Array([0x03, 0x01, 0x0A]),
-  SET_SENSOR_MODE: new Uint8Array([0x04, 0x01, 0x00]),
-  GET_SENSOR_INFO: new Uint8Array([0x55]),
-  GET_DEVICE_INFO: new Uint8Array([0x57]),
-  GET_DEFAULT_SENSORS: new Uint8Array([0x58]),
+  STOP_MEASUREMENTS: new Uint8Array([0x01, 0x00])
 };
 
 /**

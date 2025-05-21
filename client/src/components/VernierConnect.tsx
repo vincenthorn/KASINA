@@ -1,6 +1,13 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Button } from './ui/button';
-import { COMMANDS, VERNIER_SERVICE_UUID, VERNIER_CHARACTERISTIC_UUID, formatBytes, isRespirationBelt } from '../lib/vernierProtocol';
+import { 
+  COMMANDS, 
+  VERNIER_SERVICE_UUID, 
+  COMMAND_CHARACTERISTIC_UUID, 
+  RESPONSE_CHARACTERISTIC_UUID, 
+  formatBytes, 
+  isRespirationBelt 
+} from '../lib/vernierProtocol';
 import { AlertCircle, Bluetooth, CheckCircle2 } from 'lucide-react';
 
 interface VernierConnectProps {
