@@ -104,29 +104,38 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       await responseCharacteristic.startNotifications();
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       
-      // Enhanced activation sequence for continuous data streaming
+      // Send EXACTLY the activation command from the protocol documentation
       console.log('Sending activation command to device...');
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
       console.log("✅ Sensor activation command sent");
       
-      // Wait for the device to process the activation
+      // Wait for the device to initialize
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Send high-frequency measurement command for continuous streaming
-      console.log('Starting continuous measurements...');
-      await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
-      console.log("✅ Measurement started");
+      // Instead of sending additional commands, let's try activating it one more time
+      // to ensure it's properly initialized
+      console.log('Sending activation command again for confirmation...');
+      await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
       
-      // Send alternate start command after a delay to ensure continuous data
-      setTimeout(async () => {
+      // Add a polling mechanism to read from the characteristic periodically
+      // This is an alternative approach when notifications aren't delivering continuous data
+      const dataPollingInterval = setInterval(async () => {
         try {
-          console.log('Sending continuous streaming command...');
-          await commandCharacteristic.writeValue(COMMANDS.START_CONTINUOUS);
-          console.log("✅ Continuous streaming enabled");
+          if (commandCharacteristic && device.gatt.connected) {
+            const value = await responseCharacteristic.readValue();
+            const bytes = new Uint8Array(value.buffer);
+            console.log('📊 Polled data:', formatBytes(bytes));
+            handleNotification({ target: { value } });
+          } else {
+            clearInterval(dataPollingInterval);
+          }
         } catch (err) {
-          console.error("Error starting continuous mode:", err);
+          console.error('Polling error:', err);
         }
-      }, 800);
+      }, 100); // Poll every 100ms
+      
+      // Store the interval ID so we can clear it later
+      (window as any).dataPollingInterval = dataPollingInterval;
       
       // Notify parent component of successful connection
       onConnect(device, responseCharacteristic);
@@ -158,6 +167,12 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
   const disconnectDevice = async () => {
     if (device && device.gatt.connected) {
       try {
+        // Clear the polling interval if it exists
+        if ((window as any).dataPollingInterval) {
+          clearInterval((window as any).dataPollingInterval);
+          console.log('Polling interval cleared');
+        }
+        
         // Stop notifications if characteristic is available
         if (responseCharacteristic) {
           try {
