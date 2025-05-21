@@ -78,18 +78,31 @@ const BreathKasinaPage = () => {
         const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
         const dataAge = now - timestamp;
         
+        // Also check if we have raw bytes data from the device
+        const rawBytesHex = localStorage.getItem('latestRawBytes');
+        
+        // Update breathing rate from localStorage if available
+        const storageBreathRate = parseFloat(localStorage.getItem('breathingRate') || '0');
+        if (storageBreathRate >= 4 && storageBreathRate <= 30) {
+          setBreathingRate(storageBreathRate);
+        }
+        
         // Default to no movement when there's no data
         let amplitude = 0.5; // Default value
         
+        // Check if we have any data at all
+        if (rawBytesHex) {
+          console.log('Raw sensor data available:', rawBytesHex);
+        }
+        
         // Only use real data from the belt
         if (latestReading > 0 && dataAge < 5000) {
-          // Scale 0-30N range to 0-1 normalized value (most belts read 0-20N)
-          amplitude = Math.min(1, Math.max(0, latestReading / 20));
+          // Scale the reading to make visualization more dramatic
+          // Use a min of 0.2 and max of 1.0 for more visible effect
+          amplitude = 0.2 + (Math.min(0.8, Math.max(0, latestReading / 1.0)));
           
-          // For very small readings (like 0.01N), amplify the effect
-          if (amplitude < 0.1) {
-            amplitude = 0.3 + (amplitude * 7); // Boost small readings
-          }
+          // Make the visualization more dramatic for better visual feedback
+          amplitude = Math.pow(amplitude, 0.7); // Apply power curve to emphasize changes
           
           setBreathData({
             timestamp: now,
@@ -100,14 +113,29 @@ const BreathKasinaPage = () => {
           // Also update the raw sensor value display
           setRawSensorValue(latestReading);
           
+          // Log data every second (approximately)
           if (now % 1000 < 50) {
-            console.log(`Breath data: ${amplitude.toFixed(2)}, Force: ${latestReading.toFixed(2)}N`);
+            console.log(`Breath data: ${amplitude.toFixed(2)}, Force: ${latestReading.toFixed(2)}N, Rate: ${breathingRate} BPM`);
           }
         } else {
-          // If no recent data, keep the visualization static
+          // Even without recent data, set the raw value to help with debugging
+          setRawSensorValue(latestReading);
+          
+          // If no recent data, keep the visualization static at the default position
           if (now % 3000 < 50) {
             console.log('No recent device data, keeping visualization static');
           }
+          
+          // Keep using the last known amplitude to prevent sudden jumps
+          if (breathData) {
+            amplitude = breathData.amplitude;
+          }
+          
+          setBreathData({
+            timestamp: now,
+            amplitude: amplitude,
+            normalizedValue: amplitude
+          });
         }
       } catch (error) {
         console.error('Error processing breath data:', error);
