@@ -248,6 +248,9 @@ const BreathPage = () => {
                   localStorage.setItem('breathDeviceName', device.name);
                 }
                 
+                // Record connection timestamp for synchronizing visualizations
+                localStorage.setItem('connectionTimestamp', Date.now().toString());
+                
                 // Initialize data storage
                 localStorage.setItem('latestBreathReading', '0');
                 localStorage.setItem('latestBreathTimestamp', Date.now().toString());
