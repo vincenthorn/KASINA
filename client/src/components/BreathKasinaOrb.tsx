@@ -40,44 +40,41 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       switch (effectType) {
         case 'expand-contract': {
           // Calculate target scale based on breath amplitude and intensity
-          // Dramatically enhance the visual response for even the tiniest readings
-          const baseScale = 0.9; // Larger base size so the orb is still clearly visible when small
-          const maxExpansion = 1.5; // Much more reasonable expansion range
+          // Make the visual response more dramatic for better feedback
           
-          // Apply a much more moderate amplification that won't cause the orb to get too huge
-          // Based on the screenshot, we need to reduce the amplification considerably
+          // Define scale range - start at 0.7 (smaller) and go up to 1.8 (larger)
+          // This creates a more noticeable expansion/contraction cycle
+          const baseScale = 0.7; // Smaller base size for more dramatic contrast
+          const maxExpansion = 1.1; // More dramatic expansion range
           
-          // Start with base amplification
+          // Dramatically enhance the visual response
           let amplifiedAmplitude = breathAmplitude;
           
-          // Much gentler amplification for all ranges
-          if (breathAmplitude > 0 && breathAmplitude < 0.1) {
-            // Tiny readings (0.01-0.1N): moderate amplification
-            amplifiedAmplitude = 0.1 + (breathAmplitude * 2); 
-            console.log(`Amplifying small reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
+          // Higher amplification across all ranges for more visible effect
+          if (breathAmplitude > 0 && breathAmplitude < 0.3) {
+            // Small readings: high amplification for better visibility
+            amplifiedAmplitude = 0.2 + (breathAmplitude * 2.5);
           } 
-          else if (breathAmplitude >= 0.1 && breathAmplitude < 1.0) {
-            // Medium readings (0.1-1.0N): slight amplification
-            amplifiedAmplitude = 0.2 + (breathAmplitude * 0.8);
-            console.log(`Amplifying medium reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
+          else if (breathAmplitude >= 0.3 && breathAmplitude < 0.7) {
+            // Medium readings: moderate amplification
+            amplifiedAmplitude = 0.4 + (breathAmplitude * 1.2);
           }
-          else if (breathAmplitude >= 1.0) {
-            // Larger readings (>1.0N): very minimal amplification
-            amplifiedAmplitude = 0.3 + (breathAmplitude * 0.2);
-            console.log(`Amplifying large reading: ${breathAmplitude} → ${amplifiedAmplitude}`);
+          else {
+            // Larger readings: ensure full range is used
+            amplifiedAmplitude = 0.5 + (breathAmplitude * 0.5);
           }
           
-          // Apply much gentler scaling to avoid the orb getting too large
-          // We need a subtle animation rather than dramatic expansion
-          const emphasisFactor = Math.pow(amplifiedAmplitude, 0.5);
-          const targetScale = baseScale + (maxExpansion * emphasisFactor * intensity) * 0.3; // Reduce by 70%
+          // Apply strong emphasis to make changes more visible
+          const emphasisFactor = Math.pow(amplifiedAmplitude, 0.4); // Higher power value = more dramatic effect
+          const targetScale = baseScale + (maxExpansion * emphasisFactor * intensity);
           
-          // Slower interpolation for smoother, less dramatic changes
-          setScale(prev => prev + (targetScale - prev) * 0.2); // Lower value = gentler response
+          // Faster interpolation for more immediate visual feedback
+          // Higher value = more responsive animation
+          setScale(prev => prev + (targetScale - prev) * 0.25);
           
           // Log out the current scale for debugging
-          if (Date.now() % 1000 < 50) {
-            console.log(`Orb scale: ${targetScale.toFixed(2)}, Breath amplitude: ${breathAmplitude.toFixed(2)}`);
+          if (Date.now() % 3000 < 50) {
+            console.log(`Breath cycle: Amplitude=${breathAmplitude.toFixed(2)}, Scale=${scale.toFixed(2)}, Target=${targetScale.toFixed(2)}`);
           }
           break;
         }

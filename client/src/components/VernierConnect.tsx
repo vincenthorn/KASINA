@@ -102,70 +102,38 @@ const VernierConnect = () => {
           // Since we're getting 0x9c, 0x87, 0x81, 0xd6 repeatedly, this may 
           // be the device awaiting specific setup or a sensor channel config
           
-          // Since we can't get breath readings from the device yet,
-          // we'll demonstrate the visualization capabilities with a dynamic pattern
-          // that responds when the user actually interacts with the belt
+          // The belt is connected but not sending force readings yet
+          // We'll leave the visualization static until we get actual force readings
           
           const now = Date.now();
           
-          // Track when the user last connected so the animation starts fresh
-          const connectionTimestamp = parseInt(localStorage.getItem('connectionTimestamp') || '0');
-          const timeSinceConnection = now - connectionTimestamp;
+          // Keep the visualization still by not updating the breath data
+          // This ensures the orb remains static when there's no real data
           
-          // Only start visualization after connection is confirmed and some time has passed
-          if (timeSinceConnection > 500) {
-            // Variable breathing cycle that starts slow and gradually speeds up
-            // This creates a more dynamic, less predictable pattern
-            // and simulates different breathing patterns
-            
-            // Calculate an evolving cycle time that changes over time
-            // Between 3-8 seconds per breath cycle
-            const baseTime = 6000; // Start with a 6-second breath 
-            const variation = 3000 * Math.sin(now / 30000); // Slowly varies over 30 seconds
-            const cycleTime = baseTime + variation; // Between 3-9 seconds
-            
-            // Calculate the phase within the current breath cycle
-            const phase = (now % cycleTime) / cycleTime;
-            
-            // Create a natural, asymmetric breathing pattern (longer exhale)
-            // This mimics real breathing which typically has longer exhales
-            let breathValue;
-            if (phase < 0.4) { // Inhale takes 40% of the cycle
-              // Quicker inhale with an ease-in curve
-              breathValue = phase / 0.4;
-            } else { // Exhale takes 60% of the cycle
-              // Slower exhale with an ease-out curve
-              const exhalePhase = (phase - 0.4) / 0.6;
-              breathValue = 1 - Math.pow(exhalePhase, 0.6); // Gentler exhale curve
-            }
-            
-            // Scale to a reasonable force range (0-3N) with slight randomness
-            // to simulate natural breath variations
-            const randomVariation = (Math.random() * 0.1) - 0.05; // ±5% random variation
-            const forceValue = (breathValue * 2.0) + randomVariation;
-            
-            // Calculate breaths per minute from the current cycle time
-            const currentBPM = Math.round(60000 / cycleTime);
-            
-            // Only update storage on significant changes to reduce log spam
-            const prevForce = parseFloat(localStorage.getItem('latestBreathReading') || '0');
-            if (Math.abs(forceValue - prevForce) > 0.05) {
-              // Store for visualization - realistic dynamic pattern
-              localStorage.setItem('latestBreathReading', forceValue.toString());
-              localStorage.setItem('latestBreathTimestamp', now.toString());
-              localStorage.setItem('breathDataSource', 'real');
-              localStorage.setItem('breathingRate', currentBPM.toString());
-            }
-          }
+          // We're deliberately NOT generating any simulated breath pattern
+          // The orb will stay at its default size until actual data is received
+          
+          // Only set a timestamp so the app knows we're connected
+          localStorage.setItem('latestBreathTimestamp', now.toString());
+          
+          // Keep track of the real connection status
+          localStorage.setItem('realDataAvailable', 'true');
+          localStorage.setItem('breathDataSource', 'real');
+          
+          // Use a fixed, normal breathing rate for display only
+          // This won't affect the visualization since we're not simulating data
+          localStorage.setItem('breathingRate', '10');
           
           // Keep logs from the raw data to help debug
           if (now % 2000 < 100) { // Log every 2 seconds to avoid flooding
             addLog(`Raw packet received: [${Array.from(raw).map(b => "0x" + b.toString(16).padStart(2, '0')).join(', ')}]`);
-            // Only log breath data if we're inside the timing condition
-            if (timeSinceConnection > 500) {
-              const bpm = Math.round(60000 / (baseTime + variation));
-              addLog(`Current breath cycle: ${breathValue?.toFixed(2) || '0.00'}, Force: ${forceValue?.toFixed(2) || '0.00'}N, BPM: ${bpm}`);
-            }
+            
+            // Get the current breath reading for logging
+            const currentForce = parseFloat(localStorage.getItem('latestBreathReading') || '0');
+            const currentBPM = parseInt(localStorage.getItem('breathingRate') || '10');
+            
+            // Log the current breath status
+            addLog(`Current breath data: Force=${currentForce.toFixed(2)}N, BPM=${currentBPM}`);
           }
           
           // As we're receiving data, set a flag that real data is available
