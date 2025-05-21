@@ -177,16 +177,19 @@ const BreathKasinaPage: React.FC = () => {
                   // Get the orb element and update it directly for immediate visual feedback
                   const orbElement = document.getElementById("breath-orb");
                   if (orbElement) {
-                    // Make the scale change more dramatic (0.7 to 2.0 scale range)
-                    orbElement.style.transform = `scale(${0.7 + force * 1.3})`;
-                    orbElement.style.opacity = `${0.5 + force * 0.5}`;
+                    // SUPER DRAMATIC scaling (0.5 to 3.0 scale range) to make it unmistakable
+                    const newScale = 0.5 + (force * 3.0);
+                    orbElement.style.transform = `scale(${newScale})`;
                     
-                    // Add a glow effect that intensifies with breath
-                    const glowIntensity = 5 + (force * 15);
-                    orbElement.style.boxShadow = `0 0 ${glowIntensity}px ${glowIntensity/2}px rgba(0, 100, 255, ${0.6 + (force * 0.4)})`;
+                    // Brighter glow that intensifies dramatically with breath
+                    const glowSize = 30 + (force * 100); // Much larger glow
+                    orbElement.style.boxShadow = `0 0 ${glowSize}px ${glowSize/2}px rgba(0, 100, 255, ${0.6 + (force * 0.4)})`;
                     
-                    // Add smoother transition for more fluid animation
-                    orbElement.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out';
+                    // Make transitions immediate for testing
+                    orbElement.style.transition = 'transform 0.15s ease, box-shadow 0.15s ease';
+                    
+                    // Log the direct visual effect we're applying
+                    console.log(`Applied visual effect: scale(${newScale.toFixed(2)}), glow: ${glowSize.toFixed(0)}px`);
                   }
                 } catch (error) {
                   console.error("Error processing breath data:", error);
