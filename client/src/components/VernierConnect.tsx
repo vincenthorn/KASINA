@@ -231,7 +231,8 @@ const VernierConnect = () => {
       setIsConnecting(false);
       
       // Navigate to the breath kasina page after successful connection
-      navigate('/breath/kasina');
+      // Use the correct path that matches our router configuration
+      navigate('/breath-kasina');
     } catch (error) {
       console.error('Error connecting to Vernier device:', error);
       setIsConnecting(false);
