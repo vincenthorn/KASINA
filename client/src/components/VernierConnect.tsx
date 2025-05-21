@@ -61,6 +61,14 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
     setIsLoading(true);
     setError(null);
     
+    // Set a timeout to cancel the operation if it takes too long
+    const connectionTimeout = setTimeout(() => {
+      if (isLoading) {
+        setError("Connection timed out. Please try again.");
+        setIsLoading(false);
+      }
+    }, 15000); // 15 second timeout
+    
     try {
       if (!navigator.bluetooth) {
         throw new Error('Web Bluetooth is not supported in this browser');
@@ -75,6 +83,11 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
         optionalServices: [VERNIER_SERVICE_UUID]
       });
       
+      // Check if device was selected or the dialog was closed
+      if (!device) {
+        throw new Error('No device selected');
+      }
+      
       if (!isRespirationBelt(device)) {
         throw new Error('Selected device is not a respiration belt');
       }
@@ -82,9 +95,24 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       setDeviceInfo(`${device.name || 'Unknown'} (${device.id})`);
       setDevice(device);
       
-      // Connect to GATT server
+      // Set up disconnect listener
+      device.addEventListener('gattserverdisconnected', () => {
+        console.log('Device disconnected event');
+        onDisconnect();
+        setDevice(null);
+        setResponseCharacteristic(null);
+        setDeviceInfo(null);
+      });
+      
+      // Add a more specific timeout for the GATT connection
+      const connectPromise = device.gatt.connect();
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Connection timed out')), 10000)
+      );
+      
+      // Connect to GATT server with timeout
       console.log('Connecting to GATT server...');
-      const server = await device.gatt.connect();
+      const server = await Promise.race([connectPromise, timeoutPromise]);
       
       // Get primary service
       console.log('Getting primary service...');
@@ -99,83 +127,67 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       const responseCharacteristic = await service.getCharacteristic(RESPONSE_CHARACTERISTIC_UUID);
       setResponseCharacteristic(responseCharacteristic);
       
+      // Clear the timeout as we've successfully connected
+      clearTimeout(connectionTimeout);
+      
       // Properly set up notifications on the response characteristic
       console.log('Setting up response notifications...');
       
-      // From the nRF Connect logs, we can see the B41E6675 characteristic has a CCCD descriptor
-      // We need to explicitly enable notifications through this descriptor
-      console.log('Enabling notification descriptor...');
+      // First, enable notifications via standard method
+      await responseCharacteristic.startNotifications();
+      console.log('Standard notifications enabled');
+      
+      // Also try using the CCCD descriptor directly (belt and suspenders approach)
       try {
-        // Get the Client Characteristic Configuration Descriptor (CCCD)
-        // The CCCD has a standard UUID of 0x2902
         const descriptor = await responseCharacteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb');
-        
-        // Enable notifications by writing 0x0100 (little endian for notification bit)
-        await descriptor.writeValue(new Uint8Array([0x01, 0x00]));
-        console.log('✅ Notification descriptor explicitly enabled');
-      } catch (err) {
-        console.log('Could not find CCCD descriptor, falling back to standard method:', err);
-        // Fall back to the standard method
-        await responseCharacteristic.startNotifications();
+        if (descriptor) {
+          await descriptor.writeValue(new Uint8Array([0x01, 0x00]));
+          console.log('✅ Notification descriptor explicitly enabled');
+        }
+      } catch (error) {
+        console.log('Note: Could not use descriptor method, continuing with standard notifications');
       }
       
-      // Add event listener to handle incoming data
+      // Add event listener for notifications
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       console.log('✅ Event listener added for notifications');
       
-      // Send the activation command sequence
-      console.log('Starting activation command sequence...');
-      
-      // First activation command from the protocol - this is the main one
+      // SIMPLIFIED ACTIVATION SEQUENCE - Based on nRF Connect logs
+      // 1. Send primary activation command
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
       console.log('✅ Primary activation command sent');
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Wait for device to process
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // 2. Send data activation command - simplest form to avoid issues
+      await commandCharacteristic.writeValue(COMMANDS.ACTIVATE_DATA_STREAM);
+      console.log('✅ Basic data stream activation command sent');
       
-      // Send start measurements command to begin data flow
-      await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
-      console.log('✅ Start measurements command sent');
+      // Set a flag to avoid endless attempts to fix connection
+      let autoRecoveryAttempted = false;
       
-      // Wait for device to process
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Set a timestamp for the first connection
+      const connectionStartTime = Date.now();
       
-      // Start a monitor to detect if we're receiving data
-      let lastDataReceived = Date.now();
-      const dataMonitorInterval = setInterval(() => {
-        const now = Date.now();
-        const elapsed = now - lastDataReceived;
-        
-        if (elapsed > 3000) {
-          console.log(`⚠️ No data received in ${Math.round(elapsed/1000)}s, sending refresh command...`);
-          
-          // Try sending another command to stimulate data flow
-          if (commandCharacteristic && device.gatt.connected) {
-            commandCharacteristic.writeValue(COMMANDS.START_CONTINUOUS)
-              .then(() => console.log('Refresh command sent successfully'))
-              .catch(err => console.error('Error sending refresh command:', err));
+      // Set up a ONE-TIME check after 5 seconds to verify we're getting data
+      const initialDataCheck = setTimeout(async () => {
+        try {
+          if (device && device.gatt.connected && !autoRecoveryAttempted) {
+            console.log('Performing one-time data flow check...');
+            
+            // Only attempt recovery once
+            autoRecoveryAttempted = true;
+            
+            // If no data received in first 5 seconds, try restart with the simple command
+            await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
+            console.log('Sent restart measurement command as precaution');
           }
-          
-          // Update timestamp to avoid too many refreshes
-          lastDataReceived = now - 2000; 
+        } catch (error) {
+          console.error('Error in initial data check:', error);
         }
       }, 5000);
       
       // Store for cleanup
-      (window as any).dataMonitorInterval = dataMonitorInterval;
-      
-      // Wrap the notification handler to update the last data timestamp
-      const originalHandler = handleNotification;
-      const wrappedHandler = (event: any) => {
-        // Update timestamp
-        lastDataReceived = Date.now();
-        // Call original handler
-        originalHandler(event);
-      };
-      
-      // Replace the event listener with our wrapped version
-      responseCharacteristic.removeEventListener('characteristicvaluechanged', handleNotification);
-      responseCharacteristic.addEventListener('characteristicvaluechanged', wrappedHandler);
+      (window as any).initialDataCheck = initialDataCheck;
       
       // Notify parent component of successful connection
       onConnect(device, responseCharacteristic);
@@ -207,7 +219,7 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
   const disconnectDevice = async () => {
     if (device && device.gatt.connected) {
       try {
-        // Clear all intervals we might have created
+        // Clear all intervals and timeouts we might have created
         if ((window as any).connectionRefreshInterval) {
           clearInterval((window as any).connectionRefreshInterval);
           console.log('Connection refresh interval cleared');
@@ -218,33 +230,26 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
           console.log('Data monitor interval cleared');
         }
         
+        if ((window as any).initialDataCheck) {
+          clearTimeout((window as any).initialDataCheck);
+          console.log('Initial data check timeout cleared');
+        }
+        
         // Stop notifications if characteristic is available
         if (responseCharacteristic) {
           try {
-            // First, disable notifications via descriptor if possible
-            try {
-              const descriptor = await responseCharacteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb');
-              if (descriptor) {
-                // Write 0x0000 to disable notifications
-                await descriptor.writeValue(new Uint8Array([0x00, 0x00]));
-                console.log('Notifications disabled via descriptor');
-              }
-            } catch (descriptorError) {
-              console.log('Could not disable via descriptor, using standard method');
-            }
-            
-            // Then use the standard method
+            // First try to disable notifications via the standard method
             await responseCharacteristic.stopNotifications();
             console.log('Notifications stopped');
             
-            // Remove event listeners
+            // Remove any event listeners
             responseCharacteristic.removeEventListener('characteristicvaluechanged', handleNotification);
           } catch (e) {
             console.error('Error stopping notifications:', e);
           }
         }
         
-        // Disconnect from the device
+        // Force disconnect from the device
         device.gatt.disconnect();
         console.log('Disconnected from device');
         
@@ -260,6 +265,13 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
         console.error('Disconnect error:', error);
         setError(error instanceof Error ? error.message : String(error));
       }
+    } else {
+      // Clean up even if we think we're already disconnected
+      console.log('Device already disconnected or not connected');
+      setDevice(null);
+      setResponseCharacteristic(null);
+      setDeviceInfo(null);
+      onDisconnect();
     }
   };
 
