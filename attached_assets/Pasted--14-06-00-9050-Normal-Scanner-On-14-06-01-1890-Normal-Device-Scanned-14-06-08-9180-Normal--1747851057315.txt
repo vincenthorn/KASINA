@@ -1,0 +1,99 @@
+[14:06:00.9050] Normal: Scanner On.
+[14:06:01.1890] Normal: Device Scanned.
+[14:06:08.9180] Normal: Connected.
+[14:06:08.9240] Normal: Discovered Device Information, Battery Service, D91714EF-28B9-4F91-BA16-F0D9A604F112, 8E6F0F58-5819-11E6-8B77-86F30CA893D3, and 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0 Services.
+[14:06:08.9270] Normal: Discovered Manufacturer Name String, Serial Number String, Firmware Revision String, and Software Revision String Characteristics for Service Device Information.
+[14:06:08.9270] Normal: Discovered Battery Level Characteristics for Service Battery Service.
+[14:06:08.9300] Normal: Discovered F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB and B41E6675-A329-40E0-AA01-44D2F444BABE Characteristics for Service D91714EF-28B9-4F91-BA16-F0D9A604F112.
+[14:06:08.9330] Normal: Discovered 8E6F094A-5819-11E6-8B77-86F30CA893D3, 9CEA5308-59A9-11E6-8B77-86F30CA893D3, CF052904-5D95-11E6-8B77-86F30CA893D3, and 248D6F39-5819-11E6-8B77-86F30CA893D3 Characteristics for Service 8E6F0F58-5819-11E6-8B77-86F30CA893D3.
+[14:06:08.9340] Normal: Discovered F7BF3564-FB6D-4E53-88A4-5E37E0326063 Characteristics for Service 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0.
+[14:06:08.9360] Normal: Manufacturer Name String has no Descriptors.
+[14:06:08.9360] Normal: Serial Number String has no Descriptors.
+[14:06:08.9360] Normal: Firmware Revision String has no Descriptors.
+[14:06:08.9360] Normal: Software Revision String has no Descriptors.
+[14:06:08.9360] Normal: Battery Level has no Descriptors.
+[14:06:08.9360] Normal: F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB has no Descriptors.
+[14:06:08.9370] Normal: Discovered Client Characteristic Configuration Descriptors for Characteristic B41E6675-A329-40E0-AA01-44D2F444BABE
+[14:06:08.9370] Normal: 8E6F094A-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9370] Normal: 9CEA5308-59A9-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9370] Normal: CF052904-5D95-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9390] Normal: 248D6F39-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9390] Normal: F7BF3564-FB6D-4E53-88A4-5E37E0326063 has no Descriptors.
+[14:06:08.9470] Normal: Connected.
+[14:06:08.9500] Normal: Discovered Device Information, Battery Service, D91714EF-28B9-4F91-BA16-F0D9A604F112, 8E6F0F58-5819-11E6-8B77-86F30CA893D3, and 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0 Services.
+[14:06:08.9500] Normal: Connected.
+[14:06:08.9500] Normal: Connected.
+[14:06:08.9500] Normal: Connected.
+[14:06:08.9510] Normal: Discovered Manufacturer Name String, Serial Number String, Firmware Revision String, and Software Revision String Characteristics for Service Device Information.
+[14:06:08.9510] Normal: Discovered Battery Level Characteristics for Service Battery Service.
+[14:06:08.9520] Normal: Discovered F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB and B41E6675-A329-40E0-AA01-44D2F444BABE Characteristics for Service D91714EF-28B9-4F91-BA16-F0D9A604F112.
+[14:06:08.9540] Normal: Discovered 8E6F094A-5819-11E6-8B77-86F30CA893D3, 9CEA5308-59A9-11E6-8B77-86F30CA893D3, CF052904-5D95-11E6-8B77-86F30CA893D3, and 248D6F39-5819-11E6-8B77-86F30CA893D3 Characteristics for Service 8E6F0F58-5819-11E6-8B77-86F30CA893D3.
+[14:06:08.9550] Normal: Discovered Device Information, Battery Service, D91714EF-28B9-4F91-BA16-F0D9A604F112, 8E6F0F58-5819-11E6-8B77-86F30CA893D3, and 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0 Services.
+[14:06:08.9570] Normal: Appearance changed from Generic to Battery.
+[14:06:08.9580] Normal: Discovered Device Information, Battery Service, D91714EF-28B9-4F91-BA16-F0D9A604F112, 8E6F0F58-5819-11E6-8B77-86F30CA893D3, and 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0 Services.
+[14:06:08.9590] Normal: Discovered F7BF3564-FB6D-4E53-88A4-5E37E0326063 Characteristics for Service 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0.
+[14:06:08.9600] Normal: Discovered Device Information, Battery Service, D91714EF-28B9-4F91-BA16-F0D9A604F112, 8E6F0F58-5819-11E6-8B77-86F30CA893D3, and 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0 Services.
+[14:06:08.9600] Normal: Manufacturer Name String has no Descriptors.
+[14:06:08.9600] Normal: Serial Number String has no Descriptors.
+[14:06:08.9600] Normal: Firmware Revision String has no Descriptors.
+[14:06:08.9600] Normal: Software Revision String has no Descriptors.
+[14:06:08.9600] Normal: Battery Level has no Descriptors.
+[14:06:08.9610] Normal: F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB has no Descriptors.
+[14:06:08.9620] Normal: Discovered Client Characteristic Configuration Descriptors for Characteristic B41E6675-A329-40E0-AA01-44D2F444BABE
+[14:06:08.9620] Normal: 8E6F094A-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9620] Normal: 9CEA5308-59A9-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9620] Normal: CF052904-5D95-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9620] Normal: 248D6F39-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9620] Normal: F7BF3564-FB6D-4E53-88A4-5E37E0326063 has no Descriptors.
+[14:06:08.9630] Normal: Discovered Manufacturer Name String, Serial Number String, Firmware Revision String, and Software Revision String Characteristics for Service Device Information.
+[14:06:08.9630] Normal: Discovered Battery Level Characteristics for Service Battery Service.
+[14:06:08.9630] Normal: Discovered F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB and B41E6675-A329-40E0-AA01-44D2F444BABE Characteristics for Service D91714EF-28B9-4F91-BA16-F0D9A604F112.
+[14:06:08.9640] Normal: Discovered 8E6F094A-5819-11E6-8B77-86F30CA893D3, 9CEA5308-59A9-11E6-8B77-86F30CA893D3, CF052904-5D95-11E6-8B77-86F30CA893D3, and 248D6F39-5819-11E6-8B77-86F30CA893D3 Characteristics for Service 8E6F0F58-5819-11E6-8B77-86F30CA893D3.
+[14:06:08.9640] Normal: Discovered F7BF3564-FB6D-4E53-88A4-5E37E0326063 Characteristics for Service 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0.
+[14:06:08.9650] Normal: Discovered Manufacturer Name String, Serial Number String, Firmware Revision String, and Software Revision String Characteristics for Service Device Information.
+[14:06:08.9650] Normal: Discovered Battery Level Characteristics for Service Battery Service.
+[14:06:08.9650] Normal: Discovered F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB and B41E6675-A329-40E0-AA01-44D2F444BABE Characteristics for Service D91714EF-28B9-4F91-BA16-F0D9A604F112.
+[14:06:08.9660] Normal: Discovered 8E6F094A-5819-11E6-8B77-86F30CA893D3, 9CEA5308-59A9-11E6-8B77-86F30CA893D3, CF052904-5D95-11E6-8B77-86F30CA893D3, and 248D6F39-5819-11E6-8B77-86F30CA893D3 Characteristics for Service 8E6F0F58-5819-11E6-8B77-86F30CA893D3.
+[14:06:08.9670] Normal: Discovered F7BF3564-FB6D-4E53-88A4-5E37E0326063 Characteristics for Service 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0.
+[14:06:08.9670] Normal: Discovered Manufacturer Name String, Serial Number String, Firmware Revision String, and Software Revision String Characteristics for Service Device Information.
+[14:06:08.9670] Normal: Discovered Battery Level Characteristics for Service Battery Service.
+[14:06:08.9680] Normal: Discovered F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB and B41E6675-A329-40E0-AA01-44D2F444BABE Characteristics for Service D91714EF-28B9-4F91-BA16-F0D9A604F112.
+[14:06:08.9680] Normal: Discovered 8E6F094A-5819-11E6-8B77-86F30CA893D3, 9CEA5308-59A9-11E6-8B77-86F30CA893D3, CF052904-5D95-11E6-8B77-86F30CA893D3, and 248D6F39-5819-11E6-8B77-86F30CA893D3 Characteristics for Service 8E6F0F58-5819-11E6-8B77-86F30CA893D3.
+[14:06:08.9690] Normal: Discovered F7BF3564-FB6D-4E53-88A4-5E37E0326063 Characteristics for Service 1D14D6EE-FD63-4FA1-BFA4-8F47B42119F0.
+[14:06:08.9690] Normal: Manufacturer Name String has no Descriptors.
+[14:06:08.9690] Normal: Serial Number String has no Descriptors.
+[14:06:08.9690] Normal: Firmware Revision String has no Descriptors.
+[14:06:08.9690] Normal: Software Revision String has no Descriptors.
+[14:06:08.9690] Normal: Battery Level has no Descriptors.
+[14:06:08.9690] Normal: F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB has no Descriptors.
+[14:06:08.9690] Normal: Discovered Client Characteristic Configuration Descriptors for Characteristic B41E6675-A329-40E0-AA01-44D2F444BABE
+[14:06:08.9690] Normal: 8E6F094A-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9690] Normal: 9CEA5308-59A9-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9690] Normal: CF052904-5D95-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9690] Normal: 248D6F39-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9690] Normal: F7BF3564-FB6D-4E53-88A4-5E37E0326063 has no Descriptors.
+[14:06:08.9690] Normal: Manufacturer Name String has no Descriptors.
+[14:06:08.9690] Normal: Serial Number String has no Descriptors.
+[14:06:08.9690] Normal: Firmware Revision String has no Descriptors.
+[14:06:08.9690] Normal: Software Revision String has no Descriptors.
+[14:06:08.9690] Normal: Battery Level has no Descriptors.
+[14:06:08.9690] Normal: F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB has no Descriptors.
+[14:06:08.9700] Normal: Discovered Client Characteristic Configuration Descriptors for Characteristic B41E6675-A329-40E0-AA01-44D2F444BABE
+[14:06:08.9700] Normal: 8E6F094A-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9700] Normal: 9CEA5308-59A9-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9700] Normal: CF052904-5D95-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9700] Normal: 248D6F39-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9700] Normal: F7BF3564-FB6D-4E53-88A4-5E37E0326063 has no Descriptors.
+[14:06:08.9700] Normal: Manufacturer Name String has no Descriptors.
+[14:06:08.9700] Normal: Serial Number String has no Descriptors.
+[14:06:08.9700] Normal: Firmware Revision String has no Descriptors.
+[14:06:08.9700] Normal: Software Revision String has no Descriptors.
+[14:06:08.9700] Normal: Battery Level has no Descriptors.
+[14:06:08.9700] Normal: F4BF14A6-C7D5-4B6D-8AA8-DF1A7C83ADCB has no Descriptors.
+[14:06:08.9710] Normal: Discovered Client Characteristic Configuration Descriptors for Characteristic B41E6675-A329-40E0-AA01-44D2F444BABE
+[14:06:08.9710] Normal: 8E6F094A-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9710] Normal: 9CEA5308-59A9-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9710] Normal: CF052904-5D95-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9710] Normal: 248D6F39-5819-11E6-8B77-86F30CA893D3 has no Descriptors.
+[14:06:08.9710] Normal: F7BF3564-FB6D-4E53-88A4-5E37E0326063 has no Descriptors.
+[14:08:04.3000] Normal: Scanner Off.

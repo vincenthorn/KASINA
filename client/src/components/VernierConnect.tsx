@@ -99,63 +99,83 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       const responseCharacteristic = await service.getCharacteristic(RESPONSE_CHARACTERISTIC_UUID);
       setResponseCharacteristic(responseCharacteristic);
       
-      // Set up notifications on the response characteristic
-      console.log('Starting notifications...');
-      await responseCharacteristic.startNotifications();
+      // Properly set up notifications on the response characteristic
+      console.log('Setting up response notifications...');
+      
+      // From the nRF Connect logs, we can see the B41E6675 characteristic has a CCCD descriptor
+      // We need to explicitly enable notifications through this descriptor
+      console.log('Enabling notification descriptor...');
+      try {
+        // Get the Client Characteristic Configuration Descriptor (CCCD)
+        // The CCCD has a standard UUID of 0x2902
+        const descriptor = await responseCharacteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb');
+        
+        // Enable notifications by writing 0x0100 (little endian for notification bit)
+        await descriptor.writeValue(new Uint8Array([0x01, 0x00]));
+        console.log('✅ Notification descriptor explicitly enabled');
+      } catch (err) {
+        console.log('Could not find CCCD descriptor, falling back to standard method:', err);
+        // Fall back to the standard method
+        await responseCharacteristic.startNotifications();
+      }
+      
+      // Add event listener to handle incoming data
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
+      console.log('✅ Event listener added for notifications');
       
-      // Send EXACTLY the activation command from the protocol documentation
-      console.log('Sending activation command to device...');
+      // Send the activation command sequence
+      console.log('Starting activation command sequence...');
+      
+      // First activation command from the protocol - this is the main one
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
-      console.log("✅ Sensor activation command sent");
+      console.log('✅ Primary activation command sent');
       
-      // Wait for the device to initialize
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Wait for device to process
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Instead of sending additional commands, let's try activating it one more time
-      // to ensure it's properly initialized
-      console.log('Sending activation command again for confirmation...');
-      await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
+      // Send start measurements command to begin data flow
+      await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
+      console.log('✅ Start measurements command sent');
       
-      // Instead of polling which causes errors, let's just ensure we're 
-      // properly listening for notifications from the device
+      // Wait for device to process
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Try enhancing notification sensitivity with multiple notification setups
-      console.log('Setting up enhanced notification handling...');
+      // Start a monitor to detect if we're receiving data
+      let lastDataReceived = Date.now();
+      const dataMonitorInterval = setInterval(() => {
+        const now = Date.now();
+        const elapsed = now - lastDataReceived;
+        
+        if (elapsed > 3000) {
+          console.log(`⚠️ No data received in ${Math.round(elapsed/1000)}s, sending refresh command...`);
+          
+          // Try sending another command to stimulate data flow
+          if (commandCharacteristic && device.gatt.connected) {
+            commandCharacteristic.writeValue(COMMANDS.START_CONTINUOUS)
+              .then(() => console.log('Refresh command sent successfully'))
+              .catch(err => console.error('Error sending refresh command:', err));
+          }
+          
+          // Update timestamp to avoid too many refreshes
+          lastDataReceived = now - 2000; 
+        }
+      }, 5000);
       
-      // Make sure we only have one event listener
+      // Store for cleanup
+      (window as any).dataMonitorInterval = dataMonitorInterval;
+      
+      // Wrap the notification handler to update the last data timestamp
+      const originalHandler = handleNotification;
+      const wrappedHandler = (event: any) => {
+        // Update timestamp
+        lastDataReceived = Date.now();
+        // Call original handler
+        originalHandler(event);
+      };
+      
+      // Replace the event listener with our wrapped version
       responseCharacteristic.removeEventListener('characteristicvaluechanged', handleNotification);
-      responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
-      
-      // Send additional start command to ensure data flow
-      setTimeout(async () => {
-        try {
-          if (commandCharacteristic && device.gatt.connected) {
-            console.log('Sending additional activation command for enhanced data flow...');
-            await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
-          }
-        } catch (err) {
-          console.error('Error sending additional activation:', err);
-        }
-      }, 1000);
-      
-      // Periodically check connection status and refresh if needed
-      const connectionRefreshInterval = setInterval(async () => {
-        try {
-          if (commandCharacteristic && device.gatt.connected) {
-            console.log('Connection heartbeat check - still connected');
-          } else {
-            console.log('Device connection lost, clearing interval');
-            clearInterval(connectionRefreshInterval);
-          }
-        } catch (err) {
-          console.error('Connection refresh error:', err);
-          clearInterval(connectionRefreshInterval);
-        }
-      }, 5000); // Check every 5 seconds
-      
-      // Store the interval ID so we can clear it later
-      (window as any).connectionRefreshInterval = connectionRefreshInterval;
+      responseCharacteristic.addEventListener('characteristicvaluechanged', wrappedHandler);
       
       // Notify parent component of successful connection
       onConnect(device, responseCharacteristic);
@@ -187,16 +207,37 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
   const disconnectDevice = async () => {
     if (device && device.gatt.connected) {
       try {
-        // Clear any intervals we might have created
+        // Clear all intervals we might have created
         if ((window as any).connectionRefreshInterval) {
           clearInterval((window as any).connectionRefreshInterval);
           console.log('Connection refresh interval cleared');
         }
         
+        if ((window as any).dataMonitorInterval) {
+          clearInterval((window as any).dataMonitorInterval);
+          console.log('Data monitor interval cleared');
+        }
+        
         // Stop notifications if characteristic is available
         if (responseCharacteristic) {
           try {
+            // First, disable notifications via descriptor if possible
+            try {
+              const descriptor = await responseCharacteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb');
+              if (descriptor) {
+                // Write 0x0000 to disable notifications
+                await descriptor.writeValue(new Uint8Array([0x00, 0x00]));
+                console.log('Notifications disabled via descriptor');
+              }
+            } catch (descriptorError) {
+              console.log('Could not disable via descriptor, using standard method');
+            }
+            
+            // Then use the standard method
             await responseCharacteristic.stopNotifications();
+            console.log('Notifications stopped');
+            
+            // Remove event listeners
             responseCharacteristic.removeEventListener('characteristicvaluechanged', handleNotification);
           } catch (e) {
             console.error('Error stopping notifications:', e);
