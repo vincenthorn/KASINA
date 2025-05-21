@@ -117,25 +117,45 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       console.log('Sending activation command again for confirmation...');
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
       
-      // Add a polling mechanism to read from the characteristic periodically
-      // This is an alternative approach when notifications aren't delivering continuous data
-      const dataPollingInterval = setInterval(async () => {
+      // Instead of polling which causes errors, let's just ensure we're 
+      // properly listening for notifications from the device
+      
+      // Try enhancing notification sensitivity with multiple notification setups
+      console.log('Setting up enhanced notification handling...');
+      
+      // Make sure we only have one event listener
+      responseCharacteristic.removeEventListener('characteristicvaluechanged', handleNotification);
+      responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
+      
+      // Send additional start command to ensure data flow
+      setTimeout(async () => {
         try {
           if (commandCharacteristic && device.gatt.connected) {
-            const value = await responseCharacteristic.readValue();
-            const bytes = new Uint8Array(value.buffer);
-            console.log('📊 Polled data:', formatBytes(bytes));
-            handleNotification({ target: { value } });
-          } else {
-            clearInterval(dataPollingInterval);
+            console.log('Sending additional activation command for enhanced data flow...');
+            await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
           }
         } catch (err) {
-          console.error('Polling error:', err);
+          console.error('Error sending additional activation:', err);
         }
-      }, 100); // Poll every 100ms
+      }, 1000);
+      
+      // Periodically check connection status and refresh if needed
+      const connectionRefreshInterval = setInterval(async () => {
+        try {
+          if (commandCharacteristic && device.gatt.connected) {
+            console.log('Connection heartbeat check - still connected');
+          } else {
+            console.log('Device connection lost, clearing interval');
+            clearInterval(connectionRefreshInterval);
+          }
+        } catch (err) {
+          console.error('Connection refresh error:', err);
+          clearInterval(connectionRefreshInterval);
+        }
+      }, 5000); // Check every 5 seconds
       
       // Store the interval ID so we can clear it later
-      (window as any).dataPollingInterval = dataPollingInterval;
+      (window as any).connectionRefreshInterval = connectionRefreshInterval;
       
       // Notify parent component of successful connection
       onConnect(device, responseCharacteristic);
@@ -167,10 +187,10 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
   const disconnectDevice = async () => {
     if (device && device.gatt.connected) {
       try {
-        // Clear the polling interval if it exists
-        if ((window as any).dataPollingInterval) {
-          clearInterval((window as any).dataPollingInterval);
-          console.log('Polling interval cleared');
+        // Clear any intervals we might have created
+        if ((window as any).connectionRefreshInterval) {
+          clearInterval((window as any).connectionRefreshInterval);
+          console.log('Connection refresh interval cleared');
         }
         
         // Stop notifications if characteristic is available
