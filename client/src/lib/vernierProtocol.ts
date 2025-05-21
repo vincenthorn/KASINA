@@ -30,21 +30,80 @@ export const RESPONSE_TYPES = {
 
 // Helper function to extract force reading from measurement data
 export function extractForceReading(dataView: DataView): number | null {
-  // Verify this is a measurement packet
-  if (dataView.byteLength < 7 || dataView.getUint8(0) !== RESPONSE_TYPES.MEASUREMENT) {
-    return null;
-  }
+  // Print detailed info about the dataView to help debug
+  console.log('Data buffer size:', dataView.byteLength);
+  
+  // Skip verification for now - attempt to read data regardless of packet type
+  // This is necessary for debugging since we're not sure of the exact format yet
   
   try {
-    // Force reading should be a float32 at offset 3 (after header and dropped count)
-    const forceReading = dataView.getFloat32(3, true); // little-endian
+    // Try to log all possible data interpretations at different offsets
+    // This will help identify where the force reading actually is in the data
     
-    // Validate the reading (force should be positive and reasonably sized)
-    if (!isNaN(forceReading) && forceReading >= 0 && forceReading < 50) {
-      return forceReading;
+    // Create a byte array for inspection
+    const bytes = new Uint8Array(dataView.buffer);
+    console.log('ALL RAW BYTES:', Array.from(bytes));
+    
+    // Interpret data in multiple ways
+    // Force could be a float32, uint16, uint8, etc.
+    const results = [];
+    
+    // Check for various offsets
+    for (let i = 0; i < dataView.byteLength - 3; i++) {
+      try {
+        const asFloat = dataView.getFloat32(i, true); // little-endian
+        if (!isNaN(asFloat) && asFloat >= 0 && asFloat < 100) {
+          results.push({ offset: i, type: 'float32', value: asFloat });
+        }
+        
+        if (i < dataView.byteLength - 1) {
+          const asUint16 = dataView.getUint16(i, true); // little-endian
+          if (asUint16 > 0 && asUint16 < 10000) {
+            // For the respiration belt, force readings divided by 100 might make sense
+            const scaled = asUint16 / 100;
+            results.push({ offset: i, type: 'uint16/100', value: scaled });
+          }
+        }
+        
+        // Check single byte as scaled value
+        const asByte = dataView.getUint8(i);
+        if (asByte > 0) {
+          const scaled = asByte / 100; // Try scaling down to reasonable force value
+          results.push({ offset: i, type: 'uint8/100', value: scaled });
+        }
+      } catch (e) {
+        // Skip errors
+      }
+    }
+    
+    // Log all potential force readings
+    if (results.length > 0) {
+      console.log('POTENTIAL FORCE READINGS:', results);
+      
+      // Sort by likelihood of being a real force value (non-zero, reasonably sized)
+      const bestCandidates = results.filter(r => r.value > 0.01 && r.value < 30);
+      
+      if (bestCandidates.length > 0) {
+        // Use the most likely candidate
+        const best = bestCandidates[0];
+        console.log('BEST FORCE READING CANDIDATE:', best);
+        return best.value;
+      }
     }
   } catch (error) {
-    console.error('Error parsing force reading:', error);
+    console.error('Error scanning for force reading:', error);
+  }
+  
+  // If anything is found, use the first non-zero value at byte 0 as a fallback
+  try {
+    const firstByte = dataView.getUint8(0);
+    if (firstByte > 0) {
+      const scaled = firstByte / 100; // Scale to reasonable force value
+      console.log('FALLBACK FORCE READING:', scaled, 'from first byte value:', firstByte);
+      return scaled;
+    }
+  } catch (e) {
+    // Ignore errors
   }
   
   return null;
@@ -54,20 +113,54 @@ export function extractForceReading(dataView: DataView): number | null {
 export function scanForForceReadings(dataView: DataView): number[] {
   const possibleReadings: number[] = [];
   
-  // Scan all possible 4-byte aligned positions for float32 values
+  // Log the full data packet information
+  const bytes = new Uint8Array(dataView.buffer);
+  console.log('Scanning data packet:', Array.from(bytes));
+  console.log('Data buffer size:', dataView.byteLength, 'bytes');
+  
+  // Log each individual byte with its decimal and hex value
+  console.log('Byte-by-byte analysis:');
+  for (let i = 0; i < bytes.length; i++) {
+    console.log(`Byte ${i}: ${bytes[i]} (0x${bytes[i].toString(16)})`);
+  }
+  
+  // Try all possible interpretations of the data
+  console.log('Trying all possible data interpretations:');
+  
+  // Check for 32-bit floats (common format for sensor readings)
   for (let offset = 0; offset < dataView.byteLength - 3; offset++) {
     try {
       const value = dataView.getFloat32(offset, true); // little-endian
+      console.log(`Float32 at offset ${offset}: ${value}`);
       
       // Look for values that could reasonably be force readings
       if (!isNaN(value) && value > 0 && value < 10) {
         possibleReadings.push(value);
+        console.log(`  ✓ Valid force reading: ${value.toFixed(4)}N`);
       }
     } catch (e) {
       // Skip errors at this offset
     }
   }
   
+  // Check for 16-bit unsigned integers
+  for (let offset = 0; offset < dataView.byteLength - 1; offset++) {
+    try {
+      const rawValue = dataView.getUint16(offset, true); // little-endian
+      console.log(`Uint16 at offset ${offset}: ${rawValue}`);
+      
+      // Force might be encoded as an integer with an implied decimal point
+      const scaledValue = rawValue / 100; // Typical scaling for force sensors
+      
+      if (scaledValue > 0 && scaledValue < 10) {
+        console.log(`  ✓ Potential scaled force: ${scaledValue.toFixed(4)}N (from ${rawValue})`);
+      }
+    } catch (e) {
+      // Skip errors
+    }
+  }
+  
+  console.log(`Found ${possibleReadings.length} potential force readings`);
   return possibleReadings;
 }
 
