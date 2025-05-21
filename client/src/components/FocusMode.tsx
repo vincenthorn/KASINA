@@ -15,6 +15,7 @@ import '../styles/focusMode.css';
 
 interface FocusModeProps {
   children: React.ReactNode;
+  onExit?: () => void;
 }
 
 // Helper function to format time as MM:SS, handling null
@@ -25,7 +26,7 @@ const formatTime = (seconds: number | null): string => {
   return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 };
 
-const FocusMode: React.FC<FocusModeProps> = ({ children }) => {
+const FocusMode: React.FC<FocusModeProps> = ({ children, onExit }) => {
   const { isFocusModeActive, enableFocusMode, disableFocusMode } = useFocusMode();
   const { selectedKasina } = useKasina();
   const timerState = useSimpleTimer();

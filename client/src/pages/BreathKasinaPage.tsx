@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Layout from '@/components/Layout';
-import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { useKasina } from '@/lib/stores/useKasina';
-import { KasinaType } from '@/lib/types';
-import { Maximize, Wind, Activity } from 'lucide-react';
-import FocusMode from '@/components/FocusMode';
-import BreathKasinaOrb from '@/components/BreathKasinaOrb';
-import { useFocusMode } from '@/lib/stores/useFocusMode';
-import { useAuth } from '@/lib/stores/useAuth';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import Layout from "../components/Layout";
+import { Button } from "../components/ui/button";
+import FocusMode from "../components/FocusMode";
+import { useAuth } from "../lib/stores/useAuth";
+import BreathKasinaOrb from "../components/BreathKasinaOrb";
+import { isRespirationBelt } from "../lib/vernierProtocol";
+import { KasinaType } from "../types/kasina";
 
 interface BreathData {
   timestamp: number;
@@ -18,308 +14,359 @@ interface BreathData {
   normalizedValue: number;
 }
 
-const BreathKasinaPage = () => {
+const BreathKasinaPage: React.FC = () => {
   const navigate = useNavigate();
-  const { user, isPremium, isAdmin } = useAuth();
-  const { selectedKasina, setSelectedKasina } = useKasina();
-  const { enableFocusMode } = useFocusMode();
-  const [breathData, setBreathData] = useState<BreathData | null>(null);
+  const auth = useAuth();
+  const isPremiumOrAdmin = auth.user?.isPremium || auth.user?.isAdmin;
   const [isConnected, setIsConnected] = useState(false);
-  const [selectedEffect, setSelectedEffect] = useState<string>('expand-contract');
-  const [breathingRate, setBreathingRate] = useState<number>(12); // breaths per minute
-  const [breathCycles, setBreathCycles] = useState<{timestamp: number, isInhale: boolean}[]>([]);
-  const [rawSensorValue, setRawSensorValue] = useState<number | null>(null); // Raw sensor reading in Newtons (N)
-  const [isUsingRealData, setIsUsingRealData] = useState<boolean>(false); // Flag to track if we're getting real device data
-  const animationFrameRef = useRef<number | null>(null);
-
-  // Define a strict kasina for breath visualization - always blue
+  const [isFocusMode, setIsFocusMode] = useState(false);
+  const [device, setDevice] = useState<any | null>(null);
+  const [breathData, setBreathData] = useState<BreathData[]>([]);
+  const [currentAmplitude, setCurrentAmplitude] = useState(0.5); // Default mid-point
+  const [isExpanding, setIsExpanding] = useState(false);
+  const [breathingRate, setBreathingRate] = useState(12); // Default 12 breaths per minute
+  const [effectType, setEffectType] = useState<'expand-contract' | 'brighten-darken' | 'color-shift'>('expand-contract');
+  
+  // References for WebBluetooth
+  const deviceRef = useRef<any>(null);
+  const characteristicRef = useRef<any>(null);
+  
+  // The kasina will be blue
   const breathKasina: KasinaType = 'blue';
   
-  // Check access permissions - redirect non-premium users
-  useEffect(() => {
-    if (!(isPremium || isAdmin)) {
-      navigate('/');
-    }
-  }, [isPremium, isAdmin, navigate]);
-  
-  // Set blue kasina when component mounts
-  useEffect(() => {
-    setSelectedKasina(breathKasina);
-  }, [setSelectedKasina]);
+  // Not premium, redirect to home
+  if (!isPremiumOrAdmin) {
+    navigate("/");
+    return null;
+  }
 
-  // Setup respiration belt and determine data source on component mount
   useEffect(() => {
-    // Check if we're using real data or simulation
-    const dataSource = localStorage.getItem('breathDataSource');
-    const deviceName = localStorage.getItem('breathDeviceName');
-    
-    if (dataSource === 'real') {
-      setIsUsingRealData(true);
-      console.log('Using real device data from:', deviceName || 'Unknown device');
-      
-      // For now, we'll just mark as connected immediately
-      setIsConnected(true);
-    } else {
-      setIsUsingRealData(false);
-      console.log('No device connected, waiting for connection');
-      
-      // Delay to simulate connection process
-      const timer = setTimeout(() => {
-        setIsConnected(true);
-      }, 500);
-      
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  // Breath data stream management - use hardware data
-  useEffect(() => {
-    if (!isConnected) return;
-    
-    console.log('Setting up real-time breath data polling');
-    
-    // Function to continuously update breath data from device
-    const updateBreathData = () => {
-      try {
-        // Get current time
-        const now = Date.now();
-        
-        // Get the latest reading from the device (via localStorage)
-        const latestReading = parseFloat(localStorage.getItem('latestBreathReading') || '0');
-        const timestamp = parseInt(localStorage.getItem('latestBreathTimestamp') || '0');
-        const dataAge = now - timestamp;
-        
-        // Also check if we have raw bytes data from the device
-        const rawBytesHex = localStorage.getItem('latestRawBytes');
-        
-        // Update breathing rate from localStorage if available
-        const storageBreathRate = parseFloat(localStorage.getItem('breathingRate') || '0');
-        if (storageBreathRate >= 4 && storageBreathRate <= 30) {
-          setBreathingRate(storageBreathRate);
-        }
-        
-        // Default to no movement when there's no data
-        let amplitude = 0.5; // Default value
-        
-        // Check if we have any data at all
-        if (rawBytesHex) {
-          console.log('Raw sensor data available:', rawBytesHex);
-        }
-        
-        // Only use real data from the belt
-        if (latestReading > 0 && dataAge < 5000) {
-          // Scale the reading to make visualization more dramatic
-          // Use a min of 0.2 and max of 1.0 for more visible effect
-          amplitude = 0.2 + (Math.min(0.8, Math.max(0, latestReading / 1.0)));
-          
-          // Make the visualization more dramatic for better visual feedback
-          amplitude = Math.pow(amplitude, 0.7); // Apply power curve to emphasize changes
-          
-          setBreathData({
-            timestamp: now,
-            amplitude: amplitude,
-            normalizedValue: amplitude
-          });
-          
-          // Also update the raw sensor value display
-          setRawSensorValue(latestReading);
-          
-          // Log data every second (approximately)
-          if (now % 1000 < 50) {
-            console.log(`Breath data: ${amplitude.toFixed(2)}, Force: ${latestReading.toFixed(2)}N, Rate: ${breathingRate} BPM`);
-          }
-        } else {
-          // Even without recent data, set the raw value to help with debugging
-          setRawSensorValue(latestReading);
-          
-          // If no recent data, keep the visualization static at the default position
-          if (now % 3000 < 50) {
-            console.log('No recent device data, keeping visualization static');
-          }
-          
-          // Keep using the last known amplitude to prevent sudden jumps
-          if (breathData) {
-            amplitude = breathData.amplitude;
-          }
-          
-          setBreathData({
-            timestamp: now,
-            amplitude: amplitude,
-            normalizedValue: amplitude
-          });
-        }
-      } catch (error) {
-        console.error('Error processing breath data:', error);
-      }
-      
-      // Continue the animation loop
-      animationFrameRef.current = requestAnimationFrame(updateBreathData);
-    };
-    
-    // Start the update loop
-    animationFrameRef.current = requestAnimationFrame(updateBreathData);
-    
-    // Cleanup function
+    // Cleanup function to disconnect from device when component unmounts
     return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
+      if (deviceRef.current && deviceRef.current.gatt.connected) {
+        try {
+          deviceRef.current.gatt.disconnect();
+          console.log("Disconnected from device");
+        } catch (error) {
+          console.error("Error disconnecting:", error);
+        }
       }
     };
-  }, [isConnected]);
-
-  // Start the meditation experience with the chosen effect
-  const startMeditation = () => {
-    // Store the selected effect in localStorage or a global state if needed
-    localStorage.setItem('breathKasinaEffect', selectedEffect);
-    
-    // Enable focus mode to start meditation
-    enableFocusMode();
+  }, []);
+  
+  // Handle device connection
+  const connectToDevice = async () => {
+    try {
+      if (!navigator.bluetooth) {
+        throw new Error("WebBluetooth is not supported in this browser");
+      }
+      
+      // Request device
+      const device = await navigator.bluetooth.requestDevice({
+        filters: [
+          { namePrefix: "GDX-RB" }, // Vernier Go Direct Respiration Belt prefix
+        ],
+        optionalServices: ["d91714ef-28b9-4f91-ba16-f0d9a604f112"] // Vernier service UUID
+      });
+      
+      if (!isRespirationBelt(device)) {
+        throw new Error("Selected device is not a respiration belt");
+      }
+      
+      // Connect to the device
+      console.log("Connecting to device:", device.name);
+      const server = await device.gatt.connect();
+      
+      // Get the Vernier service
+      const service = await server.getPrimaryService("d91714ef-28b9-4f91-ba16-f0d9a604f112");
+      
+      // Get the characteristic for reading sensor data
+      const characteristic = await service.getCharacteristic("d91714ef-28b9-4f91-ba16-f0d9a604f112");
+      
+      // Store references
+      deviceRef.current = device;
+      characteristicRef.current = characteristic;
+      
+      // Subscribe to notifications
+      await characteristic.startNotifications();
+      
+      // Handle notifications
+      characteristic.addEventListener('characteristicvaluechanged', handleBreathData);
+      
+      // Update connection state
+      setIsConnected(true);
+      setDevice(device);
+      
+      console.log("Successfully connected to respiration belt");
+      
+      // Start measurements (specific command for Vernier devices)
+      const startCommand = new Uint8Array([0x01, 0x01]);
+      await characteristic.writeValue(startCommand);
+      
+    } catch (error) {
+      console.error("Connection error:", error);
+      alert(`Failed to connect: ${error instanceof Error ? error.message : String(error)}`);
+    }
   };
-
+  
+  // Handle incoming breath data
+  const handleBreathData = (event: any) => {
+    const value = event.target.value;
+    if (!value) return;
+    
+    // Convert data buffer to ArrayBuffer
+    const buffer = value.buffer;
+    const dataView = new DataView(buffer);
+    
+    // Log full data packet for debugging
+    const bytes = new Uint8Array(buffer);
+    console.log("Raw data received:", Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
+    
+    // Extract force reading (this will need adjustment based on actual data format)
+    // Assuming the force data is at a specific offset and is a float32
+    try {
+      // This is a placeholder - actual byte positions will depend on device protocol
+      const forceReading = dataView.getFloat32(4, true); // true for little-endian
+      
+      // Normalize to a value between 0 and 1
+      const normalizedValue = Math.max(0, Math.min(1, (forceReading + 10) / 20));
+      
+      // Create breath data point
+      const newData: BreathData = {
+        timestamp: Date.now(),
+        amplitude: forceReading,
+        normalizedValue
+      };
+      
+      // Update state
+      setBreathData(prev => [...prev, newData].slice(-100)); // Keep last 100 points
+      setCurrentAmplitude(normalizedValue);
+      
+      // Determine if breath is expanding (inhale) or contracting (exhale)
+      if (breathData.length > 1) {
+        const prevValue = breathData[breathData.length - 1].normalizedValue;
+        setIsExpanding(normalizedValue > prevValue);
+      }
+      
+      // Calculate breathing rate (breaths per minute)
+      calculateBreathingRate();
+      
+    } catch (error) {
+      console.error("Error processing breath data:", error);
+    }
+  };
+  
+  // Calculate breathing rate based on recent breath data
+  const calculateBreathingRate = () => {
+    if (breathData.length < 4) return; // Need sufficient data
+    
+    // Simplified calculation - looking for zero crossings
+    const timeWindow = 60000; // 1 minute in ms
+    const recentData = breathData.filter(point => 
+      point.timestamp > Date.now() - timeWindow
+    );
+    
+    if (recentData.length < 4) return;
+    
+    // Count direction changes (from expanding to contracting or vice versa)
+    let changes = 0;
+    for (let i = 1; i < recentData.length; i++) {
+      const prevExpanding = recentData[i-1].normalizedValue < recentData[i].normalizedValue;
+      const currExpanding = i < recentData.length - 1 ? 
+        recentData[i].normalizedValue < recentData[i+1].normalizedValue : 
+        prevExpanding;
+        
+      if (prevExpanding !== currExpanding) {
+        changes++;
+      }
+    }
+    
+    // Each full breath is two changes (inhale->exhale, exhale->inhale)
+    const breaths = changes / 2;
+    const minutesFraction = timeWindow / 60000;
+    const rate = Math.round(breaths / minutesFraction);
+    
+    // Only update if we have a reasonable value
+    if (rate > 0 && rate < 60) {
+      setBreathingRate(rate);
+    }
+  };
+  
+  // Toggle focus mode
+  const toggleFocusMode = () => {
+    setIsFocusMode(!isFocusMode);
+  };
+  
+  // Handle effect type change
+  const handleEffectChange = (effect: 'expand-contract' | 'brighten-darken' | 'color-shift') => {
+    setEffectType(effect);
+  };
+  
+  // Disconnect from device
+  const disconnect = async () => {
+    if (deviceRef.current && deviceRef.current.gatt.connected) {
+      try {
+        // Stop measurements if characteristic is available
+        if (characteristicRef.current) {
+          const stopCommand = new Uint8Array([0x01, 0x00]);
+          await characteristicRef.current.writeValue(stopCommand);
+        }
+        
+        // Disconnect
+        deviceRef.current.gatt.disconnect();
+        console.log("Disconnected from device");
+        
+        // Update state
+        setIsConnected(false);
+        setDevice(null);
+        setBreathData([]);
+        setCurrentAmplitude(0.5); // Reset to neutral
+      } catch (error) {
+        console.error("Error disconnecting:", error);
+      }
+    }
+  };
+  
+  // If in focus mode, show minimalist interface
+  if (isFocusMode) {
+    return (
+      <FocusMode onExit={toggleFocusMode}>
+        <div className="flex items-center justify-center h-full w-full">
+          <BreathKasinaOrb
+            type={breathKasina}
+            breathAmplitude={currentAmplitude}
+            breathingRate={breathingRate}
+            effectType={effectType}
+          />
+        </div>
+      </FocusMode>
+    );
+  }
+  
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8 text-center">
-          <div className="flex justify-center mb-4">
-            <Wind className="h-12 w-12 text-blue-500" />
-          </div>
-          <h1 className="text-3xl font-bold mb-2">Breath Kasina</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
-            Experience dynamic kasina visualizations that respond to your breathing in real-time.
-          </p>
-          
-          {isConnected && (
-            <>
-              <div className="text-green-600 font-medium flex items-center justify-center mb-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                Respiration Belt Connected
-                {breathingRate && (
-                  <span className="ml-4 text-blue-600">
-                    <Activity className="inline h-4 w-4 mr-1" /> 
-                    {breathingRate} breaths/min
-                  </span>
-                )}
-                {rawSensorValue !== null && (
-                  <span className="ml-4 px-3 py-1 bg-gray-800 rounded-full text-white font-mono text-sm">
-                    {rawSensorValue.toFixed(2)} N
-                  </span>
-                )}
-              </div>
-              
-              {/* Clear indicator for device connection */}
-              <div className="flex justify-center mb-4 items-center flex-wrap gap-2">
-                <div className="px-3 py-1 bg-green-100 border-green-200 text-green-600 border rounded-full font-semibold text-sm flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Connected to: {localStorage.getItem('breathDeviceName') || 'Respiration Belt'}
-                </div>
-                
+      <div className="max-w-4xl mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold">Breath Kasina</h1>
+          <div className="space-x-3">
+            {isConnected ? (
+              <>
                 <Button 
                   variant="outline" 
-                  size="sm" 
-                  className="text-xs bg-blue-500 text-white hover:bg-blue-600 border-blue-500"
-                  onClick={() => {
-                    // Go back to the device connection page to reconnect
-                    window.location.href = '/breath'; 
-                  }}
+                  className="bg-red-700 hover:bg-red-800 border-red-600"
+                  onClick={disconnect}
                 >
-                  Reconnect Device
+                  Disconnect
+                </Button>
+                <Button 
+                  variant="default" 
+                  className="bg-indigo-600 hover:bg-indigo-700"
+                  onClick={toggleFocusMode}
+                >
+                  Enter Focus Mode
+                </Button>
+              </>
+            ) : (
+              <Button 
+                variant="default" 
+                className="bg-blue-600 hover:bg-blue-700"
+                onClick={connectToDevice}
+              >
+                Connect Belt
+              </Button>
+            )}
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 bg-gray-900 rounded-lg p-6 flex items-center justify-center" style={{ minHeight: "400px" }}>
+            <BreathKasinaOrb
+              type={breathKasina}
+              breathAmplitude={currentAmplitude}
+              breathingRate={breathingRate}
+              effectType={effectType}
+            />
+          </div>
+          
+          <div className="bg-gray-900 rounded-lg p-6">
+            <h2 className="text-xl font-semibold mb-4">Kasina Settings</h2>
+            
+            <div className="mb-6">
+              <p className="mb-2">Effect Type:</p>
+              <div className="space-y-2">
+                <Button 
+                  variant={effectType === 'expand-contract' ? 'default' : 'outline'}
+                  className={`w-full ${effectType === 'expand-contract' ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
+                  onClick={() => handleEffectChange('expand-contract')}
+                >
+                  Expand & Contract
+                </Button>
+                <Button 
+                  variant={effectType === 'brighten-darken' ? 'default' : 'outline'}
+                  className={`w-full ${effectType === 'brighten-darken' ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
+                  onClick={() => handleEffectChange('brighten-darken')}
+                >
+                  Brighten & Darken
+                </Button>
+                <Button 
+                  variant={effectType === 'color-shift' ? 'default' : 'outline'}
+                  className={`w-full ${effectType === 'color-shift' ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
+                  onClick={() => handleEffectChange('color-shift')}
+                >
+                  Color Shift
                 </Button>
               </div>
-              
-              {/* Sensor readings display - simplified for better user experience */}
-              <div className="flex flex-col items-center mb-6 mt-4 bg-gray-50 border border-gray-200 p-4 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Respiration Belt Data</h3>
-                
-                <div className="w-full flex justify-between mb-4">
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500">Force Reading</div>
-                    <div className="text-2xl font-mono font-bold text-blue-600">
-                      {rawSensorValue !== null ? `${rawSensorValue.toFixed(1)} N` : '- N'}
-                    </div>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500">Breathing Rate</div>
-                    <div className="text-2xl font-mono font-bold text-green-600">
-                      {breathingRate} <span className="text-xs">BPM</span>
-                    </div>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500">Last Update</div>
-                    <div className="text-base font-mono text-gray-800">
-                      {localStorage.getItem('latestBreathTimestamp') 
-                        ? new Date(parseInt(localStorage.getItem('latestBreathTimestamp') || '0')).toLocaleTimeString() 
-                        : '-'}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="w-full p-3 bg-blue-50 border border-blue-100 rounded-md">
-                  <p className="text-sm text-blue-800">
-                    <span className="font-semibold">How it works:</span> The respiration belt measures the force created 
-                    when you breathe. For best results, make sure the belt is snug around your lower abdomen
-                    and the green light indicator is on.
-                  </p>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-        
-        <div className="max-w-4xl mx-auto">
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle>Breath Kasina Visualization</CardTitle>
-              <CardDescription>
-                The orb will respond to your breathing pattern in real-time
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col items-center">
-              <div className="relative w-full h-[400px] flex justify-center items-center">
-                {/* Main orb visualization */}
-                <div className="w-4/5 h-4/5 flex items-center justify-center">
-                  {/* Only show one orb on the page */}
-                  <BreathKasinaOrb 
-                    type={breathKasina}
-                    breathAmplitude={(breathData?.normalizedValue || 0.5)}
-                    breathingRate={breathingRate}
-                    effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
-                  />
-                </div>
-              </div>
-            </CardContent>
-            <CardFooter className="flex justify-end space-x-2">
-              <Button
-                onClick={startMeditation}
-                disabled={!isConnected}
-                className="bg-blue-600 hover:bg-blue-700"
-              >
-                <Maximize className="w-4 h-4 mr-2" />
-                Enter Fullscreen Mode
-              </Button>
-            </CardFooter>
-          </Card>
-        </div>
-        
-        {/* The FocusMode component is used to create the fullscreen meditation experience 
-             Only shown when actually in focus mode to prevent duplicate orbs */}
-        {useFocusMode().isFocusModeActive && (
-          <FocusMode>
-            <div className="w-full h-full flex items-center justify-center bg-black">
-              <div className="w-4/5 h-4/5 flex items-center justify-center">
-                <BreathKasinaOrb 
-                  type={breathKasina}
-                  breathAmplitude={(breathData?.normalizedValue || 0.5)}
-                  breathingRate={breathingRate}
-                  effectType={selectedEffect as 'expand-contract' | 'brighten-darken' | 'color-shift'}
-                />
-              </div>
             </div>
-          </FocusMode>
-        )}
+            
+            <div className="mb-4">
+              <p className="mb-2">Connection Status:</p>
+              <div className={`flex items-center ${isConnected ? 'text-green-500' : 'text-red-500'}`}>
+                <div className={`w-3 h-3 rounded-full mr-2 ${isConnected ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                <span>{isConnected ? 'Connected' : 'Disconnected'}</span>
+              </div>
+              {device && (
+                <p className="text-sm text-gray-400 mt-1">{device.name}</p>
+              )}
+            </div>
+            
+            {isConnected && (
+              <div>
+                <p className="mb-2">Breath Data:</p>
+                <div className="text-sm grid grid-cols-2 gap-2">
+                  <div>
+                    <span className="text-gray-400">Current:</span>
+                    <span className="ml-2">{Math.round(currentAmplitude * 100)}%</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-400">Rate:</span>
+                    <span className="ml-2">{breathingRate} BPM</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-400">Direction:</span>
+                    <span className="ml-2">{isExpanding ? 'Inhale' : 'Exhale'}</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-400">Points:</span>
+                    <span className="ml-2">{breathData.length}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        <div className="mt-6 bg-gray-900 rounded-lg p-6">
+          <h2 className="text-xl font-semibold mb-4">About Breath Kasina</h2>
+          <p className="mb-4">
+            This Breath Kasina visualization directly responds to your breathing patterns
+            captured through the Vernier Go Direct Respiration Belt. The blue orb represents 
+            your breath - expanding as you inhale and contracting as you exhale.
+          </p>
+          <p>
+            For the best experience, sit comfortably, wear the belt around your abdomen,
+            breathe naturally, and enter Focus Mode for an immersive meditation session.
+          </p>
+        </div>
       </div>
     </Layout>
   );

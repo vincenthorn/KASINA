@@ -1,0 +1,1 @@
+export type KasinaType = 'fire' | 'water' | 'earth' | 'air' | 'blue' | 'red' | 'yellow' | 'green' | 'white';

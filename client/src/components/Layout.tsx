@@ -41,11 +41,17 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     { path: "/meditation", label: "Meditation", icon: <BookOpen className="w-5 h-5" /> },
     { path: "/recording", label: "Recording", icon: <Video className="w-5 h-5" /> },
   ];
+
+  // Premium-only navigation items
+  const premiumNavItems = [
+    { path: "/breath", label: "Breath Kasina", icon: <Wind className="w-5 h-5" /> },
+  ];
   
   // Combine items based on user role
   const navItems = [
     ...baseNavItems,
-    ...(isAdmin ? adminNavItems : [])
+    ...(isAdmin ? adminNavItems : []),
+    ...(isPremium || isAdmin ? premiumNavItems : [])
   ];
   
   // Admin nav item (only shown to admin users)

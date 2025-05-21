@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import KasinaOrb from './KasinaOrb';
-import { KasinaType } from '@/lib/types';
+import React, { useEffect, useState } from 'react';
+import { KasinaType } from '../types/kasina';
 
 interface BreathKasinaOrbProps {
   type: KasinaType;
@@ -10,125 +9,136 @@ interface BreathKasinaOrbProps {
   remainingTime?: number | null; // For timer integration
 }
 
-const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({ 
-  type, 
-  breathAmplitude, 
+const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
+  type,
+  breathAmplitude,
   breathingRate,
   effectType,
   remainingTime
 }) => {
   const [scale, setScale] = useState(1);
-  const requestRef = useRef<number>();
+  const [opacity, setOpacity] = useState(0.8);
+  const [hue, setHue] = useState(240); // Default blue hue (240 degrees in HSL)
   
-  // Calculate intensity based on breathing rate
-  // As breathing slows down to 4 breaths per minute, visual intensity decreases
-  const calculateIntensity = (bpm: number) => {
-    if (bpm <= 4) return 0.3; // Increased minimum intensity for visibility
-    if (bpm >= 12) return 1.0; // Full intensity at 12 bpm or higher
-    
-    // Linear scaling between 4 and 12 bpm
-    return 0.3 + ((bpm - 4) / 8) * 0.7;
-  };
-  
+  // Apply breathing effect based on the chosen effect type
   useEffect(() => {
-    // Animation loop for smooth transitions
-    const animate = () => {
-      // Calculate intensity based on breathing rate
-      const intensity = calculateIntensity(breathingRate);
-      
-      // Different effects based on the selected effect type
-      switch (effectType) {
-        case 'expand-contract': {
-          // Calculate target scale based on breath amplitude and intensity
-          // Make the visual response more dramatic for better feedback
-          
-          // Define scale range - start at 0.7 (smaller) and go up to 1.8 (larger)
-          // This creates a more noticeable expansion/contraction cycle
-          const baseScale = 0.7; // Smaller base size for more dramatic contrast
-          const maxExpansion = 1.1; // More dramatic expansion range
-          
-          // Dramatically enhance the visual response
-          let amplifiedAmplitude = breathAmplitude;
-          
-          // Higher amplification across all ranges for more visible effect
-          if (breathAmplitude > 0 && breathAmplitude < 0.3) {
-            // Small readings: high amplification for better visibility
-            amplifiedAmplitude = 0.2 + (breathAmplitude * 2.5);
-          } 
-          else if (breathAmplitude >= 0.3 && breathAmplitude < 0.7) {
-            // Medium readings: moderate amplification
-            amplifiedAmplitude = 0.4 + (breathAmplitude * 1.2);
-          }
-          else {
-            // Larger readings: ensure full range is used
-            amplifiedAmplitude = 0.5 + (breathAmplitude * 0.5);
-          }
-          
-          // Apply strong emphasis to make changes more visible
-          const emphasisFactor = Math.pow(amplifiedAmplitude, 0.4); // Higher power value = more dramatic effect
-          const targetScale = baseScale + (maxExpansion * emphasisFactor * intensity);
-          
-          // Faster interpolation for more immediate visual feedback
-          // Higher value = more responsive animation
-          setScale(prev => prev + (targetScale - prev) * 0.25);
-          
-          // Log out the current scale for debugging
-          if (Date.now() % 3000 < 50) {
-            console.log(`Breath cycle: Amplitude=${breathAmplitude.toFixed(2)}, Scale=${scale.toFixed(2)}, Target=${targetScale.toFixed(2)}`);
-          }
-          break;
-        }
-          
-        // Future effect types will be implemented here
-        case 'brighten-darken':
-        case 'color-shift':
-        default: {
-          // Default to expand-contract for now
-          const baseScale = 0.6; // Smaller base size for maximum contrast
-          const maxExpansion = 2.5; // Extreme expansion range for unmistakable visual effect
-          
-          // IMPORTANT: Apply the same amplitude amplification here as in the expand-contract case
-          let amplifiedAmplitude = breathAmplitude;
-          
-          // For very small readings (0.01-0.1), dramatically amplify the visual effect
-          if (breathAmplitude > 0 && breathAmplitude < 0.1) {
-            // Exponentially amplify small readings 
-            amplifiedAmplitude = 0.3 + (breathAmplitude * 5); // Boost tiny readings to visible range
-          }
-          
-          // Calculate scale with custom emphasis on the amplitude
-          const emphasisFactor = Math.pow(amplifiedAmplitude, 0.5); // Make changes more visible
-          const defaultScale = baseScale + (maxExpansion * emphasisFactor * intensity);
-          
-          // Very fast interpolation for immediate visual feedback
-          setScale(prev => prev + (defaultScale - prev) * 0.7); // Higher value = faster response
-        }
-          break;
-      }
-      
-      requestRef.current = requestAnimationFrame(animate);
-    };
-    
-    requestRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (requestRef.current) {
-        cancelAnimationFrame(requestRef.current);
-      }
-    };
-  }, [breathAmplitude, breathingRate, effectType]);
-
+    // Map the breath amplitude to the desired visual effect
+    switch (effectType) {
+      case 'expand-contract':
+        // Map amplitude to scale (0.5 to 1.7)
+        // Making the effect more dramatic as requested
+        const newScale = 0.7 + (breathAmplitude * 1.5);
+        setScale(newScale);
+        setOpacity(0.8);
+        setHue(240); // Keep blue
+        break;
+        
+      case 'brighten-darken':
+        // Map amplitude to opacity (0.3 to 1)
+        const newOpacity = 0.3 + (breathAmplitude * 0.7);
+        setOpacity(newOpacity);
+        setScale(1.2); // Keep a moderate fixed size
+        setHue(240); // Keep blue
+        break;
+        
+      case 'color-shift':
+        // Map amplitude to hue (180 to 240 degrees - cyan to blue)
+        const newHue = 180 + (breathAmplitude * 60);
+        setHue(newHue);
+        setScale(1.2); // Keep a moderate fixed size
+        setOpacity(0.8); // Keep moderate opacity
+        break;
+    }
+  }, [breathAmplitude, effectType]);
+  
+  // Base color for the kasina
+  let baseColor = '';
+  let glowColor = '';
+  
+  // Color based on kasina type
+  switch (type) {
+    case 'blue':
+      baseColor = `hsla(${hue}, 100%, 50%, ${opacity})`;
+      glowColor = `hsla(${hue}, 100%, 70%, ${opacity * 0.7})`;
+      break;
+    default:
+      baseColor = `hsla(${hue}, 100%, 50%, ${opacity})`;
+      glowColor = `hsla(${hue}, 100%, 70%, ${opacity * 0.7})`;
+  }
+  
   return (
-    <div
-      style={{
-        transform: `scale(${scale})`,
-        transition: 'transform 0.1s ease-in-out',
-      }}
-    >
-      <KasinaOrb
-        type={type}
-        enableZoom={true}
-        remainingTime={remainingTime}
+    <div className="relative flex items-center justify-center w-full h-full">
+      {/* Timer display if remaining time is provided */}
+      {remainingTime !== undefined && remainingTime !== null && (
+        <div className="absolute top-4 left-0 right-0 text-center text-white text-2xl font-semibold z-10">
+          {Math.floor(remainingTime / 60)}:{(remainingTime % 60).toString().padStart(2, '0')}
+        </div>
+      )}
+      
+      {/* Background glow effect */}
+      <div 
+        className="absolute rounded-full"
+        style={{
+          width: `${300 * scale}px`,
+          height: `${300 * scale}px`,
+          background: `radial-gradient(circle, ${glowColor} 0%, rgba(0,0,0,0) 70%)`,
+          transition: 'all 0.5s ease-in-out'
+        }}
       />
+      
+      {/* Main orb */}
+      <div 
+        className="rounded-full shadow-xl relative overflow-hidden"
+        style={{
+          width: `${200 * scale}px`,
+          height: `${200 * scale}px`,
+          background: baseColor,
+          boxShadow: `0 0 60px 20px ${glowColor}`,
+          transition: 'all 0.5s ease-in-out'
+        }}
+      >
+        {/* Inner light reflections */}
+        <div 
+          className="absolute rounded-full"
+          style={{
+            width: '50%',
+            height: '50%',
+            top: '10%',
+            left: '10%',
+            background: `radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%)`,
+          }}
+        />
+        
+        {/* Subtle pulsing inner core */}
+        <div 
+          className="absolute rounded-full"
+          style={{
+            width: '70%',
+            height: '70%',
+            top: '15%',
+            left: '15%',
+            background: `radial-gradient(circle, ${baseColor} 30%, rgba(0,0,0,0) 70%)`,
+            animation: `pulse ${60 / breathingRate}s infinite alternate ease-in-out`,
+          }}
+        />
+      </div>
+      
+      {/* Breathing rate indicator (subtle text at bottom) */}
+      <div className="absolute bottom-4 text-white text-sm opacity-60">
+        {breathingRate} breaths per minute
+      </div>
+      
+      {/* CSS for animations */}
+      <style>{`
+        @keyframes pulse {
+          0% {
+            opacity: 0.7;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </div>
   );
 };
