@@ -161,26 +161,75 @@ const VernierConnect: React.FC<VernierConnectProps> = ({
       responseCharacteristic.addEventListener('characteristicvaluechanged', handleNotification);
       console.log('✅ Event listener added for notifications');
       
-      // IMPROVED ACTIVATION SEQUENCE - Based on Vernier protocol
-      console.log('Starting Vernier activation sequence...');
+      // ADVANCED ACTIVATION SEQUENCE - Trying all approaches
+      console.log('Starting enhanced Vernier activation sequence...');
       
-      // 1. First, send the primary enable command
+      // 1. First, send the primary enable command (always required)
       await commandCharacteristic.writeValue(COMMANDS.ENABLE_SENSOR);
-      console.log('✅ Primary sensor enable command sent');
+      console.log('✅ PRIMARY ACTIVATION COMMAND SENT');
+      
+      // Wait longer to ensure device has fully processed the initialization
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // 2. Try the fastest possible measurement speed
+      await commandCharacteristic.writeValue(COMMANDS.MAX_SPEED);
+      console.log('✅ MAX SPEED MEASUREMENT COMMAND SENT');
       
       // Wait for device to process
       await new Promise(resolve => setTimeout(resolve, 800));
       
-      // 2. Send start measurements command
-      await commandCharacteristic.writeValue(COMMANDS.START_MEASUREMENTS);
-      console.log('✅ Start measurements command (0x01, 0x0A) sent');
+      // 3. Now send the simple start command
+      await commandCharacteristic.writeValue(COMMANDS.SIMPLE_START);
+      console.log('✅ SIMPLE START COMMAND SENT');
       
-      // Wait for device to process
-      await new Promise(resolve => setTimeout(resolve, 800));
+      // 4. Set up a cycling system to try different commands if no data appears
+      const commandRotation = [
+        { name: 'START_MEASUREMENTS', command: COMMANDS.START_MEASUREMENTS },
+        { name: 'ALT_DATA_REQUEST', command: COMMANDS.ALT_DATA_REQUEST },
+        { name: 'START_CONTINUOUS', command: COMMANDS.START_CONTINUOUS },
+        { name: 'MAX_SPEED', command: COMMANDS.MAX_SPEED }
+      ];
       
-      // 3. Send basic activation command to ensure data stream
-      await commandCharacteristic.writeValue(COMMANDS.ACTIVATE_DATA_STREAM);
-      console.log('✅ Basic data stream activation (0x01, 0x01) sent');
+      let commandIndex = 0;
+      let dataReceived = false;
+      
+      // Use a global flag that our data handler can set when data arrives
+      (window as any).vernierDataReceived = false;
+      
+      // Function to cycle through commands until data appears
+      const tryNextCommand = async () => {
+        // Check if we've received data or if device is disconnected
+        if ((window as any).vernierDataReceived || !device || !device.gatt.connected) {
+          console.log('Data received or device disconnected, stopping command rotation');
+          if ((window as any).commandRotationInterval) {
+            clearInterval((window as any).commandRotationInterval);
+          }
+          return;
+        }
+        
+        // Try the next command
+        const currentCommand = commandRotation[commandIndex];
+        console.log(`⏳ Trying alternative command: ${currentCommand.name}`);
+        
+        try {
+          await commandCharacteristic.writeValue(currentCommand.command);
+          console.log(`✅ Sent ${currentCommand.name} command`);
+        } catch (err) {
+          console.error(`Error sending ${currentCommand.name}:`, err);
+        }
+        
+        // Move to next command in rotation
+        commandIndex = (commandIndex + 1) % commandRotation.length;
+      };
+      
+      // Start the rotation after an initial delay
+      (window as any).commandRotationTimeout = setTimeout(() => {
+        // Only start rotation if no data received yet
+        if (!(window as any).vernierDataReceived) {
+          console.log('No data received yet, starting command rotation...');
+          (window as any).commandRotationInterval = setInterval(tryNextCommand, 2000);
+        }
+      }, 5000); // Wait 5 seconds before starting rotation
       
       // 4. Check for any incoming data to verify connection is working
       console.log('⏳ Waiting for data transmission to begin...');

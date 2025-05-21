@@ -146,41 +146,62 @@ const BreathKasinaPage: React.FC = () => {
                 console.log("Disconnected from respiration belt");
               }}
               onDataReceived={(bytes) => {
-                // Process incoming data exactly as specified in requirements
+                // Process incoming data to make the orb much more responsive
                 try {
-                  // Based on the actual data we're receiving from the belt
-                  // Looking at logs, we see the format differs from what we expected
-                  // Using byte at index 1 which seems to have meaningful values in our logs
-                  const force = bytes[1] / 255;
-                  console.log("Normalized force:", force);
+                  // Extract and log every byte to analyze the data pattern
+                  console.log("Full data packet (hex):", Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(' '));
                   
-                  // Create breath data point for tracking
-                  const newData: BreathData = {
-                    timestamp: Date.now(),
-                    amplitude: force * 20 - 10, // Convert to -10 to +10 range for raw value
-                    normalizedValue: force // Keep normalized 0-1 value
-                  };
-                  
-                  // Update state for React rendering
-                  setBreathData(prev => [...prev, newData].slice(-100)); // Keep last 100 points
-                  setCurrentAmplitude(force);
-                  
-                  // Determine breath direction (inhaling or exhaling)
-                  if (breathData.length > 1) {
-                    const prevValue = breathData[breathData.length - 1].normalizedValue;
-                    setIsExpanding(force > prevValue);
+                  // Based on logs and testing, byte at index 1 contains the most important breath force data
+                  if (bytes.length > 1) {
+                    // Get the primary byte value and normalize it to 0-1 range
+                    const primaryByte = bytes[1];
+                    const force = primaryByte / 255;
+                    
+                    // Log with prominence to easily see changes in the console
+                    console.log(`▶️ BREATH DATA: Byte[1]=${primaryByte}, Force=${force.toFixed(4)}`);
+                    
+                    // Create a new data point with current timestamp
+                    const newData: BreathData = {
+                      timestamp: Date.now(),
+                      amplitude: force * 20 - 10, // Convert to -10 to +10 range for raw values
+                      normalizedValue: force // Keep normalized 0-1 value for visuals
+                    };
+                    
+                    // Update breath data history (keep last 100 points)
+                    setBreathData(prev => [...prev, newData].slice(-100));
+                    
+                    // IMPORTANT: Make this much more dramatic by applying exponential scaling
+                    // This will make even small changes in the data very visible in the orb
+                    const dramaticAmplitude = Math.pow(force, 0.7); // More response in lower ranges 
+                    
+                    // Log the dramatic amplitude scaling
+                    console.log(`🔵 DRAMATIC AMPLITUDE: ${dramaticAmplitude.toFixed(4)} (from ${force.toFixed(4)})`);
+                    
+                    // Update the current amplitude with the dramatic value
+                    setCurrentAmplitude(dramaticAmplitude);
+                    
+                    // Determine breath direction (inhaling or exhaling)
+                    if (breathData.length > 1) {
+                      const prevValue = breathData[breathData.length - 1].normalizedValue;
+                      setIsExpanding(force > prevValue);
+                    }
+                    
+                    // Calculate breathing rate from data points
+                    calculateBreathingRate();
+                  } else {
+                    console.log("Warning: Received data packet with insufficient length");
                   }
-                  
-                  // Calculate breathing rate from data points
-                  calculateBreathingRate();
                   
                   // Use the Web Animations API for smoother, more performant animations
                   // This bypasses React rendering and CSS transitions for immediate visual feedback
                   const orbElement = document.getElementById("breath-orb");
-                  if (orbElement) {
+                  if (orbElement && bytes.length > 1) {
+                    const primaryByte = bytes[1];
+                    const rawForce = primaryByte / 255;
+                    
                     // Create an extreme animation (MUCH more dramatic scale change)
                     // This will make it very obvious when the orb is receiving breath data
-                    const newScale = 0.5 + (force * 5.0); // Extreme 0.5 to 5.5 scaling
+                    const newScale = 0.5 + (rawForce * 5.0); // Extreme 0.5 to 5.5 scaling
                     
                     // Stop any existing animations
                     const animations = orbElement.getAnimations();
@@ -193,7 +214,7 @@ const BreathKasinaPage: React.FC = () => {
                         boxShadow: `0 0 30px 15px rgba(0, 100, 255, 0.6)` },
                       // Animate to new size based on breath
                       { transform: `scale(${newScale})`, 
-                        boxShadow: `0 0 ${60 + (force * 100)}px ${30 + (force * 50)}px rgba(0, 100, 255, ${0.6 + (force * 0.4)})` }
+                        boxShadow: `0 0 ${60 + (rawForce * 100)}px ${30 + (rawForce * 50)}px rgba(0, 100, 255, ${0.6 + (rawForce * 0.4)})` }
                     ], {
                       duration: 100, // Very fast animation
                       fill: 'forwards', // Keep the end state
@@ -201,7 +222,7 @@ const BreathKasinaPage: React.FC = () => {
                     });
                     
                     // Log the animation values
-                    console.log(`Animating to scale(${newScale.toFixed(2)}), based on force: ${force.toFixed(4)}`);
+                    console.log(`Animating to scale(${newScale.toFixed(2)}), based on force: ${rawForce.toFixed(4)}`);
                   }
                 } catch (error) {
                   console.error("Error processing breath data:", error);

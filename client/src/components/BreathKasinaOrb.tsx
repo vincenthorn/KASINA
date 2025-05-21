@@ -22,38 +22,41 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   
   // Apply breathing effect based on the chosen effect type
   useEffect(() => {
-    // Map the breath amplitude to the desired visual effect
-    // Making this much more dramatic for better visualization
+    // Add debug logging to see exactly what data we're receiving
+    console.log("Breath data update - amplitude:", breathAmplitude, "rate:", breathingRate);
+    
+    // Make the visual effects EXTREMELY dramatic for better visualization
+    // This will make it very obvious when the orb is receiving real breath data
     switch (effectType) {
       case 'expand-contract':
-        // Map amplitude to scale with MUCH bigger range (0.7 to 2.2)
-        // This creates a more dramatic breathing effect as requested
-        const newScale = 0.7 + (breathAmplitude * 1.5);
+        // Map amplitude to scale with a MASSIVE range (0.5 to 3.0)
+        // This creates an extremely dramatic breathing effect
+        const newScale = 0.5 + (breathAmplitude * 2.5);
         setScale(newScale);
         setOpacity(0.8);
         setHue(240); // Keep blue
+        
+        // Log the dramatic scaling to help diagnose if we're receiving real data
+        console.log(`DRAMATIC SCALING: ${newScale.toFixed(2)} from amplitude ${breathAmplitude.toFixed(2)}`);
         break;
         
       case 'brighten-darken':
-        // Map amplitude to opacity (0.2 to 1.0)
-        const newOpacity = 0.2 + (breathAmplitude * 0.8);
+        // Map amplitude to opacity with more extreme range (0.1 to 1.0)
+        const newOpacity = 0.1 + (breathAmplitude * 0.9);
         setOpacity(newOpacity);
         setScale(1.2); // Keep a moderate fixed size
         setHue(240); // Keep blue
         break;
         
       case 'color-shift':
-        // Map amplitude to hue (180 to 240 degrees - cyan to blue)
-        const newHue = 180 + (breathAmplitude * 60);
+        // Map amplitude to hue with a more dramatic range (160 to 260 degrees)
+        const newHue = 160 + (breathAmplitude * 100);
         setHue(newHue);
         setScale(1.2); // Keep a moderate fixed size
         setOpacity(0.8); // Keep moderate opacity
         break;
     }
-    
-    // This log helps us track if React state is changing based on incoming data
-    console.log("Effect applied with amplitude:", breathAmplitude, "scale:", scale);
-  }, [breathAmplitude, effectType]);
+  }, [breathAmplitude, effectType, breathingRate]);
   
   // Base color for the kasina
   let baseColor = '';
