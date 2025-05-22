@@ -22,6 +22,7 @@ interface MicrophoneBreathHookResult {
   error: string | null;
   devices: AudioDevice[];
   selectedDeviceId: string | null;
+  setSelectedDeviceId: (deviceId: string | null) => void;
   refreshDevices: () => Promise<AudioDevice[]>;
   // Calibration system
   isCalibrating: boolean;
@@ -875,6 +876,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     error,
     devices,
     selectedDeviceId,
+    setSelectedDeviceId,
     refreshDevices,
     // Calibration system
     isCalibrating,

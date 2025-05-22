@@ -30,6 +30,7 @@ const MicBreathPage: React.FC = () => {
     stopListening,
     devices,
     selectedDeviceId,
+    setSelectedDeviceId,
     refreshDevices,
     error,
     // Calibration system
@@ -96,12 +97,9 @@ const MicBreathPage: React.FC = () => {
   };
   
   // Handle microphone device change
-  const handleDeviceChange = async (deviceId: string) => {
-    try {
-      await startListening(deviceId);
-    } catch (error) {
-      console.error('Failed to change microphone device:', error);
-    }
+  const handleDeviceChange = (deviceId: string) => {
+    setSelectedDeviceId(deviceId);
+    console.log('Selected microphone device:', deviceId);
   };
   
   // Handle refreshing device list
