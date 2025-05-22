@@ -197,12 +197,12 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Debug logging every 20th sample
     if (newSamples.length % 20 === 0) {
-      console.log(`Peak detection: current=${currentValue.toFixed(4)}, baseline=${baseline.toFixed(4)}, threshold=${breathThreshold.toFixed(4)}, isInhaling=${detection.isInhaling}`);
+      console.log(`Peak detection: current=${currentValue.toFixed(4)}, baseline=${baseline.toFixed(4)}, threshold=${breathThreshold.toFixed(4)}, isInhaling=${breathCycleDetection.isInhaling}`);
     }
     
     // Detect start of inhale - look for crossing above threshold (more flexible)
-    if (!detection.isInhaling && currentValue > breathThreshold && 
-        prevValue <= breathThreshold && (currentTime - detection.lastCycleTime) > 1000) { // At least 1 second between cycles
+    if (!breathCycleDetection.isInhaling && currentValue > breathThreshold && 
+        prevValue <= breathThreshold && (currentTime - breathCycleDetection.lastCycleTime) > 1000) { // At least 1 second between cycles
       
       console.log(`🟢 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
       
@@ -214,7 +214,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     }
     
     // Update peak during inhale
-    if (detection.isInhaling && currentValue > detection.lastPeak) {
+    if (breathCycleDetection.isInhaling && currentValue > breathCycleDetection.lastPeak) {
       setBreathCycleDetection(prev => ({
         ...prev,
         lastPeak: currentValue
@@ -222,10 +222,10 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     }
     
     // Detect exhale completion - look for crossing back below threshold
-    if (detection.isInhaling && currentValue <= breathThreshold && 
-        prevValue > breathThreshold && detection.lastPeak > baseline + (dynamicRange * 0.4)) { // Make sure we had a real peak (40% above baseline)
+    if (breathCycleDetection.isInhaling && currentValue <= breathThreshold && 
+        prevValue > breathThreshold && breathCycleDetection.lastPeak > baseline + (dynamicRange * 0.4)) { // Make sure we had a real peak (40% above baseline)
       
-      console.log(`🔴 BREATH CYCLE COMPLETED! Peak: ${detection.lastPeak.toFixed(4)}, End: ${currentValue.toFixed(4)}`);
+      console.log(`🔴 BREATH CYCLE COMPLETED! Peak: ${breathCycleDetection.lastPeak.toFixed(4)}, End: ${currentValue.toFixed(4)}`);
       
       // Complete breath cycle detected
       setBreathCycleDetection(prev => ({
