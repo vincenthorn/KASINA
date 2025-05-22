@@ -88,6 +88,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const lastBreathTimeRef = useRef<number>(0);
   const breathIntervalsRef = useRef<number[]>([]);
   const requestAnimationFrameIdRef = useRef<number | null>(null);
+  const isInhalingRef = useRef<boolean>(false);
+  const lastPeakRef = useRef<number>(0);
 
   // Calibration data storage
   const calibrationDataRef = useRef<number[]>([]);
@@ -201,10 +203,14 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     }
     
     // Detect start of inhale - look for crossing above threshold (more flexible)
-    if (!breathCycleDetection.isInhaling && currentValue > breathThreshold && 
+    if (!isInhalingRef.current && currentValue > breathThreshold && 
         prevValue <= breathThreshold && (currentTime - breathCycleDetection.lastCycleTime) > 1000) { // At least 1 second between cycles
       
       console.log(`🟢 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
+      
+      // Update refs immediately for instant tracking
+      isInhalingRef.current = true;
+      lastPeakRef.current = currentValue;
       
       setBreathCycleDetection(prev => ({
         ...prev,
@@ -214,7 +220,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     }
     
     // Update peak during inhale
-    if (breathCycleDetection.isInhaling && currentValue > breathCycleDetection.lastPeak) {
+    if (isInhalingRef.current && currentValue > lastPeakRef.current) {
+      lastPeakRef.current = currentValue;
       setBreathCycleDetection(prev => ({
         ...prev,
         lastPeak: currentValue
@@ -222,10 +229,14 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     }
     
     // Detect exhale completion - look for crossing back below threshold
-    if (breathCycleDetection.isInhaling && currentValue <= breathThreshold && 
-        prevValue > breathThreshold && breathCycleDetection.lastPeak > baseline + (dynamicRange * 0.4)) { // Make sure we had a real peak (40% above baseline)
+    if (isInhalingRef.current && currentValue <= breathThreshold && 
+        prevValue > breathThreshold && lastPeakRef.current > baseline + (dynamicRange * 0.4)) { // Make sure we had a real peak (40% above baseline)
       
-      console.log(`🔴 BREATH CYCLE COMPLETED! Peak: ${breathCycleDetection.lastPeak.toFixed(4)}, End: ${currentValue.toFixed(4)}`);
+      console.log(`🔴 BREATH CYCLE COMPLETED! Peak: ${lastPeakRef.current.toFixed(4)}, End: ${currentValue.toFixed(4)}`);
+      
+      // Reset refs immediately
+      isInhalingRef.current = false;
+      lastPeakRef.current = 0;
       
       // Complete breath cycle detected
       setBreathCycleDetection(prev => ({
