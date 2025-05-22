@@ -94,6 +94,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const isInhalingRef = useRef<boolean>(false);
   const lastPeakRef = useRef<number>(0);
   const lastBreathAmplitudeRef = useRef<number | null>(null);
+  const envelopeRef = useRef<number>(0); // For amplitude envelope following
   
   // Breath cycle detection refs
   const volumeHistoryRef = useRef<number[]>([]);
@@ -595,14 +596,21 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
           (volume - baselineMin) / (baselineMax - baselineMin)
         ));
         
-        // Apply smoothing to reduce jerkiness
-        if (lastBreathAmplitudeRef.current !== null) {
-          normalizedAmplitude = lastBreathAmplitudeRef.current * 0.7 + normalizedAmplitude * 0.3;
-        }
-        lastBreathAmplitudeRef.current = normalizedAmplitude;
+        // Amplitude Envelope Following for smooth breath tracking
+        // This tracks the smooth envelope of your breathing rather than instant peaks
+        const attackTime = 0.05;  // Fast attack for inhales (50ms)
+        const releaseTime = 0.15; // Slower release for exhales (150ms)
         
-        // Reduce overall sensitivity for smoother meditation experience
-        const smoothedAmplitude = normalizedAmplitude * 0.3; // Scale down by 70% for gentler response
+        if (normalizedAmplitude > envelopeRef.current) {
+          // Rising (inhale) - use fast attack
+          envelopeRef.current += (normalizedAmplitude - envelopeRef.current) * attackTime;
+        } else {
+          // Falling (exhale) - use slower release
+          envelopeRef.current += (normalizedAmplitude - envelopeRef.current) * releaseTime;
+        }
+        
+        // Apply gentle smoothing for meditation
+        const smoothedAmplitude = envelopeRef.current * 0.4; // More responsive than before
         
         setBreathAmplitude(smoothedAmplitude);
         detectBreath(smoothedAmplitude, Date.now());
