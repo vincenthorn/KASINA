@@ -156,7 +156,11 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
    */
 
   const detectBreathCycle = useCallback((volume: number, currentTime: number): boolean => {
-    if (!isCalibrating || calibrationPhase !== 'deep') return false;
+    console.log(`🔍 Detection check: isCalibrating=${isCalibrating}, phase=${calibrationPhase}, volume=${volume.toFixed(4)}`);
+    if (!isCalibrating || calibrationPhase !== 'deep') {
+      console.log(`❌ Detection skipped: not in deep breath phase`);
+      return false;
+    }
     
     const detection = breathCycleDetection;
     
@@ -171,8 +175,11 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Need at least 10 samples for peak detection
     if (newSamples.length < 10) {
+      console.log(`❌ Not enough samples yet: ${newSamples.length}/10`);
       return false;
     }
+    
+    console.log(`✅ Running peak detection with ${newSamples.length} samples`);
     
     // Calculate adaptive baseline from recent samples
     const baseline = Math.min(...newSamples.slice(-15)); // Minimum of recent 15 samples
