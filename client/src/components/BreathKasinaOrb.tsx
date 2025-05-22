@@ -30,9 +30,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const maxSize = 900;  // Much larger maximum for dramatic effect
     const sizeRange = maxSize - minSize;
     
-    // Enhanced magnification for more dramatic breathing response
-    // Using higher multiplier (8.0) and square root for smooth scaling
-    const magnifiedAmplitude = Math.sqrt(breathAmplitude) * 8.0; 
+    // Gentle magnification for natural breathing response
+    // Using lower multiplier (2.0) for subtle, meditative movement
+    const magnifiedAmplitude = Math.sqrt(breathAmplitude) * 2.0; 
     const clampedAmplitude = Math.min(1, magnifiedAmplitude);
     const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
