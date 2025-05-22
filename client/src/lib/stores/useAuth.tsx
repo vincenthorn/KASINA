@@ -2,9 +2,16 @@ import { create } from "zustand";
 import { apiRequest } from "../api";
 import { toast } from "sonner";
 
+interface User {
+  email: string;
+  subscription?: 'free' | 'premium';
+}
+
 interface AuthState {
   isAuthenticated: boolean;
   email: string | null;
+  user: User | null;
+  isAdmin: boolean;
   
   login: (email: string) => Promise<boolean>;
   logout: () => Promise<void>;
@@ -14,6 +21,8 @@ interface AuthState {
 export const useAuth = create<AuthState>((set) => ({
   isAuthenticated: false,
   email: null,
+  user: null,
+  isAdmin: false,
   
   login: async (email: string) => {
     try {
@@ -36,9 +45,12 @@ export const useAuth = create<AuthState>((set) => ({
       const data = await response.json();
       
       // Store authenticated state
+      const isAdmin = data.user.email === 'admin@kasina.app';
       set({
         isAuthenticated: true,
         email: data.user.email,
+        user: data.user,
+        isAdmin
       });
       
       toast.success('Successfully logged in');
@@ -49,7 +61,17 @@ export const useAuth = create<AuthState>((set) => ({
       
       // Fallback login for development/testing
       if (import.meta.env.DEV) {
-        set({ isAuthenticated: true, email });
+        const isAdmin = email === 'admin@kasina.app';
+        const user: User = { 
+          email, 
+          subscription: isAdmin ? 'premium' : 'free'
+        };
+        set({ 
+          isAuthenticated: true, 
+          email,
+          user,
+          isAdmin
+        });
         return true;
       }
       
@@ -67,6 +89,8 @@ export const useAuth = create<AuthState>((set) => ({
       set({
         isAuthenticated: false,
         email: null,
+        user: null,
+        isAdmin: false,
       });
       
       toast.success('Successfully logged out');
@@ -78,6 +102,8 @@ export const useAuth = create<AuthState>((set) => ({
       set({
         isAuthenticated: false,
         email: null,
+        user: null,
+        isAdmin: false,
       });
     }
   },
@@ -91,9 +117,12 @@ export const useAuth = create<AuthState>((set) => ({
       if (response.ok) {
         const data = await response.json();
         
+        const isAdmin = data.user.email === 'admin@kasina.app';
         set({
           isAuthenticated: true,
           email: data.user.email,
+          user: data.user,
+          isAdmin
         });
       } else {
         set({
