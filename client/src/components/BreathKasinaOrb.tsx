@@ -113,16 +113,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         />
       </div>
       
-      <div className="mt-8 text-center text-white">
-        {isListening ? (
-          <>
-            <p className="text-lg mb-2">Listening to your breath...</p>
-            <p className="text-sm text-blue-300">Breathe normally and the orb will expand and contract with your breath</p>
-          </>
-        ) : (
-          <p>Microphone is not active</p>
-        )}
-      </div>
+
     </div>
   );
 };
