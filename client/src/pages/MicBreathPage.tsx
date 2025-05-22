@@ -204,6 +204,31 @@ const MicBreathPage: React.FC = () => {
             </div>
           </div>
         </Layout>
+      ) : calibrationComplete ? (
+        // Calibration Complete - Show Success & Transition
+        <Layout>
+          <div className="container mx-auto py-8 px-4">
+            <div className="max-w-2xl mx-auto text-center">
+              <h1 className="text-3xl font-bold mb-6 text-green-600">✅ Calibration Complete!</h1>
+              
+              <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 p-6 rounded-lg mb-8">
+                <p className="text-lg mb-4 text-green-800 dark:text-green-200">
+                  Your personal breathing baseline has been successfully established!
+                </p>
+                <p className="text-sm text-green-700 dark:text-green-300">
+                  The system is now calibrated to detect your unique breathing pattern.
+                </p>
+              </div>
+              
+              <Button 
+                onClick={() => setShowFocusMode(true)}
+                className="w-64 h-14 text-xl font-semibold bg-green-600 hover:bg-green-700"
+              >
+                Start Breath Meditation
+              </Button>
+            </div>
+          </div>
+        </Layout>
       ) : (
         <Layout>
           <div className="container mx-auto py-8 px-4">
