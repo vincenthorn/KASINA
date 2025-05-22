@@ -74,7 +74,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     minCycleTime: 2000, // Minimum 2 seconds between complete cycles
     lastCycleTime: 0,
     recentSamples: [] as number[], // Store recent volume samples for pattern analysis
-    sampleWindow: 30 // Number of samples to analyze for trends
+    sampleWindow: 20 // Number of samples to analyze for trends (reduced for faster response)
   });
 
   // Refs for audio processing
@@ -174,22 +174,22 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       return false;
     }
     
-    // Calculate moving averages and trends
-    const recentAvg = newSamples.slice(-10).reduce((sum, val) => sum + val, 0) / 10;
-    const earlierAvg = newSamples.slice(-20, -10).reduce((sum, val) => sum + val, 0) / 10;
+    // Use shorter windows for faster breath detection
+    const recentAvg = newSamples.slice(-5).reduce((sum, val) => sum + val, 0) / 5; // Last 5 samples
+    const earlierAvg = newSamples.slice(-15, -5).reduce((sum, val) => sum + val, 0) / 10; // 10 samples before that
     const overallAvg = newSamples.reduce((sum, val) => sum + val, 0) / newSamples.length;
     
-    // Calculate relative changes (percentage of overall average)
-    const relativeChange = Math.abs(recentAvg - earlierAvg) / Math.max(overallAvg, 0.001);
-    const currentRelative = volume / Math.max(overallAvg, 0.001);
+    // Calculate absolute difference for more direct detection
+    const absoluteChange = Math.abs(recentAvg - earlierAvg);
+    const relativeChange = absoluteChange / Math.max(overallAvg, 0.001);
     
     // Look for breathing patterns: inhale (increasing trend) followed by exhale (decreasing trend)
     const isIncreasing = recentAvg > earlierAvg;
-    const significantChange = relativeChange > 0.15; // 15% relative change indicates breathing (lowered from 30%)
+    const significantChange = absoluteChange > 0.001 || relativeChange > 0.1; // Lower threshold for more sensitivity
     
     // Debug logging every 10th sample to avoid spam
     if (newSamples.length % 10 === 0) {
-      console.log(`Pattern analysis: recentAvg=${recentAvg.toFixed(4)}, earlierAvg=${earlierAvg.toFixed(4)}, overallAvg=${overallAvg.toFixed(4)}, relChange=${relativeChange.toFixed(3)}, isIncreasing=${isIncreasing}, significantChange=${significantChange}, isInhaling=${detection.isInhaling}`);
+      console.log(`Pattern analysis: recentAvg=${recentAvg.toFixed(4)}, earlierAvg=${earlierAvg.toFixed(4)}, absChange=${absoluteChange.toFixed(4)}, relChange=${relativeChange.toFixed(3)}, isIncreasing=${isIncreasing}, significantChange=${significantChange}, isInhaling=${detection.isInhaling}`);
     }
     
     // Detect start of inhale (upward trend with significant change)
@@ -677,7 +677,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       minCycleTime: 2000,
       lastCycleTime: 0,
       recentSamples: [],
-      sampleWindow: 30
+      sampleWindow: 20
     });
     
     // Reset calibration data
