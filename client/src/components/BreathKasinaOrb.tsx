@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
 
@@ -16,35 +16,43 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   isListening
 }) => {
   const orbRef = useRef<HTMLDivElement>(null);
+  const [orbSize, setOrbSize] = useState(150);
+  const [glowIntensity, setGlowIntensity] = useState(15);
   
   // Update the orb size based on breath amplitude
   useEffect(() => {
-    if (!orbRef.current) return;
+    if (!isListening) return;
     
     // Calculate the size based on breath amplitude with more dramatic effect
-    // Min size: 100px, Max size: 450px for much more dramatic effect
+    // Min size: 100px, Max size: 500px for much more dramatic effect
     const minSize = 100;
-    const maxSize = 450;
+    const maxSize = 500;
     const sizeRange = maxSize - minSize;
     
-    // Apply a magnification factor to make changes more noticeable
-    // This is essential to create a more responsive visualization
-    const magnifiedAmplitude = Math.pow(breathAmplitude, 0.7) * 1.5; 
+    // Apply stronger magnification factor to make changes more dramatic
+    // Higher exponent (0.5) makes small breaths more visible
+    // Higher multiplier (2.0) increases the overall effect
+    const magnifiedAmplitude = Math.pow(breathAmplitude, 0.5) * 2.0; 
     const clampedAmplitude = Math.min(1, magnifiedAmplitude);
-    const newSize = minSize + (sizeRange * clampedAmplitude);
-    
-    // Force update the DOM element style for sizing
-    // This is critical because sometimes React's style updates can be batched
-    orbRef.current.style.width = `${newSize}px`;
-    orbRef.current.style.height = `${newSize}px`;
+    const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
     // Also adjust the glow effect based on breath amplitude
-    const glowIntensity = 15 + (breathAmplitude * 60);
-    orbRef.current.style.boxShadow = `0 0 ${glowIntensity}px ${glowIntensity/2}px rgba(77, 143, 255, 0.8)`;
+    const newGlowIntensity = Math.floor(15 + (breathAmplitude * 80));
+    
+    // Update state to trigger re-render
+    setOrbSize(newSize);
+    setGlowIntensity(newGlowIntensity);
+    
+    // Also directly modify the DOM for immediate visual feedback
+    if (orbRef.current) {
+      orbRef.current.style.width = `${newSize}px`;
+      orbRef.current.style.height = `${newSize}px`;
+      orbRef.current.style.boxShadow = `0 0 ${newGlowIntensity}px ${Math.floor(newGlowIntensity/2)}px rgba(77, 143, 255, 0.8)`;
+    }
     
     // Log the size for debugging
-    console.log(`Breath amplitude: ${breathAmplitude}, magnified: ${magnifiedAmplitude.toFixed(2)}, orb size: ${newSize.toFixed(0)}px, glow: ${glowIntensity.toFixed(0)}`);
-  }, [breathAmplitude]);
+    console.log(`Breath amplitude: ${breathAmplitude}, magnified: ${magnifiedAmplitude.toFixed(2)}, orb size: ${newSize}px, glow: ${newGlowIntensity}`);
+  }, [breathAmplitude, isListening]);
 
   return (
     <div className="flex flex-col items-center justify-center h-full">
@@ -52,14 +60,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         ref={orbRef}
         className="breath-kasina-orb"
         style={{
-          width: '150px',
-          height: '150px',
+          width: `${orbSize}px`,
+          height: `${orbSize}px`,
           borderRadius: '50%',
-          backgroundColor: 'rgba(77, 143, 255, 0.8)',
-          boxShadow: '0 0 15px 7px rgba(77, 143, 255, 0.6)',
-          transition: 'all 0.3s ease-out',
+          backgroundColor: 'rgba(77, 143, 255, 0.7)',
+          boxShadow: `0 0 ${glowIntensity}px ${Math.floor(glowIntensity/2)}px rgba(77, 143, 255, 0.8)`,
+          transition: 'all 0.2s ease-out',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          transform: `scale(${isListening ? 1 : 0.9})`,
+          opacity: isListening ? 1 : 0.7
         }}
       >
         {/* Particle effect inside the orb */}
@@ -74,8 +84,23 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
             right: 0,
             bottom: 0,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(77, 143, 255, 0.4) 0%, rgba(77, 143, 255, 0.9) 70%)',
+            background: 'radial-gradient(circle, rgba(77, 143, 255, 0.3) 0%, rgba(77, 143, 255, 0.9) 80%)',
             opacity: 0.8
+          }}
+        />
+        
+        {/* Extra inner glow for depth */}
+        <div 
+          style={{
+            position: 'absolute',
+            top: '15%',
+            left: '15%',
+            width: '70%',
+            height: '70%',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(77, 143, 255, 0) 70%)',
+            opacity: 0.6,
+            filter: 'blur(5px)'
           }}
         />
       </div>

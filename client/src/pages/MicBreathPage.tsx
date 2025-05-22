@@ -65,11 +65,9 @@ const MicBreathPage: React.FC = () => {
       const durationMinutes = Math.max(1, Math.round(durationMs / 60000));
       
       logSession({
-        type: 'breath',
-        kasina: 'microphone',
-        startTime: sessionStartTime,
-        endTime: endTime,
-        duration: durationMinutes
+        kasinaType: 'breath' as any, // Cast for compatibility with existing system
+        duration: durationMs / 1000, // Convert ms to seconds for proper duration logging
+        showToast: true
       });
       
       setSessionStartTime(null);
