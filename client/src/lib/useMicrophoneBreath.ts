@@ -587,7 +587,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       }
     } else {
       // Meditation practice mode - use calibration profile for breath detection
-      if (calibrationProfile && calibrationProfile.isValid) {
+      if (calibrationProfile && calibrationProfile.baselineMin !== undefined && calibrationProfile.baselineMax !== undefined) {
         // Normalize volume using the user's personal breathing baseline
         const { baselineMin, baselineMax } = calibrationProfile;
         const normalizedAmplitude = Math.max(0, Math.min(1, 
