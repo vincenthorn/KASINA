@@ -593,20 +593,20 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     } else {
       // Meditation practice mode - use calibration profile for breath detection
       if (calibrationProfile && calibrationProfile.baselineMin !== undefined && calibrationProfile.baselineMax !== undefined) {
-        // Dynamic baseline adjustment - adapts to your real breathing patterns
+        // Fast dynamic baseline - adapts during calibration and breathing
         const baseline = dynamicBaselineRef.current;
         baseline.history.push(volume);
         
-        // Keep last 100 breathing samples for real-time adaptation
-        if (baseline.history.length > 100) {
+        // Keep last 20 samples for fast adaptation (10-15 seconds)
+        if (baseline.history.length > 20) {
           baseline.history.shift();
         }
         
-        // Update baseline every 20 samples (smooth adaptation)
-        if (baseline.history.length % 20 === 0) {
+        // Update baseline every 5 samples for quick responsiveness
+        if (baseline.history.length >= 5 && baseline.history.length % 5 === 0) {
           const sorted = [...baseline.history].sort((a, b) => a - b);
-          baseline.min = sorted[Math.floor(sorted.length * 0.1)]; // 10th percentile
-          baseline.max = sorted[Math.floor(sorted.length * 0.9)]; // 90th percentile
+          baseline.min = sorted[Math.floor(sorted.length * 0.15)]; // 15th percentile
+          baseline.max = sorted[Math.floor(sorted.length * 0.85)]; // 85th percentile
         }
         
         // Normalize using dynamic baseline instead of fixed calibration
@@ -635,7 +635,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         
         // Debug logging during meditation
         if (Date.now() % 1000 < 100) { // Log roughly every second
-          console.log(`🧘 Meditation: volume=${volume.toFixed(4)}, normalized=${normalizedAmplitude.toFixed(4)}, baseline=${baselineMin.toFixed(4)}-${baselineMax.toFixed(4)}`);
+          console.log(`🧘 Meditation: volume=${volume.toFixed(4)}, normalized=${normalizedAmplitude.toFixed(4)}, baseline=${baseline.min.toFixed(4)}-${baseline.max.toFixed(4)}`);
         }
       } else {
         // Fallback to basic calibrated sensitivity if no profile
