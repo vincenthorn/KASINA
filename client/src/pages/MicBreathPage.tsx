@@ -128,7 +128,7 @@ const MicBreathPage: React.FC = () => {
             </div>
           </div>
         </FocusMode>
-      ) : isCalibrating ? (
+      ) : isCalibrating && !calibrationComplete ? (
         // Calibration Screen
         <Layout>
           <div className="container mx-auto py-8 px-4">
