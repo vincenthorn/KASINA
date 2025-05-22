@@ -590,11 +590,21 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       if (calibrationProfile && calibrationProfile.baselineMin !== undefined && calibrationProfile.baselineMax !== undefined) {
         // Normalize volume using the user's personal breathing baseline
         const { baselineMin, baselineMax } = calibrationProfile;
-        const normalizedAmplitude = Math.max(0, Math.min(1, 
+        let normalizedAmplitude = Math.max(0, Math.min(1, 
           (volume - baselineMin) / (baselineMax - baselineMin)
         ));
-        setBreathAmplitude(normalizedAmplitude);
-        detectBreath(normalizedAmplitude, Date.now());
+        
+        // Apply smoothing to reduce jerkiness
+        if (lastBreathAmplitudeRef.current !== null) {
+          normalizedAmplitude = lastBreathAmplitudeRef.current * 0.7 + normalizedAmplitude * 0.3;
+        }
+        lastBreathAmplitudeRef.current = normalizedAmplitude;
+        
+        // Reduce overall sensitivity for smoother meditation experience
+        const smoothedAmplitude = normalizedAmplitude * 0.6; // Scale down by 40%
+        
+        setBreathAmplitude(smoothedAmplitude);
+        detectBreath(smoothedAmplitude, Date.now());
         
         // Debug logging during meditation
         if (Date.now() % 1000 < 100) { // Log roughly every second
