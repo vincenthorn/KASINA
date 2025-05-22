@@ -140,10 +140,10 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     const nyquist = sampleRate / 2;
     const binSize = nyquist / frequencyData.length;
     
-    // Define breathing frequency range (0.067-2 Hz = 4-120 breaths per minute)
-    // Lower bound for deep meditative breathing (4 breaths/min = 0.067 Hz)
-    const minBreathFreq = 0.067; // Hz (4 breaths per minute)
-    const maxBreathFreq = 2.0;   // Hz (120 breaths per minute)
+    // Define breathing frequency range (0.067-1 Hz = 4-60 breaths per minute)
+    // Optimized for meditation breathing patterns
+    const minBreathFreq = 0.067; // Hz (4 breaths per minute - deep meditation)
+    const maxBreathFreq = 1.0;   // Hz (60 breaths per minute - realistic max)
     
     // Convert frequencies to bin indices
     const minBin = Math.floor(minBreathFreq / binSize);
