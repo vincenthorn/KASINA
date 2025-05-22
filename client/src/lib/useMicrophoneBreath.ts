@@ -130,14 +130,15 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const detectBreathCycle = useCallback((volume: number, currentTime: number): boolean => {
     if (!isCalibrating || calibrationPhase !== 'deep') return false;
     
-    const threshold = 0.15; // Minimum volume to consider as breathing
-    const minPeakDiff = 0.1; // Minimum difference between peak and trough
+    const threshold = 0.003; // Minimum volume to consider as breathing (lowered for realistic levels)
+    const minPeakDiff = 0.002; // Minimum difference between peak and trough (lowered for realistic levels)
     
     // Track peaks and troughs
     const detection = breathCycleDetection;
     
-    // Detect peak (inhalation)
-    if (volume > threshold && volume > detection.lastPeak + minPeakDiff) {
+    // Detect peak (inhalation) - look for significant increases
+    if (volume > threshold && volume > detection.lastPeak + minPeakDiff && !detection.isInhaling) {
+      console.log(`Peak detected: ${volume.toFixed(4)} (prev: ${detection.lastPeak.toFixed(4)})`);
       setBreathCycleDetection(prev => ({
         ...prev,
         lastPeak: volume,
@@ -145,10 +146,20 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       }));
     }
     
+    // Update peak if we're inhaling and find a higher value
+    if (detection.isInhaling && volume > detection.lastPeak) {
+      setBreathCycleDetection(prev => ({
+        ...prev,
+        lastPeak: volume
+      }));
+    }
+    
     // Detect trough (exhalation complete) and complete cycle
     if (volume < threshold && detection.isInhaling && 
-        detection.lastPeak > 0 && 
+        detection.lastPeak > threshold && 
         (currentTime - detection.lastCycleTime) > detection.minCycleTime) {
+      
+      console.log(`Breath cycle completed! Peak: ${detection.lastPeak.toFixed(4)}, Trough: ${volume.toFixed(4)}`);
       
       // Complete breath cycle detected (inhale -> exhale)
       setBreathCycleDetection(prev => ({
