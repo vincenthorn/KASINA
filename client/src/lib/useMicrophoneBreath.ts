@@ -46,6 +46,11 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const [devices, setDevices] = useState<AudioDevice[]>([]);
   const [selectedDeviceId, setSelectedDeviceId] = useState<string | null>(null);
 
+  // Calibration system state
+  const [isCalibrating, setIsCalibrating] = useState(false);
+  const [calibrationProgress, setCalibrationProgress] = useState(0);
+  const [calibrationComplete, setCalibrationComplete] = useState(false);
+
   // Refs for audio processing
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -57,6 +62,12 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const lastBreathTimeRef = useRef<number>(0);
   const breathIntervalsRef = useRef<number[]>([]);
   const requestAnimationFrameIdRef = useRef<number | null>(null);
+
+  // Calibration data storage
+  const calibrationDataRef = useRef<number[]>([]);
+  const calibrationMinRef = useRef<number>(Infinity);
+  const calibrationMaxRef = useRef<number>(-Infinity);
+  const calibrationStartTimeRef = useRef<number>(0);
 
   // Constants for breath detection
   const BREATH_THRESHOLD = 0.3; // Threshold to detect a breath (0-1)
@@ -77,13 +88,22 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     }
     const rms = Math.sqrt(sum / dataArray.length);
     
-    // Enhanced normalization with higher sensitivity for breath detection
-    // This makes the visualization much more responsive to subtle changes
-    const enhancedRms = Math.pow(rms * 4, 1.2);
+    // If we have calibration data, use it to normalize the volume
+    if (calibrationComplete && calibrationMinRef.current !== Infinity && calibrationMaxRef.current !== -Infinity) {
+      // Use the calibrated range to map the current volume
+      const calibratedRange = calibrationMaxRef.current - calibrationMinRef.current;
+      const normalizedVolume = calibratedRange > 0 
+        ? Math.max(0, Math.min(1, (rms - calibrationMinRef.current) / calibratedRange))
+        : 0;
+      
+      // Apply slight amplification for better visualization
+      return Math.min(Math.pow(normalizedVolume * 1.5, 0.8), 1);
+    }
     
-    // Normalize between 0 and 1 with increased range for better visualization
+    // Fallback to enhanced normalization if not calibrated
+    const enhancedRms = Math.pow(rms * 4, 1.2);
     return Math.min(enhancedRms, 1); 
-  }, []);
+  }, [calibrationComplete]);
 
   /**
    * Detect breaths and calculate breathing rate
@@ -336,6 +356,72 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     };
   }, []);
 
+  /**
+   * Start the calibration process
+   */
+  const startCalibration = useCallback(async (): Promise<void> => {
+    console.log('Starting breath calibration...');
+    setIsCalibrating(true);
+    setCalibrationProgress(0);
+    setCalibrationComplete(false);
+    
+    // Reset calibration data
+    calibrationDataRef.current = [];
+    calibrationMinRef.current = Infinity;
+    calibrationMaxRef.current = -Infinity;
+    calibrationStartTimeRef.current = Date.now();
+    
+    // Start listening if not already
+    if (!isListening) {
+      await startListening();
+    }
+    
+    // Run calibration for 20 seconds
+    const calibrationDuration = 20000; // 20 seconds
+    const updateInterval = 100; // Update progress every 100ms
+    
+    const progressTimer = setInterval(() => {
+      const elapsed = Date.now() - calibrationStartTimeRef.current;
+      const progress = Math.min(elapsed / calibrationDuration, 1);
+      setCalibrationProgress(progress);
+      
+      if (progress >= 1) {
+        clearInterval(progressTimer);
+        
+        // Finalize calibration
+        if (calibrationDataRef.current.length > 0) {
+          // Use percentiles to avoid outliers affecting the range
+          const sortedData = [...calibrationDataRef.current].sort((a, b) => a - b);
+          const p5Index = Math.floor(sortedData.length * 0.05);
+          const p95Index = Math.floor(sortedData.length * 0.95);
+          
+          calibrationMinRef.current = sortedData[p5Index] || 0;
+          calibrationMaxRef.current = sortedData[p95Index] || 0.1;
+          
+          console.log(`Calibration complete! Range: ${calibrationMinRef.current.toFixed(4)} - ${calibrationMaxRef.current.toFixed(4)}`);
+          console.log(`Processed ${calibrationDataRef.current.length} samples`);
+        }
+        
+        setIsCalibrating(false);
+        setCalibrationComplete(true);
+      }
+    }, updateInterval);
+  }, [isListening, startListening]);
+
+  /**
+   * Skip calibration and use default sensitivity
+   */
+  const skipCalibration = useCallback(() => {
+    console.log('Skipping calibration, using default sensitivity');
+    setIsCalibrating(false);
+    setCalibrationComplete(true);
+    setCalibrationProgress(1);
+    
+    // Set reasonable default values for uncalibrated mode
+    calibrationMinRef.current = 0;
+    calibrationMaxRef.current = 0.1;
+  }, []);
+
   return {
     isListening,
     breathAmplitude,
@@ -345,6 +431,12 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     error,
     devices,
     selectedDeviceId,
-    refreshDevices
+    refreshDevices,
+    // Calibration system
+    isCalibrating,
+    calibrationProgress,
+    startCalibration,
+    skipCalibration,
+    calibrationComplete
   };
 }
