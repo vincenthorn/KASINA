@@ -296,17 +296,24 @@ const MicBreathPage: React.FC = () => {
                   <Select
                     value={selectedDeviceId || ''}
                     onValueChange={handleDeviceChange}
+                    onOpenChange={(open) => console.log('Dropdown opened:', open)}
                   >
-                    <SelectTrigger className="w-[300px]">
+                    <SelectTrigger className="w-[300px]" onClick={() => console.log('Trigger clicked, devices:', devices.length)}>
                       <SelectValue placeholder="Select a microphone..." />
                     </SelectTrigger>
-                    <SelectContent>
-                      {devices.map((device) => (
-                        <SelectItem key={device.deviceId} value={device.deviceId}>
-                          {device.label || `Microphone ${device.deviceId.slice(0, 5)}...`}
-                          {device.isDefault && " (Default)"}
+                    <SelectContent className="z-50">
+                      {devices.length > 0 ? (
+                        devices.map((device) => (
+                          <SelectItem key={device.deviceId} value={device.deviceId}>
+                            {device.label || `Microphone ${device.deviceId.slice(0, 5)}...`}
+                            {device.isDefault && " (Default)"}
+                          </SelectItem>
+                        ))
+                      ) : (
+                        <SelectItem value="no-devices" disabled>
+                          No microphones found - click Refresh
                         </SelectItem>
-                      ))}
+                      )}
                     </SelectContent>
                   </Select>
                   <Button variant="outline" onClick={handleRefreshDevices}>
