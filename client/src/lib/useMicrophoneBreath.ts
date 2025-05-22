@@ -173,9 +173,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       recentSamples: newSamples
     }));
     
-    // Need at least 10 samples for peak detection
-    if (newSamples.length < 10) {
-      console.log(`❌ Not enough samples yet: ${newSamples.length}/10`);
+    // Need at least 3 samples for peak detection (reduced for faster response)
+    if (newSamples.length < 3) {
+      console.log(`❌ Not enough samples yet: ${newSamples.length}/3`);
       return false;
     }
     
