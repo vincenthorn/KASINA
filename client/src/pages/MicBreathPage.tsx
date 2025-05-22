@@ -121,11 +121,6 @@ const MicBreathPage: React.FC = () => {
               breathAmplitude={breathAmplitude}
               isListening={isListening}
             />
-            
-            {/* Breathing rate display */}
-            <div className="absolute bottom-10 text-white text-center">
-              <p>{breathingRate.toFixed(1)} breaths per minute</p>
-            </div>
           </div>
         </FocusMode>
       ) : isCalibrating && !calibrationComplete ? (
