@@ -50,7 +50,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     // Log the size for debugging
-    console.log(`Breath amplitude: ${breathAmplitude}, magnified: ${magnifiedAmplitude.toFixed(2)}, orb size: ${newSize}px, glow: ${newGlowIntensity}`);
+    console.log(`Breath amplitude: ${breathAmplitude}, clamped: ${clampedAmplitude.toFixed(2)}, orb size: ${newSize}px, glow: ${newGlowIntensity}`);
   }, [breathAmplitude, isListening]);
 
   return (
