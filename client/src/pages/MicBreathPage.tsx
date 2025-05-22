@@ -216,7 +216,7 @@ const MicBreathPage: React.FC = () => {
               </div>
               
               <Button 
-                onClick={() => setShowFocusMode(true)}
+                onClick={handleStartSession}
                 className="w-64 h-14 text-xl font-semibold bg-green-600 hover:bg-green-700"
               >
                 Start Breath Meditation
