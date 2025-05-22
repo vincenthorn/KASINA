@@ -634,8 +634,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
           envelopeRef.current += (normalizedAmplitude - envelopeRef.current) * releaseTime;
         }
         
-        // Less smoothing for better breath sync
-        const smoothedAmplitude = envelopeRef.current * 0.7; // Much more responsive
+        // Natural breathing range - prevent maxing out
+        const smoothedAmplitude = envelopeRef.current * 0.3; // Natural range for breathing
         
         setBreathAmplitude(smoothedAmplitude);
         detectBreath(smoothedAmplitude, Date.now());
