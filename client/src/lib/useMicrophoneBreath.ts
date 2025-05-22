@@ -638,8 +638,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         // This ensures we never exceed our size boundaries
         const clampedNormalized = Math.max(0, Math.min(1, normalizedAmplitude));
         
-        // Map 0-1 normalized range to 0.25-0.55 amplitude range (much smaller, more natural)
-        const smoothedAmplitude = 0.25 + (clampedNormalized * 0.3);
+        // Map 0-1 normalized range to 0.15-0.75 amplitude range (wider for more dramatic breathing)
+        const smoothedAmplitude = 0.15 + (clampedNormalized * 0.6);
         
         setBreathAmplitude(smoothedAmplitude);
         detectBreath(smoothedAmplitude, Date.now());
