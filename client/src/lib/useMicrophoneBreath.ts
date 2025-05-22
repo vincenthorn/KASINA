@@ -28,6 +28,8 @@ interface MicrophoneBreathHookResult {
   startCalibration: () => Promise<void>;
   skipCalibration: () => void;
   calibrationComplete: boolean;
+  calibrationPhase: 'deep' | 'settling';
+  deepBreathCount: number;
 }
 
 /**
@@ -234,7 +236,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Continue the loop
     requestAnimationFrameIdRef.current = requestAnimationFrame(processAudioData);
-  }, [calculateVolume, detectBreath, isCalibrating, calibrationPhase]);
+  }, [calculateVolume, detectBreath, isCalibrating, calibrationPhase, DEEP_BREATH_DURATION, TOTAL_CALIBRATION_DURATION]);
 
   /**
    * Get available audio input devices
@@ -418,16 +420,79 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   }, []);
 
   /**
-   * Start the calibration process
+   * Complete the two-phase calibration
+   */
+  const completeCalibration = useCallback(() => {
+    console.log('Completing two-phase calibration...');
+    
+    // Analyze deep breath data
+    let deepBreathMax = 0;
+    let deepBreathAvg = 0;
+    if (deepBreathDataRef.current.length > 0) {
+      deepBreathMax = Math.max(...deepBreathDataRef.current);
+      deepBreathAvg = deepBreathDataRef.current.reduce((sum, val) => sum + val, 0) / deepBreathDataRef.current.length;
+    }
+    
+    // Analyze settling breath data
+    let settlingBreathMax = 0;
+    let settlingBreathAvg = 0;
+    if (settlingBreathDataRef.current.length > 0) {
+      settlingBreathMax = Math.max(...settlingBreathDataRef.current);
+      settlingBreathAvg = settlingBreathDataRef.current.reduce((sum, val) => sum + val, 0) / settlingBreathDataRef.current.length;
+    }
+    
+    // Calculate dynamic sensitivity range
+    calibrationMinRef.current = Math.min(settlingBreathAvg * 0.5, 0.01); // Minimum threshold
+    calibrationMaxRef.current = Math.max(deepBreathMax, settlingBreathMax * 2); // Maximum range
+    
+    console.log(`Two-phase calibration complete!`);
+    console.log(`Deep breath - Max: ${deepBreathMax.toFixed(4)}, Avg: ${deepBreathAvg.toFixed(4)}`);
+    console.log(`Settling breath - Max: ${settlingBreathMax.toFixed(4)}, Avg: ${settlingBreathAvg.toFixed(4)}`);
+    console.log(`Sensitivity range: ${calibrationMinRef.current.toFixed(4)} - ${calibrationMaxRef.current.toFixed(4)}`);
+    
+    setIsCalibrating(false);
+    setCalibrationComplete(true);
+    setCalibrationProgress(1);
+  }, []);
+
+  /**
+   * Apply calibrated sensitivity to breath amplitude
+   */
+  const applyCalibratedSensitivity = useCallback((rawVolume: number): number => {
+    if (!calibrationComplete) {
+      return rawVolume; // Use raw volume if not calibrated
+    }
+    
+    const min = calibrationMinRef.current;
+    const max = calibrationMaxRef.current;
+    const range = max - min;
+    
+    if (range <= 0) {
+      return rawVolume; // Fallback to raw volume if invalid range
+    }
+    
+    // Normalize the volume based on calibrated range
+    const normalized = Math.max(0, Math.min(1, (rawVolume - min) / range));
+    
+    // Apply gentle amplification for better visual feedback
+    return Math.pow(normalized, 0.8); // Slight curve to enhance subtle movements
+  }, [calibrationComplete]);
+
+  /**
+   * Start the two-phase calibration process
    */
   const startCalibration = useCallback(async (): Promise<void> => {
-    console.log('Starting breath calibration...');
+    console.log('Starting two-phase breath calibration...');
     setIsCalibrating(true);
     setCalibrationProgress(0);
     setCalibrationComplete(false);
+    setCalibrationPhase('deep');
+    setDeepBreathCount(0);
     
     // Reset calibration data
     calibrationDataRef.current = [];
+    deepBreathDataRef.current = [];
+    settlingBreathDataRef.current = [];
     calibrationMinRef.current = Infinity;
     calibrationMaxRef.current = -Infinity;
     calibrationStartTimeRef.current = Date.now();
@@ -436,37 +501,6 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     if (!isListening) {
       await startListening();
     }
-    
-    // Run calibration for 20 seconds
-    const calibrationDuration = 20000; // 20 seconds
-    const updateInterval = 100; // Update progress every 100ms
-    
-    const progressTimer = setInterval(() => {
-      const elapsed = Date.now() - calibrationStartTimeRef.current;
-      const progress = Math.min(elapsed / calibrationDuration, 1);
-      setCalibrationProgress(progress);
-      
-      if (progress >= 1) {
-        clearInterval(progressTimer);
-        
-        // Finalize calibration
-        if (calibrationDataRef.current.length > 0) {
-          // Use percentiles to avoid outliers affecting the range
-          const sortedData = [...calibrationDataRef.current].sort((a, b) => a - b);
-          const p5Index = Math.floor(sortedData.length * 0.05);
-          const p95Index = Math.floor(sortedData.length * 0.95);
-          
-          calibrationMinRef.current = sortedData[p5Index] || 0;
-          calibrationMaxRef.current = sortedData[p95Index] || 0.1;
-          
-          console.log(`Calibration complete! Range: ${calibrationMinRef.current.toFixed(4)} - ${calibrationMaxRef.current.toFixed(4)}`);
-          console.log(`Processed ${calibrationDataRef.current.length} samples`);
-        }
-        
-        setIsCalibrating(false);
-        setCalibrationComplete(true);
-      }
-    }, updateInterval);
   }, [isListening, startListening]);
 
   /**
@@ -498,6 +532,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     calibrationProgress,
     startCalibration,
     skipCalibration,
-    calibrationComplete
+    calibrationComplete,
+    calibrationPhase,
+    deepBreathCount
   };
 }

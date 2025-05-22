@@ -36,7 +36,9 @@ const MicBreathPage: React.FC = () => {
     calibrationProgress,
     startCalibration,
     skipCalibration,
-    calibrationComplete
+    calibrationComplete,
+    calibrationPhase,
+    deepBreathCount
   } = useMicrophoneBreath();
   
   // Session logging
@@ -146,17 +148,39 @@ const MicBreathPage: React.FC = () => {
               </div>
               
               <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg mb-8">
-                <h2 className="text-xl font-semibold mb-4">Please breathe normally</h2>
-                <p className="mb-4">
-                  We're learning your unique breathing pattern to create the perfect
-                  visualization sensitivity just for you.
-                </p>
-                <ul className="text-left space-y-2">
-                  <li>• Breathe through your nose naturally</li>
-                  <li>• Don't try to breathe loudly or quietly</li>
-                  <li>• Stay close to your microphone</li>
-                  <li>• This will take about 20 seconds</li>
-                </ul>
+                {calibrationPhase === 'deep' ? (
+                  <>
+                    <h2 className="text-xl font-semibold mb-4">
+                      Phase 1: Take 3 Deep Breaths
+                    </h2>
+                    <p className="mb-4">
+                      Take <strong>{deepBreathCount}/3</strong> slow, deep breaths through your nose.
+                      This helps us understand your maximum breath volume.
+                    </p>
+                    <ul className="text-left space-y-2">
+                      <li>• Inhale deeply and slowly for 3 seconds</li>
+                      <li>• Exhale slowly and completely</li>
+                      <li>• Make each breath as full as comfortable</li>
+                      <li>• Stay close to your microphone</li>
+                    </ul>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="text-xl font-semibold mb-4">
+                      Phase 2: Let Your Breath Settle
+                    </h2>
+                    <p className="mb-4">
+                      Now breathe naturally and let your breath settle into its normal rhythm.
+                      This helps us calibrate for your quiet, natural breathing.
+                    </p>
+                    <ul className="text-left space-y-2">
+                      <li>• Breathe through your nose naturally</li>
+                      <li>• Don't try to breathe deeply anymore</li>
+                      <li>• Let your breathing become soft and quiet</li>
+                      <li>• We'll finish calibration automatically</li>
+                    </ul>
+                  </>
+                )}
               </div>
               
               {/* Live breath visualization during calibration */}
