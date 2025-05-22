@@ -169,61 +169,54 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       recentSamples: newSamples
     }));
     
-    // Need enough samples for pattern analysis
-    if (newSamples.length < detection.sampleWindow) {
+    // Need at least 10 samples for peak detection
+    if (newSamples.length < 10) {
       return false;
     }
     
-    // Use shorter windows for faster breath detection
-    const recentAvg = newSamples.slice(-5).reduce((sum, val) => sum + val, 0) / 5; // Last 5 samples
-    const earlierAvg = newSamples.slice(-15, -5).reduce((sum, val) => sum + val, 0) / 10; // 10 samples before that
-    const overallAvg = newSamples.reduce((sum, val) => sum + val, 0) / newSamples.length;
+    // Simple peak detection - look for local maxima and minima
+    const currentIndex = newSamples.length - 1;
+    const currentValue = newSamples[currentIndex];
+    const prevValue = newSamples[currentIndex - 1];
+    const prev2Value = newSamples[currentIndex - 2];
     
-    // Calculate absolute difference for more direct detection
-    const absoluteChange = Math.abs(recentAvg - earlierAvg);
-    const relativeChange = absoluteChange / Math.max(overallAvg, 0.001);
-    
-    // Look for breathing patterns: inhale (increasing trend) followed by exhale (decreasing trend)
-    const isIncreasing = recentAvg > earlierAvg;
-    const significantChange = absoluteChange > 0.001 || relativeChange > 0.1; // Lower threshold for more sensitivity
-    
-    // Debug logging every 10th sample to avoid spam
-    if (newSamples.length % 10 === 0) {
-      console.log(`Pattern analysis: recentAvg=${recentAvg.toFixed(4)}, earlierAvg=${earlierAvg.toFixed(4)}, absChange=${absoluteChange.toFixed(4)}, relChange=${relativeChange.toFixed(3)}, isIncreasing=${isIncreasing}, significantChange=${significantChange}, isInhaling=${detection.isInhaling}`);
+    // Debug logging every 20th sample
+    if (newSamples.length % 20 === 0) {
+      console.log(`Peak detection: current=${currentValue.toFixed(4)}, prev=${prevValue.toFixed(4)}, prev2=${prev2Value.toFixed(4)}, isInhaling=${detection.isInhaling}, lastPeak=${detection.lastPeak.toFixed(4)}`);
     }
     
-    // Detect start of inhale (upward trend with significant change)
-    if (isIncreasing && significantChange && !detection.isInhaling && 
-        (currentTime - detection.lastCycleTime) > detection.minCycleTime / 2) {
+    // Detect start of inhale - look for upward movement from low values
+    if (!detection.isInhaling && currentValue > prevValue && prevValue > prev2Value && 
+        currentValue > 0.006 && (currentTime - detection.lastCycleTime) > 1000) { // At least 1 second between cycles
       
-      console.log(`Inhale detected: recentAvg=${recentAvg.toFixed(4)}, earlierAvg=${earlierAvg.toFixed(4)}, relChange=${relativeChange.toFixed(3)}`);
+      console.log(`🔵 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
       
       setBreathCycleDetection(prev => ({
         ...prev,
-        lastPeak: recentAvg,
+        lastPeak: currentValue,
         isInhaling: true
       }));
     }
     
     // Update peak during inhale
-    if (detection.isInhaling && recentAvg > detection.lastPeak) {
+    if (detection.isInhaling && currentValue > detection.lastPeak) {
       setBreathCycleDetection(prev => ({
         ...prev,
-        lastPeak: recentAvg
+        lastPeak: currentValue
       }));
     }
     
-    // Detect exhale completion (downward trend after inhale peak)
-    if (!isIncreasing && detection.isInhaling && 
-        recentAvg < detection.lastPeak * 0.8 && // Exhaled to 80% of peak (made less strict)
-        (currentTime - detection.lastCycleTime) > 1500) { // Reduced minimum cycle time to 1.5 seconds
+    // Detect exhale completion - look for return to low values after peak
+    if (detection.isInhaling && currentValue < prevValue && prevValue < prev2Value && 
+        currentValue < detection.lastPeak * 0.7 && // Dropped to 70% of peak
+        detection.lastPeak > 0.008) { // Make sure we had a real peak
       
-      console.log(`Breath cycle completed! Peak: ${detection.lastPeak.toFixed(4)}, Current: ${recentAvg.toFixed(4)}, RelChange: ${relativeChange.toFixed(3)}`);
+      console.log(`🔴 BREATH CYCLE COMPLETED! Peak: ${detection.lastPeak.toFixed(4)}, End: ${currentValue.toFixed(4)}`);
       
       // Complete breath cycle detected
       setBreathCycleDetection(prev => ({
         ...prev,
-        lastTrough: recentAvg,
+        lastTrough: currentValue,
         isInhaling: false,
         lastCycleTime: currentTime,
         cycleCount: prev.cycleCount + 1
