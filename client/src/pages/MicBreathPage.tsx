@@ -23,6 +23,7 @@ const MicBreathPage: React.FC = () => {
   // Use the microphone breath hook for breath detection
   const {
     breathAmplitude,
+    breathPhase,
     breathingRate,
     isListening,
     startListening,
@@ -119,6 +120,7 @@ const MicBreathPage: React.FC = () => {
           <div className="w-full h-full flex flex-col items-center justify-center bg-black">
             <BreathKasinaOrb 
               breathAmplitude={breathAmplitude}
+              breathPhase={breathPhase}
               isListening={isListening}
             />
           </div>

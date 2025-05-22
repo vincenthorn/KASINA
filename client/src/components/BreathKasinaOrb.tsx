@@ -14,6 +14,7 @@ interface BreathKasinaOrbProps {
  */
 const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({ 
   breathAmplitude,
+  breathPhase,
   isListening
 }) => {
   const orbRef = useRef<HTMLDivElement>(null);
