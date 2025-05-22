@@ -667,6 +667,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
    */
   const startCalibration = useCallback(async (): Promise<void> => {
     console.log('🚀 STARTING TWO-PHASE BREATH CALIBRATION!');
+    console.log('📊 Current states - isListening:', isListening, 'isCalibrating:', isCalibrating);
+    
     setIsCalibrating(true);
     setCalibrationProgress(0);
     setCalibrationComplete(false);
@@ -693,11 +695,20 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     calibrationMaxRef.current = -Infinity;
     calibrationStartTimeRef.current = Date.now();
     
-    // Start listening if not already
-    if (!isListening) {
-      await startListening();
+    console.log('🔄 Reset all calibration data');
+    
+    // Force restart the listening to ensure clean calibration
+    if (isListening) {
+      console.log('⏹️ Stopping current listening session for clean restart...');
+      stopListening();
+      // Small delay to ensure cleanup
+      await new Promise(resolve => setTimeout(resolve, 200));
     }
-  }, [isListening, startListening]);
+    
+    console.log('🎤 Starting fresh listening session for calibration...');
+    await startListening();
+    console.log('✅ Calibration initialization complete! Should now detect breath cycles.');
+  }, [isListening, isCalibrating, startListening, stopListening]);
 
   /**
    * Skip calibration and use default sensitivity
