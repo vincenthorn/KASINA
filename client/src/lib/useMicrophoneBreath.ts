@@ -133,10 +133,10 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
    * Apply FFT-based bandpass filtering to focus on breathing frequencies (0.1-2 Hz)
    * This filters out background noise, air conditioning, and other interference
    */
-  const applyBreathingBandpassFilter = useCallback((frequencyData: Uint8Array): number => {
-    if (!audioContextRef.current) return 0;
+  const applyBreathingBandpassFilter = (frequencyData: Uint8Array, audioContext: AudioContext | null): number => {
+    if (!audioContext) return 0;
     
-    const sampleRate = audioContextRef.current.sampleRate;
+    const sampleRate = audioContext.sampleRate;
     const nyquist = sampleRate / 2;
     const binSize = nyquist / frequencyData.length;
     
@@ -168,8 +168,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     // Apply emphasis to breathing frequencies while reducing noise
     const filteredAmplitude = breathingRatio * (breathingEnergy / Math.max(maxBin - minBin, 1));
     
-    return Math.min(filteredAmplitude * 2, 1); // Scale and clamp to 0-1
-  }, []);
+    return Math.min(filteredAmplitude * 3, 1); // Scale and clamp to 0-1
+  };
 
   /**
    * Analyze breath cycle to determine inhale vs exhale phase
@@ -431,6 +431,11 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Combine filtered frequency data with time domain for optimal breath detection
     const volume = (filteredVolume * 0.7) + (baseVolume * 0.3);
+    
+    // Debug logging to see FFT filtering effectiveness
+    if (Math.random() < 0.05) { // Log 5% of samples to avoid spam
+      console.log(`🎵 FFT Filter: base=${baseVolume.toFixed(4)}, filtered=${filteredVolume.toFixed(4)}, final=${volume.toFixed(4)}`);
+    }
     
     // Handle calibration data collection
     if (isCalibrating) {
