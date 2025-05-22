@@ -193,20 +193,14 @@ const MicBreathPage: React.FC = () => {
                 )}
               </div>
               
-              {/* Live breath visualization during calibration */}
-              <div className="mb-8">
-                <BreathKasinaOrb 
-                  breathAmplitude={breathAmplitude}
-                  isListening={isListening}
-                />
+              <div className="mt-8">
+                <Button 
+                  onClick={startCalibration}
+                  className="w-64 h-14 text-xl font-semibold"
+                >
+                  Start Breath Detection
+                </Button>
               </div>
-              
-              <Button 
-                onClick={startCalibration}
-                className="w-48 h-12 text-lg"
-              >
-                Start Breath Detection
-              </Button>
             </div>
           </div>
         </Layout>
