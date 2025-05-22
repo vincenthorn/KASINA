@@ -13,7 +13,13 @@ const BreathPage: React.FC = () => {
   const { user, isAdmin } = useAuth();
   
   // Check if user has premium access
+  console.log("User data:", user);
+  console.log("Is admin:", isAdmin);
+  console.log("Email:", user?.email);
+  console.log("Subscription:", user?.subscription);
+  
   const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;
+  console.log("Has premium access:", hasPremiumAccess);
 
   return (
     <div className="container mx-auto py-8 px-4">
