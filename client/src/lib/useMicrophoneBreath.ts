@@ -593,17 +593,17 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     } else {
       // Meditation practice mode - use calibration profile for breath detection
       if (calibrationProfile && calibrationProfile.baselineMin !== undefined && calibrationProfile.baselineMax !== undefined) {
-        // Fast dynamic baseline - adapts during calibration and breathing
+        // Dynamic baseline with longer sample window for stability
         const baseline = dynamicBaselineRef.current;
         baseline.history.push(volume);
         
-        // Keep last 20 samples for fast adaptation (10-15 seconds)
-        if (baseline.history.length > 20) {
+        // Keep last 60 samples for stable adaptation (20-30 seconds)
+        if (baseline.history.length > 60) {
           baseline.history.shift();
         }
         
-        // Update baseline every 5 samples for quick responsiveness
-        if (baseline.history.length >= 5 && baseline.history.length % 5 === 0) {
+        // Update baseline every 10 samples for smooth responsiveness
+        if (baseline.history.length >= 10 && baseline.history.length % 10 === 0) {
           const sorted = [...baseline.history].sort((a, b) => a - b);
           baseline.min = sorted[Math.floor(sorted.length * 0.15)]; // 15th percentile
           baseline.max = sorted[Math.floor(sorted.length * 0.85)]; // 85th percentile
