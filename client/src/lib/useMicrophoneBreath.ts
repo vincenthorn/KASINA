@@ -680,10 +680,19 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       // We need to request permission first to get labeled devices
       let stream: MediaStream | null = null;
       try {
-        stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+        console.log('Requesting microphone permission for device enumeration...');
+        stream = await navigator.mediaDevices.getUserMedia({ 
+          audio: {
+            echoCancellation: false,
+            noiseSuppression: false,
+            autoGainControl: false
+          }, 
+          video: false 
+        });
+        console.log('Microphone permission granted');
       } catch (err) {
         console.error('Error getting initial media stream:', err);
-        throw new Error('Permission to access microphone was denied');
+        throw new Error('Permission to access microphone was denied. Please allow microphone access and try again.');
       }
       
       // Get all devices

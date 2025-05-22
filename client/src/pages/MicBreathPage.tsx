@@ -105,11 +105,18 @@ const MicBreathPage: React.FC = () => {
   // Handle refreshing device list
   const handleRefreshDevices = async () => {
     try {
-      await refreshDevices();
+      console.log('Refreshing microphone devices...');
+      const newDevices = await refreshDevices();
+      console.log('Found devices:', newDevices);
     } catch (error) {
       console.error('Failed to refresh devices:', error);
     }
   };
+
+  // Auto-refresh devices when page loads
+  useEffect(() => {
+    handleRefreshDevices();
+  }, []);
   
   return (
     <>
