@@ -22,6 +22,12 @@ interface MicrophoneBreathHookResult {
   devices: AudioDevice[];
   selectedDeviceId: string | null;
   refreshDevices: () => Promise<AudioDevice[]>;
+  // Calibration system
+  isCalibrating: boolean;
+  calibrationProgress: number; // 0-1 progress through calibration
+  startCalibration: () => Promise<void>;
+  skipCalibration: () => void;
+  calibrationComplete: boolean;
 }
 
 /**
