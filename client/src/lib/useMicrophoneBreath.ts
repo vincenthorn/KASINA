@@ -80,6 +80,19 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   // Calibration data storage
   const calibrationDataRef = useRef<number[]>([]);
   const deepBreathDataRef = useRef<number[]>([]);
+  
+  // Calibration profile - stores user's personal breathing baseline
+  const [calibrationProfile, setCalibrationProfile] = useState<{
+    baselineMin: number;
+    baselineMax: number;
+    averageAmplitude: number;
+    breathingPattern: {
+      inhaleThreshold: number;
+      exhaleThreshold: number;
+      cycleDetectionSensitivity: number;
+    };
+    isValid: boolean;
+  } | null>(null);
   const settlingBreathDataRef = useRef<number[]>([]);
   const calibrationMinRef = useRef<number>(Infinity);
   const calibrationMaxRef = useRef<number>(-Infinity);
@@ -129,6 +142,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   /**
    * Detect complete breath cycles (inhale + exhale) during calibration
    */
+
   const detectBreathCycle = useCallback((volume: number, currentTime: number): boolean => {
     if (!isCalibrating || calibrationPhase !== 'deep') return false;
     
@@ -349,22 +363,42 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         console.log(`Settling breath - Max: ${settlingBreathMax.toFixed(4)}, Avg: ${settlingBreathAvg.toFixed(4)}`);
         console.log(`Sensitivity range: ${calibrationMinRef.current.toFixed(4)} - ${calibrationMaxRef.current.toFixed(4)}`);
         
+        // Create calibration profile for meditation use
+        const profile = {
+          baselineMin: calibrationMinRef.current,
+          baselineMax: calibrationMaxRef.current,
+          averageAmplitude: (deepBreathAvg + settlingBreathAvg) / 2,
+          breathingPattern: {
+            inhaleThreshold: settlingBreathAvg + (deepBreathMax - settlingBreathAvg) * 0.3, // 30% above settling average
+            exhaleThreshold: settlingBreathAvg * 0.8, // 80% of settling average  
+            cycleDetectionSensitivity: Math.max(0.15, (deepBreathMax - settlingBreathAvg) / settlingBreathAvg * 0.5) // Adaptive sensitivity
+          },
+          isValid: true
+        };
+        
+        setCalibrationProfile(profile);
+        console.log('Calibration profile created:', profile);
+        
         setIsCalibrating(false);
         setCalibrationComplete(true);
         setCalibrationProgress(1);
       }
     } else {
-      // Normal operation with calibrated sensitivity
-      const adjustedAmplitude = applyCalibratedSensitivity(volume);
-      setBreathAmplitude(adjustedAmplitude);
-      
-      // Detect breaths and update breathing rate
-      detectBreath(adjustedAmplitude, Date.now());
+      // Meditation practice mode - use calibration profile for breath detection
+      if (calibrationProfile && calibrationProfile.isValid) {
+        const meditationBreathDetection = detectMeditationBreath(volume, Date.now());
+        setBreathAmplitude(meditationBreathDetection.normalizedAmplitude);
+      } else {
+        // Fallback to basic calibrated sensitivity if no profile
+        const adjustedAmplitude = applyCalibratedSensitivity(volume);
+        setBreathAmplitude(adjustedAmplitude);
+        detectBreath(adjustedAmplitude, Date.now());
+      }
     }
     
     // Continue the loop
     requestAnimationFrameIdRef.current = requestAnimationFrame(processAudioData);
-  }, [calculateVolume, detectBreath, detectBreathCycle, isCalibrating, calibrationPhase, breathCycleDetection]);
+  }, [calculateVolume, detectBreath, detectBreathCycle, detectMeditationBreath, isCalibrating, calibrationPhase, breathCycleDetection, calibrationProfile]);
 
   /**
    * Get available audio input devices
