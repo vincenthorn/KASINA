@@ -189,7 +189,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     const baseline = Math.min(...newSamples.slice(-15)); // Minimum of recent 15 samples
     const maxRecent = Math.max(...newSamples.slice(-15)); // Maximum of recent 15 samples
     const dynamicRange = maxRecent - baseline;
-    const breathThreshold = baseline + (dynamicRange * 0.3); // 30% above baseline
+    const breathThreshold = baseline + (dynamicRange * 0.6); // 60% above baseline (less sensitive)
     
     // Simple peak detection - look for local maxima and minima
     const currentIndex = newSamples.length - 1;
@@ -204,7 +204,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Detect start of inhale - look for crossing above threshold (more flexible)
     if (!isInhalingRef.current && currentValue > breathThreshold && 
-        prevValue <= breathThreshold && (currentTime - breathCycleDetection.lastCycleTime) > 1000) { // At least 1 second between cycles
+        prevValue <= breathThreshold && currentValue > 0.015 && // Minimum amplitude to avoid noise
+        (currentTime - breathCycleDetection.lastCycleTime) > 1000) { // At least 1 second between cycles
       
       console.log(`🟢 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
       
