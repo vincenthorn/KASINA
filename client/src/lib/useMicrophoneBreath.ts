@@ -634,8 +634,16 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
           envelopeRef.current += (normalizedAmplitude - envelopeRef.current) * releaseTime;
         }
         
-        // Simple volume-based amplitude with much lower scaling to prevent maxing out
-        const smoothedAmplitude = Math.min(envelopeRef.current * 0.15, 0.6); // Much lower scaling
+        // Use the normalized amplitude directly for natural breathing
+        // This gives us a 0-1 range based on your personal breathing baseline
+        const breathRange = baseline.max - baseline.min;
+        const centerPoint = baseline.min + (breathRange * 0.5);
+        
+        // Calculate how far from center (0 = at center, +1 = max inhale, -1 = max exhale)
+        const breathPosition = breathRange > 0 ? (volume - centerPoint) / (breathRange * 0.5) : 0;
+        
+        // Convert to orb size (0.2 = small, 0.6 = large)
+        const smoothedAmplitude = Math.max(0.2, Math.min(0.6, 0.4 + (breathPosition * 0.2)));
         
         setBreathAmplitude(smoothedAmplitude);
         detectBreath(smoothedAmplitude, Date.now());
