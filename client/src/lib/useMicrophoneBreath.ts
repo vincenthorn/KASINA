@@ -140,10 +140,10 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     const nyquist = sampleRate / 2;
     const binSize = nyquist / frequencyData.length;
     
-    // Define breathing frequency range (0.067-1 Hz = 4-60 breaths per minute)
-    // Optimized for meditation breathing patterns
-    const minBreathFreq = 0.067; // Hz (4 breaths per minute - deep meditation)
-    const maxBreathFreq = 1.0;   // Hz (60 breaths per minute - realistic max)
+    // Define breathing frequency range - expand to capture actual breathing sounds
+    // Breathing audio includes harmonics and turbulence beyond just the cycle frequency
+    const minBreathFreq = 0.05;  // Hz (3 breaths per minute - very deep meditation)
+    const maxBreathFreq = 8.0;   // Hz (include breathing sound harmonics up to ~500 Hz)
     
     // Convert frequencies to bin indices
     const minBin = Math.floor(minBreathFreq / binSize);
@@ -431,7 +431,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     const baseVolume = calculateVolume(dataArrayRef.current);
     
     // Combine filtered frequency data with time domain for optimal breath detection
-    const volume = (filteredVolume * 0.7) + (baseVolume * 0.3);
+    // Reduce FFT weight to be less aggressive and preserve more natural breathing sounds
+    const volume = (filteredVolume * 0.4) + (baseVolume * 0.6);
     
     // Debug logging to see FFT filtering effectiveness
     if (Math.random() < 0.05) { // Log 5% of samples to avoid spam
