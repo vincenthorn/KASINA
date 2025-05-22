@@ -95,6 +95,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const lastPeakRef = useRef<number>(0);
   const lastBreathAmplitudeRef = useRef<number | null>(null);
   const envelopeRef = useRef<number>(0); // For amplitude envelope following
+  const breathAmplitudeRef = useRef<number>(0.4); // For smooth amplitude tracking
   const dynamicBaselineRef = useRef<{min: number, max: number, history: number[]}>({
     min: 0, max: 0.02, history: []
   }); // Dynamic baseline that adapts to real breathing
@@ -634,13 +635,18 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
           envelopeRef.current += (normalizedAmplitude - envelopeRef.current) * releaseTime;
         }
         
-        // Ultra-simple approach: use the 0-1 normalized amplitude with strict limits
-        // This ensures we never exceed our size boundaries
+        // Smooth breathing approach: reduce jittery movements
         const clampedNormalized = Math.max(0, Math.min(1, normalizedAmplitude));
         
-        // Map 0-1 normalized range to 0.15-0.75 amplitude range (wider for more dramatic breathing)
-        const smoothedAmplitude = 0.15 + (clampedNormalized * 0.6);
+        // Apply heavy smoothing to reduce noise and create fluid motion
+        const targetAmplitude = 0.15 + (clampedNormalized * 0.6);
         
+        // Use exponential moving average for very smooth transitions
+        const smoothingFactor = 0.15; // Lower = smoother (0.1-0.3 range)
+        const currentAmplitude = breathAmplitudeRef.current || 0.4; // Default middle value
+        const smoothedAmplitude = currentAmplitude + smoothingFactor * (targetAmplitude - currentAmplitude);
+        
+        breathAmplitudeRef.current = smoothedAmplitude;
         setBreathAmplitude(smoothedAmplitude);
         detectBreath(smoothedAmplitude, Date.now());
         
