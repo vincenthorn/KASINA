@@ -29,10 +29,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const maxSize = 500;
     const sizeRange = maxSize - minSize;
     
-    // Apply stronger magnification factor to make changes more dramatic
-    // Higher exponent (0.5) makes small breaths more visible
-    // Higher multiplier (2.0) increases the overall effect
-    const magnifiedAmplitude = Math.pow(breathAmplitude, 0.5) * 2.0; 
+    // Apply much stronger magnification factor to make changes very dramatic
+    // Higher exponent (0.3) makes even tiny breaths visible
+    // Much higher multiplier (8.0) creates big, obvious changes
+    const magnifiedAmplitude = Math.pow(breathAmplitude, 0.3) * 8.0; 
     const clampedAmplitude = Math.min(1, magnifiedAmplitude);
     const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
