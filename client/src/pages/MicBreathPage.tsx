@@ -30,7 +30,13 @@ const MicBreathPage: React.FC = () => {
     devices,
     selectedDeviceId,
     refreshDevices,
-    error
+    error,
+    // Calibration system
+    isCalibrating,
+    calibrationProgress,
+    startCalibration,
+    skipCalibration,
+    calibrationComplete
   } = useMicrophoneBreath();
   
   // Session logging
@@ -46,8 +52,17 @@ const MicBreathPage: React.FC = () => {
   // Handle starting focus mode and breath detection
   const handleStartSession = async () => {
     try {
-      await startListening();
-      setShowFocusMode(true);
+      // If not calibrated yet, start calibration first
+      if (!calibrationComplete && !isCalibrating) {
+        await startCalibration();
+        return;
+      }
+      
+      // If calibration is complete, start the session
+      if (calibrationComplete) {
+        await startListening();
+        setShowFocusMode(true);
+      }
     } catch (error) {
       console.error('Failed to start microphone:', error);
     }
@@ -111,6 +126,57 @@ const MicBreathPage: React.FC = () => {
             </div>
           </div>
         </FocusMode>
+      ) : isCalibrating ? (
+        // Calibration Screen
+        <Layout>
+          <div className="container mx-auto py-8 px-4">
+            <div className="max-w-2xl mx-auto text-center">
+              <h1 className="text-3xl font-bold mb-6">Calibrating Your Breath</h1>
+              
+              <div className="mb-8">
+                <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+                  <div 
+                    className="bg-blue-500 h-3 rounded-full transition-all duration-300"
+                    style={{ width: `${calibrationProgress * 100}%` }}
+                  ></div>
+                </div>
+                <p className="text-lg mb-4">
+                  {Math.round(calibrationProgress * 100)}% complete
+                </p>
+              </div>
+              
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg mb-8">
+                <h2 className="text-xl font-semibold mb-4">Please breathe normally</h2>
+                <p className="mb-4">
+                  We're learning your unique breathing pattern to create the perfect
+                  visualization sensitivity just for you.
+                </p>
+                <ul className="text-left space-y-2">
+                  <li>• Breathe through your nose naturally</li>
+                  <li>• Don't try to breathe loudly or quietly</li>
+                  <li>• Stay close to your microphone</li>
+                  <li>• This will take about 20 seconds</li>
+                </ul>
+              </div>
+              
+              {/* Live breath visualization during calibration */}
+              <div className="mb-8">
+                <BreathKasinaOrb 
+                  breathAmplitude={breathAmplitude}
+                  isListening={isListening}
+                />
+              </div>
+              
+              <Button 
+                variant="outline" 
+                onClick={skipCalibration}
+                className="mr-4"
+              >
+                Skip Calibration
+              </Button>
+            </div>
+          </div>
+        </Layout>
       ) : (
         <Layout>
           <div className="container mx-auto py-8 px-4">
@@ -126,11 +192,17 @@ const MicBreathPage: React.FC = () => {
                 <h2 className="font-bold mb-2">How it works:</h2>
                 <ol className="list-decimal list-inside space-y-2">
                   <li>Select your preferred microphone from the dropdown</li>
-                  <li>Position yourself so the microphone can detect your breath</li>
-                  <li>Click "Start Meditation" to begin</li>
-                  <li>Breathe normally and watch the visualization respond</li>
+                  <li>Click "Start Meditation" to begin breath calibration</li>
+                  <li>Follow the 20-second calibration to learn your breathing pattern</li>
+                  <li>Once calibrated, breathe normally and watch the orb respond</li>
                   <li>The orb will expand as you inhale and contract as you exhale</li>
                 </ol>
+                
+                <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-md">
+                  <p className="text-sm font-medium text-blue-800 dark:text-blue-200">
+                    ✨ Smart Calibration: The system automatically adjusts sensitivity for your microphone and breathing style
+                  </p>
+                </div>
               </div>
               
               {error && (
