@@ -129,6 +129,56 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const MIN_BREATH_INTERVAL_MS = 1500; // Minimum time between breaths (ms)
 
   /**
+   * Analyze breath cycle to determine inhale vs exhale phase
+   */
+  const analyzeBreathCycle = useCallback((volume: number): 'inhale' | 'exhale' | 'pause' => {
+    const currentTime = Date.now();
+    
+    // Add volume to history (keep last 10 samples for trend analysis)
+    volumeHistoryRef.current.push(volume);
+    if (volumeHistoryRef.current.length > 10) {
+      volumeHistoryRef.current.shift();
+    }
+    
+    // Need at least 5 samples to determine trend
+    if (volumeHistoryRef.current.length < 5) {
+      return 'pause';
+    }
+    
+    const history = volumeHistoryRef.current;
+    const recent = history.slice(-3); // Last 3 samples
+    const earlier = history.slice(-6, -3); // 3 samples before that
+    
+    // Calculate trends
+    const recentAvg = recent.reduce((sum, val) => sum + val, 0) / recent.length;
+    const earlierAvg = earlier.length > 0 ? earlier.reduce((sum, val) => sum + val, 0) / earlier.length : recentAvg;
+    const trend = recentAvg - earlierAvg;
+    
+    // Determine breathing phase based on volume trend
+    const trendThreshold = 0.001; // Sensitivity for detecting volume changes
+    
+    if (trend > trendThreshold) {
+      // Volume increasing = inhaling
+      breathCycleStateRef.current = 'inhale';
+      breathCycleTimerRef.current = currentTime;
+      return 'inhale';
+    } else if (trend < -trendThreshold) {
+      // Volume decreasing = exhaling  
+      breathCycleStateRef.current = 'exhale';
+      breathCycleTimerRef.current = currentTime;
+      return 'exhale';
+    } else {
+      // No significant change - pause between breaths
+      // Keep previous state if it was recent, otherwise pause
+      if (currentTime - breathCycleTimerRef.current < 1000) {
+        return breathCycleStateRef.current;
+      } else {
+        return 'pause';
+      }
+    }
+  }, []);
+
+  /**
    * Calculate the volume level from audio data with enhanced sensitivity
    */
   const calculateVolume = useCallback((dataArray: Uint8Array): number => {
@@ -498,6 +548,15 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         
         console.log(`🧘 Fallback mode: volume=${volume.toFixed(4)}, amplitude=${adjustedAmplitude.toFixed(4)}`);
       }
+      
+      // Analyze breath cycle to determine inhale vs exhale phase
+      const currentPhase = analyzeBreathCycle(volume);
+      setBreathPhase(currentPhase);
+      
+      // Debug logging for breath cycle detection
+      if (Date.now() % 500 < 50) { // Log roughly every half second
+        console.log(`🫁 Breath cycle: phase=${currentPhase}, volume=${volume.toFixed(4)}`);
+      }
     }
     
     // Continue the loop
@@ -810,6 +869,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     isListening,
     breathAmplitude,
     breathingRate,
+    breathPhase,
     startListening,
     stopListening,
     error,

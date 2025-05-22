@@ -4,6 +4,7 @@ import '../styles/breath-kasina.css';
 
 interface BreathKasinaOrbProps {
   breathAmplitude: number;
+  breathPhase: 'inhale' | 'exhale' | 'pause';
   isListening: boolean;
 }
 
