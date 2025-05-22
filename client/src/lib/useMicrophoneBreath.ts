@@ -174,6 +174,12 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       return false;
     }
     
+    // Calculate adaptive baseline from recent samples
+    const baseline = Math.min(...newSamples.slice(-15)); // Minimum of recent 15 samples
+    const maxRecent = Math.max(...newSamples.slice(-15)); // Maximum of recent 15 samples
+    const dynamicRange = maxRecent - baseline;
+    const breathThreshold = baseline + (dynamicRange * 0.3); // 30% above baseline
+    
     // Simple peak detection - look for local maxima and minima
     const currentIndex = newSamples.length - 1;
     const currentValue = newSamples[currentIndex];
@@ -182,12 +188,12 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Debug logging every 20th sample
     if (newSamples.length % 20 === 0) {
-      console.log(`Peak detection: current=${currentValue.toFixed(4)}, prev=${prevValue.toFixed(4)}, prev2=${prev2Value.toFixed(4)}, isInhaling=${detection.isInhaling}, lastPeak=${detection.lastPeak.toFixed(4)}`);
+      console.log(`Peak detection: current=${currentValue.toFixed(4)}, baseline=${baseline.toFixed(4)}, threshold=${breathThreshold.toFixed(4)}, isInhaling=${detection.isInhaling}`);
     }
     
-    // Detect start of inhale - look for upward movement from low values
+    // Detect start of inhale - look for upward movement above adaptive threshold
     if (!detection.isInhaling && currentValue > prevValue && prevValue > prev2Value && 
-        currentValue > 0.006 && (currentTime - detection.lastCycleTime) > 1000) { // At least 1 second between cycles
+        currentValue > breathThreshold && (currentTime - detection.lastCycleTime) > 1000) { // At least 1 second between cycles
       
       console.log(`🔵 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
       
@@ -206,10 +212,10 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       }));
     }
     
-    // Detect exhale completion - look for return to low values after peak
+    // Detect exhale completion - look for return to baseline after peak
     if (detection.isInhaling && currentValue < prevValue && prevValue < prev2Value && 
         currentValue < detection.lastPeak * 0.7 && // Dropped to 70% of peak
-        detection.lastPeak > 0.008) { // Make sure we had a real peak
+        detection.lastPeak > baseline + (dynamicRange * 0.5)) { // Make sure we had a real peak (50% above baseline)
       
       console.log(`🔴 BREATH CYCLE COMPLETED! Peak: ${detection.lastPeak.toFixed(4)}, End: ${currentValue.toFixed(4)}`);
       
