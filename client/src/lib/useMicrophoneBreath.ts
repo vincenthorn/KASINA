@@ -622,21 +622,20 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
           (volume - baseline.min) / Math.max(0.001, baseline.max - baseline.min)
         ));
         
-        // Amplitude Envelope Following for smooth breath tracking
-        // This tracks the smooth envelope of your breathing rather than instant peaks
-        const attackTime = 0.05;  // Fast attack for inhales (50ms)
-        const releaseTime = 0.15; // Slower release for exhales (150ms)
+        // Much more responsive amplitude tracking - direct breath sync
+        const attackTime = 0.3;   // Faster attack for inhales 
+        const releaseTime = 0.4;  // Faster release for exhales
         
         if (normalizedAmplitude > envelopeRef.current) {
-          // Rising (inhale) - use fast attack
+          // Rising (inhale) - much more responsive
           envelopeRef.current += (normalizedAmplitude - envelopeRef.current) * attackTime;
         } else {
-          // Falling (exhale) - use slower release
+          // Falling (exhale) - much more responsive  
           envelopeRef.current += (normalizedAmplitude - envelopeRef.current) * releaseTime;
         }
         
-        // Apply gentle smoothing for meditation
-        const smoothedAmplitude = envelopeRef.current * 0.4; // More responsive than before
+        // Less smoothing for better breath sync
+        const smoothedAmplitude = envelopeRef.current * 0.7; // Much more responsive
         
         setBreathAmplitude(smoothedAmplitude);
         detectBreath(smoothedAmplitude, Date.now());
