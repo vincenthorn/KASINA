@@ -477,11 +477,18 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         ));
         setBreathAmplitude(normalizedAmplitude);
         detectBreath(normalizedAmplitude, Date.now());
+        
+        // Debug logging during meditation
+        if (Date.now() % 1000 < 100) { // Log roughly every second
+          console.log(`🧘 Meditation: volume=${volume.toFixed(4)}, normalized=${normalizedAmplitude.toFixed(4)}, baseline=${baselineMin.toFixed(4)}-${baselineMax.toFixed(4)}`);
+        }
       } else {
         // Fallback to basic calibrated sensitivity if no profile
         const adjustedAmplitude = applyCalibratedSensitivity(volume);
         setBreathAmplitude(adjustedAmplitude);
         detectBreath(adjustedAmplitude, Date.now());
+        
+        console.log(`🧘 Fallback mode: volume=${volume.toFixed(4)}, amplitude=${adjustedAmplitude.toFixed(4)}`);
       }
     }
     
