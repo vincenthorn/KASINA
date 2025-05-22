@@ -130,6 +130,48 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const MIN_BREATH_INTERVAL_MS = 1500; // Minimum time between breaths (ms)
 
   /**
+   * Apply FFT-based bandpass filtering to focus on breathing frequencies (0.1-2 Hz)
+   * This filters out background noise, air conditioning, and other interference
+   */
+  const applyBreathingBandpassFilter = useCallback((frequencyData: Uint8Array): number => {
+    if (!audioContextRef.current) return 0;
+    
+    const sampleRate = audioContextRef.current.sampleRate;
+    const nyquist = sampleRate / 2;
+    const binSize = nyquist / frequencyData.length;
+    
+    // Define breathing frequency range (0.1-2 Hz = 6-120 breaths per minute)
+    const minBreathFreq = 0.1; // Hz
+    const maxBreathFreq = 2.0;  // Hz
+    
+    // Convert frequencies to bin indices
+    const minBin = Math.floor(minBreathFreq / binSize);
+    const maxBin = Math.ceil(maxBreathFreq / binSize);
+    
+    // Sum energy in breathing frequency range
+    let breathingEnergy = 0;
+    let totalEnergy = 0;
+    
+    for (let i = 0; i < frequencyData.length; i++) {
+      const energy = frequencyData[i] / 255; // Normalize to 0-1
+      totalEnergy += energy;
+      
+      // Only count energy in breathing frequency range
+      if (i >= minBin && i <= maxBin) {
+        breathingEnergy += energy;
+      }
+    }
+    
+    // Calculate breathing signal strength (ratio of breathing energy to total energy)
+    const breathingRatio = totalEnergy > 0 ? breathingEnergy / totalEnergy : 0;
+    
+    // Apply emphasis to breathing frequencies while reducing noise
+    const filteredAmplitude = breathingRatio * (breathingEnergy / Math.max(maxBin - minBin, 1));
+    
+    return Math.min(filteredAmplitude * 2, 1); // Scale and clamp to 0-1
+  }, []);
+
+  /**
    * Analyze breath cycle to determine inhale vs exhale phase
    */
   const analyzeBreathCycle = useCallback((volume: number): 'inhale' | 'exhale' | 'pause' => {
@@ -374,11 +416,21 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const processAudioData = useCallback(() => {
     if (!analyserRef.current || !dataArrayRef.current) return;
 
-    // Get audio data
+    // Get time domain data for RMS calculation
     analyserRef.current.getByteTimeDomainData(dataArrayRef.current);
     
-    // Calculate volume/amplitude
-    const volume = calculateVolume(dataArrayRef.current);
+    // Get frequency domain data for FFT analysis
+    const frequencyData = new Uint8Array(analyserRef.current.frequencyBinCount);
+    analyserRef.current.getByteFrequencyData(frequencyData);
+    
+    // Apply FFT + Bandpass Filtering for breathing frequencies
+    const filteredVolume = applyBreathingBandpassFilter(frequencyData, audioContextRef.current);
+    
+    // Calculate base volume/amplitude
+    const baseVolume = calculateVolume(dataArrayRef.current);
+    
+    // Combine filtered frequency data with time domain for optimal breath detection
+    const volume = (filteredVolume * 0.7) + (baseVolume * 0.3);
     
     // Handle calibration data collection
     if (isCalibrating) {
