@@ -93,6 +93,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const requestAnimationFrameIdRef = useRef<number | null>(null);
   const isInhalingRef = useRef<boolean>(false);
   const lastPeakRef = useRef<number>(0);
+  const lastBreathAmplitudeRef = useRef<number | null>(null);
   
   // Breath cycle detection refs
   const volumeHistoryRef = useRef<number[]>([]);
