@@ -241,7 +241,7 @@ const MicBreathPage: React.FC = () => {
                 <h2 className="font-bold text-lg mb-3 text-gray-900 dark:text-white">How it works:</h2>
                 <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300">
                   <li className="pl-2">Select your preferred microphone from the dropdown</li>
-                  <li className="pl-2">Click "Start Meditation" to begin breath calibration</li>
+                  <li className="pl-2">Click "Start Calibration" to begin breath calibration</li>
                   <li className="pl-2">Follow the 20-second calibration to learn your breathing pattern</li>
                   <li className="pl-2">Once calibrated, breathe normally and watch the orb respond</li>
                   <li className="pl-2">The orb will expand as you inhale and contract as you exhale</li>
@@ -304,7 +304,7 @@ const MicBreathPage: React.FC = () => {
                 disabled={isListening}
                 className="w-full md:w-auto"
               >
-                Start Meditation
+                Start Calibration
               </Button>
               <Button 
                 variant="outline" 
