@@ -162,16 +162,18 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       return false;
     }
     
-    const detection = breathCycleDetection;
+    // Use a ref to maintain sample history instead of state (to avoid async issues)
+    if (!breathSamplesRef.current) {
+      breathSamplesRef.current = [];
+    }
     
-    // Add current sample to the sliding window
-    const newSamples = [...detection.recentSamples, volume].slice(-detection.sampleWindow);
+    // Add current sample to the sliding window using ref
+    breathSamplesRef.current.push(volume);
+    if (breathSamplesRef.current.length > 20) {
+      breathSamplesRef.current = breathSamplesRef.current.slice(-20);
+    }
     
-    // Update the recent samples
-    setBreathCycleDetection(prev => ({
-      ...prev,
-      recentSamples: newSamples
-    }));
+    const newSamples = breathSamplesRef.current;
     
     // Need at least 3 samples for peak detection (reduced for faster response)
     if (newSamples.length < 3) {
