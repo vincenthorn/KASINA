@@ -191,9 +191,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       console.log(`Peak detection: current=${currentValue.toFixed(4)}, baseline=${baseline.toFixed(4)}, threshold=${breathThreshold.toFixed(4)}, isInhaling=${detection.isInhaling}`);
     }
     
-    // Detect start of inhale - look for upward movement above adaptive threshold
-    if (!detection.isInhaling && currentValue > prevValue && prevValue > prev2Value && 
-        currentValue > breathThreshold && (currentTime - detection.lastCycleTime) > 1000) { // At least 1 second between cycles
+    // Detect start of inhale - look for crossing above threshold (more flexible)
+    if (!detection.isInhaling && currentValue > breathThreshold && 
+        prevValue <= breathThreshold && (currentTime - detection.lastCycleTime) > 1000) { // At least 1 second between cycles
       
       console.log(`🟢 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
       
@@ -212,10 +212,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       }));
     }
     
-    // Detect exhale completion - look for return to baseline after peak
-    if (detection.isInhaling && currentValue < prevValue && prevValue < prev2Value && 
-        currentValue < detection.lastPeak * 0.7 && // Dropped to 70% of peak
-        detection.lastPeak > baseline + (dynamicRange * 0.5)) { // Make sure we had a real peak (50% above baseline)
+    // Detect exhale completion - look for crossing back below threshold
+    if (detection.isInhaling && currentValue <= breathThreshold && 
+        prevValue > breathThreshold && detection.lastPeak > baseline + (dynamicRange * 0.4)) { // Make sure we had a real peak (40% above baseline)
       
       console.log(`🔴 BREATH CYCLE COMPLETED! Peak: ${detection.lastPeak.toFixed(4)}, End: ${currentValue.toFixed(4)}`);
       
