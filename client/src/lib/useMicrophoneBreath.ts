@@ -666,7 +666,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
    * Start the two-phase calibration process
    */
   const startCalibration = useCallback(async (): Promise<void> => {
-    console.log('Starting two-phase breath calibration...');
+    console.log('🚀 STARTING TWO-PHASE BREATH CALIBRATION!');
     setIsCalibrating(true);
     setCalibrationProgress(0);
     setCalibrationComplete(false);
