@@ -326,7 +326,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       const currentTime = Date.now();
       const elapsedTime = currentTime - calibrationStartTimeRef.current;
       
-      console.log(`🎯 Calibration: ${elapsedTime}ms / ${TOTAL_CALIBRATION_DURATION}ms, phase: ${calibrationPhase}, volume: ${volume.toFixed(4)}`);
+      console.log(`🎯 Calibration: ${elapsedTime}ms / 10000ms, phase: ${calibrationPhase}, volume: ${volume.toFixed(4)}`);
       
       // Store calibration data based on phase
       if (calibrationPhase === 'baseline') {
@@ -393,8 +393,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       // Update calibration progress based on phase
       let progress;
       if (calibrationPhase === 'baseline') {
-        // Progress during baseline phase (0% to 25% based on time)
-        progress = Math.min(0.25, elapsedTime / 5000 * 0.25);
+        // Progress during baseline phase (0% to 100% based on time)
+        progress = Math.min(1.0, elapsedTime / 10000);
       } else if (calibrationPhase === 'deep') {
         // Progress during deep breath phase (25% to 65% based on breath cycles)
         progress = 0.25 + (deepBreathCount / 3) * 0.4;
