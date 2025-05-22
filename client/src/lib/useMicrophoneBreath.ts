@@ -50,6 +50,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const [isCalibrating, setIsCalibrating] = useState(false);
   const [calibrationProgress, setCalibrationProgress] = useState(0);
   const [calibrationComplete, setCalibrationComplete] = useState(false);
+  const [calibrationPhase, setCalibrationPhase] = useState<'deep' | 'settling'>('deep');
+  const [deepBreathCount, setDeepBreathCount] = useState(0);
 
   // Refs for audio processing
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -65,9 +67,16 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
 
   // Calibration data storage
   const calibrationDataRef = useRef<number[]>([]);
+  const deepBreathDataRef = useRef<number[]>([]);
+  const settlingBreathDataRef = useRef<number[]>([]);
   const calibrationMinRef = useRef<number>(Infinity);
   const calibrationMaxRef = useRef<number>(-Infinity);
   const calibrationStartTimeRef = useRef<number>(0);
+  
+  // Calibration timing constants
+  const DEEP_BREATH_DURATION = 9000; // 9 seconds for 3 deep breaths (3 seconds each)
+  const SETTLING_DURATION = 11000; // 11 seconds for settling breath
+  const TOTAL_CALIBRATION_DURATION = DEEP_BREATH_DURATION + SETTLING_DURATION; // 20 seconds total
 
   // Constants for breath detection
   const BREATH_THRESHOLD = 0.3; // Threshold to detect a breath (0-1)
@@ -166,14 +175,66 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Calculate volume/amplitude
     const volume = calculateVolume(dataArrayRef.current);
-    setBreathAmplitude(volume);
     
-    // Detect breaths and update breathing rate
-    detectBreath(volume, Date.now());
+    // Handle calibration data collection
+    if (isCalibrating) {
+      const currentTime = Date.now();
+      const elapsedTime = currentTime - calibrationStartTimeRef.current;
+      
+      // Store calibration data based on phase
+      if (elapsedTime <= DEEP_BREATH_DURATION) {
+        // Deep breath phase (first 9 seconds)
+        deepBreathDataRef.current.push(volume);
+        setCalibrationPhase('deep');
+        
+        // Count breaths during deep phase for user feedback
+        const currentBreathCount = Math.min(3, Math.floor(elapsedTime / 3000) + 1);
+        setDeepBreathCount(currentBreathCount);
+      } else {
+        // Settling phase (next 11 seconds)
+        settlingBreathDataRef.current.push(volume);
+        setCalibrationPhase('settling');
+      }
+      
+      // Update calibration progress
+      const progress = Math.min(1, elapsedTime / TOTAL_CALIBRATION_DURATION);
+      setCalibrationProgress(progress);
+      
+      // Apply dynamic sensitivity during calibration
+      if (deepBreathDataRef.current.length > 0 && settlingBreathDataRef.current.length > 0) {
+        // Calculate sensitivity based on collected data
+        const deepMax = Math.max(...deepBreathDataRef.current);
+        const settlingMax = Math.max(...settlingBreathDataRef.current);
+        const dynamicRange = deepMax - settlingMax;
+        
+        // Adjust amplitude based on current phase and dynamic range
+        if (calibrationPhase === 'settling') {
+          // Amplify settling breath to maintain visibility
+          const amplifiedVolume = Math.min(1, volume * 2 + (dynamicRange * 0.3));
+          setBreathAmplitude(amplifiedVolume);
+        } else {
+          setBreathAmplitude(volume);
+        }
+      } else {
+        setBreathAmplitude(volume);
+      }
+      
+      // Complete calibration after total duration
+      if (elapsedTime >= TOTAL_CALIBRATION_DURATION) {
+        completeCalibration();
+      }
+    } else {
+      // Normal operation with calibrated sensitivity
+      const adjustedAmplitude = applyCalibratedSensitivity(volume);
+      setBreathAmplitude(adjustedAmplitude);
+      
+      // Detect breaths and update breathing rate
+      detectBreath(adjustedAmplitude, Date.now());
+    }
     
     // Continue the loop
     requestAnimationFrameIdRef.current = requestAnimationFrame(processAudioData);
-  }, [calculateVolume, detectBreath]);
+  }, [calculateVolume, detectBreath, isCalibrating, calibrationPhase]);
 
   /**
    * Get available audio input devices
