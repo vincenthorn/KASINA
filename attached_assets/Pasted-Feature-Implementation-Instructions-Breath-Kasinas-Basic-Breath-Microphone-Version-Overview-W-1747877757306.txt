@@ -1,0 +1,124 @@
+Feature Implementation Instructions: Breath Kasinas (Basic Breath - Microphone Version)
+Overview:
+ We're adding a new premium-only feature called "Breath Kasinas" to our existing KASINA application. This new feature will live on its own dedicated page (/breath), and will only be accessible to premium and admin users. If a freemium user navigates to this page, they will be shown an invitation to sign up for premium access instead of the functional app.
+This feature, once active, can be applied to any of the other kasinas, and is considered “on” until turned “off” or until one restarts the application. We’ll begin with a set-up screen in which you select your kasina among all those sets you have access to (perhaps in a drop down or other space saving layout), connect your microphone and make sure it’s working, all before starting a formal session. 
+
+Though I plan to integrate direct breath information from the Hexoskin shirt + API, first I’d like to start with using the device microphone to detect breath in real time. 
+
+Access Control Logic
+Restrict access to the /breath page based on user tier.
+
+
+Only allow access if the user is either:
+
+
+isAdmin === true
+
+
+user.subscription === 'premium'
+
+
+If the user is freemium or unauthenticated:
+
+
+Display an upgrade prompt and description of the Breath Kasina feature.
+
+
+
+Microphone-Based Breath Detection Implementation
+Data Source: Device microphone via Web Audio API
+ Data Captured: Volume amplitude envelope (used to approximate breath wave)
+Integration Steps:
+Create a new page in the app (/breath) with its own route and layout.
+
+
+Prompt the user to allow microphone access.
+
+
+Use the Web Audio API to stream and analyze audio input.
+
+
+Extract real-time volume amplitude as a proxy for breath force.
+
+
+Normalize volume data and smooth using exponential averaging.
+
+
+Scale the kasina orb size based on the normalized breath amplitude.
+
+
+
+Visualization Details: Basic Breath Kasina (Mic-Based)
+Primary Visual Element: One of the pre-existing Kasinas / Orbs.
+
+
+Behavior:
+
+
+The orb expands and contracts based on the user's breath volume (estimated via mic input).
+
+
+As breathing slows and softens, the visual orb becomes subtler, reflecting deeper concentration. As concentration deepens vis a vis this softer breath pattern, the intensity of the expansion and contraction of the orb’s movement also softens in kind.
+
+
+
+Core Logic Snippet (for Agent Reference)
+navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+  const audioContext = new AudioContext();
+  const mic = audioContext.createMediaStreamSource(stream);
+  const analyser = audioContext.createAnalyser();
+  analyser.fftSize = 512;
+
+  const dataArray = new Uint8Array(analyser.fftSize);
+  mic.connect(analyser);
+
+  let smoothed = 0;
+
+  function detectBreath() {
+    analyser.getByteTimeDomainData(dataArray);
+    const amplitude = Math.max(...dataArray) - Math.min(...dataArray);
+    const normalized = amplitude / 255;
+
+    // Smooth
+    const alpha = 0.1;
+    smoothed = alpha * normalized + (1 - alpha) * smoothed;
+
+    updateOrb(smoothed); // This controls the scale of the orb
+    requestAnimationFrame(detectBreath);
+  }
+
+  detectBreath();
+});
+
+
+UX Flow Summary:
+User visits /breath page.
+
+
+Access is checked:
+
+
+If freemium: show upgrade invitation.
+
+
+If premium/admin: show mic-based breath kasina.
+
+
+App requests microphone permissions.
+
+
+Orb visualization responds to real-time breathing input.
+
+
+
+Testing & Validation Criteria
+Orb scales responsively with voice/breath into the mic.
+
+
+Mic permission dialog appears and connects smoothly.
+
+
+Page access is fully gated by user tier.
+
+
+Smoothing function keeps motion stable but alive.

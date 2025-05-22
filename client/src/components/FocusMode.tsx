@@ -15,7 +15,7 @@ import '../styles/focusMode.css';
 
 interface FocusModeProps {
   children: React.ReactNode;
-  onExit?: () => void;
+  onExit?: () => void; // Optional callback when exiting focus mode
 }
 
 // Helper function to format time as MM:SS, handling null
@@ -119,8 +119,13 @@ const FocusMode: React.FC<FocusModeProps> = ({ children, onExit }) => {
     // Exit focus mode
     disableFocusMode();
     
-    // Go back to the kasinas page
-    navigate('/kasinas');
+    // Call the onExit callback if provided, otherwise navigate back
+    if (onExit) {
+      onExit();
+    } else {
+      // Go back to the kasinas page
+      navigate('/kasinas');
+    }
   };
   
   // Get the background color for the selected kasina
@@ -223,16 +228,15 @@ const FocusMode: React.FC<FocusModeProps> = ({ children, onExit }) => {
         open={isFocusModeActive} 
         onOpenChange={(open) => {
           if (!open) {
-            if (onExit) {
-              // Use custom exit handler if provided (for Breath Kasina)
-              onExit();
-              disableFocusMode();
-            } else if (timerState.isRunning) {
+            if (timerState.isRunning) {
               // If timer is running, end the session properly
               handleEndSession();
             } else {
               // Otherwise just exit focus mode
               disableFocusMode();
+              
+              // Call the onExit callback if provided
+              if (onExit) onExit();
             }
           }
         }}

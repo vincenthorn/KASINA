@@ -5,11 +5,6 @@ import { toast } from "sonner";
 interface AuthState {
   isAuthenticated: boolean;
   email: string | null;
-  user?: {
-    email: string | null;
-    isPremium: boolean;
-    isAdmin: boolean;
-  };
   
   login: (email: string) => Promise<boolean>;
   logout: () => Promise<void>;
@@ -19,11 +14,6 @@ interface AuthState {
 export const useAuth = create<AuthState>((set) => ({
   isAuthenticated: false,
   email: null,
-  user: {
-    email: null,
-    isPremium: false,
-    isAdmin: false
-  },
   
   login: async (email: string) => {
     try {
@@ -45,23 +35,10 @@ export const useAuth = create<AuthState>((set) => ({
       
       const data = await response.json();
       
-      // Check if the user is admin or premium
-      const isAdmin = data.user.email === "admin@kasina.app";
-      const isPremium = data.user.email?.endsWith('@kasina.app') || 
-                        data.user.email === 'brian@terma.asia' || 
-                        data.user.email === 'emilywhorn@gmail.com' || 
-                        data.user.email === 'ryan@ryanoelke.com' || 
-                        data.user.email === 'ksowocki@gmail.com';
-                        
       // Store authenticated state
       set({
         isAuthenticated: true,
         email: data.user.email,
-        user: {
-          email: data.user.email,
-          isPremium: isPremium || isAdmin,
-          isAdmin: isAdmin
-        }
       });
       
       toast.success('Successfully logged in');

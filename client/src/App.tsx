@@ -17,7 +17,7 @@ import ReflectionPage from "./pages/ReflectionPage";
 import AdminPage from "./pages/AdminPage";
 import LogoExportPage from "./pages/LogoExportPage";
 import BreathPage from "./pages/BreathPage";
-import BreathKasinaPage from "./pages/BreathKasinaPage";
+import MicBreathPage from "./pages/MicBreathPage";
 
 import NotFound from "./pages/not-found";
 
@@ -51,34 +51,6 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
   
   // Redirect non-admin users to home page
   if (email !== "admin@kasina.app") {
-    return <Navigate to="/" />;
-  }
-
-  return <>{children}</>;
-}
-
-// Special route that requires premium or admin access
-function PremiumRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, email, checkAuthStatus } = useAuth();
-
-  useEffect(() => {
-    checkAuthStatus();
-  }, [checkAuthStatus]);
-
-  // Check if user is authenticated
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
-  }
-  
-  // Check if user is admin or premium
-  const isPremiumUser = email.endsWith('@kasina.app') || 
-                        email === 'brian@terma.asia' || 
-                        email === 'emilywhorn@gmail.com' || 
-                        email === 'ryan@ryanoelke.com' || 
-                        email === 'ksowocki@gmail.com';
-  
-  // Redirect non-premium users to home page
-  if (!isPremiumUser) {
     return <Navigate to="/" />;
   }
 
@@ -154,29 +126,29 @@ function App() {
                   </AdminOnlyRoute>
                 }
               />
-
-              {/* Breath Kasina Routes - Premium Only */}
+              
               <Route
                 path="/breath"
                 element={
-                  <PremiumRoute>
+                  <AuthenticatedRoute>
                     <ErrorBoundary>
                       <BreathPage />
                     </ErrorBoundary>
-                  </PremiumRoute>
-                }
-              />
-              <Route
-                path="/breath-kasina"
-                element={
-                  <PremiumRoute>
-                    <ErrorBoundary>
-                      <BreathKasinaPage />
-                    </ErrorBoundary>
-                  </PremiumRoute>
+                  </AuthenticatedRoute>
                 }
               />
               
+              <Route
+                path="/breath/mic"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <MicBreathPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>

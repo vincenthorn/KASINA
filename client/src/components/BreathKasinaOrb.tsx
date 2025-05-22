@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { KasinaType } from '../types/kasina';
+import { KasinaType, BreathEffectType } from '../types/kasina';
 
 interface BreathKasinaOrbProps {
   type: KasinaType;
   breathAmplitude: number; // 0 to 1 normalized breath amplitude
   breathingRate: number; // breaths per minute 
-  effectType: 'expand-contract' | 'brighten-darken' | 'color-shift';
+  effectType: BreathEffectType;
   remainingTime?: number | null; // For timer integration
 }
 
@@ -65,6 +65,27 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Color based on kasina type
   switch (type) {
     case 'blue':
+      baseColor = `hsla(${hue}, 100%, 50%, ${opacity})`;
+      glowColor = `hsla(${hue}, 100%, 70%, ${opacity * 0.7})`;
+      break;
+    case 'red':
+      baseColor = `hsla(0, 100%, 50%, ${opacity})`;
+      glowColor = `hsla(0, 100%, 70%, ${opacity * 0.7})`;
+      break;
+    case 'green':
+      baseColor = `hsla(120, 100%, 50%, ${opacity})`;
+      glowColor = `hsla(120, 100%, 70%, ${opacity * 0.7})`;
+      break;
+    case 'yellow':
+      baseColor = `hsla(60, 100%, 50%, ${opacity})`;
+      glowColor = `hsla(60, 100%, 70%, ${opacity * 0.7})`;
+      break;
+    case 'white':
+      baseColor = `hsla(0, 0%, 100%, ${opacity})`;
+      glowColor = `hsla(0, 0%, 100%, ${opacity * 0.7})`;
+      break;
+    case 'rainbow':
+      // For rainbow, we'll animate through the hue spectrum
       baseColor = `hsla(${hue}, 100%, 50%, ${opacity})`;
       glowColor = `hsla(${hue}, 100%, 70%, ${opacity * 0.7})`;
       break;

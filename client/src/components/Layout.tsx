@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
-import { Home, Flame, Video, BookOpen, BarChart, LogOut, Settings, Wind } from "lucide-react";
+import { Home, Flame, Video, BookOpen, BarChart, LogOut, Settings } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,13 +17,6 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
 
   // Check if user is admin
   const isAdmin = email === "admin@kasina.app";
-  
-  // Check if user is premium (for premium features)
-  const isPremium = email?.endsWith('@kasina.app') || 
-                    email === 'brian@terma.asia' || 
-                    email === 'emilywhorn@gmail.com' || 
-                    email === 'ryan@ryanoelke.com' || 
-                    email === 'ksowocki@gmail.com';
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -41,17 +34,11 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     { path: "/meditation", label: "Meditation", icon: <BookOpen className="w-5 h-5" /> },
     { path: "/recording", label: "Recording", icon: <Video className="w-5 h-5" /> },
   ];
-
-  // Premium-only navigation items
-  const premiumNavItems = [
-    { path: "/breath", label: "Breath Kasina", icon: <Wind className="w-5 h-5" /> },
-  ];
   
   // Combine items based on user role
   const navItems = [
     ...baseNavItems,
-    ...(isAdmin ? adminNavItems : []),
-    ...(isPremium || isAdmin ? premiumNavItems : [])
+    ...(isAdmin ? adminNavItems : [])
   ];
   
   // Admin nav item (only shown to admin users)
