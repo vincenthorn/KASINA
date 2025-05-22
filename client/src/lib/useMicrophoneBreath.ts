@@ -634,21 +634,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
           envelopeRef.current += (normalizedAmplitude - envelopeRef.current) * releaseTime;
         }
         
-        // Breath-cycle synchronized orb movement
-        // Make orb respond to actual breathing phases, not just volume
-        let breathSyncedAmplitude;
-        if (breathPhase === 'inhale') {
-          // During inhale, use higher amplitude for expansion
-          breathSyncedAmplitude = Math.min(envelopeRef.current * 0.4, 0.8);
-        } else if (breathPhase === 'exhale') {
-          // During exhale, use lower amplitude for contraction
-          breathSyncedAmplitude = Math.min(envelopeRef.current * 0.2, 0.6);
-        } else {
-          // During pause, maintain moderate size
-          breathSyncedAmplitude = Math.min(envelopeRef.current * 0.25, 0.5);
-        }
-        
-        const smoothedAmplitude = breathSyncedAmplitude;
+        // Simple volume-based amplitude with much lower scaling to prevent maxing out
+        const smoothedAmplitude = Math.min(envelopeRef.current * 0.15, 0.6); // Much lower scaling
         
         setBreathAmplitude(smoothedAmplitude);
         detectBreath(smoothedAmplitude, Date.now());
