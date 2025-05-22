@@ -204,7 +204,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Detect start of inhale - look for crossing above threshold (more flexible)
     if (!isInhalingRef.current && currentValue > breathThreshold && 
-        prevValue <= breathThreshold && currentValue > 0.015 && // Minimum amplitude to avoid noise
+        prevValue <= breathThreshold && currentValue > 0.004 && // Minimum amplitude to avoid noise (lowered for sensitive mics)
         (currentTime - breathCycleDetection.lastCycleTime) > 1000) { // At least 1 second between cycles
       
       console.log(`🟢 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
