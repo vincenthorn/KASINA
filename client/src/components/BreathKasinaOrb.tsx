@@ -23,16 +23,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!isListening) return;
     
-    // Calculate the size based on breath amplitude with more dramatic effect
-    // Min size: 100px, Max size: 500px for much more dramatic effect
-    const minSize = 100;
-    const maxSize = 500;
+    // Calculate the size based on breath amplitude with much bigger range
+    // Bigger range to accommodate stronger breathers like you!
+    const minSize = 80;
+    const maxSize = 600;
     const sizeRange = maxSize - minSize;
     
-    // Apply much stronger magnification factor to make changes very dramatic
-    // Higher exponent (0.3) makes even tiny breaths visible
-    // Much higher multiplier (8.0) creates big, obvious changes
-    const magnifiedAmplitude = Math.pow(breathAmplitude, 0.3) * 8.0; 
+    // Apply balanced magnification that works for stronger breathers
+    // Lower multiplier (3.0) prevents hitting the ceiling
+    // Square root makes breathing feel more natural
+    const magnifiedAmplitude = Math.sqrt(breathAmplitude) * 3.0; 
     const clampedAmplitude = Math.min(1, magnifiedAmplitude);
     const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
