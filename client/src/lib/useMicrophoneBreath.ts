@@ -1,232 +1,227 @@
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 /**
- * Custom hook to detect breath using the device microphone
- * 
- * @returns {Object} Breath detection state and controls
+ * Interface for the microphone breath detection hook results
  */
-export const useMicrophoneBreath = () => {
-  // State to track breath data and connection status
-  const [isConnected, setIsConnected] = useState(false);
+interface MicrophoneBreathHookResult {
+  isListening: boolean;
+  breathAmplitude: number; // 0-1 normalized amplitude 
+  breathingRate: number; // breaths per minute
+  startListening: () => Promise<void>;
+  stopListening: () => void;
+  error: string | null;
+}
+
+/**
+ * Custom hook for detecting breathing patterns using the microphone
+ * 
+ * This hook provides real-time breathing data by analyzing audio input from the microphone.
+ * It calculates both the current breath amplitude (how deeply someone is breathing)
+ * and the breathing rate (breaths per minute).
+ */
+export function useMicrophoneBreath(): MicrophoneBreathHookResult {
+  // Main state variables for the hook
+  const [isListening, setIsListening] = useState(false);
   const [breathAmplitude, setBreathAmplitude] = useState(0);
-  const [breathingRate, setBreathingRate] = useState(12); // Default 12 breaths per minute
-  const [permissionDenied, setPermissionDenied] = useState(false);
+  const [breathingRate, setBreathingRate] = useState(0);
   const [error, setError] = useState<string | null>(null);
-  
-  // Refs to store audio processing components
-  const streamRef = useRef<MediaStream | null>(null);
+
+  // Refs for audio processing
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
-  const microphoneRef = useRef<MediaStreamAudioSourceNode | null>(null);
-  const animationFrameRef = useRef<number | null>(null);
-  
-  // State for breath pattern tracking
-  const breathPeaksRef = useRef<number[]>([]);
-  const lastBreathTimeRef = useRef<number>(Date.now());
-  const smoothedAmplitudeRef = useRef<number>(0);
-  
-  // Connect to the microphone and start breath detection
-  const connectMicrophone = useCallback(async () => {
-    try {
-      setError(null);
-      
-      // Check if the browser supports getUserMedia
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        throw new Error('Your browser does not support microphone access. Please try a different browser.');
-      }
-      
-      console.log('Requesting microphone access...');
-      
-      // Request microphone access
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        audio: { 
-          echoCancellation: true,
-          noiseSuppression: true,
-          autoGainControl: true
-        } 
-      });
-      
-      // Store the stream for later cleanup
-      streamRef.current = stream;
-      
-      // Create audio processing pipeline
-      const audioContext = new AudioContext();
-      const analyser = audioContext.createAnalyser();
-      const microphone = audioContext.createMediaStreamSource(stream);
-      
-      // Configure the analyser
-      analyser.fftSize = 1024; // Larger FFT size for more detail
-      analyser.smoothingTimeConstant = 0.8; // Smooth the data
-      
-      // Connect the microphone to the analyser
-      microphone.connect(analyser);
-      
-      // Store references for cleanup
-      audioContextRef.current = audioContext;
-      analyserRef.current = analyser;
-      microphoneRef.current = microphone;
-      
-      // Start the breath detection loop
-      startBreathDetection();
-      
-      // Update connection state
-      setIsConnected(true);
-      console.log('✅ Microphone connected successfully');
-      
-    } catch (err: any) {
-      console.error('Microphone connection error:', err);
-      
-      // Handle permission denied case
-      if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
-        setPermissionDenied(true);
-        setError('Microphone access was denied. Please grant permission to use this feature.');
-      } else {
-        setError(`Could not connect to microphone: ${err.message}`);
-      }
-      
-      // Ensure we're marked as disconnected
-      setIsConnected(false);
+  const microphoneStreamRef = useRef<MediaStream | null>(null);
+  const dataArrayRef = useRef<Uint8Array | null>(null);
+
+  // Refs for breath detection algorithm
+  const breathSamplesRef = useRef<number[]>([]);
+  const lastBreathTimeRef = useRef<number>(0);
+  const breathIntervalsRef = useRef<number[]>([]);
+  const requestAnimationFrameIdRef = useRef<number | null>(null);
+
+  // Constants for breath detection
+  const BREATH_THRESHOLD = 0.3; // Threshold to detect a breath (0-1)
+  const SAMPLE_HISTORY_SIZE = 50; // Number of samples to keep for detection
+  const BREATH_RATE_HISTORY_SIZE = 5; // Number of breath intervals to keep for rate calculation
+  const MIN_BREATH_INTERVAL_MS = 1500; // Minimum time between breaths (ms)
+
+  /**
+   * Calculate the volume level from audio data
+   */
+  const calculateVolume = useCallback((dataArray: Uint8Array): number => {
+    // Calculate the RMS (root mean square) of the audio samples
+    let sum = 0;
+    for (let i = 0; i < dataArray.length; i++) {
+      // Convert from 0-255 to -1 to 1
+      const amplitude = (dataArray[i] / 128) - 1;
+      sum += amplitude * amplitude;
     }
+    const rms = Math.sqrt(sum / dataArray.length);
+    
+    // Normalize between 0 and 1 with some headroom
+    return Math.min(rms * 3, 1); 
   }, []);
-  
-  // Disconnect from the microphone
-  const disconnectMicrophone = useCallback(() => {
-    // Stop the animation frame
-    if (animationFrameRef.current !== null) {
-      cancelAnimationFrame(animationFrameRef.current);
-      animationFrameRef.current = null;
+
+  /**
+   * Detect breaths and calculate breathing rate
+   */
+  const detectBreath = useCallback((currentVolume: number, currentTime: number) => {
+    // Add current sample to history
+    breathSamplesRef.current.push(currentVolume);
+    
+    // Keep only the most recent samples
+    if (breathSamplesRef.current.length > SAMPLE_HISTORY_SIZE) {
+      breathSamplesRef.current.shift();
     }
     
-    // Stop and disconnect the microphone
-    if (microphoneRef.current) {
-      microphoneRef.current.disconnect();
-      microphoneRef.current = null;
-    }
-    
-    // Close the audio context
-    if (audioContextRef.current) {
-      audioContextRef.current.close().catch(console.error);
-      audioContextRef.current = null;
-    }
-    
-    // Stop the media stream tracks
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach(track => track.stop());
-      streamRef.current = null;
-    }
-    
-    // Reset breath tracking
-    breathPeaksRef.current = [];
-    
-    // Update state
-    setIsConnected(false);
-    setBreathAmplitude(0);
-    console.log('Microphone disconnected');
-  }, []);
-  
-  // The core breath detection algorithm
-  const startBreathDetection = useCallback(() => {
-    if (!analyserRef.current) return;
-    
-    const analyser = analyserRef.current;
-    const dataArray = new Uint8Array(analyser.fftSize);
-    
-    // Store the current time for breathing rate calculation
-    const now = Date.now();
-    
-    // For detecting breath peaks and calculating breathing rate
-    let isBreathPeak = false;
-    let peakThreshold = 0.15; // Adjust based on testing
-    
-    // Function to process audio data
-    const detectBreath = () => {
-      // Get time domain data from the analyser
-      analyser.getByteTimeDomainData(dataArray);
+    // Find local peaks in the breath pattern
+    const samples = breathSamplesRef.current;
+    if (samples.length > 5) {
+      const currentIndex = samples.length - 1;
+      const prevSample = samples[currentIndex - 1] || 0;
       
-      // Calculate signal amplitude (range: 0-255)
-      let sum = 0;
-      let min = 255;
-      let max = 0;
-      
-      for (let i = 0; i < dataArray.length; i++) {
-        const value = dataArray[i];
-        sum += value;
-        if (value < min) min = value;
-        if (value > max) max = value;
-      }
-      
-      // Calculate the overall amplitude (0-1 range)
-      const amplitude = (max - min) / 255;
-      
-      // Apply exponential smoothing for more natural visualization
-      const alpha = 0.1; // Smoothing factor (0-1), lower = smoother
-      smoothedAmplitudeRef.current = (alpha * amplitude) + 
-                                     ((1 - alpha) * smoothedAmplitudeRef.current);
-      
-      // Update the breath amplitude state
-      setBreathAmplitude(smoothedAmplitudeRef.current);
-      
-      // Detect breath peaks for breathing rate calculation
-      if (smoothedAmplitudeRef.current > peakThreshold && !isBreathPeak) {
-        isBreathPeak = true;
-        
-        // Record the time between peaks (breathing rate)
-        const currentTime = Date.now();
+      // Detect a breath by looking for a peak that passes the threshold
+      if (
+        currentVolume > BREATH_THRESHOLD && 
+        currentVolume > prevSample &&
+        currentTime - lastBreathTimeRef.current > MIN_BREATH_INTERVAL_MS
+      ) {
+        // Calculate the time since last breath
         const timeSinceLastBreath = currentTime - lastBreathTimeRef.current;
         
-        // Only count if it's a reasonable breath time (0.5 to 10 seconds)
-        if (timeSinceLastBreath > 500 && timeSinceLastBreath < 10000) {
-          breathPeaksRef.current.push(timeSinceLastBreath);
+        // Only count if it's not the first breath and within reasonable limits
+        if (lastBreathTimeRef.current > 0 && timeSinceLastBreath < 15000) {
+          breathIntervalsRef.current.push(timeSinceLastBreath);
           
-          // Keep only the last 5 breaths for the average
-          if (breathPeaksRef.current.length > 5) {
-            breathPeaksRef.current.shift();
+          // Keep only recent intervals
+          if (breathIntervalsRef.current.length > BREATH_RATE_HISTORY_SIZE) {
+            breathIntervalsRef.current.shift();
           }
           
-          // Calculate average breathing rate
-          if (breathPeaksRef.current.length > 1) {
-            const avgBreathTime = breathPeaksRef.current.reduce((a, b) => a + b, 0) / 
-                                 breathPeaksRef.current.length;
-            const breathsPerMinute = Math.round(60000 / avgBreathTime);
-            
-            // Limit to reasonable range (4-30 breaths per minute)
-            if (breathsPerMinute >= 4 && breathsPerMinute <= 30) {
-              setBreathingRate(breathsPerMinute);
-            }
+          // Calculate breathing rate (breaths per minute)
+          if (breathIntervalsRef.current.length > 0) {
+            const avgInterval = breathIntervalsRef.current.reduce((sum, val) => sum + val, 0) / 
+              breathIntervalsRef.current.length;
+            const breathsPerMinute = (60 * 1000) / avgInterval;
+            setBreathingRate(Math.round(breathsPerMinute * 10) / 10); // Round to 1 decimal place
           }
-          
-          lastBreathTimeRef.current = currentTime;
         }
-      } else if (smoothedAmplitudeRef.current < peakThreshold * 0.7) {
-        // Reset the peak detection once amplitude drops below threshold
-        isBreathPeak = false;
+        
+        lastBreathTimeRef.current = currentTime;
+      }
+    }
+  }, []);
+
+  /**
+   * Process audio data in animation frame loop
+   */
+  const processAudioData = useCallback(() => {
+    if (!analyserRef.current || !dataArrayRef.current) return;
+
+    // Get audio data
+    analyserRef.current.getByteTimeDomainData(dataArrayRef.current);
+    
+    // Calculate volume/amplitude
+    const volume = calculateVolume(dataArrayRef.current);
+    setBreathAmplitude(volume);
+    
+    // Detect breaths and update breathing rate
+    detectBreath(volume, Date.now());
+    
+    // Continue the loop
+    requestAnimationFrameIdRef.current = requestAnimationFrame(processAudioData);
+  }, [calculateVolume, detectBreath]);
+
+  /**
+   * Start listening to microphone
+   */
+  const startListening = async () => {
+    try {
+      // Reset error state
+      setError(null);
+      
+      // Check if browser supports getUserMedia
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error('Your browser does not support audio capture');
       }
       
-      // Continue the detection loop
-      animationFrameRef.current = requestAnimationFrame(detectBreath);
-    };
+      // Initialize audio context
+      audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      analyserRef.current = audioContextRef.current.createAnalyser();
+      
+      // Configure analyzer
+      analyserRef.current.fftSize = 1024;
+      const bufferLength = analyserRef.current.frequencyBinCount;
+      dataArrayRef.current = new Uint8Array(bufferLength);
+      
+      // Get microphone access
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+      microphoneStreamRef.current = stream;
+      
+      // Connect microphone to analyzer
+      const source = audioContextRef.current.createMediaStreamSource(stream);
+      source.connect(analyserRef.current);
+      
+      // Start processing audio
+      setIsListening(true);
+      requestAnimationFrameIdRef.current = requestAnimationFrame(processAudioData);
+      
+      // Reset breath detection data
+      breathSamplesRef.current = [];
+      breathIntervalsRef.current = [];
+      lastBreathTimeRef.current = 0;
+      
+    } catch (err) {
+      console.error('Error accessing microphone:', err);
+      setError(err instanceof Error ? err.message : 'Failed to access microphone');
+      setIsListening(false);
+    }
+  };
+
+  /**
+   * Stop listening to microphone
+   */
+  const stopListening = () => {
+    // Cancel animation frame
+    if (requestAnimationFrameIdRef.current) {
+      cancelAnimationFrame(requestAnimationFrameIdRef.current);
+      requestAnimationFrameIdRef.current = null;
+    }
     
-    // Start the detection loop
-    detectBreath();
+    // Stop and clean up microphone stream
+    if (microphoneStreamRef.current) {
+      microphoneStreamRef.current.getTracks().forEach(track => track.stop());
+      microphoneStreamRef.current = null;
+    }
     
-  }, []);
-  
-  // Clean up on component unmount
+    // Clean up audio context
+    if (audioContextRef.current) {
+      if (audioContextRef.current.state !== 'closed') {
+        audioContextRef.current.close();
+      }
+      audioContextRef.current = null;
+      analyserRef.current = null;
+    }
+    
+    // Reset state
+    setIsListening(false);
+    setBreathAmplitude(0);
+    
+    // We keep the breathing rate to avoid jumps when restarting
+  };
+
+  // Clean up when the component unmounts
   useEffect(() => {
     return () => {
-      disconnectMicrophone();
+      stopListening();
     };
-  }, [disconnectMicrophone]);
-  
+  }, []);
+
   return {
-    connectMicrophone,
-    disconnectMicrophone,
-    isConnected,
+    isListening,
     breathAmplitude,
     breathingRate,
-    permissionDenied,
+    startListening,
+    stopListening,
     error
   };
-};
-
-export default useMicrophoneBreath;
+}

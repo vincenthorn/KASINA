@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { KasinaType, BreathEffectType } from '../types/kasina';
+import '../styles/kasina-animations.css';
 
 interface BreathKasinaOrbProps {
   type: KasinaType;
@@ -9,165 +10,123 @@ interface BreathKasinaOrbProps {
   remainingTime?: number | null; // For timer integration
 }
 
+/**
+ * BreathKasinaOrb - A visual representation of breathing patterns
+ * 
+ * This component creates a colorful orb that responds to breathing data,
+ * changing size, brightness, or color based on the breath amplitude and rate.
+ */
 const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
-  type,
-  breathAmplitude,
-  breathingRate,
-  effectType,
-  remainingTime
+  type = 'blue',
+  breathAmplitude = 0,
+  breathingRate = 0,
+  effectType = 'expand-contract',
+  remainingTime = null
 }) => {
-  const [scale, setScale] = useState(1);
-  const [opacity, setOpacity] = useState(0.8);
-  const [hue, setHue] = useState(240); // Default blue hue (240 degrees in HSL)
-  
-  // Apply breathing effect based on the chosen effect type
+  const orbRef = useRef<HTMLDivElement>(null);
+  const particlesRef = useRef<HTMLDivElement>(null);
+
+  // Get base color based on kasina type
+  const getBaseColor = () => {
+    switch (type) {
+      case 'blue': return '#0088ff';
+      case 'red': return '#ff3300';
+      case 'green': return '#00cc66';
+      case 'yellow': return '#ffcc00';
+      case 'white': return '#ffffff';
+      case 'rainbow': return '#0088ff'; // Start with blue for rainbow
+      default: return '#0088ff';
+    }
+  };
+
+  // Apply breathing effects to the orb
   useEffect(() => {
-    // Add debug logging to see exactly what data we're receiving
-    console.log("Breath data update - amplitude:", breathAmplitude, "rate:", breathingRate);
+    if (!orbRef.current) return;
     
-    // Make the visual effects EXTREMELY dramatic for better visualization
-    // This will make it very obvious when the orb is receiving real breath data
+    const orbElement = orbRef.current;
+    const baseSize = 200; // Base size in pixels
+    const baseColor = getBaseColor();
+    
+    // Apply effects based on breath amplitude and effect type
     switch (effectType) {
       case 'expand-contract':
-        // Map amplitude to scale with an even more dramatic range (0.6 to 3.5)
-        // This creates an extremely noticeable breathing effect for even small data changes
-        const newScale = 0.6 + (breathAmplitude * 2.9);
-        setScale(newScale);
-        setOpacity(0.9); // Slightly higher opacity for better visibility
-        setHue(240); // Keep blue
-        
-        // Log the dramatic scaling to help diagnose if we're receiving real data
-        console.log(`DRAMATIC SCALING: ${newScale.toFixed(2)} from amplitude ${breathAmplitude.toFixed(2)}`);
+        // Scale from 100% to 200% based on breath amplitude
+        const newSize = baseSize + (baseSize * breathAmplitude);
+        orbElement.style.width = `${newSize}px`;
+        orbElement.style.height = `${newSize}px`;
         break;
         
       case 'brighten-darken':
-        // Map amplitude to opacity with more extreme range (0.1 to 1.0)
-        const newOpacity = 0.1 + (breathAmplitude * 0.9);
-        setOpacity(newOpacity);
-        setScale(1.2); // Keep a moderate fixed size
-        setHue(240); // Keep blue
+        // Adjust brightness/opacity based on breath amplitude
+        const opacity = 0.5 + (breathAmplitude * 0.5);
+        orbElement.style.opacity = opacity.toString();
+        orbElement.style.boxShadow = `0 0 ${30 + (breathAmplitude * 70)}px ${baseColor}`;
         break;
         
       case 'color-shift':
-        // Map amplitude to hue with a more dramatic range (160 to 260 degrees)
-        const newHue = 160 + (breathAmplitude * 100);
-        setHue(newHue);
-        setScale(1.2); // Keep a moderate fixed size
-        setOpacity(0.8); // Keep moderate opacity
+        // Shift color based on breath amplitude
+        if (type === 'rainbow') {
+          // Create rainbow effect by shifting hue
+          const hue = (breathAmplitude * 360) % 360;
+          orbElement.style.backgroundColor = `hsl(${hue}, 80%, 60%)`;
+          orbElement.style.boxShadow = `0 0 50px hsl(${hue}, 80%, 60%)`;
+        } else {
+          // Shift between base color and white
+          orbElement.style.backgroundColor = baseColor;
+          orbElement.style.filter = `brightness(${1 + breathAmplitude})`;
+        }
         break;
     }
-  }, [breathAmplitude, effectType, breathingRate]);
-  
-  // Base color for the kasina
-  let baseColor = '';
-  let glowColor = '';
-  
-  // Color based on kasina type
-  switch (type) {
-    case 'blue':
-      baseColor = `hsla(${hue}, 100%, 50%, ${opacity})`;
-      glowColor = `hsla(${hue}, 100%, 70%, ${opacity * 0.7})`;
-      break;
-    case 'red':
-      baseColor = `hsla(0, 100%, 50%, ${opacity})`;
-      glowColor = `hsla(0, 100%, 70%, ${opacity * 0.7})`;
-      break;
-    case 'green':
-      baseColor = `hsla(120, 100%, 50%, ${opacity})`;
-      glowColor = `hsla(120, 100%, 70%, ${opacity * 0.7})`;
-      break;
-    case 'yellow':
-      baseColor = `hsla(60, 100%, 50%, ${opacity})`;
-      glowColor = `hsla(60, 100%, 70%, ${opacity * 0.7})`;
-      break;
-    case 'white':
-      baseColor = `hsla(0, 0%, 100%, ${opacity})`;
-      glowColor = `hsla(0, 0%, 100%, ${opacity * 0.7})`;
-      break;
-    case 'rainbow':
-      // For rainbow, we'll animate through the hue spectrum
-      baseColor = `hsla(${hue}, 100%, 50%, ${opacity})`;
-      glowColor = `hsla(${hue}, 100%, 70%, ${opacity * 0.7})`;
-      break;
-    default:
-      baseColor = `hsla(${hue}, 100%, 50%, ${opacity})`;
-      glowColor = `hsla(${hue}, 100%, 70%, ${opacity * 0.7})`;
-  }
-  
+    
+    // Update particles effect
+    if (particlesRef.current) {
+      const particlesElement = particlesRef.current;
+      particlesElement.style.opacity = breathAmplitude.toFixed(2);
+      
+      // Adjust particle animation speed based on breathing rate
+      const animationDuration = breathingRate > 0 
+        ? Math.max(60 / breathingRate, 3) // Convert breaths per minute to seconds
+        : 5; // Default to 5 seconds
+        
+      particlesElement.style.animationDuration = `${animationDuration}s`;
+    }
+  }, [breathAmplitude, breathingRate, effectType, type]);
+
   return (
-    <div className="relative flex items-center justify-center w-full h-full">
-      {/* Timer display if remaining time is provided */}
-      {remainingTime !== undefined && remainingTime !== null && (
-        <div className="absolute top-4 left-0 right-0 text-center text-white text-2xl font-semibold z-10">
+    <div className="breath-kasina-container">
+      {/* Main orb */}
+      <div 
+        ref={orbRef}
+        className="breath-kasina-orb"
+        style={{
+          backgroundColor: getBaseColor(),
+          transition: 'all 0.3s ease-out',
+        }}
+      >
+        {/* Particles overlay */}
+        <div 
+          ref={particlesRef}
+          className="breath-particles"
+          style={{
+            opacity: 0,
+            background: `radial-gradient(circle at center, transparent 30%, ${getBaseColor()}40 70%, transparent 100%)`,
+          }}
+        />
+      </div>
+      
+      {/* Optional timer display */}
+      {remainingTime !== null && (
+        <div className="breath-timer">
           {Math.floor(remainingTime / 60)}:{(remainingTime % 60).toString().padStart(2, '0')}
         </div>
       )}
       
-      {/* Background glow effect */}
-      <div 
-        className="absolute rounded-full"
-        style={{
-          width: `${300 * scale}px`,
-          height: `${300 * scale}px`,
-          background: `radial-gradient(circle, ${glowColor} 0%, rgba(0,0,0,0) 70%)`,
-          transition: 'all 0.5s ease-in-out'
-        }}
-      />
-      
-      {/* Main orb - made more responsive with quicker transitions */}
-      <div 
-        id="breath-orb"
-        className="rounded-full shadow-xl relative overflow-hidden"
-        style={{
-          width: `${200 * scale}px`,
-          height: `${200 * scale}px`,
-          background: baseColor,
-          boxShadow: `0 0 ${60 + (scale * 20)}px ${20 + (scale * 10)}px ${glowColor}`,
-          transition: 'all 0.3s ease-in-out'
-        }}
-      >
-        {/* Inner light reflections */}
-        <div 
-          className="absolute rounded-full"
-          style={{
-            width: '50%',
-            height: '50%',
-            top: '10%',
-            left: '10%',
-            background: `radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%)`,
-          }}
-        />
-        
-        {/* Subtle pulsing inner core */}
-        <div 
-          className="absolute rounded-full"
-          style={{
-            width: '70%',
-            height: '70%',
-            top: '15%',
-            left: '15%',
-            background: `radial-gradient(circle, ${baseColor} 30%, rgba(0,0,0,0) 70%)`,
-            animation: `pulse ${60 / breathingRate}s infinite alternate ease-in-out`,
-          }}
-        />
-      </div>
-      
-      {/* Breathing rate indicator (subtle text at bottom) */}
-      <div className="absolute bottom-4 text-white text-sm opacity-60">
-        {breathingRate} breaths per minute
-      </div>
-      
-      {/* CSS for animations */}
-      <style>{`
-        @keyframes pulse {
-          0% {
-            opacity: 0.7;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-      `}</style>
+      {/* Optional breathing rate display */}
+      {breathingRate > 0 && (
+        <div className="breath-rate">
+          {breathingRate.toFixed(1)} BPM
+        </div>
+      )}
     </div>
   );
 };

@@ -139,7 +139,7 @@ function App() {
               />
               
               <Route
-                path="/breath/mic"
+                path="/breath/microphone"
                 element={
                   <AuthenticatedRoute>
                     <ErrorBoundary>
