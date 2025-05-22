@@ -430,9 +430,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     // Calculate base volume/amplitude
     const baseVolume = calculateVolume(dataArrayRef.current);
     
-    // Combine filtered frequency data with time domain for optimal breath detection
-    // Reduce FFT weight to be less aggressive and preserve more natural breathing sounds
-    const volume = (filteredVolume * 0.4) + (baseVolume * 0.6);
+    // Temporarily disable FFT filtering - use raw audio detection which is working better
+    // The FFT filter is being too aggressive and filtering out actual breathing sounds
+    const volume = baseVolume; // Use 100% raw audio detection
     
     // Debug logging to see FFT filtering effectiveness
     if (Math.random() < 0.05) { // Log 5% of samples to avoid spam
