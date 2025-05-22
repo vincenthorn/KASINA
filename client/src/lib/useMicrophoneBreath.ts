@@ -30,6 +30,18 @@ interface MicrophoneBreathHookResult {
   calibrationComplete: boolean;
   calibrationPhase: 'deep' | 'settling';
   deepBreathCount: number;
+  // Calibration profile for meditation use
+  calibrationProfile: {
+    baselineMin: number;
+    baselineMax: number;
+    averageAmplitude: number;
+    breathingPattern: {
+      inhaleThreshold: number;
+      exhaleThreshold: number;
+      cycleDetectionSensitivity: number;
+    };
+    isValid: boolean;
+  } | null;
 }
 
 /**
@@ -386,8 +398,13 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     } else {
       // Meditation practice mode - use calibration profile for breath detection
       if (calibrationProfile && calibrationProfile.isValid) {
-        const meditationBreathDetection = detectMeditationBreath(volume, Date.now());
-        setBreathAmplitude(meditationBreathDetection.normalizedAmplitude);
+        // Normalize volume using the user's personal breathing baseline
+        const { baselineMin, baselineMax } = calibrationProfile;
+        const normalizedAmplitude = Math.max(0, Math.min(1, 
+          (volume - baselineMin) / (baselineMax - baselineMin)
+        ));
+        setBreathAmplitude(normalizedAmplitude);
+        detectBreath(normalizedAmplitude, Date.now());
       } else {
         // Fallback to basic calibrated sensitivity if no profile
         const adjustedAmplitude = applyCalibratedSensitivity(volume);
@@ -398,7 +415,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Continue the loop
     requestAnimationFrameIdRef.current = requestAnimationFrame(processAudioData);
-  }, [calculateVolume, detectBreath, detectBreathCycle, detectMeditationBreath, isCalibrating, calibrationPhase, breathCycleDetection, calibrationProfile]);
+  }, [calculateVolume, detectBreath, detectBreathCycle, isCalibrating, calibrationPhase, breathCycleDetection, calibrationProfile]);
 
   /**
    * Get available audio input devices
@@ -708,6 +725,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     skipCalibration,
     calibrationComplete,
     calibrationPhase,
-    deepBreathCount
+    deepBreathCount,
+    calibrationProfile
   };
 }
