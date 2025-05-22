@@ -60,7 +60,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     cycleCount: 0,
     isInhaling: false,
     minCycleTime: 2000, // Minimum 2 seconds between complete cycles
-    lastCycleTime: 0
+    lastCycleTime: 0,
+    recentSamples: [] as number[], // Store recent volume samples for pattern analysis
+    sampleWindow: 30 // Number of samples to analyze for trends
   });
 
   // Refs for audio processing
@@ -130,41 +132,67 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const detectBreathCycle = useCallback((volume: number, currentTime: number): boolean => {
     if (!isCalibrating || calibrationPhase !== 'deep') return false;
     
-    const threshold = 0.003; // Minimum volume to consider as breathing (lowered for realistic levels)
-    const minPeakDiff = 0.002; // Minimum difference between peak and trough (lowered for realistic levels)
-    
-    // Track peaks and troughs
     const detection = breathCycleDetection;
     
-    // Detect peak (inhalation) - look for significant increases
-    if (volume > threshold && volume > detection.lastPeak + minPeakDiff && !detection.isInhaling) {
-      console.log(`Peak detected: ${volume.toFixed(4)} (prev: ${detection.lastPeak.toFixed(4)})`);
+    // Add current sample to the sliding window
+    const newSamples = [...detection.recentSamples, volume].slice(-detection.sampleWindow);
+    
+    // Update the recent samples
+    setBreathCycleDetection(prev => ({
+      ...prev,
+      recentSamples: newSamples
+    }));
+    
+    // Need enough samples for pattern analysis
+    if (newSamples.length < detection.sampleWindow) {
+      return false;
+    }
+    
+    // Calculate moving averages and trends
+    const recentAvg = newSamples.slice(-10).reduce((sum, val) => sum + val, 0) / 10;
+    const earlierAvg = newSamples.slice(-20, -10).reduce((sum, val) => sum + val, 0) / 10;
+    const overallAvg = newSamples.reduce((sum, val) => sum + val, 0) / newSamples.length;
+    
+    // Calculate relative changes (percentage of overall average)
+    const relativeChange = Math.abs(recentAvg - earlierAvg) / Math.max(overallAvg, 0.001);
+    const currentRelative = volume / Math.max(overallAvg, 0.001);
+    
+    // Look for breathing patterns: inhale (increasing trend) followed by exhale (decreasing trend)
+    const isIncreasing = recentAvg > earlierAvg;
+    const significantChange = relativeChange > 0.3; // 30% relative change indicates breathing
+    
+    // Detect start of inhale (upward trend with significant change)
+    if (isIncreasing && significantChange && !detection.isInhaling && 
+        (currentTime - detection.lastCycleTime) > detection.minCycleTime / 2) {
+      
+      console.log(`Inhale detected: recentAvg=${recentAvg.toFixed(4)}, earlierAvg=${earlierAvg.toFixed(4)}, relChange=${relativeChange.toFixed(3)}`);
+      
       setBreathCycleDetection(prev => ({
         ...prev,
-        lastPeak: volume,
+        lastPeak: recentAvg,
         isInhaling: true
       }));
     }
     
-    // Update peak if we're inhaling and find a higher value
-    if (detection.isInhaling && volume > detection.lastPeak) {
+    // Update peak during inhale
+    if (detection.isInhaling && recentAvg > detection.lastPeak) {
       setBreathCycleDetection(prev => ({
         ...prev,
-        lastPeak: volume
+        lastPeak: recentAvg
       }));
     }
     
-    // Detect trough (exhalation complete) and complete cycle
-    if (volume < threshold && detection.isInhaling && 
-        detection.lastPeak > threshold && 
+    // Detect exhale completion (downward trend after inhale peak)
+    if (!isIncreasing && significantChange && detection.isInhaling && 
+        recentAvg < detection.lastPeak * 0.7 && // Exhaled to 70% of peak
         (currentTime - detection.lastCycleTime) > detection.minCycleTime) {
       
-      console.log(`Breath cycle completed! Peak: ${detection.lastPeak.toFixed(4)}, Trough: ${volume.toFixed(4)}`);
+      console.log(`Breath cycle completed! Peak: ${detection.lastPeak.toFixed(4)}, Current: ${recentAvg.toFixed(4)}, RelChange: ${relativeChange.toFixed(3)}`);
       
-      // Complete breath cycle detected (inhale -> exhale)
+      // Complete breath cycle detected
       setBreathCycleDetection(prev => ({
         ...prev,
-        lastTrough: volume,
+        lastTrough: recentAvg,
         isInhaling: false,
         lastCycleTime: currentTime,
         cycleCount: prev.cycleCount + 1
@@ -591,7 +619,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       cycleCount: 0,
       isInhaling: false,
       minCycleTime: 2000,
-      lastCycleTime: 0
+      lastCycleTime: 0,
+      recentSamples: [],
+      sampleWindow: 30
     });
     
     // Reset calibration data
