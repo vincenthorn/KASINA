@@ -25,15 +25,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!isListening) return;
     
-    // Much more dramatic size range for clear breathing visualization
-    const minSize = 150;  // Larger minimum for better visibility
-    const maxSize = 900;  // Much larger maximum for dramatic effect
+    // Natural breathing size range - much more subtle and meditative
+    const minSize = 250;  // Reasonable minimum size
+    const maxSize = 450;  // Moderate maximum for gentle breathing effect
     const sizeRange = maxSize - minSize;
     
-    // Gentle magnification for natural breathing response
-    // Using lower multiplier (2.0) for subtle, meditative movement
-    const magnifiedAmplitude = Math.sqrt(breathAmplitude) * 2.0; 
-    const clampedAmplitude = Math.min(1, magnifiedAmplitude);
+    // Use amplitude directly without additional magnification
+    // The breathing algorithm already provides the right scaling
+    const clampedAmplitude = Math.max(0, Math.min(1, breathAmplitude));
     const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
     // More dramatic glow effect that scales with breathing
