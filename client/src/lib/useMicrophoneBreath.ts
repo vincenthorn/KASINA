@@ -186,11 +186,19 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     console.log(`✅ Running peak detection with ${newSamples.length} samples`);
     
-    // Calculate adaptive baseline from recent samples
-    const baseline = Math.min(...newSamples.slice(-15)); // Minimum of recent 15 samples
-    const maxRecent = Math.max(...newSamples.slice(-15)); // Maximum of recent 15 samples
-    const dynamicRange = maxRecent - baseline;
-    const breathThreshold = baseline + (dynamicRange * 0.6); // 60% above baseline (less sensitive)
+    // Use calibrated baseline if available, otherwise use adaptive baseline
+    let baseline, breathThreshold;
+    if (calibrationProfile) {
+      // Use calibrated baseline - much more accurate!
+      baseline = calibrationProfile.baselineMin;
+      breathThreshold = calibrationProfile.breathThreshold;
+    } else {
+      // Fallback to adaptive baseline from recent samples
+      baseline = Math.min(...newSamples.slice(-15));
+      const maxRecent = Math.max(...newSamples.slice(-15));
+      const dynamicRange = maxRecent - baseline;
+      breathThreshold = baseline + (dynamicRange * 0.6);
+    }
     
     // Simple peak detection - look for local maxima and minima
     const currentIndex = newSamples.length - 1;
@@ -381,6 +389,14 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       if (elapsedTime >= TOTAL_CALIBRATION_DURATION) {
         // Complete calibration
         console.log('Completing calibration...');
+        
+        // Analyze baseline data first
+        let baselineAvg = 0;
+        let baselineMax = 0;
+        if (baselineDataRef.current.length > 0) {
+          baselineAvg = baselineDataRef.current.reduce((sum, val) => sum + val, 0) / baselineDataRef.current.length;
+          baselineMax = Math.max(...baselineDataRef.current);
+        }
         
         // Analyze deep breath data
         let deepBreathMax = 0;
