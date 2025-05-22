@@ -188,18 +188,18 @@ const MicBreathPage: React.FC = () => {
                 breathing pattern and creates a visual experience that adapts to your natural rhythm.
               </p>
               
-              <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-md mb-6">
-                <h2 className="font-bold mb-2">How it works:</h2>
-                <ol className="list-decimal list-inside space-y-2">
-                  <li>Select your preferred microphone from the dropdown</li>
-                  <li>Click "Start Meditation" to begin breath calibration</li>
-                  <li>Follow the 20-second calibration to learn your breathing pattern</li>
-                  <li>Once calibrated, breathe normally and watch the orb respond</li>
-                  <li>The orb will expand as you inhale and contract as you exhale</li>
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-lg mb-6 shadow-sm">
+                <h2 className="font-bold text-lg mb-3 text-gray-900 dark:text-white">How it works:</h2>
+                <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300">
+                  <li className="pl-2">Select your preferred microphone from the dropdown</li>
+                  <li className="pl-2">Click "Start Meditation" to begin breath calibration</li>
+                  <li className="pl-2">Follow the 20-second calibration to learn your breathing pattern</li>
+                  <li className="pl-2">Once calibrated, breathe normally and watch the orb respond</li>
+                  <li className="pl-2">The orb will expand as you inhale and contract as you exhale</li>
                 </ol>
                 
-                <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-md">
-                  <p className="text-sm font-medium text-blue-800 dark:text-blue-200">
+                <div className="mt-4 p-4 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-md">
+                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-100">
                     ✨ Smart Calibration: The system automatically adjusts sensitivity for your microphone and breathing style
                   </p>
                 </div>
