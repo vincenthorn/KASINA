@@ -195,7 +195,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     if (!detection.isInhaling && currentValue > prevValue && prevValue > prev2Value && 
         currentValue > breathThreshold && (currentTime - detection.lastCycleTime) > 1000) { // At least 1 second between cycles
       
-      console.log(`🔵 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
+      console.log(`🟢 INHALE START detected: ${currentValue.toFixed(4)} (rising trend)`);
       
       setBreathCycleDetection(prev => ({
         ...prev,
