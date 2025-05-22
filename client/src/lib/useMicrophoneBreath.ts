@@ -100,13 +100,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const [calibrationProfile, setCalibrationProfile] = useState<{
     baselineMin: number;
     baselineMax: number;
-    averageAmplitude: number;
-    breathingPattern: {
-      inhaleThreshold: number;
-      exhaleThreshold: number;
-      cycleDetectionSensitivity: number;
-    };
-    isValid: boolean;
+    breathThreshold: number;
+    sensitivity: number;
+    timestamp: number;
   } | null>(null);
   const settlingBreathDataRef = useRef<number[]>([]);
   const calibrationMinRef = useRef<number>(Infinity);
@@ -196,8 +192,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       // Fallback to adaptive baseline from recent samples
       baseline = Math.min(...newSamples.slice(-15));
       const maxRecent = Math.max(...newSamples.slice(-15));
-      const dynamicRange = maxRecent - baseline;
-      breathThreshold = baseline + (dynamicRange * 0.6);
+      const range = maxRecent - baseline;
+      breathThreshold = baseline + (range * 0.6);
     }
     
     // Simple peak detection - look for local maxima and minima
@@ -334,13 +330,41 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       
       // Store calibration data based on phase
       if (calibrationPhase === 'baseline') {
-        // Baseline phase - collect quiet microphone data for 5 seconds
+        // Baseline phase - collect quiet microphone data for 10 seconds
         baselineDataRef.current.push(volume);
         
-        // After 5 seconds, switch to deep breath phase
-        if (elapsedTime >= 5000) {
-          console.log('Baseline collection complete, switching to deep breath phase');
-          setCalibrationPhase('deep');
+        // After 10 seconds, complete calibration with baseline data
+        if (elapsedTime >= 10000) {
+          console.log('Baseline collection complete, finishing calibration...');
+          
+          // Calculate baseline statistics
+          let baselineAvg = 0;
+          let baselineMax = 0;
+          if (baselineDataRef.current.length > 0) {
+            baselineAvg = baselineDataRef.current.reduce((sum, val) => sum + val, 0) / baselineDataRef.current.length;
+            baselineMax = Math.max(...baselineDataRef.current);
+          }
+          
+          console.log('Baseline calibration complete!');
+          console.log('Baseline - Max:', baselineMax.toFixed(4), 'Avg:', baselineAvg.toFixed(4));
+          
+          // Create simple baseline profile
+          const breathRange = Math.max(0.01, baselineMax - baselineAvg); // Minimum range for safety
+          
+          const profile = {
+            baselineMin: baselineAvg,
+            baselineMax: baselineMax,
+            breathThreshold: baselineAvg + (breathRange * 1.5), // 150% above baseline for clear detection
+            sensitivity: Math.max(0.002, breathRange * 0.2), // 20% of range
+            timestamp: Date.now()
+          };
+          
+          console.log('Calibration profile created:', profile);
+          setCalibrationProfile(profile);
+          setIsCalibrating(false);
+          setCalibrationComplete(true);
+          setCalibrationProgress(1.0);
+          return;
         }
       } else if (calibrationPhase === 'deep') {
         // Deep breath phase - detect actual breath cycles
