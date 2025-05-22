@@ -307,7 +307,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       const currentTime = Date.now();
       const elapsedTime = currentTime - calibrationStartTimeRef.current;
       
-      console.log(`Calibration progress: ${elapsedTime}ms / ${TOTAL_CALIBRATION_DURATION}ms, volume: ${volume.toFixed(4)}`);
+      console.log(`🎯 Calibration: ${elapsedTime}ms / ${TOTAL_CALIBRATION_DURATION}ms, phase: ${calibrationPhase}, volume: ${volume.toFixed(4)}`);
       
       // Store calibration data based on phase
       if (calibrationPhase === 'deep') {
