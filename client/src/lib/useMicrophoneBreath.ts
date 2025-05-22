@@ -605,8 +605,16 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         // Update baseline every 10 samples for smooth responsiveness
         if (baseline.history.length >= 10 && baseline.history.length % 10 === 0) {
           const sorted = [...baseline.history].sort((a, b) => a - b);
-          baseline.min = sorted[Math.floor(sorted.length * 0.15)]; // 15th percentile
-          baseline.max = sorted[Math.floor(sorted.length * 0.85)]; // 85th percentile
+          baseline.min = sorted[Math.floor(sorted.length * 0.05)]; // 5th percentile (lower)
+          baseline.max = sorted[Math.floor(sorted.length * 0.95)]; // 95th percentile (higher)
+          
+          // Ensure minimum range to prevent division issues
+          const minRange = 0.001;
+          if ((baseline.max - baseline.min) < minRange) {
+            const center = (baseline.max + baseline.min) / 2;
+            baseline.min = center - minRange / 2;
+            baseline.max = center + minRange / 2;
+          }
         }
         
         // Normalize using dynamic baseline instead of fixed calibration
