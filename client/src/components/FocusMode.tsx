@@ -16,6 +16,8 @@ import '../styles/focusMode.css';
 interface FocusModeProps {
   children: React.ReactNode;
   onExit?: () => void; // Optional callback when exiting focus mode
+  onClose?: () => void; // Alias for onExit for backward compatibility
+  fullScreen?: boolean; // Whether to display in fullscreen mode
 }
 
 // Helper function to format time as MM:SS, handling null
@@ -26,7 +28,9 @@ const formatTime = (seconds: number | null): string => {
   return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 };
 
-const FocusMode: React.FC<FocusModeProps> = ({ children, onExit }) => {
+const FocusMode: React.FC<FocusModeProps> = ({ children, onExit, onClose, fullScreen }) => {
+  // Support for onClose as an alias for onExit
+  const handleExit = onExit || onClose;
   const { isFocusModeActive, enableFocusMode, disableFocusMode } = useFocusMode();
   const { selectedKasina } = useKasina();
   const timerState = useSimpleTimer();
@@ -119,9 +123,9 @@ const FocusMode: React.FC<FocusModeProps> = ({ children, onExit }) => {
     // Exit focus mode
     disableFocusMode();
     
-    // Call the onExit callback if provided, otherwise navigate back
-    if (onExit) {
-      onExit();
+    // Call the exit callback if provided, otherwise navigate back
+    if (handleExit) {
+      handleExit();
     } else {
       // Go back to the kasinas page
       navigate('/kasinas');

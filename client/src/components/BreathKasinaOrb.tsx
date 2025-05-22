@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/kasina-animations.css';
+import '../styles/breath-kasina.css';
 
 interface BreathKasinaOrbProps {
   breathAmplitude: number;
@@ -20,23 +21,29 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!orbRef.current) return;
     
-    // Calculate the size based on breath amplitude
-    // Min size: 150px, Max size: 400px for more dramatic effect
-    const minSize = 150;
-    const maxSize = 400;
+    // Calculate the size based on breath amplitude with more dramatic effect
+    // Min size: 100px, Max size: 450px for much more dramatic effect
+    const minSize = 100;
+    const maxSize = 450;
     const sizeRange = maxSize - minSize;
-    const newSize = minSize + (sizeRange * breathAmplitude);
     
-    // Apply the new size with smooth transition
+    // Apply a magnification factor to make changes more noticeable
+    // This is essential to create a more responsive visualization
+    const magnifiedAmplitude = Math.pow(breathAmplitude, 0.7) * 1.5; 
+    const clampedAmplitude = Math.min(1, magnifiedAmplitude);
+    const newSize = minSize + (sizeRange * clampedAmplitude);
+    
+    // Force update the DOM element style for sizing
+    // This is critical because sometimes React's style updates can be batched
     orbRef.current.style.width = `${newSize}px`;
     orbRef.current.style.height = `${newSize}px`;
     
     // Also adjust the glow effect based on breath amplitude
-    const glowIntensity = 15 + (breathAmplitude * 40);
+    const glowIntensity = 15 + (breathAmplitude * 60);
     orbRef.current.style.boxShadow = `0 0 ${glowIntensity}px ${glowIntensity/2}px rgba(77, 143, 255, 0.8)`;
     
     // Log the size for debugging
-    console.log(`Breath amplitude: ${breathAmplitude}, orb size: ${newSize}px, glow: ${glowIntensity}`);
+    console.log(`Breath amplitude: ${breathAmplitude}, magnified: ${magnifiedAmplitude.toFixed(2)}, orb size: ${newSize.toFixed(0)}px, glow: ${glowIntensity.toFixed(0)}`);
   }, [breathAmplitude]);
 
   return (

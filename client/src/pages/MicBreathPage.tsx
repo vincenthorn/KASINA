@@ -1,210 +1,201 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Layout from '../components/Layout';
 import { Button } from '../components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '../components/ui/select';
 import FocusMode from '../components/FocusMode';
-import { useMicrophoneBreath, AudioDevice } from '../lib/useMicrophoneBreath';
-import { toast } from 'sonner';
-import { useAuth } from '../lib/stores/useAuth';
-import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
-import { KasinaOption } from '../types/kasina';
+import { useMicrophoneBreath, AudioDevice } from '../lib/useMicrophoneBreath';
+import { useSessionLogger } from '../lib/stores/useSessionLogger';
+import '../styles/breath-kasina.css';
 
 const MicBreathPage: React.FC = () => {
   const navigate = useNavigate();
-  const { user, isAdmin } = useAuth();
-  const [inFocusMode, setInFocusMode] = useState(false);
+  const [showFocusMode, setShowFocusMode] = useState(false);
   const [sessionStartTime, setSessionStartTime] = useState<Date | null>(null);
-  const { logSession } = useSessionLogger();
   
-  // Microphone breathing hook
+  // Use the microphone breath hook for breath detection
   const {
-    isListening,
     breathAmplitude,
     breathingRate,
+    isListening,
     startListening,
     stopListening,
-    error,
     devices,
     selectedDeviceId,
-    refreshDevices
+    refreshDevices,
+    error
   } = useMicrophoneBreath();
   
-  // Check if user has premium access
-  const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;
+  // Session logging
+  const { logSession } = useSessionLogger();
   
-  // Request access when component mounts
+  // Start the session timer when focus mode is activated
   useEffect(() => {
-    // Refresh device list on mount
-    const loadDevices = async () => {
-      await refreshDevices();
-    };
-    
-    loadDevices();
-    
-    // Clean up
-    return () => {
-      if (isListening) {
-        stopListening();
-      }
-    };
-  }, []);
-  
-  // Handle device selection change
-  const handleDeviceChange = async (deviceId: string) => {
-    if (isListening) {
-      stopListening();
+    if (showFocusMode && !sessionStartTime) {
+      setSessionStartTime(new Date());
     }
-    
-    try {
-      await startListening(deviceId);
-      toast.success('Microphone connected');
-    } catch (err) {
-      toast.error('Failed to connect to microphone');
-    }
-  };
+  }, [showFocusMode, sessionStartTime]);
   
-  const startMeditationSession = async () => {
+  // Handle starting focus mode and breath detection
+  const handleStartSession = async () => {
     try {
       await startListening();
-      setInFocusMode(true);
-      setSessionStartTime(new Date());
-      toast.success('Breath meditation started');
-    } catch (err) {
-      toast.error('Failed to access microphone');
+      setShowFocusMode(true);
+    } catch (error) {
+      console.error('Failed to start microphone:', error);
     }
   };
   
-  const endMeditationSession = () => {
+  // Handle ending the session
+  const handleEndSession = () => {
+    // Stop listening to the microphone
     stopListening();
-    setInFocusMode(false);
     
-    // Log the session if it was started
+    // Log the meditation session
     if (sessionStartTime) {
       const endTime = new Date();
       const durationMs = endTime.getTime() - sessionStartTime.getTime();
-      const durationMinutes = Math.round(durationMs / 60000);
+      const durationMinutes = Math.max(1, Math.round(durationMs / 60000));
       
-      // Only log if meditation was at least 1 minute
-      if (durationMinutes >= 1) {
-        logSession({
-          kasinaType: 'breath-mic', // Unique identifier for microphone breath meditation
-          duration: durationMinutes * 60, // Convert minutes to seconds
-          showToast: false // Don't show the default toast
-        });
-        
-        toast.success(`Breath meditation completed: ${durationMinutes} minutes`);
-      }
+      logSession({
+        type: 'breath',
+        kasina: 'microphone',
+        startTime: sessionStartTime,
+        endTime: endTime,
+        duration: durationMinutes
+      });
+      
+      setSessionStartTime(null);
+    }
+    
+    // Exit focus mode
+    setShowFocusMode(false);
+  };
+  
+  // Handle microphone device change
+  const handleDeviceChange = async (deviceId: string) => {
+    try {
+      await startListening(deviceId);
+    } catch (error) {
+      console.error('Failed to change microphone device:', error);
     }
   };
   
-  // If user doesn't have premium access, redirect to Breath page
-  if (!hasPremiumAccess) {
-    return (
-      <div className="container mx-auto py-8 px-4">
-        <h1 className="text-3xl font-bold mb-6">Premium Feature</h1>
-        <p className="mb-4">
-          Microphone-based breath detection is a premium feature.
-          Please upgrade your account to access this feature.
-        </p>
-        <Button onClick={() => navigate('/breath')}>
-          Go Back
-        </Button>
-      </div>
-    );
-  }
+  // Handle refreshing device list
+  const handleRefreshDevices = async () => {
+    try {
+      await refreshDevices();
+    } catch (error) {
+      console.error('Failed to refresh devices:', error);
+    }
+  };
   
-  // Premium user view
   return (
     <>
-      {inFocusMode ? (
-        <FocusMode onExit={endMeditationSession}>
-          <div className="h-full w-full flex flex-col items-center justify-center bg-black">
+      {showFocusMode ? (
+        <FocusMode onClose={handleEndSession} fullScreen>
+          <div className="w-full h-full flex flex-col items-center justify-center bg-black">
             <BreathKasinaOrb 
-              breathAmplitude={breathAmplitude} 
-              isListening={isListening} 
+              breathAmplitude={breathAmplitude}
+              isListening={isListening}
             />
             
-            {/* Display breathing rate if detected */}
-            {breathingRate > 0 && (
-              <div className="text-white mt-4 text-lg">
-                {breathingRate.toFixed(1)} breaths per minute
-              </div>
-            )}
+            {/* Breathing rate display */}
+            <div className="absolute bottom-10 text-white text-center">
+              <p>{breathingRate.toFixed(1)} breaths per minute</p>
+            </div>
           </div>
         </FocusMode>
       ) : (
-        <div className="container mx-auto py-8 px-4">
-          <h1 className="text-3xl font-bold mb-6">Microphone Breath Meditation</h1>
-          
-          <div className="mb-8">
-            <p className="mb-4">
-              This meditation uses your microphone to detect your breathing pattern and
-              creates a visual that expands and contracts with your breath.
-            </p>
+        <Layout>
+          <div className="container mx-auto py-8 px-4">
+            <h1 className="text-3xl font-bold mb-6">Microphone Breath Detection</h1>
             
-            {error && (
-              <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
-                <p>{error}</p>
-              </div>
-            )}
-            
-            <div className="mb-6">
-              <h3 className="text-lg font-medium mb-2">1. Select Microphone</h3>
+            <div className="mb-8">
+              <p className="mb-4">
+                This meditation technique uses your device's microphone to detect your
+                breathing pattern and creates a visual experience that adapts to your natural rhythm.
+              </p>
               
-              <div className="flex items-center gap-4">
-                <Select 
-                  value={selectedDeviceId || ''} 
-                  onValueChange={handleDeviceChange}
-                >
-                  <SelectTrigger className="w-[300px]">
-                    <SelectValue placeholder="Select a microphone" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {devices.map(device => (
-                      <SelectItem key={device.deviceId} value={device.deviceId}>
-                        {device.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                
-                <Button variant="outline" onClick={() => refreshDevices()}>
-                  Refresh
-                </Button>
+              <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-md mb-6">
+                <h2 className="font-bold mb-2">How it works:</h2>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>Select your preferred microphone from the dropdown</li>
+                  <li>Position yourself so the microphone can detect your breath</li>
+                  <li>Click "Start Meditation" to begin</li>
+                  <li>Breathe normally and watch the visualization respond</li>
+                  <li>The orb will expand as you inhale and contract as you exhale</li>
+                </ol>
               </div>
               
-              {devices.length === 0 && (
-                <p className="text-yellow-600 mt-2">
-                  No microphones detected. Please ensure your microphone is connected and browser permissions are granted.
-                </p>
+              {error && (
+                <div className="bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 p-4 rounded-md mb-4">
+                  <p className="font-bold">Error:</p>
+                  <p>{error}</p>
+                  <p className="mt-2 text-sm">
+                    Please make sure you've granted microphone permissions to this website.
+                  </p>
+                </div>
               )}
+              
+              {/* Microphone selection */}
+              <div className="mb-6">
+                <label className="block text-sm font-medium mb-2">
+                  Select Microphone:
+                </label>
+                <div className="flex items-center space-x-2">
+                  <Select
+                    value={selectedDeviceId || ''}
+                    onValueChange={handleDeviceChange}
+                  >
+                    <SelectTrigger className="w-[300px]">
+                      <SelectValue placeholder="Select a microphone..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {devices.map((device) => (
+                        <SelectItem key={device.deviceId} value={device.deviceId}>
+                          {device.label || `Microphone ${device.deviceId.slice(0, 5)}...`}
+                          {device.isDefault && " (Default)"}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Button variant="outline" onClick={handleRefreshDevices}>
+                    Refresh
+                  </Button>
+                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  {devices.length === 0 
+                    ? "No microphones detected. Please connect a microphone and click refresh." 
+                    : `${devices.length} microphone(s) available`}
+                </p>
+              </div>
             </div>
             
-            <h3 className="text-lg font-medium mb-2">2. Start Meditation</h3>
-            <p className="mb-4">
-              Click the button below to start the meditation session. 
-              The orb will expand and contract with your breathing pattern.
-            </p>
-            
-            <Button 
-              onClick={startMeditationSession}
-              disabled={devices.length === 0}
-              className="bg-blue-600 hover:bg-blue-700"
-            >
-              Start Meditation
-            </Button>
+            <div className="flex space-x-4">
+              <Button 
+                onClick={handleStartSession}
+                disabled={isListening}
+                className="w-full md:w-auto"
+              >
+                Start Meditation
+              </Button>
+              <Button 
+                variant="outline" 
+                onClick={() => navigate('/breath')}
+              >
+                Back
+              </Button>
+            </div>
           </div>
-          
-          <div className="mt-8">
-            <h3 className="text-lg font-medium mb-2">How it works</h3>
-            <p>
-              The microphone detects the sound of your breath and analyzes the pattern.
-              For best results, meditate in a quiet environment and breathe audibly enough
-              for your microphone to pick up the sound.
-            </p>
-          </div>
-        </div>
+        </Layout>
       )}
     </>
   );

@@ -59,7 +59,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const MIN_BREATH_INTERVAL_MS = 1500; // Minimum time between breaths (ms)
 
   /**
-   * Calculate the volume level from audio data
+   * Calculate the volume level from audio data with enhanced sensitivity
    */
   const calculateVolume = useCallback((dataArray: Uint8Array): number => {
     // Calculate the RMS (root mean square) of the audio samples
@@ -71,8 +71,12 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     }
     const rms = Math.sqrt(sum / dataArray.length);
     
-    // Normalize between 0 and 1 with some headroom
-    return Math.min(rms * 3, 1); 
+    // Enhanced normalization with higher sensitivity for breath detection
+    // This makes the visualization much more responsive to subtle changes
+    const enhancedRms = Math.pow(rms * 4, 1.2);
+    
+    // Normalize between 0 and 1 with increased range for better visualization
+    return Math.min(enhancedRms, 1); 
   }, []);
 
   /**
