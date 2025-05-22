@@ -602,7 +602,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         lastBreathAmplitudeRef.current = normalizedAmplitude;
         
         // Reduce overall sensitivity for smoother meditation experience
-        const smoothedAmplitude = normalizedAmplitude * 0.6; // Scale down by 40%
+        const smoothedAmplitude = normalizedAmplitude * 0.3; // Scale down by 70% for gentler response
         
         setBreathAmplitude(smoothedAmplitude);
         detectBreath(smoothedAmplitude, Date.now());
