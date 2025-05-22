@@ -16,6 +16,7 @@ interface MicrophoneBreathHookResult {
   isListening: boolean;
   breathAmplitude: number; // 0-1 normalized amplitude 
   breathingRate: number; // breaths per minute
+  breathPhase: 'inhale' | 'exhale' | 'pause'; // Current breathing phase
   startListening: (deviceId?: string) => Promise<void>;
   stopListening: () => void;
   error: string | null;
@@ -56,6 +57,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const [isListening, setIsListening] = useState(false);
   const [breathAmplitude, setBreathAmplitude] = useState(0);
   const [breathingRate, setBreathingRate] = useState(0);
+  const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
   const [error, setError] = useState<string | null>(null);
   const [devices, setDevices] = useState<AudioDevice[]>([]);
   const [selectedDeviceId, setSelectedDeviceId] = useState<string | null>(null);
@@ -90,6 +92,12 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const requestAnimationFrameIdRef = useRef<number | null>(null);
   const isInhalingRef = useRef<boolean>(false);
   const lastPeakRef = useRef<number>(0);
+  
+  // Breath cycle detection refs
+  const volumeHistoryRef = useRef<number[]>([]);
+  const breathCycleStateRef = useRef<'inhale' | 'exhale' | 'pause'>('pause');
+  const lastVolumeChangeRef = useRef<number>(0);
+  const breathCycleTimerRef = useRef<number>(0);
 
   // Calibration data storage
   const calibrationDataRef = useRef<number[]>([]);
