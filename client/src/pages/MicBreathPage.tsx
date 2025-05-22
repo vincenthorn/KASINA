@@ -147,17 +147,17 @@ const MicBreathPage: React.FC = () => {
                 </p>
               </div>
               
-              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg mb-8">
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 p-6 rounded-lg mb-8">
                 {calibrationPhase === 'deep' ? (
                   <>
-                    <h2 className="text-xl font-semibold mb-4">
+                    <h2 className="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-100">
                       Phase 1: Take 3 Deep Breaths
                     </h2>
-                    <p className="mb-4">
+                    <p className="mb-4 text-blue-800 dark:text-blue-200">
                       Take <strong>{deepBreathCount}/3</strong> slow, deep breaths through your nose.
                       This helps us understand your maximum breath volume.
                     </p>
-                    <ul className="text-left space-y-2">
+                    <ul className="text-left space-y-2 text-blue-700 dark:text-blue-300">
                       <li>• Inhale deeply and slowly for 3 seconds</li>
                       <li>• Exhale slowly and completely</li>
                       <li>• Make each breath as full as comfortable</li>
@@ -166,14 +166,14 @@ const MicBreathPage: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    <h2 className="text-xl font-semibold mb-4">
+                    <h2 className="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-100">
                       Phase 2: Let Your Breath Settle
                     </h2>
-                    <p className="mb-4">
+                    <p className="mb-4 text-blue-800 dark:text-blue-200">
                       Now breathe naturally and let your breath settle into its normal rhythm.
                       This helps us calibrate for your quiet, natural breathing.
                     </p>
-                    <ul className="text-left space-y-2">
+                    <ul className="text-left space-y-2 text-blue-700 dark:text-blue-300">
                       <li>• Breathe through your nose naturally</li>
                       <li>• Don't try to breathe deeply anymore</li>
                       <li>• Let your breathing become soft and quiet</li>

@@ -183,6 +183,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       const currentTime = Date.now();
       const elapsedTime = currentTime - calibrationStartTimeRef.current;
       
+      console.log(`Calibration progress: ${elapsedTime}ms / ${TOTAL_CALIBRATION_DURATION}ms, volume: ${volume.toFixed(4)}`);
+      
       // Store calibration data based on phase
       if (elapsedTime <= DEEP_BREATH_DURATION) {
         // Deep breath phase (first 9 seconds)
@@ -202,28 +204,42 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       const progress = Math.min(1, elapsedTime / TOTAL_CALIBRATION_DURATION);
       setCalibrationProgress(progress);
       
-      // Apply dynamic sensitivity during calibration
-      if (deepBreathDataRef.current.length > 0 && settlingBreathDataRef.current.length > 0) {
-        // Calculate sensitivity based on collected data
-        const deepMax = Math.max(...deepBreathDataRef.current);
-        const settlingMax = Math.max(...settlingBreathDataRef.current);
-        const dynamicRange = deepMax - settlingMax;
-        
-        // Adjust amplitude based on current phase and dynamic range
-        if (calibrationPhase === 'settling') {
-          // Amplify settling breath to maintain visibility
-          const amplifiedVolume = Math.min(1, volume * 2 + (dynamicRange * 0.3));
-          setBreathAmplitude(amplifiedVolume);
-        } else {
-          setBreathAmplitude(volume);
-        }
-      } else {
-        setBreathAmplitude(volume);
-      }
+      // Always show the raw volume during calibration for user feedback
+      setBreathAmplitude(volume);
       
       // Complete calibration after total duration
       if (elapsedTime >= TOTAL_CALIBRATION_DURATION) {
-        completeCalibration();
+        // Complete calibration
+        console.log('Completing calibration...');
+        
+        // Analyze deep breath data
+        let deepBreathMax = 0;
+        let deepBreathAvg = 0;
+        if (deepBreathDataRef.current.length > 0) {
+          deepBreathMax = Math.max(...deepBreathDataRef.current);
+          deepBreathAvg = deepBreathDataRef.current.reduce((sum, val) => sum + val, 0) / deepBreathDataRef.current.length;
+        }
+        
+        // Analyze settling breath data
+        let settlingBreathMax = 0;
+        let settlingBreathAvg = 0;
+        if (settlingBreathDataRef.current.length > 0) {
+          settlingBreathMax = Math.max(...settlingBreathDataRef.current);
+          settlingBreathAvg = settlingBreathDataRef.current.reduce((sum, val) => sum + val, 0) / settlingBreathDataRef.current.length;
+        }
+        
+        // Calculate dynamic sensitivity range
+        calibrationMinRef.current = Math.min(settlingBreathAvg * 0.5, 0.01);
+        calibrationMaxRef.current = Math.max(deepBreathMax, settlingBreathMax * 2);
+        
+        console.log(`Two-phase calibration complete!`);
+        console.log(`Deep breath - Max: ${deepBreathMax.toFixed(4)}, Avg: ${deepBreathAvg.toFixed(4)}`);
+        console.log(`Settling breath - Max: ${settlingBreathMax.toFixed(4)}, Avg: ${settlingBreathAvg.toFixed(4)}`);
+        console.log(`Sensitivity range: ${calibrationMinRef.current.toFixed(4)} - ${calibrationMaxRef.current.toFixed(4)}`);
+        
+        setIsCalibrating(false);
+        setCalibrationComplete(true);
+        setCalibrationProgress(1);
       }
     } else {
       // Normal operation with calibrated sensitivity
@@ -236,7 +252,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Continue the loop
     requestAnimationFrameIdRef.current = requestAnimationFrame(processAudioData);
-  }, [calculateVolume, detectBreath, isCalibrating, calibrationPhase, DEEP_BREATH_DURATION, TOTAL_CALIBRATION_DURATION]);
+  }, [calculateVolume, detectBreath, isCalibrating, calibrationPhase]);
 
   /**
    * Get available audio input devices
