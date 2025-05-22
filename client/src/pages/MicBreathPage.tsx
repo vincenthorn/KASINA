@@ -97,9 +97,27 @@ const MicBreathPage: React.FC = () => {
   };
   
   // Handle microphone device change
-  const handleDeviceChange = (deviceId: string) => {
+  const handleDeviceChange = async (deviceId: string) => {
+    console.log('Switching to microphone device:', deviceId);
+    
+    // Stop current listening if active
+    const wasListening = isListening;
+    if (wasListening) {
+      stopListening();
+    }
+    
+    // Update the selected device
     setSelectedDeviceId(deviceId);
-    console.log('Selected microphone device:', deviceId);
+    
+    // If we were listening before, restart with the new device
+    if (wasListening) {
+      try {
+        await startListening(deviceId);
+        console.log('Successfully switched to new microphone');
+      } catch (error) {
+        console.error('Failed to switch microphone:', error);
+      }
+    }
   };
   
   // Handle refreshing device list
