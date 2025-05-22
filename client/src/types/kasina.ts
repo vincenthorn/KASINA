@@ -1,19 +1,30 @@
 /**
- * Defines the types of kasinas available in the application
+ * Types for the Kasina app
  */
-export type KasinaType = 
-  | 'blue'
-  | 'white'
-  | 'red'
-  | 'green'
-  | 'yellow'
-  | 'rainbow'
-  | 'custom';
 
-/**
- * Defines the different animation effects for breath kasinas
- */
-export type BreathEffectType = 
-  | 'expand-contract'
-  | 'brighten-darken'
-  | 'color-shift';
+export interface KasinaOption {
+  id: string;
+  name: string;
+  description: string;
+  iconPath?: string;
+  requiresPremium?: boolean;
+}
+
+export interface MeditationSession {
+  id?: string;
+  userId?: string;
+  type: string;
+  kasina?: string;
+  duration: number;
+  startTime: Date | string;
+  endTime?: Date | string;
+  notes?: string;
+}
+
+export type SubscriptionTier = 'free' | 'premium';
+
+export interface User {
+  email: string;
+  subscription?: SubscriptionTier;
+  [key: string]: any;
+}

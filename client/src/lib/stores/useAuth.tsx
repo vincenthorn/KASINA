@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { apiRequest } from "../api";
 import { toast } from "sonner";
 
+// Define our types first
 interface User {
   email: string;
   subscription?: 'free' | 'premium';
@@ -18,6 +19,7 @@ interface AuthState {
   checkAuthStatus: () => Promise<void>;
 }
 
+// Export the hook for use in components
 export const useAuth = create<AuthState>((set) => ({
   isAuthenticated: false,
   email: null,
@@ -175,6 +177,8 @@ export const useAuth = create<AuthState>((set) => ({
         set({
           isAuthenticated: false,
           email: null,
+          user: null,
+          isAdmin: false
         });
       }
     } catch (error) {
@@ -182,6 +186,8 @@ export const useAuth = create<AuthState>((set) => ({
       set({
         isAuthenticated: false,
         email: null,
+        user: null,
+        isAdmin: false
       });
     }
   },

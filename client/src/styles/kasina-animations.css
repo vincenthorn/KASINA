@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-/* Main Orb Styling */
+/* Main Orb Styling - Enhanced with more dramatic effects */
 .breath-kasina-orb {
   width: 200px;
   height: 200px;
@@ -15,10 +15,12 @@
   box-shadow: 0 0 50px rgba(0, 136, 255, 0.8);
   position: relative;
   overflow: hidden;
+  background-color: rgba(77, 143, 255, 0.8);
+  transition: all 0.3s ease-out;
 }
 
-/* Particles Effect */
-.breath-particles {
+/* Particles Effect - Enhanced for microphone breath detection */
+.breath-particles, .orb-particles {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,9 +29,44 @@
   border-radius: 50%;
   background-size: 400% 400%;
   mix-blend-mode: screen;
-  opacity: 0;
   animation: particleFlow 5s ease infinite;
   pointer-events: none;
+  overflow: hidden;
+}
+
+/* Particles inside the orb */
+.orb-particles::before, .orb-particles::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 5%,
+    rgba(77, 143, 255, 0.3) 20%,
+    transparent 60%
+  );
+  animation: rotate 20s linear infinite;
+  opacity: 0.6;
+  background-size: 20% 20%;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 3%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 3%),
+    radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 3%),
+    radial-gradient(circle at 10% 60%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 3%),
+    radial-gradient(circle at 30% 90%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 3%),
+    radial-gradient(circle at 70% 10%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 3%),
+    radial-gradient(circle at 90% 60%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 3%),
+    radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 3%);
+}
+
+.orb-particles::after {
+  animation-direction: reverse;
+  animation-duration: 15s;
+  opacity: 0.4;
+  background-size: 15% 15%;
 }
 
 /* Particle Flow Animation */
@@ -45,6 +82,16 @@
   100% {
     background-position: 0% 50%;
     transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Rotation animation for particles */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
