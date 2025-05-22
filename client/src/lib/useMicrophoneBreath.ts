@@ -641,8 +641,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         // Apply heavy smoothing to reduce noise and create fluid motion
         const targetAmplitude = 0.15 + (clampedNormalized * 0.6);
         
-        // Use exponential moving average for very smooth transitions
-        const smoothingFactor = 0.15; // Lower = smoother (0.1-0.3 range)
+        // Use exponential moving average with more responsive smoothing
+        const smoothingFactor = 0.4; // Higher = more responsive to breathing
         const currentAmplitude = breathAmplitudeRef.current || 0.4; // Default middle value
         const smoothedAmplitude = currentAmplitude + smoothingFactor * (targetAmplitude - currentAmplitude);
         
