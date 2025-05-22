@@ -95,6 +95,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const lastPeakRef = useRef<number>(0);
   const lastBreathAmplitudeRef = useRef<number | null>(null);
   const envelopeRef = useRef<number>(0); // For amplitude envelope following
+  const dynamicBaselineRef = useRef<{min: number, max: number, history: number[]}>({
+    min: 0, max: 0.02, history: []
+  }); // Dynamic baseline that adapts to real breathing
   
   // Breath cycle detection refs
   const volumeHistoryRef = useRef<number[]>([]);
@@ -590,10 +593,25 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     } else {
       // Meditation practice mode - use calibration profile for breath detection
       if (calibrationProfile && calibrationProfile.baselineMin !== undefined && calibrationProfile.baselineMax !== undefined) {
-        // Normalize volume using the user's personal breathing baseline
-        const { baselineMin, baselineMax } = calibrationProfile;
+        // Dynamic baseline adjustment - adapts to your real breathing patterns
+        const baseline = dynamicBaselineRef.current;
+        baseline.history.push(volume);
+        
+        // Keep last 100 breathing samples for real-time adaptation
+        if (baseline.history.length > 100) {
+          baseline.history.shift();
+        }
+        
+        // Update baseline every 20 samples (smooth adaptation)
+        if (baseline.history.length % 20 === 0) {
+          const sorted = [...baseline.history].sort((a, b) => a - b);
+          baseline.min = sorted[Math.floor(sorted.length * 0.1)]; // 10th percentile
+          baseline.max = sorted[Math.floor(sorted.length * 0.9)]; // 90th percentile
+        }
+        
+        // Normalize using dynamic baseline instead of fixed calibration
         let normalizedAmplitude = Math.max(0, Math.min(1, 
-          (volume - baselineMin) / (baselineMax - baselineMin)
+          (volume - baseline.min) / Math.max(0.001, baseline.max - baseline.min)
         ));
         
         // Amplitude Envelope Following for smooth breath tracking
