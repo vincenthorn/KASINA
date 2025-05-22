@@ -153,10 +153,20 @@ const MicBreathPage: React.FC = () => {
                     <h2 className="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-100">
                       Phase 1: Take 3 Deep Breaths
                     </h2>
-                    <p className="mb-4 text-blue-800 dark:text-blue-200">
-                      Take <strong>{deepBreathCount}/3</strong> slow, deep breaths through your nose.
-                      This helps us understand your maximum breath volume.
-                    </p>
+                    <div className="mb-6">
+                      <div className="text-center mb-4">
+                        <div className="text-4xl font-bold text-blue-900 dark:text-blue-100 mb-2">
+                          {deepBreathCount} / 3
+                        </div>
+                        <div className="text-sm text-blue-700 dark:text-blue-300">
+                          Breath cycles completed
+                        </div>
+                      </div>
+                      <p className="text-blue-800 dark:text-blue-200">
+                        Take slow, deep breaths through your nose.
+                        This helps us understand your maximum breath volume.
+                      </p>
+                    </div>
                     <ul className="text-left space-y-2 text-blue-700 dark:text-blue-300">
                       <li>• Inhale deeply and slowly for 3 seconds</li>
                       <li>• Exhale slowly and completely</li>
