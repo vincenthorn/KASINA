@@ -64,7 +64,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const [isCalibrating, setIsCalibrating] = useState(false);
   const [calibrationProgress, setCalibrationProgress] = useState(0);
   const [calibrationComplete, setCalibrationComplete] = useState(false);
-  const [calibrationPhase, setCalibrationPhase] = useState<'deep' | 'settling'>('deep');
+  const [calibrationPhase, setCalibrationPhase] = useState<'baseline' | 'deep' | 'settling'>('baseline');
   const [deepBreathCount, setDeepBreathCount] = useState(0);
   const [breathCycleDetection, setBreathCycleDetection] = useState({
     lastPeak: 0,
@@ -94,6 +94,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   // Calibration data storage
   const calibrationDataRef = useRef<number[]>([]);
   const deepBreathDataRef = useRef<number[]>([]);
+  const baselineDataRef = useRef<number[]>([]);
   
   // Calibration profile - stores user's personal breathing baseline
   const [calibrationProfile, setCalibrationProfile] = useState<{
@@ -324,7 +325,16 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       console.log(`🎯 Calibration: ${elapsedTime}ms / ${TOTAL_CALIBRATION_DURATION}ms, phase: ${calibrationPhase}, volume: ${volume.toFixed(4)}`);
       
       // Store calibration data based on phase
-      if (calibrationPhase === 'deep') {
+      if (calibrationPhase === 'baseline') {
+        // Baseline phase - collect quiet microphone data for 5 seconds
+        baselineDataRef.current.push(volume);
+        
+        // After 5 seconds, switch to deep breath phase
+        if (elapsedTime >= 5000) {
+          console.log('Baseline collection complete, switching to deep breath phase');
+          setCalibrationPhase('deep');
+        }
+      } else if (calibrationPhase === 'deep') {
         // Deep breath phase - detect actual breath cycles
         deepBreathDataRef.current.push(volume);
         
@@ -350,14 +360,17 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
       
       // Update calibration progress based on phase
       let progress;
-      if (calibrationPhase === 'deep') {
-        // Progress during deep breath phase (0% to 50% based on breath cycles)
-        progress = (deepBreathCount / 3) * 0.5;
+      if (calibrationPhase === 'baseline') {
+        // Progress during baseline phase (0% to 25% based on time)
+        progress = Math.min(0.25, elapsedTime / 5000 * 0.25);
+      } else if (calibrationPhase === 'deep') {
+        // Progress during deep breath phase (25% to 65% based on breath cycles)
+        progress = 0.25 + (deepBreathCount / 3) * 0.4;
       } else {
-        // Progress during settling phase (50% to 100% based on time)
-        const settlingElapsed = Math.max(0, elapsedTime - 10000); // Settling phase timing
+        // Progress during settling phase (65% to 100% based on time)
+        const settlingElapsed = Math.max(0, elapsedTime - 15000); // Settling phase timing (after baseline + deep)
         const settlingProgress = Math.min(1, settlingElapsed / SETTLING_DURATION);
-        progress = 0.5 + (settlingProgress * 0.5);
+        progress = 0.65 + (settlingProgress * 0.35);
       }
       setCalibrationProgress(Math.min(1, progress));
       
@@ -686,7 +699,7 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     setIsCalibrating(true);
     setCalibrationProgress(0);
     setCalibrationComplete(false);
-    setCalibrationPhase('deep');
+    setCalibrationPhase('baseline');
     setDeepBreathCount(0);
     
     // Reset breath cycle detection
