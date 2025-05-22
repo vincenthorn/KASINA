@@ -203,16 +203,9 @@ const MicBreathPage: React.FC = () => {
               
               <Button 
                 onClick={startCalibration}
-                className="mr-4"
+                className="w-48 h-12 text-lg"
               >
                 Start Breath Detection
-              </Button>
-              <Button 
-                variant="outline" 
-                onClick={skipCalibration}
-                className="mr-4"
-              >
-                Skip Calibration
               </Button>
             </div>
           </div>
