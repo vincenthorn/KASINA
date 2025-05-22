@@ -55,7 +55,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   }, [breathAmplitude, isListening]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-full">
+    <div 
+      className="fixed inset-0 flex items-center justify-center"
+      style={{
+        backgroundColor: '#000000',
+        width: '100vw',
+        height: '100vh',
+        zIndex: 10
+      }}
+    >
       <div 
         ref={orbRef}
         className="breath-kasina-orb"
