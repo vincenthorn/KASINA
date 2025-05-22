@@ -159,7 +159,12 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     
     // Look for breathing patterns: inhale (increasing trend) followed by exhale (decreasing trend)
     const isIncreasing = recentAvg > earlierAvg;
-    const significantChange = relativeChange > 0.3; // 30% relative change indicates breathing
+    const significantChange = relativeChange > 0.15; // 15% relative change indicates breathing (lowered from 30%)
+    
+    // Debug logging every 10th sample to avoid spam
+    if (newSamples.length % 10 === 0) {
+      console.log(`Pattern analysis: recentAvg=${recentAvg.toFixed(4)}, earlierAvg=${earlierAvg.toFixed(4)}, overallAvg=${overallAvg.toFixed(4)}, relChange=${relativeChange.toFixed(3)}, isIncreasing=${isIncreasing}, significantChange=${significantChange}, isInhaling=${detection.isInhaling}`);
+    }
     
     // Detect start of inhale (upward trend with significant change)
     if (isIncreasing && significantChange && !detection.isInhaling && 
@@ -183,9 +188,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
     }
     
     // Detect exhale completion (downward trend after inhale peak)
-    if (!isIncreasing && significantChange && detection.isInhaling && 
-        recentAvg < detection.lastPeak * 0.7 && // Exhaled to 70% of peak
-        (currentTime - detection.lastCycleTime) > detection.minCycleTime) {
+    if (!isIncreasing && detection.isInhaling && 
+        recentAvg < detection.lastPeak * 0.8 && // Exhaled to 80% of peak (made less strict)
+        (currentTime - detection.lastCycleTime) > 1500) { // Reduced minimum cycle time to 1.5 seconds
       
       console.log(`Breath cycle completed! Peak: ${detection.lastPeak.toFixed(4)}, Current: ${recentAvg.toFixed(4)}, RelChange: ${relativeChange.toFixed(3)}`);
       
