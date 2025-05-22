@@ -557,9 +557,9 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
           settlingBreathAvg = settlingBreathDataRef.current.reduce((sum, val) => sum + val, 0) / settlingBreathDataRef.current.length;
         }
         
-        // Calculate dynamic sensitivity range
-        calibrationMinRef.current = Math.min(settlingBreathAvg * 0.5, 0.01);
-        calibrationMaxRef.current = Math.max(deepBreathMax, settlingBreathMax * 2);
+        // Calculate tighter sensitivity range for better responsiveness
+        calibrationMinRef.current = Math.min(settlingBreathAvg * 0.8, 0.01);
+        calibrationMaxRef.current = Math.min(deepBreathMax * 0.7, settlingBreathMax * 1.5);
         
         console.log(`Two-phase calibration complete!`);
         console.log(`Deep breath - Max: ${deepBreathMax.toFixed(4)}, Avg: ${deepBreathAvg.toFixed(4)}`);
