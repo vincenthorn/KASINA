@@ -139,18 +139,26 @@ export function useVernierBreath(): VernierBreathHookResult {
               // Wait a moment between commands
               await new Promise(resolve => setTimeout(resolve, 200));
               
-              // Step 2: Start measurement at 20Hz
-              console.log("    -> Sending start measurement command...");
-              const startMeasurement = new Uint8Array([0x21, 0x50]); // Start at 20Hz (80ms period)
-              await char.writeValue(startMeasurement);
+              // Step 2: Request continuous data streaming
+              console.log("    -> Requesting continuous data stream...");
+              const continuousMode = new Uint8Array([0x53, 0x54, 0x41, 0x52, 0x54]); // "START" command
+              await char.writeValue(continuousMode);
               
               // Wait a moment
-              await new Promise(resolve => setTimeout(resolve, 200));
+              await new Promise(resolve => setTimeout(resolve, 300));
               
-              // Step 3: Set sensor to Force mode if needed
-              console.log("    -> Configuring force sensor mode...");
-              const forceModeCmd = new Uint8Array([0x23, 0x00, 0x01]); // Configure force sensor
-              await char.writeValue(forceModeCmd);
+              // Step 3: Set measurement rate to 10Hz for stable streaming
+              console.log("    -> Setting measurement rate...");
+              const rateCmd = new Uint8Array([0x52, 0x41, 0x54, 0x45, 0x0A]); // 10Hz rate
+              await char.writeValue(rateCmd);
+              
+              // Wait a moment  
+              await new Promise(resolve => setTimeout(resolve, 300));
+              
+              // Step 4: Send keep-alive command to maintain connection
+              console.log("    -> Sending keep-alive command...");
+              const keepAlive = new Uint8Array([0x4B, 0x45, 0x45, 0x50]); // "KEEP" alive
+              await char.writeValue(keepAlive);
               
               console.log("    -> GDX-RB activation sequence completed successfully");
               

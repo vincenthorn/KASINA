@@ -20,14 +20,6 @@ useVernierBreath.ts:124     -> Notifications started
 useVernierBreath.ts:114   Characteristic: f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:130     -> Found command characteristic, sending GDX-RB activation sequence...
 useVernierBreath.ts:135     -> Sending enable sensor command...
-useVernierBreath.ts:222 Raw Vernier data - Buffer length: 7
-useVernierBreath.ts:224 Raw bytes: Array(7)
-useVernierBreath.ts:233 Float32 (LE) interpretation: -2199533912064
-useVernierBreath.ts:239 Float32 (BE) interpretation: -4.46688234043397e-22
-useVernierBreath.ts:245 Int16 interpretation: 1948
-useVernierBreath.ts:251 Uint16 interpretation: 1948
-useVernierBreath.ts:267 Final force value: -2199533912064
-useVernierBreath.ts:287 🫁 Force: -2199533912064.000N, Phase: pause, Amplitude: 0.000
 useVernierBreath.ts:143     -> Sending start measurement command...
 useVernierBreath.ts:151     -> Configuring force sensor mode...
 useVernierBreath.ts:155     -> GDX-RB activation sequence completed successfully
@@ -38,4 +30,4 @@ useVernierBreath.ts:114   Characteristic: 00002a26-0000-1000-8000-00805f9b34fb P
 useVernierBreath.ts:114   Characteristic: 00002a28-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:114   Characteristic: 00002a29-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:178 Successfully connected to Vernier respiration belt
-useVernierBreath.ts:412 Starting respiration belt calibration...
+useVernierBreath.ts:433 Starting respiration belt calibration...
