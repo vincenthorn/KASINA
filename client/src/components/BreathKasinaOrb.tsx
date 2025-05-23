@@ -759,8 +759,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!activeIsListening) return;
     
-    // Adjusted breathing size range with scroll-based scaling - expanded especially for vajrayana
-    const baseMinSize = 0.1; // Much smaller minimum for deeper exhale range
+    // Adjusted breathing size range with scroll-based scaling - much smaller minimum
+    const baseMinSize = 0.025; // 4x smaller minimum - kasina can nearly disappear on exhale
     const baseMaxSize = 10000; // Much higher base for vajrayana kasinas
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale);
