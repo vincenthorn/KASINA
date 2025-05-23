@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import { Card, CardContent } from "../components/ui/card";
-import { Flame, Video, BookOpen, BarChart, Wind } from "lucide-react";
+import { Video, BookOpen, BarChart, Wind } from "lucide-react";
 import Logo from "../components/Logo";
 import { useAuth } from "../lib/stores/useAuth";
 
@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
   // Features available to all users
   const baseFeatures = [
     {
-      icon: <Flame className="h-10 w-10 text-red-500" />,
+      icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
       title: "Kasinas",
       description: "Choose from many different orbs, customizing your meditation practice.",
       path: "/kasinas",
