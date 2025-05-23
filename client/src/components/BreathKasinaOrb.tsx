@@ -56,7 +56,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [isInFocusMode, setIsInFocusMode] = useState(false);
   const [showConnectionHelp, setShowConnectionHelp] = useState(false);
   const [showKasinaSelection, setShowKasinaSelection] = useState(true);
-  const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>(null);
+  const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
   const [selectedKasina, setSelectedKasina] = useState<string>(KASINA_TYPES.BLUE);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
@@ -496,8 +496,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         </div>
       )}
 
-      {/* Kasina selection during first minute */}
-      {showControls && meditationTime < 60 && (
+      {/* Kasina selection (shows on mouse movement, auto-hides after 3 seconds) */}
+      {showControls && (
         <div 
           className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
           style={{
@@ -509,18 +509,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         >
           <div className="text-center mb-3">
             <div className="text-white text-sm font-medium mb-2">
-              Choose your kasina (available for first minute)
+              Choose your kasina
             </div>
             
             {/* Kasina series selection */}
             <div className="flex space-x-2 mb-3">
-              {Object.entries(KASINA_SERIES).map(([seriesKey, series]) => (
+              {Object.entries(KASINA_SERIES).map(([seriesKey, kasinas]) => (
                 <button
                   key={seriesKey}
                   onClick={() => {
                     setSelectedKasinaSeries(seriesKey);
                     // Set first kasina of this series as selected
-                    setSelectedKasina(series.kasinas[0]);
+                    setSelectedKasina(kasinas[0]);
                   }}
                   className={`px-3 py-1 rounded text-xs font-medium transition-all ${
                     selectedKasinaSeries === seriesKey
@@ -528,7 +528,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
                       : 'bg-gray-600 text-gray-300 hover:bg-gray-500'
                   }`}
                 >
-                  {series.name}
+                  {seriesKey}
                 </button>
               ))}
             </div>
@@ -536,7 +536,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
             {/* Individual kasina selection */}
             {selectedKasinaSeries && (
               <div className="flex flex-wrap justify-center gap-2">
-                {KASINA_SERIES[selectedKasinaSeries].kasinas.map((kasinaType: string) => (
+                {(KASINA_SERIES as any)[selectedKasinaSeries].map((kasinaType: string) => (
                   <button
                     key={kasinaType}
                     onClick={() => setSelectedKasina(kasinaType)}
