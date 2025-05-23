@@ -121,6 +121,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
             setCurrentForce(forceValue);
             
             // Add to calibration data if calibrating
+            console.log('Data received - isCalibrating:', isCalibrating, 'force:', forceValue.toFixed(2) + 'N');
             if (isCalibrating) {
               calibrationDataRef.current.push(forceValue);
               
