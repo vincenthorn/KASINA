@@ -131,22 +131,29 @@ export function useVernierBreath(): VernierBreathHookResult {
             try {
               // GDX-RB specific activation sequence
               
-              // Try polling approach - actively request data
-              console.log("    -> Starting active data polling...");
+              // Try direct reading approach - read data directly from sensor
+              console.log("    -> Starting direct data reading...");
               
-              // Set up interval to poll for data every 50ms
-              const pollInterval = setInterval(async () => {
+              // Set up interval to read data directly every 50ms
+              const readInterval = setInterval(async () => {
                 try {
-                  // Send data request command
-                  const requestData = new Uint8Array([0x12]); // Simple data request
-                  await char.writeValue(requestData);
+                  if (characteristicRef.current) {
+                    // Read data directly from the sensor characteristic
+                    const value = await characteristicRef.current.readValue();
+                    console.log("Direct read - Raw data:", Array.from(new Uint8Array(value.buffer)));
+                    
+                    // Process the data immediately
+                    if (value.byteLength >= 7) {
+                      handleDataReceived({ target: { value } } as any);
+                    }
+                  }
                 } catch (e) {
-                  console.log("Polling error:", e);
+                  console.log("Direct read error:", e);
                 }
               }, 50);
               
-              // Store interval for cleanup
-              pollIntervalRef.current = pollInterval;
+              // Store interval for cleanup  
+              pollIntervalRef.current = readInterval;
               
               console.log("    -> GDX-RB activation sequence completed successfully");
               
