@@ -146,9 +146,9 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
               processBreathingData(forceValue);
             } else {
               // Fallback: Process breathing data without calibration profile
-              // Use simple amplitude calculation based on force range
-              const minForce = 5.5; // Typical minimum force
-              const maxForce = 10.0; // Typical maximum force
+              // Use expanded amplitude calculation based on your actual breathing range
+              const minForce = 4.5; // Expanded minimum for deeper exhales
+              const maxForce = 10.5; // Expanded maximum for deeper inhales
               const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - minForce) / (maxForce - minForce)));
               setBreathAmplitude(normalizedAmplitude);
               
