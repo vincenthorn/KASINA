@@ -1,762 +1,1400 @@
- Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
- ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
-warnOnce @ react-router-dom.js?v=b90da175:4394
- ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
-warnOnce @ react-router-dom.js?v=b90da175:4394
- Setting auth state with user: Object
- User data: Object
- Is admin: false
- Email: premium@kasina.app
- Subscription: premium
- Has premium access: true
- Vernier GoDirect library loaded successfully
- handleStartSession called - isConnected: false calibrationComplete: false
- Connecting to Vernier device using official GoDirect library...
- Connected to: GDX-RB 0K7001C3
- Enabled sensors: Array(2)
- Successfully connected to Vernier respiration belt via official library
- Official Vernier data - Sensor: Force, Value: 6.707305908203125, Units: N
- Data received - isCalibrating: false force: 6.71N
- Official Vernier data - Sensor: Respiration Rate, Value: 2.25563907623291, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.773735046386719, Units: N
- Data received - isCalibrating: false force: 6.77N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.99090576171875, Units: N
- Data received - isCalibrating: false force: 6.99N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.325614929199219, Units: N
- Data received - isCalibrating: false force: 7.33N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.736968994140625, Units: N
- Data received - isCalibrating: false force: 7.74N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.163650512695312, Units: N
- Data received - isCalibrating: false force: 8.16N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.546905517578125, Units: N
- Data received - isCalibrating: false force: 8.55N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.810066223144531, Units: N
- Data received - isCalibrating: false force: 8.81N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.103889465332031, Units: N
- Data received - isCalibrating: false force: 9.10N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.448814392089844, Units: N
- Data received - isCalibrating: false force: 9.45N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.729866027832031, Units: N
- Data received - isCalibrating: false force: 9.73N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.97259521484375, Units: N
- Data received - isCalibrating: false force: 9.97N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.164215087890625, Units: N
- Data received - isCalibrating: false force: 10.16N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.2843017578125, Units: N
- Data received - isCalibrating: false force: 10.28N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.353286743164062, Units: N
- Data received - isCalibrating: false force: 10.35N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.445266723632812, Units: N
- Data received - isCalibrating: false force: 10.45N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.547470092773438, Units: N
- Data received - isCalibrating: false force: 10.55N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- handleStartSession called - isConnected: true calibrationComplete: false
- About to call startCalibration...
- Starting Vernier respiration belt calibration...
- Calibration started at: 10:00:25 PM
- Official Vernier data - Sensor: Force, Value: 10.52447509765625, Units: N
- Data received - isCalibrating: false force: 10.52N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.371170043945312, Units: N
- Data received - isCalibrating: false force: 10.37N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.102897644042969, Units: N
- Data received - isCalibrating: false force: 10.10N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.722206115722656, Units: N
- Data received - isCalibrating: false force: 9.72N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.239311218261719, Units: N
- Data received - isCalibrating: false force: 9.24N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.807510375976562, Units: N
- Data received - isCalibrating: false force: 8.81N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.5545654296875, Units: N
- Data received - isCalibrating: false force: 8.55N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.2965087890625, Units: N
- Data received - isCalibrating: false force: 8.30N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.969474792480469, Units: N
- Data received - isCalibrating: false force: 7.97N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.662872314453125, Units: N
- Data received - isCalibrating: false force: 7.66N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.356269836425781, Units: N
- Data received - isCalibrating: false force: 7.36N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.001129150390625, Units: N
- Data received - isCalibrating: false force: 7.00N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.625541687011719, Units: N
- Data received - isCalibrating: false force: 6.63N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.344490051269531, Units: N
- Data received - isCalibrating: false force: 6.34N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.1273193359375, Units: N
- Data received - isCalibrating: false force: 6.13N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.8922576904296875, Units: N
- Data received - isCalibrating: false force: 5.89N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.692970275878906, Units: N
- Data received - isCalibrating: false force: 5.69N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.55755615234375, Units: N
- Data received - isCalibrating: false force: 5.56N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.452796936035156, Units: N
- Data received - isCalibrating: false force: 5.45N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.3122711181640625, Units: N
- Data received - isCalibrating: false force: 5.31N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.199851989746094, Units: N
- Data received - isCalibrating: false force: 5.20N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.210075378417969, Units: N
- Data received - isCalibrating: false force: 5.21N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.263725280761719, Units: N
- Data received - isCalibrating: false force: 5.26N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.271392822265625, Units: N
- Data received - isCalibrating: false force: 5.27N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.227958679199219, Units: N
- Data received - isCalibrating: false force: 5.23N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.199851989746094, Units: N
- Data received - isCalibrating: false force: 5.20N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.279060363769531, Units: N
- Data received - isCalibrating: false force: 5.28N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.4681243896484375, Units: N
- Data received - isCalibrating: false force: 5.47N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.815605163574219, Units: N
- Data received - isCalibrating: false force: 5.82N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.252510070800781, Units: N
- Data received - isCalibrating: false force: 6.25N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.66131591796875, Units: N
- Data received - isCalibrating: false force: 6.66N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.0317840576171875, Units: N
- Data received - isCalibrating: false force: 7.03N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.3818206787109375, Units: N
- Data received - isCalibrating: false force: 7.38N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.693534851074219, Units: N
- Data received - isCalibrating: false force: 7.69N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.956695556640625, Units: N
- Data received - isCalibrating: false force: 7.96N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.265853881835938, Units: N
- Data received - isCalibrating: false force: 8.27N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.608222961425781, Units: N
- Data received - isCalibrating: false force: 8.61N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.835617065429688, Units: N
- Data received - isCalibrating: false force: 8.84N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.093673706054688, Units: N
- Data received - isCalibrating: false force: 9.09N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.333839416503906, Units: N
- Data received - isCalibrating: false force: 9.33N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.5126953125, Units: N
- Data received - isCalibrating: false force: 9.51N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.589340209960938, Units: N
- Data received - isCalibrating: false force: 9.59N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.691543579101562, Units: N
- Data received - isCalibrating: false force: 9.69N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.857620239257812, Units: N
- Data received - isCalibrating: false force: 9.86N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.990478515625, Units: N
- Data received - isCalibrating: false force: 9.99N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.069679260253906, Units: N
- Data received - isCalibrating: false force: 10.07N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.072235107421875, Units: N
- Data received - isCalibrating: false force: 10.07N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.010917663574219, Units: N
- Data received - isCalibrating: false force: 10.01N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.903610229492188, Units: N
- Data received - isCalibrating: false force: 9.90N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.870391845703125, Units: N
- Data received - isCalibrating: false force: 9.87N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.962371826171875, Units: N
- Data received - isCalibrating: false force: 9.96N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 10.018585205078125, Units: N
- Data received - isCalibrating: false force: 10.02N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.987922668457031, Units: N
- Data received - isCalibrating: false force: 9.99N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.924049377441406, Units: N
- Data received - isCalibrating: false force: 9.92N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.826957702636719, Units: N
- Data received - isCalibrating: false force: 9.83N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.650665283203125, Units: N
- Data received - isCalibrating: false force: 9.65N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.453926086425781, Units: N
- Data received - isCalibrating: false force: 9.45N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.27252197265625, Units: N
- Data received - isCalibrating: false force: 9.27N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.055351257324219, Units: N
- Data received - isCalibrating: false force: 9.06N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.827949523925781, Units: N
- Data received - isCalibrating: false force: 8.83N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.620994567871094, Units: N
- Data received - isCalibrating: false force: 8.62N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.09N
+ Calibration progress: 52% (105 samples, 10s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.050666809082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.05N
+ Calibration progress: 53% (106 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9663543701171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.97N
+ Calibration progress: 53% (107 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.823272705078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.82N
+ Calibration progress: 54% (108 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.7542877197265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.75N
+ Calibration progress: 54% (109 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.767059326171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.77N
+ Calibration progress: 55% (110 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.761955261230469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.76N
+ Calibration progress: 55% (111 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.731292724609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.73N
+ Calibration progress: 56% (112 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.677635192871094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.68N
+ Calibration progress: 56% (113 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.562660217285156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.56N
+ Calibration progress: 57% (114 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.547332763671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.55N
+ Calibration progress: 57% (115 samples, 11s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.884590148925781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.88N
+ Calibration progress: 58% (116 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.275505065917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.28N
+ Calibration progress: 58% (117 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.311279296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.31N
+ Calibration progress: 59% (118 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.1324310302734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.13N
+ Calibration progress: 59% (119 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9382476806640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.94N
+ Calibration progress: 60% (120 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.769615173339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.77N
+ Calibration progress: 60% (121 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.715965270996094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.72N
+ Calibration progress: 61% (122 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.805389404296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.81N
+ Calibration progress: 61% (123 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9484710693359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.95N
+ Calibration progress: 62% (124 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.981681823730469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.98N
+ Calibration progress: 62% (125 samples, 12s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.879486083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.88N
+ Calibration progress: 63% (126 samples, 13s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.807945251464844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.81N
+ Calibration progress: 63% (127 samples, 13s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9944610595703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.99N
+ Calibration progress: 64% (128 samples, 13s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.482460021972656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.48N
+ Calibration progress: 64% (129 samples, 13s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.0139007568359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.01N
+ Calibration progress: 65% (130 samples, 13s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.448249816894531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.45N
+ Calibration progress: 65% (131 samples, 13s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.8417205810546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.84N
+ Calibration progress: 66% (132 samples, 13s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.166206359863281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.17N
+ Calibration progress: 66% (133 samples, 13s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  Official Vernier data - Sensor: Force, Value: 8.398712158203125, Units: N
- Data received - isCalibrating: false force: 8.40N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.40N
+ Calibration progress: 67% (134 samples, 13s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.140655517578125, Units: N
- Data received - isCalibrating: false force: 8.14N
+ Official Vernier data - Sensor: Force, Value: 8.6644287109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.66N
+ Calibration progress: 67% (135 samples, 13s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.8570556640625, Units: N
- Data received - isCalibrating: false force: 7.86N
+ Official Vernier data - Sensor: Force, Value: 8.983810424804688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.98N
+ Calibration progress: 68% (136 samples, 14s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.61688232421875, Units: N
- Data received - isCalibrating: false force: 7.62N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.3920440673828125, Units: N
- Data received - isCalibrating: false force: 7.39N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.1518707275390625, Units: N
- Data received - isCalibrating: false force: 7.15N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.929588317871094, Units: N
- Data received - isCalibrating: false force: 6.93N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.689414978027344, Units: N
- Data received - isCalibrating: false force: 6.69N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.436470031738281, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.44N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.1630859375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.16N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.917808532714844, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.92N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.77728271484375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.78N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.7082977294921875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.71N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.657196044921875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.66N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.618873596191406, Units: N
- Data received - isCalibrating: false force: 5.62N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.608650207519531, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.61N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.59332275390625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.59N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.5524444580078125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.55N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.5601043701171875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.56N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.62908935546875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.63N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.705741882324219, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.71N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.8181610107421875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.82N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.889701843261719, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.89N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: 14.218009948730469, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.8283843994140625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.83N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.6980743408203125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.70N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.705741882324219, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.71N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.894813537597656, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.89N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.201416015625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.20N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.559112548828125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.56N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.896369934082031, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.90N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.1927490234375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.19N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.4456939697265625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.45N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.7318572998046875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.73N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.066558837890625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.07N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.378273010253906, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.38N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.656768798828125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.66N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.894386291503906, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.89N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.063011169433594, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.06N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.177986145019531, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.18N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.349174499511719, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.35N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.543350219726562, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.54N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.706871032714844, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.71N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.880615234375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.88N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.987922668457031, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.99N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.021141052246094, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 10.02N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.003250122070312, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 10.00N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.995590209960938, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 10.00N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.018585205078125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 10.02N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.010917663574219, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 10.01N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.967483520507812, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.97N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.852508544921875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.85N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.704315185546875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.70N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.528022766113281, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.53N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.333839416503906, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.33N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.190765380859375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.19N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.01446533203125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.01N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.743637084960938, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.74N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.421707153320312, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.42N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.092109680175781, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.09N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.7599639892578125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.76N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.4278106689453125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.43N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.200416564941406, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.20N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.054779052734375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.05N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.8759307861328125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.88N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.689414978027344, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.69N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.5182342529296875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.52N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.357269287109375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.36N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.1784210205078125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.18N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.0123443603515625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.01N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.917808532714844, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.92N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.861595153808594, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.86N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.7900543212890625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.79N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.713409423828125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.71N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.66741943359375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.67N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.6495361328125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.65N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.600990295410156, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.60N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.5882110595703125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.59N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.6342010498046875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.63N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.664863586425781, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.66N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.669975280761719, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.67N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.6725311279296875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.67N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.7185211181640625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.72N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.81304931640625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.81N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.9791259765625, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 5.98N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.311279296875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.31N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.712409973144531, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.71N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.085441589355469, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.09N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.461029052734375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.46N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.780403137207031, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.78N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.007797241210938, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.01N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.189201354980469, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.19N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.439590454101562, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.44N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.72064208984375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.72N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.927597045898438, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.93N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.101341247558594, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.10N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.262306213378906, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.26N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.372169494628906, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.37N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.425819396972656, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.43N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.528022766113281, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.53N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.676216125488281, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.68N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.763084411621094, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.76N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.783523559570312, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.78N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.773300170898438, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.77N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.732421875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.73N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.599563598632812, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.60N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.453926086425781, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.45N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.344062805175781, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.34N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.218864440917969, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.22N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.068122863769531, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 9.07N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.856056213378906, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.86N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.564788818359375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.56N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.158538818359375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 8.16N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.752296447753906, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.75N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.4916839599609375, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.49N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.3179473876953125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.32N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.131431579589844, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 7.13N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.906593322753906, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.91N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.666419982910156, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.67N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.4339141845703125, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.43N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.211631774902344, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.21N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.0762176513671875, Units: N
-useVernierBreathOfficial.ts:124 Data received - isCalibrating: false force: 6.08N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.989349365234375, Units: N
- Data received - isCalibrating: false force: 5.99N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.866706848144531, Units: N
- Data received - isCalibrating: false force: 5.87N
- Official Vernier data - Sensor: Respiration Rate, Value: 12.921751976013184, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.723625183105469, Units: N
- Data received - isCalibrating: false force: 5.72N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.590766906738281, Units: N
- Data received - isCalibrating: false force: 5.59N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.491119384765625, Units: N
- Data received - isCalibrating: false force: 5.49N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.3684844970703125, Units: N
- Data received - isCalibrating: false force: 5.37N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.273948669433594, Units: N
- Data received - isCalibrating: false force: 5.27N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.263725280761719, Units: N
- Data received - isCalibrating: false force: 5.26N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.2586212158203125, Units: N
- Data received - isCalibrating: false force: 5.26N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.2586212158203125, Units: N
- Data received - isCalibrating: false force: 5.26N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.345489501953125, Units: N
- Data received - isCalibrating: false force: 5.35N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.5345611572265625, Units: N
- Data received - isCalibrating: false force: 5.53N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.7645111083984375, Units: N
- Data received - isCalibrating: false force: 5.76N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.025115966796875, Units: N
- Data received - isCalibrating: false force: 6.03N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.382820129394531, Units: N
- Data received - isCalibrating: false force: 6.38N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.796730041503906, Units: N
- Data received - isCalibrating: false force: 6.80N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.1927490234375, Units: N
- Data received - isCalibrating: false force: 7.19N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.5376739501953125, Units: N
- Data received - isCalibrating: false force: 7.54N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.8059539794921875, Units: N
- Data received - isCalibrating: false force: 7.81N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.028236389160156, Units: N
- Data received - isCalibrating: false force: 8.03N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.250518798828125, Units: N
- Data received - isCalibrating: false force: 8.25N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.552009582519531, Units: N
- Data received - isCalibrating: false force: 8.55N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.848396301269531, Units: N
- Data received - isCalibrating: false force: 8.85N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.080894470214844, Units: N
- Data received - isCalibrating: false force: 9.08N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.336395263671875, Units: N
- Data received - isCalibrating: false force: 9.34N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.5484619140625, Units: N
- Data received - isCalibrating: false force: 9.55N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.655769348144531, Units: N
- Data received - isCalibrating: false force: 9.66N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.681320190429688, Units: N
- Data received - isCalibrating: false force: 9.68N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.719650268554688, Units: N
- Data received - isCalibrating: false force: 9.72N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.770744323730469, Units: N
- Data received - isCalibrating: false force: 9.77N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.755416870117188, Units: N
- Data received - isCalibrating: false force: 9.76N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.71453857421875, Units: N
- Data received - isCalibrating: false force: 9.71N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.64044189453125, Units: N
- Data received - isCalibrating: false force: 9.64N
+ Official Vernier data - Sensor: Force, Value: 9.269966125488281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.27N
+ Calibration progress: 68% (137 samples, 14s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  Official Vernier data - Sensor: Force, Value: 9.510139465332031, Units: N
- Data received - isCalibrating: false force: 9.51N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.51N
+ Calibration progress: 69% (138 samples, 14s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.686431884765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.69N
+ Calibration progress: 69% (139 samples, 14s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.775856018066406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.78N
+ Calibration progress: 70% (140 samples, 14s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.880615234375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.88N
+ Calibration progress: 70% (141 samples, 14s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.056907653808594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.06N
+ Calibration progress: 71% (142 samples, 14s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.222984313964844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.22N
+ Calibration progress: 71% (143 samples, 14s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.348175048828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.35N
+ Calibration progress: 72% (144 samples, 14s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.389060974121094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.39N
+ Calibration progress: 72% (145 samples, 14s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.289413452148438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.29N
+ Calibration progress: 73% (146 samples, 15s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.123336791992188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.12N
+ Calibration progress: 73% (147 samples, 15s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.051795959472656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.05N
+ Calibration progress: 74% (148 samples, 15s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.033912658691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.03N
+ Calibration progress: 74% (149 samples, 15s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.97259521484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.97N
+ Calibration progress: 75% (150 samples, 15s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.893386840820312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.89N
+ Calibration progress: 75% (151 samples, 15s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.732421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.73N
+ Calibration progress: 76% (152 samples, 15s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.471809387207031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.47N
+ Calibration progress: 76% (153 samples, 15s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.190765380859375, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.19N
+useVernierBreathOfficial.ts:135 Calibration progress: 77% (154 samples, 15s)
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.932708740234375, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.93N
+useVernierBreathOfficial.ts:135 Calibration progress: 77% (155 samples, 15s)
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.674652099609375, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.67N
+useVernierBreathOfficial.ts:135 Calibration progress: 78% (156 samples, 16s)
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.378273010253906, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.38N
+useVernierBreathOfficial.ts:135 Calibration progress: 78% (157 samples, 16s)
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.087005615234375, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.09N
+useVernierBreathOfficial.ts:135 Calibration progress: 79% (158 samples, 16s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.798286437988281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.80N
+ Calibration progress: 79% (159 samples, 16s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.481468200683594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.48N
+ Calibration progress: 80% (160 samples, 16s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.223411560058594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.22N
+ Calibration progress: 80% (161 samples, 16s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.075225830078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.08N
+ Calibration progress: 81% (162 samples, 16s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.9500274658203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.95N
+ Calibration progress: 81% (163 samples, 16s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.7890625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.79N
+ Calibration progress: 82% (164 samples, 16s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.6178741455078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.62N
+ Calibration progress: 82% (165 samples, 16s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.441581726074219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.44N
+ Calibration progress: 83% (166 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.2601776123046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.26N
+ Calibration progress: 83% (167 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.160530090332031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.16N
+ Calibration progress: 84% (168 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.129875183105469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.13N
+ Calibration progress: 84% (169 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.083885192871094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.08N
+ Calibration progress: 85% (170 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.0404510498046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.04N
+ Calibration progress: 85% (171 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.989349365234375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.99N
+ Calibration progress: 86% (172 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9024810791015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.90N
+ Calibration progress: 86% (173 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.77728271484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.78N
+ Calibration progress: 87% (174 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.715965270996094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.72N
+ Calibration progress: 87% (175 samples, 17s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.695526123046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.70N
+ Calibration progress: 88% (176 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.646980285644531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.65N
+ Calibration progress: 88% (177 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.5422210693359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.54N
+ Calibration progress: 89% (178 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.419586181640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.42N
+ Calibration progress: 89% (179 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.342933654785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.34N
+ Calibration progress: 90% (180 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.399139404296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.40N
+ Calibration progress: 90% (181 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.705741882324219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.71N
+ Calibration progress: 91% (182 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.18096923828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.18N
+ Calibration progress: 91% (183 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.666419982910156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.67N
+ Calibration progress: 92% (184 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.1212158203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.12N
+ Calibration progress: 92% (185 samples, 18s)
+ Official Vernier data - Sensor: Respiration Rate, Value: 27.397260665893555, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.504463195800781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.50N
+ Calibration progress: 93% (186 samples, 19s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.8187255859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.82N
+ Calibration progress: 93% (187 samples, 19s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.166206359863281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.17N
+ Calibration progress: 94% (188 samples, 19s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.577560424804688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.58N
+ Calibration progress: 94% (189 samples, 19s)
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.963371276855469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.96N
+ Calibration progress: 95% (190 samples, 19s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  Official Vernier data - Sensor: Force, Value: 9.295516967773438, Units: N
- Data received - isCalibrating: false force: 9.30N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.30N
+ Calibration progress: 95% (191 samples, 19s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.080894470214844, Units: N
- Data received - isCalibrating: false force: 9.08N
+ Official Vernier data - Sensor: Force, Value: 9.599563598632812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.60N
+ Calibration progress: 96% (192 samples, 19s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.912269592285156, Units: N
- Data received - isCalibrating: false force: 8.91N
+ Official Vernier data - Sensor: Force, Value: 9.837181091308594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.84N
+ Calibration progress: 96% (193 samples, 19s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.72064208984375, Units: N
- Data received - isCalibrating: false force: 8.72N
+ Official Vernier data - Sensor: Force, Value: 9.962371826171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.96N
+ Calibration progress: 97% (194 samples, 19s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.503463745117188, Units: N
- Data received - isCalibrating: false force: 8.50N
+ Official Vernier data - Sensor: Force, Value: 10.077346801757812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.08N
+ Calibration progress: 97% (195 samples, 19s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.247970581054688, Units: N
- Data received - isCalibrating: false force: 8.25N
+ Official Vernier data - Sensor: Force, Value: 10.215316772460938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.22N
+ Calibration progress: 98% (196 samples, 20s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.9720306396484375, Units: N
- Data received - isCalibrating: false force: 7.97N
+ Official Vernier data - Sensor: Force, Value: 10.26641845703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.27N
+ Calibration progress: 98% (197 samples, 20s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.662872314453125, Units: N
- Data received - isCalibrating: false force: 7.66N
+ Official Vernier data - Sensor: Force, Value: 10.210205078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.21N
+ Calibration progress: 99% (198 samples, 20s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.389488220214844, Units: N
- Data received - isCalibrating: false force: 7.39N
+ Official Vernier data - Sensor: Force, Value: 10.072235107421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.07N
+ Calibration progress: 99% (199 samples, 20s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.2080841064453125, Units: N
- Data received - isCalibrating: false force: 7.21N
+ Official Vernier data - Sensor: Force, Value: 9.826957702636719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.83N
+ Calibration progress: 100% (200 samples, 20s)
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.02923583984375, Units: N
- Data received - isCalibrating: false force: 7.03N
+ Official Vernier data - Sensor: Force, Value: 9.507583618164062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.51N
+ Calibration progress: 100% (201 samples, 20s)
+ Calibration time complete, processing data...
+ Calibration completed with 201 data points
+ Calibration complete: Object
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.84527587890625, Units: N
- Data received - isCalibrating: false force: 6.85N
+ Breath amplitude: 0, clamped: 0.00, orb size: 100px, glow: 25
+ Official Vernier data - Sensor: Force, Value: 9.246971130371094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.25N
+ Calibration progress: 100% (202 samples, 20s)
+ Calibration time complete, processing data...
+ Calibration completed with 202 data points
+ Calibration complete: Object
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.681755065917969, Units: N
- Data received - isCalibrating: false force: 6.68N
+ Official Vernier data - Sensor: Force, Value: 9.050239562988281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.05N
+ Calibration progress: 100% (203 samples, 20s)
+ Calibration time complete, processing data...
+ Calibration completed with 203 data points
+ Calibration complete: Object
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.523345947265625, Units: N
- Data received - isCalibrating: false force: 6.52N
+ Official Vernier data - Sensor: Force, Value: 8.853500366210938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.85N
+ Calibration progress: 100% (204 samples, 20s)
+ Calibration time complete, processing data...
+ Calibration completed with 204 data points
+ Calibration complete: Object
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.677207946777344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.68N
+ Calibration progress: 100% (205 samples, 20s)
+ Calibration time complete, processing data...
+ Calibration completed with 205 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.493247985839844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.49N
+ Calibration progress: 100% (206 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 206 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.270965576171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.27N
+ Calibration progress: 100% (207 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 207 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.007797241210938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.01N
+ Calibration progress: 100% (208 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 208 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.80084228515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.80N
+ Calibration progress: 100% (209 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 209 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.627105712890625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.63N
+ Calibration progress: 100% (210 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 210 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.3741607666015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.37N
+ Calibration progress: 100% (211 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 211 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.090553283691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.09N
+ Calibration progress: 100% (212 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 212 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.817169189453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.82N
+ Calibration progress: 100% (213 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 213 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.543785095214844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.54N
+ Calibration progress: 100% (214 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 214 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.2882843017578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.29N
+ Calibration progress: 100% (215 samples, 21s)
+ Calibration time complete, processing data...
+ Calibration completed with 215 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.142646789550781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.14N
+ Calibration progress: 100% (216 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 216 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.078773498535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.08N
+ Calibration progress: 100% (217 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 217 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.99700927734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.00N
+ Calibration progress: 100% (218 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 218 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.912696838378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.91N
+ Calibration progress: 100% (219 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 219 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.830940246582031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.83N
+ Calibration progress: 100% (220 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 220 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.7185211181640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.72N
+ Calibration progress: 100% (221 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 221 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.577995300292969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.58N
+ Calibration progress: 100% (222 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 222 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.511566162109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.51N
+ Calibration progress: 100% (223 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 223 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.590766906738281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.59N
+ Calibration progress: 100% (224 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 224 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.807945251464844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.81N
+ Calibration progress: 100% (225 samples, 22s)
+ Calibration time complete, processing data...
+ Calibration completed with 225 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.1681976318359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.17N
+ Calibration progress: 100% (226 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 226 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.6102142333984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.61N
+ Calibration progress: 100% (227 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 227 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.016456604003906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.02N
+ Calibration progress: 100% (228 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 228 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.3537139892578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.35N
+ Calibration progress: 100% (229 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 229 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.729301452636719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.73N
+ Calibration progress: 100% (230 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 230 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.148323059082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.15N
+ Calibration progress: 100% (231 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 231 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.513687133789062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.51N
+ Calibration progress: 100% (232 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 232 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.835617065429688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.84N
+ Calibration progress: 100% (233 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 233 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.1064453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.11N
+ Calibration progress: 100% (234 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 234 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.308296203613281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.31N
+ Calibration progress: 100% (235 samples, 23s)
+ Calibration time complete, processing data...
+ Calibration completed with 235 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.451370239257812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.45N
+ Calibration progress: 100% (236 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 236 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.660881042480469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.66N
+ Calibration progress: 100% (237 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 237 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.93426513671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.93N
+ Calibration progress: 100% (238 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 238 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.1744384765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.17N
+ Calibration progress: 100% (239 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 239 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.366065979003906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.37N
+ Calibration progress: 100% (240 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 240 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.488700866699219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.49N
+ Calibration progress: 100% (241 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 241 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.550025939941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.55N
+ Calibration progress: 100% (242 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 242 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.529579162597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.53N
+ Calibration progress: 100% (243 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 243 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.514251708984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.51N
+ Calibration progress: 100% (244 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 244 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.491256713867188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.49N
+ Calibration progress: 100% (245 samples, 24s)
+ Calibration time complete, processing data...
+ Calibration completed with 245 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.353286743164062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.35N
+ Calibration progress: 100% (246 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 246 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.133560180664062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.13N
+ Calibration progress: 100% (247 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 247 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.783523559570312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.78N
+ Calibration progress: 100% (248 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 248 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.269966125488281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.27N
+ Calibration progress: 100% (249 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 249 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.674652099609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.67N
+ Calibration progress: 100% (250 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 250 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.20452880859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.20N
+ Calibration progress: 100% (251 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 251 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.9260406494140625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.93N
+ Calibration progress: 100% (252 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 252 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.678199768066406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.68N
+ Calibration progress: 100% (253 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 253 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.4099273681640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.41N
+ Calibration progress: 100% (254 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 254 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.13909912109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.14N
+ Calibration progress: 100% (255 samples, 25s)
+ Calibration time complete, processing data...
+ Calibration completed with 255 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.8631591796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.86N
+ Calibration progress: 100% (256 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 256 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.5821075439453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.58N
+ Calibration progress: 100% (257 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 257 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.354713439941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.35N
+ Calibration progress: 100% (258 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 258 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.2244110107421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.22N
+ Calibration progress: 100% (259 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 259 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.124763488769531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.12N
+ Calibration progress: 100% (260 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 260 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9944610595703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.99N
+ Calibration progress: 100% (261 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 261 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.859039306640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.86N
+ Calibration progress: 100% (262 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 262 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.74151611328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.74N
+ Calibration progress: 100% (263 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 263 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.603546142578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.60N
+ Calibration progress: 100% (264 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 264 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.480903625488281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.48N
+ Calibration progress: 100% (265 samples, 26s)
+ Calibration time complete, processing data...
+ Calibration completed with 265 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.457908630371094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.46N
+ Calibration progress: 100% (266 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 266 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.5013427734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.50N
+ Calibration progress: 100% (267 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 267 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.5422210693359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.54N
+ Calibration progress: 100% (268 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 268 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.5805511474609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.58N
+ Calibration progress: 100% (269 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 269 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.6444244384765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.64N
+ Calibration progress: 100% (270 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 270 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.738960266113281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.74N
+ Calibration progress: 100% (271 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 271 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9101409912109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.91N
+ Calibration progress: 100% (272 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 272 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.3061676025390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.31N
+ Calibration progress: 100% (273 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 273 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.8299407958984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.83N
+ Calibration progress: 100% (274 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 274 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.310279846191406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.31N
+ Calibration progress: 100% (275 samples, 27s)
+ Calibration time complete, processing data...
+ Calibration completed with 275 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.719085693359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.72N
+ Calibration progress: 100% (276 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 276 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.051231384277344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.05N
+ Calibration progress: 100% (277 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 277 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.35272216796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.35N
+ Calibration progress: 100% (278 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 278 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.628662109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.63N
+ Calibration progress: 100% (279 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 279 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.953147888183594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.95N
+ Calibration progress: 100% (280 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 280 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.3287353515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.33N
+ Calibration progress: 100% (281 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 281 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.637886047363281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.64N
+ Calibration progress: 100% (282 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 282 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.893386840820312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.89N
+ Calibration progress: 100% (283 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 283 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.085014343261719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.09N
+ Calibration progress: 100% (284 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 284 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.189765930175781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.19N
+ Calibration progress: 100% (285 samples, 28s)
+ Calibration time complete, processing data...
+ Calibration completed with 285 data points
+ Calibration complete: Object
+ Official Vernier data - Sensor: Respiration Rate, Value: 12.008005142211914, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.245979309082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.25N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (286 samples, 29s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 286 data points
+useVernierBreathOfficial.ts:235 Calibration complete: Object
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.363510131835938, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.36N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (287 samples, 29s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 287 data points
+useVernierBreathOfficial.ts:235 Calibration complete: Object
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.521919250488281, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.52N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (288 samples, 29s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 288 data points
+useVernierBreathOfficial.ts:235 Calibration complete: Object
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.598564147949219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.60N
+ Calibration progress: 100% (289 samples, 29s)
+ Calibration time complete, processing data...
+ Calibration completed with 289 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.598564147949219, baselineForce: 7.616529022533588, forceRange: 5.2556304931640625, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.601119995117188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.60N
+ Calibration progress: 100% (290 samples, 29s)
+ Calibration time complete, processing data...
+ Calibration completed with 290 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.626820715542498, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.547470092773438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.55N
+ Calibration progress: 100% (291 samples, 29s)
+ Calibration time complete, processing data...
+ Calibration completed with 291 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.636857311340542, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.429939270019531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.43N
+ Calibration progress: 100% (292 samples, 29s)
+ Calibration time complete, processing data...
+ Calibration completed with 292 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.6464226605141, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.294525146484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.29N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (293 samples, 29s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 293 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.655460552957685, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.228096008300781, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.23N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (294 samples, 29s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 294 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.664211013690144, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.199989318847656, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.20N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (295 samples, 29s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 295 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.672806872351695, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.136116027832031, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.14N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (296 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 296 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.681128862741831, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 10.013473510742188, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.01N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (297 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 297 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.688981875024661, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.821846008300781, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.82N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (298 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 298 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.696139137216862, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.630226135253906, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.63N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (299 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 299 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.702607655604946, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.402824401855469, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.40N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (300 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 300 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.708275044759114, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.177986145019531, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.18N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (301 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 301 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.713157805889548, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.109001159667969, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.11N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (302 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 302 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.717779803749742, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 9.006805419921875, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.01N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (303 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 303 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.722034013704104, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.764076232910156, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.76N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (304 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 304 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.725461784162019, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.585227966308594, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.59N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (305 samples, 30s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 305 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.728280689677254, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.398712158203125, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.40N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (306 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 306 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.7304716421887765, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.125328063964844, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.13N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (307 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 307 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.731757819458405, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.9285888671875, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.93N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (308 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 308 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.732396881301682, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.8059539794921875, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.81N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (309 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 309 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.732634930163139, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.711418151855469, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.71N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (310 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 310 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.732566488942792, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.632209777832031, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.63N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (311 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 311 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.732243798553369, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.499351501464844, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.50N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (312 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 312 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.731497348883213, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.338386535644531, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.34N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (313 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 313 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.730241403792994, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.136543273925781, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.14N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (314 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 314 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.7283506454176205, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.9781341552734375, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.98N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (315 samples, 31s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 315 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.725969005766369, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.8631591796875, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.86N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (316 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 316 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.723238594924347, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.676643371582031, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.68N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (317 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 317 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.719937032705602, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.464576721191406, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.46N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (318 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 318 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.715989358770023, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.275505065917969, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.28N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (319 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 319 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.71147373402754, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.117095947265625, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.12N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (320 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 320 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.706491303443909, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.951019287109375, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.95N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (321 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 321 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.701022543268412, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.8002777099609375, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.80N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (322 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 322 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.6951196090034815, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.761955261230469, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.76N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (323 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 323 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.6891345800630075, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.7900543212890625, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.79N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (324 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 324 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.683273221239632, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.861595153808594, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 5.86N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (325 samples, 32s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 325 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.677668057955229, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.101768493652344, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.10N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (326 samples, 33s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 326 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.672834010211968, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.474800109863281, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.47N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (327 samples, 33s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 327 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.669170297978486, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.850379943847656, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 6.85N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (328 samples, 33s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 328 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.666673985923209, forceRange: 5.258186340332031, isValid: true}
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.24896240234375, Units: N
+useVernierBreathOfficial.ts:125 Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.25N
+useVernierBreathOfficial.ts:135 Calibration progress: 100% (329 samples, 33s)
+useVernierBreathOfficial.ts:139 Calibration time complete, processing data...
+useVernierBreathOfficial.ts:209 Calibration completed with 329 data points
+useVernierBreathOfficial.ts:235 Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.665404345851539, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.7676239013671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 7.77N
+ Calibration progress: 100% (330 samples, 33s)
+ Calibration time complete, processing data...
+ Calibration completed with 330 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.665714102080374, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.273513793945312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.27N
+ Calibration progress: 100% (331 samples, 33s)
+ Calibration time complete, processing data...
+ Calibration completed with 331 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.667550354925887, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.633773803710938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.63N
+ Calibration progress: 100% (332 samples, 33s)
+ Calibration time complete, processing data...
+ Calibration completed with 332 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.670460666518614, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.940376281738281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 8.94N
+ Calibration progress: 100% (333 samples, 33s)
+ Calibration time complete, processing data...
+ Calibration completed with 333 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.674274226924679, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.206092834472656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.21N
+ Calibration progress: 100% (334 samples, 33s)
+ Calibration time complete, processing data...
+ Calibration completed with 334 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.67886051018081, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.38238525390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.38N
+ Calibration progress: 100% (335 samples, 33s)
+ Calibration time complete, processing data...
+ Calibration completed with 335 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.6839456586695425, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.56634521484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.57N
+ Calibration progress: 100% (336 samples, 34s)
+ Calibration time complete, processing data...
+ Calibration completed with 336 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.689548038301014, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 9.844841003417969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 9.84N
+ Calibration progress: 100% (337 samples, 34s)
+ Calibration time complete, processing data...
+ Calibration completed with 337 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.695943566387414, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.125892639160156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.13N
+ Calibration progress: 100% (338 samples, 34s)
+ Calibration time complete, processing data...
+ Calibration completed with 338 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.70313276482757, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.353286743164062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.35N
+ Calibration progress: 100% (339 samples, 34s)
+ Calibration time complete, processing data...
+ Calibration completed with 339 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.710950328185495, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.527030944824219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.53N
+ Calibration progress: 100% (340 samples, 34s)
+ Calibration time complete, processing data...
+ Calibration completed with 340 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.601119995117188, baselineForce: 7.719232918234432, forceRange: 5.258186340332031, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.603675842285156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.60N
+ Calibration progress: 100% (341 samples, 35s)
+ Calibration time complete, processing data...
+ Calibration completed with 341 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.603675842285156, baselineForce: 7.727691695137807, forceRange: 5.2607421875, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.565353393554688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.57N
+ Calibration progress: 100% (342 samples, 35s)
+ Calibration time complete, processing data...
+ Calibration completed with 342 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.603675842285156, baselineForce: 7.735988951565926, forceRange: 5.2607421875, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.504035949707031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.50N
+ Calibration progress: 100% (343 samples, 35s)
+ Calibration time complete, processing data...
+ Calibration completed with 343 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.603675842285156, baselineForce: 7.744059059432227, forceRange: 5.2607421875, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.475929260253906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.48N
+ Calibration progress: 100% (344 samples, 35s)
+ Calibration time complete, processing data...
+ Calibration completed with 344 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.603675842285156, baselineForce: 7.752000542574151, forceRange: 5.2607421875, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.422271728515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: true force: 10.42N
+ Calibration progress: 100% (345 samples, 35s)
+ Calibration time complete, processing data...
+ Calibration completed with 345 data points
+ Calibration complete: {minForce: 5.342933654785156, maxForce: 10.603675842285156, baselineForce: 7.75974045905514, forceRange: 5.2607421875, isValid: true}
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.353286743164062, Units: N
