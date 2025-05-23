@@ -121,8 +121,9 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
             setCurrentForce(forceValue);
             
             // Add to calibration data if calibrating
-            console.log('Data received - isCalibrating:', isCalibrating, 'force:', forceValue.toFixed(2) + 'N');
-            if (isCalibrating) {
+            const isCurrentlyCalibrating = calibrationStartTimeRef.current > 0 && !calibrationProfile;
+            console.log('Data received - isCalibrating:', isCalibrating, 'isCurrentlyCalibrating:', isCurrentlyCalibrating, 'force:', forceValue.toFixed(2) + 'N');
+            if (isCurrentlyCalibrating) {
               calibrationDataRef.current.push(forceValue);
               
               // Calculate time-based progress (20 seconds)
@@ -195,6 +196,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     calibrationStartTimeRef.current = Date.now();
     
     console.log('Calibration started at:', new Date(calibrationStartTimeRef.current).toLocaleTimeString());
+    console.log('setIsCalibrating(true) called - calibration should now be active');
     
   }, [isConnected]);
 
