@@ -216,7 +216,7 @@ export default function VernierOfficialBreathPage() {
               </CardHeader>
               <CardContent>
                 <div className="relative h-96 bg-black rounded-lg overflow-hidden">
-                  {isConnected && calibrationComplete ? (
+                  {isConnected ? (
                     <BreathKasinaOrb 
                       useVernier={false}
                       breathAmplitude={breathAmplitude}
