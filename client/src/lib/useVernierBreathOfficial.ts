@@ -74,6 +74,8 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const forceDataRef = useRef<VernierRespirationData[]>([]);
   const calibrationDataRef = useRef<number[]>([]);
   const calibrationStartTimeRef = useRef<number>(0);
+  const lastForceValueRef = useRef<number>(0);
+  const lastForceUpdateRef = useRef<number>(0);
 
   /**
    * Connect to Vernier GDX respiration belt using official library
@@ -142,6 +144,27 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
             } else if (calibrationProfile) {
               // Process breathing data using calibration profile
               processBreathingData(forceValue);
+            } else {
+              // Fallback: Process breathing data without calibration profile
+              // Use simple amplitude calculation based on force range
+              const minForce = 5.5; // Typical minimum force
+              const maxForce = 10.0; // Typical maximum force
+              const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - minForce) / (maxForce - minForce)));
+              setBreathAmplitude(normalizedAmplitude);
+              
+              // Simple phase detection based on force trend
+              const currentTime = Date.now();
+              if (currentTime - lastForceUpdateRef.current > 100) { // Update every 100ms
+                if (forceValue > (lastForceValueRef.current + 0.2)) {
+                  setBreathPhase('inhale');
+                } else if (forceValue < (lastForceValueRef.current - 0.2)) {
+                  setBreathPhase('exhale');
+                } else {
+                  setBreathPhase('pause');
+                }
+                lastForceValueRef.current = forceValue;
+                lastForceUpdateRef.current = currentTime;
+              }
             }
           }
         });
