@@ -16,11 +16,11 @@ const HomePage: React.FC = () => {
   // Features available to all users
   const baseFeatures = [
     {
-      icon: <Flame className="h-10 w-10 text-orange-500" />,
+      icon: <Flame className="h-10 w-10 text-red-500" />,
       title: "Kasinas",
       description: "Choose from many different orbs, customizing your meditation practice.",
       path: "/kasinas",
-      color: "from-orange-600 to-orange-800",
+      color: "from-red-600 to-red-800",
     },
     {
       icon: <Wind className="h-10 w-10 text-blue-500" />,
@@ -30,11 +30,11 @@ const HomePage: React.FC = () => {
       color: "from-blue-600 to-blue-800",
     },
     {
-      icon: <BarChart className="h-10 w-10 text-green-500" />,
+      icon: <BarChart className="h-10 w-10 text-yellow-500" />,
       title: "Reflection",
       description: "Track your practice progress and view your meditation history.",
       path: "/reflection",
-      color: "from-green-600 to-green-800",
+      color: "from-yellow-600 to-yellow-800",
     },
   ];
   
