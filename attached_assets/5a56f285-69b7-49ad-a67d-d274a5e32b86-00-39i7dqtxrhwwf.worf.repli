@@ -17,6 +17,7 @@ useVernierBreath.ts:111 Service: d91714ef-28b9-4f91-ba16-f0d9a604f112
 useVernierBreath.ts:114   Characteristic: b41e6675-a329-40e0-aa01-44d2f444babe Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:118     -> Potential data characteristic found
 useVernierBreath.ts:125     -> Notifications started for b41e6675-a329-40e0-aa01-44d2f444babe
+useVernierBreath.ts:129     -> Found main sensor characteristic, attempting to start data stream...
 useVernierBreath.ts:114   Characteristic: f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:111 Service: 0000180f-0000-1000-8000-00805f9b34fb
 useVernierBreath.ts:114   Characteristic: 00002a19-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
@@ -28,5 +29,5 @@ useVernierBreath.ts:114   Characteristic: 00002a28-0000-1000-8000-00805f9b34fb P
 useVernierBreath.ts:118     -> Potential data characteristic found
 useVernierBreath.ts:114   Characteristic: 00002a29-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:118     -> Potential data characteristic found
-useVernierBreath.ts:137 Successfully connected to Vernier respiration belt
-useVernierBreath.ts:381 Starting respiration belt calibration...
+useVernierBreath.ts:164 Successfully connected to Vernier respiration belt
+useVernierBreath.ts:408 Starting respiration belt calibration...

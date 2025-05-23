@@ -145,10 +145,40 @@ export function useVernierBreath(): VernierBreathHookResult {
                   if (char.properties.read) {
                     const initialRead = await char.readValue();
                     console.log("    -> Initial read performed, length:", initialRead.byteLength);
+                    if (initialRead.byteLength > 0) {
+                      console.log("    -> Initial data received, processing...");
+                      // Manually trigger the data handler with initial read
+                      const fakeEvent = {
+                        target: { value: initialRead }
+                      } as any;
+                      handleForceData(fakeEvent);
+                    }
                   }
                 } catch (e) {
                   console.log("    -> Initial read failed");
                 }
+                
+                // Method 3: For GDX devices, try periodic reading as fallback
+                console.log("    -> Setting up periodic data polling as fallback...");
+                const pollInterval = setInterval(async () => {
+                  try {
+                    if (char.properties.read && characteristicRef.current) {
+                      const data = await char.readValue();
+                      if (data && data.byteLength > 0) {
+                        console.log("    -> Polled data received, length:", data.byteLength);
+                        const fakeEvent = {
+                          target: { value: data }
+                        } as any;
+                        handleForceData(fakeEvent);
+                      }
+                    }
+                  } catch (pollError) {
+                    // Silent fail for polling
+                  }
+                }, 100); // Poll every 100ms
+                
+                // Store the interval to clear it later
+                (char as any)._pollInterval = pollInterval;
               }
             }
           }
