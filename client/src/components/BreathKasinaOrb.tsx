@@ -344,7 +344,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     if (!activeIsListening) return;
     
     // Adjusted breathing size range with scroll-based scaling - extended for complete screen merger
-    const baseMinSize = 1;
+    const baseMinSize = 0.1; // Much smaller minimum for deeper exhale range
     const baseMaxSize = 4000; // Dramatically increased to ensure complete screen coverage for meditative merger
     const minSize = Math.floor(baseMinSize * sizeScale);
     const maxSize = Math.floor(baseMaxSize * sizeScale);
