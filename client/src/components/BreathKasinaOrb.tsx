@@ -60,9 +60,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!activeIsListening) return;
     
-    // Adjusted breathing size range with scroll-based scaling
+    // Adjusted breathing size range with scroll-based scaling - extended for full-screen merger
     const baseMinSize = 1;
-    const baseMaxSize = 700;
+    const baseMaxSize = 2000; // Increased to allow full-screen coverage for meditative merger
     const minSize = Math.floor(baseMinSize * sizeScale);
     const maxSize = Math.floor(baseMaxSize * sizeScale);
     const sizeRange = maxSize - minSize;
@@ -147,7 +147,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           width: `${orbSize}px`,
           height: `${orbSize}px`,
           borderRadius: '50%',
-          backgroundColor: '#4d8fff', // Pure blue color
+          backgroundColor: '#0000FF', // Pure blue color
           boxShadow: 'none', // No glow effect
           transition: 'all 0.2s ease-out',
           position: 'relative',
