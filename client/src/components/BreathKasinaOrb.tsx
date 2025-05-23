@@ -846,8 +846,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       const scale = orbSize / 150; // 150px = 1.0 scale baseline
       
       // Calculate immersion level based on orb size
-      const immersionThreshold = 1000; // When orb reaches this size, start immersion
-      const maxImmersion = 1800; // Full immersion at this size
+      const immersionThreshold = 800; // When orb reaches this size, start immersion
+      const maxImmersion = 1400; // Full immersion at this size
       const immersionLevel = Math.max(0, Math.min(1, (orbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
       
       if (groupRef.current) {
@@ -886,16 +886,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Update immersion background
       if (immersionBackgroundRef.current) {
         // Make the background visible and scale it with breathing
-        const backgroundScale = 100; // Large fixed sphere that surrounds the camera
+        const backgroundScale = 200; // Even larger sphere to ensure full coverage
         immersionBackgroundRef.current.scale.setScalar(backgroundScale);
         
         // Set opacity based on immersion level - ensure it's visible when needed
         if (immersionBackgroundRef.current.material && !Array.isArray(immersionBackgroundRef.current.material)) {
           const material = immersionBackgroundRef.current.material as any;
           material.transparent = true;
-          // Only show background during active immersion, completely hide otherwise
-          material.opacity = immersionLevel > 0.3 ? immersionLevel * 0.6 : 0;
-          material.visible = immersionLevel > 0.1; // Completely hide when not immersing
+          material.depthWrite = false; // Prevent depth issues
+          material.depthTest = false; // Ensure it renders behind everything
+          // Show background more aggressively during immersion
+          material.opacity = immersionLevel > 0.1 ? Math.max(0.5, immersionLevel * 0.9) : 0;
+          material.visible = immersionLevel > 0.01; // Show much earlier
         }
       }
       
