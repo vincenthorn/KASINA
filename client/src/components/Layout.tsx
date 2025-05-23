@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
-import { Home, Flame, Video, BookOpen, BarChart, LogOut, Settings, Wind } from "lucide-react";
+import { Home, Flame, Video, BookOpen, BarChart, LogOut, Settings, Wind, Circle } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -25,7 +25,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   // Base navigation items that all users can see
   const baseNavItems = [
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
-    { path: "/kasinas", label: "Kasinas", icon: <span className="text-red-500 text-lg">🔴</span> },
+    { path: "/kasinas", label: "Kasinas", icon: <Circle className="w-5 h-5" /> },
     { path: "/breath", label: "Breath", icon: <Wind className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflection", icon: <BarChart className="w-5 h-5" /> },
   ];
