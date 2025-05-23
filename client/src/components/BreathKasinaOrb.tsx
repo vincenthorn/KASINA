@@ -4,7 +4,8 @@ import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import { useSessionLogger } from '../lib/stores/useSessionLogger';
-import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES } from '../lib/constants';
+import { useKasina } from '../lib/stores/useKasina';
+import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS } from '../lib/constants';
 
 interface BreathKasinaOrbProps {
   breathAmplitude?: number;
@@ -27,6 +28,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const vernierData = useVernierBreathOfficial();
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
+  const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina } = useKasina();
   
   // Log Vernier data for debugging
   console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
@@ -57,7 +59,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [showConnectionHelp, setShowConnectionHelp] = useState(false);
   const [showKasinaSelection, setShowKasinaSelection] = useState(true);
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
-  const [selectedKasina, setSelectedKasina] = useState<string>(KASINA_TYPES.BLUE);
+  const [selectedKasina, setSelectedKasina] = useState<string>(globalSelectedKasina || KASINA_TYPES.BLUE);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
@@ -257,6 +259,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Handle individual kasina selection
   const handleKasinaSelection = (kasina: string) => {
     setSelectedKasina(kasina);
+    setGlobalSelectedKasina(kasina as any); // Update global kasina store
     setShowKasinaSelection(false);
     console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
   };
@@ -275,26 +278,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
   };
 
-  // Get color for selected kasina
+  // Get color for selected kasina - use the official KASINA_COLORS
   const getKasinaColor = (kasina: string) => {
-    const colorMap: { [key: string]: string } = {
-      [KASINA_TYPES.WHITE]: '#FFFFFF',
-      [KASINA_TYPES.BLUE]: '#0000FF',
-      [KASINA_TYPES.RED]: '#FF0000',
-      [KASINA_TYPES.YELLOW]: '#FFFF00',
-      [KASINA_TYPES.WATER]: '#0080FF',
-      [KASINA_TYPES.AIR]: '#C0C0C0',
-      [KASINA_TYPES.FIRE]: '#FF4500',
-      [KASINA_TYPES.EARTH]: '#8B4513',
-      [KASINA_TYPES.SPACE]: '#4B0082',
-      [KASINA_TYPES.LIGHT]: '#FFFF80',
-      [KASINA_TYPES.OM_KASINA]: '#FFD700',
-      [KASINA_TYPES.AH_KASINA]: '#FF69B4',
-      [KASINA_TYPES.HUM_KASINA]: '#8A2BE2',
-      [KASINA_TYPES.WHITE_A_KASINA]: '#F0F8FF',
-      [KASINA_TYPES.RAINBOW_KASINA]: '#FF0000',
-    };
-    return colorMap[kasina] || '#0000FF';
+    return KASINA_COLORS[kasina] || KASINA_COLORS[KASINA_TYPES.BLUE];
   };
 
   // Get additional styles for kasina
@@ -539,7 +525,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
                 {(KASINA_SERIES as any)[selectedKasinaSeries].map((kasinaType: string) => (
                   <button
                     key={kasinaType}
-                    onClick={() => setSelectedKasina(kasinaType)}
+                    onClick={() => {
+                      setSelectedKasina(kasinaType);
+                      setGlobalSelectedKasina(kasinaType as any); // Update global kasina store
+                    }}
                     className={`px-2 py-1 rounded text-xs transition-all ${
                       selectedKasina === kasinaType
                         ? 'bg-red-600 text-white'
