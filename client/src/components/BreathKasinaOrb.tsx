@@ -39,8 +39,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
+  const [heldExhaleStart, setHeldExhaleStart] = useState<number | null>(null);
+  const lastAmplitudeRef = useRef(activeBreathAmplitude);
   
-  // Update the orb size based on breath amplitude
+  // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
     if (!activeIsListening) return;
     
@@ -49,13 +51,34 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const maxSize = 1000; // Dramatically large for deep inhales
     const sizeRange = maxSize - minSize;
     
+    // Detect if amplitude has changed significantly (not holding breath)
+    const amplitudeChanged = Math.abs(activeBreathAmplitude - lastAmplitudeRef.current) > 0.01;
+    
+    let finalAmplitude = activeBreathAmplitude;
+    
+    // If we're in a low amplitude state and not changing much, we might be holding an exhale
+    if (activeBreathAmplitude < 0.15 && !amplitudeChanged) {
+      if (heldExhaleStart === null) {
+        setHeldExhaleStart(Date.now());
+      } else {
+        // Gradually reduce amplitude during held exhale
+        const holdDuration = Date.now() - heldExhaleStart;
+        const shrinkRate = 0.999; // Very gradual shrinking
+        const shrinkFactor = Math.pow(shrinkRate, holdDuration / 100); // Every 100ms
+        finalAmplitude = activeBreathAmplitude * shrinkFactor;
+      }
+    } else {
+      setHeldExhaleStart(null); // Reset hold detection
+    }
+    
+    lastAmplitudeRef.current = activeBreathAmplitude;
+    
     // Use amplitude directly without additional magnification
-    // The breathing algorithm already provides the right scaling
-    const clampedAmplitude = Math.max(0, Math.min(1, activeBreathAmplitude));
+    const clampedAmplitude = Math.max(0, Math.min(1, finalAmplitude));
     const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
     // More dramatic glow effect that scales with breathing
-    const newGlowIntensity = Math.floor(25 + (activeBreathAmplitude * 150));
+    const newGlowIntensity = Math.floor(25 + (finalAmplitude * 150));
     
     // Update state to trigger re-render
     setOrbSize(newSize);
@@ -69,8 +92,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     // Log the size for debugging
-    console.log(`Breath amplitude: ${activeBreathAmplitude}, clamped: ${clampedAmplitude.toFixed(2)}, orb size: ${newSize}px, glow: ${newGlowIntensity}`);
-  }, [activeBreathAmplitude, activeIsListening]);
+    console.log(`Breath amplitude: ${activeBreathAmplitude}, final: ${finalAmplitude.toFixed(3)}, orb size: ${newSize}px, hold: ${heldExhaleStart !== null}`);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart]);
 
   return (
     <div 

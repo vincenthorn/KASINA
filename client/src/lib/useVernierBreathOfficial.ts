@@ -178,12 +178,14 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                 setBreathAmplitude(normalizedAmplitude);
               }
               
-              // Simple phase detection based on force trend
+              // Enhanced phase detection with breath-hold awareness
               const currentTime = Date.now();
               if (currentTime - lastForceUpdateRef.current > 100) { // Update every 100ms
-                if (forceValue > (lastForceValueRef.current + 0.2)) {
+                const forceChange = forceValue - lastForceValueRef.current;
+                
+                if (forceChange > 0.2) {
                   setBreathPhase('inhale');
-                } else if (forceValue < (lastForceValueRef.current - 0.2)) {
+                } else if (forceChange < -0.2) {
                   setBreathPhase('exhale');
                 } else {
                   setBreathPhase('pause');
