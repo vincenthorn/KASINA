@@ -169,7 +169,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                 const range = percentile90 - percentile10;
                 
                 // Add breathing space only below for deeper exhales
-                const bufferAmount = range * 0.3; // Reduced buffer for better sync
+                const bufferAmount = range * 0.6; // Increased buffer to capture full exhale capacity
                 const dynamicMin = percentile10 - bufferAmount;
                 const dynamicMax = percentile90 + (range * 0.1); // Small buffer above for occasional deep inhales
                 

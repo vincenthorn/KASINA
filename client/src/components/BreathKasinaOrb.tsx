@@ -45,7 +45,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     if (!activeIsListening) return;
     
     // Ultra-dramatic breathing size range for powerful meditation visualization
-    const minSize = 10;   // Almost disappears on deep exhales
+    const minSize = 5;    // Nearly invisible on deep exhales
     const maxSize = 1000; // Dramatically large for deep inhales
     const sizeRange = maxSize - minSize;
     
