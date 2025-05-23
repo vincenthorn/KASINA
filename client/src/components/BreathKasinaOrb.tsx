@@ -431,6 +431,82 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         </div>
       )}
 
+      {/* Connection help overlay */}
+      {showConnectionHelp && (
+        <div 
+          className="absolute inset-0 z-50 flex items-center justify-center"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            backdropFilter: 'blur(4px)'
+          }}
+        >
+          <div 
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              padding: '32px',
+              borderRadius: '16px',
+              textAlign: 'left',
+              maxWidth: '500px',
+              margin: '20px'
+            }}
+          >
+            <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', color: '#333' }}>
+              Vernier Belt Connection Issue
+            </div>
+            <div style={{ fontSize: '16px', color: '#666', marginBottom: '20px' }}>
+              We're not receiving data from your Vernier Respiration Belt. Try these steps:
+            </div>
+            
+            <div style={{ fontSize: '14px', color: '#444', lineHeight: '1.6', marginBottom: '20px' }}>
+              <div style={{ marginBottom: '12px' }}>
+                <strong>1. Check Physical Connection:</strong>
+                <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
+                  <li>• Ensure belt is snug but comfortable around your chest</li>
+                  <li>• Make sure sensor is positioned over your sternum</li>
+                  <li>• Check that all cable connections are secure</li>
+                </ul>
+              </div>
+              
+              <div style={{ marginBottom: '12px' }}>
+                <strong>2. Bluetooth Connection:</strong>
+                <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
+                  <li>• Verify Vernier device is powered on</li>
+                  <li>• Check if device appears in your Bluetooth settings</li>
+                  <li>• Try disconnecting and reconnecting</li>
+                </ul>
+              </div>
+              
+              <div style={{ marginBottom: '12px' }}>
+                <strong>3. Breathing Test:</strong>
+                <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
+                  <li>• Take a few deep, deliberate breaths</li>
+                  <li>• Ensure you're breathing with your chest/diaphragm</li>
+                  <li>• The belt should expand and contract visibly</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
+              <button
+                onClick={() => setShowConnectionHelp(false)}
+                style={{
+                  backgroundColor: '#0000FF',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 20px',
+                  borderRadius: '6px',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  cursor: 'pointer'
+                }}
+              >
+                Try Again
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Calibration message overlay */}
       {showCalibrationMessage && (
         <div 
