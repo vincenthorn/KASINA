@@ -35,6 +35,11 @@ export default function VernierOfficialBreathPage() {
       await startCalibration();
     } else {
       // Navigate to meditation with Vernier data
+      console.log('Navigating to meditation with state:', { 
+        useVernier: true,
+        breathAmplitude,
+        breathPhase
+      });
       navigate('/meditation', { 
         state: { 
           useVernier: true,
