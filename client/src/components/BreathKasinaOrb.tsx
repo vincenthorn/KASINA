@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
+import { useSessionLogger } from '../lib/stores/useSessionLogger';
 
 interface BreathKasinaOrbProps {
   breathAmplitude?: number;
@@ -22,6 +23,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 }) => {
   // Use Vernier breathing data if enabled
   const vernierData = useVernierBreathOfficial();
+  const { logSession } = useSessionLogger();
   
   // Log Vernier data for debugging
   console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
@@ -191,7 +193,30 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   };
 
   // End meditation session
-  const endMeditation = () => {
+  const endMeditation = async () => {
+    // Calculate duration in seconds and round down to nearest minute
+    const durationInSeconds = meditationTime;
+    const durationInMinutes = Math.floor(durationInSeconds / 60); // Round down to nearest minute
+    
+    // Only log if there was at least 1 minute of meditation
+    if (durationInMinutes >= 1) {
+      console.log(`🧘 Ending meditation session: ${durationInSeconds}s (${durationInMinutes} minutes)`);
+      
+      try {
+        await logSession({
+          kasinaType: 'breath' as any, // Use 'breath' as the kasina type
+          duration: durationInMinutes * 60, // Convert back to seconds for logging
+          showToast: true
+        });
+        console.log(`✅ Breath Kasina session logged: ${durationInMinutes} minute(s)`);
+      } catch (error) {
+        console.error('Failed to log meditation session:', error);
+      }
+    } else {
+      console.log(`⏱️ Session too short (${durationInSeconds}s) - not logging`);
+    }
+    
+    // Reset all meditation state
     setMeditationTime(0);
     setIsInFocusMode(false);
     meditationStartRef.current = null;
