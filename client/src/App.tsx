@@ -18,6 +18,7 @@ import AdminPage from "./pages/AdminPage";
 import LogoExportPage from "./pages/LogoExportPage";
 import BreathPage from "./pages/BreathPage";
 import MicBreathPage from "./pages/MicBreathPage";
+import VernierTestPage from "./pages/VernierTestPage";
 
 import NotFound from "./pages/not-found";
 
@@ -144,6 +145,17 @@ function App() {
                   <AuthenticatedRoute>
                     <ErrorBoundary>
                       <MicBreathPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+              
+              <Route
+                path="/breath/vernier-test"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <VernierTestPage />
                     </ErrorBoundary>
                   </AuthenticatedRoute>
                 }

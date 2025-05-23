@@ -97,7 +97,14 @@ const BreathPage: React.FC = () => {
         </Card>
       </div>
       
-      <div className="mt-8 text-center">
+      <div className="mt-8 text-center space-x-4">
+        <Button 
+          variant="outline" 
+          onClick={() => navigate('/breath/vernier-test')}
+          className="bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/30 border-blue-200 dark:border-blue-700"
+        >
+          🔬 Test Vernier Belt Connection
+        </Button>
         <Button variant="outline" onClick={() => navigate(-1)}>
           Back
         </Button>
