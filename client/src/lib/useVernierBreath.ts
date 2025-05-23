@@ -251,12 +251,33 @@ export function useVernierBreath(): VernierBreathHookResult {
         console.log('Uint16 interpretation:', forceUint16);
       }
       
-      // For now, use Float32 little-endian as the primary value
-      if (value.byteLength >= 4) {
+      // GDX-RB specific data format (7 bytes)
+      if (value.byteLength === 7) {
+        // GDX-RB sends 7-byte packets with force data
+        // Typical format: [header] [force_low] [force_high] [other_data...]
+        // Force is usually in bytes 1-2 or 1-4 depending on resolution
+        
+        // Try interpreting as 16-bit force value at different positions
+        const force16_pos1 = value.getInt16(1, true); // Position 1-2
+        const force16_pos2 = value.getInt16(2, true); // Position 2-3
+        const force16_pos3 = value.getInt16(3, true); // Position 3-4
+        
+        console.log('Force interpretations: pos1:', force16_pos1, 'pos2:', force16_pos2, 'pos3:', force16_pos3);
+        
+        // Use the most reasonable value (likely position 1 based on your 1948 reading)
+        force = force16_pos1 / 100.0; // Convert to Newtons (typical GDX-RB scaling)
+        
+        // Sanity check - force should be reasonable for breathing (0.1 to 50 Newtons)
+        if (Math.abs(force) > 100) {
+          force = force16_pos2 / 100.0; // Try position 2
+          if (Math.abs(force) > 100) {
+            force = force16_pos3 / 100.0; // Try position 3
+          }
+        }
+      } else if (value.byteLength >= 4) {
         force = value.getFloat32(0, true);
       } else if (value.byteLength >= 2) {
-        // Fall back to Int16 if not enough bytes for Float32
-        force = value.getInt16(0, true) / 1000.0; // Convert to Newtons if needed
+        force = value.getInt16(0, true) / 100.0; // Scale to Newtons
       }
       
     } catch (error) {
