@@ -27,9 +27,11 @@ export default function VernierOfficialBreathPage() {
   } = useVernierBreathOfficial();
 
   const handleStartSession = async () => {
+    console.log('handleStartSession called - isConnected:', isConnected, 'calibrationComplete:', calibrationComplete);
     if (!isConnected) {
       await connectDevice();
     } else if (!calibrationComplete) {
+      console.log('About to call startCalibration...');
       await startCalibration();
     } else {
       // Navigate to meditation with Vernier data
