@@ -110,13 +110,9 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       // Enable default sensors (should include force sensor for respiration belt)
       gdxDevice.enableDefaultSensors();
       
-      // Use Vernier's default sampling rate for optimal breathing detection
-      // (No custom measurementPeriod - let device use its optimal default)
-      
       // Get enabled sensors
       const enabledSensors = gdxDevice.sensors.filter((s: any) => s.enabled);
       console.log('Enabled sensors:', enabledSensors.map((s: any) => s.name));
-      console.log('Using Vernier default sampling rate for smooth breathing detection');
       
       // Set up data collection for each enabled sensor
       enabledSensors.forEach((sensor: any) => {
