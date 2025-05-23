@@ -51,10 +51,12 @@ export default function VernierOfficialBreathPage() {
   };
 
   const getButtonText = () => {
+    console.log('Button state check:', { isConnecting, isConnected, isCalibrating, calibrationComplete, calibrationProgress });
     if (isConnecting) return 'Connecting...';
     if (!isConnected) return 'Connect Vernier Belt (Official)';
     if (isCalibrating) return `Calibrating... ${Math.round(calibrationProgress * 100)}%`;
     if (!calibrationComplete) return 'Start Calibration';
+    console.log('Button should show: Begin Meditation');
     return 'Begin Meditation';
   };
 
