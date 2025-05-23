@@ -189,8 +189,11 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     setIsCalibrating(true);
     setCalibrationProgress(0);
     setCalibrationComplete(false);
+    setError(null);
     calibrationDataRef.current = [];
     calibrationStartTimeRef.current = Date.now();
+    
+    console.log('Calibration started at:', new Date(calibrationStartTimeRef.current).toLocaleTimeString());
   }, [isConnected]);
 
   /**

@@ -1,8 +1,8 @@
  Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
-warnOnce @ react-router-dom.js?v=ba59137c:4394
+warnOnce @ react-router-dom.js?v=b90da175:4394
  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
-warnOnce @ react-router-dom.js?v=ba59137c:4394
+warnOnce @ react-router-dom.js?v=b90da175:4394
  Setting auth state with user: Object
  User data: Object
  Is admin: false
@@ -14,610 +14,622 @@ warnOnce @ react-router-dom.js?v=ba59137c:4394
  Connected to: GDX-RB 0K7001C3
  Enabled sensors: Array(2)
  Successfully connected to Vernier respiration belt via official library
- Official Vernier data - Sensor: Force, Value: 5.8743743896484375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: 17.454545974731445, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.774726867675781, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.5703277587890625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: 8.356546401977539, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.2841644287109375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.746620178222656, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.089988708496094, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.77728271484375, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.0005645751953125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.802833557128906, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.056770324707031, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.820716857910156, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.2202911376953125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.815605163574219, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.7593994140625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.6495361328125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.575439453125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.577995300292969, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.618873596191406, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.669975280761719, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.6725311279296875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.6112060546875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.521781921386719, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.516670227050781, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.59332275390625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.62908935546875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.639312744140625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.7082977294921875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.8641510009765625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.0864410400390625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.43902587890625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.8478240966796875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.1902008056640625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.504463195800781, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.785514831542969, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.010353088378906, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.245414733886719, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.531570434570312, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.789627075195312, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.994026184082031, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.160102844238281, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.257194519042969, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.305740356445312, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.390052795410156, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.515251159667969, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.574012756347656, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.540794372558594, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.392608642578125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.119224548339844, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.802406311035156, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.529014587402344, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.268409729003906, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.012908935546875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.7676239013671875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.504463195800781, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.2361907958984375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.0241241455078125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.883598327636719, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.7660675048828125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.648536682128906, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.533561706542969, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.421142578125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.27294921875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.114540100097656, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.022560119628906, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.963798522949219, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.88714599609375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.802833557128906, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.7185211181640625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.608650207519531, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.473236083984375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.406806945800781, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.401695251464844, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.399139404296875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.406806945800781, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.406806945800781, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.394035339355469, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.3506011962890625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.309715270996094, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.337821960449219, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.383811950683594, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.424690246582031, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.455352783203125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.465576171875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.437469482421875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.345489501953125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.291831970214844, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.307159423828125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.325050354003906, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.37359619140625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.455352783203125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.5524444580078125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.664863586425781, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.8283843994140625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.096656799316406, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.3700408935546875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.6051025390625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Starting Vernier respiration belt calibration...
- Official Vernier data - Sensor: Force, Value: 6.8222808837890625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.062446594238281, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.2719573974609375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.3818206787109375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.545341491699219, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.780403137207031, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.9796905517578125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.176429748535156, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.362945556640625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.50091552734375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.595443725585938, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: 12.893982887268066, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.728309631347656, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.935264587402344, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.121780395507812, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.264854431152344, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.384941101074219, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.461593627929688, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.476921081542969, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.448814392089844, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.397720336914062, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.305740356445312, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.154991149902344, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.940376281738281, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.695091247558594, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.398712158203125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.0767822265625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.831504821777344, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.624549865722656, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.402259826660156, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.1927490234375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.998573303222656, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.80694580078125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.635765075683594, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.520790100097656, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.441581726074219, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.3623809814453125, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.280616760253906, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.188636779785156, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.060890197753906, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.8922576904296875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.7823944091796875, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.7261810302734375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.6520843505859375, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.5805511474609375, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.3914794921875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  Official Vernier data - Sensor: Force, Value: 5.509010314941406, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.4323577880859375, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.562660217285156, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.332710266113281, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.5805511474609375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.2662811279296875, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.567771911621094, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.263725280761719, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.5013427734375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.2765045166015625, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.3914794921875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.289276123046875, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.2943878173828125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.3122711181640625, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.307159423828125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.3506011962890625, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.503898620605469, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.394035339355469, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.675079345703125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.447685241699219, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.452796936035156, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.6060943603515625, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.0823211669921875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.861595153808594, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.755279541015625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.1400909423828125, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.295379638671875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.431365966796875, Units: N
+ Official Vernier data - Sensor: Force, Value: 3.8022689819335938, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.699638366699219, Units: N
+ Official Vernier data - Sensor: Force, Value: 3.2555007934570312, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.909149169921875, Units: N
+ Official Vernier data - Sensor: Force, Value: 2.6729583740234375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.067558288574219, Units: N
+ Official Vernier data - Sensor: Force, Value: 2.115966796875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.2310791015625, Units: N
+ Official Vernier data - Sensor: Force, Value: 1.62030029296875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.422698974609375, Units: N
+ Official Vernier data - Sensor: Force, Value: 1.3290252685546875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.6041107177734375, Units: N
+ Official Vernier data - Sensor: Force, Value: 1.132293701171875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.7957305908203125, Units: N
+ Official Vernier data - Sensor: Force, Value: 1.1016311645507812, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.000129699707031, Units: N
+ Official Vernier data - Sensor: Force, Value: 1.4746627807617188, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.148323059082031, Units: N
+ Official Vernier data - Sensor: Force, Value: 2.006103515625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 2.4327850341796875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 2.8390350341796875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 3.367919921875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.136970520019531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.921356201171875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.3046112060546875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.2586212158203125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.222846984863281, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.40936279296875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.6444244384765625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9382476806640625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.267845153808594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.533561706542969, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.725189208984375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.850379943847656, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.049674987792969, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.389488220214844, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.7420806884765625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.051231384277344, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.322059631347656, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.534126281738281, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.651657104492188, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.728309631347656, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.7027587890625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.472808837890625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  Official Vernier data - Sensor: Force, Value: 8.250518798828125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.350166320800781, Units: N
+ Official Vernier data - Sensor: Force, Value: 8.120216369628906, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.477920532226562, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.964363098144531, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.638885498046875, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.80084228515625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.8126220703125, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.69097900390625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.971031188964844, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.517234802246094, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.057899475097656, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.17486572265625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.093673706054688, Units: N
+ Official Vernier data - Sensor: Force, Value: 6.814613342285156, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.129440307617188, Units: N
+ Official Vernier data - Sensor: Force, Value: 6.4952392578125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.213760375976562, Units: N
+ Official Vernier data - Sensor: Force, Value: 6.173309326171875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.298072814941406, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.9024810791015625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.3287353515625, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.7210693359375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.310844421386719, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.577995300292969, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.208648681640625, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.429801940917969, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 9.004249572753906, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.327606201171875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.730865478515625, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.319938659667969, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.493247985839844, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.3122711181640625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.291404724121094, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.240730285644531, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.05889892578125, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.2126312255859375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.816169738769531, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.235626220703125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.5657806396484375, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.217735290527344, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.333274841308594, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.110992431640625, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.919364929199219, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.796730041503906, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.6638641357421875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.531005859375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.4262542724609375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.3240509033203125, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.173309326171875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.989349365234375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.912696838378906, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.8922576904296875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.805389404296875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.761955261230469, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.738960266113281, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.659751892089844, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.544776916503906, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.457908630371094, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.447685241699219, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.457908630371094, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.463020324707031, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.4681243896484375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: 11.494253158569336, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.465576171875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.44512939453125, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.388923645019531, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.371040344238281, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.4144744873046875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.452796936035156, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.4962310791015625, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.5703277587890625, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.692970275878906, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.8181610107421875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.951019287109375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.188636779785156, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.4722442626953125, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.725189208984375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.965354919433594, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.1902008056640625, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.333274841308594, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.386932373046875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.568336486816406, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.8059539794921875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.913261413574219, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.053787231445312, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.212196350097656, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.283737182617188, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.355278015136719, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.452369689941406, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.569900512695312, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.666984558105469, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.695091247558594, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.641433715820312, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.485580444335938, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.265853881835938, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.05889892578125, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.9158172607421875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.798286437988281, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.683311462402344, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.535125732421875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.320503234863281, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.093109130859375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.891265869140625, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.781394958496094, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.7532958984375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.694526672363281, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.561668395996094, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.418586730957031, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.283172607421875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.07110595703125, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.879486083984375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.77728271484375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.687858581542969, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.618873596191406, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.555000305175781, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.48345947265625, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.4144744873046875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.363372802734375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.4144744873046875, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.583099365234375, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.815605163574219, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.073661804199219, Units: N
-useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.311279296875, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.112983703613281, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.492683410644531, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.9366912841796875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.6280975341796875, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.737396240234375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.8248291015625, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.555992126464844, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.085441589355469, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.461456298828125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.32305908203125, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.469123840332031, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.5581207275390625, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.52532958984375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.754852294921875, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.653083801269531, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.885154724121094, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.839599609375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.977134704589844, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.026115417480469, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.066558837890625, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.204963684082031, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.122772216796875, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.455352783203125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.110000610351562, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.795166015625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.129875183105469, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.431365966796875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.7303009033203125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.980690002441406, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.164649963378906, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.3281707763671875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.5197906494140625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.747184753417969, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.938812255859375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  Official Vernier data - Sensor: Force, Value: 8.069114685058594, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.9669189453125, Units: N
+ Official Vernier data - Sensor: Force, Value: 8.138099670410156, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: 6.872851848602295, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.15087890625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.7676239013671875, Units: N
+ Official Vernier data - Sensor: Force, Value: 8.074226379394531, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.496795654296875, Units: N
+ Official Vernier data - Sensor: Force, Value: 8.02056884765625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.269401550292969, Units: N
+ Official Vernier data - Sensor: Force, Value: 8.0767822265625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.1237640380859375, Units: N
+ Official Vernier data - Sensor: Force, Value: 8.074226379394531, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.9781341552734375, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.9260406494140625, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.8120574951171875, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.665428161621094, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.640869140625, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.302619934082031, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.4722442626953125, Units: N
+ Official Vernier data - Sensor: Force, Value: 6.919364929199219, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.275505065917969, Units: N
+ Official Vernier data - Sensor: Force, Value: 6.630653381347656, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.114540100097656, Units: N
+ Official Vernier data - Sensor: Force, Value: 6.449249267578125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.0404510498046875, Units: N
+ Official Vernier data - Sensor: Force, Value: 6.257621765136719, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.9842376708984375, Units: N
+ Official Vernier data - Sensor: Force, Value: 6.037895202636719, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.915252685546875, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.823272705078125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.838600158691406, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.6112060546875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.756843566894531, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.4042510986328125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.6495361328125, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.197296142578125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.544776916503906, Units: N
+ Official Vernier data - Sensor: Force, Value: 5.056770324707031, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.5243377685546875, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.9903411865234375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.562660217285156, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.8983612060546875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.6904144287109375, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.78338623046875, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.940803527832031, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.6684112548828125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.2422943115234375, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.555992126464844, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.510566711425781, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.446128845214844, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.707305908203125, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.3388214111328125, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.9500274658203125, Units: N
+ Official Vernier data - Sensor: Force, Value: 4.290275573730469, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.259185791015625, Units: N
- Official Vernier data - Sensor: Respiration Rate, Value: 10.30927848815918, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.2877197265625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.274940490722656, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.267280578613281, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.2647247314453125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.280052185058594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.280052185058594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.2085113525390625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.175300598144531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.2928314208984375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.446128845214844, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.4844512939453125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Starting Vernier respiration belt calibration...
+ Official Vernier data - Sensor: Force, Value: 4.4665679931640625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.4308013916015625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.3388214111328125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.26983642578125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.285163879394531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.3004913330078125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.285163879394531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.3285980224609375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.5125579833984375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.814048767089844, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.11553955078125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.4323577880859375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.761955261230469, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.037895202636719, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.2780609130859375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.505455017089844, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.689414978027344, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.8248291015625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.970466613769531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.1978607177734375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.453361511230469, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.6219940185546875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.8187255859375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.969474792480469, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.064010620117188, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.135543823242188, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.270965576171875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.439590454101562, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.549453735351562, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.605667114257812, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.531570434570312, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.293960571289062, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.974578857421875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.706306457519531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.535125732421875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.379264831542969, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.223411560058594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.054779052734375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.878486633300781, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.686859130859375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.502899169921875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.326606750488281, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.10943603515625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.917808532714844, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.7593994140625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.5984344482421875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.437469482421875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.327606201171875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.3046112060546875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.29949951171875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.2943878173828125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.309715270996094, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.309715270996094, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.210075378417969, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.015892028808594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.85748291015625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.762947082519531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.6607513427734375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.561103820800781, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.48956298828125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.441017150878906, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.464012145996094, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.665855407714844, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: 5.524862289428711, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.0746612548828125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.585655212402344, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.096656799316406, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.421142578125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.58721923828125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.791618347167969, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.9857940673828125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.2157440185546875, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.4891357421875, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.734413146972656, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.941368103027344, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.089553833007812, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.155990600585938, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.104888916015625, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.043563842773438, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 8.010353088378906, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.8877105712890625, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.724189758300781, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.570892333984375, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.315391540527344, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.0317840576171875, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.8401641845703125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.7021942138671875, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.574440002441406, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.446693420410156, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.321495056152344, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.1784210205078125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.9791259765625, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.787506103515625, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.687858581542969, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.5984344482421875, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.486015319824219, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.3684844970703125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.233070373535156, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.0746612548828125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.911140441894531, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.826820373535156, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.739952087402344, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.627532958984375, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.607093811035156, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.573875427246094, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.479339599609375, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.3924713134765625, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.333709716796875, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.3924713134765625, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.6224212646484375, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 4.9622344970703125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.327606201171875, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.641868591308594, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 5.912696838378906, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.152870178222656, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.390480041503906, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.676643371582031, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.937255859375, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.1697540283203125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.376708984375, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.504463195800781, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.609214782714844, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.683311462402344, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.670539855957031, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.588775634765625, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.481468200683594, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.35882568359375, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.2080841064453125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 7.003684997558594, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.8401641845703125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.77117919921875, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.694526672363281, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.589775085449219, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.451805114746094, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.2882843017578125, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Force, Value: 6.091545104980469, Units: N
+useVernierBreathOfficial.ts:116 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9101409912109375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.8002777099609375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.695526123046875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.5703277587890625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.4425811767578125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.302055358886719, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.135978698730469, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.975013732910156, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.872810363769531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.82171630859375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.796165466308594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.796165466308594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 4.9085845947265625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.1283111572265625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.337821960449219, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.618873596191406, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.976570129394531, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.267845153808594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.531005859375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.745628356933594, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.896369934082031, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.047119140625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.2080841064453125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.402259826660156, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  Official Vernier data - Sensor: Force, Value: 7.527458190917969, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.770179748535156, Units: N
+ Official Vernier data - Sensor: Force, Value: 7.606658935546875, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.69097900390625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.647544860839844, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: 16.04277992248535, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.527458190917969, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.570892333984375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.736968994140625, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.6756439208984375, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.5019073486328125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.4661407470703125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.4661407470703125, Units: N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.4559173583984375, Units: N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
