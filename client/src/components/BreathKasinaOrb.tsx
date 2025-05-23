@@ -846,17 +846,17 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       const scale = orbSize / 150; // 150px = 1.0 scale baseline
       
       // Calculate immersion level based on orb size
-      const immersionThreshold = 800; // When orb reaches this size, start immersion
-      const maxImmersion = 1500; // Full immersion at this size
+      const immersionThreshold = 1200; // When orb reaches this size, start immersion
+      const maxImmersion = 2000; // Full immersion at this size
       const immersionLevel = Math.max(0, Math.min(1, (orbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
       
       if (groupRef.current) {
         // Scale the main orb, but cap it to prevent it from getting too large
-        const cappedScale = immersionLevel > 0 ? Math.min(scale, 8) : scale;
+        const cappedScale = immersionLevel > 0 ? Math.min(scale, 6) : scale;
         groupRef.current.scale.setScalar(cappedScale);
         
         // Fade out the main orb as we approach full immersion
-        const orbOpacity = Math.max(0.1, 1 - immersionLevel * 0.9);
+        const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
         groupRef.current.traverse((child) => {
           if (child instanceof THREE.Mesh && child.material) {
             const material = child.material as any;
@@ -872,10 +872,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       if (meshRef.current) {
         // For basic kasinas, also apply scale and opacity
-        const cappedScale = immersionLevel > 0 ? Math.min(scale, 8) : scale;
+        const cappedScale = immersionLevel > 0 ? Math.min(scale, 6) : scale;
         meshRef.current.scale.setScalar(cappedScale);
         
-        const orbOpacity = Math.max(0.1, 1 - immersionLevel * 0.9);
+        const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
         if (meshRef.current.material && !Array.isArray(meshRef.current.material)) {
           const material = meshRef.current.material as any;
           material.transparent = true;
@@ -886,14 +886,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Update immersion background
       if (immersionBackgroundRef.current) {
         // Make the background visible and scale it with breathing
-        const backgroundScale = 50 + (immersionLevel * 20); // Large sphere that surrounds the camera
+        const backgroundScale = 100; // Large fixed sphere that surrounds the camera
         immersionBackgroundRef.current.scale.setScalar(backgroundScale);
         
-        // Set opacity based on immersion level
+        // Set opacity based on immersion level - start visible earlier
         if (immersionBackgroundRef.current.material && !Array.isArray(immersionBackgroundRef.current.material)) {
           const material = immersionBackgroundRef.current.material as any;
           material.transparent = true;
-          material.opacity = immersionLevel * 0.8;
+          material.opacity = immersionLevel * 0.3; // Lower opacity for subtler effect
         }
       }
       
