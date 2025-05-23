@@ -24,11 +24,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const vernierData = useVernierBreathOfficial();
   
   // Log Vernier data for debugging
-  console.log('BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
+  console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
     isConnected: vernierData.isConnected,
     breathAmplitude: vernierData.breathAmplitude,
     breathPhase: vernierData.breathPhase,
-    currentForce: vernierData.currentForce
+    currentForce: vernierData.currentForce,
+    calibrationComplete: vernierData.calibrationComplete
   });
   
   // Determine which breathing data to use
