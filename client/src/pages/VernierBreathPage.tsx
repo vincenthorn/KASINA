@@ -83,6 +83,9 @@ const VernierBreathPage: React.FC = () => {
     
     // Exit focus mode
     setShowFocusMode(false);
+    
+    // Navigate to Reflection page
+    navigate('/reflection');
   };
 
   // Handle disconnecting device

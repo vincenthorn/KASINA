@@ -104,7 +104,10 @@ export default function VernierOfficialBreathPage() {
         />
         {/* Exit button */}
         <Button
-          onClick={() => setShowMeditation(false)}
+          onClick={() => {
+            setShowMeditation(false);
+            navigate('/reflection');
+          }}
           className="absolute top-4 right-4 bg-gray-800 hover:bg-gray-700 text-white border-gray-600"
           variant="outline"
         >

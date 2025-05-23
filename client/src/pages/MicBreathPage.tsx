@@ -94,6 +94,9 @@ const MicBreathPage: React.FC = () => {
     
     // Exit focus mode
     setShowFocusMode(false);
+    
+    // Navigate to Reflection page
+    navigate('/reflection');
   };
   
   // Handle microphone device change

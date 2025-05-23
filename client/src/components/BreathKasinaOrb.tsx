@@ -221,11 +221,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
         
-        // Redirect to Reflection page after successful save
-        setTimeout(() => {
-          navigate('/reflection');
-        }, 1500); // Small delay to let the success toast show
-        
       } catch (error) {
         console.error('Failed to log meditation session:', error);
       }
@@ -241,6 +236,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       clearInterval(meditationIntervalRef.current);
       meditationIntervalRef.current = null;
     }
+    
+    // Always navigate to Reflection page when ending session
+    navigate('/reflection');
   };
 
   // Format time display
