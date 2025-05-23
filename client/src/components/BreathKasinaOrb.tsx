@@ -499,7 +499,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const handleWheel = (e: any) => {
       e.preventDefault();
       const delta = e.deltaY > 0 ? -0.001 : 0.001; // 100x slower: 0.1 → 0.001 for perfectly balanced, smooth adjustments
-      setSizeScale(prev => Math.max(0.05, Math.min(3.0, prev + delta))); // Range: 0.05x to 3.0x (much smaller zoom-out)
+      setSizeScale(prev => Math.max(0.025, Math.min(3.0, prev + delta))); // Range: 0.025x to 3.0x (2x smaller minimum zoom-out)
     };
 
     document.addEventListener('wheel', handleWheel, { passive: false });
