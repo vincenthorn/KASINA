@@ -145,30 +145,35 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
               // Process breathing data using calibration profile
               processBreathingData(forceValue);
             } else {
-              // Dynamic breathing range based on recent force data
-              // Collect recent samples to establish breathing range
-              const recentSamples = 50; // Use last 50 samples
-              if (forceDataRef.current.length < recentSamples) {
-                // Build up sample history first
-                forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
-                setBreathAmplitude(0.5); // Default to middle until we have enough data
+              // Breath-cycle-aware dynamic range that stabilizes during each breath
+              const recentSamples = 100; // Larger sample window for stability
+              forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
+              
+              if (forceDataRef.current.length < 20) {
+                // Build up initial data
+                setBreathAmplitude(0.5);
               } else {
-                // Keep only recent samples
-                forceDataRef.current = forceDataRef.current.slice(-recentSamples);
-                forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
+                // Keep reasonable history
+                if (forceDataRef.current.length > recentSamples) {
+                  forceDataRef.current = forceDataRef.current.slice(-recentSamples);
+                }
                 
-                // Calculate dynamic range from recent breathing
+                // Calculate range from longer-term patterns (not just recent peaks)
                 const forces = forceDataRef.current.map(d => d.force);
-                const baseMin = Math.min(...forces);
-                const baseMax = Math.max(...forces);
-                const range = baseMax - baseMin;
                 
-                // Add 50% buffer only below for deeper exhales (people calm down during meditation)
-                const bufferAmount = range * 0.5;
-                const dynamicMin = baseMin - bufferAmount;
-                const dynamicMax = baseMax; // No extra space above baseline
+                // Use percentiles instead of min/max to avoid outliers affecting sync
+                const sortedForces = [...forces].sort((a, b) => a - b);
+                const percentile10 = sortedForces[Math.floor(sortedForces.length * 0.1)]; // 10th percentile as baseline min
+                const percentile90 = sortedForces[Math.floor(sortedForces.length * 0.9)]; // 90th percentile as baseline max
                 
-                // Calculate amplitude with dynamic range
+                const range = percentile90 - percentile10;
+                
+                // Add breathing space only below for deeper exhales
+                const bufferAmount = range * 0.3; // Reduced buffer for better sync
+                const dynamicMin = percentile10 - bufferAmount;
+                const dynamicMax = percentile90 + (range * 0.1); // Small buffer above for occasional deep inhales
+                
+                // Calculate amplitude with stable range
                 const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
                 setBreathAmplitude(normalizedAmplitude);
               }
