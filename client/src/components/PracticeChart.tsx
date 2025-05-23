@@ -159,6 +159,10 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
         .filter(s => vajrayanaKasinas.includes(s.kasinaType))
         .reduce((sum, s) => sum + s.duration, 0);
         
+      const breathTotal = sessions
+        .filter(s => breathKasinas.includes(s.kasinaType))
+        .reduce((sum, s) => sum + s.duration, 0);
+        
       return [
         {
           name: 'color',
@@ -183,6 +187,14 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
           displayName: 'Vajrayana Kasinas',
           color: '#8855ff',
           category: 'vajrayana' as const
+        },
+        {
+          name: 'breath',
+          value: breathTotal,
+          emoji: '🫁',
+          displayName: 'Breath Kasinas',
+          color: '#10b981',
+          category: 'breath' as const
         }
       ].filter(item => item.value > 0);
       
@@ -238,6 +250,24 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
             emoji: KASINA_EMOJIS[type] || '💀',
             displayName: KASINA_NAMES[type] || type,
             color: KASINA_COLORS[type] || '#8855ff'
+          };
+        })
+        .filter(item => item.value > 0);
+    } else if (chartMode === 'breath') {
+      // Show detailed breakdown of breath kasinas
+      return breathKasinas
+        .map(type => {
+          const totalTime = sessions
+            .filter(s => s.kasinaType === type)
+            .reduce((sum, s) => sum + s.duration, 0);
+            
+          return {
+            name: type,
+            kasinaType: type,
+            value: totalTime,
+            emoji: KASINA_EMOJIS[type] || '🫁',
+            displayName: KASINA_NAMES[type] || type,
+            color: KASINA_COLORS[type] || '#10b981'
           };
         })
         .filter(item => item.value > 0);
@@ -357,7 +387,9 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                 ? 'Color Kasinas' 
                 : chartMode === 'elemental'
                   ? 'Elemental Kasinas'
-                  : 'Vajrayana Kasinas'}
+                  : chartMode === 'vajrayana'
+                    ? 'Vajrayana Kasinas'
+                    : 'Breath Kasinas'}
           </CardTitle>
           {chartMode !== 'overview' && (
             <CardDescription className="text-gray-400">
