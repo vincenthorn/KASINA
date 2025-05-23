@@ -123,19 +123,19 @@ export default function VernierOfficialBreathPage() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-4">Vernier Respiration Belt</h1>
-            <p className="text-gray-600 dark:text-gray-300">
-              Official Vernier GoDirect library implementation for precise breathing detection
+            <h1 className="text-3xl font-bold mb-4 text-white">Breath Meditation</h1>
+            <p className="text-gray-300">
+              Connect your Vernier GDX Respiration Belt via Bluetooth for accurate breathing detection with official Vernier library for precise breath monitoring algorithms
             </p>
           </div>
 
           {/* Main Content */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Controls Panel */}
-            <Card>
+            <Card className="bg-gray-800 border-gray-700">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  🔬 Device Status
+                <CardTitle className="flex items-center gap-2 text-white">
+                  🌀 Vernier Respiration Belt
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -148,30 +148,30 @@ export default function VernierOfficialBreathPage() {
                 )}
 
                 <div className="space-y-2">
-                  <p className="text-sm font-medium">
-                    Status: <span className={isConnected ? 'text-green-600' : 'text-gray-500'}>
+                  <p className="text-sm font-medium text-gray-300">
+                    Status: <span className={isConnected ? 'text-green-400' : 'text-gray-500'}>
                       {isConnected ? 'Connected' : 'Disconnected'}
                     </span>
                   </p>
                   
                   {isConnected && (
                     <>
-                      <p className="text-sm">
-                        Current Force: <span className="font-mono">{currentForce.toFixed(2)} N</span>
+                      <p className="text-sm text-gray-300">
+                        Current Force: <span className="font-mono text-blue-400">{currentForce.toFixed(2)} N</span>
                       </p>
                       
                       {calibrationProfile && (
-                        <div className="text-sm space-y-1">
-                          <p>Baseline: {calibrationProfile.baselineForce.toFixed(2)} N</p>
-                          <p>Range: {calibrationProfile.forceRange.toFixed(2)} N</p>
+                        <div className="text-sm space-y-1 text-gray-300">
+                          <p>Baseline: <span className="text-blue-400">{calibrationProfile.baselineForce.toFixed(2)} N</span></p>
+                          <p>Range: <span className="text-blue-400">{calibrationProfile.forceRange.toFixed(2)} N</span></p>
                         </div>
                       )}
                     </>
                   )}
                 </div>
 
-                <div className="border-t pt-4">
-                  <p className="text-sm mb-4">{getInstructions()}</p>
+                <div className="border-t border-gray-600 pt-4">
+                  <p className="text-sm mb-4 text-gray-300">{getInstructions()}</p>
                   
                   <div className="flex gap-2">
                     <Button 
@@ -198,13 +198,13 @@ export default function VernierOfficialBreathPage() {
 
                 {isCalibrating && (
                   <div className="space-y-2">
-                    <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                    <div className="bg-gray-700 rounded-full h-2">
                       <div 
-                        className="bg-purple-600 h-2 rounded-full transition-all duration-300"
+                        className="bg-blue-500 h-2 rounded-full transition-all duration-300"
                         style={{ width: `${calibrationProgress * 100}%` }}
                       />
                     </div>
-                    <p className="text-xs text-center">
+                    <p className="text-xs text-center text-gray-300">
                       Calibration Progress: {Math.round(calibrationProgress * 100)}%
                     </p>
                   </div>
@@ -213,9 +213,9 @@ export default function VernierOfficialBreathPage() {
             </Card>
 
             {/* Breathing Visualization */}
-            <Card>
+            <Card className="bg-gray-800 border-gray-700">
               <CardHeader>
-                <CardTitle>Live Breathing Visualization</CardTitle>
+                <CardTitle className="text-white">🫁 Live Breathing Visualization</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="relative h-96 bg-black rounded-lg overflow-hidden">
@@ -242,16 +242,16 @@ export default function VernierOfficialBreathPage() {
                 {isConnected && calibrationComplete && (
                   <div className="mt-4 grid grid-cols-3 gap-4 text-center">
                     <div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Amplitude</p>
-                      <p className="font-mono text-lg">{(breathAmplitude * 100).toFixed(0)}%</p>
+                      <p className="text-sm text-gray-400">Amplitude</p>
+                      <p className="font-mono text-lg text-blue-400">{(breathAmplitude * 100).toFixed(0)}%</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Phase</p>
-                      <p className="font-medium capitalize">{breathPhase}</p>
+                      <p className="text-sm text-gray-400">Phase</p>
+                      <p className="font-medium capitalize text-green-400">{breathPhase}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Rate</p>
-                      <p className="font-mono text-lg">{breathingRate}/min</p>
+                      <p className="text-sm text-gray-400">Rate</p>
+                      <p className="font-mono text-lg text-purple-400">{breathingRate}/min</p>
                     </div>
                   </div>
                 )}
