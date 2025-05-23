@@ -131,29 +131,19 @@ export function useVernierBreath(): VernierBreathHookResult {
             try {
               // GDX-RB specific activation sequence
               
-              // Try direct reading approach - read data directly from sensor
-              console.log("    -> Starting direct data reading...");
+              // Official Vernier GDX protocol for continuous streaming
+              console.log("    -> Sending GDX start streaming command...");
               
-              // Set up interval to read data directly every 50ms
-              const readInterval = setInterval(async () => {
-                try {
-                  if (characteristicRef.current) {
-                    // Read data directly from the sensor characteristic
-                    const value = await characteristicRef.current.readValue();
-                    console.log("Direct read - Raw data:", Array.from(new Uint8Array(value.buffer)));
-                    
-                    // Process the data immediately
-                    if (value.byteLength >= 7) {
-                      handleDataReceived({ target: { value } } as any);
-                    }
-                  }
-                } catch (e) {
-                  console.log("Direct read error:", e);
-                }
-              }, 50);
+              // Command to start data collection at 50ms intervals
+              const startStreamCmd = new Uint8Array([0x21, 0x50]); // Start at 20Hz (50ms)
+              await char.writeValue(startStreamCmd);
               
-              // Store interval for cleanup  
-              pollIntervalRef.current = readInterval;
+              await new Promise(resolve => setTimeout(resolve, 500));
+              
+              // Enable sensor data output
+              console.log("    -> Enabling sensor data output...");
+              const enableOutputCmd = new Uint8Array([0x40, 0x01]); // Enable data output
+              await char.writeValue(enableOutputCmd);
               
               console.log("    -> GDX-RB activation sequence completed successfully");
               
