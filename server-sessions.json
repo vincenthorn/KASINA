@@ -792,5 +792,21 @@
     "duration": 300,
     "timestamp": "2025-05-23T06:27:44.106Z",
     "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747985519131",
+    "kasinaType": "breath",
+    "kasinaName": "Breath (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-23T07:31:59.131Z",
+    "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747985642242",
+    "kasinaType": "water",
+    "kasinaName": "Water (1-minute)",
+    "duration": 60,
+    "timestamp": "2025-05-23T07:34:02.242Z",
+    "userEmail": "premium@kasina.app"
   }
 ]
