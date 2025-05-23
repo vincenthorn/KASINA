@@ -14,6 +14,7 @@ import OmKasina from './OmKasina';
 import AhKasina from './AhKasina';
 import HumKasina from './HumKasina';
 import RainbowKasina from './RainbowKasina';
+import ElementalKasina from '../lib/kasina-orbs/ElementalKasina';
 import * as THREE from 'three';
 
 interface BreathKasinaOrbProps {
@@ -470,8 +471,44 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           <RainbowKasina />
         </group>
       );
+    } else if (selectedKasina === KASINA_TYPES.WATER) {
+      return (
+        <group ref={groupRef}>
+          <ElementalKasina type="water" color="#3b82f6" emissive="#60a5fa" />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.AIR) {
+      return (
+        <group ref={groupRef}>
+          <ElementalKasina type="air" color="#e5e7eb" emissive="#f3f4f6" />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.FIRE) {
+      return (
+        <group ref={groupRef}>
+          <ElementalKasina type="fire" color="#ef4444" emissive="#f97316" />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.EARTH) {
+      return (
+        <group ref={groupRef}>
+          <ElementalKasina type="earth" color="#a3a3a3" emissive="#d4d4d8" />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.SPACE) {
+      return (
+        <group ref={groupRef}>
+          <ElementalKasina type="space" color="#6366f1" emissive="#8b5cf6" />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.LIGHT) {
+      return (
+        <group ref={groupRef}>
+          <ElementalKasina type="light" color="#fbbf24" emissive="#fde047" />
+        </group>
+      );
     } else {
-      // Basic color kasinas and elemental kasinas
+      // Basic color kasinas
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
