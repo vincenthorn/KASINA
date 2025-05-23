@@ -901,7 +901,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           material.depthWrite = false; // Prevent depth issues
           material.depthTest = false; // Ensure it renders behind everything
           // Show background with full brightness for perfect immersion
-          material.opacity = immersionLevel > 0.01 ? Math.max(0.8, immersionLevel * 1.0) : 0;
+          material.opacity = immersionLevel > 0.01 ? 1.0 : 0;
           material.visible = immersionLevel > 0.001; // Show immediately when any immersion starts
         }
       }
