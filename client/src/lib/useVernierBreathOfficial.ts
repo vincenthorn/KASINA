@@ -219,7 +219,9 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const completeCalibration = useCallback(() => {
     const data = calibrationDataRef.current;
     
-    if (data.length < 50) {
+    console.log(`Calibration completed with ${data.length} data points`);
+    
+    if (data.length < 10) {
       setError('Not enough calibration data. Please try again.');
       setIsCalibrating(false);
       return;
