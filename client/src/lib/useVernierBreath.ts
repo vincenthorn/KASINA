@@ -147,17 +147,32 @@ export function useVernierBreath(): VernierBreathHookResult {
               
               await new Promise(resolve => setTimeout(resolve, 500));
               
-              // Start polling for data every 50ms
-              console.log("    -> Starting data polling...");
+              // Start careful data polling with proper timing
+              console.log("    -> Starting careful data polling (1Hz)...");
+              let isPolling = false;
+              
               const pollInterval = setInterval(async () => {
+                if (isPolling) {
+                  console.log("Skipping poll - previous operation still in progress");
+                  return;
+                }
+                
                 try {
-                  // Send data request command
+                  isPolling = true;
+                  // Send data request command with proper timing
                   const requestCmd = new Uint8Array([0x12]); // Request current sensor reading
                   await char.writeValue(requestCmd);
+                  console.log("Data request sent successfully");
+                  
+                  // Wait for response before next request
+                  await new Promise(resolve => setTimeout(resolve, 200));
+                  
                 } catch (e) {
                   console.log("Polling request error:", e);
+                } finally {
+                  isPolling = false;
                 }
-              }, 50);
+              }, 1000); // Much slower - 1 second intervals
               
               // Store interval reference for cleanup
               if (!window.vernierPollInterval) {
