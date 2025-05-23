@@ -155,7 +155,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       setIsConnecting(false);
       setIsConnected(false);
     }
-  }, [isCalibrating, calibrationProfile]);
+  }, []);
 
   /**
    * Disconnect from the device
