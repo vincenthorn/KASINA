@@ -136,7 +136,7 @@ export default function VernierOfficialBreathPage() {
                         handleStartSession();
                       }}
                       disabled={isConnecting || isCalibrating}
-                      className="flex-1 bg-purple-600 hover:bg-purple-700"
+                      className={`flex-1 ${calibrationComplete ? 'bg-green-600 hover:bg-green-700 animate-pulse' : 'bg-purple-600 hover:bg-purple-700'}`}
                     >
                       {getButtonText()}
                     </Button>
