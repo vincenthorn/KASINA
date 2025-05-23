@@ -123,6 +123,33 @@ export function useVernierBreath(): VernierBreathHookResult {
               await char.startNotifications();
               char.addEventListener('characteristicvaluechanged', handleForceData);
               console.log("    -> Notifications started for", char.uuid);
+              
+              // If this is the main sensor data characteristic, try to start measurements
+              if (char.uuid === 'b41e6675-a329-40e0-aa01-44d2f444babe') {
+                console.log("    -> Found main sensor characteristic, attempting to start data stream...");
+                
+                // Try different start commands that Vernier devices commonly use
+                try {
+                  // Method 1: Simple start command (0x01)
+                  const startCmd1 = new Uint8Array([0x01]);
+                  if (char.properties.write || char.properties.writeWithoutResponse) {
+                    await char.writeValue(startCmd1);
+                    console.log("    -> Sent start command (0x01)");
+                  }
+                } catch (e) {
+                  console.log("    -> Method 1 failed, trying alternative...");
+                }
+                
+                // Method 2: Try reading from the characteristic to trigger data
+                try {
+                  if (char.properties.read) {
+                    const initialRead = await char.readValue();
+                    console.log("    -> Initial read performed, length:", initialRead.byteLength);
+                  }
+                } catch (e) {
+                  console.log("    -> Initial read failed");
+                }
+              }
             }
           }
         }
