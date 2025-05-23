@@ -759,12 +759,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!activeIsListening) return;
     
-    // Adjusted breathing size range with scroll-based scaling - capped at perfect immersion moment
+    // Adjusted breathing size range with scroll-based scaling - expanded for all kasinas
     const baseMinSize = 0.1; // Much smaller minimum for deeper exhale range
-    const baseMaxSize = 4000; // Base calculation for scaling
+    const baseMaxSize = 6000; // Increased base for better zoom range
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale);
-    const maxSize = Math.min(calculatedMaxSize, 1200); // Cap at perfect immersion moment
+    const maxSize = Math.min(calculatedMaxSize, 2000); // Expanded cap for all kasinas to reach immersion
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
@@ -846,13 +846,13 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Apply breathing animation and update shader uniforms
     useFrame(({ clock }) => {
-      // Cap orbSize at 1200px to prevent scaling beyond perfect immersion
-      const cappedOrbSize = Math.min(orbSize, 1200);
+      // Cap orbSize at expanded range for all kasinas
+      const cappedOrbSize = Math.min(orbSize, 2000);
       const scale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
       
-      // Calculate immersion level based on capped orb size - start much earlier
-      const immersionThreshold = 400; // Start background much earlier to prevent black screens
-      const maxImmersion = 1200; // Full immersion at this size - cap at perfect moment
+      // Calculate immersion level based on capped orb size - start earlier for all kasinas
+      const immersionThreshold = 800; // Start background earlier to prevent black screens
+      const maxImmersion = 2000; // Full immersion at expanded size for all kasinas
       const immersionLevel = Math.max(0, Math.min(1, (cappedOrbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
       
       if (groupRef.current) {
