@@ -83,7 +83,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const handleWheel = (e: any) => {
       e.preventDefault();
       const delta = e.deltaY > 0 ? -0.1 : 0.1; // Scroll down = smaller, scroll up = larger
-      setSizeScale(prev => Math.max(0.2, Math.min(3.0, prev + delta))); // Range: 0.2x to 3.0x
+      setSizeScale(prev => Math.max(0.05, Math.min(3.0, prev + delta))); // Range: 0.05x to 3.0x (much smaller zoom-out)
     };
 
     document.addEventListener('wheel', handleWheel, { passive: false });
