@@ -131,15 +131,29 @@ export function useVernierBreath(): VernierBreathHookResult {
             try {
               // GDX-RB specific activation sequence
               
-              // Try the exact command that worked before (gave us the 1948 value)
-              console.log("    -> Sending simple enable sensor command...");
-              const enableSensor = new Uint8Array([0x28, 0x01]); // This worked before!
-              await char.writeValue(enableSensor);
+              // Try multiple activation approaches to wake up the sensor
+              console.log("    -> Attempting multiple activation commands...");
               
-              await new Promise(resolve => setTimeout(resolve, 1000));
+              // Command 1: Enable sensor
+              const enableCmd = new Uint8Array([0x28, 0x01]);
+              await char.writeValue(enableCmd);
+              await new Promise(resolve => setTimeout(resolve, 500));
               
-              console.log("    -> Waiting for automatic data stream...");
-              // Don't poll - just wait for the device to start streaming like it did before
+              // Command 2: Start data collection  
+              const startCmd = new Uint8Array([0x21, 0x32]); // Start with period
+              await char.writeValue(startCmd);
+              await new Promise(resolve => setTimeout(resolve, 500));
+              
+              // Command 3: Request immediate reading to trigger stream
+              const triggerCmd = new Uint8Array([0x12]);
+              await char.writeValue(triggerCmd);
+              await new Promise(resolve => setTimeout(resolve, 500));
+              
+              // Command 4: Set to continuous mode
+              const continuousCmd = new Uint8Array([0x40, 0x01]);
+              await char.writeValue(continuousCmd);
+              
+              console.log("    -> All activation commands sent, monitoring for data...");
               
               console.log("    -> GDX-RB activation sequence completed successfully");
               
