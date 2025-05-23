@@ -752,5 +752,13 @@
     "duration": 60,
     "timestamp": "2025-05-20T16:26:35.195Z",
     "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1747978157671",
+    "kasinaType": "breath",
+    "kasinaName": "Breath (4-minutes)",
+    "duration": 240,
+    "timestamp": "2025-05-23T05:29:17.671Z",
+    "userEmail": "premium@kasina.app"
   }
 ]

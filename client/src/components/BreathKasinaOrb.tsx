@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
@@ -24,6 +25,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Use Vernier breathing data if enabled
   const vernierData = useVernierBreathOfficial();
   const { logSession } = useSessionLogger();
+  const navigate = useNavigate();
   
   // Log Vernier data for debugging
   console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
@@ -209,6 +211,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           showToast: true
         });
         console.log(`✅ Breath Kasina session logged: ${durationInMinutes} minute(s)`);
+        
+        // Redirect to Reflection page after successful save
+        setTimeout(() => {
+          navigate('/reflection');
+        }, 1500); // Small delay to let the success toast show
+        
       } catch (error) {
         console.error('Failed to log meditation session:', error);
       }
