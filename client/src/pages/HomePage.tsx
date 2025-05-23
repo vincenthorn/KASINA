@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
             <div className={`h-2 bg-gradient-to-r ${feature.color}`}></div>
             <CardContent className="p-6">
               <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-lg bg-gray-800">
+                <div className="p-3 rounded-xl bg-gray-800">
                   {feature.icon}
                 </div>
                 <div>
