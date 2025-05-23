@@ -129,7 +129,10 @@ export default function VernierOfficialBreathPage() {
                   
                   <div className="flex gap-2">
                     <Button 
-                      onClick={handleStartSession}
+                      onClick={() => {
+                        console.log('Button clicked! Current state:', { isConnected, calibrationComplete, isCalibrating });
+                        handleStartSession();
+                      }}
                       disabled={isConnecting || isCalibrating}
                       className="flex-1 bg-purple-600 hover:bg-purple-700"
                     >
