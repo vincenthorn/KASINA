@@ -496,6 +496,66 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         </div>
       )}
 
+      {/* Kasina selection during first minute */}
+      {showControls && meditationTime < 60 && (
+        <div 
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
+          style={{
+            padding: '16px',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            borderRadius: '12px',
+            transition: 'all 0.3s ease-out'
+          }}
+        >
+          <div className="text-center mb-3">
+            <div className="text-white text-sm font-medium mb-2">
+              Choose your kasina (available for first minute)
+            </div>
+            
+            {/* Kasina series selection */}
+            <div className="flex space-x-2 mb-3">
+              {Object.entries(KASINA_SERIES).map(([seriesKey, series]) => (
+                <button
+                  key={seriesKey}
+                  onClick={() => {
+                    setSelectedKasinaSeries(seriesKey);
+                    // Set first kasina of this series as selected
+                    setSelectedKasina(series.kasinas[0]);
+                  }}
+                  className={`px-3 py-1 rounded text-xs font-medium transition-all ${
+                    selectedKasinaSeries === seriesKey
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-600 text-gray-300 hover:bg-gray-500'
+                  }`}
+                >
+                  {series.name}
+                </button>
+              ))}
+            </div>
+            
+            {/* Individual kasina selection */}
+            {selectedKasinaSeries && (
+              <div className="flex flex-wrap justify-center gap-2">
+                {KASINA_SERIES[selectedKasinaSeries].kasinas.map((kasinaType: string) => (
+                  <button
+                    key={kasinaType}
+                    onClick={() => setSelectedKasina(kasinaType)}
+                    className={`px-2 py-1 rounded text-xs transition-all ${
+                      selectedKasina === kasinaType
+                        ? 'bg-red-600 text-white'
+                        : 'bg-gray-600 text-gray-300 hover:bg-gray-500'
+                    }`}
+                    title={KASINA_NAMES[kasinaType]}
+                  >
+                    {KASINA_EMOJIS[kasinaType]} {KASINA_NAMES[kasinaType].split(' ')[0]}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Fullscreen control - upper right corner */}
       {showControls && (
         <div 
