@@ -890,7 +890,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         immersionBackgroundRef.current.scale.setScalar(backgroundScale);
         
         // Set opacity based on immersion level
-        if (immersionBackgroundRef.current.material) {
+        if (immersionBackgroundRef.current.material && !Array.isArray(immersionBackgroundRef.current.material)) {
           const material = immersionBackgroundRef.current.material as any;
           material.transparent = true;
           material.opacity = immersionLevel * 0.8;
@@ -981,16 +981,30 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       );
     } else if (selectedKasina === KASINA_TYPES.AIR) {
       return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={airMaterialRef}
-            uniforms={airShader.uniforms}
-            vertexShader={airShader.vertexShader}
-            fragmentShader={airShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
+        <>
+          {/* Main orb */}
+          <mesh ref={meshRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              ref={airMaterialRef}
+              uniforms={airShader.uniforms}
+              vertexShader={airShader.vertexShader}
+              fragmentShader={airShader.fragmentShader}
+              transparent={true}
+            />
+          </mesh>
+          {/* Immersion background - inside-out sphere */}
+          <mesh ref={immersionBackgroundRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              uniforms={airShader.uniforms}
+              vertexShader={airShader.vertexShader}
+              fragmentShader={airShader.fragmentShader}
+              transparent={true}
+              side={THREE.BackSide}
+            />
+          </mesh>
+        </>
       );
     } else if (selectedKasina === KASINA_TYPES.FIRE) {
       return (
@@ -1047,10 +1061,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     } else {
       // Basic color kasinas
       return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <meshBasicMaterial color={getKasinaColor(selectedKasina)} />
-        </mesh>
+        <>
+          {/* Main orb */}
+          <mesh ref={meshRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <meshBasicMaterial color={getKasinaColor(selectedKasina)} />
+          </mesh>
+          {/* Immersion background - inside-out sphere */}
+          <mesh ref={immersionBackgroundRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <meshBasicMaterial 
+              color={getKasinaColor(selectedKasina)} 
+              transparent={true}
+              side={THREE.BackSide}
+            />
+          </mesh>
+        </>
       );
     }
   };
