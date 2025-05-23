@@ -169,7 +169,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         backgroundColor: '#000000',
         width: '100vw',
         height: '100vh',
-        zIndex: 10
+        zIndex: 10,
+        cursor: 'none' // Hide mouse cursor for distraction-free meditation
       }}
     >
       <div 
