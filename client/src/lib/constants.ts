@@ -17,7 +17,9 @@ export const KASINA_TYPES = {
   OM_KASINA: "om_kasina",
   AH_KASINA: "ah_kasina",
   HUM_KASINA: "hum_kasina",
-  RAINBOW_KASINA: "rainbow_kasina" // New Rainbow Kasina
+  RAINBOW_KASINA: "rainbow_kasina", // New Rainbow Kasina
+  // Breath Kasina
+  BREATH: "breath"
 };
 
 // Kasina names
@@ -41,7 +43,9 @@ export const KASINA_NAMES: Record<string, string> = {
   [KASINA_TYPES.OM_KASINA]: "OM",
   [KASINA_TYPES.AH_KASINA]: "AH",
   [KASINA_TYPES.HUM_KASINA]: "HUM",
-  [KASINA_TYPES.RAINBOW_KASINA]: "Rainbow"
+  [KASINA_TYPES.RAINBOW_KASINA]: "Rainbow",
+  // Breath Kasina
+  [KASINA_TYPES.BREATH]: "Breath Kasina"
 };
 
 // Kasina colors (hex codes)
@@ -113,7 +117,9 @@ export const KASINA_EMOJIS: Record<string, string> = {
   [KASINA_TYPES.OM_KASINA]: "🕉️",
   [KASINA_TYPES.AH_KASINA]: "🔮",
   [KASINA_TYPES.HUM_KASINA]: "🌀",
-  [KASINA_TYPES.RAINBOW_KASINA]: "🌈"
+  [KASINA_TYPES.RAINBOW_KASINA]: "🌈",
+  // Breath Kasina
+  [KASINA_TYPES.BREATH]: "🫁"
 };
 
 // Kasina series groupings
@@ -140,6 +146,9 @@ export const KASINA_SERIES = {
     KASINA_TYPES.WHITE_A_KASINA,
     KASINA_TYPES.WHITE_A_THIGLE,
     KASINA_TYPES.RAINBOW_KASINA
+  ],
+  BREATH: [
+    KASINA_TYPES.BREATH
   ]
 };
 

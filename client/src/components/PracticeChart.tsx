@@ -6,14 +6,14 @@ import { KASINA_NAMES, KASINA_COLORS, KASINA_EMOJIS } from "../lib/constants";
 import { Button } from './ui/button';
 
 // Define chart data types and categories
-type ChartMode = 'overview' | 'color' | 'elemental' | 'vajrayana';
+type ChartMode = 'overview' | 'color' | 'elemental' | 'vajrayana' | 'breath';
 type ChartDataItem = {
   name: string;
   value: number;
   emoji: string;
   displayName: string;
   color: string;
-  category?: 'color' | 'elemental' | 'vajrayana';
+  category?: 'color' | 'elemental' | 'vajrayana' | 'breath';
   kasinaType?: string;
 };
 
@@ -113,6 +113,8 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
       onSelectKasinaType('category:elemental');
     } else if (chartMode === 'vajrayana') {
       onSelectKasinaType('category:vajrayana');
+    } else if (chartMode === 'breath') {
+      onSelectKasinaType('category:breath');
     }
   }, [chartMode, onSelectKasinaType]);
 
@@ -136,10 +138,11 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
   const chartData = useMemo(() => {
     if (!sessions || sessions.length === 0) return [];
     
-    // Group the kasina types into "color", "elemental", and "vajrayana" categories
+    // Group the kasina types into "color", "elemental", "vajrayana", and "breath" categories
     const colorKasinas = ['white', 'blue', 'red', 'yellow', 'custom'];
     const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
     const vajrayanaKasinas = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina', 'white_a_kasina', 'rainbow_kasina'];
+    const breathKasinas = ['breath'];
     
     // Prepare data based on current mode
     if (chartMode === 'overview') {

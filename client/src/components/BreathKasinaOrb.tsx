@@ -210,12 +210,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       console.log(`🧘 Ending meditation session: ${durationInSeconds}s (${durationInMinutes} minutes)`);
       
       try {
+        // Create a more descriptive kasina name that includes the specific kasina used
+        const kasinaName = `Breath Kasina (${KASINA_NAMES[selectedKasina]})`;
+        const kasinaEmoji = KASINA_EMOJIS[selectedKasina];
+        
         await logSession({
           kasinaType: 'breath' as any, // Use 'breath' as the kasina type
           duration: durationInMinutes * 60, // Convert back to seconds for logging
           showToast: true
         });
-        console.log(`✅ Breath Kasina session logged: ${durationInMinutes} minute(s)`);
+        console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
         
         // Redirect to Reflection page after successful save
         setTimeout(() => {
