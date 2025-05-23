@@ -147,32 +147,30 @@ export function useVernierBreath(): VernierBreathHookResult {
               
               await new Promise(resolve => setTimeout(resolve, 500));
               
-              // Start careful data polling with proper timing
-              console.log("    -> Starting careful data polling (1Hz)...");
+              // Start optimized data polling for smooth breath visualization
+              console.log("    -> Starting optimized data polling (5Hz for smooth visualization)...");
               let isPolling = false;
               
               const pollInterval = setInterval(async () => {
                 if (isPolling) {
-                  console.log("Skipping poll - previous operation still in progress");
-                  return;
+                  return; // Skip quietly if previous operation still running
                 }
                 
                 try {
                   isPolling = true;
-                  // Send data request command with proper timing
+                  // Send data request command
                   const requestCmd = new Uint8Array([0x12]); // Request current sensor reading
                   await char.writeValue(requestCmd);
-                  console.log("Data request sent successfully");
                   
-                  // Wait for response before next request
-                  await new Promise(resolve => setTimeout(resolve, 200));
+                  // Minimal wait for response
+                  await new Promise(resolve => setTimeout(resolve, 50));
                   
                 } catch (e) {
-                  console.log("Polling request error:", e);
+                  console.log("Polling error:", e);
                 } finally {
                   isPolling = false;
                 }
-              }, 1000); // Much slower - 1 second intervals
+              }, 200); // 5Hz - good balance for smooth visualization
               
               // Store interval reference for cleanup
               if (!window.vernierPollInterval) {
