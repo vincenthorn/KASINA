@@ -177,7 +177,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
           value: elementalTotal,
           emoji: '✨',
           displayName: 'Elemental Kasinas',
-          color: '#008000',
+          color: '#964B00',
           category: 'elemental' as const
         },
         {
