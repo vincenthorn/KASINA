@@ -759,12 +759,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!activeIsListening) return;
     
-    // Adjusted breathing size range with scroll-based scaling - expanded for all kasinas
+    // Adjusted breathing size range with scroll-based scaling - expanded especially for vajrayana
     const baseMinSize = 0.1; // Much smaller minimum for deeper exhale range
-    const baseMaxSize = 6000; // Increased base for better zoom range
+    const baseMaxSize = 10000; // Much higher base for vajrayana kasinas
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale);
-    const maxSize = Math.min(calculatedMaxSize, 2000); // Expanded cap for all kasinas to reach immersion
+    const maxSize = Math.min(calculatedMaxSize, 3000); // Even higher cap for vajrayana immersion
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
@@ -846,13 +846,13 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Apply breathing animation and update shader uniforms
     useFrame(({ clock }) => {
-      // Cap orbSize at expanded range for all kasinas
-      const cappedOrbSize = Math.min(orbSize, 2000);
+      // Cap orbSize at expanded range especially for vajrayana kasinas
+      const cappedOrbSize = Math.min(orbSize, 3000);
       const scale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
       
-      // Calculate immersion level based on capped orb size - start earlier for all kasinas
-      const immersionThreshold = 800; // Start background earlier to prevent black screens
-      const maxImmersion = 2000; // Full immersion at expanded size for all kasinas
+      // Calculate immersion level based on capped orb size - start early for all kasinas
+      const immersionThreshold = 600; // Start background much earlier to prevent black screens
+      const maxImmersion = 3000; // Full immersion at expanded size for all kasinas
       const immersionLevel = Math.max(0, Math.min(1, (cappedOrbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
       
       if (groupRef.current) {
