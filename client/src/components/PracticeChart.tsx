@@ -185,7 +185,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
           value: vajrayanaTotal,
           emoji: '💀',
           displayName: 'Vajrayana Kasinas',
-          color: '#000000',
+          color: '#666666',
           category: 'vajrayana' as const
         },
         {
