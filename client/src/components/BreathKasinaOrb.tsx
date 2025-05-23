@@ -42,7 +42,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [glowIntensity, setGlowIntensity] = useState(15);
   const [heldExhaleStart, setHeldExhaleStart] = useState<number | null>(null);
   const [sizeScale, setSizeScale] = useState(1.0); // Scale factor for min-max range
+  const [showCalibrationMessage, setShowCalibrationMessage] = useState(false);
+  const [calibrationTimeRemaining, setCalibrationTimeRemaining] = useState(0);
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
+  const calibrationStartRef = useRef<number | null>(null);
   
   // Handle wheel scroll to adjust breathing range scale
   useEffect(() => {
@@ -55,6 +58,35 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     document.addEventListener('wheel', handleWheel, { passive: false });
     return () => document.removeEventListener('wheel', handleWheel);
   }, []);
+
+  // Handle calibration period when breathing starts
+  useEffect(() => {
+    if (activeIsListening && calibrationStartRef.current === null) {
+      // Start calibration period
+      calibrationStartRef.current = Date.now();
+      setShowCalibrationMessage(true);
+      setCalibrationTimeRemaining(5);
+      
+      // Update countdown every second
+      const interval = setInterval(() => {
+        const elapsed = Date.now() - calibrationStartRef.current!;
+        const remaining = Math.max(0, 5 - Math.floor(elapsed / 1000));
+        setCalibrationTimeRemaining(remaining);
+        
+        if (remaining === 0) {
+          setShowCalibrationMessage(false);
+          clearInterval(interval);
+        }
+      }, 1000);
+      
+      return () => clearInterval(interval);
+    } else if (!activeIsListening) {
+      // Reset calibration when not listening
+      calibrationStartRef.current = null;
+      setShowCalibrationMessage(false);
+      setCalibrationTimeRemaining(0);
+    }
+  }, [activeIsListening]);
   
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
@@ -159,6 +191,27 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         {/* Pure blue circle - no effects */}
       </div>
       
+      {/* Calibration message overlay */}
+      {showCalibrationMessage && (
+        <div 
+          className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+          style={{ zIndex: 20 }}
+        >
+          <div 
+            className="bg-black bg-opacity-75 text-white px-6 py-4 rounded-lg text-center"
+            style={{ 
+              fontSize: '24px',
+              fontWeight: 'bold',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+            }}
+          >
+            <div>Calibrating Breath Detection</div>
+            <div className="text-lg mt-2 opacity-80">
+              Breathe naturally for {calibrationTimeRemaining} more seconds
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
