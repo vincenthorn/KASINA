@@ -146,7 +146,7 @@ const ReflectionPage: React.FC = () => {
     <Layout fullWidth={true}>
       <div className="max-w-[1600px] mx-auto px-4">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-white">Reflection</h1>
+          <h1 className="text-2xl font-bold text-white">Reflect</h1>
           
           {/* Only show admin buttons if user is admin */}
           {isAdmin && (

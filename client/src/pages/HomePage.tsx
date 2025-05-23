@@ -30,11 +30,11 @@ const HomePage: React.FC = () => {
       color: "from-blue-600 to-blue-800",
     },
     {
-      icon: <BarChart className="h-10 w-10 text-yellow-500" />,
-      title: "Reflection",
+      icon: <BarChart className="h-10 w-10" style={{ color: "#FFFF00" }} />,
+      title: "Reflect",
       description: "Track your practice progress and view your meditation history.",
       path: "/reflection",
-      color: "from-yellow-600 to-yellow-800",
+      color: "from-yellow-400 to-yellow-600",
     },
   ];
   

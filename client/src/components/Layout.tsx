@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
     { path: "/breath", label: "Breath", icon: <Wind className="w-5 h-5" /> },
-    { path: "/reflection", label: "Reflection", icon: <BarChart className="w-5 h-5" /> },
+    { path: "/reflection", label: "Reflect", icon: <BarChart className="w-5 h-5" /> },
   ];
   
   // Admin-only navigation items
