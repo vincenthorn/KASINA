@@ -45,9 +45,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [showCalibrationMessage, setShowCalibrationMessage] = useState(false);
   const [calibrationTimeRemaining, setCalibrationTimeRemaining] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [showControls, setShowControls] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Handle wheel scroll to adjust breathing range scale
   useEffect(() => {
@@ -90,19 +93,27 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
   }, [activeIsListening]);
 
-  // Handle cursor auto-hide on mouse inactivity
+  // Handle cursor and controls auto-hide on mouse inactivity
   useEffect(() => {
     const handleMouseMove = () => {
       setShowCursor(true);
+      setShowControls(true);
       
-      // Clear existing timeout
+      // Clear existing timeouts
       if (cursorTimeoutRef.current) {
         clearTimeout(cursorTimeoutRef.current);
       }
+      if (controlsTimeoutRef.current) {
+        clearTimeout(controlsTimeoutRef.current);
+      }
       
-      // Set new timeout to hide cursor after 3 seconds of inactivity
+      // Set new timeouts to hide cursor and controls after 3 seconds of inactivity
       cursorTimeoutRef.current = setTimeout(() => {
         setShowCursor(false);
+      }, 3000);
+      
+      controlsTimeoutRef.current = setTimeout(() => {
+        setShowControls(false);
       }, 3000);
     };
 
@@ -116,8 +127,34 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       if (cursorTimeoutRef.current) {
         clearTimeout(cursorTimeoutRef.current);
       }
+      if (controlsTimeoutRef.current) {
+        clearTimeout(controlsTimeoutRef.current);
+      }
     };
   }, []);
+
+  // Handle fullscreen changes
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  // Toggle fullscreen
+  const toggleFullscreen = async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch (error) {
+      console.error('Fullscreen toggle failed:', error);
+    }
+  };
   
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
@@ -223,6 +260,43 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         {/* Pure blue circle - no effects */}
       </div>
       
+      {/* Fullscreen control - upper right corner */}
+      {showControls && (
+        <div 
+          className="absolute top-4 right-4 z-30 cursor-pointer"
+          onClick={toggleFullscreen}
+          style={{
+            padding: '12px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease-out'
+          }}
+        >
+          <svg 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="white" 
+            strokeWidth="2"
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            {isFullscreen ? (
+              // Exit fullscreen icon
+              <>
+                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+              </>
+            ) : (
+              // Enter fullscreen icon
+              <>
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+              </>
+            )}
+          </svg>
+        </div>
+      )}
+
       {/* Calibration message overlay */}
       {showCalibrationMessage && (
         <div 
