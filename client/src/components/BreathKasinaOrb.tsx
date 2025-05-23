@@ -141,37 +141,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           opacity: isListening ? 1 : 0.7
         }}
       >
-        {/* Particle effect inside the orb */}
-        <div className="orb-particles"></div>
-        
-        {/* Radial gradient overlay */}
-        <div 
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(77, 143, 255, 0.3) 0%, rgba(77, 143, 255, 0.9) 80%)',
-            opacity: 0.8
-          }}
-        />
-        
-        {/* Extra inner glow for depth */}
-        <div 
-          style={{
-            position: 'absolute',
-            top: '15%',
-            left: '15%',
-            width: '70%',
-            height: '70%',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(77, 143, 255, 0) 70%)',
-            opacity: 0.6,
-            filter: 'blur(5px)'
-          }}
-        />
+        {/* Pure blue circle - no effects */}
       </div>
       
 
