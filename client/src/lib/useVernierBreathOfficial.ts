@@ -194,6 +194,23 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     calibrationStartTimeRef.current = Date.now();
     
     console.log('Calibration started at:', new Date(calibrationStartTimeRef.current).toLocaleTimeString());
+    
+    // Start progress tracking with interval
+    const progressInterval = setInterval(() => {
+      const elapsed = Date.now() - calibrationStartTimeRef.current;
+      const calibrationDuration = 20000; // 20 seconds
+      const progress = Math.min(elapsed / calibrationDuration, 1);
+      
+      setCalibrationProgress(progress);
+      console.log(`Calibration progress: ${Math.round(progress * 100)}% (${Math.round(elapsed/1000)}s)`);
+      
+      if (progress >= 1) {
+        clearInterval(progressInterval);
+        console.log('Calibration time complete, processing data...');
+        completeCalibration();
+      }
+    }, 100); // Update every 100ms
+    
   }, [isConnected]);
 
   /**
