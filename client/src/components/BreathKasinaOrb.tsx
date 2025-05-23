@@ -839,19 +839,62 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const earthMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const immersionBackgroundRef = useRef<THREE.Mesh>(null);
     
     // Apply breathing animation and update shader uniforms
     useFrame(({ clock }) => {
+      const scale = orbSize / 150; // 150px = 1.0 scale baseline
+      
+      // Calculate immersion level based on orb size
+      const immersionThreshold = 800; // When orb reaches this size, start immersion
+      const maxImmersion = 1500; // Full immersion at this size
+      const immersionLevel = Math.max(0, Math.min(1, (orbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
+      
       if (groupRef.current) {
-        // Convert orbSize (pixels) to Three.js scale
-        const scale = orbSize / 150; // 150px = 1.0 scale baseline
-        groupRef.current.scale.setScalar(scale);
+        // Scale the main orb, but cap it to prevent it from getting too large
+        const cappedScale = immersionLevel > 0 ? Math.min(scale, 8) : scale;
+        groupRef.current.scale.setScalar(cappedScale);
+        
+        // Fade out the main orb as we approach full immersion
+        const orbOpacity = Math.max(0.1, 1 - immersionLevel * 0.9);
+        groupRef.current.traverse((child) => {
+          if (child instanceof THREE.Mesh && child.material) {
+            const material = child.material as any;
+            if (material.uniforms && material.uniforms.opacity) {
+              material.uniforms.opacity.value = orbOpacity;
+            } else if (material.transparent !== undefined) {
+              material.transparent = true;
+              material.opacity = orbOpacity;
+            }
+          }
+        });
       }
       
       if (meshRef.current) {
-        // For basic kasinas, also apply scale
-        const scale = orbSize / 150;
-        meshRef.current.scale.setScalar(scale);
+        // For basic kasinas, also apply scale and opacity
+        const cappedScale = immersionLevel > 0 ? Math.min(scale, 8) : scale;
+        meshRef.current.scale.setScalar(cappedScale);
+        
+        const orbOpacity = Math.max(0.1, 1 - immersionLevel * 0.9);
+        if (meshRef.current.material && !Array.isArray(meshRef.current.material)) {
+          const material = meshRef.current.material as any;
+          material.transparent = true;
+          material.opacity = orbOpacity;
+        }
+      }
+      
+      // Update immersion background
+      if (immersionBackgroundRef.current) {
+        // Make the background visible and scale it with breathing
+        const backgroundScale = 50 + (immersionLevel * 20); // Large sphere that surrounds the camera
+        immersionBackgroundRef.current.scale.setScalar(backgroundScale);
+        
+        // Set opacity based on immersion level
+        if (immersionBackgroundRef.current.material) {
+          const material = immersionBackgroundRef.current.material as any;
+          material.transparent = true;
+          material.opacity = immersionLevel * 0.8;
+        }
       }
       
       // Update shader time uniforms for all elemental kasinas
@@ -862,6 +905,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       if (earthMaterialRef.current) earthMaterialRef.current.uniforms.time.value = time;
       if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = time;
       if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = time;
+      
+      // Update background shader uniforms too
+      if (immersionBackgroundRef.current && immersionBackgroundRef.current.material) {
+        const material = immersionBackgroundRef.current.material as any;
+        if (material.uniforms) {
+          material.uniforms.time.value = time;
+        }
+      }
     });
 
     // Render the appropriate kasina component based on selection
@@ -903,16 +954,30 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       );
     } else if (selectedKasina === KASINA_TYPES.WATER) {
       return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={waterMaterialRef}
-            uniforms={waterShader.uniforms}
-            vertexShader={waterShader.vertexShader}
-            fragmentShader={waterShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
+        <>
+          {/* Main orb */}
+          <mesh ref={meshRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              ref={waterMaterialRef}
+              uniforms={waterShader.uniforms}
+              vertexShader={waterShader.vertexShader}
+              fragmentShader={waterShader.fragmentShader}
+              transparent={true}
+            />
+          </mesh>
+          {/* Immersion background - inside-out sphere */}
+          <mesh ref={immersionBackgroundRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              uniforms={waterShader.uniforms}
+              vertexShader={waterShader.vertexShader}
+              fragmentShader={waterShader.fragmentShader}
+              transparent={true}
+              side={THREE.BackSide} // Render inside faces
+            />
+          </mesh>
+        </>
       );
     } else if (selectedKasina === KASINA_TYPES.AIR) {
       return (
