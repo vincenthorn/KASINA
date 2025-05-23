@@ -46,9 +46,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!activeIsListening) return;
     
-    // Ultra-dramatic breathing size range for powerful meditation visualization
-    const minSize = 1;    // Becomes a tiny dot on deep exhales
-    const maxSize = 1000; // Dramatically large for deep inhales
+    // Adjusted breathing size range based on user feedback
+    const minSize = 1;    // Tiny dot on deep exhales (stays the same)
+    const maxSize = 700;  // 30% smaller than previous max (1000 * 0.7)
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
@@ -73,8 +73,19 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     lastAmplitudeRef.current = activeBreathAmplitude;
     
-    // Use amplitude directly without additional magnification
-    const clampedAmplitude = Math.max(0, Math.min(1, finalAmplitude));
+    // Apply scaling to make exhales 2-3x smaller and adjust the curve
+    let scaledAmplitude = finalAmplitude;
+    
+    // For lower amplitudes (exhales), compress the range to make them much smaller
+    if (finalAmplitude < 0.5) {
+      // Make exhales 3x smaller by compressing the lower range
+      scaledAmplitude = finalAmplitude * 0.33;
+    } else {
+      // For inhales (upper range), apply gentler scaling
+      scaledAmplitude = 0.165 + ((finalAmplitude - 0.5) * 0.67); // Maps 0.5-1.0 to 0.165-0.5
+    }
+    
+    const clampedAmplitude = Math.max(0, Math.min(1, scaledAmplitude));
     const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
     // More dramatic glow effect that scales with breathing
