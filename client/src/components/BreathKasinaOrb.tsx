@@ -136,6 +136,305 @@ const waterShader = {
   `
 };
 
+const fireShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#ff6600") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      vNormal = normalize(normalMatrix * normal);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
+    float random(vec2 st) {
+      return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+    }
+    
+    float noise(vec2 st) {
+      vec2 i = floor(st);
+      vec2 f = fract(st);
+      float a = random(i);
+      float b = random(i + vec2(1.0, 0.0));
+      float c = random(i + vec2(0.0, 1.0));
+      float d = random(i + vec2(1.0, 1.0));
+      vec2 u = f * f * (3.0 - 2.0 * f);
+      return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+    }
+    
+    float fbm(vec2 st) {
+      float value = 0.0;
+      float amplitude = 0.5;
+      for (int i = 0; i < 5; i++) {
+        value += amplitude * noise(st);
+        st *= 2.0;
+        amplitude *= 0.5;
+      }
+      return value;
+    }
+    
+    void main() {
+      vec3 nPos = normalize(vPosition);
+      
+      vec3 emberColor = vec3(0.6, 0.05, 0.0);
+      vec3 fireRed = vec3(1.0, 0.2, 0.0);
+      vec3 fireOrange = vec3(1.0, 0.4, 0.0);
+      vec3 fireYellow = vec3(1.0, 0.7, 0.1);
+      vec3 hotYellow = vec3(1.0, 0.9, 0.3);
+      
+      float height = nPos.y * 0.5 + 0.5;
+      float distFromCenter = length(vec2(nPos.x, nPos.z));
+      float baseShape = 1.0 - smoothstep(0.0, 0.8, distFromCenter);
+      
+      float flames = 0.0;
+      vec2 largeFlameCoord = vec2(nPos.x * 2.0 + sin(time * 0.7) * 0.2, nPos.y * 2.0 + time * 0.8);
+      flames += fbm(largeFlameCoord) * 0.6;
+      
+      vec2 medFlameCoord = vec2(nPos.x * 4.0 + sin(time * 1.2 + nPos.z) * 0.3, nPos.y * 3.0 + time * 1.5);
+      flames += fbm(medFlameCoord) * 0.3;
+      
+      flames *= smoothstep(-0.2, 0.8, nPos.y);
+      
+      float flicker = (noise(vec2(time * 1.5, 0.0)) * 0.5 + 0.5) * (noise(vec2(time * 3.0, 0.5)) * 0.3 + 0.7);
+      float fireIntensity = clamp((baseShape * 0.6 + flames * 0.8) * flicker, 0.0, 1.0);
+      
+      vec3 fireColor;
+      if (fireIntensity > 0.6) {
+        fireColor = mix(fireOrange, fireYellow, (fireIntensity - 0.6) * 2.5);
+      } else if (fireIntensity > 0.3) {
+        fireColor = mix(fireRed, fireOrange, (fireIntensity - 0.3) * 3.33);
+      } else {
+        fireColor = mix(emberColor, fireRed, fireIntensity * 3.33);
+      }
+      
+      float verticalGradient = smoothstep(-1.0, 1.0, nPos.y);
+      fireColor *= mix(0.7, 1.3, verticalGradient);
+      fireColor = pow(fireColor, vec3(0.6));
+      
+      gl_FragColor = vec4(fireColor, max(fireIntensity * 0.95, 0.8));
+    }
+  `
+};
+
+const airShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#d3f0ff") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    
+    void main() {
+      vec2 p = -1.0 + 2.0 * vUv;
+      float a = time * 0.05;
+      float s = sin(a * 2.0);
+      float c = cos(a * 2.0);
+      
+      float d = pow(1.0 - length(p), 2.0);
+      vec2 q = vec2(p.x * c - p.y * s, p.x * s + p.y * c) * d;
+      
+      float f = 0.0;
+      for(float i = 1.0; i < 6.0; i++) {
+        float t = time * (0.1 + 0.05 * i);
+        f += sin(q.x * i + t) * sin(q.y * i + t);
+      }
+      
+      vec3 finalColor = color + 0.15 * sin(f);
+      gl_FragColor = vec4(finalColor, 0.7);
+    }
+  `
+};
+
+const earthShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#CC6633") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      vNormal = normalize(normalMatrix * normal);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
+    float rand(vec2 co) {
+      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    }
+    
+    float worleyNoise(vec2 uv, float scale) {
+      vec2 id = floor(uv * scale);
+      vec2 lv = fract(uv * scale);
+      float minDist = 1.0;
+      
+      for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+          vec2 offset = vec2(float(x), float(y));
+          vec2 pos = offset + 0.5 + 0.3 * vec2(
+            sin(rand(id + offset) * 6.28),
+            cos(rand(id + offset + vec2(1.0, 2.0)) * 6.28)
+          );
+          float dist = length(pos - lv);
+          minDist = min(minDist, dist);
+        }
+      }
+      return minDist;
+    }
+    
+    void main() {
+      vec3 baseColor = color;
+      
+      float clayTexture = 0.0;
+      float large = worleyNoise(vUv * 2.0, 4.0);
+      float medium = worleyNoise(vUv * 4.0, 8.0);
+      float small = worleyNoise(vUv * 8.0, 16.0);
+      
+      clayTexture = large * 0.6 + medium * 0.3 + small * 0.1;
+      clayTexture += sin(time * 0.05) * 0.02;
+      
+      float d = length(vUv - vec2(0.5, 0.5));
+      float lightIntensity = 1.0 - smoothstep(0.0, 0.8, d);
+      float normalShading = 0.5 + 0.5 * dot(vNormal, vec3(0.5, 0.5, 0.5));
+      
+      vec3 darkClay = baseColor * 0.7;
+      vec3 lightClay = baseColor * 1.3;
+      vec3 clayColor = mix(darkClay, lightClay, clayTexture);
+      
+      clayColor *= 0.7 + 0.3 * normalShading + 0.2 * lightIntensity;
+      clayColor *= 0.97 + rand(vUv * 100.0) * 0.05;
+      
+      gl_FragColor = vec4(clayColor, 1.0);
+    }
+  `
+};
+
+const spaceShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#000000") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    
+    float random(vec2 co) {
+      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    }
+    
+    void main() {
+      vec2 p = vUv * 2.0 - 1.0;
+      float r = length(p);
+      float angle = atan(p.y, p.x);
+      
+      float stars = 0.0;
+      for(int i = 0; i < 50; i++) {
+        vec2 starPos = vec2(
+          sin(float(i) * 0.1) * 0.8,
+          cos(float(i) * 0.15) * 0.8
+        );
+        float starDist = length(p - starPos);
+        float starBrightness = 1.0 / (1.0 + starDist * 50.0);
+        stars += starBrightness * (0.5 + 0.5 * sin(time * 2.0 + float(i)));
+      }
+      
+      float nebula = 0.3 * sin(r * 3.0 + time * 0.5) * cos(angle * 2.0 + time * 0.3);
+      vec3 spaceColor = vec3(0.05, 0.1, 0.2) + stars * vec3(1.0, 0.8, 0.6) + nebula * vec3(0.3, 0.2, 0.8);
+      
+      gl_FragColor = vec4(spaceColor, 1.0);
+    }
+  `
+};
+
+const lightShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#fbbf24") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    
+    void main() {
+      vec2 p = vUv * 2.0 - 1.0;
+      float r = length(p);
+      
+      float glow = 1.0 / (1.0 + r * 2.0);
+      float pulse = 0.8 + 0.2 * sin(time * 3.0);
+      float rays = 0.0;
+      
+      for(float i = 0.0; i < 8.0; i++) {
+        float angle = i * 0.785398; // PI/4
+        vec2 rayDir = vec2(cos(angle), sin(angle));
+        float rayIntensity = max(0.0, dot(normalize(p), rayDir));
+        rays += pow(rayIntensity, 4.0) * 0.3;
+      }
+      
+      vec3 lightColor = color * (glow * pulse + rays);
+      lightColor += vec3(1.0, 0.9, 0.7) * glow * 0.5;
+      
+      gl_FragColor = vec4(lightColor, 1.0);
+    }
+  `
+};
+
 interface BreathKasinaOrbProps {
   breathAmplitude?: number;
   breathPhase?: 'inhale' | 'exhale' | 'pause';
@@ -538,6 +837,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const groupRef = useRef<THREE.Group>(null);
     const meshRef = useRef<THREE.Mesh>(null);
     const waterMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const fireMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const airMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const earthMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
     
     // Apply breathing animation and update shader uniforms
     useFrame(({ clock }) => {
@@ -553,10 +857,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         meshRef.current.scale.setScalar(scale);
       }
       
-      // Update water shader time uniform for animation
-      if (waterMaterialRef.current) {
-        waterMaterialRef.current.uniforms.time.value = clock.getElapsedTime();
-      }
+      // Update shader time uniforms for all elemental kasinas
+      const time = clock.getElapsedTime();
+      if (waterMaterialRef.current) waterMaterialRef.current.uniforms.time.value = time;
+      if (fireMaterialRef.current) fireMaterialRef.current.uniforms.time.value = time;
+      if (airMaterialRef.current) airMaterialRef.current.uniforms.time.value = time;
+      if (earthMaterialRef.current) earthMaterialRef.current.uniforms.time.value = time;
+      if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = time;
+      if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = time;
     });
 
     // Render the appropriate kasina component based on selection
@@ -613,35 +921,65 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <meshBasicMaterial color="#e5e7eb" transparent opacity={0.6} />
+          <shaderMaterial
+            ref={airMaterialRef}
+            uniforms={airShader.uniforms}
+            vertexShader={airShader.vertexShader}
+            fragmentShader={airShader.fragmentShader}
+            transparent={true}
+          />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.FIRE) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <meshBasicMaterial color="#ef4444" />
+          <shaderMaterial
+            ref={fireMaterialRef}
+            uniforms={fireShader.uniforms}
+            vertexShader={fireShader.vertexShader}
+            fragmentShader={fireShader.fragmentShader}
+            transparent={true}
+          />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.EARTH) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <meshBasicMaterial color="#a3a3a3" />
+          <shaderMaterial
+            ref={earthMaterialRef}
+            uniforms={earthShader.uniforms}
+            vertexShader={earthShader.vertexShader}
+            fragmentShader={earthShader.fragmentShader}
+            transparent={true}
+          />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.SPACE) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <meshBasicMaterial color="#6366f1" />
+          <shaderMaterial
+            ref={spaceMaterialRef}
+            uniforms={spaceShader.uniforms}
+            vertexShader={spaceShader.vertexShader}
+            fragmentShader={spaceShader.fragmentShader}
+            transparent={true}
+          />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.LIGHT) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <meshBasicMaterial color="#fbbf24" />
+          <shaderMaterial
+            ref={lightMaterialRef}
+            uniforms={lightShader.uniforms}
+            vertexShader={lightShader.vertexShader}
+            fragmentShader={lightShader.fragmentShader}
+            transparent={true}
+          />
         </mesh>
       );
     } else {
