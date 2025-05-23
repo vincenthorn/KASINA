@@ -131,34 +131,13 @@ export function useVernierBreath(): VernierBreathHookResult {
             try {
               // GDX-RB specific activation sequence
               
-              // Step 1: Enable sensor (Force sensor on GDX-RB)
-              console.log("    -> Sending enable sensor command...");
-              const enableSensor = new Uint8Array([0x28, 0x01]); // Enable sensor command
-              await char.writeValue(enableSensor);
+              // Simple GDX-RB start sequence - just get data flowing!
+              console.log("    -> Sending simple start command...");
+              const startMeasurement = new Uint8Array([0x21, 0x32]); // Start with 50ms period
+              await char.writeValue(startMeasurement);
               
-              // Wait a moment between commands
-              await new Promise(resolve => setTimeout(resolve, 200));
-              
-              // Step 2: Request continuous data streaming
-              console.log("    -> Requesting continuous data stream...");
-              const continuousMode = new Uint8Array([0x53, 0x54, 0x41, 0x52, 0x54]); // "START" command
-              await char.writeValue(continuousMode);
-              
-              // Wait a moment
-              await new Promise(resolve => setTimeout(resolve, 300));
-              
-              // Step 3: Set measurement rate to 20Hz for high-resolution breathing detection
-              console.log("    -> Setting measurement rate to 20Hz (50ms intervals)...");
-              const rateCmd = new Uint8Array([0x52, 0x41, 0x54, 0x45, 0x14]); // 20Hz rate (0x14 = 20)
-              await char.writeValue(rateCmd);
-              
-              // Wait a moment  
-              await new Promise(resolve => setTimeout(resolve, 300));
-              
-              // Step 4: Send keep-alive command to maintain connection
-              console.log("    -> Sending keep-alive command...");
-              const keepAlive = new Uint8Array([0x4B, 0x45, 0x45, 0x50]); // "KEEP" alive
-              await char.writeValue(keepAlive);
+              // Wait for device to process
+              await new Promise(resolve => setTimeout(resolve, 1000));
               
               console.log("    -> GDX-RB activation sequence completed successfully");
               
