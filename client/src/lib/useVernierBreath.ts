@@ -147,9 +147,9 @@ export function useVernierBreath(): VernierBreathHookResult {
               // Wait a moment
               await new Promise(resolve => setTimeout(resolve, 300));
               
-              // Step 3: Set measurement rate to 10Hz for stable streaming
-              console.log("    -> Setting measurement rate...");
-              const rateCmd = new Uint8Array([0x52, 0x41, 0x54, 0x45, 0x0A]); // 10Hz rate
+              // Step 3: Set measurement rate to 20Hz for high-resolution breathing detection
+              console.log("    -> Setting measurement rate to 20Hz (50ms intervals)...");
+              const rateCmd = new Uint8Array([0x52, 0x41, 0x54, 0x45, 0x14]); // 20Hz rate (0x14 = 20)
               await char.writeValue(rateCmd);
               
               // Wait a moment  
