@@ -19,6 +19,7 @@ import LogoExportPage from "./pages/LogoExportPage";
 import BreathPage from "./pages/BreathPage";
 import MicBreathPage from "./pages/MicBreathPage";
 import VernierBreathPage from "./pages/VernierBreathPage";
+import VernierOfficialBreathPage from "./pages/VernierOfficialBreathPage";
 import VernierTestPage from "./pages/VernierTestPage";
 
 import NotFound from "./pages/not-found";
