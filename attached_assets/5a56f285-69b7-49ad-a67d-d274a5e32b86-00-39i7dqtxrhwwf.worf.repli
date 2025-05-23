@@ -9,9 +9,24 @@ BreathPage.tsx:13 Is admin: false
 BreathPage.tsx:14 Email: premium@kasina.app
 BreathPage.tsx:15 Subscription: premium
 BreathPage.tsx:18 Has premium access: true
-useMicrophoneBreath.ts:693 Requesting microphone permission for device enumeration...
-MicBreathPage.tsx:126 Refreshing microphone devices...
-useMicrophoneBreath.ts:693 Requesting microphone permission for device enumeration...
-useMicrophoneBreath.ts:702 Microphone permission granted
-useMicrophoneBreath.ts:702 Microphone permission granted
-MicBreathPage.tsx:128 Found devices: Array(8)
+useVernierBreath.ts:89 Requesting Vernier GDX device...
+useVernierBreath.ts:97 Device selected: GDX-RB 0K7001C3
+useVernierBreath.ts:101 Connecting to GATT server...
+useVernierBreath.ts:106 Discovering services...
+useVernierBreath.ts:111 Service: d91714ef-28b9-4f91-ba16-f0d9a604f112
+useVernierBreath.ts:114   Characteristic: b41e6675-a329-40e0-aa01-44d2f444babe Properties: BluetoothCharacteristicProperties
+useVernierBreath.ts:118     -> Potential data characteristic found
+useVernierBreath.ts:125     -> Notifications started for b41e6675-a329-40e0-aa01-44d2f444babe
+useVernierBreath.ts:114   Characteristic: f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb Properties: BluetoothCharacteristicProperties
+useVernierBreath.ts:111 Service: 0000180f-0000-1000-8000-00805f9b34fb
+useVernierBreath.ts:114   Characteristic: 00002a19-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
+useVernierBreath.ts:118     -> Potential data characteristic found
+useVernierBreath.ts:111 Service: 0000180a-0000-1000-8000-00805f9b34fb
+useVernierBreath.ts:114   Characteristic: 00002a26-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
+useVernierBreath.ts:118     -> Potential data characteristic found
+useVernierBreath.ts:114   Characteristic: 00002a28-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
+useVernierBreath.ts:118     -> Potential data characteristic found
+useVernierBreath.ts:114   Characteristic: 00002a29-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
+useVernierBreath.ts:118     -> Potential data characteristic found
+useVernierBreath.ts:137 Successfully connected to Vernier respiration belt
+useVernierBreath.ts:337 Starting respiration belt calibration...

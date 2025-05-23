@@ -178,11 +178,55 @@ export function useVernierBreath(): VernierBreathHookResult {
     
     if (!value) return;
     
-    // Parse the force data - this will need to be adjusted based on actual Vernier data format
-    // For now, assuming it's a float32 value representing force in Newtons
-    const force = value.getFloat32(0, true); // true for little-endian
-    const timestamp = Date.now();
+    // Debug: Log the raw data to understand the format
+    console.log('Raw Vernier data - Buffer length:', value.byteLength);
+    const rawBytes = new Uint8Array(value.buffer);
+    console.log('Raw bytes:', Array.from(rawBytes));
     
+    // Try different parsing methods to find the correct format
+    let force = 0;
+    
+    try {
+      // Method 1: Try as Float32 (little-endian)
+      if (value.byteLength >= 4) {
+        force = value.getFloat32(0, true);
+        console.log('Float32 (LE) interpretation:', force);
+      }
+      
+      // Method 2: Try as Float32 (big-endian) 
+      if (value.byteLength >= 4) {
+        const forceBE = value.getFloat32(0, false);
+        console.log('Float32 (BE) interpretation:', forceBE);
+      }
+      
+      // Method 3: Try as Int16 
+      if (value.byteLength >= 2) {
+        const forceInt16 = value.getInt16(0, true);
+        console.log('Int16 interpretation:', forceInt16);
+      }
+      
+      // Method 4: Try as Uint16
+      if (value.byteLength >= 2) {
+        const forceUint16 = value.getUint16(0, true);
+        console.log('Uint16 interpretation:', forceUint16);
+      }
+      
+      // For now, use Float32 little-endian as the primary value
+      if (value.byteLength >= 4) {
+        force = value.getFloat32(0, true);
+      } else if (value.byteLength >= 2) {
+        // Fall back to Int16 if not enough bytes for Float32
+        force = value.getInt16(0, true) / 1000.0; // Convert to Newtons if needed
+      }
+      
+    } catch (error) {
+      console.error('Error parsing Vernier data:', error);
+      return;
+    }
+    
+    console.log('Final force value:', force);
+    
+    const timestamp = Date.now();
     const respirationData: RespirationData = { force, timestamp };
     
     // Store the data
