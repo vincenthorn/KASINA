@@ -163,10 +163,10 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                 const baseMax = Math.max(...forces);
                 const range = baseMax - baseMin;
                 
-                // Add 50% buffer above and below for expanded breathing
+                // Add 50% buffer only below for deeper exhales (people calm down during meditation)
                 const bufferAmount = range * 0.5;
                 const dynamicMin = baseMin - bufferAmount;
-                const dynamicMax = baseMax + bufferAmount;
+                const dynamicMax = baseMax; // No extra space above baseline
                 
                 // Calculate amplitude with dynamic range
                 const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
