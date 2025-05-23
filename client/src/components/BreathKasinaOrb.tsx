@@ -41,15 +41,30 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
   const [heldExhaleStart, setHeldExhaleStart] = useState<number | null>(null);
+  const [sizeScale, setSizeScale] = useState(1.0); // Scale factor for min-max range
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
+  
+  // Handle wheel scroll to adjust breathing range scale
+  useEffect(() => {
+    const handleWheel = (e: any) => {
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? -0.1 : 0.1; // Scroll down = smaller, scroll up = larger
+      setSizeScale(prev => Math.max(0.2, Math.min(3.0, prev + delta))); // Range: 0.2x to 3.0x
+    };
+
+    document.addEventListener('wheel', handleWheel, { passive: false });
+    return () => document.removeEventListener('wheel', handleWheel);
+  }, []);
   
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
     if (!activeIsListening) return;
     
-    // Adjusted breathing size range based on user feedback
-    const minSize = 1;    // Tiny dot on deep exhales (stays the same)
-    const maxSize = 700;  // 30% smaller than previous max (1000 * 0.7)
+    // Adjusted breathing size range with scroll-based scaling
+    const baseMinSize = 1;
+    const baseMaxSize = 700;
+    const minSize = Math.floor(baseMinSize * sizeScale);
+    const maxSize = Math.floor(baseMaxSize * sizeScale);
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
@@ -112,8 +127,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     // Log the size and rate data for debugging
-    console.log(`Breath rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, amplitude: ${activeBreathAmplitude.toFixed(3)}, orb size: ${newSize}px, hold: ${heldExhaleStart !== null}`);
-  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate]);
+    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, range: ${minSize}-${maxSize}px, current: ${newSize}px`);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale]);
 
   return (
     <div 
