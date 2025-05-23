@@ -49,12 +49,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [meditationTime, setMeditationTime] = useState(0); // seconds
   const [isInFocusMode, setIsInFocusMode] = useState(false);
+  const [showConnectionHelp, setShowConnectionHelp] = useState(false);
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const meditationStartRef = useRef<number | null>(null);
   const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const connectionCheckRef = useRef<NodeJS.Timeout | null>(null);
   
   // Handle wheel scroll to adjust breathing range scale
   useEffect(() => {
@@ -205,6 +207,41 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
+
+  // Monitor connection and show help if needed
+  useEffect(() => {
+    if (!useVernier) return;
+
+    // Check for connection issues
+    const checkConnection = () => {
+      // If we're supposed to be listening but getting no data for 10 seconds
+      if (activeIsListening && activeBreathAmplitude === 0) {
+        connectionCheckRef.current = setTimeout(() => {
+          if (activeBreathAmplitude === 0) {
+            setShowConnectionHelp(true);
+          }
+        }, 10000); // 10 seconds
+      } else {
+        // Clear timeout if we're getting data
+        if (connectionCheckRef.current) {
+          clearTimeout(connectionCheckRef.current);
+          connectionCheckRef.current = null;
+        }
+        // Hide help if connection is working
+        if (activeBreathAmplitude > 0) {
+          setShowConnectionHelp(false);
+        }
+      }
+    };
+
+    checkConnection();
+
+    return () => {
+      if (connectionCheckRef.current) {
+        clearTimeout(connectionCheckRef.current);
+      }
+    };
+  }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
