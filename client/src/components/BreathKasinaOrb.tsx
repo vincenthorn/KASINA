@@ -363,30 +363,28 @@ const spaceShader = {
     uniform vec3 color;
     varying vec2 vUv;
     
-    float random(vec2 co) {
+    float rand(vec2 co) {
       return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
     }
     
     void main() {
-      vec2 p = vUv * 2.0 - 1.0;
-      float r = length(p);
-      float angle = atan(p.y, p.x);
+      vec2 uv = vUv;
+      vec3 baseColor = color;
       
-      float stars = 0.0;
-      for(int i = 0; i < 50; i++) {
-        vec2 starPos = vec2(
-          sin(float(i) * 0.1) * 0.8,
-          cos(float(i) * 0.15) * 0.8
-        );
-        float starDist = length(p - starPos);
-        float starBrightness = 1.0 / (1.0 + starDist * 50.0);
-        stars += starBrightness * (0.5 + 0.5 * sin(time * 2.0 + float(i)));
-      }
+      // Center dark effect for black orb
+      float d = length(uv - vec2(0.5, 0.5));
       
-      float nebula = 0.3 * sin(r * 3.0 + time * 0.5) * cos(angle * 2.0 + time * 0.3);
-      vec3 spaceColor = vec3(0.05, 0.1, 0.2) + stars * vec3(1.0, 0.8, 0.6) + nebula * vec3(0.3, 0.2, 0.8);
+      // Subtle purple edge glow for the black orb
+      float edgeGlow = smoothstep(0.45, 0.5, d);
+      vec3 edgeColor = vec3(0.16, 0.0, 0.33); // Dark purple tint
       
-      gl_FragColor = vec4(spaceColor, 1.0);
+      // Add very subtle ripple effect
+      float ripple = sin(d * 20.0 - time * 0.2) * 0.02;
+      float intensity = smoothstep(0.0, 0.5, d + ripple);
+      
+      // Mix with a subtle deep purple at the edges
+      vec3 finalColor = mix(baseColor, edgeColor, intensity * edgeGlow);
+      gl_FragColor = vec4(finalColor, 1.0);
     }
   `
 };
@@ -394,15 +392,15 @@ const spaceShader = {
 const lightShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#fbbf24") },
+    color: { value: new THREE.Color("#fffaf0") },
     opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
-    varying vec3 vPosition;
+    varying vec3 vNormal;
     void main() {
       vUv = uv;
-      vPosition = position;
+      vNormal = normalize(normalMatrix * normal);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -410,27 +408,26 @@ const lightShader = {
     uniform float time;
     uniform vec3 color;
     varying vec2 vUv;
-    varying vec3 vPosition;
+    varying vec3 vNormal;
     
     void main() {
-      vec2 p = vUv * 2.0 - 1.0;
-      float r = length(p);
+      vec2 uv = vUv;
+      float d = length(uv - vec2(0.5, 0.5));
       
-      float glow = 1.0 / (1.0 + r * 2.0);
-      float pulse = 0.8 + 0.2 * sin(time * 3.0);
-      float rays = 0.0;
+      // Much more gentle falloff at edges, keeping most of the orb bright
+      float brightness = 1.0 - smoothstep(0.45, 0.5, d);
       
-      for(float i = 0.0; i < 8.0; i++) {
-        float angle = i * 0.785398; // PI/4
-        vec2 rayDir = vec2(cos(angle), sin(angle));
-        float rayIntensity = max(0.0, dot(normalize(p), rayDir));
-        rays += pow(rayIntensity, 4.0) * 0.3;
-      }
+      // Gentle pulsing effect
+      float pulse = 0.05 * sin(time * 1.5);
       
-      vec3 lightColor = color * (glow * pulse + rays);
-      lightColor += vec3(1.0, 0.9, 0.7) * glow * 0.5;
+      // Calculate lighting factor based on normal
+      // This makes the light source always come from the viewer's direction
+      vec3 lightDir = vec3(0.0, 0.0, 1.0); // Light from camera direction
+      float lightFactor = max(0.85, dot(vNormal, lightDir)); // Minimum 85% brightness
       
-      gl_FragColor = vec4(lightColor, 1.0);
+      // Add extra brightness to the whole orb with lightFactor to eliminate dark side
+      vec3 finalColor = color * (brightness + pulse + 0.25) * lightFactor;
+      gl_FragColor = vec4(finalColor, 1.0);
     }
   `
 };
