@@ -145,12 +145,33 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
               // Process breathing data using calibration profile
               processBreathingData(forceValue);
             } else {
-              // Fallback: Process breathing data without calibration profile
-              // Use expanded amplitude calculation based on your actual breathing range
-              const minForce = 4.5; // Expanded minimum for deeper exhales
-              const maxForce = 10.5; // Expanded maximum for deeper inhales
-              const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - minForce) / (maxForce - minForce)));
-              setBreathAmplitude(normalizedAmplitude);
+              // Dynamic breathing range based on recent force data
+              // Collect recent samples to establish breathing range
+              const recentSamples = 50; // Use last 50 samples
+              if (forceDataRef.current.length < recentSamples) {
+                // Build up sample history first
+                forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
+                setBreathAmplitude(0.5); // Default to middle until we have enough data
+              } else {
+                // Keep only recent samples
+                forceDataRef.current = forceDataRef.current.slice(-recentSamples);
+                forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
+                
+                // Calculate dynamic range from recent breathing
+                const forces = forceDataRef.current.map(d => d.force);
+                const baseMin = Math.min(...forces);
+                const baseMax = Math.max(...forces);
+                const range = baseMax - baseMin;
+                
+                // Add 50% buffer above and below for expanded breathing
+                const bufferAmount = range * 0.5;
+                const dynamicMin = baseMin - bufferAmount;
+                const dynamicMax = baseMax + bufferAmount;
+                
+                // Calculate amplitude with dynamic range
+                const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
+                setBreathAmplitude(normalizedAmplitude);
+              }
               
               // Simple phase detection based on force trend
               const currentTime = Date.now();
