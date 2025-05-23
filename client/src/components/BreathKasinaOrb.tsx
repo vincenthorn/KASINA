@@ -1,11 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { useKasina } from '../lib/stores/useKasina';
-import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS } from '../lib/constants';
+import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
+import WhiteAKasina from './WhiteAKasina';
+import WhiteAThigle from './WhiteAThigle';
+import OmKasina from './OmKasina';
+import AhKasina from './AhKasina';
+import HumKasina from './HumKasina';
+import RainbowKasina from './RainbowKasina';
+import * as THREE from 'three';
 
 interface BreathKasinaOrbProps {
   breathAmplitude?: number;
@@ -404,36 +413,94 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, range: ${minSize}-${maxSize}px, current: ${newSize}px`);
   }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale]);
 
+  // Modern kasina breathing orb component using Three.js
+  const BreathingKasinaOrb = () => {
+    const groupRef = useRef<THREE.Group>(null);
+    const meshRef = useRef<THREE.Mesh>(null);
+    
+    // Apply breathing animation to all kasina types
+    useFrame(() => {
+      if (groupRef.current) {
+        // Convert orbSize (pixels) to Three.js scale
+        const scale = orbSize / 150; // 150px = 1.0 scale baseline
+        groupRef.current.scale.setScalar(scale);
+      }
+      
+      if (meshRef.current) {
+        // For basic kasinas, also apply scale
+        const scale = orbSize / 150;
+        meshRef.current.scale.setScalar(scale);
+      }
+    });
+
+    // Render the appropriate kasina component based on selection
+    if (selectedKasina === KASINA_TYPES.WHITE_A_KASINA) {
+      return (
+        <group ref={groupRef}>
+          <WhiteAKasina />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE) {
+      return (
+        <group ref={groupRef}>
+          <WhiteAThigle />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.OM_KASINA) {
+      return (
+        <group ref={groupRef}>
+          <OmKasina />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.AH_KASINA) {
+      return (
+        <group ref={groupRef}>
+          <AhKasina />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.HUM_KASINA) {
+      return (
+        <group ref={groupRef}>
+          <HumKasina />
+        </group>
+      );
+    } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
+      return (
+        <group ref={groupRef}>
+          <RainbowKasina />
+        </group>
+      );
+    } else {
+      // Basic color kasinas and elemental kasinas
+      return (
+        <mesh ref={meshRef}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <meshBasicMaterial color={getKasinaColor(selectedKasina)} />
+        </mesh>
+      );
+    }
+  };
+
   return (
     <div 
       className="fixed inset-0 flex items-center justify-center"
       style={{
-        backgroundColor: '#000000',
+        backgroundColor: KASINA_BACKGROUNDS[selectedKasina] || '#000000',
         width: '100vw',
         height: '100vh',
         zIndex: 10,
-        cursor: showCursor ? 'default' : 'none' // Auto-hide cursor after 3 seconds of inactivity
+        cursor: showCursor ? 'default' : 'none'
       }}
     >
-      <div 
-        ref={orbRef}
-        className="breath-kasina-orb"
-        style={{
-          width: `${orbSize}px`,
-          height: `${orbSize}px`,
-          borderRadius: '50%',
-          backgroundColor: getKasinaColor(selectedKasina),
-          boxShadow: 'none', // No glow effect
-          transition: 'all 0.2s ease-out',
-          position: 'relative',
-          overflow: 'hidden',
-          transform: `scale(${isListening ? 1 : 0.9})`,
-          opacity: isListening ? 1 : 0.7,
-          ...getKasinaStyles(selectedKasina)
-        }}
+      {/* Three.js Canvas with modern kasina components */}
+      <Canvas
+        style={{ width: '100%', height: '100%' }}
+        camera={{ position: [0, 0, 3], fov: 75 }}
       >
-        {/* Pure blue circle - no effects */}
-      </div>
+        <ambientLight intensity={0.8} />
+        <pointLight position={[10, 10, 10]} />
+        <BreathingKasinaOrb />
+      </Canvas>
       
       {/* Meditation timer and controls - upper left corner */}
       {showControls && (
