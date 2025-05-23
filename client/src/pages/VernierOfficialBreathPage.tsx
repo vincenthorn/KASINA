@@ -10,6 +10,7 @@ import BreathKasinaOrb from '../components/BreathKasinaOrb';
 export default function VernierOfficialBreathPage() {
   const navigate = useNavigate();
   const [showMeditation, setShowMeditation] = React.useState(false);
+  const [forceStayOnPage, setForceStayOnPage] = React.useState(false);
   const {
     isConnected,
     isConnecting,
@@ -26,6 +27,28 @@ export default function VernierOfficialBreathPage() {
     currentForce,
     calibrationProfile
   } = useVernierBreathOfficial();
+
+  // Block automatic navigation when calibration completes
+  React.useEffect(() => {
+    if (calibrationComplete && !forceStayOnPage) {
+      console.log('🛑 BLOCKING AUTO-NAVIGATION: Calibration complete, forcing stay on page');
+      setForceStayOnPage(true);
+      
+      // Prevent any automatic navigation
+      const blockNavigation = (e: PopStateEvent) => {
+        console.log('🛑 BLOCKED navigation attempt!');
+        e.preventDefault();
+        window.history.pushState(null, '', window.location.href);
+      };
+      
+      window.addEventListener('popstate', blockNavigation);
+      window.history.pushState(null, '', window.location.href);
+      
+      return () => {
+        window.removeEventListener('popstate', blockNavigation);
+      };
+    }
+  }, [calibrationComplete, forceStayOnPage]);
 
   const handleStartSession = async () => {
     console.log('handleStartSession called - isConnected:', isConnected, 'calibrationComplete:', calibrationComplete);
