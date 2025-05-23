@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 /**
  * Interface for Vernier respiration belt data
@@ -46,10 +46,10 @@ export function useVernierBreath(): VernierBreathHookResult {
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
-  // Breath data state
+  // Breathing analysis state
   const [breathAmplitude, setBreathAmplitude] = useState(0);
-  const [breathingRate, setBreathingRate] = useState(0);
   const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
+  const [breathingRate, setBreathingRate] = useState(0);
   
   // Calibration state
   const [isCalibrating, setIsCalibrating] = useState(false);
@@ -63,21 +63,17 @@ export function useVernierBreath(): VernierBreathHookResult {
     isValid: boolean;
   } | null>(null);
   
-  // Bluetooth device refs
-  const deviceRef = useRef<BluetoothDevice | null>(null);
-  const serverRef = useRef<BluetoothRemoteGATTServer | null>(null);
-  const characteristicRef = useRef<BluetoothRemoteGATTCharacteristic | null>(null);
-  
-  // Data processing refs
+  // Refs for device connections and data
+  const deviceRef = useRef<any>(null);
+  const serverRef = useRef<any>(null);
+  const characteristicRef = useRef<any>(null);
   const forceDataRef = useRef<RespirationData[]>([]);
-  const breathCyclesRef = useRef<number[]>([]);
-  const lastBreathTimeRef = useRef<number>(0);
-  const smoothedForceRef = useRef<number>(0);
-  
-  // Calibration data refs
   const calibrationDataRef = useRef<number[]>([]);
   const calibrationStartTimeRef = useRef<number>(0);
-  
+  const smoothedForceRef = useRef<number>(0);
+  const lastBreathTimeRef = useRef<number>(0);
+  const breathCyclesRef = useRef<number[]>([]);
+
   /**
    * Connect to Vernier GDX respiration belt via Bluetooth
    */
@@ -88,96 +84,64 @@ export function useVernierBreath(): VernierBreathHookResult {
       
       console.log('Requesting Vernier GDX device...');
       
-      // Request device with GDX name prefix
-      const device = await navigator.bluetooth.requestDevice({
-        filters: [{ namePrefix: "GDX" }],
-        optionalServices: ['battery_service', 'device_information'] // Add more services as needed
+      // Request Bluetooth device
+      const device = await (navigator as any).bluetooth.requestDevice({
+        filters: [
+          { namePrefix: 'GDX' },
+          { namePrefix: 'Vernier' }
+        ],
+        optionalServices: [
+          'd91714ef-28b9-4f91-ba16-f0d9a604f112', // Vernier service
+          '0000180f-0000-1000-8000-00805f9b34fb', // Battery service
+          '0000180a-0000-1000-8000-00805f9b34fb'  // Device info service
+        ]
       });
       
       console.log('Device selected:', device.name);
       deviceRef.current = device;
       
-      // Connect to GATT server
       console.log('Connecting to GATT server...');
       const server = await device.gatt!.connect();
       serverRef.current = server;
       
-      // Discover services and characteristics
       console.log('Discovering services...');
       const services = await server.getPrimaryServices();
       
-      // Log all available services and characteristics for debugging
       for (const service of services) {
         console.log("Service:", service.uuid);
         const characteristics = await service.getCharacteristics();
         for (const char of characteristics) {
           console.log("  Characteristic:", char.uuid, "Properties:", char.properties);
           
-          // Look for characteristics that can notify (likely sensor data)
-          if (char.properties.notify || char.properties.read) {
-            console.log("    -> Potential data characteristic found");
+          // Look for the main data characteristic
+          if (char.uuid === 'b41e6675-a329-40e0-aa01-44d2f444babe') {
+            console.log("    -> Found main sensor characteristic");
             characteristicRef.current = char;
             
-            // Start notifications if supported
             if (char.properties.notify) {
               await char.startNotifications();
               char.addEventListener('characteristicvaluechanged', handleForceData);
-              console.log("    -> Notifications started for", char.uuid);
-              
-              // If this is the main sensor data characteristic, try to start measurements
-              if (char.uuid === 'b41e6675-a329-40e0-aa01-44d2f444babe') {
-                console.log("    -> Found main sensor characteristic, attempting to start data stream...");
-                
-                // Store reference to the data characteristic
-                characteristicRef.current = char;
-              }
+              console.log("    -> Notifications started");
             }
           }
           
-          // Look for the write characteristic to send commands
-          if (char.uuid === 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb' && 
-              (char.properties.write || char.properties.writeWithoutResponse)) {
-            console.log("    -> Found write characteristic, sending start commands...");
-            
+          // Look for write characteristic to send start commands
+          if (char.uuid === 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb') {
+            console.log("    -> Found command characteristic, sending start command...");
             try {
-              // GDX-RB specific start sequence - based on Vernier protocol documentation
-              console.log("    -> Sending GDX-RB start measurement command...");
-              
-              // Method 1: Start data collection command
-              const startCmd = new Uint8Array([0x47, 0x44, 0x58, 0x00, 0x01]); // GDX start
+              // Send start measurement command
+              const startCmd = new Uint8Array([0x01]);
               await char.writeValue(startCmd);
-              console.log("    -> Sent GDX start command");
-              
-              // Wait a moment then send measurement rate command
-              setTimeout(async () => {
-                try {
-                  // Set measurement rate to 20Hz (50ms intervals)
-                  const rateCmd = new Uint8Array([0x47, 0x44, 0x58, 0x01, 0x14]); // 20Hz
-                  await char.writeValue(rateCmd);
-                  console.log("    -> Sent measurement rate command (20Hz)");
-                } catch (e2) {
-                  console.log("    -> Rate command failed");
-                }
-              }, 200);
-              
+              console.log("    -> Start command sent successfully");
             } catch (e) {
-              console.log("    -> GDX commands failed, trying generic start...");
-              
-              // Fallback: try simple start commands
-              try {
-                const simpleStart = new Uint8Array([0x01]);
-                await char.writeValue(simpleStart);
-                console.log("    -> Sent simple start command");
-              } catch (e2) {
-                console.log("    -> All start commands failed");
-              }
+              console.log("    -> Start command failed:", e);
             }
           }
         }
       }
       
       if (!characteristicRef.current) {
-        throw new Error('No suitable sensor data characteristic found on device');
+        throw new Error('Could not find sensor data characteristic');
       }
       
       setIsConnected(true);
@@ -186,12 +150,12 @@ export function useVernierBreath(): VernierBreathHookResult {
       
     } catch (err) {
       console.error('Error connecting to device:', err);
-      setError(err instanceof Error ? err.message : 'Failed to connect to device');
+      setError(`Connection failed: ${err}`);
       setIsConnecting(false);
       setIsConnected(false);
     }
   }, []);
-  
+
   /**
    * Disconnect from the device
    */
@@ -211,7 +175,6 @@ export function useVernierBreath(): VernierBreathHookResult {
       setIsConnected(false);
       setError(null);
       
-      console.log('Disconnected from Vernier device');
     } catch (err) {
       console.error('Error disconnecting:', err);
     }
@@ -221,7 +184,7 @@ export function useVernierBreath(): VernierBreathHookResult {
    * Handle incoming force data from the respiration belt
    */
   const handleForceData = useCallback((event: Event) => {
-    const target = event.target as BluetoothRemoteGATTCharacteristic;
+    const target = event.target as any;
     const value = target.value;
     
     if (!value) return;
@@ -299,63 +262,56 @@ export function useVernierBreath(): VernierBreathHookResult {
    * Process respiration force data to extract breathing information
    */
   const processRespirationData = useCallback((data: RespirationData) => {
-    const { force } = data;
-    
-    // Apply smoothing to reduce noise
+    // Apply exponential smoothing to reduce noise
     const smoothingFactor = 0.1;
-    smoothedForceRef.current = smoothedForceRef.current + smoothingFactor * (force - smoothedForceRef.current);
+    smoothedForceRef.current = smoothedForceRef.current * (1 - smoothingFactor) + data.force * smoothingFactor;
     
-    // If we have calibration data, use it to normalize
-    if (calibrationProfile && calibrationProfile.isValid) {
-      const { minForce, maxForce, baselineForce, forceRange } = calibrationProfile;
-      
-      // Normalize force to 0-1 range based on calibration
-      const normalizedForce = Math.max(0, Math.min(1, 
-        (smoothedForceRef.current - minForce) / forceRange
-      ));
-      
-      setBreathAmplitude(normalizedForce);
-      
-      // Detect breathing phase based on force relative to baseline
-      const forceThreshold = 0.1; // 10% threshold for phase detection
-      if (normalizedForce > 0.5 + forceThreshold) {
-        setBreathPhase('inhale');
-      } else if (normalizedForce < 0.5 - forceThreshold) {
-        setBreathPhase('exhale');
-      } else {
-        setBreathPhase('pause');
-      }
-      
-      // Calculate breathing rate
-      updateBreathingRate(data.timestamp);
-    } else {
-      // Without calibration, use raw force with basic normalization
-      const rawAmplitude = Math.max(0, Math.min(1, force / 10)); // Assuming max ~10N
-      setBreathAmplitude(rawAmplitude);
+    // Only process if we have calibration data
+    if (!calibrationProfile || !calibrationProfile.isValid) {
+      return;
     }
+    
+    // Normalize force to 0-1 range based on calibration
+    const normalizedForce = Math.max(0, Math.min(1, 
+      (smoothedForceRef.current - calibrationProfile.minForce) / calibrationProfile.forceRange
+    ));
+    
+    setBreathAmplitude(normalizedForce);
+    
+    // Determine breathing phase based on force level
+    if (normalizedForce > 0.7) {
+      setBreathPhase('inhale');
+    } else if (normalizedForce < 0.3) {
+      setBreathPhase('exhale');
+    } else {
+      setBreathPhase('pause');
+    }
+    
+    // Simple breath amplitude mapping (can be enhanced)
+    setBreathAmplitude(normalizedForce);
+    
+    // Update breathing rate calculation
+    updateBreathingRate(data.timestamp, calibrationProfile);
   }, [calibrationProfile]);
   
   /**
    * Update breathing rate calculation
    */
-  const updateBreathingRate = useCallback((timestamp: number) => {
-    const timeSinceLastBreath = timestamp - lastBreathTimeRef.current;
-    
-    // Detect breath cycles (simplified - looking for inhale peaks)
-    if (breathPhase === 'inhale' && timeSinceLastBreath > 1000) { // At least 1 second between breaths
+  const updateBreathingRate = useCallback((timestamp: number, profile: any) => {
+    // Detect breath cycles (simplified)
+    if (breathPhase === 'inhale' && timestamp - lastBreathTimeRef.current > 1000) {
       breathCyclesRef.current.push(timestamp);
       lastBreathTimeRef.current = timestamp;
       
-      // Keep only recent breath cycles (last 2 minutes)
-      const cutoffTime = timestamp - 120000;
-      breathCyclesRef.current = breathCyclesRef.current.filter(time => time > cutoffTime);
+      // Keep only recent breath cycles (last 60 seconds)
+      const cutoff = timestamp - 60000;
+      breathCyclesRef.current = breathCyclesRef.current.filter(time => time > cutoff);
       
-      // Calculate breathing rate in breaths per minute
+      // Calculate breaths per minute
       if (breathCyclesRef.current.length > 1) {
-        const totalTime = timestamp - breathCyclesRef.current[0];
-        const breathsPerMs = (breathCyclesRef.current.length - 1) / totalTime;
-        const breathsPerMinute = breathsPerMs * 60000;
-        setBreathingRate(Math.round(breathsPerMinute));
+        const timeSpan = timestamp - breathCyclesRef.current[0];
+        const rate = (breathCyclesRef.current.length - 1) * 60000 / timeSpan;
+        setBreathingRate(Math.round(rate));
       }
     }
   }, [breathPhase]);
@@ -366,13 +322,12 @@ export function useVernierBreath(): VernierBreathHookResult {
   const handleCalibrationData = useCallback((force: number) => {
     const now = Date.now();
     const elapsed = now - calibrationStartTimeRef.current;
-    const calibrationDuration = 20000; // 20 seconds
     
     calibrationDataRef.current.push(force);
-    setCalibrationProgress(Math.min(1, elapsed / calibrationDuration));
+    setCalibrationProgress(Math.min(1, elapsed / 30000)); // 30 second calibration
     
-    // Complete calibration after duration
-    if (elapsed >= calibrationDuration) {
+    // Complete calibration after 30 seconds or 300 samples
+    if (elapsed >= 30000 || calibrationDataRef.current.length >= 300) {
       completeCalibration();
     }
   }, []);
@@ -389,26 +344,25 @@ export function useVernierBreath(): VernierBreathHookResult {
       return;
     }
     
-    // Calculate calibration profile
-    const minForce = Math.min(...forces);
-    const maxForce = Math.max(...forces);
+    // Calculate calibration metrics
+    const sortedForces = [...forces].sort((a, b) => a - b);
+    const minForce = sortedForces[Math.floor(sortedForces.length * 0.05)]; // 5th percentile
+    const maxForce = sortedForces[Math.floor(sortedForces.length * 0.95)]; // 95th percentile
     const baselineForce = forces.reduce((sum, f) => sum + f, 0) / forces.length;
     const forceRange = maxForce - minForce;
     
-    const profile = {
+    console.log(`Calibration complete: Min=${minForce.toFixed(3)}N, Max=${maxForce.toFixed(3)}N, Range=${forceRange.toFixed(3)}N`);
+    
+    setCalibrationProfile({
       minForce,
       maxForce,
       baselineForce,
       forceRange,
-      isValid: forceRange > 0.5 // Ensure we have meaningful force variation
-    };
-    
-    setCalibrationProfile(profile);
+      isValid: forceRange > 0.1 // Require minimum force range
+    });
     setCalibrationComplete(true);
     setIsCalibrating(false);
     setCalibrationProgress(1);
-    
-    console.log('Calibration complete:', profile);
   }, []);
   
   /**
@@ -428,14 +382,7 @@ export function useVernierBreath(): VernierBreathHookResult {
     
     console.log('Starting respiration belt calibration...');
   }, [isConnected]);
-  
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      disconnectDevice();
-    };
-  }, [disconnectDevice]);
-  
+
   return {
     isConnected,
     isConnecting,
