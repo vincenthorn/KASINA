@@ -131,51 +131,15 @@ export function useVernierBreath(): VernierBreathHookResult {
             try {
               // GDX-RB specific activation sequence
               
-              // Official Vernier GDX protocol for continuous streaming
-              console.log("    -> Sending GDX start streaming command...");
+              // Try the exact command that worked before (gave us the 1948 value)
+              console.log("    -> Sending simple enable sensor command...");
+              const enableSensor = new Uint8Array([0x28, 0x01]); // This worked before!
+              await char.writeValue(enableSensor);
               
-              // Command to start data collection at 50ms intervals
-              const startStreamCmd = new Uint8Array([0x21, 0x50]); // Start at 20Hz (50ms)
-              await char.writeValue(startStreamCmd);
+              await new Promise(resolve => setTimeout(resolve, 1000));
               
-              await new Promise(resolve => setTimeout(resolve, 500));
-              
-              // Enable sensor data output
-              console.log("    -> Enabling sensor data output...");
-              const enableOutputCmd = new Uint8Array([0x40, 0x01]); // Enable data output
-              await char.writeValue(enableOutputCmd);
-              
-              await new Promise(resolve => setTimeout(resolve, 500));
-              
-              // Start optimized data polling for smooth breath visualization
-              console.log("    -> Starting optimized data polling (5Hz for smooth visualization)...");
-              let isPolling = false;
-              
-              const pollInterval = setInterval(async () => {
-                if (isPolling) {
-                  return; // Skip quietly if previous operation still running
-                }
-                
-                try {
-                  isPolling = true;
-                  // Send data request command
-                  const requestCmd = new Uint8Array([0x12]); // Request current sensor reading
-                  await char.writeValue(requestCmd);
-                  
-                  // Minimal wait for response
-                  await new Promise(resolve => setTimeout(resolve, 50));
-                  
-                } catch (e) {
-                  console.log("Polling error:", e);
-                } finally {
-                  isPolling = false;
-                }
-              }, 200); // 5Hz - good balance for smooth visualization
-              
-              // Store interval reference for cleanup
-              if (!window.vernierPollInterval) {
-                window.vernierPollInterval = pollInterval;
-              }
+              console.log("    -> Waiting for automatic data stream...");
+              // Don't poll - just wait for the device to start streaming like it did before
               
               console.log("    -> GDX-RB activation sequence completed successfully");
               

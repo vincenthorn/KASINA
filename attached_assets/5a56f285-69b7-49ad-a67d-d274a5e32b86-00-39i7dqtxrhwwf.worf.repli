@@ -13,6 +13,8 @@ useVernierBreath.ts:85 Requesting Vernier GDX device...
 useVernierBreath.ts:100 Device selected: GDX-RB 0K7001C3
 useVernierBreath.ts:103 Connecting to GATT server...
 useVernierBreath.ts:107 Discovering services...
+useVernierBreath.ts:111 Service: 0000180f-0000-1000-8000-00805f9b34fb
+useVernierBreath.ts:114   Characteristic: 00002a19-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:111 Service: d91714ef-28b9-4f91-ba16-f0d9a604f112
 useVernierBreath.ts:114   Characteristic: b41e6675-a329-40e0-aa01-44d2f444babe Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:118     -> Found main sensor characteristic
@@ -21,27 +23,11 @@ useVernierBreath.ts:114   Characteristic: f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb P
 useVernierBreath.ts:130     -> Found command characteristic, sending GDX-RB activation sequence...
 useVernierBreath.ts:135     -> Sending GDX start streaming command...
 useVernierBreath.ts:144     -> Enabling sensor data output...
-useVernierBreath.ts:151     -> Starting data polling...
-useVernierBreath.ts:167     -> GDX-RB activation sequence completed successfully
-useVernierBreath.ts:111 Service: 0000180f-0000-1000-8000-00805f9b34fb
-useVernierBreath.ts:114   Characteristic: 00002a19-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
+useVernierBreath.ts:151     -> Starting optimized data polling (5Hz for smooth visualization)...
+useVernierBreath.ts:180     -> GDX-RB activation sequence completed successfully
 useVernierBreath.ts:111 Service: 0000180a-0000-1000-8000-00805f9b34fb
 useVernierBreath.ts:114   Characteristic: 00002a26-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:114   Characteristic: 00002a28-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
 useVernierBreath.ts:114   Characteristic: 00002a29-0000-1000-8000-00805f9b34fb Properties: BluetoothCharacteristicProperties
-useVernierBreath.ts:190 Successfully connected to Vernier respiration belt
-useVernierBreath.ts:445 Starting respiration belt calibration...
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
-useVernierBreath.ts:158 Polling request error: NetworkError: GATT operation already in progress.
+useVernierBreath.ts:203 Successfully connected to Vernier respiration belt
+useVernierBreath.ts:458 Starting respiration belt calibration...
