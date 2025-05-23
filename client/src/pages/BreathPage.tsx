@@ -93,7 +93,7 @@ const BreathPage: React.FC = () => {
   return (
     <Layout>
       <div className="container mx-auto py-8 px-4">
-        <h1 className="text-3xl font-bold mb-6 text-white">Breath Meditation</h1>
+        <h1 className="text-3xl font-bold mb-6 text-white">Breath KASINAS</h1>
         
         <div className="max-w-2xl mx-auto">
           {/* Unified Vernier Respiration Belt Interface */}
@@ -209,12 +209,6 @@ const BreathPage: React.FC = () => {
               )}
             </CardFooter>
           </Card>
-        </div>
-        
-        <div className="mt-8 text-center">
-          <Button variant="outline" onClick={() => navigate(-1)} className="border-gray-600 text-gray-300 hover:bg-gray-700">
-            Back
-          </Button>
         </div>
       </div>
     </Layout>
