@@ -813,7 +813,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     scaledAmplitude = scaledAmplitude * intensityMultiplier;
     
     const clampedAmplitude = Math.max(0, Math.min(1, scaledAmplitude));
-    const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
+    const calculatedSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
+    // Cap at the perfect immersion moment to prevent black screens
+    const newSize = Math.min(calculatedSize, 1200);
     
     // Update state to trigger re-render
     setOrbSize(newSize);
@@ -847,7 +849,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       // Calculate immersion level based on orb size
       const immersionThreshold = 800; // When orb reaches this size, start immersion
-      const maxImmersion = 1400; // Full immersion at this size
+      const maxImmersion = 1200; // Full immersion at this size - cap at perfect moment
       const immersionLevel = Math.max(0, Math.min(1, (orbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
       
       if (groupRef.current) {
