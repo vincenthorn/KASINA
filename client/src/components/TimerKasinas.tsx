@@ -600,7 +600,7 @@ const TimerKasinas: React.FC = () => {
   return (
     <FocusMode>
       <div className="max-w-[1800px] mx-auto px-4 py-6 lg:py-8" data-selected-kasina={selectedKasina}>
-        <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Kasinas</h1>
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Visual Kasinas</h1>
         
         {/* New layout: Kasina visualization on top, selection and timer below */}
         <div className="flex flex-col gap-6">

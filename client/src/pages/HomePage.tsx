@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
   const baseFeatures = [
     {
       icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
-      title: "Kasinas",
+      title: "Visual",
       description: "Choose from many different orbs, customizing your meditation practice.",
       path: "/kasinas",
       color: "from-red-600 to-red-800",
