@@ -57,6 +57,7 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
       const colorKasinas = ['white', 'blue', 'red', 'yellow', 'custom'];
       const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
       const vajrayanaKasinas = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina', 'white_a_kasina', 'rainbow_kasina'];
+      const breathKasinas = ['breath'];
       
       // Parse the selection to check for compound format (category + specific type)
       const parts = selectedKasinaType.substring(9).split('+'); // Remove 'category:' prefix and split
@@ -71,6 +72,8 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
         categoryFilteredSessions = sortedSessions.filter(session => elementalKasinas.includes(session.kasinaType));
       } else if (category === 'vajrayana') {
         categoryFilteredSessions = sortedSessions.filter(session => vajrayanaKasinas.includes(session.kasinaType));
+      } else if (category === 'breath') {
+        categoryFilteredSessions = sortedSessions.filter(session => breathKasinas.includes(session.kasinaType));
       } else {
         // Fallback to all sessions if category doesn't match
         categoryFilteredSessions = sortedSessions;
