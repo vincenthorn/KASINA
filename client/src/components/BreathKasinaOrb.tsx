@@ -36,6 +36,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const activeBreathAmplitude = useVernier ? vernierData.breathAmplitude : breathAmplitude;
   const activeBreathPhase = useVernier ? vernierData.breathPhase : breathPhase;
   const activeIsListening = useVernier ? vernierData.isConnected : isListening;
+  const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
@@ -73,6 +74,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     lastAmplitudeRef.current = activeBreathAmplitude;
     
+    // Calculate intensity multiplier based on breathing rate (4-20 BPM)
+    // At 4 BPM (deep meditation): very subtle (30% intensity)
+    // At 12 BPM (normal): medium intensity (80% intensity) 
+    // At 20 BPM (fast breathing): full intensity (100%)
+    const normalizedRate = Math.max(4, Math.min(20, activeBreathingRate)); // Clamp to range
+    const intensityMultiplier = normalizedRate <= 4 ? 0.3 : 
+                               normalizedRate <= 12 ? 0.3 + ((normalizedRate - 4) / 8) * 0.5 :
+                               0.8 + ((normalizedRate - 12) / 8) * 0.2;
+    
     // Apply scaling to make exhales 2-3x smaller and adjust the curve
     let scaledAmplitude = finalAmplitude;
     
@@ -85,11 +95,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       scaledAmplitude = 0.165 + ((finalAmplitude - 0.5) * 0.67); // Maps 0.5-1.0 to 0.165-0.5
     }
     
+    // Apply breathing rate intensity scaling
+    scaledAmplitude = scaledAmplitude * intensityMultiplier;
+    
     const clampedAmplitude = Math.max(0, Math.min(1, scaledAmplitude));
     const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
-    // More dramatic glow effect that scales with breathing
-    const newGlowIntensity = Math.floor(25 + (finalAmplitude * 150));
+    // More dramatic glow effect that scales with breathing and rate
+    const baseGlowIntensity = 25 + (finalAmplitude * 150);
+    const newGlowIntensity = Math.floor(baseGlowIntensity * intensityMultiplier);
     
     // Update state to trigger re-render
     setOrbSize(newSize);
@@ -102,9 +116,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       orbRef.current.style.boxShadow = `0 0 ${newGlowIntensity}px ${Math.floor(newGlowIntensity/2)}px rgba(77, 143, 255, 0.8)`;
     }
     
-    // Log the size for debugging
-    console.log(`Breath amplitude: ${activeBreathAmplitude}, final: ${finalAmplitude.toFixed(3)}, orb size: ${newSize}px, hold: ${heldExhaleStart !== null}`);
-  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart]);
+    // Log the size and rate data for debugging
+    console.log(`Breath rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, amplitude: ${activeBreathAmplitude.toFixed(3)}, orb size: ${newSize}px, hold: ${heldExhaleStart !== null}`);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate]);
 
   return (
     <div 

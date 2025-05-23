@@ -76,6 +76,8 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const calibrationStartTimeRef = useRef<number>(0);
   const lastForceValueRef = useRef<number>(0);
   const lastForceUpdateRef = useRef<number>(0);
+  const breathCyclesRef = useRef<number[]>([]); // Track breath cycle timestamps
+  const lastRateUpdateRef = useRef<number>(0);
 
   /**
    * Connect to Vernier GDX respiration belt using official library
@@ -184,12 +186,38 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                 const forceChange = forceValue - lastForceValueRef.current;
                 
                 if (forceChange > 0.2) {
+                  // Detect start of inhale - count as new breath cycle
+                  if (breathPhase !== 'inhale') {
+                    breathCyclesRef.current.push(currentTime);
+                    // Keep only recent cycles (last 2 minutes for rate calculation)
+                    breathCyclesRef.current = breathCyclesRef.current.filter(
+                      timestamp => currentTime - timestamp < 120000
+                    );
+                  }
                   setBreathPhase('inhale');
                 } else if (forceChange < -0.2) {
                   setBreathPhase('exhale');
                 } else {
                   setBreathPhase('pause');
                 }
+                
+                // Calculate breathing rate every 10 seconds
+                if (currentTime - lastRateUpdateRef.current > 10000) {
+                  const recentCycles = breathCyclesRef.current.filter(
+                    timestamp => currentTime - timestamp < 60000 // Last minute
+                  );
+                  
+                  if (recentCycles.length >= 2) {
+                    // Calculate BPM from recent cycles
+                    const timeSpan = (currentTime - recentCycles[0]) / 1000; // seconds
+                    const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
+                    const bpm = Math.round(cyclesPerSecond * 60);
+                    setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
+                  }
+                  
+                  lastRateUpdateRef.current = currentTime;
+                }
+                
                 lastForceValueRef.current = forceValue;
                 lastForceUpdateRef.current = currentTime;
               }
