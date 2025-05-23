@@ -233,6 +233,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     setIsCalibrating(false);
     
     console.log('Calibration complete:', profile);
+    console.log('Setting calibrationComplete to true - button should now show Begin Meditation');
   }, []);
 
   /**
