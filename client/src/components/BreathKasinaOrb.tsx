@@ -1071,29 +1071,57 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       );
     } else if (selectedKasina === KASINA_TYPES.SPACE) {
       return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={spaceMaterialRef}
-            uniforms={spaceShader.uniforms}
-            vertexShader={spaceShader.vertexShader}
-            fragmentShader={spaceShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
+        <>
+          {/* Main orb */}
+          <mesh ref={meshRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              ref={spaceMaterialRef}
+              uniforms={spaceShader.uniforms}
+              vertexShader={spaceShader.vertexShader}
+              fragmentShader={spaceShader.fragmentShader}
+              transparent={true}
+            />
+          </mesh>
+          {/* Immersion background - inside-out sphere */}
+          <mesh ref={immersionBackgroundRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              uniforms={spaceShader.uniforms}
+              vertexShader={spaceShader.vertexShader}
+              fragmentShader={spaceShader.fragmentShader}
+              transparent={true}
+              side={THREE.BackSide}
+            />
+          </mesh>
+        </>
       );
     } else if (selectedKasina === KASINA_TYPES.LIGHT) {
       return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={lightMaterialRef}
-            uniforms={lightShader.uniforms}
-            vertexShader={lightShader.vertexShader}
-            fragmentShader={lightShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
+        <>
+          {/* Main orb */}
+          <mesh ref={meshRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              ref={lightMaterialRef}
+              uniforms={lightShader.uniforms}
+              vertexShader={lightShader.vertexShader}
+              fragmentShader={lightShader.fragmentShader}
+              transparent={true}
+            />
+          </mesh>
+          {/* Immersion background - inside-out sphere */}
+          <mesh ref={immersionBackgroundRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              uniforms={lightShader.uniforms}
+              vertexShader={lightShader.vertexShader}
+              fragmentShader={lightShader.fragmentShader}
+              transparent={true}
+              side={THREE.BackSide}
+            />
+          </mesh>
+        </>
       );
     } else {
       // Basic color kasinas
