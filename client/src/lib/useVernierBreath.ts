@@ -128,57 +128,48 @@ export function useVernierBreath(): VernierBreathHookResult {
               if (char.uuid === 'b41e6675-a329-40e0-aa01-44d2f444babe') {
                 console.log("    -> Found main sensor characteristic, attempting to start data stream...");
                 
-                // Try different start commands that Vernier devices commonly use
+                // Store reference to the data characteristic
+                characteristicRef.current = char;
+              }
+            }
+          }
+          
+          // Look for the write characteristic to send commands
+          if (char.uuid === 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb' && 
+              (char.properties.write || char.properties.writeWithoutResponse)) {
+            console.log("    -> Found write characteristic, sending start commands...");
+            
+            try {
+              // GDX-RB specific start sequence - based on Vernier protocol documentation
+              console.log("    -> Sending GDX-RB start measurement command...");
+              
+              // Method 1: Start data collection command
+              const startCmd = new Uint8Array([0x47, 0x44, 0x58, 0x00, 0x01]); // GDX start
+              await char.writeValue(startCmd);
+              console.log("    -> Sent GDX start command");
+              
+              // Wait a moment then send measurement rate command
+              setTimeout(async () => {
                 try {
-                  // Method 1: Simple start command (0x01)
-                  const startCmd1 = new Uint8Array([0x01]);
-                  if (char.properties.write || char.properties.writeWithoutResponse) {
-                    await char.writeValue(startCmd1);
-                    console.log("    -> Sent start command (0x01)");
-                  }
-                } catch (e) {
-                  console.log("    -> Method 1 failed, trying alternative...");
+                  // Set measurement rate to 20Hz (50ms intervals)
+                  const rateCmd = new Uint8Array([0x47, 0x44, 0x58, 0x01, 0x14]); // 20Hz
+                  await char.writeValue(rateCmd);
+                  console.log("    -> Sent measurement rate command (20Hz)");
+                } catch (e2) {
+                  console.log("    -> Rate command failed");
                 }
-                
-                // Method 2: Try reading from the characteristic to trigger data
-                try {
-                  if (char.properties.read) {
-                    const initialRead = await char.readValue();
-                    console.log("    -> Initial read performed, length:", initialRead.byteLength);
-                    if (initialRead.byteLength > 0) {
-                      console.log("    -> Initial data received, processing...");
-                      // Manually trigger the data handler with initial read
-                      const fakeEvent = {
-                        target: { value: initialRead }
-                      } as any;
-                      handleForceData(fakeEvent);
-                    }
-                  }
-                } catch (e) {
-                  console.log("    -> Initial read failed");
-                }
-                
-                // Method 3: For GDX devices, try periodic reading as fallback
-                console.log("    -> Setting up periodic data polling as fallback...");
-                const pollInterval = setInterval(async () => {
-                  try {
-                    if (char.properties.read && characteristicRef.current) {
-                      const data = await char.readValue();
-                      if (data && data.byteLength > 0) {
-                        console.log("    -> Polled data received, length:", data.byteLength);
-                        const fakeEvent = {
-                          target: { value: data }
-                        } as any;
-                        handleForceData(fakeEvent);
-                      }
-                    }
-                  } catch (pollError) {
-                    // Silent fail for polling
-                  }
-                }, 100); // Poll every 100ms
-                
-                // Store the interval to clear it later
-                (char as any)._pollInterval = pollInterval;
+              }, 200);
+              
+            } catch (e) {
+              console.log("    -> GDX commands failed, trying generic start...");
+              
+              // Fallback: try simple start commands
+              try {
+                const simpleStart = new Uint8Array([0x01]);
+                await char.writeValue(simpleStart);
+                console.log("    -> Sent simple start command");
+              } catch (e2) {
+                console.log("    -> All start commands failed");
               }
             }
           }
