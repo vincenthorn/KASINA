@@ -138,8 +138,8 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
               
               console.log(`Calibration progress: ${Math.round(progressPercent * 100)}% (${calibrationDataRef.current.length} samples, ${Math.round(elapsed/1000)}s)`);
               
-              // Complete calibration when time is up
-              if (elapsed >= calibrationDuration) {
+              // Complete calibration when time is up (but only once)
+              if (elapsed >= calibrationDuration && !calibrationComplete) {
                 console.log('Calibration time complete, processing data...');
                 completeCalibration();
               }
