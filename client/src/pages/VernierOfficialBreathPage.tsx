@@ -165,9 +165,9 @@ export default function VernierOfficialBreathPage() {
                 <div className="relative h-96 bg-black rounded-lg overflow-hidden">
                   {isConnected && calibrationComplete ? (
                     <BreathKasinaOrb 
-                      amplitude={breathAmplitude}
-                      phase={breathPhase}
-                      size={200}
+                      breathAmplitude={breathAmplitude}
+                      breathPhase={breathPhase}
+                      isListening={true}
                     />
                   ) : (
                     <div className="flex items-center justify-center h-full text-gray-400">

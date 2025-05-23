@@ -164,6 +164,17 @@ function App() {
               />
               
               <Route
+                path="/breath/vernier-official"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <VernierOfficialBreathPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+              
+              <Route
                 path="/breath/vernier-test"
                 element={
                   <AuthenticatedRoute>
