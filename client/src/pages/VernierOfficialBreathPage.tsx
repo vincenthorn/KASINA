@@ -35,22 +35,14 @@ export default function VernierOfficialBreathPage() {
       console.log('About to call startCalibration...');
       await startCalibration();
     } else {
-      // Navigate to meditation with Vernier data
-      console.log('🎯 MANUAL NAVIGATION: User clicked Begin Meditation button!');
-      console.log('Navigating to meditation with state:', { 
-        useVernier: true,
+      // Show meditation orb directly on this page - NO NAVIGATION!
+      console.log('🎯 STARTING MEDITATION: User clicked Begin Meditation button!');
+      console.log('Showing meditation orb with Vernier data:', { 
         breathAmplitude,
         breathPhase,
         calibrationProfile
       });
-      navigate('/meditation', { 
-        state: { 
-          useVernier: true,
-          breathAmplitude,
-          breathPhase,
-          calibrationProfile
-        }
-      });
+      setShowMeditation(true);
     }
   };
 
@@ -76,6 +68,28 @@ export default function VernierOfficialBreathPage() {
     }
     return 'Calibration complete! Your belt is ready for meditation.';
   };
+
+  // If meditation mode is active, show full-screen breathing orb
+  if (showMeditation) {
+    return (
+      <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
+        <BreathKasinaOrb 
+          useVernier={true}
+          breathAmplitude={breathAmplitude}
+          breathPhase={breathPhase}
+          isListening={isConnected}
+        />
+        {/* Exit button */}
+        <Button
+          onClick={() => setShowMeditation(false)}
+          className="absolute top-4 right-4 bg-gray-800 hover:bg-gray-700 text-white border-gray-600"
+          variant="outline"
+        >
+          Exit Meditation
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <Layout>
