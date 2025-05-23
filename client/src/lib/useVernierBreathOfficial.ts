@@ -195,50 +195,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     
     console.log('Calibration started at:', new Date(calibrationStartTimeRef.current).toLocaleTimeString());
     
-    // Start progress tracking with interval
-    const progressInterval = setInterval(() => {
-      const elapsed = Date.now() - calibrationStartTimeRef.current;
-      const calibrationDuration = 20000; // 20 seconds
-      const progress = Math.min(elapsed / calibrationDuration, 1);
-      
-      setCalibrationProgress(progress);
-      console.log(`Calibration progress: ${Math.round(progress * 100)}% (${Math.round(elapsed/1000)}s)`);
-      
-      if (progress >= 1) {
-        clearInterval(progressInterval);
-        console.log('Calibration time complete, processing data...');
-        
-        // Complete calibration inline
-        const data = calibrationDataRef.current;
-        console.log(`Calibration completed with ${data.length} data points`);
-        
-        if (data.length < 5) {
-          setError('Not enough calibration data. Please try again.');
-          setIsCalibrating(false);
-          return;
-        }
-
-        // Calculate breathing profile statistics
-        const minForce = Math.min(...data);
-        const maxForce = Math.max(...data);
-        const baselineForce = data.reduce((sum, val) => sum + val, 0) / data.length;
-        const forceRange = maxForce - minForce;
-
-        const profile = {
-          minForce,
-          maxForce,
-          baselineForce,
-          forceRange,
-          lastUpdated: Date.now()
-        };
-
-        console.log('Calibration successful! Profile:', profile);
-        setCalibrationProfile(profile);
-        setCalibrationComplete(true);
-        setIsCalibrating(false);
-      }
-    }, 100); // Update every 100ms
-    
   }, [isConnected]);
 
   /**
