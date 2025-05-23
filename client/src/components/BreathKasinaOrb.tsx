@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
-import { useLocation } from 'wouter';
-import { useSessionLogger } from '../lib/stores/useSessionLogger';
 
 interface BreathKasinaOrbProps {
   breathAmplitude?: number;
@@ -22,9 +20,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   isListening = false,
   useVernier = false
 }) => {
-  const [, setLocation] = useLocation();
-  const { logSession } = useSessionLogger();
-  
   // Use Vernier breathing data if enabled
   const vernierData = useVernierBreathOfficial();
   
@@ -194,20 +189,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   };
 
   // End meditation session
-  const endMeditation = async () => {
-    // Calculate final meditation time (round down to nearest minute)
-    const finalMeditationTime = Math.floor(meditationTime / 60) * 60; // Round down to full minutes
-    
-    // Log the session if there was meaningful meditation time
-    if (finalMeditationTime >= 60) { // At least 1 minute
-      await logSession({
-        kasinaType: 'breath' as any,
-        duration: finalMeditationTime,
-        showToast: true
-      });
-    }
-    
-    // Reset meditation state
+  const endMeditation = () => {
     setMeditationTime(0);
     setIsInFocusMode(false);
     meditationStartRef.current = null;
@@ -215,9 +197,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       clearInterval(meditationIntervalRef.current);
       meditationIntervalRef.current = null;
     }
-    
-    // Navigate to Reflection page
-    setLocation('/reflection');
   };
 
   // Format time display
