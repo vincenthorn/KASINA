@@ -35,16 +35,14 @@ const BreathPage: React.FC = () => {
   // Check if user has premium access
   const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;
 
-  // Handle starting a session - connect, calibrate, then meditate
+  // Handle starting a session - connect and meditate (no calibration step)
   const handleStartSession = async () => {
     if (!hasPremiumAccess) return;
     
     if (!isConnected) {
       await connectDevice();
-    } else if (!calibrationComplete) {
-      await startCalibration();
     } else {
-      // Start meditation directly on this page
+      // Start meditation directly - breathing will auto-adjust during session
       setShowMeditation(true);
     }
   };
@@ -53,17 +51,13 @@ const BreathPage: React.FC = () => {
     if (!hasPremiumAccess) return 'Premium Feature';
     if (isConnecting) return 'Connecting...';
     if (!isConnected) return 'Connect Vernier Belt';
-    if (isCalibrating) return `Calibrating... ${Math.round(calibrationProgress * 100)}%`;
-    if (!calibrationComplete) return 'Start Calibration';
     return '🎯 Begin Meditation';
   };
 
   const getInstructions = () => {
     if (!hasPremiumAccess) return 'Premium subscription required for Vernier belt integration.';
     if (!isConnected) return 'Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection.';
-    if (isCalibrating) return 'Breathe normally while we calibrate your respiration belt...';
-    if (!calibrationComplete) return 'Connection successful! Now calibrate the belt to your breathing patterns.';
-    return 'Calibration complete! Your belt is ready for meditation.';
+    return 'Connected! Your breathing will automatically sync during meditation.';
   };
 
   // If meditation mode is active, show full-screen breathing orb
@@ -71,7 +65,7 @@ const BreathPage: React.FC = () => {
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <BreathKasinaOrb 
-          useVernier={true}
+          useVernier={isConnected}
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
@@ -132,39 +126,15 @@ const BreathPage: React.FC = () => {
                   </p>
                   
                   {isConnected && (
-                    <>
-                      <p className="text-sm text-gray-300">
-                        Current Force: <span className="font-mono text-blue-400">{currentForce.toFixed(2)} N</span>
-                      </p>
-                      
-                      {calibrationProfile && (
-                        <div className="text-sm space-y-1 text-gray-300">
-                          <p>Baseline: <span className="text-blue-400">{calibrationProfile.baselineForce.toFixed(2)} N</span></p>
-                          <p>Range: <span className="text-blue-400">{calibrationProfile.forceRange.toFixed(2)} N</span></p>
-                        </div>
-                      )}
-                    </>
+                    <p className="text-sm text-gray-300">
+                      Current Force: <span className="font-mono text-blue-400">{currentForce.toFixed(2)} N</span>
+                    </p>
                   )}
                 </div>
               )}
 
-              {/* Calibration Progress */}
-              {isCalibrating && (
-                <div className="space-y-2">
-                  <div className="bg-gray-700 rounded-full h-2">
-                    <div 
-                      className="bg-blue-500 h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${calibrationProgress * 100}%` }}
-                    />
-                  </div>
-                  <p className="text-xs text-center text-gray-300">
-                    Calibration Progress: {Math.round(calibrationProgress * 100)}%
-                  </p>
-                </div>
-              )}
-
               {/* Live Breathing Preview */}
-              {isConnected && calibrationComplete && (
+              {isConnected && (
                 <div className="relative h-48 bg-black rounded-lg overflow-hidden">
                   <BreathKasinaOrb 
                     useVernier={false}
@@ -192,8 +162,8 @@ const BreathPage: React.FC = () => {
             <CardFooter className="flex gap-2">
               <Button 
                 onClick={handleStartSession}
-                disabled={isConnecting || isCalibrating || !hasPremiumAccess}
-                className={`flex-1 text-lg font-bold py-4 ${calibrationComplete ? 'bg-green-600 hover:bg-green-700 animate-pulse border-4 border-green-400' : 'bg-blue-600 hover:bg-blue-700'}`}
+                disabled={isConnecting || !hasPremiumAccess}
+                className={`flex-1 text-lg font-bold py-4 ${isConnected ? 'bg-green-600 hover:bg-green-700 animate-pulse border-4 border-green-400' : 'bg-blue-600 hover:bg-blue-700'}`}
               >
                 {getButtonText()}
               </Button>
