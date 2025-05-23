@@ -127,14 +127,43 @@ export function useVernierBreath(): VernierBreathHookResult {
           
           // Look for write characteristic to send start commands
           if (char.uuid === 'f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb') {
-            console.log("    -> Found command characteristic, sending start command...");
+            console.log("    -> Found command characteristic, sending GDX-RB activation sequence...");
             try {
-              // Send start measurement command
-              const startCmd = new Uint8Array([0x01]);
-              await char.writeValue(startCmd);
-              console.log("    -> Start command sent successfully");
+              // GDX-RB specific activation sequence
+              
+              // Step 1: Enable sensor (Force sensor on GDX-RB)
+              console.log("    -> Sending enable sensor command...");
+              const enableSensor = new Uint8Array([0x28, 0x01]); // Enable sensor command
+              await char.writeValue(enableSensor);
+              
+              // Wait a moment between commands
+              await new Promise(resolve => setTimeout(resolve, 200));
+              
+              // Step 2: Start measurement at 20Hz
+              console.log("    -> Sending start measurement command...");
+              const startMeasurement = new Uint8Array([0x21, 0x50]); // Start at 20Hz (80ms period)
+              await char.writeValue(startMeasurement);
+              
+              // Wait a moment
+              await new Promise(resolve => setTimeout(resolve, 200));
+              
+              // Step 3: Set sensor to Force mode if needed
+              console.log("    -> Configuring force sensor mode...");
+              const forceModeCmd = new Uint8Array([0x23, 0x00, 0x01]); // Configure force sensor
+              await char.writeValue(forceModeCmd);
+              
+              console.log("    -> GDX-RB activation sequence completed successfully");
+              
             } catch (e) {
-              console.log("    -> Start command failed:", e);
+              console.log("    -> GDX commands failed, trying simple fallback:", e);
+              try {
+                // Fallback to simple start command
+                const simpleStart = new Uint8Array([0x01]);
+                await char.writeValue(simpleStart);
+                console.log("    -> Fallback start command sent");
+              } catch (e2) {
+                console.log("    -> All activation attempts failed");
+              }
             }
           }
         }
