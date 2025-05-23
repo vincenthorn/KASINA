@@ -850,8 +850,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       const cappedOrbSize = Math.min(orbSize, 3000);
       const scale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
       
-      // Calculate immersion level based on capped orb size - start early for all kasinas
-      const immersionThreshold = 600; // Start background much earlier to prevent black screens
+      // Calculate immersion level based on capped orb size - start very early for all kasinas
+      const immersionThreshold = 300; // Start background much earlier to prevent black screens
       const maxImmersion = 3000; // Full immersion at expanded size for all kasinas
       const immersionLevel = Math.max(0, Math.min(1, (cappedOrbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
       
