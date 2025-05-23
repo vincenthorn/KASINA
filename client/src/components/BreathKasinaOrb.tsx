@@ -101,19 +101,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const clampedAmplitude = Math.max(0, Math.min(1, scaledAmplitude));
     const newSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
     
-    // More dramatic glow effect that scales with breathing and rate
-    const baseGlowIntensity = 25 + (finalAmplitude * 150);
-    const newGlowIntensity = Math.floor(baseGlowIntensity * intensityMultiplier);
-    
     // Update state to trigger re-render
     setOrbSize(newSize);
-    setGlowIntensity(newGlowIntensity);
     
     // Also directly modify the DOM for immediate visual feedback
     if (orbRef.current) {
       orbRef.current.style.width = `${newSize}px`;
       orbRef.current.style.height = `${newSize}px`;
-      orbRef.current.style.boxShadow = `0 0 ${newGlowIntensity}px ${Math.floor(newGlowIntensity/2)}px rgba(77, 143, 255, 0.8)`;
+      orbRef.current.style.boxShadow = 'none'; // Remove all glow effects
     }
     
     // Log the size and rate data for debugging
@@ -137,8 +132,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           width: `${orbSize}px`,
           height: `${orbSize}px`,
           borderRadius: '50%',
-          backgroundColor: 'rgba(77, 143, 255, 0.7)',
-          boxShadow: `0 0 ${glowIntensity}px ${Math.floor(glowIntensity/2)}px rgba(77, 143, 255, 0.8)`,
+          backgroundColor: '#4d8fff', // Pure blue color
+          boxShadow: 'none', // No glow effect
           transition: 'all 0.2s ease-out',
           position: 'relative',
           overflow: 'hidden',
