@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
+import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 
 interface BreathKasinaOrbProps {
-  breathAmplitude: number;
-  breathPhase: 'inhale' | 'exhale' | 'pause';
-  isListening: boolean;
+  breathAmplitude?: number;
+  breathPhase?: 'inhale' | 'exhale' | 'pause';
+  isListening?: boolean;
+  useVernier?: boolean;
 }
 
 /**
@@ -13,17 +15,25 @@ interface BreathKasinaOrbProps {
  * The orb size changes based on the breath amplitude
  */
 const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({ 
-  breathAmplitude,
-  breathPhase,
-  isListening
+  breathAmplitude = 0.5,
+  breathPhase = 'pause',
+  isListening = false,
+  useVernier = false
 }) => {
+  // Use Vernier breathing data if enabled
+  const vernierData = useVernierBreathOfficial();
+  
+  // Determine which breathing data to use
+  const activeBreathAmplitude = useVernier ? vernierData.breathAmplitude : breathAmplitude;
+  const activeBreathPhase = useVernier ? vernierData.breathPhase : breathPhase;
+  const activeIsListening = useVernier ? vernierData.isConnected : isListening;
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
   
   // Update the orb size based on breath amplitude
   useEffect(() => {
-    if (!isListening) return;
+    if (!activeIsListening) return;
     
     // Dramatic breathing size range for powerful visualization
     const minSize = 100;  // Very small for complete exhales
