@@ -95,16 +95,42 @@ const BreathPage: React.FC = () => {
             </Button>
           </CardFooter>
         </Card>
+
+        {/* Vernier Respiration Belt Option */}
+        <Card className="border-purple-200 dark:border-purple-700 bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              🔬 Vernier Respiration Belt
+              <span className="text-sm bg-purple-100 dark:bg-purple-800 text-purple-800 dark:text-purple-200 px-2 py-1 rounded-full">
+                Premium
+              </span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Connect your Vernier GDX Respiration Belt via Bluetooth for the most accurate 
+              breath detection using actual respiratory force measurements.
+            </p>
+            <ul className="list-disc list-inside mb-4 text-sm text-gray-600 dark:text-gray-400">
+              <li>Medical-grade accuracy</li>
+              <li>Direct respiratory force data (Newtons)</li>
+              <li>Bluetooth wireless connection</li>
+              <li>Professional breathing analysis</li>
+            </ul>
+          </CardContent>
+          <CardFooter>
+            <Button 
+              onClick={() => navigate('/breath/vernier')}
+              className="w-full bg-purple-600 hover:bg-purple-700"
+              disabled={!hasPremiumAccess}
+            >
+              {hasPremiumAccess ? "Connect Vernier Belt" : "Premium Feature"}
+            </Button>
+          </CardFooter>
+        </Card>
       </div>
       
-      <div className="mt-8 text-center space-x-4">
-        <Button 
-          variant="outline" 
-          onClick={() => navigate('/breath/vernier-test')}
-          className="bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/30 border-blue-200 dark:border-blue-700"
-        >
-          🔬 Test Vernier Belt Connection
-        </Button>
+      <div className="mt-8 text-center">
         <Button variant="outline" onClick={() => navigate(-1)}>
           Back
         </Button>
