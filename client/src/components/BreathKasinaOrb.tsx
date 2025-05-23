@@ -47,10 +47,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [showCursor, setShowCursor] = useState(true);
   const [showControls, setShowControls] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [meditationTime, setMeditationTime] = useState(0); // seconds
+  const [isInFocusMode, setIsInFocusMode] = useState(false);
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const meditationStartRef = useRef<number | null>(null);
+  const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   
   // Handle wheel scroll to adjust breathing range scale
   useEffect(() => {
@@ -114,21 +118,49 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       controlsTimeoutRef.current = setTimeout(() => {
         setShowControls(false);
+        setIsInFocusMode(true);
+        
+        // Start meditation timer when entering focus mode
+        if (!meditationStartRef.current) {
+          meditationStartRef.current = Date.now();
+          meditationIntervalRef.current = setInterval(() => {
+            if (meditationStartRef.current) {
+              const elapsed = Math.floor((Date.now() - meditationStartRef.current) / 1000);
+              setMeditationTime(elapsed);
+            }
+          }, 1000);
+        }
       }, 3000);
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
+    const handleMouseMoveWithFocus = () => {
+      // Exit focus mode when mouse moves
+      if (isInFocusMode) {
+        setIsInFocusMode(false);
+        // Pause meditation timer but don't reset
+        if (meditationIntervalRef.current) {
+          clearInterval(meditationIntervalRef.current);
+          meditationIntervalRef.current = null;
+        }
+      }
+      handleMouseMove();
+    };
+
+    document.addEventListener('mousemove', handleMouseMoveWithFocus);
     
     // Initial timeout
     handleMouseMove();
     
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mousemove', handleMouseMoveWithFocus);
       if (cursorTimeoutRef.current) {
         clearTimeout(cursorTimeoutRef.current);
       }
       if (controlsTimeoutRef.current) {
         clearTimeout(controlsTimeoutRef.current);
+      }
+      if (meditationIntervalRef.current) {
+        clearInterval(meditationIntervalRef.current);
       }
     };
   }, []);
@@ -154,6 +186,24 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     } catch (error) {
       console.error('Fullscreen toggle failed:', error);
     }
+  };
+
+  // End meditation session
+  const endMeditation = () => {
+    setMeditationTime(0);
+    setIsInFocusMode(false);
+    meditationStartRef.current = null;
+    if (meditationIntervalRef.current) {
+      clearInterval(meditationIntervalRef.current);
+      meditationIntervalRef.current = null;
+    }
+  };
+
+  // Format time display
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
   
   // Update the orb size based on breath amplitude with hold detection
@@ -260,6 +310,53 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         {/* Pure blue circle - no effects */}
       </div>
       
+      {/* Meditation timer and controls - upper left corner */}
+      {showControls && (
+        <div 
+          className="absolute top-4 left-4 z-30 flex items-center space-x-3"
+          style={{
+            padding: '12px 16px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease-out'
+          }}
+        >
+          <div 
+            style={{
+              color: 'white',
+              fontSize: '20px',
+              fontWeight: 'bold',
+              fontFamily: 'monospace',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+            }}
+          >
+            {formatTime(meditationTime)}
+          </div>
+          <button
+            onClick={endMeditation}
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              border: 'none',
+              padding: '6px 12px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: '500',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease-out'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            }}
+          >
+            End
+          </button>
+        </div>
+      )}
+
       {/* Fullscreen control - upper right corner */}
       {showControls && (
         <div 
