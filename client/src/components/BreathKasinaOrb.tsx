@@ -846,12 +846,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Apply breathing animation and update shader uniforms
     useFrame(({ clock }) => {
-      const scale = orbSize / 150; // 150px = 1.0 scale baseline
+      // Cap orbSize at 1200px to prevent scaling beyond perfect immersion
+      const cappedOrbSize = Math.min(orbSize, 1200);
+      const scale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
       
-      // Calculate immersion level based on orb size
-      const immersionThreshold = 800; // When orb reaches this size, start immersion
+      // Calculate immersion level based on capped orb size - start much earlier
+      const immersionThreshold = 400; // Start background much earlier to prevent black screens
       const maxImmersion = 1200; // Full immersion at this size - cap at perfect moment
-      const immersionLevel = Math.max(0, Math.min(1, (orbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
+      const immersionLevel = Math.max(0, Math.min(1, (cappedOrbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
       
       if (groupRef.current) {
         // Scale the main orb, but cap it to prevent it from getting too large
@@ -898,9 +900,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           material.transparent = true;
           material.depthWrite = false; // Prevent depth issues
           material.depthTest = false; // Ensure it renders behind everything
-          // Show background more aggressively during immersion
-          material.opacity = immersionLevel > 0.1 ? Math.max(0.5, immersionLevel * 0.9) : 0;
-          material.visible = immersionLevel > 0.01; // Show much earlier
+          // Show background very aggressively to prevent any black screens
+          material.opacity = immersionLevel > 0.01 ? Math.max(0.3, immersionLevel * 1.0) : 0;
+          material.visible = immersionLevel > 0.001; // Show immediately when any immersion starts
         }
       }
       
