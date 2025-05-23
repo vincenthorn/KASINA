@@ -494,11 +494,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const connectionCheckRef = useRef<NodeJS.Timeout | null>(null);
   
-  // Handle wheel scroll to adjust breathing range scale (ultra-slow and silk-smooth)
+  // Handle wheel scroll to adjust breathing range scale (zen-level smooth)
   useEffect(() => {
     const handleWheel = (e: any) => {
       e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.008 : 0.008; // 12x slower: 0.1 → 0.008 for silk-smooth, deeply meditative adjustments
+      const delta = e.deltaY > 0 ? -0.0001 : 0.0001; // 1000x slower: 0.1 → 0.0001 for zen-level, imperceptible adjustments
       setSizeScale(prev => Math.max(0.05, Math.min(3.0, prev + delta))); // Range: 0.05x to 3.0x (much smaller zoom-out)
     };
 
