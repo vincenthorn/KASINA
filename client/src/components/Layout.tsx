@@ -25,7 +25,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   // Base navigation items that all users can see
   const baseNavItems = [
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
-    { path: "/kasinas", label: "Kasinas", icon: <Flame className="w-5 h-5" /> },
+    { path: "/kasinas", label: "Kasinas", icon: <span className="text-red-500 text-lg">🔴</span> },
     { path: "/breath", label: "Breath", icon: <Wind className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflection", icon: <BarChart className="w-5 h-5" /> },
   ];
