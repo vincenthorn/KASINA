@@ -131,13 +131,22 @@ export function useVernierBreath(): VernierBreathHookResult {
             try {
               // GDX-RB specific activation sequence
               
-              // Simple GDX-RB start sequence - just get data flowing!
-              console.log("    -> Sending simple start command...");
-              const startMeasurement = new Uint8Array([0x21, 0x32]); // Start with 50ms period
-              await char.writeValue(startMeasurement);
+              // Try polling approach - actively request data
+              console.log("    -> Starting active data polling...");
               
-              // Wait for device to process
-              await new Promise(resolve => setTimeout(resolve, 1000));
+              // Set up interval to poll for data every 50ms
+              const pollInterval = setInterval(async () => {
+                try {
+                  // Send data request command
+                  const requestData = new Uint8Array([0x12]); // Simple data request
+                  await char.writeValue(requestData);
+                } catch (e) {
+                  console.log("Polling error:", e);
+                }
+              }, 50);
+              
+              // Store interval for cleanup
+              pollIntervalRef.current = pollInterval;
               
               console.log("    -> GDX-RB activation sequence completed successfully");
               
