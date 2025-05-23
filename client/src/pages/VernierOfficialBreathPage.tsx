@@ -177,9 +177,9 @@ export default function VernierOfficialBreathPage() {
                         handleStartSession();
                       }}
                       disabled={isConnecting || isCalibrating}
-                      className={`flex-1 ${calibrationComplete ? 'bg-green-600 hover:bg-green-700 animate-pulse' : 'bg-purple-600 hover:bg-purple-700'}`}
+                      className={`flex-1 text-lg font-bold py-4 ${calibrationComplete ? 'bg-green-600 hover:bg-green-700 animate-pulse border-4 border-green-400' : 'bg-purple-600 hover:bg-purple-700'}`}
                     >
-                      {getButtonText()}
+                      {calibrationComplete ? '🎯 BEGIN MEDITATION 🎯' : getButtonText()}
                     </Button>
                     
                     {isConnected && (
