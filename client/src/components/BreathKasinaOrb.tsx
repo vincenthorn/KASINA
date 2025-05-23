@@ -44,8 +44,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [sizeScale, setSizeScale] = useState(1.0); // Scale factor for min-max range
   const [showCalibrationMessage, setShowCalibrationMessage] = useState(false);
   const [calibrationTimeRemaining, setCalibrationTimeRemaining] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
+  const cursorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Handle wheel scroll to adjust breathing range scale
   useEffect(() => {
@@ -87,6 +89,35 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       setCalibrationTimeRemaining(0);
     }
   }, [activeIsListening]);
+
+  // Handle cursor auto-hide on mouse inactivity
+  useEffect(() => {
+    const handleMouseMove = () => {
+      setShowCursor(true);
+      
+      // Clear existing timeout
+      if (cursorTimeoutRef.current) {
+        clearTimeout(cursorTimeoutRef.current);
+      }
+      
+      // Set new timeout to hide cursor after 3 seconds of inactivity
+      cursorTimeoutRef.current = setTimeout(() => {
+        setShowCursor(false);
+      }, 3000);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    
+    // Initial timeout
+    handleMouseMove();
+    
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      if (cursorTimeoutRef.current) {
+        clearTimeout(cursorTimeoutRef.current);
+      }
+    };
+  }, []);
   
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
@@ -170,7 +201,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         width: '100vw',
         height: '100vh',
         zIndex: 10,
-        cursor: 'none' // Hide mouse cursor for distraction-free meditation
+        cursor: showCursor ? 'default' : 'none' // Auto-hide cursor after 3 seconds of inactivity
       }}
     >
       <div 
