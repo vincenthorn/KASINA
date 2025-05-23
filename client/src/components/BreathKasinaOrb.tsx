@@ -1017,29 +1017,57 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       );
     } else if (selectedKasina === KASINA_TYPES.FIRE) {
       return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={fireMaterialRef}
-            uniforms={fireShader.uniforms}
-            vertexShader={fireShader.vertexShader}
-            fragmentShader={fireShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
+        <>
+          {/* Main orb */}
+          <mesh ref={meshRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              ref={fireMaterialRef}
+              uniforms={fireShader.uniforms}
+              vertexShader={fireShader.vertexShader}
+              fragmentShader={fireShader.fragmentShader}
+              transparent={true}
+            />
+          </mesh>
+          {/* Immersion background - inside-out sphere */}
+          <mesh ref={immersionBackgroundRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              uniforms={fireShader.uniforms}
+              vertexShader={fireShader.vertexShader}
+              fragmentShader={fireShader.fragmentShader}
+              transparent={true}
+              side={THREE.BackSide}
+            />
+          </mesh>
+        </>
       );
     } else if (selectedKasina === KASINA_TYPES.EARTH) {
       return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={earthMaterialRef}
-            uniforms={earthShader.uniforms}
-            vertexShader={earthShader.vertexShader}
-            fragmentShader={earthShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
+        <>
+          {/* Main orb */}
+          <mesh ref={meshRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              ref={earthMaterialRef}
+              uniforms={earthShader.uniforms}
+              vertexShader={earthShader.vertexShader}
+              fragmentShader={earthShader.fragmentShader}
+              transparent={true}
+            />
+          </mesh>
+          {/* Immersion background - inside-out sphere */}
+          <mesh ref={immersionBackgroundRef}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <shaderMaterial
+              uniforms={earthShader.uniforms}
+              vertexShader={earthShader.vertexShader}
+              fragmentShader={earthShader.fragmentShader}
+              transparent={true}
+              side={THREE.BackSide}
+            />
+          </mesh>
+        </>
       );
     } else if (selectedKasina === KASINA_TYPES.SPACE) {
       return (
