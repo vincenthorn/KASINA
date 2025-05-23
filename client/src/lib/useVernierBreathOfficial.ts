@@ -124,12 +124,17 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
             if (isCalibrating) {
               calibrationDataRef.current.push(forceValue);
               
-              // Update calibration progress
-              const progressPercent = Math.min(calibrationDataRef.current.length / 300, 1); // 300 samples ~= 30 seconds at 10Hz
+              // Calculate time-based progress (20 seconds)
+              const elapsed = Date.now() - calibrationStartTimeRef.current;
+              const calibrationDuration = 20000; // 20 seconds
+              const progressPercent = Math.min(elapsed / calibrationDuration, 1);
               setCalibrationProgress(progressPercent);
               
-              // Complete calibration when we have enough data
-              if (calibrationDataRef.current.length >= 300) {
+              console.log(`Calibration progress: ${Math.round(progressPercent * 100)}% (${calibrationDataRef.current.length} samples, ${Math.round(elapsed/1000)}s)`);
+              
+              // Complete calibration when time is up
+              if (elapsed >= calibrationDuration) {
+                console.log('Calibration time complete, processing data...');
                 completeCalibration();
               }
             } else if (calibrationProfile) {
