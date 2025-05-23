@@ -9,6 +9,7 @@ import BreathKasinaOrb from '../components/BreathKasinaOrb';
 
 export default function VernierOfficialBreathPage() {
   const navigate = useNavigate();
+  const [showMeditation, setShowMeditation] = React.useState(false);
   const {
     isConnected,
     isConnecting,
