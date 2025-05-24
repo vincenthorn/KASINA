@@ -120,6 +120,16 @@ function App() {
                 }
               />
               <Route
+                path="/reflect"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <ReflectionPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+              <Route
                 path="/admin"
                 element={
                   <AdminOnlyRoute>
