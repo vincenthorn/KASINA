@@ -391,21 +391,21 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
 
   // Load the official Vernier library on component mount
   useEffect(() => {
-    const loadVernierLibrary = () => {
-      if (window.godirect) {
-        console.log('Vernier GoDirect library already loaded');
-        return;
-      }
+    const loadVernierLibrary = async () => {
+      try {
+        if (window.godirect) {
+          console.log('Vernier GoDirect library already loaded');
+          return;
+        }
 
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/@vernier/godirect/dist/godirect.min.umd.js';
-      script.onload = () => {
-        console.log('Vernier GoDirect library loaded successfully');
-      };
-      script.onerror = () => {
-        setError('Failed to load Vernier GoDirect library');
-      };
-      document.head.appendChild(script);
+        // Import the library directly from the installed package
+        const godirect = await import('@vernier/godirect');
+        window.godirect = godirect.default || godirect;
+        console.log('Vernier GoDirect library loaded successfully from package');
+      } catch (error) {
+        console.error('Failed to load Vernier GoDirect library:', error);
+        setError('Failed to load Vernier GoDirect library. Please refresh the page and try again.');
+      }
     };
 
     loadVernierLibrary();
