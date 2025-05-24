@@ -820,45 +820,44 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Detect when we transition from rising to falling (start of exhalation)
     const justStartedExhaling = breathDirection === 'rising' && newDirection === 'falling';
+    const justStartedInhaling = breathDirection === 'falling' && newDirection === 'rising';
     
     console.log(`🫁 Breath Direction: ${breathDirection} → ${newDirection}, Amplitude: ${activeBreathAmplitude.toFixed(3)}, Trend: ${trend.toFixed(4)}`);
     
-    if (justStartedExhaling) {
-      console.log(`🫁 Exhalation start detected! Perfect time for color transition`);
-    }
-    
     setBreathDirection(newDirection);
     
-    // Start color transition when we just started exhaling (peak to valley transition)
+    // Start color transition when we just started exhaling
     if (justStartedExhaling && !isTransitioning) {
       const nextIndex = (currentColorIndex + 1) % rainbowColors.length;
       setNextColorIndex(nextIndex);
       setIsTransitioning(true);
       setTransitionProgress(0);
       
-      console.log(`🎨 Changing Color kasina: Starting transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} at start of exhalation`);
-      
-      // Start transition animation over 3 seconds
-      const startTime = Date.now();
-      const duration = 3000; // 3 seconds
-      
-      const animateTransition = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
+      console.log(`🎨 Changing Color kasina: Starting color transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} - will complete by end of exhalation`);
+    }
+    
+    // Update transition progress based on current breath phase
+    if (isTransitioning) {
+      if (newDirection === 'falling') {
+        // During exhalation: gradually increase transition progress
+        // Map breath amplitude from peak (higher) to valley (lower) → progress from 0 to 1
+        const maxAmplitude = Math.max(...history);
+        const minAmplitude = Math.min(...history);
+        const range = maxAmplitude - minAmplitude;
         
-        setTransitionProgress(progress);
-        
-        if (progress < 1) {
-          transitionDurationRef.current = setTimeout(animateTransition, 16); // ~60fps
-        } else {
-          // Transition complete
-          setCurrentColorIndex(nextIndex);
-          setIsTransitioning(false);
-          setTransitionProgress(0);
+        if (range > 0.1) { // Only if we have meaningful range
+          const progress = Math.max(0, Math.min(1, (maxAmplitude - activeBreathAmplitude) / range));
+          setTransitionProgress(progress);
+          
+          console.log(`🌈 Color transition progress: ${(progress * 100).toFixed(1)}% (amplitude: ${activeBreathAmplitude.toFixed(3)})`);
         }
-      };
-      
-      animateTransition();
+      } else if (justStartedInhaling && isTransitioning) {
+        // Complete transition when inhalation starts
+        console.log(`🎨 Completing color transition as inhalation begins`);
+        setCurrentColorIndex(nextColorIndex);
+        setIsTransitioning(false);
+        setTransitionProgress(0);
+      }
     }
   }, [activeBreathAmplitude, activeIsListening, selectedKasina, currentColorIndex, isTransitioning, breathDirection, rainbowColors]);
 
