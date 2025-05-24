@@ -788,40 +788,61 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     };
   }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
-  // Special logic for Change kasina - gradual color transitions during inhalation peaks
+  // Special logic for Change kasina - gradual color transitions during exhalation
   useEffect(() => {
     if (!activeIsListening || selectedKasina !== 'custom') return;
     
-    // Simple approach: When breath amplitude is high (near peak inhalation), gradually transition colors
-    const peakThreshold = 0.85; // Consider 85%+ as peak breathing
+    // Track breath amplitude history for detecting exhale phases
+    const history = breathHistoryRef.current;
+    history.push(activeBreathAmplitude);
     
-    if (activeBreathAmplitude >= peakThreshold) {
-      // We're at peak inhalation - time for gradual color transition
+    // Keep only recent 10 samples (about 0.5 seconds at 20Hz)
+    if (history.length > 10) {
+      history.shift();
+    }
+    
+    // Need at least 5 samples to detect trends
+    if (history.length < 5) return;
+    
+    // Detect if we're currently exhaling (amplitude decreasing from a peak)
+    const recentSamples = history.slice(-5);
+    const maxRecent = Math.max(...recentSamples);
+    const currentTrend = recentSamples[recentSamples.length - 1] - recentSamples[0];
+    
+    const wasAtPeak = maxRecent > 0.8; // Had a good inhale
+    const isNowFalling = currentTrend < -0.05; // Now clearly exhaling
+    const isInExhalePhase = wasAtPeak && isNowFalling;
+    
+    if (isInExhalePhase) {
       if (!isTransitioning) {
-        // Start new color transition
+        // Start new color transition at beginning of exhale
         const nextIndex = (currentColorIndex + 1) % rainbowColors.length;
         setNextColorIndex(nextIndex);
         setIsTransitioning(true);
         setTransitionProgress(0);
         
-        console.log(`🎨 Change kasina: Starting chakra transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} during peak inhalation`);
+        console.log(`🎨 Change kasina: Starting chakra transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} during exhalation`);
       }
       
-      // Update progress during peak - map from threshold to 1.0 amplitude
-      const peakRange = 1.0 - peakThreshold;
-      const currentPeakProgress = Math.max(0, Math.min(1, (activeBreathAmplitude - peakThreshold) / peakRange));
-      setTransitionProgress(currentPeakProgress);
+      // Progress through transition based on how far we've exhaled
+      // Map from peak amplitude down to current - more exhale = more progress
+      const peakInHistory = Math.max(...history);
+      const currentDepth = Math.max(0, peakInHistory - activeBreathAmplitude);
+      const expectedExhaleRange = 0.4; // Expect about 40% amplitude drop during exhale
+      const progress = Math.min(1, currentDepth / expectedExhaleRange);
       
-      console.log(`🌈 Chakra transition progress: ${(currentPeakProgress * 100).toFixed(1)}% (amplitude: ${activeBreathAmplitude.toFixed(3)})`);
+      setTransitionProgress(progress);
       
-    } else if (activeBreathAmplitude < peakThreshold * 0.8 && isTransitioning) {
-      // We've dropped below peak - complete the transition
-      console.log(`🎨 Completing chakra transition as breath returns to normal`);
+      console.log(`🌈 Chakra transition progress: ${(progress * 100).toFixed(1)}% (exhaled: ${currentDepth.toFixed(3)} from peak: ${peakInHistory.toFixed(3)})`);
+      
+    } else if (!isInExhalePhase && isTransitioning && transitionProgress > 0.7) {
+      // Complete transition when exhale phase ends and we've made good progress
+      console.log(`🎨 Completing chakra transition at end of exhale phase`);
       setCurrentColorIndex(nextColorIndex);
       setIsTransitioning(false);
       setTransitionProgress(0);
     }
-  }, [activeBreathAmplitude, activeIsListening, selectedKasina, currentColorIndex, nextColorIndex, isTransitioning, rainbowColors]);
+  }, [activeBreathAmplitude, activeIsListening, selectedKasina, currentColorIndex, nextColorIndex, isTransitioning, transitionProgress, rainbowColors]);
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
