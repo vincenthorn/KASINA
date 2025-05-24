@@ -496,9 +496,30 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   
   // State for Changing Color kasina - cycles through rainbow colors with breath
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
+  const [nextColorIndex, setNextColorIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [transitionProgress, setTransitionProgress] = useState(0);
   const [lastBreathState, setLastBreathState] = useState<'peak' | 'valley' | 'middle'>('middle');
   const rainbowColors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
   const breathThreshold = 0.75; // Threshold for detecting peaks and valleys
+  const transitionDurationRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Helper function to blend two hex colors
+  const blendColors = (color1: string, color2: string, ratio: number): string => {
+    const hex = (color: string) => parseInt(color.slice(1), 16);
+    const r1 = (hex(color1) >> 16) & 255;
+    const g1 = (hex(color1) >> 8) & 255;
+    const b1 = hex(color1) & 255;
+    const r2 = (hex(color2) >> 16) & 255;
+    const g2 = (hex(color2) >> 8) & 255;
+    const b2 = hex(color2) & 255;
+    
+    const r = Math.round(r1 + (r2 - r1) * ratio);
+    const g = Math.round(g1 + (g2 - g1) * ratio);
+    const b = Math.round(b1 + (b2 - b1) * ratio);
+    
+    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+  };
   
   // Handle wheel scroll to adjust breathing range scale (perfectly balanced smooth)
   useEffect(() => {
@@ -605,6 +626,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       }
       if (meditationIntervalRef.current) {
         clearInterval(meditationIntervalRef.current);
+      }
+      if (transitionDurationRef.current) {
+        clearTimeout(transitionDurationRef.current);
       }
     };
   }, []);
@@ -774,10 +798,36 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       currentBreathState = 'valley';
     }
     
-    // Change color only when reaching inhale peak
-    if (currentBreathState === 'peak' && currentBreathState !== lastBreathState) {
-      setCurrentColorIndex(prev => (prev + 1) % rainbowColors.length);
-      console.log(`🎨 Changing Color kasina: Inhale peak detected, cycling to color ${rainbowColors[(currentColorIndex + 1) % rainbowColors.length]}`);
+    // Start color transition when reaching inhale peak
+    if (currentBreathState === 'peak' && currentBreathState !== lastBreathState && !isTransitioning) {
+      const nextIndex = (currentColorIndex + 1) % rainbowColors.length;
+      setNextColorIndex(nextIndex);
+      setIsTransitioning(true);
+      setTransitionProgress(0);
+      
+      console.log(`🎨 Changing Color kasina: Starting transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]}`);
+      
+      // Start transition animation over 2 seconds
+      const startTime = Date.now();
+      const duration = 2000; // 2 seconds
+      
+      const animateTransition = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        setTransitionProgress(progress);
+        
+        if (progress < 1) {
+          transitionDurationRef.current = setTimeout(animateTransition, 16); // ~60fps
+        } else {
+          // Transition complete
+          setCurrentColorIndex(nextIndex);
+          setIsTransitioning(false);
+          setTransitionProgress(0);
+        }
+      };
+      
+      animateTransition();
     }
     
     setLastBreathState(currentBreathState);
@@ -1159,9 +1209,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       );
     } else {
       // Basic color kasinas and Changing Color kasina
-      const kasinaColor = selectedKasina === 'custom' 
-        ? rainbowColors[currentColorIndex] 
-        : getKasinaColor(selectedKasina);
+      let kasinaColor: string;
+      
+      if (selectedKasina === 'custom') {
+        if (isTransitioning) {
+          // Blend current and next colors during transition
+          kasinaColor = blendColors(
+            rainbowColors[currentColorIndex], 
+            rainbowColors[nextColorIndex], 
+            transitionProgress
+          );
+        } else {
+          kasinaColor = rainbowColors[currentColorIndex];
+        }
+      } else {
+        kasinaColor = getKasinaColor(selectedKasina);
+      }
         
       return (
         <>
