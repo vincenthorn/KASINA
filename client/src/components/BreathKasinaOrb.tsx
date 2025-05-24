@@ -774,10 +774,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       currentBreathState = 'valley';
     }
     
-    // Change color when transitioning to peak or valley
-    if (currentBreathState !== 'middle' && currentBreathState !== lastBreathState) {
+    // Change color only when reaching inhale peak
+    if (currentBreathState === 'peak' && currentBreathState !== lastBreathState) {
       setCurrentColorIndex(prev => (prev + 1) % rainbowColors.length);
-      console.log(`🎨 Changing Color kasina: Breath ${currentBreathState} detected, cycling to color ${rainbowColors[(currentColorIndex + 1) % rainbowColors.length]}`);
+      console.log(`🎨 Changing Color kasina: Inhale peak detected, cycling to color ${rainbowColors[(currentColorIndex + 1) % rainbowColors.length]}`);
     }
     
     setLastBreathState(currentBreathState);
