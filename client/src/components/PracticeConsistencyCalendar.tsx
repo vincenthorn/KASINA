@@ -163,11 +163,15 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   
   return (
     <div className="space-y-4">
-      {/* Header with month and streak */}
-      <div className="flex items-center justify-between">
+      {/* Month header centered */}
+      <div className="text-center mb-4">
         <h4 className="text-lg font-medium text-white">
           {monthNames[currentMonth]} {currentYear}
         </h4>
+      </div>
+      
+      {/* Streak counter */}
+      <div className="flex justify-center mb-4">
         <div className="flex items-center space-x-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 px-3 py-2 rounded-lg border border-orange-500/30">
           <span className="text-orange-400 text-lg">🔥</span>
           <div className="text-right">
