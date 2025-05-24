@@ -818,9 +818,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       newDirection = 'falling';
     }
     
-    // Detect when we transition from rising to falling (start of exhalation)
-    const justStartedExhaling = breathDirection === 'rising' && newDirection === 'falling';
-    const justStartedInhaling = breathDirection === 'falling' && newDirection === 'rising';
+    // Detect when we transition to falling (start of exhalation) - can come from rising OR stable
+    const justStartedExhaling = (breathDirection === 'rising' || breathDirection === 'stable') && newDirection === 'falling';
+    const justStartedInhaling = (breathDirection === 'falling' || breathDirection === 'stable') && newDirection === 'rising';
     
     console.log(`🫁 Breath Direction: ${breathDirection} → ${newDirection}, Amplitude: ${activeBreathAmplitude.toFixed(3)}, Trend: ${trend.toFixed(4)}`);
     
@@ -858,8 +858,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           setTransitionProgress(progress);
           
           console.log(`🌈 Color transition progress: ${(progress * 100).toFixed(1)}% (amplitude: ${activeBreathAmplitude.toFixed(3)})`);
+          
+          // Auto-complete transition if we've reached 100% progress
+          if (progress >= 1.0) {
+            console.log(`🎨 Auto-completing color transition at 100% progress`);
+            setCurrentColorIndex(nextColorIndex);
+            setIsTransitioning(false);
+            setTransitionProgress(0);
+          }
         }
-      } else if (justStartedInhaling && isTransitioning) {
+      } else if (justStartedInhaling) {
         // Complete transition when inhalation starts
         console.log(`🎨 Completing color transition as inhalation begins`);
         setCurrentColorIndex(nextColorIndex);
