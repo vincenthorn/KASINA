@@ -167,9 +167,11 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
       <div className="flex items-center justify-between mb-4">
         {/* Streak counter on left */}
         <div className="flex items-center space-x-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 px-3 py-2 rounded-lg border border-orange-500/30">
-          <span className="text-orange-400 text-lg">🔥</span>
-          <div className="text-right">
-            <div className="text-lg font-bold text-orange-400">{currentStreak}</div>
+          <div className="text-center">
+            <div className="text-lg font-bold text-orange-400 flex items-center justify-center">
+              <span className="text-orange-400 text-lg mr-1">🔥</span>
+              {currentStreak}
+            </div>
             <div className="text-xs text-orange-300">day streak</div>
           </div>
         </div>
