@@ -44,6 +44,52 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
       practiceByDate.set(day, currentMinutes + Math.floor(session.duration / 60));
     }
   });
+
+  // Calculate current streak
+  const calculateStreak = () => {
+    let streak = 0;
+    let checkDate = new Date(now);
+    
+    // Start from today and go backwards
+    while (true) {
+      const day = checkDate.getDate();
+      const month = checkDate.getMonth();
+      const year = checkDate.getFullYear();
+      
+      // Check if this date has practice
+      let dayHasPractice = false;
+      
+      if (month === currentMonth && year === currentYear) {
+        // Current month - check our practiceByDate map
+        dayHasPractice = (practiceByDate.get(day) || 0) >= 1;
+      } else {
+        // Different month - check sessions directly
+        dayHasPractice = sessions.some(session => {
+          const sessionDate = new Date(session.timestamp);
+          return sessionDate.getDate() === day && 
+                 sessionDate.getMonth() === month && 
+                 sessionDate.getFullYear() === year &&
+                 Math.floor(session.duration / 60) >= 1;
+        });
+      }
+      
+      if (dayHasPractice) {
+        streak++;
+      } else {
+        break;
+      }
+      
+      // Move to previous day
+      checkDate.setDate(checkDate.getDate() - 1);
+      
+      // Stop if we've gone back too far (reasonable limit)
+      if (streak > 365) break;
+    }
+    
+    return streak;
+  };
+  
+  const currentStreak = calculateStreak();
   
   // Generate calendar grid
   const calendarDays = [];
@@ -117,11 +163,18 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   
   return (
     <div className="space-y-4">
-      {/* Month header */}
-      <div className="text-center">
+      {/* Header with month and streak */}
+      <div className="flex items-center justify-between">
         <h4 className="text-lg font-medium text-white">
           {monthNames[currentMonth]} {currentYear}
         </h4>
+        <div className="flex items-center space-x-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 px-3 py-2 rounded-lg border border-orange-500/30">
+          <span className="text-orange-400 text-lg">🔥</span>
+          <div className="text-right">
+            <div className="text-lg font-bold text-orange-400">{currentStreak}</div>
+            <div className="text-xs text-orange-300">day streak</div>
+          </div>
+        </div>
       </div>
       
       {/* Day names header */}
