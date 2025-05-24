@@ -896,5 +896,29 @@
     "duration": 120,
     "timestamp": "2025-05-24T01:40:33.875Z",
     "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1748054842293",
+    "kasinaType": "breath",
+    "kasinaName": "Breath (5-minutes)",
+    "duration": 300,
+    "timestamp": "2025-05-24T02:47:22.293Z",
+    "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1748056079353",
+    "kasinaType": "breath",
+    "kasinaName": "Breath (5-minutes)",
+    "duration": 300,
+    "timestamp": "2025-05-24T03:07:59.353Z",
+    "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1748056706773",
+    "kasinaType": "breath",
+    "kasinaName": "Breath (4-minutes)",
+    "duration": 240,
+    "timestamp": "2025-05-24T03:18:26.773Z",
+    "userEmail": "premium@kasina.app"
   }
 ]

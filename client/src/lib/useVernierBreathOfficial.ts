@@ -89,10 +89,22 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       
       console.log('Connecting to Vernier device using official GoDirect library...');
       
-      // Check if the official library is loaded
+      // Check if the official library is loaded with retry logic
       if (!window.godirect) {
-        throw new Error('Vernier GoDirect library not loaded. Please refresh the page.');
+        // Try to wait a bit for the library to load
+        let retries = 3;
+        while (retries > 0 && !window.godirect) {
+          console.log(`Waiting for GoDirect library... (${retries} retries left)`);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          retries--;
+        }
+        
+        if (!window.godirect) {
+          throw new Error('Failed to load Vernier GoDirect library. Please refresh the page and try again.');
+        }
       }
+      
+      console.log('GoDirect library loaded successfully');
 
       // Connect using official Vernier method
       const gdxDevice = await window.godirect.selectDevice(true); // true = Bluetooth
