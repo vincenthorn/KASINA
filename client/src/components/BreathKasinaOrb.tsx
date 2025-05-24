@@ -494,6 +494,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const connectionCheckRef = useRef<NodeJS.Timeout | null>(null);
   
+  // State for Changing Color kasina - cycles through rainbow colors with breath
+  const [currentColorIndex, setCurrentColorIndex] = useState(0);
+  const [lastBreathState, setLastBreathState] = useState<'peak' | 'valley' | 'middle'>('middle');
+  const rainbowColors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
+  const breathThreshold = 0.75; // Threshold for detecting peaks and valleys
+  
   // Handle wheel scroll to adjust breathing range scale (perfectly balanced smooth)
   useEffect(() => {
     const handleWheel = (e: any) => {
@@ -755,9 +761,37 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     };
   }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
+  // Special logic for Changing Color kasina - detect breath peaks/valleys for color cycling
+  useEffect(() => {
+    if (!activeIsListening || selectedKasina !== 'custom') return;
+    
+    // Detect breath peaks and valleys for color changes
+    let currentBreathState: 'peak' | 'valley' | 'middle' = 'middle';
+    
+    if (activeBreathAmplitude >= breathThreshold) {
+      currentBreathState = 'peak';
+    } else if (activeBreathAmplitude <= (1 - breathThreshold)) {
+      currentBreathState = 'valley';
+    }
+    
+    // Change color when transitioning to peak or valley
+    if (currentBreathState !== 'middle' && currentBreathState !== lastBreathState) {
+      setCurrentColorIndex(prev => (prev + 1) % rainbowColors.length);
+      console.log(`🎨 Changing Color kasina: Breath ${currentBreathState} detected, cycling to color ${rainbowColors[(currentColorIndex + 1) % rainbowColors.length]}`);
+    }
+    
+    setLastBreathState(currentBreathState);
+  }, [activeBreathAmplitude, activeIsListening, selectedKasina, lastBreathState, currentColorIndex, breathThreshold, rainbowColors]);
+
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
     if (!activeIsListening) return;
+    
+    // Special handling for Changing Color kasina - maintain constant size
+    if (selectedKasina === 'custom') {
+      // For Changing Color kasina, keep size constant (controlled by scroll wheel only)
+      return;
+    }
     
     // Adjusted breathing size range with scroll-based scaling - microscopic minimum
     const baseMinSize = 0.000390625; // 256x smaller than original - kasina completely vanishes on exhale
@@ -1124,19 +1158,23 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         </>
       );
     } else {
-      // Basic color kasinas
+      // Basic color kasinas and Changing Color kasina
+      const kasinaColor = selectedKasina === 'custom' 
+        ? rainbowColors[currentColorIndex] 
+        : getKasinaColor(selectedKasina);
+        
       return (
         <>
           {/* Main orb */}
           <mesh ref={meshRef}>
             <sphereGeometry args={[1, 64, 64]} />
-            <meshBasicMaterial color={getKasinaColor(selectedKasina)} />
+            <meshBasicMaterial color={kasinaColor} />
           </mesh>
           {/* Immersion background - inside-out sphere */}
           <mesh ref={immersionBackgroundRef}>
             <sphereGeometry args={[1, 64, 64]} />
             <meshBasicMaterial 
-              color={getKasinaColor(selectedKasina)} 
+              color={kasinaColor} 
               transparent={true}
               side={THREE.BackSide}
             />
