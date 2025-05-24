@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Kasina Meditation Platform
+# A legitimate meditation and mindfulness application
+Sitemap: https://www.kasina.app/sitemap.xml
