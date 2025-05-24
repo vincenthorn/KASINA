@@ -1353,7 +1353,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
                     fontSize: '18px',
                     fontWeight: '600',
                     cursor: 'pointer',
-                    minWidth: '140px',
+                    width: '180px',
                     textAlign: 'center',
                     transition: 'all 0.2s ease-out'
                   }}
@@ -1381,7 +1381,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
                     fontSize: '18px',
                     fontWeight: '600',
                     cursor: 'pointer',
-                    minWidth: '140px',
+                    width: '180px',
                     textAlign: 'center',
                     transition: 'all 0.2s ease-out'
                   }}
@@ -1409,7 +1409,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
                     fontSize: '18px',
                     fontWeight: '600',
                     cursor: 'pointer',
-                    minWidth: '140px',
+                    width: '180px',
                     textAlign: 'center',
                     transition: 'all 0.2s ease-out'
                   }}
