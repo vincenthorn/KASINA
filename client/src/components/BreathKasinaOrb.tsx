@@ -501,8 +501,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [transitionProgress, setTransitionProgress] = useState(0);
   const [lastBreathState, setLastBreathState] = useState<'peak' | 'valley' | 'middle'>('middle');
   const rainbowColors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
-  const breathThreshold = 0.75; // Threshold for detecting peaks and valleys
   const transitionDurationRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Better breath detection using recent amplitude history
+  const breathHistoryRef = useRef<number[]>([]);
+  const [breathDirection, setBreathDirection] = useState<'rising' | 'falling' | 'stable'>('stable');
   
   // Helper function to blend two hex colors
   const blendColors = (color1: string, color2: string, ratio: number): string => {
@@ -785,32 +788,55 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     };
   }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
-  // Special logic for Changing Color kasina - detect breath peaks/valleys for color cycling
+  // Special logic for Changing Color kasina - detect breath direction changes for color cycling
   useEffect(() => {
     if (!activeIsListening || selectedKasina !== 'custom') return;
     
-    // Detect breath peaks and valleys for color changes
-    let currentBreathState: 'peak' | 'valley' | 'middle' = 'middle';
+    // Track breath amplitude history for direction detection
+    const history = breathHistoryRef.current;
+    history.push(activeBreathAmplitude);
     
-    // Debug logging for breath detection
-    console.log(`🫁 Breath Debug - Amplitude: ${activeBreathAmplitude.toFixed(3)}, Threshold: ${breathThreshold}, Peak threshold: ${breathThreshold}, Valley threshold: ${(1 - breathThreshold).toFixed(3)}`);
-    
-    if (activeBreathAmplitude >= breathThreshold) {
-      currentBreathState = 'peak';
-      console.log(`🫁 Peak detected at amplitude ${activeBreathAmplitude.toFixed(3)}`);
-    } else if (activeBreathAmplitude <= (1 - breathThreshold)) {
-      currentBreathState = 'valley';
-      console.log(`🫁 Valley detected at amplitude ${activeBreathAmplitude.toFixed(3)}`);
+    // Keep only recent 10 samples (about 0.5 seconds at 20Hz)
+    if (history.length > 10) {
+      history.shift();
     }
     
-    // Start color transition when reaching exhalation valley (bottom of breath)
-    if (currentBreathState === 'valley' && currentBreathState !== lastBreathState && !isTransitioning) {
+    // Need at least 5 samples to detect direction
+    if (history.length < 5) return;
+    
+    // Calculate trend over recent samples
+    const recentSamples = history.slice(-5);
+    const oldAvg = recentSamples.slice(0, 2).reduce((a, b) => a + b) / 2;
+    const newAvg = recentSamples.slice(-2).reduce((a, b) => a + b) / 2;
+    const trend = newAvg - oldAvg;
+    
+    // Determine breath direction with some smoothing
+    let newDirection: 'rising' | 'falling' | 'stable' = 'stable';
+    if (trend > 0.02) { // Rising (inhaling)
+      newDirection = 'rising';
+    } else if (trend < -0.02) { // Falling (exhaling)
+      newDirection = 'falling';
+    }
+    
+    // Detect when we transition from rising to falling (start of exhalation)
+    const justStartedExhaling = breathDirection === 'rising' && newDirection === 'falling';
+    
+    console.log(`🫁 Breath Direction: ${breathDirection} → ${newDirection}, Amplitude: ${activeBreathAmplitude.toFixed(3)}, Trend: ${trend.toFixed(4)}`);
+    
+    if (justStartedExhaling) {
+      console.log(`🫁 Exhalation start detected! Perfect time for color transition`);
+    }
+    
+    setBreathDirection(newDirection);
+    
+    // Start color transition when we just started exhaling (peak to valley transition)
+    if (justStartedExhaling && !isTransitioning) {
       const nextIndex = (currentColorIndex + 1) % rainbowColors.length;
       setNextColorIndex(nextIndex);
       setIsTransitioning(true);
       setTransitionProgress(0);
       
-      console.log(`🎨 Changing Color kasina: Starting transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} at exhalation valley`);
+      console.log(`🎨 Changing Color kasina: Starting transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} at start of exhalation`);
       
       // Start transition animation over 3 seconds
       const startTime = Date.now();
@@ -834,9 +860,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       animateTransition();
     }
-    
-    setLastBreathState(currentBreathState);
-  }, [activeBreathAmplitude, activeIsListening, selectedKasina, lastBreathState, currentColorIndex, breathThreshold, rainbowColors]);
+  }, [activeBreathAmplitude, activeIsListening, selectedKasina, currentColorIndex, isTransitioning, breathDirection, rainbowColors]);
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
