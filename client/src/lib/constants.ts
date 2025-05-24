@@ -29,7 +29,7 @@ export const KASINA_NAMES: Record<string, string> = {
   [KASINA_TYPES.BLUE]: "Blue",
   [KASINA_TYPES.RED]: "Red",
   [KASINA_TYPES.YELLOW]: "Yellow",
-  [KASINA_TYPES.CUSTOM]: "Changing Color",
+  [KASINA_TYPES.CUSTOM]: "Changing",
   // Elemental Kasinas
   [KASINA_TYPES.WATER]: "Water",
   [KASINA_TYPES.AIR]: "Air",
