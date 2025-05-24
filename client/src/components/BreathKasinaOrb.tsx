@@ -505,6 +505,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   
   // Better breath detection using recent amplitude history
   const breathHistoryRef = useRef<number[]>([]);
+  const peakBreathTimeRef = useRef({ duration: 0, transitionStartTime: null as number | null });
   const [breathDirection, setBreathDirection] = useState<'rising' | 'falling' | 'stable'>('stable');
   
   // Helper function to blend two hex colors
@@ -788,41 +789,60 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     };
   }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
-  // Special logic for Change kasina - gradual color transitions at peak inhalation
+  // Special logic for Change kasina - slow, gradual color transitions during sustained peak breathing
   useEffect(() => {
     if (!activeIsListening || selectedKasina !== 'custom') return;
     
-    // Simple, reliable approach: transition colors when reaching peak inhalation
     const peakThreshold = 0.85; // Consider 85%+ as peak breathing
+    const timeAtPeak = peakBreathTimeRef.current;
     
     if (activeBreathAmplitude >= peakThreshold) {
-      // We're at peak inhalation - time for gradual color transition
-      if (!isTransitioning) {
-        // Start new color transition
+      // Track how long we've been at peak breathing
+      timeAtPeak.duration += 50; // Add ~50ms per update (20Hz = 50ms intervals)
+      
+      // Only start transition after being at peak for at least 500ms (sustained deep breath)
+      if (timeAtPeak.duration >= 500 && !isTransitioning) {
         const nextIndex = (currentColorIndex + 1) % rainbowColors.length;
         setNextColorIndex(nextIndex);
         setIsTransitioning(true);
         setTransitionProgress(0);
+        timeAtPeak.transitionStartTime = timeAtPeak.duration;
         
-        console.log(`🎨 Change kasina: Starting chakra transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} at peak inhalation`);
+        console.log(`🎨 Change kasina: Starting gradual chakra transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} after sustained peak breathing`);
       }
       
-      // Smooth progress mapping: 85% amplitude = 0% progress, 100% amplitude = 100% progress
-      const peakRange = 1.0 - peakThreshold; // 0.15 range
-      const currentPeakProgress = Math.max(0, Math.min(1, (activeBreathAmplitude - peakThreshold) / peakRange));
-      setTransitionProgress(currentPeakProgress);
-      
-      // Only log occasionally to reduce console spam
-      if (Math.random() < 0.1) { // Log ~10% of the time
-        console.log(`🌈 Chakra transition progress: ${(currentPeakProgress * 100).toFixed(1)}% (amplitude: ${activeBreathAmplitude.toFixed(3)})`);
+      // If we're transitioning, progress very slowly over 2-3 seconds
+      if (isTransitioning && timeAtPeak.transitionStartTime !== null) {
+        const transitionDuration = 2500; // 2.5 seconds for full transition
+        const timeInTransition = timeAtPeak.duration - timeAtPeak.transitionStartTime;
+        const progress = Math.min(1, timeInTransition / transitionDuration);
+        
+        setTransitionProgress(progress);
+        
+        console.log(`🌈 Slow chakra transition: ${(progress * 100).toFixed(1)}% (${timeInTransition}ms of ${transitionDuration}ms)`);
+        
+        // Complete transition after full duration
+        if (progress >= 1.0) {
+          console.log(`🎨 Completing gradual chakra transition after ${transitionDuration}ms`);
+          setCurrentColorIndex(nextColorIndex);
+          setIsTransitioning(false);
+          setTransitionProgress(0);
+          timeAtPeak.transitionStartTime = null;
+        }
       }
       
-    } else if (activeBreathAmplitude < peakThreshold * 0.7 && isTransitioning) {
-      // We've dropped significantly below peak - complete the transition
-      console.log(`🎨 Completing chakra transition as breath returns to normal`);
-      setCurrentColorIndex(nextColorIndex);
-      setIsTransitioning(false);
-      setTransitionProgress(0);
+    } else {
+      // Reset peak time when not at peak
+      timeAtPeak.duration = 0;
+      timeAtPeak.transitionStartTime = null;
+      
+      // Complete any active transition when dropping below peak
+      if (isTransitioning) {
+        console.log(`🎨 Completing chakra transition as breath drops below peak`);
+        setCurrentColorIndex(nextColorIndex);
+        setIsTransitioning(false);
+        setTransitionProgress(0);
+      }
     }
   }, [activeBreathAmplitude, activeIsListening, selectedKasina, currentColorIndex, nextColorIndex, isTransitioning, rainbowColors]);
 
