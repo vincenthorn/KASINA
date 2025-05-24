@@ -77,6 +77,19 @@ canvas {
   }
 }
 
+/* Rainbow shifting animation for Changing Color kasina */
+@keyframes rainbowShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Cursor hiding for focus mode */
 .cursor-none {
   cursor: none !important;
