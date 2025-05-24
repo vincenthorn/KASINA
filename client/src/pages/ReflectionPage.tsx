@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import PracticeChart from "../components/PracticeChart";
 import PracticeLog from "../components/PracticeLog";
+import PracticeConsistencyCalendar from "../components/PracticeConsistencyCalendar";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
 import { toast } from "sonner";
@@ -277,6 +278,12 @@ const ReflectionPage: React.FC = () => {
           </div>
         ) : (
           <div className="space-y-8">
+            {/* Practice Consistency Calendar */}
+            <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-white mb-4">Practice Consistency</h3>
+              <PracticeConsistencyCalendar sessions={sessions} />
+            </div>
+            
             <PracticeChart 
               sessions={sessions} 
               selectedKasinaType={selectedKasinaType}
