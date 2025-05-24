@@ -792,10 +792,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Detect breath peaks and valleys for color changes
     let currentBreathState: 'peak' | 'valley' | 'middle' = 'middle';
     
+    // Debug logging for breath detection
+    console.log(`🫁 Breath Debug - Amplitude: ${activeBreathAmplitude.toFixed(3)}, Threshold: ${breathThreshold}, Peak threshold: ${breathThreshold}, Valley threshold: ${(1 - breathThreshold).toFixed(3)}`);
+    
     if (activeBreathAmplitude >= breathThreshold) {
       currentBreathState = 'peak';
+      console.log(`🫁 Peak detected at amplitude ${activeBreathAmplitude.toFixed(3)}`);
     } else if (activeBreathAmplitude <= (1 - breathThreshold)) {
       currentBreathState = 'valley';
+      console.log(`🫁 Valley detected at amplitude ${activeBreathAmplitude.toFixed(3)}`);
     }
     
     // Start color transition when reaching exhalation valley (bottom of breath)
