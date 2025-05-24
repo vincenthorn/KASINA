@@ -798,18 +798,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       currentBreathState = 'valley';
     }
     
-    // Start color transition when reaching inhale peak
-    if (currentBreathState === 'peak' && currentBreathState !== lastBreathState && !isTransitioning) {
+    // Start color transition when reaching exhalation valley (bottom of breath)
+    if (currentBreathState === 'valley' && currentBreathState !== lastBreathState && !isTransitioning) {
       const nextIndex = (currentColorIndex + 1) % rainbowColors.length;
       setNextColorIndex(nextIndex);
       setIsTransitioning(true);
       setTransitionProgress(0);
       
-      console.log(`🎨 Changing Color kasina: Starting transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]}`);
+      console.log(`🎨 Changing Color kasina: Starting transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} at exhalation valley`);
       
-      // Start transition animation over 2 seconds
+      // Start transition animation over 3 seconds
       const startTime = Date.now();
-      const duration = 2000; // 2 seconds
+      const duration = 3000; // 3 seconds
       
       const animateTransition = () => {
         const elapsed = Date.now() - startTime;

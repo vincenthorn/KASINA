@@ -888,5 +888,13 @@
     "duration": 60,
     "timestamp": "2025-05-23T23:28:31.326Z",
     "userEmail": "premium@kasina.app"
+  },
+  {
+    "id": "1748050833875",
+    "kasinaType": "breath",
+    "kasinaName": "Breath (2-minutes)",
+    "duration": 120,
+    "timestamp": "2025-05-24T01:40:33.875Z",
+    "userEmail": "premium@kasina.app"
   }
 ]
