@@ -1452,7 +1452,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
                     onClick={() => handleKasinaSelection(kasina)}
                     style={{
                       backgroundColor: kasina === KASINA_TYPES.WHITE_A_KASINA ? '#4B5563' : getKasinaColor(kasina),
-                      color: kasina === 'white' || kasina === 'yellow' ? '#000' : '#fff',
+                      color: kasina === 'white' || kasina === 'yellow' || kasina === 'light' || kasina === 'air' || kasina === 'om_kasina' || kasina === 'white_a_thigle' ? '#000' : '#fff',
                       border: '2px solid rgba(255,255,255,0.3)',
                       padding: '16px 12px',
                       borderRadius: '12px',
