@@ -110,42 +110,42 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
     const isFutureDay = day > today;
     
     let content = null;
-    let bgColor = 'bg-gray-700/50';
+    let bgColor = 'bg-gray-700';
     let textColor = 'text-gray-400';
     
     if (isFutureDay) {
-      // Future days: no mark
+      // Future days: no mark, neutral background
       content = day;
-      bgColor = 'bg-gray-800/30';
-      textColor = 'text-gray-500';
+      bgColor = 'bg-gray-700';
+      textColor = 'text-gray-400';
     } else if (isToday) {
       // Today: show checkmark if they've practiced, otherwise just the number
       if (hasMinimumPractice) {
         content = '✅';
-        bgColor = 'bg-green-600/20';
-        textColor = 'text-green-400';
+        bgColor = 'bg-green-600';
+        textColor = 'text-white';
       } else {
         content = day;
-        bgColor = 'bg-gray-700/50';
+        bgColor = 'bg-gray-700';
         textColor = 'text-gray-300';
       }
     } else if (isPastDay) {
-      // Past days: checkmark or X
+      // Past days: checkmark or X with full background colors
       if (hasMinimumPractice) {
         content = '✅';
-        bgColor = 'bg-green-600/20';
-        textColor = 'text-green-400';
+        bgColor = 'bg-green-600';
+        textColor = 'text-white';
       } else {
         content = '❌';
-        bgColor = 'bg-red-600/20';
-        textColor = 'text-red-400';
+        bgColor = 'bg-red-600';
+        textColor = 'text-white';
       }
     }
     
     calendarDays.push(
       <div
         key={day}
-        className={`h-10 w-10 rounded-lg flex items-center justify-center text-sm font-medium ${bgColor} ${textColor} transition-colors`}
+        className={`h-12 w-full aspect-square rounded-md flex items-center justify-center text-sm font-medium ${bgColor} ${textColor} transition-colors border border-gray-600`}
         title={
           practiceMinutes > 0 
             ? `${practiceMinutes} minute${practiceMinutes !== 1 ? 's' : ''} practiced`
@@ -163,15 +163,9 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   
   return (
     <div className="space-y-4">
-      {/* Month header centered */}
-      <div className="text-center mb-4">
-        <h4 className="text-lg font-medium text-white">
-          {monthNames[currentMonth]} {currentYear}
-        </h4>
-      </div>
-      
-      {/* Streak counter */}
-      <div className="flex justify-center mb-4">
+      {/* Header with streak on left and month centered */}
+      <div className="flex items-center justify-between mb-4">
+        {/* Streak counter on left */}
         <div className="flex items-center space-x-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 px-3 py-2 rounded-lg border border-orange-500/30">
           <span className="text-orange-400 text-lg">🔥</span>
           <div className="text-right">
@@ -179,6 +173,14 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
             <div className="text-xs text-orange-300">day streak</div>
           </div>
         </div>
+        
+        {/* Month header centered */}
+        <h4 className="text-lg font-medium text-white absolute left-1/2 transform -translate-x-1/2">
+          {monthNames[currentMonth]} {currentYear}
+        </h4>
+        
+        {/* Empty space for balance */}
+        <div className="w-20"></div>
       </div>
       
       {/* Day names header */}
