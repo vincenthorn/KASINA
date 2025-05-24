@@ -824,6 +824,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     console.log(`🫁 Breath Direction: ${breathDirection} → ${newDirection}, Amplitude: ${activeBreathAmplitude.toFixed(3)}, Trend: ${trend.toFixed(4)}`);
     
+    if (justStartedExhaling) {
+      console.log(`🫁 EXHALATION START DETECTED! Starting color transition...`);
+    }
+    
+    if (justStartedInhaling) {
+      console.log(`🫁 INHALATION START DETECTED!`);
+    }
+    
     setBreathDirection(newDirection);
     
     // Start color transition when we just started exhaling

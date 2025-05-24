@@ -1,1325 +1,1464 @@
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.99700927734375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.00N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.976570129394531, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.98N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.951019287109375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.95N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.930580139160156, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.93N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.468, Trend: -0.0614
+ 🌈 Color transition progress: 100.0% (amplitude: 0.468)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.912696838378906, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+breath:1 [.WebGL-0x12800c62600] GL_INVALID_OPERATION: invalid mailbox name.
+breath:1 [.WebGL-0x12800c62600] GL_INVALID_OPERATION: texture is not a shared image
+breath:1 [.WebGL-0x12800c62600] GL_INVALID_OPERATION: texture is not a shared image
+ Official Vernier data - Sensor: Force, Value: 14.551155090332031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.55N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.8922576904296875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.446, Trend: -0.0467
+ 🌈 Color transition progress: 100.0% (amplitude: 0.446)
+ Official Vernier data - Sensor: Force, Value: 14.400405883789062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.40N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.876930236816406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.427, Trend: -0.0434
+ 🌈 Color transition progress: 100.0% (amplitude: 0.427)
+ Official Vernier data - Sensor: Force, Value: 14.247108459472656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.25N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.8692626953125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.87N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.408, Trend: -0.0508
+ 🌈 Color transition progress: 100.0% (amplitude: 0.408)
+ Official Vernier data - Sensor: Force, Value: 14.083587646484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.08N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.866706848144531, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.87N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.387, Trend: -0.0596
+ 🌈 Color transition progress: 100.0% (amplitude: 0.387)
+ Official Vernier data - Sensor: Force, Value: 13.940505981445312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.94N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.866706848144531, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.87N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 5.8641510009765625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.86N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.358, Trend: -0.0642
+ 🌈 Color transition progress: 100.0% (amplitude: 0.358)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.843711853027344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.84N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.358, Trend: -0.0600
+ 🌈 Color transition progress: 100.0% (amplitude: 0.358)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.83349609375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.83N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.822975158691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: 0, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.8360443115234375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.84N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.342, Trend: -0.0476
+ 🌈 Color transition progress: 100.0% (amplitude: 0.342)
+ Official Vernier data - Sensor: Force, Value: 13.733551025390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.73N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.830940246582031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.83N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.331, Trend: -0.0357
+ 🌈 Color transition progress: 100.0% (amplitude: 0.331)
+ Official Vernier data - Sensor: Force, Value: 13.656906127929688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.66N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.332, Trend: -0.0260
+ 🌈 Color transition progress: 99.2% (amplitude: 0.332)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.848823547363281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.85N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.899925231933594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.332, Trend: -0.0180
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.971466064453125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.97N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.332, Trend: -0.0047
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.081329345703125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.08N
+ Official Vernier data - Sensor: Force, Value: 13.570030212402344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.57N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.198860168457031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.20N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.323, Trend: -0.0041
+ Official Vernier data - Sensor: Force, Value: 13.437171936035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.44N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.3163909912109375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.32N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.316, Trend: -0.0125
+ Official Vernier data - Sensor: Force, Value: 13.294090270996094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.29N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.467132568359375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.47N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → falling, Amplitude: 0.299, Trend: -0.0242
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.615325927734375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.62N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.299, Trend: -0.0281
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.745628356933594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.75N
+ Official Vernier data - Sensor: Force, Value: 13.189338684082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.19N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.888710021972656, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.287, Trend: -0.0262
+ Official Vernier data - Sensor: Force, Value: 13.110130310058594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.11N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.044563293457031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.04N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.286, Trend: -0.0209
+ Official Vernier data - Sensor: Force, Value: 13.051368713378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.05N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.185089111328125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.19N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.280, Trend: -0.0161
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.32305908203125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.32N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.280, Trend: -0.0134
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.453361511230469, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.45N
+ Official Vernier data - Sensor: Force, Value: 13.0079345703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.01N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.5657806396484375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.57N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.285, Trend: -0.0044
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.688423156738281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.69N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.285, Trend: 0.0019
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.8059539794921875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.81N
+ Official Vernier data - Sensor: Force, Value: 12.977272033691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.98N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.9158172607421875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.92N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.281, Trend: 0.0033
+ Official Vernier data - Sensor: Force, Value: 12.984939575195312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.98N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.025680541992188, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.03N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.283, Trend: -0.0003
+ Official Vernier data - Sensor: Force, Value: 13.064140319824219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.06N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.127883911132812, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.13N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.299, Trend: 0.0058
+ Official Vernier data - Sensor: Force, Value: 13.212333679199219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.21N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: stable → rising, Amplitude: 0.317, Trend: 0.0245
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.317, Trend: 0.0345
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.214752197265625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.21N
+ Official Vernier data - Sensor: Force, Value: 13.363075256347656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.36N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.291404724121094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.29N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.344, Trend: 0.0396
+ Official Vernier data - Sensor: Force, Value: 13.654350280761719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.65N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.35272216796875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.35N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.378, Trend: 0.0536
+ Official Vernier data - Sensor: Force, Value: 13.94561767578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.95N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.403823852539062, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.40N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.412, Trend: 0.0785
+ Official Vernier data - Sensor: Force, Value: 14.178123474121094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.18N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.439590454101562, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.44N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.439, Trend: 0.0952
+ Official Vernier data - Sensor: Force, Value: 14.487274169921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.49N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.452369689941406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.45N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.477, Trend: 0.0969
+ Official Vernier data - Sensor: Force, Value: 14.819427490234375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.82N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.431930541992188, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.43N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.517, Trend: 0.1019
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.365493774414062, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.37N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.517, Trend: 0.0915
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.281181335449219, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.28N
+ Official Vernier data - Sensor: Force, Value: 15.133689880371094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.13N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.191757202148438, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.19N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.555, Trend: 0.0778
+ Official Vernier data - Sensor: Force, Value: 15.41729736328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.42N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.089553833007812, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.09N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.593, Trend: 0.0768
+ Official Vernier data - Sensor: Force, Value: 15.688125610351562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.69N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.000129699707031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.00N
- Official Vernier data - Sensor: Respiration Rate, Value: 6.1307902336120605, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.8979339599609375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.90N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.627, Trend: 0.0927
+ Official Vernier data - Sensor: Force, Value: 15.948738098144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.95N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.770179748535156, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.77N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.659, Trend: 0.1067
+ Official Vernier data - Sensor: Force, Value: 16.204238891601562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.20N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.6577606201171875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.66N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.701, Trend: 0.1059
+ Official Vernier data - Sensor: Force, Value: 16.44696044921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.45N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.563224792480469, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.56N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.735, Trend: 0.1080
+ Official Vernier data - Sensor: Force, Value: 16.692241668701172, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.69N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.461029052734375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.46N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.766, Trend: 0.1078
+ Official Vernier data - Sensor: Force, Value: 16.932411193847656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.93N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.366493225097656, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.37N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.808, Trend: 0.1070
+ Official Vernier data - Sensor: Force, Value: 17.152141571044922, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.15N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.279624938964844, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.28N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.849, Trend: 0.1107
+ Official Vernier data - Sensor: Force, Value: 17.364208221435547, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.36N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.880, Trend: 0.1145
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.880, Trend: 0.0936
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.17486572265625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.17N
+ Official Vernier data - Sensor: Force, Value: 17.601821899414062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.60N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.0598907470703125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.06N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.917, Trend: 0.0701
+ Official Vernier data - Sensor: Force, Value: 17.831771850585938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.83N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.934700012207031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.93N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.943, Trend: 0.0650
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8120574951171875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.81N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.943, Trend: 0.0628
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.69708251953125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.70N
+ Official Vernier data - Sensor: Force, Value: 18.018287658691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.02N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.5718841552734375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.57N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.966, Trend: 0.0562
+ Official Vernier data - Sensor: Force, Value: 18.18691635131836, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.19N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.4543609619140625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.45N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.971, Trend: 0.0385
+ Official Vernier data - Sensor: Force, Value: 18.35043716430664, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.35N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.354713439941406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.35N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.984, Trend: 0.0341
+ Official Vernier data - Sensor: Force, Value: 18.498626708984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.50N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.265289306640625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.27N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.995, Trend: 0.0349
+ Official Vernier data - Sensor: Force, Value: 18.598270416259766, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.60N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.183525085449219, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.18N
+ 🫁 Breath Direction: rising → rising, Amplitude: 1.000, Trend: 0.0292
+ Official Vernier data - Sensor: Force, Value: 18.572723388671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.57N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → stable, Amplitude: 0.989, Trend: 0.0172
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.989, Trend: -0.0006
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.1043243408203125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.10N
+ Official Vernier data - Sensor: Force, Value: 18.501182556152344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.50N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.037895202636719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.04N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.969, Trend: -0.0184
+ Official Vernier data - Sensor: Force, Value: 18.45008087158203, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.45N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.9791259765625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.98N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.930580139160156, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.93N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → falling, Amplitude: 0.962, Trend: -0.0286
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.88714599609375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.962, Trend: -0.0267
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.8462677001953125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.85N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.815605163574219, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.82N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.962, Trend: -0.0169
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.797721862792969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.80N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.962, Trend: -0.0036
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.784950256347656, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+ Official Vernier data - Sensor: Force, Value: 18.314666748046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.31N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.77728271484375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.941, Trend: -0.0106
+ Official Vernier data - Sensor: Force, Value: 18.128150939941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.13N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: stable → falling, Amplitude: 0.919, Trend: -0.0324
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.919, Trend: -0.0436
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.7645111083984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.76N
+ Official Vernier data - Sensor: Force, Value: 17.936527252197266, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.94N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.74151611328125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.74N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.896, Trend: -0.0446
+ Official Vernier data - Sensor: Force, Value: 17.711688995361328, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.71N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.728736877441406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.73N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.868, Trend: -0.0479
+ 🌈 Color transition progress: 100.0% (amplitude: 0.868)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.733848571777344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.73N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.868, Trend: -0.0502
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.728736877441406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.73N
+ Official Vernier data - Sensor: Force, Value: 17.44085693359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.44N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.733848571777344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.73N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.836, Trend: -0.0550
+ 🌈 Color transition progress: 100.0% (amplitude: 0.836)
+ Official Vernier data - Sensor: Force, Value: 17.116371154785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.12N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.7542877197265625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.75N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.797, Trend: -0.0658
+ 🌈 Color transition progress: 100.0% (amplitude: 0.797)
+ Official Vernier data - Sensor: Force, Value: 16.7969970703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.80N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.7645111083984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.76N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.758, Trend: -0.0911
+ 🌈 Color transition progress: 100.0% (amplitude: 0.758)
+ Official Vernier data - Sensor: Force, Value: 16.544052124023438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.54N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.774726867675781, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.728, Trend: -0.1092
+ 🌈 Color transition progress: 100.0% (amplitude: 0.728)
+ Official Vernier data - Sensor: Force, Value: 16.32687759399414, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.33N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.784950256347656, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.701, Trend: -0.1017
+ 🌈 Color transition progress: 100.0% (amplitude: 0.701)
+ Official Vernier data - Sensor: Force, Value: 16.096923828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.10N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.674, Trend: -0.0898
+ 🌈 Color transition progress: 100.0% (amplitude: 0.674)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.7721710205078125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.674, Trend: -0.0692
+ 🌈 Color transition progress: 100.0% (amplitude: 0.674)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.751731872558594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.75N
+ Official Vernier data - Sensor: Force, Value: 15.872085571289062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.87N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.746620178222656, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.75N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.647, Trend: -0.0544
+ 🌈 Color transition progress: 100.0% (amplitude: 0.647)
+ Official Vernier data - Sensor: Force, Value: 15.662574768066406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.66N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.738960266113281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.74N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.621, Trend: -0.0536
+ 🌈 Color transition progress: 100.0% (amplitude: 0.621)
+ Official Vernier data - Sensor: Force, Value: 15.450515747070312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.45N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.728736877441406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.73N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.596, Trend: -0.0652
+ 🌈 Color transition progress: 100.0% (amplitude: 0.596)
+ Official Vernier data - Sensor: Force, Value: 15.261444091796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.26N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.7364044189453125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.74N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.573, Trend: -0.0758
+ 🌈 Color transition progress: 100.0% (amplitude: 0.573)
+ Official Vernier data - Sensor: Force, Value: 15.090255737304688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.09N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.749176025390625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.75N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.552, Trend: -0.0713
+ 🌈 Color transition progress: 100.0% (amplitude: 0.552)
+ Official Vernier data - Sensor: Force, Value: 14.906295776367188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.91N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.774726867675781, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.530, Trend: -0.0673
+ 🌈 Color transition progress: 100.0% (amplitude: 0.530)
+ Official Vernier data - Sensor: Force, Value: 14.6993408203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.70N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.83349609375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.83N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.505, Trend: -0.0667
+ 🌈 Color transition progress: 100.0% (amplitude: 0.505)
+ Official Vernier data - Sensor: Force, Value: 14.49749755859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.50N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 5.917808532714844, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.92N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.481, Trend: -0.0696
+ 🌈 Color transition progress: 100.0% (amplitude: 0.481)
+ Official Vernier data - Sensor: Force, Value: 14.326309204101562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.33N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.0021209716796875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.00N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.460, Trend: -0.0707
+ 🌈 Color transition progress: 100.0% (amplitude: 0.460)
+ Official Vernier data - Sensor: Force, Value: 14.16534423828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.17N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.441, Trend: -0.0672
+ 🌈 Color transition progress: 100.0% (amplitude: 0.441)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.0864410400390625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.09N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.441, Trend: -0.0522
+ 🌈 Color transition progress: 100.0% (amplitude: 0.441)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.201416015625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.20N
+ Official Vernier data - Sensor: Force, Value: 14.009490966796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.01N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.318939208984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.32N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.422, Trend: -0.0391
+ 🌈 Color transition progress: 100.0% (amplitude: 0.422)
+ Official Vernier data - Sensor: Force, Value: 13.876632690429688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.88N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.436470031738281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.44N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.406, Trend: -0.0365
+ 🌈 Color transition progress: 100.0% (amplitude: 0.406)
+ Official Vernier data - Sensor: Force, Value: 13.756546020507812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.76N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.5642242431640625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.56N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.391, Trend: -0.0421
+ 🌈 Color transition progress: 100.0% (amplitude: 0.391)
+ Official Vernier data - Sensor: Force, Value: 13.646682739257812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.65N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.699638366699219, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.70N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.378, Trend: -0.0465
+ 🌈 Color transition progress: 100.0% (amplitude: 0.378)
+ Official Vernier data - Sensor: Force, Value: 13.549591064453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.55N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.891265869140625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.366, Trend: -0.0416
+ 🌈 Color transition progress: 100.0% (amplitude: 0.366)
+ Official Vernier data - Sensor: Force, Value: 13.442283630371094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.44N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.1161041259765625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.12N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.354, Trend: -0.0387
+ 🌈 Color transition progress: 100.0% (amplitude: 0.354)
+ Official Vernier data - Sensor: Force, Value: 13.329864501953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.33N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.292396545410156, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.29N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.349, Trend: -0.0336
+ 🌈 Color transition progress: 100.0% (amplitude: 0.349)
+ Official Vernier data - Sensor: Force, Value: 13.235328674316406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.24N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.394599914550781, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.39N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.342, Trend: -0.0270
+ Official Vernier data - Sensor: Force, Value: 13.153564453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.15N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.4559173583984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.46N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.336, Trend: -0.0209
+ 🌈 Color transition progress: 100.0% (amplitude: 0.336)
+ Official Vernier data - Sensor: Force, Value: 13.089691162109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.09N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.336, Trend: -0.0150
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.5121307373046875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.51N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.336, Trend: -0.0093
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.6041107177734375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.60N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.80084228515625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.80N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.336, Trend: -0.0031
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.995025634765625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.00N
+ Official Vernier data - Sensor: Force, Value: 13.046257019042969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.05N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.115104675292969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.12N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.334, Trend: -0.0013
+ Official Vernier data - Sensor: Force, Value: 13.0079345703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.01N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.20452880859375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.20N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.332, Trend: -0.0031
+ Official Vernier data - Sensor: Force, Value: 12.987495422363281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.99N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.258186340332031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.26N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.334, Trend: -0.0030
+ Official Vernier data - Sensor: Force, Value: 12.984939575195312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.98N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.347610473632812, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.35N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.339, Trend: 0.0015
+ Official Vernier data - Sensor: Force, Value: 12.979827880859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.98N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.495803833007812, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.50N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.341, Trend: 0.0067
+ Official Vernier data - Sensor: Force, Value: 12.946609497070312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.95N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.61077880859375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.61N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.340, Trend: 0.0071
+ Official Vernier data - Sensor: Force, Value: 12.908287048339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.91N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.659324645996094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.66N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.337, Trend: 0.0019
+ Official Vernier data - Sensor: Force, Value: 12.892959594726562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.89N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.72064208984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.72N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.335, Trend: -0.0036
+ Official Vernier data - Sensor: Force, Value: 12.867408752441406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.87N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.779411315917969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.78N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.337, Trend: -0.0041
+ Official Vernier data - Sensor: Force, Value: 12.864852905273438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.86N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.725753784179688, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.73N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.336, Trend: -0.0017
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.57244873046875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.57N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.336, Trend: 0.0002
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.46258544921875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.46N
+ Official Vernier data - Sensor: Force, Value: 12.880180358886719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.88N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.447257995605469, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.45N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.340, Trend: 0.0023
+ Official Vernier data - Sensor: Force, Value: 12.882736206054688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.88N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.421707153320312, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.42N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.341, Trend: 0.0041
+ Official Vernier data - Sensor: Force, Value: 12.887847900390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.89N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.378273010253906, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.38N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.342, Trend: 0.0050
+ Official Vernier data - Sensor: Force, Value: 12.890403747558594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.89N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.337394714355469, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.34N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.343, Trend: 0.0037
+ Official Vernier data - Sensor: Force, Value: 12.887847900390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.89N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.250518798828125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.25N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.343, Trend: 0.0018
+ Official Vernier data - Sensor: Force, Value: 12.864852905273438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.86N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.191757202148438, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.19N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.343, Trend: 0.0017
+ Official Vernier data - Sensor: Force, Value: 12.829078674316406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.83N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.166206359863281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.17N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.344, Trend: 0.0016
+ Official Vernier data - Sensor: Force, Value: 12.831634521484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.83N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.117660522460938, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.12N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.346, Trend: 0.0024
+ Official Vernier data - Sensor: Force, Value: 12.869964599609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.87N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.074226379394531, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.07N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.351, Trend: 0.0053
+ Official Vernier data - Sensor: Force, Value: 12.984939575195312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 12.98N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.023124694824219, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.02N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.364, Trend: 0.0136
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.931144714355469, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.93N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.364, Trend: 0.0189
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.8238372802734375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.82N
+ Official Vernier data - Sensor: Force, Value: 13.217445373535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.7216339111328125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.72N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → rising, Amplitude: 0.390, Trend: 0.0289
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.619438171386719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.62N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.390, Trend: 0.0333
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.535125732421875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.54N
+ Official Vernier data - Sensor: Force, Value: 13.472938537597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.47N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.4738006591796875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.47N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.420, Trend: 0.0413
+ Official Vernier data - Sensor: Force, Value: 13.720779418945312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.72N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.4150390625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.42N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.448, Trend: 0.0569
+ Official Vernier data - Sensor: Force, Value: 13.999275207519531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.00N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.361381530761719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.36N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.480, Trend: 0.0737
+ Official Vernier data - Sensor: Force, Value: 14.282875061035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.28N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.287284851074219, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.29N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.513, Trend: 0.0913
+ Official Vernier data - Sensor: Force, Value: 14.546043395996094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.55N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.187644958496094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.19N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.543, Trend: 0.0938
+ Official Vernier data - Sensor: Force, Value: 14.798988342285156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.80N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.110992431640625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.11N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.572, Trend: 0.0932
+ Official Vernier data - Sensor: Force, Value: 15.072372436523438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.07N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.044563293457031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.04N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.603, Trend: 0.0912
+ Official Vernier data - Sensor: Force, Value: 15.3253173828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.33N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.632, Trend: 0.0900
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.632, Trend: 0.0749
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.9602508544921875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.96N
+ Official Vernier data - Sensor: Force, Value: 15.5450439453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.55N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.657, Trend: 0.0573
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.891265869140625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8401641845703125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
- Official Vernier data - Sensor: Respiration Rate, Value: 9.554140090942383, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.799285888671875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.80N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.768623352050781, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.77N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.657, Trend: 0.0397
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.745628356933594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.75N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.782661437988281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.78N
+ Official Vernier data - Sensor: Respiration Rate, Value: 12.72264575958252, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.725189208984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.73N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.685, Trend: 0.0388
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.725189208984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.73N
+ Official Vernier data - Sensor: Force, Value: 16.00494384765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.00N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.758399963378906, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.76N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8222808837890625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.82N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.710, Trend: 0.0526
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.947471618652344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.95N
+ Official Vernier data - Sensor: Force, Value: 16.217010498046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.22N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.735, Trend: 0.0649
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.136543273925781, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.14N
+ Official Vernier data - Sensor: Force, Value: 16.434188842773438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.43N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.330718994140625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.33N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.759, Trend: 0.0759
+ Official Vernier data - Sensor: Force, Value: 16.666690826416016, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.67N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.494239807128906, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.49N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.786, Trend: 0.0753
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.647544860839844, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.65N
+ Official Vernier data - Sensor: Force, Value: 16.876201629638672, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.88N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.810, Trend: 0.0758
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.790618896484375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.79N
+ Official Vernier data - Sensor: Force, Value: 17.037166595458984, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.04N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.9260406494140625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.93N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.829, Trend: 0.0724
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.074226379394531, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.07N
+ Official Vernier data - Sensor: Force, Value: 17.221126556396484, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.22N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.214752197265625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.21N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.850, Trend: 0.0664
+ Official Vernier data - Sensor: Force, Value: 17.415306091308594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.42N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.342498779296875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.34N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.872, Trend: 0.0627
+ Official Vernier data - Sensor: Force, Value: 17.594158172607422, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.59N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.893, Trend: 0.0629
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.893, Trend: 0.0533
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.465141296386719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.47N
+ Official Vernier data - Sensor: Force, Value: 17.716796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.72N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.557121276855469, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.56N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.907, Trend: 0.0387
+ Official Vernier data - Sensor: Force, Value: 17.839435577392578, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.84N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.620994567871094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.62N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.921, Trend: 0.0314
+ Official Vernier data - Sensor: Force, Value: 18.033618927001953, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.03N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.651657104492188, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.65N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.941, Trend: 0.0384
+ Official Vernier data - Sensor: Force, Value: 18.207355499267578, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.21N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.654212951660156, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.65N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.950, Trend: 0.0461
+ Official Vernier data - Sensor: Force, Value: 18.291671752929688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.29N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.626106262207031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.63N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.953, Trend: 0.0378
+ Official Vernier data - Sensor: Force, Value: 18.27889633178711, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.28N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.564788818359375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.56N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.949, Trend: 0.0200
+ Official Vernier data - Sensor: Force, Value: 18.204803466796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.20N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.483024597167969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.48N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → stable, Amplitude: 0.941, Trend: -0.0006
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.408935546875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.41N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.941, Trend: -0.0105
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.345054626464844, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.35N
+ Official Vernier data - Sensor: Force, Value: 18.089828491210938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.09N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.928, Trend: -0.0164
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.276069641113281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.28N
+ Official Vernier data - Sensor: Force, Value: 17.90331268310547, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.90N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.199424743652344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.20N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → falling, Amplitude: 0.908, Trend: -0.0271
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.908, Trend: -0.0334
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.127883911132812, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.13N
+ Official Vernier data - Sensor: Force, Value: 17.655475616455078, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.66N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.880, Trend: -0.0407
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 8.030792236328125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.03N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.9158172607421875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.92N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.880, Trend: -0.0377
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.8136138916015625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.81N
+ Official Vernier data - Sensor: Force, Value: 17.43830108642578, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.44N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.7088623046875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.71N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.856, Trend: -0.0394
+ Official Vernier data - Sensor: Force, Value: 17.226238250732422, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.23N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.614326477050781, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.61N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.833, Trend: -0.0495
+ 🌈 Color transition progress: 100.0% (amplitude: 0.833)
+ Official Vernier data - Sensor: Force, Value: 16.937522888183594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.94N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.532569885253906, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.53N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.801, Trend: -0.0635
+ 🌈 Color transition progress: 100.0% (amplitude: 0.801)
+ Official Vernier data - Sensor: Force, Value: 16.61559295654297, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.62N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.4559173583984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.46N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.765, Trend: -0.0852
+ 🌈 Color transition progress: 100.0% (amplitude: 0.765)
+ Official Vernier data - Sensor: Force, Value: 16.33454132080078, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.33N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.734, Trend: -0.0948
+ 🌈 Color transition progress: 100.0% (amplitude: 0.734)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.379264831542969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.38N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.30517578125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.31N
+ Official Vernier data - Sensor: Force, Value: 16.14547348022461, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.15N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.228523254394531, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.23N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.713, Trend: -0.0931
+ 🌈 Color transition progress: 100.0% (amplitude: 0.713)
+ Official Vernier data - Sensor: Force, Value: 15.956405639648438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.96N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.154426574707031, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.15N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.692, Trend: -0.0803
+ 🌈 Color transition progress: 100.0% (amplitude: 0.692)
+ Official Vernier data - Sensor: Force, Value: 15.739227294921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.74N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.1161041259765625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.12N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.668, Trend: -0.0694
+ 🌈 Color transition progress: 100.0% (amplitude: 0.668)
+ Official Vernier data - Sensor: Force, Value: 15.506721496582031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.51N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.0879974365234375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.09N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.642, Trend: -0.0683
+ 🌈 Color transition progress: 100.0% (amplitude: 0.642)
+ Official Vernier data - Sensor: Force, Value: 15.251220703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.25N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.614, Trend: -0.0743
+ 🌈 Color transition progress: 100.0% (amplitude: 0.614)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.034339904785156, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.03N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.614, Trend: -0.0660
+ 🌈 Color transition progress: 100.0% (amplitude: 0.614)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.9857940673828125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.99N
+ Official Vernier data - Sensor: Force, Value: 15.01361083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.01N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.9730224609375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.97N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.588, Trend: -0.0543
+ 🌈 Color transition progress: 100.0% (amplitude: 0.588)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.9679107666015625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.97N
+ Official Vernier data - Sensor: Force, Value: 14.786209106445312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.79N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.563, Trend: -0.0530
+ 🌈 Color transition progress: 100.0% (amplitude: 0.563)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.957695007324219, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.96N
+ Official Vernier data - Sensor: Force, Value: 14.5894775390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.59N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.929588317871094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.93N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.541, Trend: -0.0623
+ 🌈 Color transition progress: 100.0% (amplitude: 0.541)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.901481628417969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.90N
+ Official Vernier data - Sensor: Force, Value: 14.415740966796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.42N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.89892578125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.90N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.522, Trend: -0.0697
+ 🌈 Color transition progress: 100.0% (amplitude: 0.522)
+ Official Vernier data - Sensor: Force, Value: 14.254776000976562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.25N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.883598327636719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.88N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.504, Trend: -0.0624
+ 🌈 Color transition progress: 100.0% (amplitude: 0.504)
+ Official Vernier data - Sensor: Force, Value: 14.109138488769531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.11N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.837608337402344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.490, Trend: -0.0549
+ 🌈 Color transition progress: 100.0% (amplitude: 0.490)
+ Official Vernier data - Sensor: Force, Value: 13.948173522949219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.95N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8299407958984375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.83N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.473, Trend: -0.0501
+ 🌈 Color transition progress: 100.0% (amplitude: 0.473)
+ Official Vernier data - Sensor: Force, Value: 13.825531005859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.83N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.842720031738281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.460, Trend: -0.0466
+ 🌈 Color transition progress: 100.0% (amplitude: 0.460)
+ Official Vernier data - Sensor: Force, Value: 13.776985168457031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.78N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8222808837890625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.82N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.456, Trend: -0.0388
+ 🌈 Color transition progress: 100.0% (amplitude: 0.456)
+ Official Vernier data - Sensor: Force, Value: 13.708000183105469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.71N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.832496643066406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.83N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.449, Trend: -0.0286
+ 🌈 Color transition progress: 100.0% (amplitude: 0.449)
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.449, Trend: -0.0174
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.449, Trend: -0.0092
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8401641845703125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ Official Vernier data - Sensor: Force, Value: 13.621131896972656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.62N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.814613342285156, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.81N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.440, Trend: -0.0082
+ Official Vernier data - Sensor: Force, Value: 13.529151916503906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.53N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.80694580078125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.81N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.431, Trend: -0.0136
+ Official Vernier data - Sensor: Force, Value: 13.452499389648438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.45N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.799285888671875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.80N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → falling, Amplitude: 0.422, Trend: -0.0227
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.7890625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.79N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.422, Trend: -0.0228
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.796730041503906, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.80N
+ Official Vernier data - Sensor: Force, Value: 13.421844482421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.42N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8018341064453125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.80N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.419, Trend: -0.0153
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.419, Trend: -0.0076
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.837608337402344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ Official Vernier data - Sensor: Force, Value: 13.42950439453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.43N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8682708740234375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.87N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.419, Trend: -0.0025
+ Official Vernier data - Sensor: Force, Value: 13.460166931152344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.46N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.842720031738281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.423, Trend: 0.0014
+ Official Vernier data - Sensor: Force, Value: 13.506156921386719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.51N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.8222808837890625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.82N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.429, Trend: 0.0076
+ Official Vernier data - Sensor: Force, Value: 13.639015197753906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.64N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.7839508056640625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.78N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.445, Trend: 0.0181
+ Official Vernier data - Sensor: Force, Value: 13.843414306640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.84N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.773735046386719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.77N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: stable → rising, Amplitude: 0.471, Trend: 0.0366
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.819725036621094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.82N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.471, Trend: 0.0445
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.837608337402344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ Official Vernier data - Sensor: Force, Value: 14.0733642578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.07N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.827384948730469, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.83N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.499, Trend: 0.0476
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.819725036621094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.82N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.499, Trend: 0.0410
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.837608337402344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ Official Vernier data - Sensor: Force, Value: 14.362083435058594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.36N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.855491638183594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.86N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.535, Trend: 0.0462
+ Official Vernier data - Sensor: Force, Value: 14.689125061035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.69N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.842720031738281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.575, Trend: 0.0700
+ Official Vernier data - Sensor: Force, Value: 15.016159057617188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.02N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.832496643066406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.83N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.615, Trend: 0.0962
+ Official Vernier data - Sensor: Force, Value: 15.348312377929688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.35N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.84527587890625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.85N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.656, Trend: 0.1191
+ Official Vernier data - Sensor: Force, Value: 15.670242309570312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.67N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.888710021972656, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.696, Trend: 0.1214
+ Official Vernier data - Sensor: Force, Value: 15.971733093261719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.97N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 6.9857940673828125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.99N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.733, Trend: 0.1195
+ Official Vernier data - Sensor: Force, Value: 16.25533676147461, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.26N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.159538269042969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.16N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.768, Trend: 0.1150
+ Official Vernier data - Sensor: Force, Value: 16.51339340209961, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.51N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.30517578125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.31N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.800, Trend: 0.1080
+ Official Vernier data - Sensor: Force, Value: 16.751007080078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.75N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.830, Trend: 0.1001
  🔵 BreathKasinaOrb - useVernier: false vernierData: Object
- Official Vernier data - Sensor: Force, Value: 7.4456939697265625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.45N
+ Official Vernier data - Sensor: Force, Value: 16.96307373046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.96N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.6117706298828125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.61N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.856, Trend: 0.0918
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 17.18280029296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.18N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.785514831542969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.79N
+ Official Vernier data - Sensor: Force, Value: 17.410198211669922, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.41N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.946479797363281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.95N
+ Official Vernier data - Sensor: Force, Value: 17.589046478271484, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.59N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.933, Trend: 0.1101
+ Official Vernier data - Sensor: Force, Value: 17.71424102783203, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.941, Trend: 0.1222
+ Official Vernier data - Sensor: Force, Value: 17.79855728149414, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.951, Trend: 0.1035
+ Official Vernier data - Sensor: Force, Value: 17.824108123779297, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.944, Trend: 0.0534
+ Official Vernier data - Sensor: Force, Value: 17.79855728149414, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → stable, Amplitude: 0.941, Trend: 0.0056
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.941, Trend: -0.0050
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 17.70913314819336, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.930, Trend: -0.0119
+ Official Vernier data - Sensor: Force, Value: 17.502178192138672, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.50N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.089553833007812, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.09N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: stable → falling, Amplitude: 0.906, Trend: -0.0247
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 37.4% (amplitude: 0.906)
+BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.906, Trend: -0.0355
+BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 17.241565704345703, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.24N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.874, Trend: -0.0458
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.2249755859375, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.22N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.874, Trend: -0.0436
+BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 16.922191619873047, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.92N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.35272216796875, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.35N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.836, Trend: -0.0504
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.836)
+BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.836, Trend: -0.0539
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.836)
+BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 16.567047119140625, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.57N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.414039611816406, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.41N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.794, Trend: -0.0596
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.794)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 16.229785919189453, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.23N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.434478759765625, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.43N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.753, Trend: -0.0819
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.753)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 15.923187255859375, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.92N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.546905517578125, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.55N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.716, Trend: -0.1014
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.716)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 15.660018920898438, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.66N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.679763793945312, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.68N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.685, Trend: -0.1142
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.685)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 15.414741516113281, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.41N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.758964538574219, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.76N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.655, Trend: -0.1032
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.655)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 15.179679870605469, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.18N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.792182922363281, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.79N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.627, Trend: -0.0934
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.627)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 14.934402465820312, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.93N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.735969543457031, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.74N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.598, Trend: -0.0880
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.598)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 14.704452514648438, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.70N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.661880493164062, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.66N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.563, Trend: -0.0897
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.563)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 14.530715942382812, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.53N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.522, Trend: -0.0991
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.522)
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.522, Trend: -0.0910
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.522)
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.61077880859375, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.61N
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 14.379966735839844, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.38N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.546905517578125, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.55N
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: 8.62069034576416, Units: bpm
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.470252990722656, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.47N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.482, Trend: -0.0788
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.482)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 14.241996765136719, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.24N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.383384704589844, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.38N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.462, Trend: -0.0703
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.462)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 14.086143493652344, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.09N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.281181335449219, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.28N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.439, Trend: -0.0711
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.439)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 13.966056823730469, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.97N
 useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
 BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.16876220703125, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.17N
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 8.035903930664062, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.04N
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 7.903045654296875, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.90N
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 7.816169738769531, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.82N
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 7.72674560546875, Units: N
-useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.73N
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-BreathKasinaOrb.tsx:459 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
-useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 7.6041107177734375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.60N
+BreathKasinaOrb.tsx:825 🫁 Breath Direction: falling → falling, Amplitude: 0.422, Trend: -0.0715
+BreathKasinaOrb.tsx:852 🌈 Color transition progress: 100.0% (amplitude: 0.422)
+useVernierBreathOfficial.ts:120 Official Vernier data - Sensor: Force, Value: 13.930290222167969, Units: N
+useVernierBreathOfficial.ts:129 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.93N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.514678955078125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.51N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.415, Trend: -0.0537
+ 🌈 Color transition progress: 100.0% (amplitude: 0.415)
+ Official Vernier data - Sensor: Force, Value: 13.861305236816406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.86N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.4738006591796875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.47N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.402, Trend: -0.0421
+ 🌈 Color transition progress: 100.0% (amplitude: 0.402)
+ Official Vernier data - Sensor: Force, Value: 13.774429321289062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.77N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.4456939697265625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.45N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.387, Trend: -0.0359
+ 🌈 Color transition progress: 100.0% (amplitude: 0.387)
+ Official Vernier data - Sensor: Force, Value: 13.730995178222656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.73N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.386932373046875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.39N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.368, Trend: -0.0408
+ 🌈 Color transition progress: 100.0% (amplitude: 0.368)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.368, Trend: -0.0400
+ 🌈 Color transition progress: 100.0% (amplitude: 0.368)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 13.659454345703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.66N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.297508239746094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.30N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.356, Trend: -0.0321
+ 🌈 Color transition progress: 100.0% (amplitude: 0.356)
+ Official Vernier data - Sensor: Force, Value: 13.600692749023438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.60N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.2310791015625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.23N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.348, Trend: -0.0259
+ 🌈 Color transition progress: 100.0% (amplitude: 0.348)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.348, Trend: -0.0209
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 13.557258605957031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.56N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.223411560058594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.22N
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.341, Trend: -0.0177
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.341, Trend: -0.0103
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 13.511268615722656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.51N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.2310791015625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.23N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.335, Trend: -0.0094
+ Official Vernier data - Sensor: Force, Value: 13.483161926269531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.48N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.200416564941406, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.20N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.334, Trend: -0.0103
+ Official Vernier data - Sensor: Force, Value: 13.472938537597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.47N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.159538269042969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.16N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.128875732421875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.13N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.113548278808594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.11N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.128875732421875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.13N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.187644958496094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.19N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.28472900390625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.28N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.425254821777344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.43N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.591331481933594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.59N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.335, Trend: -0.0071
+ Official Vernier data - Sensor: Force, Value: 13.493385314941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.49N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.770179748535156, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.77N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.344, Trend: 0.0014
+ Official Vernier data - Sensor: Force, Value: 13.511268615722656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.51N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.946479797363281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.95N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.350, Trend: 0.0131
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.350, Trend: 0.0162
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 13.559814453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.56N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.115104675292969, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.12N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.357, Trend: 0.0143
+ Official Vernier data - Sensor: Force, Value: 13.7054443359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.90985107421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.160240173339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.438735961914062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: 9.779951095581055, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.714675903320312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.998275756835938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.284439086914062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.28N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.255630493164062, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.26N
+ 🫁 Breath Direction: stable → rising, Amplitude: 0.595, Trend: 0.1287
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.595, Trend: 0.2443
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 15.537384033203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.54N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.375717163085938, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.38N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.630, Trend: 0.2584
+ Official Vernier data - Sensor: Force, Value: 15.764778137207031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.76N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.465141296386719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.47N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.661, Trend: 0.1693
+ Official Vernier data - Sensor: Force, Value: 15.964065551757812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.96N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.46258544921875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.46N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.688, Trend: 0.0799
+ Official Vernier data - Sensor: Force, Value: 16.104591369628906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.10N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.424263000488281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.42N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.708, Trend: 0.0859
+ Official Vernier data - Sensor: Force, Value: 16.270668029785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.27N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.424263000488281, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.42N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 8.355278015136719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.36N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.731, Trend: 0.0739
+ Official Vernier data - Sensor: Force, Value: 16.403526306152344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.40N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.207084655761719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.21N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.749, Trend: 0.0651
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.749, Trend: 0.0509
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 16.413745880126953, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.41N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 8.097221374511719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.10N
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.750, Trend: 0.0305
+ Official Vernier data - Sensor: Force, Value: 16.400970458984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.40N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → stable, Amplitude: 0.749, Trend: 0.0097
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.749, Trend: -0.0004
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.995025634765625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.00N
+ Official Vernier data - Sensor: Force, Value: 16.33965301513672, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.34N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.846832275390625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.85N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.748, Trend: -0.0014
+ Official Vernier data - Sensor: Force, Value: 16.232341766357422, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.23N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.680755615234375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.68N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.733, Trend: -0.0088
+ Official Vernier data - Sensor: Force, Value: 16.109703063964844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.11N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.54278564453125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.54N
+ 🫁 Breath Direction: stable → falling, Amplitude: 0.721, Trend: -0.0215
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.721, Trend: -0.0275
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 15.956405639648438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.96N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.471244812011719, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.47N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.4099273681640625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.41N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.705, Trend: -0.0279
+ Official Vernier data - Sensor: Force, Value: 15.762222290039062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.76N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.333274841308594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.33N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.684, Trend: -0.0330
+ Official Vernier data - Sensor: Force, Value: 15.570594787597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.57N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.28472900390625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.28N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.660, Trend: -0.0490
+ Official Vernier data - Sensor: Force, Value: 15.430068969726562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.43N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.228523254394531, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.23N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.641, Trend: -0.0621
+ 🌈 Color transition progress: 100.0% (amplitude: 0.641)
+ Official Vernier data - Sensor: Force, Value: 15.335540771484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.34N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.639, Trend: -0.0540
+ 🌈 Color transition progress: 100.0% (amplitude: 0.639)
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.639, Trend: -0.0327
+ 🌈 Color transition progress: 100.0% (amplitude: 0.639)
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.156982421875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.16N
+ Official Vernier data - Sensor: Force, Value: 15.261444091796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.26N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.1058807373046875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.11N
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.629, Trend: -0.0167
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.629, Trend: -0.0115
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 15.138801574707031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.14N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 7.039451599121094, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.04N
+ 🫁 Breath Direction: stable → stable, Amplitude: 0.612, Trend: -0.0188
+ Official Vernier data - Sensor: Force, Value: 15.064704895019531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.06N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: stable → falling, Amplitude: 0.600, Trend: -0.0277
+ 🌈 Color transition progress: 100.0% (amplitude: 0.600)
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.600, Trend: -0.0284
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 6.9679107666015625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.97N
+ Official Vernier data - Sensor: Force, Value: 14.995719909667969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.00N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 6.9730224609375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.97N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.003684997558594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.00N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 7.003684997558594, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.00N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.9960174560546875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.00N
- Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
- Official Vernier data - Sensor: Force, Value: 6.9321441650390625, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.93N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.589, Trend: -0.0257
+ Official Vernier data - Sensor: Force, Value: 14.837310791015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.84N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 6.8861541748046875, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.564, Trend: -0.0298
+ Official Vernier data - Sensor: Force, Value: 14.689125061035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.69N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 6.91680908203125, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.92N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.540, Trend: -0.0485
+ Official Vernier data - Sensor: Force, Value: 14.528160095214844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.53N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.514, Trend: -0.0679
+ 🌈 Color transition progress: 100.0% (amplitude: 0.514)
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.514, Trend: -0.0625
+ 🌈 Color transition progress: 100.0% (amplitude: 0.514)
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 6.944915771484375, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.94N
+ Official Vernier data - Sensor: Force, Value: 14.38763427734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.39N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
- Official Vernier data - Sensor: Force, Value: 6.947471618652344, Units: N
- Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.95N
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.491, Trend: -0.0492
+ 🌈 Color transition progress: 100.0% (amplitude: 0.491)
+ Official Vernier data - Sensor: Force, Value: 14.323760986328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.32N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.259880065917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.20367431640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.155128479003906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.139801025390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.14N
  Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
  🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.451, Trend: -0.0555
+ 🌈 Color transition progress: 100.0% (amplitude: 0.451)
+ Official Vernier data - Sensor: Force, Value: 14.167900085449219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.456, Trend: -0.0603
+ 🌈 Color transition progress: 97.0% (amplitude: 0.456)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → falling, Amplitude: 0.456, Trend: -0.0467
+ 🌈 Color transition progress: 97.0% (amplitude: 0.456)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 14.321205139160156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.32N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: falling → stable, Amplitude: 0.480, Trend: -0.0031
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: stable → rising, Amplitude: 0.480, Trend: 0.0269
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.480, Trend: 0.0247
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 14.60736083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.527, Trend: 0.0354
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 14.86541748046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.87N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🫁 Breath Direction: rising → rising, Amplitude: 0.568, Trend: 0.0668
