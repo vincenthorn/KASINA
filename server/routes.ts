@@ -287,7 +287,8 @@ export function registerRoutes(app: Express): Server {
       if (err) {
         return res.status(400).json({ message: "File upload error" });
       }
-    try {
+
+      try {
       if (!req.file) {
         return res.status(400).json({ message: "No CSV file uploaded" });
       }
