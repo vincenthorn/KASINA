@@ -4,14 +4,13 @@ import * as THREE from 'three';
 import { useSimpleTimer } from '../lib/stores/useSimpleTimer';
 import { useTexture } from '@react-three/drei';
 
-// Standalone component to render the White A Kasina - using Clear Light Thigle colors
-// but with Tibetan letter "A" replacing the white dot in center
+// Standalone component to render the White A Kasina - using the complete thigle design
 const WhiteAKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
-  // Load the Tibetan 'A' syllable texture - uses actual Tibetan script character
-  const aTexture = useTexture('/images/vajrayana/letter-a-thun.svg');
+  // Load the complete White A Thigle SVG design
+  const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
   
   // Store timer-related info for smooth counting
   const timerRef = React.useRef<{
@@ -22,10 +21,7 @@ const WhiteAKasina = () => {
     initialRemainingTime: null
   });
   
-  // Reference for the Tibetan A symbol to add hover effect
-  const aSymbolRef = React.useRef<THREE.Mesh>(null);
-  
-  // Animation to make the orb face the camera and add hover effect to the symbol
+  // Animation to make the orb face the camera and handle countdown
   useFrame(({ clock, camera }) => {
     if (!groupRef.current) return;
     
@@ -39,13 +35,6 @@ const WhiteAKasina = () => {
     // Calculate time and animation values
     const time = clock.getElapsedTime();
     let scale = 1.0;
-    
-    // Apply subtle hover effect to the Tibetan A symbol
-    if (aSymbolRef.current) {
-      // Create a gentle hovering effect
-      const hoverOffset = Math.sin(time * 0.7) * 0.01;
-      aSymbolRef.current.position.y = -0.05 + hoverOffset; // Dropped slightly with hovering
-    }
     
     // Check if we should show the countdown animation
     const inFinalCountdown = isRunning && 
@@ -100,50 +89,13 @@ const WhiteAKasina = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Blue background - use a larger circle for the entire background */}
-      <mesh position={[0, 0, -0.006]}>
-        <circleGeometry args={[1.0, 64]} />
-        <meshBasicMaterial color="#0055ff" />
-      </mesh>
-      
-      {/* Yellow ring - use full circles instead of rings to avoid gaps */}
-      <mesh position={[0, 0, -0.005]}>
-        <circleGeometry args={[0.95, 64]} />
-        <meshBasicMaterial color="#ffff00" />
-      </mesh>
-      
-      {/* Red ring */}
-      <mesh position={[0, 0, -0.004]}>
-        <circleGeometry args={[0.81, 64]} />
-        <meshBasicMaterial color="#ff0000" />
-      </mesh>
-      
-      {/* White ring */}
-      <mesh position={[0, 0, -0.003]}>
-        <circleGeometry args={[0.67, 64]} />
-        <meshBasicMaterial color="#ffffff" />
-      </mesh>
-      
-      {/* Green ring */}
-      <mesh position={[0, 0, -0.002]}>
-        <circleGeometry args={[0.53, 64]} />
-        <meshBasicMaterial color="#00cc00" />
-      </mesh>
-      
-      {/* Blue center - 40% larger */}
-      <mesh position={[0, 0, -0.001]}>
-        <circleGeometry args={[0.39, 64]} />
-        <meshBasicMaterial color="#0055ff" />
-      </mesh>
-      
-      {/* Tibetan 'A' symbol - with subtle hover effect and dropped position */}
-      <mesh position={[0, -0.05, 0.003]} ref={aSymbolRef}>
-        <planeGeometry args={[1.62, 1.62]} />
+      {/* Complete White A Thigle design */}
+      <mesh position={[0, 0, 0]}>
+        <planeGeometry args={[2, 2]} />
         <meshBasicMaterial 
-          map={aTexture} 
+          map={whiteATexture} 
           transparent={true}
           opacity={1}
-          color="#ffffff"
         />
       </mesh>
     </group>
