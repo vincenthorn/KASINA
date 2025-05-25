@@ -1,19 +1,10 @@
 login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
 
-chunk-RPCDYKBN.js?v=49ca70dd:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
-react-router-dom.js?v=49ca70dd:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
-warnOnce @ react-router-dom.js?v=49ca70dd:4394
-react-router-dom.js?v=49ca70dd:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
-warnOnce @ react-router-dom.js?v=49ca70dd:4394
-useAuth.tsx:168 Setting auth state with user: Object
-useVernierBreathOfficial.ts:408 Refused to load the script 'https://unpkg.com/@vernier/godirect/dist/godirect.min.umd.js' because it violates the following Content Security Policy directive: "script-src 'self' 'unsafe-inline' 'unsafe-eval'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
-
-loadVernierLibrary @ useVernierBreathOfficial.ts:408
-useVernierBreathOfficial.ts:90 Connecting to Vernier device using official GoDirect library...
-useVernierBreathOfficial.ts:97 Waiting for GoDirect library... (3 retries left)
-useVernierBreathOfficial.ts:97 Waiting for GoDirect library... (2 retries left)
-useVernierBreathOfficial.ts:97 Waiting for GoDirect library... (1 retries left)
-chunk-EMXP5JYR.js?v=49ca70dd:18167 Error connecting to Vernier device: Error: Failed to load Vernier GoDirect library. Please refresh the page and try again.
-    at useVernierBreathOfficial.ts:103:17
-    at async handleStartSession (BreathPage.tsx:43:7)
-console.error @ chunk-EMXP5JYR.js?v=49ca70dd:18167
+chunk-RPCDYKBN.js?v=9eed23f0:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=9eed23f0:4394
+react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=9eed23f0:4394
+chunk-EMXP5JYR.js?v=9eed23f0:18167 Auth check error: TypeError: Cannot read properties of undefined (reading 'email')
+    at checkAuthStatus (useAuth.tsx:151:35)
+console.error @ chunk-EMXP5JYR.js?v=9eed23f0:18167
