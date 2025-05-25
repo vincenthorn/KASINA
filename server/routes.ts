@@ -282,13 +282,8 @@ export function registerRoutes(app: Express): Server {
   });
 
   // CSV Upload endpoint for PostgreSQL database
-  app.post("/api/admin/upload-whitelist", isAdmin, (req, res) => {
-    upload.single("csv")(req, res, async (err) => {
-      if (err) {
-        return res.status(400).json({ message: "File upload error" });
-      }
-
-      try {
+  app.post("/api/admin/upload-whitelist", isAdmin, upload.single("csv"), async (req, res) => {
+    try {
       if (!req.file) {
         return res.status(400).json({ message: "No CSV file uploaded" });
       }
@@ -441,7 +436,6 @@ export function registerRoutes(app: Express): Server {
           error: error instanceof Error ? error.message : "Unknown error" 
         });
       }
-    });
   });
 
   // Create HTTP server
