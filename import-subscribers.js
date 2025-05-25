@@ -23,13 +23,13 @@ const premiumSubscribers = [
   { email: 'lisashermanavl@gmail.com', name: 'Lisa Sherman' }
 ];
 
-async function importSubscribers() {
-  console.log('Starting import of premium subscribers...');
+async function importSubscribers(userType = 'premium', subscribers = premiumSubscribers) {
+  console.log(`Starting import of ${userType} subscribers...`);
   
   let addedCount = 0;
   let updatedCount = 0;
   
-  for (const subscriber of premiumSubscribers) {
+  for (const subscriber of subscribers) {
     try {
       // Check if user exists
       const existingUser = await pool.query(
@@ -41,18 +41,18 @@ async function importSubscribers() {
         // Update existing user
         await pool.query(
           'UPDATE users SET name = $1, subscription_type = $2, updated_at = NOW() WHERE LOWER(email) = LOWER($3)',
-          [subscriber.name, 'premium', subscriber.email]
+          [subscriber.name, userType, subscriber.email]
         );
         updatedCount++;
-        console.log(`✓ Updated: ${subscriber.email} - ${subscriber.name}`);
+        console.log(`✓ Updated: ${subscriber.email} - ${subscriber.name} (${userType})`);
       } else {
         // Insert new user
         await pool.query(
           'INSERT INTO users (email, name, subscription_type, created_at, updated_at) VALUES ($1, $2, $3, NOW(), NOW())',
-          [subscriber.email, subscriber.name, 'premium']
+          [subscriber.email, subscriber.name, userType]
         );
         addedCount++;
-        console.log(`✓ Added: ${subscriber.email} - ${subscriber.name}`);
+        console.log(`✓ Added: ${subscriber.email} - ${subscriber.name} (${userType})`);
       }
     } catch (error) {
       console.error(`❌ Error processing ${subscriber.email}:`, error.message);
@@ -61,13 +61,40 @@ async function importSubscribers() {
   
   console.log(`\n🎉 Import complete!`);
   console.log(`📊 Results: ${addedCount} new users added, ${updatedCount} existing users updated`);
-  console.log(`📈 Total premium subscribers processed: ${addedCount + updatedCount}`);
+  console.log(`📈 Total ${userType} subscribers processed: ${addedCount + updatedCount}`);
   
   // Show final user count
   const totalUsers = await pool.query('SELECT COUNT(*) FROM users');
   console.log(`👥 Total users in database: ${totalUsers.rows[0].count}`);
   
-  process.exit(0);
+  return { addedCount, updatedCount };
+}
+
+// Function to import from CSV data
+async function importFromCsvData(csvData, userType = 'freemium') {
+  console.log(`Processing CSV data for ${userType} users...`);
+  
+  const lines = csvData.trim().split('\n');
+  const headers = lines[0].split(',');
+  const emailIndex = headers.findIndex(h => h.toLowerCase().includes('email'));
+  const nameIndex = headers.findIndex(h => h.toLowerCase().includes('name'));
+  
+  if (emailIndex === -1) {
+    throw new Error('No email column found in CSV data');
+  }
+  
+  const users = [];
+  for (let i = 1; i < lines.length; i++) {
+    const values = lines[i].split(',');
+    const email = values[emailIndex]?.trim();
+    const name = nameIndex !== -1 ? values[nameIndex]?.trim() : null;
+    
+    if (email && email.includes('@')) {
+      users.push({ email, name });
+    }
+  }
+  
+  return await importSubscribers(userType, users);
 }
 
 importSubscribers().catch(error => {

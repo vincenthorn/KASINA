@@ -363,11 +363,20 @@ export function registerRoutes(app: Express): Server {
         let processedCount = 0;
         for (const record of records) {
           try {
-            const email = record['Email']?.trim();
-            const name = record['Name']?.trim();
+            // Handle multiple possible email column names
+            const email = record['Email']?.trim() || 
+                         record['email']?.trim() || 
+                         record['EmailAddress']?.trim() || 
+                         record['Email Address']?.trim();
+            
+            // Handle multiple possible name column names
+            const name = record['Name']?.trim() || 
+                        record['name']?.trim() || 
+                        record['Full Name']?.trim() || 
+                        record['fullName']?.trim();
             
             if (email && email.includes('@')) {
-              console.log(`Adding user: ${email} - ${name}`);
+              console.log(`Adding ${userType} user: ${email} - ${name || 'No name'}`);
               const result = await upsertUser(email, name || null, userType);
               if (result) {
                 processedCount++;
