@@ -112,23 +112,39 @@ export async function removeUser(email: string): Promise<boolean> {
 
 export interface Session {
   id: number;
-  user_email: string;
+  user_id: number;
   kasina_type: string;
-  kasina_name?: string;
-  duration_seconds: number;
-  session_date: Date;
-  created_at: Date;
+  kasina_name: string;
+  duration: number;
+  timestamp: Date;
 }
 
 // Add a new session
 export async function addSession(userEmail: string, kasinaType: string, durationSeconds: number, kasinaName?: string): Promise<Session | null> {
   try {
+    console.log(`📝 Saving session: ${userEmail}, ${kasinaType}, ${durationSeconds}s, ${kasinaName}`);
+    
+    // Get user ID first - sessions table requires user_id
+    const userResult = await pool.query(
+      'SELECT id FROM users WHERE email = $1',
+      [userEmail.toLowerCase()]
+    );
+    
+    if (userResult.rows.length === 0) {
+      console.error('User not found in database:', userEmail);
+      return null;
+    }
+    
+    const userId = userResult.rows[0].id;
+    
     const result = await pool.query(
-      `INSERT INTO sessions (user_email, kasina_type, kasina_name, duration_seconds) 
+      `INSERT INTO sessions (user_id, kasina_type, kasina_name, duration) 
        VALUES ($1, $2, $3, $4) 
        RETURNING *`,
-      [userEmail.toLowerCase(), kasinaType, kasinaName, durationSeconds]
+      [userId, kasinaType, kasinaName || kasinaType, durationSeconds]
     );
+    
+    console.log('✅ Session saved successfully:', result.rows[0]);
     return result.rows[0];
   } catch (error) {
     console.error('Error adding session:', error);
@@ -140,7 +156,10 @@ export async function addSession(userEmail: string, kasinaType: string, duration
 export async function getUserSessions(userEmail: string): Promise<Session[]> {
   try {
     const result = await pool.query(
-      'SELECT * FROM sessions WHERE LOWER(user_email) = LOWER($1) ORDER BY session_date DESC',
+      `SELECT s.* FROM sessions s 
+       JOIN users u ON s.user_id = u.id 
+       WHERE LOWER(u.email) = LOWER($1) 
+       ORDER BY s.timestamp DESC`,
       [userEmail]
     );
     return result.rows;
