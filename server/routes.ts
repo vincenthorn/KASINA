@@ -17,7 +17,7 @@ declare module "express-session" {
   }
 }
 
-export default function setupRoutes(app: Express): Server {
+export function registerRoutes(app: Express): Server {
   // Admin routes - restricted to admin users
   const adminEmails = ["admin@kasina.app"];
   
