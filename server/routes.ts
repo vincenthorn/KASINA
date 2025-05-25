@@ -243,6 +243,44 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Direct session endpoint for session logger compatibility
+  app.post("/api/direct-one-minute-session", async (req, res) => {
+    if (!req.session?.user?.email) {
+      return res.status(401).json({ message: "Authentication required" });
+    }
+    
+    try {
+      const { kasinaType, minutes = 1, userEmail } = req.body;
+      const duration = minutes * 60; // Convert to seconds
+      const kasinaName = `${kasinaType.charAt(0).toUpperCase() + kasinaType.slice(1)} (${minutes}-minute)`;
+      
+      // Save to database using the same function
+      const dbSession = await addSession(
+        req.session.user.email,
+        kasinaType,
+        duration,
+        kasinaName
+      );
+      
+      if (dbSession) {
+        console.log(`✅ Direct session saved: ${kasinaType} for ${minutes} minutes`);
+        res.status(201).json({
+          id: dbSession.id.toString(),
+          userEmail: dbSession.user_email,
+          kasinaType: dbSession.kasina_type,
+          kasinaName: dbSession.kasina_name,
+          duration: dbSession.duration_seconds,
+          timestamp: dbSession.session_date.toISOString()
+        });
+      } else {
+        throw new Error('Failed to save session to database');
+      }
+    } catch (error) {
+      console.error('Error saving direct session:', error);
+      res.status(500).json({ message: "Failed to save session" });
+    }
+  });
+
   // CSV Upload endpoint for PostgreSQL database
   app.post("/api/admin/upload-whitelist", isAdmin, (req, res) => {
     upload.single("csv")(req, res, async (err) => {
