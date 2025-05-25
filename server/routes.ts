@@ -30,65 +30,16 @@ export function registerRoutes(app: Express): Server {
     // Get email from session if available
     const userEmail = req.session?.user?.email;
     
-    // Allow if admin
-    if (userEmail && adminEmails.includes(userEmail)) {
-      next();
-    } else {
-      res.status(403).json({ message: "Unauthorized: Admin access required" });
+    if (!userEmail) {
+      return res.status(401).json({ message: "Authentication required" });
     }
+    
+    if (!adminEmails.includes(userEmail)) {
+      return res.status(403).json({ message: "Admin access required" });
+    }
+    
+    next();
   };
-  
-  // Get whitelist with member data - NOW USING POSTGRESQL DATABASE
-  app.get(
-    "/api/admin/whitelist",
-    isAdmin,
-    async (req, res) => {
-      try {
-        // Get all users with their practice stats from PostgreSQL database
-        const usersWithStats = await getAllUsersWithStats();
-        
-        // Calculate total practice time across all users
-        const totalPracticeTimeSeconds = usersWithStats.reduce((total, user) => {
-          return total + user.practiceStats.totalSeconds;
-        }, 0);
-        
-        // Format total practice time
-        const totalHours = Math.floor(totalPracticeTimeSeconds / 3600);
-        const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
-        const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
-        
-        // Transform database users to match expected admin page format
-        const members = usersWithStats.map(user => {
-          const hours = Math.floor(user.practiceStats.totalSeconds / 3600);
-          const minutes = Math.floor((user.practiceStats.totalSeconds % 3600) / 60);
-          
-          return {
-            email: user.email,
-            name: user.name || "",
-            status: user.subscription_type === 'admin' ? 'Admin' : 
-                   user.subscription_type === 'premium' ? 'Premium' : 'Freemium',
-            practiceTimeSeconds: user.practiceStats.totalSeconds,
-            practiceTimeFormatted: `${hours}h ${minutes}m`
-          };
-        });
-        
-        console.log(`Retrieved ${members.length} users from PostgreSQL database`);
-        
-        return res.status(200).json({ 
-          members,
-          total: members.length,
-          totalPracticeTimeSeconds,
-          totalPracticeTimeFormatted
-        });
-      } catch (error) {
-        console.error("Error retrieving user data from database:", error);
-        return res.status(500).json({ 
-          message: "Failed to retrieve user data",
-          error: error instanceof Error ? error.message : "Unknown error" 
-        });
-      }
-    }
-  );
 
   // Sessions routes - protected by authentication
   app.get("/api/sessions", async (req, res) => {
@@ -115,62 +66,6 @@ export function registerRoutes(app: Express): Server {
     } catch (error) {
       console.error('Error getting user sessions:', error);
       res.status(500).json({ message: "Failed to retrieve sessions" });
-    }
-  });
-
-  // Basic authentication routes
-  app.post("/api/auth/login", async (req, res) => {
-    const { email } = req.body;
-    
-    if (!email) {
-      return res.status(400).json({ message: "Email is required" });
-    }
-    
-    try {
-      // Check if user exists in database
-      const user = await getUserByEmail(email);
-      if (!user) {
-        return res.status(401).json({ message: "User not found" });
-      }
-      
-      // Store user in session
-      req.session.user = { email: user.email };
-      
-      res.json({ 
-        message: "Login successful",
-        user: { 
-          email: user.email,
-          subscriptionType: user.subscription_type 
-        }
-      });
-    } catch (error) {
-      console.error("Login error:", error);
-      res.status(500).json({ message: "Login failed" });
-    }
-  });
-
-  app.get("/api/auth/me", async (req, res) => {
-    if (!req.session?.user?.email) {
-      return res.status(401).json({ message: "Not authenticated" });
-    }
-    
-    try {
-      const user = await getUserByEmail(req.session.user.email);
-      if (!user) {
-        return res.status(401).json({ message: "User not found" });
-      }
-      
-      res.json({ 
-        email: user.email,
-        subscriptionType: user.subscription_type,
-        user: {
-          email: user.email,
-          subscriptionType: user.subscription_type 
-        }
-      });
-    } catch (error) {
-      console.error("Auth check error:", error);
-      res.status(500).json({ message: "Authentication check failed" });
     }
   });
 
@@ -289,7 +184,7 @@ export function registerRoutes(app: Express): Server {
       }
 
       const userType = (req.body.userType as 'freemium' | 'premium' | 'admin') || 'freemium';
-      console.log(`Uploading whitelist for user type: ${userType}`);
+      console.log(`Processing CSV upload for user type: ${userType}`);
 
       // Parse CSV data
       const records = parse(req.file.buffer, {
@@ -298,144 +193,50 @@ export function registerRoutes(app: Express): Server {
         trim: true,
       });
 
-      if (!records || records.length === 0) {
-        throw new Error("No data found in the CSV file");
-      }
+      console.log(`Found ${records.length} records in CSV`);
 
-      // Find email column
-      const firstRecord = records[0];
-      const possibleEmailColumns = [
-        "Email", "email", "EmailAddress", "Email Address", 
-        "email_address", "e-mail", "User Email"
-      ];
-
-      let emailColumnName: string | null = null;
-      for (const colName of possibleEmailColumns) {
-        if (firstRecord[colName] !== undefined) {
-          emailColumnName = colName;
-          break;
-        }
-      }
-
-      if (!emailColumnName) {
-        // Try to find any column that might contain an email
-        for (const key of Object.keys(firstRecord)) {
-          const value = firstRecord[key];
-          if (typeof value === 'string' && value.includes('@')) {
-            emailColumnName = key;
-            break;
-          }
-        }
-      }
-
-      if (!emailColumnName) {
-        throw new Error("No email column found in CSV file");
-      }
-
-      // Extract emails and names
-      const usersToAdd = [];
+      let processedCount = 0;
       for (const record of records) {
-        const email = record[emailColumnName]?.trim();
-        if (email && email.includes('@')) {
-          const name = record['Name'] || record['name'] || record['Full Name'] || record['fullName'] || null;
-          usersToAdd.push({
-            email,
-            name: name?.trim() || null,
-            subscriptionType: userType
-          });
+        try {
+          // Handle multiple possible email column names
+          const email = record['Email']?.trim() || 
+                       record['email']?.trim() || 
+                       record['EmailAddress']?.trim() || 
+                       record['Email Address']?.trim();
+          
+          // Handle multiple possible name column names
+          const name = record['Name']?.trim() || 
+                      record['name']?.trim() || 
+                      record['Full Name']?.trim() || 
+                      record['fullName']?.trim();
+          
+          if (email && email.includes('@')) {
+            console.log(`Adding ${userType} user: ${email} - ${name || 'No name'}`);
+            const result = await upsertUser(email, name || null, userType);
+            if (result) {
+              processedCount++;
+            }
+          }
+        } catch (error) {
+          console.error(`Error processing user:`, error);
         }
       }
 
-      if (usersToAdd.length === 0) {
-        throw new Error("No valid email addresses found in CSV file");
-      }
-
-      // Bulk insert/update users in database
-      const result = await bulkUpsertUsers(usersToAdd);
-      
-      console.log(`Successfully processed ${usersToAdd.length} users for ${userType} subscription`);
+      console.log(`Successfully processed ${processedCount} users`);
 
       return res.status(200).json({ 
         message: `${userType.charAt(0).toUpperCase() + userType.slice(1)} whitelist updated successfully`, 
-        count: usersToAdd.length,
+        count: processedCount,
         userType
       });
 
     } catch (error) {
-      console.error("Error processing whitelist upload:", error);
+      console.error("Error processing CSV upload:", error);
       return res.status(500).json({ 
         message: "Failed to process the uploaded CSV file",
         error: error instanceof Error ? error.message : "Unknown error" 
       });
     }
-  });
-
-  // Working CSV Upload endpoint for PostgreSQL database
-  app.post("/api/admin/upload-whitelist-new", isAdmin, (req, res) => {
-    uploadMiddleware(req, res, async (err) => {
-      if (err) {
-        return res.status(400).json({ message: "File upload error" });
-      }
-
-      try {
-        if (!req.file) {
-          return res.status(400).json({ message: "No CSV file uploaded" });
-        }
-
-        const userType = (req.body.userType as 'freemium' | 'premium' | 'admin') || 'freemium';
-        console.log(`Processing CSV upload for user type: ${userType}`);
-
-        // Parse CSV data
-        const records = parse(req.file.buffer, {
-          columns: true,
-          skip_empty_lines: true,
-          trim: true,
-        });
-
-        console.log(`Found ${records.length} records in CSV`);
-
-        let processedCount = 0;
-        for (const record of records) {
-          try {
-            // Handle multiple possible email column names
-            const email = record['Email']?.trim() || 
-                         record['email']?.trim() || 
-                         record['EmailAddress']?.trim() || 
-                         record['Email Address']?.trim();
-            
-            // Handle multiple possible name column names
-            const name = record['Name']?.trim() || 
-                        record['name']?.trim() || 
-                        record['Full Name']?.trim() || 
-                        record['fullName']?.trim();
-            
-            if (email && email.includes('@')) {
-              console.log(`Adding ${userType} user: ${email} - ${name || 'No name'}`);
-              const result = await upsertUser(email, name || null, userType);
-              if (result) {
-                processedCount++;
-              }
-            }
-          } catch (error) {
-            console.error(`Error processing user:`, error);
-          }
-        }
-
-        console.log(`Successfully processed ${processedCount} users`);
-
-        return res.status(200).json({ 
-          message: `${userType.charAt(0).toUpperCase() + userType.slice(1)} whitelist updated successfully`, 
-          count: processedCount,
-          userType
-        });
-
-      } catch (error) {
-        console.error("Error processing CSV upload:", error);
-        return res.status(500).json({ 
-          message: "Failed to process the uploaded CSV file",
-          error: error instanceof Error ? error.message : "Unknown error" 
-        });
-      }
   });
 
   // Create HTTP server
