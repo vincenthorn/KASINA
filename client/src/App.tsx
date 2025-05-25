@@ -11,7 +11,7 @@ import SessionRecovery from "./components/SessionRecovery";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import KasinasPage from "./pages/KasinasPage";
-import RecordingPage from "./pages/RecordingPage";
+
 import MeditationPage from "./pages/MeditationPage";
 import ReflectionPage from "./pages/ReflectionPage";
 import AdminPage from "./pages/AdminPage";
@@ -89,16 +89,7 @@ function App() {
                   </AuthenticatedRoute>
                 }
               />
-              <Route
-                path="/recording"
-                element={
-                  <AdminOnlyRoute>
-                    <ErrorBoundary>
-                      <RecordingPage />
-                    </ErrorBoundary>
-                  </AdminOnlyRoute>
-                }
-              />
+
               <Route
                 path="/meditation"
                 element={
