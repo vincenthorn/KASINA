@@ -41,6 +41,58 @@ export function registerRoutes(app: Express): Server {
     next();
   };
 
+  // Basic authentication routes
+  app.post("/api/auth/login", async (req, res) => {
+    const { email } = req.body;
+    
+    if (!email) {
+      return res.status(400).json({ message: "Email is required" });
+    }
+    
+    try {
+      // Check if user exists in database
+      const user = await getUserByEmail(email);
+      if (!user) {
+        return res.status(401).json({ message: "User not found" });
+      }
+      
+      // Store user in session
+      req.session.user = { email: user.email };
+      
+      res.json({ 
+        message: "Login successful",
+        user: { 
+          email: user.email,
+          subscriptionType: user.subscription_type 
+        }
+      });
+    } catch (error) {
+      console.error("Login error:", error);
+      res.status(500).json({ message: "Login failed" });
+    }
+  });
+
+  app.get("/api/auth/me", async (req, res) => {
+    if (!req.session?.user?.email) {
+      return res.status(401).json({ message: "Not authenticated" });
+    }
+    
+    try {
+      const user = await getUserByEmail(req.session.user.email);
+      if (!user) {
+        return res.status(401).json({ message: "User not found" });
+      }
+      
+      res.json({ 
+        email: user.email,
+        subscriptionType: user.subscription_type 
+      });
+    } catch (error) {
+      console.error("Auth check error:", error);
+      res.status(500).json({ message: "Authentication check failed" });
+    }
+  });
+
   // Sessions routes - protected by authentication
   app.get("/api/sessions", async (req, res) => {
     if (!req.session?.user?.email) {
