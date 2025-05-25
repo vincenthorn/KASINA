@@ -22,13 +22,6 @@ const HomePage: React.FC = () => {
       path: "/kasinas",
       color: "from-red-600 to-red-800",
     },
-    {
-      icon: <BarChart className="h-10 w-10" style={{ color: "#FFFF00" }} />,
-      title: "Reflect",
-      description: "Track your practice progress and view your meditation history.",
-      path: "/reflection",
-      color: "from-yellow-400 to-yellow-600",
-    },
   ];
   
   // Features only available to admin users
@@ -46,6 +39,13 @@ const HomePage: React.FC = () => {
       description: "Learn with guided meditations and community resources.",
       path: "/meditation",
       color: "from-purple-600 to-purple-800",
+    },
+    {
+      icon: <BarChart className="h-10 w-10" style={{ color: "#FFFF00" }} />,
+      title: "Reflect",
+      description: "Track your practice progress and view your meditation history.",
+      path: "/reflection",
+      color: "from-yellow-400 to-yellow-600",
     },
 
   ];

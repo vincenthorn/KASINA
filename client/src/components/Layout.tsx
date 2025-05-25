@@ -26,13 +26,13 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   const baseNavItems = [
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
-    { path: "/reflection", label: "Reflect", icon: <BarChart className="w-5 h-5" /> },
   ];
   
   // Admin-only navigation items
   const adminNavItems = [
     { path: "/breath", label: "Breath", icon: <Wind className="w-5 h-5" /> },
     { path: "/meditation", label: "Learn", icon: <BookOpen className="w-5 h-5" /> },
+    { path: "/reflection", label: "Reflect", icon: <BarChart className="w-5 h-5" /> },
   ];
   
   // Combine items based on user role
