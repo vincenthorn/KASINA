@@ -40,91 +40,70 @@ const ReflectionPage: React.FC = () => {
   useEffect(() => {
     const fetchSessions = async () => {
       setIsLoading(true);
-      let combinedSessions: Session[] = [];
+      let sessions: Session[] = [];
       
       console.log("================================");
-      console.log("REFRESHING SESSIONS");
+      console.log("LOADING SESSIONS FROM DATABASE");
       console.log("Refresh counter:", refreshCounter);
       console.log("Current user:", email);
       console.log("================================");
       
-      // Get local sessions first - prioritize these
-      try {
-        // Force direct window reference to avoid any scope issues
-        const localStorageSessions = window.localStorage.getItem("sessions");
-        console.log("Raw localStorage value:", localStorageSessions);
-        
-        if (localStorageSessions) {
-          try {
-            const localSessions = JSON.parse(localStorageSessions);
-            console.log("Parsed local sessions:", localSessions);
-            
-            if (Array.isArray(localSessions) && localSessions.length > 0) {
-              // Filter to only include sessions for the current user (or sessions with no user)
-              const userSessions = localSessions.filter(session => 
-                !session.userEmail || // Include orphaned sessions with no user
-                session.userEmail === email // Include sessions for current user
-              );
-              
-              // Ensure all sessions have kasinaName
-              const formattedLocalSessions = userSessions.map(session => ({
-                ...session,
-                kasinaName: session.kasinaName || KASINA_NAMES[session.kasinaType] || session.kasinaType,
-                userEmail: email // Assign current user to orphaned sessions
-              }));
-              
-              combinedSessions = [...formattedLocalSessions];
-              console.log("Added local sessions:", formattedLocalSessions.length);
-              
-              // Show notification if we found sessions
-              if (formattedLocalSessions.length > 0) {
-                toast.success(`Found ${formattedLocalSessions.length} sessions in local storage`);
-              }
-            } else {
-              console.warn("Local sessions is not an array or is empty:", localSessions);
-            }
-          } catch (parseError) {
-            console.error("Failed to parse local sessions JSON:", parseError);
-            toast.error("Error parsing local sessions data");
-          }
-        } else {
-          console.log("No sessions found in localStorage");
-        }
-      } catch (localError) {
-        console.error("Error accessing localStorage:", localError);
-      }
-      
-      // Now try to get server sessions - these will already be filtered by user
+      // Primary: Load sessions from database
       if (email) {
         try {
           const response = await apiRequest("GET", "/api/sessions", undefined);
           const serverSessions = await response.json();
-          console.log("Fetched server sessions:", serverSessions);
+          console.log("Fetched database sessions:", serverSessions.length);
           
           if (Array.isArray(serverSessions) && serverSessions.length > 0) {
-            // Avoid duplicates by checking IDs
-            const existingIds = new Set(combinedSessions.map(s => s.id));
-            const uniqueServerSessions = serverSessions.filter(s => !existingIds.has(s.id));
-            
-            if (uniqueServerSessions.length > 0) {
-              combinedSessions = [...combinedSessions, ...uniqueServerSessions];
-              console.log("Added server sessions:", uniqueServerSessions.length);
-            }
+            sessions = serverSessions;
+            console.log("✅ Successfully loaded sessions from database");
+          } else {
+            console.log("No sessions found in database");
           }
-        } catch (error) {
-          console.warn("Failed to fetch sessions from server:", error);
+        } catch (serverError) {
+          console.error("❌ Error fetching database sessions:", serverError);
+          
+          // Fallback: Try to load emergency backup sessions from localStorage only if database fails
+          console.log("🔄 Database failed, checking emergency backup...");
+          try {
+            const localStorageSessions = window.localStorage.getItem("sessions");
+            
+            if (localStorageSessions) {
+              const localSessions = JSON.parse(localStorageSessions);
+              
+              if (Array.isArray(localSessions) && localSessions.length > 0) {
+                const userSessions = localSessions.filter(session => 
+                  !session.userEmail || session.userEmail === email
+                );
+                
+                const formattedLocalSessions = userSessions.map(session => ({
+                  ...session,
+                  kasinaName: session.kasinaName || KASINA_NAMES[session.kasinaType] || session.kasinaType,
+                  userEmail: email
+                }));
+                
+                sessions = formattedLocalSessions;
+                console.log("📱 Using emergency backup sessions:", sessions.length);
+                toast.info(`Using ${sessions.length} backup sessions (database temporarily unavailable)`);
+              }
+            }
+          } catch (localError) {
+            console.error("❌ Emergency backup also failed:", localError);
+            toast.error("Unable to load sessions from database or backup");
+          }
         }
       }
       
       // Sort sessions by timestamp (newest first)
-      combinedSessions.sort((a, b) => {
+      sessions.sort((a, b) => {
         return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
       });
       
-      console.log("Final combined sessions:", combinedSessions);
+      console.log("Final sessions loaded:", sessions.length);
       console.log("================================");
       
-      setSessions(combinedSessions);
+      setSessions(sessions);
       setIsLoading(false);
     };
 
@@ -138,9 +117,12 @@ const ReflectionPage: React.FC = () => {
   }, [refreshCounter, email]);
 
   const clearLocalSessions = () => {
-    if (window.confirm("Are you sure you want to clear your locally stored sessions? This can't be undone.")) {
+    if (window.confirm("Clear emergency backup sessions from local storage? (Database sessions are not affected)")) {
       localStorage.removeItem("sessions");
-      window.location.reload();
+      localStorage.removeItem("lastSessionBackup");
+      localStorage.removeItem("sessionBackupStatus");
+      toast.success("Emergency backup data cleared");
+      refresh();
     }
   };
 
@@ -162,60 +144,38 @@ const ReflectionPage: React.FC = () => {
               {/* Only show in development environment - hidden in production */}
               {process.env.NODE_ENV === 'development' && (
                 <button 
-                  onClick={() => {
+                  onClick={async () => {
                     // Ask which kasina type to test with
-                    const kasinaType = prompt("Enter kasina type to test (e.g., fire, water, blue):", "");
+                    const kasinaType = prompt("Enter kasina type to test (e.g., fire, water, blue):", "blue");
                     if (!kasinaType) return;
                     
                     // Ask for duration
-                    const durationInput = prompt("Enter duration in seconds:", "60");
-                    const duration = parseInt(durationInput || "60", 10);
+                    const durationInput = prompt("Enter duration in minutes:", "1");
+                    const minutes = parseInt(durationInput || "1", 10);
                     
                     try {
-                      // Test direct localStorage access with user specified values
-                      const testSession = {
-                        id: Date.now().toString(),
-                        kasinaType: kasinaType, 
-                        kasinaName: KASINA_NAMES[kasinaType] || kasinaType, 
-                        duration: duration,
-                        timestamp: new Date().toISOString()
-                      };
+                      // Use the proper session logger to test database integration
+                      const { useSessionLogger } = await import('../lib/stores/useSessionLogger');
+                      const success = await useSessionLogger.getState().logSession({
+                        kasinaType: kasinaType as any,
+                        duration: minutes * 60,
+                        showToast: true
+                      });
                       
-                      // Try to get existing sessions
-                      let existingSessions = [];
-                      try {
-                        const storedSessions = window.localStorage.getItem("sessions");
-                        if (storedSessions) {
-                          existingSessions = JSON.parse(storedSessions);
-                          if (!Array.isArray(existingSessions)) {
-                            console.error("Stored sessions is not an array:", existingSessions);
-                            existingSessions = [];
-                          }
-                        }
-                      } catch (e) {
-                        console.error("Error reading from localStorage:", e);
+                      if (success) {
+                        toast.success(`Test ${kasinaType} session saved to database (${minutes}m)`);
+                        refresh();
+                      } else {
+                        toast.error("Failed to save test session to database");
                       }
-                      
-                      // Add test session
-                      existingSessions.push(testSession);
-                      
-                      // Write back to localStorage
-                      window.localStorage.setItem("sessions", JSON.stringify(existingSessions));
-                      
-                      // Verify it got saved
-                      const verification = window.localStorage.getItem("sessions");
-                      console.log("LOCAL STORAGE TEST - Saved sessions:", verification);
-                      
-                      toast.success(`Test ${kasinaType} session added (${duration}s)`);
-                      refresh();
                     } catch (e) {
-                      console.error("LocalStorage test failed:", e);
-                      toast.error("LocalStorage test failed: " + e);
+                      console.error("Database test failed:", e);
+                      toast.error("Database test failed: " + e);
                     }
                   }}
                   className="text-xs text-gray-400 bg-gray-800 hover:bg-gray-700 rounded px-2 py-1"
                 >
-                  Debug Storage
+                  Test Database
                 </button>
               )}
               <button 
