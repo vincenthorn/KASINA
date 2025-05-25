@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import { Card, CardContent } from "../components/ui/card";
-import { Video, BookOpen, BarChart, Wind } from "lucide-react";
+import { BookOpen, BarChart, Wind } from "lucide-react";
 import Logo from "../components/Logo";
 import { useAuth } from "../lib/stores/useAuth";
 
@@ -47,13 +47,7 @@ const HomePage: React.FC = () => {
       path: "/meditation",
       color: "from-purple-600 to-purple-800",
     },
-    {
-      icon: <Video className="h-10 w-10 text-blue-500" />,
-      title: "Recording",
-      description: "Record your meditation sessions to revisit and share your practice.",
-      path: "/recording",
-      color: "from-blue-600 to-blue-800",
-    },
+
   ];
   
   // Combine features based on user role
