@@ -125,15 +125,21 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   const totalTimePracticed = calculateTotalTimePracticed();
   
   // Format total time for display
-  const formatTotalTime = (seconds: number) => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
+  const timeFormatted = (() => {
+    const hours = Math.floor(totalTimePracticed / 3600);
+    const minutes = Math.floor((totalTimePracticed % 3600) / 60);
     
     if (hours > 0) {
-      return `${hours} hour${hours !== 1 ? 's' : ''}`;
+      return {
+        value: hours,
+        unit: `hour${hours !== 1 ? 's' : ''}`
+      };
     }
-    return `${minutes} minute${minutes !== 1 ? 's' : ''}`;
-  };
+    return {
+      value: minutes,
+      unit: `minute${minutes !== 1 ? 's' : ''}`
+    };
+  })();
   
   // Generate calendar grid
   const calendarDays = [];
@@ -272,7 +278,7 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
               <span className="text-blue-400 text-2xl mr-2">🗓️</span>
               {totalDaysPracticed}
             </div>
-            <div className="text-sm text-blue-300">days practiced</div>
+            <div className="text-sm text-blue-300">{totalDaysPracticed === 1 ? 'day' : 'days'} practiced</div>
           </div>
         </div>
         
@@ -281,9 +287,9 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
           <div className="text-center">
             <div className="text-2xl font-bold text-green-400 flex items-center justify-center mb-1">
               <span className="text-green-400 text-2xl mr-2">⏱️</span>
-              {formatTotalTime(totalTimePracticed)}
+              {timeFormatted.value}
             </div>
-            <div className="text-sm text-green-300">practiced</div>
+            <div className="text-sm text-green-300">{timeFormatted.unit} practiced</div>
           </div>
         </div>
       </div>
