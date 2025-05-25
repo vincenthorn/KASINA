@@ -57,7 +57,8 @@ const TimerKasinas: React.FC = () => {
     'brian@terma.asia',   // Premium users
     'emilywhorn@gmail.com',
     'ryan@ryanoelke.com',
-    'ksowocki@gmail.com'
+    'ksowocki@gmail.com',
+    'lisashermanavl@gmail.com' // Additional premium user
   ];
   
   // Check if current user is premium
