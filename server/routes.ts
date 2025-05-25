@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import multer from "multer";
 import { parse } from "csv-parse/sync";
+import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser } from "./db";
 
 // Extend the Express Request type to include session
 declare module "express-session" {
@@ -39,63 +40,14 @@ async function ensureWhitelistFile(filePath: string, protectedEmails: string[]):
   }
 }
 
-// Helper to read whitelist CSV (from all three whitelists)
+// Helper to read whitelist from PostgreSQL database
 async function readWhitelist(): Promise<string[]> {
   try {
-    // Define protected user emails for each user type
-    const adminProtectedEmails = ["admin@kasina.app"];
-    const premiumProtectedEmails = [
-      "premium@kasina.app", // Test premium account
-      "brian@terma.asia", 
-      "emilywhorn@gmail.com", 
-      "ryan@ryanoelke.com",
-      "ksowocki@gmail.com"
-    ];
-    const freemiumProtectedEmails = ["user@kasina.app"];
-    
-    // Ensure all whitelist files exist
-    await Promise.all([
-      ensureWhitelistFile(adminWhitelistPath, adminProtectedEmails),
-      ensureWhitelistFile(premiumWhitelistPath, premiumProtectedEmails),
-      ensureWhitelistFile(freemiumWhitelistPath, freemiumProtectedEmails),
-      ensureWhitelistFile(whitelistPath, [...adminProtectedEmails, ...premiumProtectedEmails, ...freemiumProtectedEmails]) // Legacy file
-    ]);
-    
-    // Read all whitelist files
-    const [adminData, premiumData, freemiumData, legacyData] = await Promise.all([
-      fs.promises.readFile(adminWhitelistPath, "utf-8"),
-      fs.promises.readFile(premiumWhitelistPath, "utf-8"),
-      fs.promises.readFile(freemiumWhitelistPath, "utf-8"),
-      fs.promises.readFile(whitelistPath, "utf-8")
-    ]);
-    
-    // Parse CSVs from all files
-    const parseFileData = (data: string): string[] => {
-      return data
-        .split("\n")
-        .map(line => line.trim())
-        .filter(line => line && !line.startsWith("#") && line !== "email"); // Skip header and comments
-    };
-    
-    const adminEmails = parseFileData(adminData);
-    const premiumEmails = parseFileData(premiumData);
-    const freemiumEmails = parseFileData(freemiumData);
-    const legacyEmails = parseFileData(legacyData);
-    
-    // Merge all emails, removing duplicates
-    const allProtectedEmails = [...adminProtectedEmails, ...premiumProtectedEmails, ...freemiumProtectedEmails];
-    const allEmails = Array.from(new Set([
-      ...adminEmails, 
-      ...premiumEmails, 
-      ...freemiumEmails, 
-      ...legacyEmails, // Include legacy emails for backward compatibility
-      ...allProtectedEmails // Always ensure protected emails are included
-    ]));
-    
-    return allEmails;
+    const users = await getAllUsers();
+    return users.map(user => user.email);
   } catch (error) {
-    console.error("Error reading whitelists:", error);
-    // Return protected emails as fallback when files can't be read
+    console.error("Error reading whitelist from database:", error);
+    // Return core protected emails as fallback
     return [
       "admin@kasina.app",
       "premium@kasina.app",
@@ -103,7 +55,8 @@ async function readWhitelist(): Promise<string[]> {
       "brian@terma.asia", 
       "emilywhorn@gmail.com", 
       "ryan@ryanoelke.com",
-      "ksowocki@gmail.com"
+      "ksowocki@gmail.com",
+      "lisashermanavl@gmail.com"
     ];
   }
 }
