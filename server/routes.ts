@@ -1017,14 +1017,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Email is required" });
       }
       
-      // Check whitelist
-      const whitelist = await readWhitelist();
-      const isWhitelisted = whitelist.includes(email.trim().toLowerCase());
+      // Check if user exists in database
+      const user = await getUserByEmail(email.trim());
       
-      if (isWhitelisted) {
+      if (user) {
         // Store user in session
         if (req.session) {
-          req.session.user = { email: email.trim().toLowerCase() };
+          req.session.user = { email: user.email };
           await new Promise<void>((resolve, reject) => {
             req.session.save((err) => {
               if (err) reject(err);
@@ -1033,10 +1032,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
           });
         }
         
-        // Return successful response
+        // Return successful response with user data
         return res.status(200).json({ 
           message: "Login successful",
-          user: { email } 
+          user: { 
+            email: user.email,
+            name: user.name,
+            subscription: user.subscription_type
+          }
         });
       } else {
         return res.status(403).json({ 
