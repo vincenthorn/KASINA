@@ -34,18 +34,18 @@ const HomePage: React.FC = () => {
       color: "from-blue-600 to-blue-800",
     },
     {
-      icon: <BookOpen className="h-10 w-10" style={{ color: "#FFFF00" }} />,
-      title: "Learn",
-      description: "Learn with guided meditations and community resources.",
-      path: "/meditation",
-      color: "from-yellow-400 to-yellow-600",
-    },
-    {
       icon: <BarChart className="h-10 w-10 text-white" />,
       title: "Reflect",
       description: "Track your practice progress and view your meditation history.",
       path: "/reflection",
       color: "from-gray-300 to-gray-500",
+    },
+    {
+      icon: <BookOpen className="h-10 w-10" style={{ color: "#FFFF00" }} />,
+      title: "Learn",
+      description: "Learn with guided meditations and community resources.",
+      path: "/meditation",
+      color: "from-yellow-400 to-yellow-600",
     },
 
   ];
