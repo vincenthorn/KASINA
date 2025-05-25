@@ -584,7 +584,7 @@ const AdminPage: React.FC = () => {
               Upload User Whitelist
             </CardTitle>
             <CardDescription className="text-indigo-200">
-              Upload a new CSV file with approved user emails. This will replace the existing whitelist.
+              Upload CSV files to ADD new users to your database. Existing users are preserved - no data is ever removed.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -673,6 +673,7 @@ const AdminPage: React.FC = () => {
                   <p className="text-sm text-indigo-200/80">
                     The CSV file should include an "Email" column with user email addresses. 
                     A "Name" column is also supported for displaying member names.
+                    <strong className="text-green-300"> Only NEW users will be added - existing users are safely preserved.</strong>
                   </p>
                 </div>
               </div>

@@ -157,6 +157,106 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // CSV Upload endpoint - ADDITIVE ONLY (preserves existing users)
+  app.post("/api/admin/upload-whitelist-new", checkAdmin, upload.single("csv"), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: "No CSV file uploaded" });
+      }
+
+      const userType = (req.body.userType as 'freemium' | 'premium' | 'admin') || 'freemium';
+      console.log(`📥 ADDITIVE CSV upload for user type: ${userType}`);
+
+      // Parse CSV data
+      const records = parse(req.file.buffer, {
+        columns: true,
+        skip_empty_lines: true,
+        trim: true,
+      });
+
+      if (!records || records.length === 0) {
+        throw new Error("No data found in the CSV file");
+      }
+
+      // Find email column
+      const firstRecord = records[0];
+      const possibleEmailColumns = [
+        "Email", "email", "EmailAddress", "Email Address", 
+        "email_address", "e-mail", "User Email"
+      ];
+
+      let emailColumnName: string | null = null;
+      for (const colName of possibleEmailColumns) {
+        if (firstRecord[colName] !== undefined) {
+          emailColumnName = colName;
+          break;
+        }
+      }
+
+      if (!emailColumnName) {
+        // Try to find any column that might contain an email
+        for (const key of Object.keys(firstRecord)) {
+          const value = firstRecord[key];
+          if (typeof value === 'string' && value.includes('@')) {
+            emailColumnName = key;
+            break;
+          }
+        }
+      }
+
+      if (!emailColumnName) {
+        throw new Error("No email column found in CSV file");
+      }
+
+      // Extract emails and names for additive-only insertion
+      const usersToAdd = [];
+      let skippedExisting = 0;
+      
+      for (const record of records) {
+        const email = record[emailColumnName]?.trim();
+        if (email && email.includes('@')) {
+          // Check if user already exists (additive-only approach)
+          const existingUser = await getUserByEmail(email);
+          if (existingUser) {
+            skippedExisting++;
+            console.log(`⏭️ Skipping existing user: ${email}`);
+            continue;
+          }
+          
+          const name = record['Name'] || record['name'] || record['Full Name'] || record['fullName'] || null;
+          usersToAdd.push({
+            email,
+            name: name?.trim() || null,
+            subscriptionType: userType
+          });
+        }
+      }
+
+      if (usersToAdd.length === 0 && skippedExisting === 0) {
+        throw new Error("No valid email addresses found in CSV file");
+      }
+
+      // Bulk insert NEW users only (preserves all existing users)
+      const result = await bulkUpsertUsers(usersToAdd);
+      
+      console.log(`✅ Added ${usersToAdd.length} new users, skipped ${skippedExisting} existing users`);
+
+      return res.status(200).json({ 
+        message: `Added ${usersToAdd.length} new ${userType} users (${skippedExisting} already existed)`, 
+        count: usersToAdd.length,
+        skipped: skippedExisting,
+        userType
+      });
+
+    } catch (error) {
+      console.error("Error processing additive CSV upload:", error);
+      return res.status(500).json({ 
+        message: "Failed to process the uploaded CSV file",
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+
   // Sessions routes - protected by authentication
   app.get("/api/sessions", async (req, res) => {
     if (!req.session?.user?.email) {
