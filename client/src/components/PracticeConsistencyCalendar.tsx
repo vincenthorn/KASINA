@@ -117,6 +117,24 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   
   const totalDaysPracticed = calculateTotalDaysPracticed();
   
+  // Calculate total time practiced across all sessions
+  const calculateTotalTimePracticed = () => {
+    return sessions.reduce((total, session) => total + session.duration, 0);
+  };
+  
+  const totalTimePracticed = calculateTotalTimePracticed();
+  
+  // Format total time for display
+  const formatTotalTime = (seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    
+    if (hours > 0) {
+      return `${hours} hour${hours !== 1 ? 's' : ''}`;
+    }
+    return `${minutes} minute${minutes !== 1 ? 's' : ''}`;
+  };
+  
   // Generate calendar grid
   const calendarDays = [];
   
@@ -236,15 +254,7 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
       
       {/* Bottom cards row */}
       <div className="grid grid-cols-3 gap-4 mt-6">
-        {/* Placeholder card */}
-        <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-4">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-400 mb-1">-</div>
-            <div className="text-sm text-gray-500">Coming Soon</div>
-          </div>
-        </div>
-        
-        {/* Streak card - moved to center */}
+        {/* Streak card - moved to left */}
         <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg border border-orange-500/30 p-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-orange-400 flex items-center justify-center mb-1">
@@ -255,7 +265,7 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
           </div>
         </div>
         
-        {/* Total days practiced card */}
+        {/* Total days practiced card - moved to center */}
         <div className="bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-lg border border-blue-500/30 p-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-blue-400 flex items-center justify-center mb-1">
@@ -263,6 +273,17 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
               {totalDaysPracticed}
             </div>
             <div className="text-sm text-blue-300">days practiced</div>
+          </div>
+        </div>
+        
+        {/* Total time practiced card - new right card */}
+        <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 p-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-green-400 flex items-center justify-center mb-1">
+              <span className="text-green-400 text-2xl mr-2">⏱️</span>
+              {formatTotalTime(totalTimePracticed)}
+            </div>
+            <div className="text-sm text-green-300">practiced</div>
           </div>
         </div>
       </div>
