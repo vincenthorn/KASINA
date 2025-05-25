@@ -6,7 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import multer from "multer";
 import { parse } from "csv-parse/sync";
-import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser } from "./db";
+import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser, addSession, getUserSessions, getAllSessions, getUserPracticeStats, getAllUsersWithStats } from "./db";
 
 // Extend the Express Request type to include session
 declare module "express-session" {
@@ -1270,16 +1270,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   
   // Sessions routes - protected by authentication
-  app.get("/api/sessions", (req, res) => {
+  app.get("/api/sessions", async (req, res) => {
     if (!req.session?.user?.email) {
       return res.status(401).json({ message: "Authentication required" });
     }
     
-    // Filter sessions by user email
-    const userEmail = req.session.user.email;
-    const userSessions = sessions.filter(session => session.userEmail === userEmail);
-    
-    res.json(userSessions);
+    try {
+      // Get user sessions from database
+      const userEmail = req.session.user.email;
+      const userSessions = await getUserSessions(userEmail);
+      
+      // Transform to match expected format
+      const formattedSessions = userSessions.map(session => ({
+        id: session.id.toString(),
+        userEmail: session.user_email,
+        kasinaType: session.kasina_type,
+        kasinaName: session.kasina_name,
+        duration: session.duration_seconds,
+        timestamp: session.session_date.toISOString()
+      }));
+      
+      res.json(formattedSessions);
+    } catch (error) {
+      console.error('Error getting user sessions:', error);
+      res.status(500).json({ message: "Failed to retrieve sessions" });
+    }
   });
   
   app.post("/api/sessions", (req, res) => {
