@@ -23,13 +23,6 @@ const HomePage: React.FC = () => {
       color: "from-red-600 to-red-800",
     },
     {
-      icon: <Wind className="h-10 w-10 text-blue-500" />,
-      title: "Breath",
-      description: "Visualize your breath with interactive animations and guided patterns.",
-      path: "/breath",
-      color: "from-blue-600 to-blue-800",
-    },
-    {
       icon: <BarChart className="h-10 w-10" style={{ color: "#FFFF00" }} />,
       title: "Reflect",
       description: "Track your practice progress and view your meditation history.",
@@ -40,6 +33,13 @@ const HomePage: React.FC = () => {
   
   // Features only available to admin users
   const adminFeatures = [
+    {
+      icon: <Wind className="h-10 w-10 text-blue-500" />,
+      title: "Breath",
+      description: "Visualize your breath with interactive animations and guided patterns.",
+      path: "/breath",
+      color: "from-blue-600 to-blue-800",
+    },
     {
       icon: <BookOpen className="h-10 w-10 text-purple-500" />,
       title: "Meditation",
