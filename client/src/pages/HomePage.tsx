@@ -42,7 +42,7 @@ const HomePage: React.FC = () => {
     },
     {
       icon: <BookOpen className="h-10 w-10 text-purple-500" />,
-      title: "Meditation",
+      title: "Learn",
       description: "Learn with guided meditations and community resources.",
       path: "/meditation",
       color: "from-purple-600 to-purple-800",
