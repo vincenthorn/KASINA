@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import { Card, CardContent } from "../components/ui/card";
-import { BookOpen, BarChart, Wind } from "lucide-react";
+import { BookOpen, BarChart, Wind, Monitor } from "lucide-react";
 import Logo from "../components/Logo";
 import { useAuth } from "../lib/stores/useAuth";
 
@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
       color: "from-gray-300 to-gray-500",
     },
     {
-      icon: <BookOpen className="h-10 w-10" style={{ color: "#FFFF00" }} />,
+      icon: <Monitor className="h-10 w-10" style={{ color: "#FFFF00" }} />,
       title: "Learn",
       description: "Learn with guided meditations and community resources.",
       path: "/meditation",

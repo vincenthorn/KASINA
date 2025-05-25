@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
-import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle } from "lucide-react";
+import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle, Monitor } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   const adminNavItems = [
     { path: "/breath", label: "Breath", icon: <Wind className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflect", icon: <BarChart className="w-5 h-5" /> },
-    { path: "/meditation", label: "Learn", icon: <BookOpen className="w-5 h-5" /> },
+    { path: "/meditation", label: "Learn", icon: <Monitor className="w-5 h-5" /> },
   ];
   
   // Combine items based on user role
