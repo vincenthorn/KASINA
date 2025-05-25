@@ -93,6 +93,72 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Admin routes - restricted to admin users
+  const adminEmails = ["admin@kasina.app"];
+  
+  // Middleware to check if user is admin
+  const isAdmin = (req: Request, res: Response, next: NextFunction) => {
+    const userEmail = req.session?.user?.email;
+    
+    if (userEmail && adminEmails.includes(userEmail)) {
+      next();
+    } else {
+      res.status(403).json({ message: "Unauthorized: Admin access required" });
+    }
+  };
+
+  // Get whitelist with member data from PostgreSQL database
+  app.get("/api/admin/whitelist", isAdmin, async (req, res) => {
+    try {
+      // Get all users with their practice stats from PostgreSQL database
+      const usersWithStats = await getAllUsersWithStats();
+      
+      // Calculate total practice time across all users
+      const totalPracticeTimeSeconds = usersWithStats.reduce((total, user) => {
+        return total + user.practiceStats.totalSeconds;
+      }, 0);
+      
+      // Format total practice time
+      const totalHours = Math.floor(totalPracticeTimeSeconds / 3600);
+      const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
+      const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
+      
+      // Transform database users to match expected admin page format
+      const members = usersWithStats.map(user => {
+        const practiceHours = Math.floor(user.practiceStats.totalSeconds / 3600);
+        const practiceMinutes = Math.floor((user.practiceStats.totalSeconds % 3600) / 60);
+        const practiceTimeFormatted = `${practiceHours}h ${practiceMinutes}m`;
+        
+        let status = "Freemium";
+        if (adminEmails.includes(user.email)) {
+          status = "Admin";
+        } else if (user.subscription_type === 'premium') {
+          status = "Premium";
+        }
+        
+        return {
+          email: user.email,
+          name: user.name || "", // Use database name if available
+          practiceTimeSeconds: user.practiceStats.totalSeconds,
+          practiceTimeFormatted,
+          status
+        };
+      });
+      
+      res.json({
+        members,
+        totalPracticeTimeFormatted,
+        totalUsers: members.length,
+        freemiumUsers: members.filter(m => m.status === "Freemium").length,
+        premiumUsers: members.filter(m => m.status === "Premium").length,
+        adminUsers: members.filter(m => m.status === "Admin").length
+      });
+    } catch (error) {
+      console.error("Error fetching whitelist data:", error);
+      res.status(500).json({ message: "Failed to fetch whitelist data" });
+    }
+  });
+
   // Sessions routes - protected by authentication
   app.get("/api/sessions", async (req, res) => {
     if (!req.session?.user?.email) {
