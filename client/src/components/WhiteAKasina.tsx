@@ -9,15 +9,8 @@ const WhiteAKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
-  // Load the complete White A Thigle design (using PNG for better Three.js compatibility)
-  const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.jpeg');
-  
-  // Debug: log when texture loads
-  React.useEffect(() => {
-    if (whiteATexture) {
-      console.log('White A texture loaded:', whiteATexture);
-    }
-  }, [whiteATexture]);
+  // Load the Tibetan A letter - using a working SVG file
+  const aTexture = useTexture('/images/vajrayana/letter-a-thun.svg');
   
   // Store timer-related info for smooth counting
   const timerRef = React.useRef<{
@@ -96,14 +89,50 @@ const WhiteAKasina = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Complete White A Thigle design - try with different settings */}
+      {/* Blue outer circle */}
+      <mesh position={[0, 0, -0.006]}>
+        <circleGeometry args={[1.0, 64]} />
+        <meshBasicMaterial color="#0000ff" />
+      </mesh>
+      
+      {/* Yellow ring */}
+      <mesh position={[0, 0, -0.005]}>
+        <circleGeometry args={[0.85, 64]} />
+        <meshBasicMaterial color="#ffff00" />
+      </mesh>
+      
+      {/* Red ring */}
+      <mesh position={[0, 0, -0.004]}>
+        <circleGeometry args={[0.7, 64]} />
+        <meshBasicMaterial color="#ff0000" />
+      </mesh>
+      
+      {/* White ring */}
+      <mesh position={[0, 0, -0.003]}>
+        <circleGeometry args={[0.55, 64]} />
+        <meshBasicMaterial color="#ffffff" />
+      </mesh>
+      
+      {/* Green ring */}
+      <mesh position={[0, 0, -0.002]}>
+        <circleGeometry args={[0.4, 64]} />
+        <meshBasicMaterial color="#00ff00" />
+      </mesh>
+      
+      {/* Blue center */}
+      <mesh position={[0, 0, -0.001]}>
+        <circleGeometry args={[0.25, 64]} />
+        <meshBasicMaterial color="#0000ff" />
+      </mesh>
+      
+      {/* Tibetan A symbol */}
       <mesh position={[0, 0, 0]}>
-        <planeGeometry args={[2, 2]} />
+        <planeGeometry args={[0.8, 0.8]} />
         <meshBasicMaterial 
-          map={whiteATexture} 
+          map={aTexture} 
           transparent={true}
           opacity={1}
-          side={THREE.DoubleSide}
+          color="#ffffff"
         />
       </mesh>
     </group>
