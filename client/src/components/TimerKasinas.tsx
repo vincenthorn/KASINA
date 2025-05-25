@@ -45,24 +45,13 @@ const TimerKasinas: React.FC = () => {
   const { selectedKasina, customColor, setSelectedKasina, setCustomColor, addSession } = useKasina();
   const { enableFocusMode, disableFocusMode } = useFocusMode();
   const { timeRemaining, duration, isRunning } = useSimpleTimer();
-  const { email } = useAuth(); // Get user email to check if admin
+  const { email, subscriptionType } = useAuth(); // Get user email and subscription type
   
   // Check if user is admin or premium
   const isAdmin = email === "admin@kasina.app";
   
-  // Define premium users - these users get access to Vajrayana kasinas
-  const premiumEmails = [
-    'admin@kasina.app',   // Admin always has premium features
-    'premium@kasina.app', // Test premium account
-    'brian@terma.asia',   // Premium users
-    'emilywhorn@gmail.com',
-    'ryan@ryanoelke.com',
-    'ksowocki@gmail.com',
-    'lisashermanavl@gmail.com' // Additional premium user
-  ];
-  
-  // Check if current user is premium
-  const isPremium = email ? premiumEmails.includes(email) : false;
+  // Check if current user is premium based on their actual subscription status
+  const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
   
   // Add this ref to prevent multiple session saves
   const sessionSavedRef = useRef(false);
