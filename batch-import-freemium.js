@@ -62,12 +62,12 @@ async function batchImportFreemium(csvFilePath) {
     for (let i = 0; i < usersToInsert.length; i += chunkSize) {
       const chunk = usersToInsert.slice(i, i + chunkSize);
       
-      // Build bulk insert query
+      // Build bulk insert query with proper parameter numbering
       const values = [];
       const placeholders = [];
       
       chunk.forEach((user, index) => {
-        const baseIndex = index * 3;
+        const baseIndex = values.length;
         values.push(user.email, user.name, 'freemium');
         placeholders.push(`($${baseIndex + 1}, $${baseIndex + 2}, $${baseIndex + 3})`);
       });
@@ -76,7 +76,7 @@ async function batchImportFreemium(csvFilePath) {
         INSERT INTO users (email, name, subscription_type, created_at, updated_at) 
         VALUES ${placeholders.join(', ')}
         ON CONFLICT (email) DO NOTHING
-      `.replace(/\$(\d+)/g, (match, num) => `$${num}`);
+      `;
       
       try {
         await pool.query(query, values);
