@@ -43,8 +43,12 @@ async function importFreemiumFromCsv(csvFilePath) {
     let updatedCount = 0;
     let errorCount = 0;
     
-    // Process each data row
+    // Process each data row in batches
+    console.log(`Processing ${lines.length - 1} users...`);
     for (let i = 1; i < lines.length; i++) {
+      if (i % 100 === 0) {
+        console.log(`Progress: ${i}/${lines.length - 1} users processed...`);
+      }
       const values = lines[i].split(',').map(v => v.trim().replace(/"/g, ''));
       const email = values[emailIndex]?.trim();
       const name = nameIndex !== -1 ? values[nameIndex]?.trim() : null;
