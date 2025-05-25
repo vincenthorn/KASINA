@@ -94,16 +94,16 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
       
       console.log("🚀 SessionLogger - Saving session:", payload);
       
-      // Make the API call - include the minutes parameter for accurate duration logging
-      const response = await fetch('/api/direct-one-minute-session', {
+      // Make the API call to the correct sessions endpoint
+      const response = await fetch('/api/sessions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           kasinaType: kasinaTypeNormalized,
-          minutes: minutes, // Add this to ensure accurate minute recording
-          userEmail: userEmail, // Include user email in the request
-          _ensureUserTracking: true, // Flag to tell server this must have user tracking
-          _critical: true // Mark this as a critical session save
+          kasinaName,
+          duration: minutes * 60, // Duration in seconds
+          userEmail: userEmail,
+          timestamp: new Date().toISOString()
         })
       });
       
