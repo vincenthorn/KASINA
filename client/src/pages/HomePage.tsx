@@ -34,11 +34,11 @@ const HomePage: React.FC = () => {
       color: "from-blue-600 to-blue-800",
     },
     {
-      icon: <BookOpen className="h-10 w-10 text-purple-500" />,
+      icon: <BookOpen className="h-10 w-10 text-green-500" />,
       title: "Learn",
       description: "Learn with guided meditations and community resources.",
       path: "/meditation",
-      color: "from-purple-600 to-purple-800",
+      color: "from-green-600 to-green-800",
     },
     {
       icon: <BarChart className="h-10 w-10" style={{ color: "#FFFF00" }} />,
