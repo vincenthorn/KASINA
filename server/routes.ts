@@ -104,11 +104,11 @@ export function registerRoutes(app: Express): Server {
       // Transform to match expected format
       const formattedSessions = userSessions.map(session => ({
         id: session.id.toString(),
-        userEmail: userEmail,
+        userEmail: session.user_email,
         kasinaType: session.kasina_type,
         kasinaName: session.kasina_name,
-        duration: session.duration,
-        timestamp: session.timestamp.toISOString()
+        duration: session.duration_seconds,
+        timestamp: session.session_date.toISOString()
       }));
       
       res.json(formattedSessions);
@@ -225,11 +225,11 @@ export function registerRoutes(app: Express): Server {
       if (dbSession) {
         const responseSession = {
           id: dbSession.id.toString(),
-          userEmail: req.session.user.email,
+          userEmail: dbSession.user_email,
           kasinaType: dbSession.kasina_type,
           kasinaName: dbSession.kasina_name,
-          duration: dbSession.duration,
-          timestamp: dbSession.timestamp.toISOString()
+          duration: dbSession.duration_seconds,
+          timestamp: dbSession.session_date.toISOString()
         };
         
         console.log(`✅ Saved session to PostgreSQL database for ${req.session.user.email}`);
@@ -266,11 +266,11 @@ export function registerRoutes(app: Express): Server {
         console.log(`✅ Direct session saved: ${kasinaType} for ${minutes} minutes`);
         res.status(201).json({
           id: dbSession.id.toString(),
-          userEmail: req.session.user.email,
+          userEmail: dbSession.user_email,
           kasinaType: dbSession.kasina_type,
           kasinaName: dbSession.kasina_name,
-          duration: dbSession.duration,
-          timestamp: dbSession.timestamp.toISOString()
+          duration: dbSession.duration_seconds,
+          timestamp: dbSession.session_date.toISOString()
         });
       } else {
         throw new Error('Failed to save session to database');
