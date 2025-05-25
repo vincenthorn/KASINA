@@ -6,6 +6,7 @@ import { toast } from "sonner";
 interface User {
   email: string;
   subscription?: 'free' | 'premium';
+  subscriptionType?: string;
 }
 
 interface AuthState {
@@ -13,6 +14,7 @@ interface AuthState {
   email: string | null;
   user: User | null;
   isAdmin: boolean;
+  subscriptionType: string | null;
   
   login: (email: string) => Promise<boolean>;
   logout: () => Promise<void>;
@@ -25,6 +27,7 @@ export const useAuth = create<AuthState>((set) => ({
   email: null,
   user: null,
   isAdmin: false,
+  subscriptionType: null,
   
   login: async (email: string) => {
     try {
@@ -157,20 +160,14 @@ export const useAuth = create<AuthState>((set) => ({
         // Determine if user is admin
         const isAdmin = userEmail === 'admin@kasina.app';
         
-        // Check for premium email addresses
-        const isPremium = 
-          userEmail === 'premium@kasina.app' || 
-          userEmail === 'brian@terma.asia' || 
-          userEmail === 'emilywhorn@gmail.com' || 
-          userEmail === 'ryan@ryanoelke.com' || 
-          userEmail === 'ksowocki@gmail.com' ||
-          isAdmin;
+        // Get subscription type from server response
+        const serverSubscriptionType = data.user?.subscriptionType || data.subscriptionType;
         
-        // Create user object with subscription info
+        // Create user object with subscription info from database
         const user = {
           email: userEmail,
-          subscriptionType: data.user?.subscriptionType || data.subscriptionType,
-          subscription: isPremium ? 'premium' as const : 'free' as const
+          subscriptionType: serverSubscriptionType,
+          subscription: (serverSubscriptionType === 'premium' || serverSubscriptionType === 'admin') ? 'premium' as const : 'free' as const
         };
         
         console.log("Setting auth state with user:", user);

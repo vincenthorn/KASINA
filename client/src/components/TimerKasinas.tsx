@@ -53,6 +53,13 @@ const TimerKasinas: React.FC = () => {
   // Check if current user is premium based on their actual subscription status
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
   
+  // Debug logging to see what's happening
+  console.log("TimerKasinas Debug:", {
+    email,
+    subscriptionType,
+    isPremium
+  });
+  
   // Add this ref to prevent multiple session saves
   const sessionSavedRef = useRef(false);
   
