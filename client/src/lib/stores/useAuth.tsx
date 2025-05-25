@@ -177,7 +177,7 @@ export const useAuth = create<AuthState>((set) => ({
         
         set({
           isAuthenticated: true,
-          email: data.user.email,
+          email: userEmail,
           user,
           isAdmin
         });

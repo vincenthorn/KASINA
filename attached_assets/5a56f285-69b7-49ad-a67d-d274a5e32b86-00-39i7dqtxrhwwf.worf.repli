@@ -5,6 +5,7 @@ react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: Rea
 warnOnce @ react-router-dom.js?v=9eed23f0:4394
 react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 warnOnce @ react-router-dom.js?v=9eed23f0:4394
+useAuth.tsx:176 Setting auth state with user: Object
 chunk-EMXP5JYR.js?v=9eed23f0:18167 Auth check error: TypeError: Cannot read properties of undefined (reading 'email')
-    at checkAuthStatus (useAuth.tsx:151:35)
+    at checkAuthStatus (useAuth.tsx:180:28)
 console.error @ chunk-EMXP5JYR.js?v=9eed23f0:18167
