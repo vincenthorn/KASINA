@@ -93,12 +93,10 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Admin routes - restricted to admin users
-  const adminEmails = ["admin@kasina.app"];
-  
-  // Middleware to check if user is admin
-  const isAdmin = (req: Request, res: Response, next: NextFunction) => {
+  // Admin middleware
+  const checkAdmin = (req: Request, res: Response, next: NextFunction) => {
     const userEmail = req.session?.user?.email;
+    const adminEmails = ["admin@kasina.app"];
     
     if (userEmail && adminEmails.includes(userEmail)) {
       next();
@@ -108,7 +106,7 @@ export function registerRoutes(app: Express): Server {
   };
 
   // Get whitelist with member data from PostgreSQL database
-  app.get("/api/admin/whitelist", isAdmin, async (req, res) => {
+  app.get("/api/admin/whitelist", checkAdmin, async (req, res) => {
     try {
       // Get all users with their practice stats from PostgreSQL database
       const usersWithStats = await getAllUsersWithStats();
