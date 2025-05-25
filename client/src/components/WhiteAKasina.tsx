@@ -9,8 +9,15 @@ const WhiteAKasina = () => {
   // Create refs for meshes so we can animate them
   const groupRef = React.useRef<THREE.Group>(null);
   
-  // Load the complete White A Thigle SVG design
-  const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
+  // Load the complete White A Thigle design (using PNG for better Three.js compatibility)
+  const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.jpeg');
+  
+  // Debug: log when texture loads
+  React.useEffect(() => {
+    if (whiteATexture) {
+      console.log('White A texture loaded:', whiteATexture);
+    }
+  }, [whiteATexture]);
   
   // Store timer-related info for smooth counting
   const timerRef = React.useRef<{
@@ -89,13 +96,14 @@ const WhiteAKasina = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Complete White A Thigle design */}
+      {/* Complete White A Thigle design - try with different settings */}
       <mesh position={[0, 0, 0]}>
         <planeGeometry args={[2, 2]} />
         <meshBasicMaterial 
           map={whiteATexture} 
           transparent={true}
           opacity={1}
+          side={THREE.DoubleSide}
         />
       </mesh>
     </group>
