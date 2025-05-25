@@ -162,7 +162,7 @@ const AdminPage: React.FC = () => {
       // Update the button text based on selected user type
       const userTypeLabel = selectedUserType.charAt(0).toUpperCase() + selectedUserType.slice(1);
       
-      const response = await fetch("/api/admin/upload-whitelist", {
+      const response = await fetch("/api/admin/upload-whitelist-new", {
         method: "POST",
         body: formData,
       });

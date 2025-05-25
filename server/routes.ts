@@ -10,6 +10,7 @@ import { parse } from "csv-parse/sync";
 // Configure multer for file uploads
 const upload = multer({ storage: multer.memoryStorage() });
 import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser, addSession, getUserSessions, getAllSessions, getUserPracticeStats, getAllUsersWithStats } from "./db";
+import { handleCsvUpload, uploadMiddleware } from "./upload-fix.js";
 
 // Extend the Express Request type to include session
 declare module "express-session" {
@@ -328,6 +329,60 @@ export function registerRoutes(app: Express): Server {
 
     } catch (error) {
       console.error("Error processing whitelist upload:", error);
+      return res.status(500).json({ 
+        message: "Failed to process the uploaded CSV file",
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+
+  // Working CSV Upload endpoint for PostgreSQL database
+  app.post("/api/admin/upload-whitelist-new", isAdmin, uploadMiddleware, async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: "No CSV file uploaded" });
+      }
+
+      const userType = (req.body.userType as 'freemium' | 'premium' | 'admin') || 'freemium';
+      console.log(`Processing CSV upload for user type: ${userType}`);
+
+      // Parse CSV data
+      const records = parse(req.file.buffer, {
+        columns: true,
+        skip_empty_lines: true,
+        trim: true,
+      });
+
+      console.log(`Found ${records.length} records in CSV`);
+
+      let processedCount = 0;
+      for (const record of records) {
+        try {
+          const email = record['Email']?.trim();
+          const name = record['Name']?.trim();
+          
+          if (email && email.includes('@')) {
+            console.log(`Adding user: ${email} - ${name}`);
+            const result = await upsertUser(email, name || null, userType);
+            if (result) {
+              processedCount++;
+            }
+          }
+        } catch (error) {
+          console.error(`Error processing user:`, error);
+        }
+      }
+
+      console.log(`Successfully processed ${processedCount} users`);
+
+      return res.status(200).json({ 
+        message: `${userType.charAt(0).toUpperCase() + userType.slice(1)} whitelist updated successfully`, 
+        count: processedCount,
+        userType
+      });
+
+    } catch (error) {
+      console.error("Error processing CSV upload:", error);
       return res.status(500).json({ 
         message: "Failed to process the uploaded CSV file",
         error: error instanceof Error ? error.message : "Unknown error" 
