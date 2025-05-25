@@ -591,29 +591,51 @@ export async function registerRoutes(app: Express): Promise<Server> {
     isAdmin,
     async (req, res) => {
       try {
-        // Read all whitelists
-        const whitelistEmails = await readWhitelist();
+        // Get all users with their practice stats from PostgreSQL database
+        const usersWithStats = await getAllUsersWithStats();
         
-        // Read individual whitelists for status determination
-        const [adminData, premiumData, freemiumData, legacyData] = await Promise.all([
-          fs.existsSync(adminWhitelistPath) ? fs.promises.readFile(adminWhitelistPath, 'utf-8') : "email",
-          fs.existsSync(premiumWhitelistPath) ? fs.promises.readFile(premiumWhitelistPath, 'utf-8') : "email",
-          fs.existsSync(freemiumWhitelistPath) ? fs.promises.readFile(freemiumWhitelistPath, 'utf-8') : "email",
-          fs.existsSync(whitelistPath) ? fs.promises.readFile(whitelistPath, 'utf-8') : "email"
-        ]);
+        // Calculate total practice time across all users
+        const totalPracticeTimeSeconds = usersWithStats.reduce((total, user) => {
+          return total + user.practiceStats.totalSeconds;
+        }, 0);
         
-        // Parse each whitelist
-        const parseFileData = (data: string): string[] => {
-          return data
-            .split("\n")
-            .map((line: string) => line.trim())
-            .filter((line: string) => line && !line.startsWith("#") && line !== "email")
-            .map((line: string) => line.toLowerCase()); // Normalize all emails to lowercase
-        };
+        // Format total practice time
+        const totalHours = Math.floor(totalPracticeTimeSeconds / 3600);
+        const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
+        const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
         
-        const adminEmails = parseFileData(adminData);
-        const premiumEmails = parseFileData(premiumData);
-        const freemiumEmails = parseFileData(freemiumData);
+        // Transform database users to match expected admin page format
+        const members = usersWithStats.map(user => {
+          const hours = Math.floor(user.practiceStats.totalSeconds / 3600);
+          const minutes = Math.floor((user.practiceStats.totalSeconds % 3600) / 60);
+          
+          return {
+            email: user.email,
+            name: user.name || "",
+            status: user.subscription_type === 'admin' ? 'Admin' : 
+                   user.subscription_type === 'premium' ? 'Premium' : 'Freemium',
+            practiceTimeSeconds: user.practiceStats.totalSeconds,
+            practiceTimeFormatted: `${hours}h ${minutes}m`
+          };
+        });
+        
+        console.log(`Retrieved ${members.length} users from PostgreSQL database`);
+        
+        return res.status(200).json({ 
+          members,
+          total: members.length,
+          totalPracticeTimeSeconds,
+          totalPracticeTimeFormatted
+        });
+      } catch (error) {
+        console.error("Error retrieving user data from database:", error);
+        return res.status(500).json({ 
+          message: "Failed to retrieve user data",
+          error: error instanceof Error ? error.message : "Unknown error" 
+        });
+      }
+    }
+  );
         
         // Parse CSV to extract names and emails
         const csvData = legacyData; // Use legacy whitelist data
