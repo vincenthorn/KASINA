@@ -97,6 +97,26 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   
   const currentStreak = calculateStreak();
   
+  // Calculate total days practiced across all time
+  const calculateTotalDaysPracticed = () => {
+    const practiceDates = new Set<string>();
+    
+    sessions.forEach(session => {
+      const sessionDate = new Date(session.timestamp);
+      // Create a date string in YYYY-MM-DD format
+      const dateString = sessionDate.toISOString().split('T')[0];
+      
+      // Only count days with at least 1 minute of practice
+      if (Math.floor(session.duration / 60) >= 1) {
+        practiceDates.add(dateString);
+      }
+    });
+    
+    return practiceDates.size;
+  };
+  
+  const totalDaysPracticed = calculateTotalDaysPracticed();
+  
   // Generate calendar grid
   const calendarDays = [];
   
@@ -216,7 +236,15 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
       
       {/* Bottom cards row */}
       <div className="grid grid-cols-3 gap-4 mt-6">
-        {/* Streak card */}
+        {/* Placeholder card */}
+        <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-gray-400 mb-1">-</div>
+            <div className="text-sm text-gray-500">Coming Soon</div>
+          </div>
+        </div>
+        
+        {/* Streak card - moved to center */}
         <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg border border-orange-500/30 p-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-orange-400 flex items-center justify-center mb-1">
@@ -227,19 +255,14 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
           </div>
         </div>
         
-        {/* Placeholder card 1 */}
-        <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-4">
+        {/* Total days practiced card */}
+        <div className="bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-lg border border-blue-500/30 p-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-gray-400 mb-1">-</div>
-            <div className="text-sm text-gray-500">Coming Soon</div>
-          </div>
-        </div>
-        
-        {/* Placeholder card 2 */}
-        <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-4">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-400 mb-1">-</div>
-            <div className="text-sm text-gray-500">Coming Soon</div>
+            <div className="text-2xl font-bold text-blue-400 flex items-center justify-center mb-1">
+              <span className="text-blue-400 text-2xl mr-2">🗓️</span>
+              {totalDaysPracticed}
+            </div>
+            <div className="text-sm text-blue-300">days practiced</div>
           </div>
         </div>
       </div>
