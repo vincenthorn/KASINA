@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
       title: "Reflect",
       description: "Track your practice progress and view your meditation history.",
       path: "/reflection",
-      color: "from-gray-600 to-gray-800",
+      color: "from-gray-300 to-gray-500",
     },
 
   ];
