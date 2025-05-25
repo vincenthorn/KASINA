@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import { Card, CardContent } from "../components/ui/card";
-import { BookOpen, BarChart, Wind, Monitor, Expand } from "lucide-react";
+import { BookOpen, BarChart, Wind, Monitor, Expand, PieChart, Waves } from "lucide-react";
 import Logo from "../components/Logo";
 import { useAuth } from "../lib/stores/useAuth";
 
@@ -27,14 +27,14 @@ const HomePage: React.FC = () => {
   // Features only available to admin users
   const adminFeatures = [
     {
-      icon: <Expand className="h-10 w-10 text-blue-500" />,
+      icon: <Waves className="h-10 w-10 text-blue-500" />,
       title: "Breath",
       description: "Visualize your breath with interactive animations and guided patterns.",
       path: "/breath",
       color: "from-blue-600 to-blue-800",
     },
     {
-      icon: <BarChart className="h-10 w-10 text-white" />,
+      icon: <PieChart className="h-10 w-10 text-white" />,
       title: "Reflect",
       description: "Track your practice progress and view your meditation history.",
       path: "/reflection",

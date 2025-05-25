@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
-import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle, Monitor, Expand } from "lucide-react";
+import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle, Monitor, Expand, PieChart, Waves } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -30,8 +30,8 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   
   // Admin-only navigation items
   const adminNavItems = [
-    { path: "/breath", label: "Breath", icon: <Expand className="w-5 h-5" /> },
-    { path: "/reflection", label: "Reflect", icon: <BarChart className="w-5 h-5" /> },
+    { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
+    { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
     { path: "/meditation", label: "Learn", icon: <Monitor className="w-5 h-5" /> },
   ];
   
