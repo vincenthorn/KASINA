@@ -362,9 +362,14 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
   // Empty state
   if (chartData.length === 0) {
     return (
-      <Card className="bg-gray-900 border-gray-700">
-        <CardHeader>
-          <CardTitle className="text-white">Practice Overview</CardTitle>
+      <Card className="bg-gray-900 border-gray-700 shadow-xl">
+        <CardHeader className="border-b border-gray-700 pb-4">
+          <CardTitle className="text-white flex items-center">
+            <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            Breakdown
+          </CardTitle>
         </CardHeader>
         <CardContent className="p-6 text-center">
           <p className="text-gray-400">No meditation sessions recorded yet.</p>
@@ -377,12 +382,15 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
   }
 
   return (
-    <Card className="bg-gray-900 border-gray-700">
-      <CardHeader className="flex flex-row items-center justify-between">
+    <Card className="bg-gray-900 border-gray-700 shadow-xl">
+      <CardHeader className="border-b border-gray-700 pb-4 flex flex-row items-center justify-between">
         <div>
-          <CardTitle className="text-white">
+          <CardTitle className="text-white flex items-center">
+            <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
             {chartMode === 'overview' 
-              ? 'Practice Overview' 
+              ? 'Breakdown' 
               : chartMode === 'color' 
                 ? 'Color Kasinas' 
                 : chartMode === 'elemental'
