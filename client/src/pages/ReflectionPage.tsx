@@ -9,6 +9,7 @@ import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
+import { useSessionLogger } from "../lib/stores/useSessionLogger";
 
 interface Session {
   id: string;
@@ -155,8 +156,8 @@ const ReflectionPage: React.FC = () => {
                     
                     try {
                       // Use the proper session logger to test database integration
-                      const { useSessionLogger } = await import('../lib/stores/useSessionLogger');
-                      const success = await useSessionLogger.getState().logSession({
+                      const sessionLogger = useSessionLogger();
+                      const success = await sessionLogger.logSession({
                         kasinaType: kasinaType as any,
                         duration: minutes * 60,
                         showToast: true
