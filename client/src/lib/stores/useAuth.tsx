@@ -176,7 +176,8 @@ export const useAuth = create<AuthState>((set) => ({
           isAuthenticated: true,
           email: userEmail,
           user,
-          isAdmin
+          isAdmin,
+          subscriptionType: serverSubscriptionType
         });
       } else {
         set({
