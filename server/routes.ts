@@ -6,6 +6,9 @@ import path from "path";
 import { fileURLToPath } from "url";
 import multer from "multer";
 import { parse } from "csv-parse/sync";
+
+// Configure multer for file uploads
+const upload = multer({ storage: multer.memoryStorage() });
 import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser, addSession, getUserSessions, getAllSessions, getUserPracticeStats, getAllUsersWithStats } from "./db";
 
 // Extend the Express Request type to include session
@@ -240,7 +243,11 @@ export function registerRoutes(app: Express): Server {
   });
 
   // CSV Upload endpoint for PostgreSQL database
-  app.post("/api/admin/upload-whitelist", isAdmin, upload.single("csv"), async (req, res) => {
+  app.post("/api/admin/upload-whitelist", isAdmin, (req, res) => {
+    upload.single("csv")(req, res, async (err) => {
+      if (err) {
+        return res.status(400).json({ message: "File upload error" });
+      }
     try {
       if (!req.file) {
         return res.status(400).json({ message: "No CSV file uploaded" });
@@ -299,7 +306,7 @@ export function registerRoutes(app: Express): Server {
           usersToAdd.push({
             email,
             name: name?.trim() || null,
-            subscription_type: userType
+            subscriptionType: userType
           });
         }
       }
