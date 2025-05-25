@@ -157,8 +157,10 @@ export function registerRoutes(app: Express): Server {
       }
       
       res.json({ 
-        email: user.email,
-        subscriptionType: user.subscription_type 
+        user: {
+          email: user.email,
+          subscriptionType: user.subscription_type 
+        }
       });
     } catch (error) {
       console.error("Auth check error:", error);
