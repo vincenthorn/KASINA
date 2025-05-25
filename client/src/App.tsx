@@ -143,55 +143,55 @@ function App() {
               <Route
                 path="/breath"
                 element={
-                  <AuthenticatedRoute>
+                  <AdminOnlyRoute>
                     <ErrorBoundary>
                       <BreathPage />
                     </ErrorBoundary>
-                  </AuthenticatedRoute>
+                  </AdminOnlyRoute>
                 }
               />
               
               <Route
                 path="/breath/microphone"
                 element={
-                  <AuthenticatedRoute>
+                  <AdminOnlyRoute>
                     <ErrorBoundary>
                       <MicBreathPage />
                     </ErrorBoundary>
-                  </AuthenticatedRoute>
+                  </AdminOnlyRoute>
                 }
               />
               
               <Route
                 path="/breath/vernier"
                 element={
-                  <AuthenticatedRoute>
+                  <AdminOnlyRoute>
                     <ErrorBoundary>
                       <VernierBreathPage />
                     </ErrorBoundary>
-                  </AuthenticatedRoute>
+                  </AdminOnlyRoute>
                 }
               />
               
               <Route
                 path="/breath/vernier-official"
                 element={
-                  <AuthenticatedRoute>
+                  <AdminOnlyRoute>
                     <ErrorBoundary>
                       <VernierOfficialBreathPage />
                     </ErrorBoundary>
-                  </AuthenticatedRoute>
+                  </AdminOnlyRoute>
                 }
               />
               
               <Route
                 path="/breath/vernier-test"
                 element={
-                  <AuthenticatedRoute>
+                  <AdminOnlyRoute>
                     <ErrorBoundary>
                       <VernierTestPage />
                     </ErrorBoundary>
-                  </AuthenticatedRoute>
+                  </AdminOnlyRoute>
                 }
               />
 
