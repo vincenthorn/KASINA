@@ -136,7 +136,7 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
         bgColor = 'bg-green-600';
         textColor = 'text-white';
       } else {
-        content = '❌';
+        content = '❎';
         bgColor = 'bg-red-600';
         textColor = 'text-white';
       }
@@ -163,26 +163,11 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   
   return (
     <div className="space-y-4">
-      {/* Header with streak on left and month centered */}
-      <div className="flex items-center justify-between mb-4">
-        {/* Streak counter on left */}
-        <div className="flex items-center space-x-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 px-3 py-2 rounded-lg border border-orange-500/30">
-          <div className="text-center">
-            <div className="text-lg font-bold text-orange-400 flex items-center justify-center">
-              <span className="text-orange-400 text-lg mr-1">🔥</span>
-              {currentStreak}
-            </div>
-            <div className="text-xs text-orange-300">day streak</div>
-          </div>
-        </div>
-        
-        {/* Month header centered */}
-        <h4 className="text-lg font-medium text-white absolute left-1/2 transform -translate-x-1/2">
+      {/* Month header - properly centered */}
+      <div className="text-center mb-4">
+        <h4 className="text-lg font-medium text-white">
           {monthNames[currentMonth]} {currentYear}
         </h4>
-        
-        {/* Empty space for balance */}
-        <div className="w-20"></div>
       </div>
       
       {/* Day names header */}
@@ -206,8 +191,38 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
           <span>1+ minute practiced</span>
         </div>
         <div className="flex items-center space-x-2">
-          <span>❌</span>
+          <span>❎</span>
           <span>No practice</span>
+        </div>
+      </div>
+      
+      {/* Bottom cards row */}
+      <div className="grid grid-cols-3 gap-4 mt-6">
+        {/* Streak card */}
+        <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg border border-orange-500/30 p-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-orange-400 flex items-center justify-center mb-1">
+              <span className="text-orange-400 text-2xl mr-2">🔥</span>
+              {currentStreak}
+            </div>
+            <div className="text-sm text-orange-300">day streak</div>
+          </div>
+        </div>
+        
+        {/* Placeholder card 1 */}
+        <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-gray-400 mb-1">-</div>
+            <div className="text-sm text-gray-500">Coming Soon</div>
+          </div>
+        </div>
+        
+        {/* Placeholder card 2 */}
+        <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-gray-400 mb-1">-</div>
+            <div className="text-sm text-gray-500">Coming Soon</div>
+          </div>
         </div>
       </div>
     </div>
