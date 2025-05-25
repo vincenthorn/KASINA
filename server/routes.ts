@@ -239,6 +239,95 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // CSV Upload endpoint for PostgreSQL database
+  app.post("/api/admin/upload-whitelist", isAdmin, upload.single("csv"), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: "No CSV file uploaded" });
+      }
+
+      const userType = (req.body.userType as 'freemium' | 'premium' | 'admin') || 'freemium';
+      console.log(`Uploading whitelist for user type: ${userType}`);
+
+      // Parse CSV data
+      const records = parse(req.file.buffer, {
+        columns: true,
+        skip_empty_lines: true,
+        trim: true,
+      });
+
+      if (!records || records.length === 0) {
+        throw new Error("No data found in the CSV file");
+      }
+
+      // Find email column
+      const firstRecord = records[0];
+      const possibleEmailColumns = [
+        "Email", "email", "EmailAddress", "Email Address", 
+        "email_address", "e-mail", "User Email"
+      ];
+
+      let emailColumnName: string | null = null;
+      for (const colName of possibleEmailColumns) {
+        if (firstRecord[colName] !== undefined) {
+          emailColumnName = colName;
+          break;
+        }
+      }
+
+      if (!emailColumnName) {
+        // Try to find any column that might contain an email
+        for (const key of Object.keys(firstRecord)) {
+          const value = firstRecord[key];
+          if (typeof value === 'string' && value.includes('@')) {
+            emailColumnName = key;
+            break;
+          }
+        }
+      }
+
+      if (!emailColumnName) {
+        throw new Error("No email column found in CSV file");
+      }
+
+      // Extract emails and names
+      const usersToAdd = [];
+      for (const record of records) {
+        const email = record[emailColumnName]?.trim();
+        if (email && email.includes('@')) {
+          const name = record['Name'] || record['name'] || record['Full Name'] || record['fullName'] || null;
+          usersToAdd.push({
+            email,
+            name: name?.trim() || null,
+            subscription_type: userType
+          });
+        }
+      }
+
+      if (usersToAdd.length === 0) {
+        throw new Error("No valid email addresses found in CSV file");
+      }
+
+      // Bulk insert/update users in database
+      const result = await bulkUpsertUsers(usersToAdd);
+      
+      console.log(`Successfully processed ${usersToAdd.length} users for ${userType} subscription`);
+
+      return res.status(200).json({ 
+        message: `${userType.charAt(0).toUpperCase() + userType.slice(1)} whitelist updated successfully`, 
+        count: usersToAdd.length,
+        userType
+      });
+
+    } catch (error) {
+      console.error("Error processing whitelist upload:", error);
+      return res.status(500).json({ 
+        message: "Failed to process the uploaded CSV file",
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+
   // Create HTTP server
   const server = createServer(app);
   return server;
