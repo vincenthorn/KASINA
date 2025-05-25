@@ -46,28 +46,32 @@ export const useAuth = create<AuthState>((set) => ({
       
       const data = await response.json();
       
+      // Handle both response formats (direct email or nested user object)
+      const userEmail = data.user?.email || data.email;
+      
       // Determine if user is admin
-      const isAdmin = data.user.email === 'admin@kasina.app';
+      const isAdmin = userEmail === 'admin@kasina.app';
       
       // Check for premium email addresses
       const isPremium = 
-        data.user.email === 'premium@kasina.app' || 
-        data.user.email === 'brian@terma.asia' || 
-        data.user.email === 'emilywhorn@gmail.com' || 
-        data.user.email === 'ryan@ryanoelke.com' || 
-        data.user.email === 'ksowocki@gmail.com' ||
+        userEmail === 'premium@kasina.app' || 
+        userEmail === 'brian@terma.asia' || 
+        userEmail === 'emilywhorn@gmail.com' || 
+        userEmail === 'ryan@ryanoelke.com' || 
+        userEmail === 'ksowocki@gmail.com' ||
         isAdmin;
       
       // Create user object with subscription info
       const user = {
-        ...data.user,
+        email: userEmail,
+        subscriptionType: data.user?.subscriptionType || data.subscriptionType,
         subscription: isPremium ? 'premium' : 'free'
       };
       
       // Store authenticated state
       set({
         isAuthenticated: true,
-        email: data.user.email,
+        email: userEmail,
         user,
         isAdmin
       });
@@ -147,22 +151,26 @@ export const useAuth = create<AuthState>((set) => ({
       if (response.ok) {
         const data = await response.json();
         
+        // Handle both response formats (direct email or nested user object)
+        const userEmail = data.user?.email || data.email;
+        
         // Determine if user is admin
-        const isAdmin = data.user.email === 'admin@kasina.app';
+        const isAdmin = userEmail === 'admin@kasina.app';
         
         // Check for premium email addresses
         const isPremium = 
-          data.user.email === 'premium@kasina.app' || 
-          data.user.email === 'brian@terma.asia' || 
-          data.user.email === 'emilywhorn@gmail.com' || 
-          data.user.email === 'ryan@ryanoelke.com' || 
-          data.user.email === 'ksowocki@gmail.com' ||
+          userEmail === 'premium@kasina.app' || 
+          userEmail === 'brian@terma.asia' || 
+          userEmail === 'emilywhorn@gmail.com' || 
+          userEmail === 'ryan@ryanoelke.com' || 
+          userEmail === 'ksowocki@gmail.com' ||
           isAdmin;
         
         // Create user object with subscription info
         const user = {
-          ...data.user,
-          subscription: isPremium ? 'premium' : 'free'
+          email: userEmail,
+          subscriptionType: data.user?.subscriptionType || data.subscriptionType,
+          subscription: isPremium ? 'premium' as const : 'free' as const
         };
         
         console.log("Setting auth state with user:", user);
