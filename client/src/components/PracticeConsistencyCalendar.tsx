@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface Session {
   id: string;
@@ -18,9 +18,15 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   const currentYear = now.getFullYear();
   const today = now.getDate();
   
-  // Get first day of the month and number of days in month
-  const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
-  const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+  // State for which month to display
+  const [displayMonth, setDisplayMonth] = useState({ 
+    month: currentMonth, 
+    year: currentYear 
+  });
+  
+  // Get first day of the month and number of days in month for display month
+  const firstDayOfMonth = new Date(displayMonth.year, displayMonth.month, 1);
+  const lastDayOfMonth = new Date(displayMonth.year, displayMonth.month + 1, 0);
   const daysInMonth = lastDayOfMonth.getDate();
   const startingDayOfWeek = firstDayOfMonth.getDay(); // 0 = Sunday
   
@@ -33,12 +39,12 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   // Day names
   const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   
-  // Create a map of dates to total practice minutes for the current month
+  // Create a map of dates to total practice minutes for the display month
   const practiceByDate = new Map<number, number>();
   
   sessions.forEach(session => {
     const sessionDate = new Date(session.timestamp);
-    if (sessionDate.getMonth() === currentMonth && sessionDate.getFullYear() === currentYear) {
+    if (sessionDate.getMonth() === displayMonth.month && sessionDate.getFullYear() === displayMonth.year) {
       const day = sessionDate.getDate();
       const currentMinutes = practiceByDate.get(day) || 0;
       practiceByDate.set(day, currentMinutes + Math.floor(session.duration / 60));
@@ -105,16 +111,19 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   for (let day = 1; day <= daysInMonth; day++) {
     const practiceMinutes = practiceByDate.get(day) || 0;
     const hasMinimumPractice = practiceMinutes >= 1;
-    const isPastDay = day < today;
-    const isToday = day === today;
-    const isFutureDay = day > today;
+    
+    // Check if this day is in the current month/year and compare to today
+    const isCurrentMonth = displayMonth.month === currentMonth && displayMonth.year === currentYear;
+    const isPastDay = !isCurrentMonth || (isCurrentMonth && day < today);
+    const isToday = isCurrentMonth && day === today;
+    const isFutureDay = isCurrentMonth && day > today;
     
     let content = null;
     let bgColor = 'bg-gray-700';
     let textColor = 'text-gray-400';
     
     if (isFutureDay) {
-      // Future days: no mark, neutral background
+      // Future days in current month: no mark, neutral background
       content = day;
       bgColor = 'bg-gray-700';
       textColor = 'text-gray-400';
@@ -129,8 +138,8 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
         bgColor = 'bg-gray-700';
         textColor = 'text-gray-300';
       }
-    } else if (isPastDay) {
-      // Past days: checkmark or X with full background colors
+    } else {
+      // Past days (including all days in past months): checkmark or X with full background colors
       if (hasMinimumPractice) {
         content = '✅';
         bgColor = 'bg-green-600';
@@ -163,11 +172,32 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   
   return (
     <div className="space-y-4">
-      {/* Month header - properly centered */}
-      <div className="text-center mb-4">
-        <h4 className="text-lg font-medium text-white">
-          {monthNames[currentMonth]} {currentYear}
-        </h4>
+      {/* Month header - properly centered with extra top spacing */}
+      <div className="text-center mb-4 mt-6">
+        <div className="flex items-center justify-center space-x-4">
+          <button 
+            onClick={() => setDisplayMonth(prev => ({ 
+              month: prev.month === 0 ? 11 : prev.month - 1, 
+              year: prev.month === 0 ? prev.year - 1 : prev.year 
+            }))}
+            className="text-gray-400 hover:text-white transition-colors p-1"
+          >
+            ‹
+          </button>
+          <h4 className="text-lg font-medium text-white min-w-[140px]">
+            {monthNames[displayMonth.month]} {displayMonth.year}
+          </h4>
+          <button 
+            onClick={() => setDisplayMonth(prev => ({ 
+              month: prev.month === 11 ? 0 : prev.month + 1, 
+              year: prev.month === 11 ? prev.year + 1 : prev.year 
+            }))}
+            className="text-gray-400 hover:text-white transition-colors p-1"
+            disabled={displayMonth.year > currentYear || (displayMonth.year === currentYear && displayMonth.month >= currentMonth)}
+          >
+            ›
+          </button>
+        </div>
       </div>
       
       {/* Day names header */}
@@ -182,18 +212,6 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
       {/* Calendar grid */}
       <div className="grid grid-cols-7 gap-2">
         {calendarDays}
-      </div>
-      
-      {/* Legend */}
-      <div className="flex items-center justify-center space-x-6 text-xs text-gray-400 pt-2 border-t border-gray-700/50">
-        <div className="flex items-center space-x-2">
-          <span>✅</span>
-          <span>1+ minute practiced</span>
-        </div>
-        <div className="flex items-center space-x-2">
-          <span>❎</span>
-          <span>No practice</span>
-        </div>
       </div>
       
       {/* Bottom cards row */}
