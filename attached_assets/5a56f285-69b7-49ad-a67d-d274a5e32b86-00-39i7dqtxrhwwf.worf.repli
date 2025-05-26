@@ -26,3 +26,6 @@ PracticeConsistencyCalendar.tsx:173 Day 3: userRegistrationDate=undefined, regis
 PracticeConsistencyCalendar.tsx:173 Day 1: userRegistrationDate=undefined, registrationDate=null, dayDate=Sat Mar 01 2025 00:00:00 GMT-0500 (Eastern Standard Time), isBeforeRegistration=null
 PracticeConsistencyCalendar.tsx:173 Day 2: userRegistrationDate=undefined, registrationDate=null, dayDate=Sun Mar 02 2025 00:00:00 GMT-0500 (Eastern Standard Time), isBeforeRegistration=null
 PracticeConsistencyCalendar.tsx:173 Day 3: userRegistrationDate=undefined, registrationDate=null, dayDate=Mon Mar 03 2025 00:00:00 GMT-0500 (Eastern Standard Time), isBeforeRegistration=null
+PracticeConsistencyCalendar.tsx:173 Day 1: userRegistrationDate=undefined, registrationDate=null, dayDate=Sat Feb 01 2025 00:00:00 GMT-0500 (Eastern Standard Time), isBeforeRegistration=null
+PracticeConsistencyCalendar.tsx:173 Day 2: userRegistrationDate=undefined, registrationDate=null, dayDate=Sun Feb 02 2025 00:00:00 GMT-0500 (Eastern Standard Time), isBeforeRegistration=null
+PracticeConsistencyCalendar.tsx:173 Day 3: userRegistrationDate=undefined, registrationDate=null, dayDate=Mon Feb 03 2025 00:00:00 GMT-0500 (Eastern Standard Time), isBeforeRegistration=null

@@ -89,7 +89,8 @@ export function registerRoutes(app: Express): Server {
       res.json({ 
         email: user.email,
         subscriptionType: user.subscription_type,
-        createdAt: user.created_at
+        createdAt: user.created_at,
+        timestamp: new Date().toISOString() // Break cache
       });
     } catch (error) {
       console.error("Auth check error:", error);
