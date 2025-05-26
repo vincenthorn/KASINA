@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
     {
       icon: <Waves className="h-10 w-10 text-blue-500" />,
       title: "Breath",
-      description: "Link breath with the visual sense field",
+      description: "Connect your breath with the visual field",
       path: "/breath",
       color: "from-blue-600 to-blue-800",
     },
