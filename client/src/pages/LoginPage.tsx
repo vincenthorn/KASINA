@@ -247,9 +247,7 @@ const LoginPage: React.FC = () => {
             </p>
             
             <p style={listItemStyles}>
-              To access the KASINA app it's recommended you be on a <b>Desktop Computer</b>. 
-              <br/><br/>
-              <u>If you need an account</u>, go to <a href="https://www.contemplative.technology/subscribe" target="_blank" rel="noopener noreferrer" style={{ color: "#a78bfa", fontWeight: "bold", textDecoration: "underline" }}>contemplative.technology</a> and either sign-up for a free account, which will give you access to all of the <span style={{ 
+              Go to <a href="https://www.contemplative.technology/subscribe" target="_blank" rel="noopener noreferrer" style={{ color: "#a78bfa", fontWeight: "bold", textDecoration: "underline" }}>contemplative.technology</a> and either A) sign-up for either free account to get access to <span style={{ 
                 color: "#4AA8D8", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
@@ -262,7 +260,7 @@ const LoginPage: React.FC = () => {
                 verticalAlign: "middle"
               }}>
                 ✧ FREEMIUM
-              </span> app features, or sign-up for a paid account, which will give you access to all of the <span style={{ 
+              </span> features, or B) Sign-up for a paid account, for <span style={{ 
                 color: "#FFD700", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
@@ -276,6 +274,8 @@ const LoginPage: React.FC = () => {
               }}>
                 ✦ PREMIUM
               </span> app features.
+              <br/><br/>
+              The KASINA app works best on a <b>Desktop Computer</b>.
             </p>
             
             <div style={{ height: "70px" }} className="w-full"></div>
