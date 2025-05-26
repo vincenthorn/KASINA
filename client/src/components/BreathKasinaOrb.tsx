@@ -946,23 +946,23 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Cap orbSize at expanded range especially for vajrayana kasinas
       const cappedOrbSize = Math.min(orbSize, 3000);
       
-      // Add easing to slow down acceleration/deceleration for more natural breathing
-      // Use a gentle ease-in-out function to reduce sudden speed changes
+      // Add very subtle easing to reduce jerky movements while keeping responsiveness
       const baseScale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
       
-      // Apply easing function to create smoother transitions
-      // This reduces the "snappy" feeling and makes breathing more natural
-      const easeInOut = (t: number) => {
-        // Gentler cubic ease-in-out for smoother breathing
-        return t < 0.5 
-          ? 2 * t * t 
-          : -1 + (4 - 2 * t) * t;
+      // Apply much lighter easing - just smooth out the most jarring transitions
+      const subtleEase = (t: number) => {
+        // Very gentle smoothing - mostly linear with slight easing at extremes
+        return t < 0.1 
+          ? t * t * 10  // Gentle start
+          : t > 0.9 
+          ? 1 - (1 - t) * (1 - t) * 10  // Gentle end
+          : t; // Mostly linear in the middle
       };
       
-      // Apply easing to the scale transition
-      const normalizedScale = Math.max(0, Math.min(1, baseScale / 6)); // Normalize to 0-1
-      const easedScale = easeInOut(normalizedScale) * 6; // Apply easing and scale back
-      const scale = Math.max(0.1, easedScale); // Minimum scale to prevent invisible orb
+      // Apply minimal easing to maintain responsiveness
+      const normalizedScale = Math.max(0, Math.min(1, baseScale / 6));
+      const easedScale = subtleEase(normalizedScale) * 6;
+      const scale = Math.max(0.1, easedScale);
       
       // Calculate immersion level based on capped orb size - start very early for all kasinas
       const immersionThreshold = 300; // Start background much earlier to prevent black screens
