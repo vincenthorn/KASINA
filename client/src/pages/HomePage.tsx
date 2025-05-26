@@ -25,8 +25,19 @@ const HomePage: React.FC = () => {
     },
   ];
   
-  // Features available to premium and admin users
+  // Features available to premium users
   const premiumFeatures = [
+    {
+      icon: <PieChart className="h-10 w-10 text-white" />,
+      title: "Reflect",
+      description: "Track your practice progress and view your meditation history.",
+      path: "/reflection",
+      color: "from-gray-300 to-gray-500",
+    },
+  ];
+  
+  // Features only available to admin users
+  const adminOnlyFeatures = [
     {
       icon: <Waves className="h-10 w-10 text-blue-500" />,
       title: "Breath",
@@ -35,26 +46,19 @@ const HomePage: React.FC = () => {
       color: "from-blue-600 to-blue-800",
     },
     {
-      icon: <PieChart className="h-10 w-10 text-white" />,
-      title: "Reflect",
-      description: "Track your practice progress and view your meditation history.",
-      path: "/reflection",
-      color: "from-gray-300 to-gray-500",
-    },
-    {
       icon: <Monitor className="h-10 w-10" style={{ color: "#FFFF00" }} />,
       title: "Learn",
       description: "Learn with guided meditations and community resources.",
       path: "/meditation",
       color: "from-yellow-400 to-yellow-600",
     },
-
   ];
   
   // Combine features based on user role
   const features = [
     ...baseFeatures,
-    ...(isPremium ? premiumFeatures : [])
+    ...(isPremium ? premiumFeatures : []),
+    ...(isAdmin ? adminOnlyFeatures : [])
   ];
 
   return (
