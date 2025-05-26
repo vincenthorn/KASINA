@@ -51,32 +51,28 @@ export const useAuth = create<AuthState>((set) => ({
       
       // Handle both response formats (direct email or nested user object)
       const userEmail = data.user?.email || data.email;
+      const subscriptionType = data.user?.subscriptionType || data.subscriptionType;
       
       // Determine if user is admin
       const isAdmin = userEmail === 'admin@kasina.app';
       
-      // Check for premium email addresses
-      const isPremium = 
-        userEmail === 'premium@kasina.app' || 
-        userEmail === 'brian@terma.asia' || 
-        userEmail === 'emilywhorn@gmail.com' || 
-        userEmail === 'ryan@ryanoelke.com' || 
-        userEmail === 'ksowocki@gmail.com' ||
-        isAdmin;
+      // Use the subscription type from the database instead of hardcoded list
+      const isPremium = subscriptionType === 'premium' || subscriptionType === 'admin';
       
       // Create user object with subscription info
       const user = {
         email: userEmail,
-        subscriptionType: data.user?.subscriptionType || data.subscriptionType,
+        subscriptionType: subscriptionType,
         subscription: isPremium ? 'premium' : 'free'
       };
       
-      // Store authenticated state
+      // Store authenticated state with subscription type
       set({
         isAuthenticated: true,
         email: userEmail,
         user,
-        isAdmin
+        isAdmin,
+        subscriptionType: subscriptionType
       });
       
       toast.success('Successfully logged in');
