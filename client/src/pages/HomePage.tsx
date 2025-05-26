@@ -23,6 +23,13 @@ const HomePage: React.FC = () => {
       path: "/kasinas",
       color: "from-red-600 to-red-800",
     },
+    {
+      icon: <PieChart className="h-10 w-10 text-white" />,
+      title: "Reflect",
+      description: "Track your practice progress and view your meditation history.",
+      path: "/reflection",
+      color: "from-gray-300 to-gray-500",
+    },
   ];
   
   // Features only available to admin users
@@ -33,13 +40,6 @@ const HomePage: React.FC = () => {
       description: "Visualize your breath with interactive animations and guided patterns.",
       path: "/breath",
       color: "from-blue-600 to-blue-800",
-    },
-    {
-      icon: <PieChart className="h-10 w-10 text-white" />,
-      title: "Reflect",
-      description: "Track your practice progress and view your meditation history.",
-      path: "/reflection",
-      color: "from-gray-300 to-gray-500",
     },
     {
       icon: <Monitor className="h-10 w-10" style={{ color: "#FFFF00" }} />,
