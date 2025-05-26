@@ -1009,10 +1009,23 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
 
   useEffect(() => {
     if (meshRef.current) {
+      // CRITICAL FIX: Dispose of old material to prevent memory leaks
+      if (materialRef.current) {
+        materialRef.current.dispose();
+      }
+      
       const material = getShaderMaterial();
       meshRef.current.material = material;
       materialRef.current = material;
     }
+    
+    // Cleanup function to dispose materials when component unmounts
+    return () => {
+      if (materialRef.current) {
+        materialRef.current.dispose();
+        materialRef.current = null;
+      }
+    };
   }, [selectedKasina, customColor]);
 
   // For Clear Light Thigle, we want a flat plane that faces the camera
@@ -1127,19 +1140,15 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
     }
   }, [enableZoom]);
 
-  // Add a dynamic light that follows the camera
-  const [cameraLight, setCameraLight] = useState(new THREE.Vector3(0, 0, 5));
+  // Add a dynamic light that follows the camera - MEMORY SAFE VERSION
+  const cameraLightRef = useRef(new THREE.Vector3(0, 0, 5));
   
   useFrame(() => {
     if (cameraRef.current) {
-      // Update light position to follow camera - with memory optimization
-      // Instead of creating a new Vector3 on every frame, just copy the values directly
-      // This avoids creating thousands of Vector3 objects that need to be garbage collected
-      const newPos = cameraRef.current.position;
-      setCameraLight(prev => {
-        prev.set(newPos.x, newPos.y, newPos.z);
-        return prev;
-      });
+      // CRITICAL FIX: Use ref instead of state to prevent memory leaks
+      // This prevents creating new Vector3 objects on every frame
+      const pos = cameraRef.current.position;
+      cameraLightRef.current.set(pos.x, pos.y, pos.z);
     }
   });
 
@@ -1148,7 +1157,7 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
       <PerspectiveCamera makeDefault position={[0, 0, 3]} fov={50} ref={cameraRef} />
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
-      <pointLight position={cameraLight} intensity={0.8} distance={10} />
+      <pointLight position={cameraLightRef.current} intensity={0.8} distance={10} />
       <DynamicOrb remainingTime={remainingTime} />
       <OrbitControls 
         enableZoom={enableZoom} 
