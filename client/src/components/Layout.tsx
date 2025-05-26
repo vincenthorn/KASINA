@@ -27,12 +27,12 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   const baseNavItems = [
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
-    { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
   ];
   
   // Admin-only navigation items
   const adminOnlyNavItems = [
     { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
+    { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
     { path: "/meditation", label: "Learn", icon: <Monitor className="w-5 h-5" /> },
   ];
   
