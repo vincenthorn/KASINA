@@ -23,23 +23,19 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     return location.pathname === path;
   };
 
-  // Base navigation items that all users can see
-  const baseNavItems = [
+  // Define navigation items based on user role
+  const navItems = isAdmin ? [
+    // Admin users: Visual → Breath → Reflect → Learn
+    { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
+    { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
+    { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
+    { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
+    { path: "/meditation", label: "Learn", icon: <Monitor className="w-5 h-5" /> },
+  ] : [
+    // Regular users: Visual → Reflect
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
-  ];
-  
-  // Admin-only navigation items
-  const adminOnlyNavItems = [
-    { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
-    { path: "/meditation", label: "Learn", icon: <Monitor className="w-5 h-5" /> },
-  ];
-  
-  // Combine items based on user role
-  const navItems = [
-    ...baseNavItems,
-    ...(isAdmin ? adminOnlyNavItems : [])
   ];
   
   // Admin nav item (only shown to admin users)

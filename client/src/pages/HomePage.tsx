@@ -14,8 +14,39 @@ const HomePage: React.FC = () => {
   const isAdmin = email === "admin@kasina.app";
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
   
-  // Features available to all users
-  const baseFeatures = [
+  // Define features based on user role with correct order
+  const features = isAdmin ? [
+    // Admin users: Visual → Breath → Reflect → Learn
+    {
+      icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
+      title: "Visual",
+      description: "Choose from many different orbs, customizing your meditation practice.",
+      path: "/kasinas",
+      color: "from-red-600 to-red-800",
+    },
+    {
+      icon: <Waves className="h-10 w-10 text-blue-500" />,
+      title: "Breath",
+      description: "Visualize your breath with interactive animations and guided patterns.",
+      path: "/breath",
+      color: "from-blue-600 to-blue-800",
+    },
+    {
+      icon: <PieChart className="h-10 w-10 text-white" />,
+      title: "Reflect",
+      description: "Track your practice progress and view your meditation history.",
+      path: "/reflection",
+      color: "from-gray-300 to-gray-500",
+    },
+    {
+      icon: <Monitor className="h-10 w-10" style={{ color: "#FFFF00" }} />,
+      title: "Learn",
+      description: "Learn with guided meditations and community resources.",
+      path: "/meditation",
+      color: "from-yellow-400 to-yellow-600",
+    },
+  ] : [
+    // Regular users: Visual → Reflect
     {
       icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
       title: "Visual",
@@ -30,30 +61,6 @@ const HomePage: React.FC = () => {
       path: "/reflection",
       color: "from-gray-300 to-gray-500",
     },
-  ];
-  
-  // Features only available to admin users
-  const adminOnlyFeatures = [
-    {
-      icon: <Waves className="h-10 w-10 text-blue-500" />,
-      title: "Breath",
-      description: "Visualize your breath with interactive animations and guided patterns.",
-      path: "/breath",
-      color: "from-blue-600 to-blue-800",
-    },
-    {
-      icon: <Monitor className="h-10 w-10" style={{ color: "#FFFF00" }} />,
-      title: "Learn",
-      description: "Learn with guided meditations and community resources.",
-      path: "/meditation",
-      color: "from-yellow-400 to-yellow-600",
-    },
-  ];
-  
-  // Combine features based on user role
-  const features = [
-    ...baseFeatures,
-    ...(isAdmin ? adminOnlyFeatures : [])
   ];
 
   return (
