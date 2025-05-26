@@ -18,9 +18,6 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   // Check if user is admin or premium
   const isAdmin = email === "admin@kasina.app";
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
-  
-  // Debug logging
-  console.log("Layout Debug:", { email, subscriptionType, isAdmin, isPremium });
 
   const isActive = (path: string) => {
     return location.pathname === path;
