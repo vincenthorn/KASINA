@@ -13,10 +13,11 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMode = false }) => {
   const location = useLocation();
-  const { logout, email } = useAuth();
+  const { logout, email, subscriptionType } = useAuth();
 
-  // Check if user is admin
+  // Check if user is admin or premium
   const isAdmin = email === "admin@kasina.app";
+  const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -28,17 +29,22 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
   ];
   
-  // Admin-only navigation items
-  const adminNavItems = [
-    { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
+  // Premium user navigation items
+  const premiumNavItems = [
     { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
+  ];
+  
+  // Admin-only navigation items
+  const adminOnlyNavItems = [
+    { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
     { path: "/meditation", label: "Learn", icon: <Monitor className="w-5 h-5" /> },
   ];
   
   // Combine items based on user role
   const navItems = [
     ...baseNavItems,
-    ...(isAdmin ? adminNavItems : [])
+    ...(isPremium ? premiumNavItems : []),
+    ...(isAdmin ? adminOnlyNavItems : [])
   ];
   
   // Admin nav item (only shown to admin users)
