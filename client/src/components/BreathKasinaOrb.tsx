@@ -962,7 +962,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Apply minimal easing to maintain responsiveness
       const normalizedScale = Math.max(0, Math.min(1, baseScale / 6));
       const easedScale = subtleEase(normalizedScale) * 6;
-      const scale = Math.max(0.1, easedScale);
+      const scale = Math.max(0.001, easedScale); // Allow orb to nearly vanish completely
       
       // Calculate immersion level based on capped orb size - start very early for all kasinas
       const immersionThreshold = 300; // Start background much earlier to prevent black screens
