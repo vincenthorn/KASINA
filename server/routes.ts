@@ -83,14 +83,10 @@ export function registerRoutes(app: Express): Server {
         return res.status(401).json({ message: "User not found" });
       }
       
-      console.log("User from database:", user);
-      console.log("User created_at:", user.created_at);
-      
       res.json({ 
         email: user.email,
         subscriptionType: user.subscription_type,
-        createdAt: user.created_at,
-        timestamp: new Date().toISOString() // Break cache
+        createdAt: user.created_at
       });
     } catch (error) {
       console.error("Auth check error:", error);

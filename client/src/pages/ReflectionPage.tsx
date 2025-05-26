@@ -57,12 +57,8 @@ const ReflectionPage: React.FC = () => {
           try {
             const userResponse = await apiRequest("GET", "/api/auth/me", undefined);
             const userData = await userResponse.json();
-            console.log("User data from API:", userData);
             if (userData.createdAt) {
-              console.log("Setting user registration date to:", userData.createdAt);
               setUserRegistrationDate(userData.createdAt);
-            } else {
-              console.log("No createdAt field in user data");
             }
           } catch (userError) {
             console.warn("Could not fetch user registration date:", userError);

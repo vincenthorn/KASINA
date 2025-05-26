@@ -168,10 +168,7 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
     const registrationDate = userRegistrationDate ? new Date(userRegistrationDate) : null;
     const isBeforeRegistration = registrationDate && dayDate < registrationDate;
     
-    // Debug logging for the first few days
-    if (day <= 3) {
-      console.log(`Day ${day}: userRegistrationDate=${userRegistrationDate}, registrationDate=${registrationDate}, dayDate=${dayDate}, isBeforeRegistration=${isBeforeRegistration}`);
-    }
+
     
     let content = null;
     let bgColor = 'bg-gray-700';
