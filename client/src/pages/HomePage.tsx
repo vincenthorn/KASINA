@@ -23,10 +23,6 @@ const HomePage: React.FC = () => {
       path: "/kasinas",
       color: "from-red-600 to-red-800",
     },
-  ];
-  
-  // Features available to premium users
-  const premiumFeatures = [
     {
       icon: <PieChart className="h-10 w-10 text-white" />,
       title: "Reflect",
@@ -57,7 +53,6 @@ const HomePage: React.FC = () => {
   // Combine features based on user role
   const features = [
     ...baseFeatures,
-    ...(isPremium ? premiumFeatures : []),
     ...(isAdmin ? adminOnlyFeatures : [])
   ];
 

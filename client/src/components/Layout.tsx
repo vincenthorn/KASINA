@@ -27,10 +27,6 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   const baseNavItems = [
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
-  ];
-  
-  // Premium user navigation items
-  const premiumNavItems = [
     { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
   ];
   
@@ -43,7 +39,6 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   // Combine items based on user role
   const navItems = [
     ...baseNavItems,
-    ...(isPremium ? premiumNavItems : []),
     ...(isAdmin ? adminOnlyNavItems : [])
   ];
   
