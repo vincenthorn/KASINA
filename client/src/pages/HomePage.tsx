@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
   
   // Define features based on user role with correct order
   const features = isAdmin ? [
-    // Admin users: Visual → Breath → Learn → Reflect
+    // Admin users: Visual → Breath → Watch → Reflect
     {
       icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
       title: "Visual",
@@ -33,8 +33,8 @@ const HomePage: React.FC = () => {
     },
     {
       icon: <Monitor className="h-10 w-10" style={{ color: "#FFFF00" }} />,
-      title: "Learn",
-      description: "Learn with guided meditations and community resources.",
+      title: "Watch",
+      description: "Watch guided meditations and community resources.",
       path: "/meditation",
       color: "from-yellow-400 to-yellow-600",
     },

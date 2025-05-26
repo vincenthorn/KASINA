@@ -45,7 +45,7 @@ const introductionVideos = [
     id: "1",
     embedId: "E4a7FzJDjbk",
     title: "Introduction to Kasina Meditation",
-    description: "Learn the basics of kasina meditation practice and its origins."
+    description: "Watch the basics of kasina meditation practice and its origins."
   },
   {
     id: "2",

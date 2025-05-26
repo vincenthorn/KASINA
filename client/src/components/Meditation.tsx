@@ -7,7 +7,7 @@ const introVideos = [
   {
     id: "video1",
     title: "Introduction to Kasina",
-    description: "Learn the basics of kasina meditation practice",
+    description: "Watch the basics of kasina meditation practice",
     embedId: "UkQIh3XYzIw", // Example ID, replace with actual YouTube video IDs
   },
   {
