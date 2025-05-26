@@ -307,7 +307,7 @@ export function registerRoutes(app: Express): Server {
   });
 
   // Zapier webhook endpoints for automatic user registration
-  app.post("/zapier/webhook/freemium", checkZapierAuth, async (req, res) => {
+  app.post("/api/zapier/webhook/freemium", checkZapierAuth, async (req, res) => {
     try {
       const { email } = req.body;
       
@@ -352,7 +352,7 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  app.post("/zapier/webhook/premium", checkZapierAuth, async (req, res) => {
+  app.post("/api/zapier/webhook/premium", checkZapierAuth, async (req, res) => {
     try {
       const { email } = req.body;
       
