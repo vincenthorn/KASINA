@@ -949,14 +949,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Add very subtle easing to reduce jerky movements while keeping responsiveness
       const baseScale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
       
-      // Apply much lighter easing - just smooth out the most jarring transitions
+      // Apply easing that slows overall movement while keeping initial response
       const subtleEase = (t: number) => {
-        // Very gentle smoothing - mostly linear with slight easing at extremes
-        return t < 0.1 
-          ? t * t * 10  // Gentle start
+        // Keep initial response fast, then gradually slow down the movement
+        return t < 0.15 
+          ? t * t * 4.4  // Quick initial response (same responsiveness)
           : t > 0.9 
-          ? 1 - (1 - t) * (1 - t) * 10  // Gentle end
-          : t; // Mostly linear in the middle
+          ? 1 - (1 - t) * (1 - t) * 8  // Slow gentle finish
+          : 0.15 + (t - 0.15) * 0.75; // Slower middle section (75% speed)
       };
       
       // Apply minimal easing to maintain responsiveness
