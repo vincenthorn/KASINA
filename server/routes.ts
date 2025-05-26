@@ -318,19 +318,27 @@ export function registerRoutes(app: Express): Server {
       // Check if user already exists
       const existingUser = await getUserByEmail(email);
       if (existingUser) {
-        console.log(`Zapier freemium: User ${email} already exists, ignoring`);
-        return res.json({ 
-          message: "User already exists, no action needed",
-          email: email,
-          status: "ignored"
-        });
+        if (existingUser.subscription_type === 'freemium') {
+          console.log(`Zapier freemium: User ${email} already has freemium access`);
+          return res.json({ 
+            message: "User already has freemium access",
+            email: email,
+            status: "unchanged"
+          });
+        } else {
+          // Update existing user to freemium (downgrade scenario)
+          await upsertUser(email, undefined, 'freemium');
+          console.log(`Zapier freemium: Updated ${email} to freemium`);
+          return res.json({ 
+            message: "User updated to freemium",
+            email: email,
+            status: "updated"
+          });
+        }
       }
 
       // Create new freemium user
-      await upsertUser({
-        email: email,
-        subscription_type: 'freemium'
-      });
+      await upsertUser(email, undefined, 'freemium');
 
       console.log(`Zapier freemium: Created new user ${email}`);
       res.json({ 
@@ -355,19 +363,27 @@ export function registerRoutes(app: Express): Server {
       // Check if user already exists
       const existingUser = await getUserByEmail(email);
       if (existingUser) {
-        console.log(`Zapier premium: User ${email} already exists, ignoring`);
-        return res.json({ 
-          message: "User already exists, no action needed",
-          email: email,
-          status: "ignored"
-        });
+        if (existingUser.subscription_type === 'premium') {
+          console.log(`Zapier premium: User ${email} already has premium access`);
+          return res.json({ 
+            message: "User already has premium access",
+            email: email,
+            status: "unchanged"
+          });
+        } else {
+          // Update existing user to premium (upgrade scenario)
+          await upsertUser(email, undefined, 'premium');
+          console.log(`Zapier premium: Upgraded ${email} to premium`);
+          return res.json({ 
+            message: "User upgraded to premium",
+            email: email,
+            status: "upgraded"
+          });
+        }
       }
 
       // Create new premium user
-      await upsertUser({
-        email: email,
-        subscription_type: 'premium'
-      });
+      await upsertUser(email, undefined, 'premium');
 
       console.log(`Zapier premium: Created new user ${email}`);
       res.json({ 
