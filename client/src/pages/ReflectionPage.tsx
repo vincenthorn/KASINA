@@ -22,7 +22,7 @@ interface Session {
 const ReflectionPage: React.FC = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [userRegistrationDate, setUserRegistrationDate] = useState<string | null>(null);
+  const [userRegistrationDate, setUserRegistrationDate] = useState<string | undefined>(undefined);
   const { email } = useAuth();
   
   // State to track the currently selected kasina type from chart
@@ -263,7 +263,10 @@ const ReflectionPage: React.FC = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <PracticeConsistencyCalendar sessions={sessions} />
+                <PracticeConsistencyCalendar 
+                  sessions={sessions} 
+                  userRegistrationDate={userRegistrationDate} 
+                />
               </CardContent>
             </Card>
             
