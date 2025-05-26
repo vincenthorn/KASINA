@@ -10,9 +10,10 @@ interface Session {
 
 interface PracticeConsistencyCalendarProps {
   sessions: Session[];
+  userRegistrationDate?: string; // ISO date string when user registered
 }
 
-const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = ({ sessions }) => {
+const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = ({ sessions, userRegistrationDate }) => {
   const now = new Date();
   const currentMonth = now.getMonth();
   const currentYear = now.getFullYear();
