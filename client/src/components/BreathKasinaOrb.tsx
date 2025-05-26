@@ -857,7 +857,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     // Adjusted breathing size range with scroll-based scaling - expanded range for better breathing comfort
-    const baseMinSize = 0.000390625 * 0.9; // 10% smaller minimum - kasina shrinks even more on exhale
+    const baseMinSize = 0.000390625 * 0.5; // Much smaller minimum - kasina shrinks to nearly nothing on exhale
     const baseMaxSize = 10000 * 1.1; // 10% larger maximum - kasina expands more on inhale
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale);
