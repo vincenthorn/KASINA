@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
     {
       icon: <PieChart className="h-10 w-10 text-white" />,
       title: "Reflect",
-      description: "View your history and track your progress",
+      description: "View your history & track your progress",
       path: "/reflection",
       color: "from-gray-300 to-gray-500",
     },
@@ -57,7 +57,7 @@ const HomePage: React.FC = () => {
     {
       icon: <PieChart className="h-10 w-10 text-white" />,
       title: "Reflect",
-      description: "View your history and track your progress",
+      description: "View your history & track your progress",
       path: "/reflection",
       color: "from-gray-300 to-gray-500",
     },
