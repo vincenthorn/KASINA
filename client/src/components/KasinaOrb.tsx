@@ -680,24 +680,13 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   const { selectedKasina, customColor } = useKasina();
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial | THREE.MeshBasicMaterial | null>(null);
-  const { email } = useAuth(); // Get user email to check if admin or premium
+  const { email, subscriptionType } = useAuth(); // Get user email and subscription type
   
   // Check if user is admin
   const isAdmin = email === "admin@kasina.app";
   
-  // Define premium users - these users get access to Vajrayana kasinas
-  const premiumEmails = [
-    'admin@kasina.app',   // Admin always has premium features
-    'premium@kasina.app', // Test premium account
-    'brian@terma.asia',   // Premium users
-    'emilywhorn@gmail.com',
-    'ryan@ryanoelke.com',
-    'ksowocki@gmail.com',
-    'lisashermanavl@gmail.com' // Additional premium user
-  ];
-  
-  // Check if current user is premium
-  const isPremium = email ? premiumEmails.includes(email) : false;
+  // Check if current user is premium based on their actual subscription status from the database
+  const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
   
   // For Clear Light Thigle - load the simple concentric rings
   const whiteATexture = useTexture('/images/vajrayana/white-a-thigle.svg');
