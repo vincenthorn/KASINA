@@ -260,7 +260,7 @@ const LoginPage: React.FC = () => {
                 verticalAlign: "middle"
               }}>
                 ✧ FREEMIUM
-              </span> features, or B) Sign-up for a paid account, for <span style={{ 
+              </span> features, or B) Sign-up for a paid account for <span style={{ 
                 color: "#FFD700", 
                 fontSize: "12px", 
                 fontWeight: "bold", 
@@ -275,7 +275,7 @@ const LoginPage: React.FC = () => {
                 ✦ PREMIUM
               </span> app features.
               <br/><br/>
-              The KASINA app works best on a <b>Desktop Computer</b>.
+              KASINA works best on a <b>Desktop Computer</b>.
             </p>
             
             <div style={{ height: "70px" }} className="w-full"></div>
