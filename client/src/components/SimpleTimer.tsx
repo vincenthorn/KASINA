@@ -73,6 +73,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           onUpdate(timeRemaining, elapsedTime);
         }
         
+        // Update session recovery with elapsed time every second
+        sessionRecovery.updateSession(elapsedTime);
+        
         // CRITICAL SOLUTION: Force-stop the timer 1 second before completion
         // This ensures the manual stop logic is triggered which seems more reliable
         if (timeRemaining === 1 && duration && duration > 30) {
@@ -98,8 +101,10 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
               .then(success => {
                 if (success) {
                   console.log(`✅ EARLY STOP: Session saved successfully`);
+                  sessionRecovery.clearSession(); // Clear recovery since session saved
                 } else {
                   console.error(`❌ EARLY STOP: Session save failed`);
+                  // Session recovery will handle retry later
                 }
               });
               
@@ -507,6 +512,8 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
           onClick={() => {
             // Just start/stop the timer, focus mode is managed in the useEffect
             if (isRunning) {
+              // Complete the session when manually stopping
+              sessionRecovery.completeSession(elapsedTime);
               stopTimer();
               
               // Ensure we send a final update when user stops the timer manually
@@ -612,6 +619,9 @@ export const SimpleTimer: React.FC<SimpleTimerProps> = ({
                     startTime: Date.now(),
                     duration: duration || 0
                   };
+                  
+                  // Start session recovery tracking
+                  sessionRecovery.startSession(selectedKasina as any);
                   
                   console.log(`🔐 Stored timer debug info in window.__KASINA_DEBUG:`, window.__KASINA_DEBUG);
                 }

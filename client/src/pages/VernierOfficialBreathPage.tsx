@@ -6,6 +6,7 @@ import { Alert, AlertDescription } from '../components/ui/alert';
 import { useNavigate } from 'react-router-dom';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
+import { sessionRecovery } from '../lib/sessionRecovery';
 
 export default function VernierOfficialBreathPage() {
   const navigate = useNavigate();
