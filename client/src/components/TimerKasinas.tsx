@@ -56,14 +56,13 @@ const TimerKasinas: React.FC = () => {
   // Debug logging for marie.a.ramos@gmail.com specifically
   useEffect(() => {
     if (email === "marie.a.ramos@gmail.com") {
-      console.log("🔍 MARIE DEBUG:", {
-        email,
-        subscriptionType,
-        isPremium,
-        isAdmin,
-        rawSubscriptionType: subscriptionType,
-        typeofSubscriptionType: typeof subscriptionType
-      });
+      console.log("🔍 MARIE DEBUG - email:", email);
+      console.log("🔍 MARIE DEBUG - subscriptionType:", subscriptionType);
+      console.log("🔍 MARIE DEBUG - isPremium:", isPremium);
+      console.log("🔍 MARIE DEBUG - isAdmin:", isAdmin);
+      console.log("🔍 MARIE DEBUG - typeof subscriptionType:", typeof subscriptionType);
+      console.log("🔍 MARIE DEBUG - subscriptionType === 'premium':", subscriptionType === "premium");
+      console.log("🔍 MARIE DEBUG - subscriptionType === 'admin':", subscriptionType === "admin");
     }
   }, [email, subscriptionType, isPremium, isAdmin]);
   
