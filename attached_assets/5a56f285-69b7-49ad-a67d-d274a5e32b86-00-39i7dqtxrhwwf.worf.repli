@@ -6,23 +6,20 @@ warnOnce @ react-router-dom.js?v=9eed23f0:4394
 react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 warnOnce @ react-router-dom.js?v=9eed23f0:4394
 useAuth.tsx:169 Setting auth state with user: Object
-KasinaOrb.tsx:1192 KasinaOrb: Setting kasina type to rainbow_kasina
-KasinaOrb.tsx:1198 KasinaOrb component mounted with type: rainbow_kasina
-SimpleTimer.tsx:41 SimpleTimer useEffect - initialDuration: 60 current duration: 60
-TimerKasinas.tsx:59 🔍 MARIE DEBUG: Object
-TimerKasinas.tsx:136 Resetting session saved flag - kasina changed to rainbow_kasina
-TimerKasinas.tsx:153 🔐 Updated window.__KASINA_DEBUG with selected kasina: rainbow_kasina
 KasinaOrb.tsx:1192 KasinaOrb: Setting kasina type to white
-TimerKasinas.tsx:136 Resetting session saved flag - kasina changed to white
-TimerKasinas.tsx:153 🔐 Updated window.__KASINA_DEBUG with selected kasina: white
-FocusMode.tsx:214 Focus mode cleanup complete
+KasinaOrb.tsx:1198 KasinaOrb component mounted with type: white
+SimpleTimer.tsx:41 SimpleTimer useEffect - initialDuration: 60 current duration: 60
+TimerKasinas.tsx:59 🔍 MARIE DEBUG - email: marie.a.ramos@gmail.com
+TimerKasinas.tsx:60 🔍 MARIE DEBUG - subscriptionType: premium
+TimerKasinas.tsx:61 🔍 MARIE DEBUG - isPremium: true
+TimerKasinas.tsx:62 🔍 MARIE DEBUG - isAdmin: false
+TimerKasinas.tsx:63 🔍 MARIE DEBUG - typeof subscriptionType: string
+TimerKasinas.tsx:64 🔍 MARIE DEBUG - subscriptionType === 'premium': true
+TimerKasinas.tsx:65 🔍 MARIE DEBUG - subscriptionType === 'admin': false
+TimerKasinas.tsx:135 Resetting session saved flag - kasina changed to white
+TimerKasinas.tsx:152 🔐 Updated window.__KASINA_DEBUG with selected kasina: white
 KasinaOrb.tsx:1088 Scene component mounted with kasina: white
-KasinaOrb.tsx:1192 KasinaOrb: Setting kasina type to rainbow_kasina
-TimerKasinas.tsx:136 Resetting session saved flag - kasina changed to rainbow_kasina
-TimerKasinas.tsx:153 🔐 Updated window.__KASINA_DEBUG with selected kasina: rainbow_kasina
-KasinaOrb.tsx:1192 KasinaOrb: Setting kasina type to white_a_kasina
-TimerKasinas.tsx:136 Resetting session saved flag - kasina changed to white_a_kasina
-TimerKasinas.tsx:153 🔐 Updated window.__KASINA_DEBUG with selected kasina: white_a_kasina
-KasinaOrb.tsx:1192 KasinaOrb: Setting kasina type to rainbow_kasina
-TimerKasinas.tsx:136 Resetting session saved flag - kasina changed to rainbow_kasina
-TimerKasinas.tsx:153 🔐 Updated window.__KASINA_DEBUG with selected kasina: rainbow_kasina
+FocusMode.tsx:214 Focus mode cleanup complete
+KasinaOrb.tsx:1192 KasinaOrb: Setting kasina type to ah_kasina
+TimerKasinas.tsx:135 Resetting session saved flag - kasina changed to ah_kasina
+TimerKasinas.tsx:152 🔐 Updated window.__KASINA_DEBUG with selected kasina: ah_kasina

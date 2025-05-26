@@ -1040,8 +1040,18 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   
   // Debug
   useEffect(() => {
+    console.log("🧿 KasinaOrb Debug:", {
+      selectedKasina,
+      isPremium,
+      isVajrayanaKasina,
+      email: useAuth.getState().email
+    });
+    
     if (isVajrayanaKasina) {
-      console.log("Vajrayana kasina selected:", selectedKasina, "premium status:", isPremium);
+      console.log("✨ Vajrayana kasina selected:", selectedKasina, "premium status:", isPremium);
+      console.log("🎯 Should render special component for:", selectedKasina);
+    } else {
+      console.log("🔵 Standard kasina orb for:", selectedKasina);
     }
   }, [selectedKasina, isPremium, isVajrayanaKasina]);
   
