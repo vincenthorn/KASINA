@@ -129,8 +129,8 @@ const LoginPage: React.FC = () => {
           </p>
           
           <p style={paragraphStyles}>
-            <b>KASINA</b> is visual meditation software for those ready to deepen their concentration with a dynamic meditation object. 
-            Inspired by ancient <i style={{ fontStyle: 'italic' }}>kasina</i> practices, reimagined for the modern meditator.
+            <b>KASINA</b> is meditation software for those ready to deepen their concentration abilities with dynamic meditation objects. 
+            Inspired by ancient visual kasina practices, re-imagined for the modern meditator.
           </p>
           
           {/* "Featuring" header */}
