@@ -18,6 +18,7 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Separator } from './ui/separator';
 import { useAuth } from '../lib/stores/useAuth';
+import { sessionRecovery } from '../lib/sessionRecovery';
 
 // Utility function to determine if a color is light or dark
 // Used to set text color for better contrast
@@ -117,9 +118,13 @@ const TimerKasinas: React.FC = () => {
     // Set White kasina as default when component mounts
     setSelectedKasina(KASINA_TYPES.WHITE);
     
+    // Check for any sessions that need recovery
+    sessionRecovery.checkForRecovery();
+    
     // Reset saved flag when navigating or unmounting
     return () => {
       sessionSavedRef.current = false;
+      sessionRecovery.clearSession();
     };
   }, []);
   

@@ -5,6 +5,7 @@ import { useFocusMode } from '../lib/stores/useFocusMode';
 import { formatTime, saveDirectTestSession } from '../lib/utils';
 import { Input } from './ui/input';
 import { guaranteedSessionSave } from './OneMinuteFix';
+import { sessionRecovery } from '../lib/sessionRecovery';
 
 interface SimpleTimerProps {
   initialDuration?: number | null; // in seconds, null means infinity (count up)
