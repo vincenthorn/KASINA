@@ -163,6 +163,11 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
     const isToday = isCurrentMonth && day === today;
     const isFutureDay = isCurrentMonth && day > today;
     
+    // Check if this day is before user registration
+    const dayDate = new Date(displayMonth.year, displayMonth.month, day);
+    const registrationDate = userRegistrationDate ? new Date(userRegistrationDate) : null;
+    const isBeforeRegistration = registrationDate && dayDate < registrationDate;
+    
     let content = null;
     let bgColor = 'bg-gray-700';
     let textColor = 'text-gray-400';
@@ -183,8 +188,13 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
         bgColor = 'bg-gray-700';
         textColor = 'text-gray-300';
       }
+    } else if (isBeforeRegistration) {
+      // Days before registration: grey box with day number (no red X)
+      content = day;
+      bgColor = 'bg-gray-600';
+      textColor = 'text-gray-400';
     } else {
-      // Past days (including all days in past months): checkmark or X with full background colors
+      // Past days after registration: checkmark or X with full background colors
       if (hasMinimumPractice) {
         content = '✅';
         bgColor = 'bg-green-600';
@@ -203,11 +213,13 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
         title={
           practiceMinutes > 0 
             ? `${practiceMinutes} minute${practiceMinutes !== 1 ? 's' : ''} practiced`
-            : isPastDay 
-              ? 'No practice this day'
-              : isToday
-                ? 'Today'
-                : ''
+            : isBeforeRegistration
+              ? 'Before registration'
+              : isPastDay 
+                ? 'No practice this day'
+                : isToday
+                  ? 'Today'
+                  : ''
         }
       >
         {content}

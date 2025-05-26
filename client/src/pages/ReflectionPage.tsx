@@ -22,6 +22,7 @@ interface Session {
 const ReflectionPage: React.FC = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [userRegistrationDate, setUserRegistrationDate] = useState<string | null>(null);
   const { email } = useAuth();
   
   // State to track the currently selected kasina type from chart
@@ -52,6 +53,17 @@ const ReflectionPage: React.FC = () => {
       // Primary: Load sessions from database
       if (email) {
         try {
+          // Fetch user registration date
+          try {
+            const userResponse = await apiRequest("GET", "/api/auth/me", undefined);
+            const userData = await userResponse.json();
+            if (userData.createdAt) {
+              setUserRegistrationDate(userData.createdAt);
+            }
+          } catch (userError) {
+            console.warn("Could not fetch user registration date:", userError);
+          }
+
           const response = await apiRequest("GET", "/api/sessions", undefined);
           const serverSessions = await response.json();
           console.log("Fetched database sessions:", serverSessions.length);
