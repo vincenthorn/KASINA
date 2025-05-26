@@ -41,6 +41,17 @@ export function registerRoutes(app: Express): Server {
     next();
   };
 
+  // Middleware to check Zapier API key
+  const checkZapierAuth = (req: Request, res: Response, next: NextFunction) => {
+    const apiKey = req.headers['x-api-key'];
+    
+    if (apiKey !== 'kasina-zapier-integration-key') {
+      return res.status(401).json({ message: "Invalid API key" });
+    }
+    
+    next();
+  };
+
   // Basic authentication routes
   app.post("/api/auth/login", async (req, res) => {
     const { email } = req.body;
@@ -293,6 +304,81 @@ export function registerRoutes(app: Express): Server {
       }
       res.json({ message: "Logout successful" });
     });
+  });
+
+  // Zapier webhook endpoints for automatic user registration
+  app.post("/zapier/webhook/freemium", checkZapierAuth, async (req, res) => {
+    try {
+      const { email } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ message: "Email is required" });
+      }
+
+      // Check if user already exists
+      const existingUser = await getUserByEmail(email);
+      if (existingUser) {
+        console.log(`Zapier freemium: User ${email} already exists, ignoring`);
+        return res.json({ 
+          message: "User already exists, no action needed",
+          email: email,
+          status: "ignored"
+        });
+      }
+
+      // Create new freemium user
+      await upsertUser({
+        email: email,
+        subscription_type: 'freemium'
+      });
+
+      console.log(`Zapier freemium: Created new user ${email}`);
+      res.json({ 
+        message: "Freemium user created successfully",
+        email: email,
+        status: "created"
+      });
+    } catch (error) {
+      console.error("Zapier freemium webhook error:", error);
+      res.status(500).json({ message: "Failed to process freemium user" });
+    }
+  });
+
+  app.post("/zapier/webhook/premium", checkZapierAuth, async (req, res) => {
+    try {
+      const { email } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ message: "Email is required" });
+      }
+
+      // Check if user already exists
+      const existingUser = await getUserByEmail(email);
+      if (existingUser) {
+        console.log(`Zapier premium: User ${email} already exists, ignoring`);
+        return res.json({ 
+          message: "User already exists, no action needed",
+          email: email,
+          status: "ignored"
+        });
+      }
+
+      // Create new premium user
+      await upsertUser({
+        email: email,
+        subscription_type: 'premium'
+      });
+
+      console.log(`Zapier premium: Created new user ${email}`);
+      res.json({ 
+        message: "Premium user created successfully",
+        email: email,
+        status: "created"
+      });
+    } catch (error) {
+      console.error("Zapier premium webhook error:", error);
+      res.status(500).json({ message: "Failed to process premium user" });
+    }
   });
 
   // Session creation endpoint - NOW USING POSTGRESQL DATABASE
