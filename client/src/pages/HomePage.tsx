@@ -8,10 +8,11 @@ import { useAuth } from "../lib/stores/useAuth";
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
-  const { email } = useAuth();
+  const { email, subscriptionType } = useAuth();
   
-  // Check if user is admin
+  // Check if user is admin or premium
   const isAdmin = email === "admin@kasina.app";
+  const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
   
   // Features available to all users
   const baseFeatures = [
@@ -24,8 +25,8 @@ const HomePage: React.FC = () => {
     },
   ];
   
-  // Features only available to admin users
-  const adminFeatures = [
+  // Features available to premium and admin users
+  const premiumFeatures = [
     {
       icon: <Waves className="h-10 w-10 text-blue-500" />,
       title: "Breath",
@@ -53,7 +54,7 @@ const HomePage: React.FC = () => {
   // Combine features based on user role
   const features = [
     ...baseFeatures,
-    ...(isAdmin ? adminFeatures : [])
+    ...(isPremium ? premiumFeatures : [])
   ];
 
   return (
