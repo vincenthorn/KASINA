@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module">
+import { createHotContext } from "/@vite/client";
+const hot = createHotContext("/__dummy__runtime-error-plugin");
+
+function sendError(error) {
+  if (!(error instanceof Error)) {
+    error = new Error("(unknown runtime error)");
+  }
+  const serialized = {
+    message: error.message,
+    stack: error.stack,
+  };
+  hot.send("runtime-error-plugin:error", serialized);
+}
+
+window.addEventListener("error", (evt) => {
+  sendError(evt.error);
+});
+
+window.addEventListener("unhandledrejection", (evt) => {
+  sendError(evt.reason);
+});
+</script>
+
+    <script type="module">
+import RefreshRuntime from "/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () => {}
+window.$RefreshSig$ = () => (type) => type
+window.__vite_plugin_react_preamble_installed__ = true
+</script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>KASINA - A Dynamic Meditation Object</title>
+    <meta name="description" content="KASINA is a modern meditation app featuring interactive kasina practice with vibrant orbs, session tracking, and analytics." />
+    
+    <!-- Content Security Policy to allow Vernier GoDirect library -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://*.unpkg.com; connect-src 'self' https://unpkg.com https://*.unpkg.com; script-src-elem 'self' 'unsafe-inline' https://unpkg.com https://*.unpkg.com;" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="apple-touch-icon" href="/logo-large.svg" />
+    
+    <!--
+      Social Media Sharing Configuration
+      
+      NOTE: For production deployment:
+      1. Generate a PNG version using /og-image-generator.html
+      2. Save as /images/og/kasina-social-preview.png
+      3. Update the og:image and twitter:image URLs below to use the PNG file
+    -->
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.kasina.app/" />
+    <meta property="og:title" content="KASINA - A Dynamic Meditation Object" />
+    <meta property="og:description" content="Explore interactive kasina meditation with 10 visual orbs and track your progress." />
+    <meta property="og:image" content="https://www.kasina.app/images/og/kasina-social-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KASINA Meditation App Logo" />
+    <meta property="og:site_name" content="KASINA" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.kasina.app/" />
+    <meta property="twitter:title" content="KASINA - A Dynamic Meditation Object" />
+    <meta property="twitter:description" content="Explore interactive kasina meditation with 10 visual orbs and track your progress." />
+    <meta property="twitter:image" content="https://www.kasina.app/images/og/kasina-social-preview.png" />
+    <meta property="twitter:image:alt" content="KASINA Meditation App Logo" />
+    
+    <!-- Fonts preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx?v=6mMcEuVgwd_8SVcQgcWe3"></script>
+  </body>
+</html>
+Text Create Hot Context
+"/__dummy__runtime-error-plugin"
+Text Send Error
+evt.reason
+Text Error
+"(unknown runtime error
+Text Send
+"runtime-error-plugin:error", serialized
+Text Add Event Listener
+"unhandledrejection", (evt
+Text Inject Into Global Hook
+window

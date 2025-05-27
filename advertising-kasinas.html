@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KASINA Vajrayana Kasinas - Advertising Assets</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+            margin-bottom: 40px;
+        }
+        .kasina-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .kasina-card {
+            background: #2a2a2a;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #444;
+        }
+        .kasina-visual {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        .clear-light {
+            background: radial-gradient(circle, #ffcc00 0%, #ffd700 50%, #ffaa00 100%);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .white-a {
+            background: radial-gradient(circle, #ffffff 0%, #f0f0f0 50%, #e0e0e0 100%);
+            color: #333;
+            border: 3px solid #ddd;
+        }
+        .om-kasina {
+            background: radial-gradient(circle, #f5f5f5 0%, #e8e8e8 50%, #d5d5d5 100%);
+            color: #333;
+            border: 3px solid #ccc;
+        }
+        .ah-kasina {
+            background: radial-gradient(circle, #ff0000 0%, #cc0000 50%, #990000 100%);
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.5);
+        }
+        .hum-kasina {
+            background: radial-gradient(circle, #0000ff 0%, #0000cc 50%, #000099 100%);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .rainbow-kasina {
+            background: conic-gradient(
+                #ff0000 0deg,
+                #ff8800 60deg,
+                #ffff00 120deg,
+                #00ff00 180deg,
+                #0088ff 240deg,
+                #8800ff 300deg,
+                #ff0000 360deg
+            );
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,1);
+            animation: rainbow-spin 10s linear infinite;
+        }
+        @keyframes rainbow-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .kasina-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+        .kasina-description {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.4;
+        }
+        .download-btn {
+            background: #ffcc00;
+            color: #1a1a1a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #ffd700;
+        }
+        .instructions {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffcc00;
+        }
+        .tibetan-letter {
+            font-family: 'Times New Roman', serif;
+            font-size: 120px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>KASINA Vajrayana Meditation Objects</h1>
+        
+        <div class="instructions">
+            <h3>Download Instructions:</h3>
+            <p>Right-click on any kasina below and select "Save as..." to download as a transparent PNG for your advertising materials. Each kasina is optimized for print and digital use.</p>
+        </div>
+
+        <div class="kasina-grid">
+            <!-- Clear Light Thigle -->
+            <div class="kasina-card">
+                <div class="kasina-visual clear-light" id="clear-light">
+                    <span class="tibetan-letter">ཨ</span>
+                </div>
+                <div class="kasina-title">Clear Light</div>
+                <div class="kasina-description">
+                    The primordial awareness kasina featuring the Tibetan letter A (ཨ) representing the clear light of consciousness itself.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('clear-light', 'Clear-Light-Kasina')">Download PNG</button>
+            </div>
+
+            <!-- White A Kasina -->
+            <div class="kasina-card">
+                <div class="kasina-visual white-a" id="white-a">
+                    <span class="tibetan-letter">ཨ</span>
+                </div>
+                <div class="kasina-title">White A</div>
+                <div class="kasina-description">
+                    Pure white meditation object with the Tibetan letter A, representing the unborn nature of mind.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('white-a', 'White-A-Kasina')">Download PNG</button>
+            </div>
+
+            <!-- OM Kasina -->
+            <div class="kasina-card">
+                <div class="kasina-visual om-kasina" id="om">
+                    <span class="tibetan-letter">ཨོཾ</span>
+                </div>
+                <div class="kasina-title">OM</div>
+                <div class="kasina-description">
+                    Sacred syllable OM (ཨོཾ) representing the body aspect of enlightenment and universal consciousness.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('om', 'OM-Kasina')">Download PNG</button>
+            </div>
+
+            <!-- AH Kasina -->
+            <div class="kasina-card">
+                <div class="kasina-visual ah-kasina" id="ah">
+                    <span class="tibetan-letter">ཨཱཿ</span>
+                </div>
+                <div class="kasina-title">AH</div>
+                <div class="kasina-description">
+                    Radiant red kasina with golden AH (ཨཱཿ) representing the speech aspect of enlightenment and infinite expression.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('ah', 'AH-Kasina')">Download PNG</button>
+            </div>
+
+            <!-- HUM Kasina -->
+            <div class="kasina-card">
+                <div class="kasina-visual hum-kasina" id="hum">
+                    <span class="tibetan-letter">ཧཱུྃ</span>
+                </div>
+                <div class="kasina-title">HUM</div>
+                <div class="kasina-description">
+                    Deep blue kasina with HUM (ཧཱུྃ) representing the mind aspect of enlightenment and indestructible awareness.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('hum', 'HUM-Kasina')">Download PNG</button>
+            </div>
+
+            <!-- Rainbow Kasina -->
+            <div class="kasina-card">
+                <div class="kasina-visual rainbow-kasina" id="rainbow">
+                    <span style="font-size: 60px;">🌈</span>
+                </div>
+                <div class="kasina-title">Rainbow</div>
+                <div class="kasina-description">
+                    Dynamic rainbow kasina representing the unity of all aspects of enlightenment and the rainbow body realization.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('rainbow', 'Rainbow-Kasina')">Download PNG</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function downloadKasina(id, filename) {
+            const element = document.getElementById(id);
+            
+            // Create a canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set high resolution
+            const size = 400;
+            canvas.width = size;
+            canvas.height = size;
+            
+            // Create the kasina based on type
+            if (id === 'clear-light') {
+                // Golden gradient background
+                const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+                gradient.addColorStop(0, '#ffcc00');
+                gradient.addColorStop(0.5, '#ffd700');
+                gradient.addColorStop(1, '#ffaa00');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, size, size);
+                
+                // Tibetan A
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 200px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.shadowColor = 'rgba(0,0,0,0.8)';
+                ctx.shadowBlur = 8;
+                ctx.fillText('ཨ', size/2, size/2);
+                
+            } else if (id === 'white-a') {
+                // White gradient background
+                const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+                gradient.addColorStop(0, '#ffffff');
+                gradient.addColorStop(0.5, '#f0f0f0');
+                gradient.addColorStop(1, '#e0e0e0');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, size, size);
+                
+                // Border
+                ctx.strokeStyle = '#ddd';
+                ctx.lineWidth = 6;
+                ctx.strokeRect(3, 3, size-6, size-6);
+                
+                // Tibetan A
+                ctx.fillStyle = '#333';
+                ctx.font = '200px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('ཨ', size/2, size/2);
+                
+            } else if (id === 'om') {
+                // Light gray gradient background
+                const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+                gradient.addColorStop(0, '#f5f5f5');
+                gradient.addColorStop(0.5, '#e8e8e8');
+                gradient.addColorStop(1, '#d5d5d5');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, size, size);
+                
+                // Border
+                ctx.strokeStyle = '#ccc';
+                ctx.lineWidth = 6;
+                ctx.strokeRect(3, 3, size-6, size-6);
+                
+                // Tibetan OM
+                ctx.fillStyle = '#333';
+                ctx.font = '160px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('ཨོཾ', size/2, size/2);
+                
+            } else if (id === 'ah') {
+                // Red gradient background
+                const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+                gradient.addColorStop(0, '#ff0000');
+                gradient.addColorStop(0.5, '#cc0000');
+                gradient.addColorStop(1, '#990000');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, size, size);
+                
+                // Glow effect
+                ctx.shadowColor = 'rgba(255, 204, 0, 0.8)';
+                ctx.shadowBlur = 20;
+                ctx.fillRect(0, 0, size, size);
+                ctx.shadowBlur = 0;
+                
+                // Tibetan AH
+                ctx.fillStyle = '#ffcc00';
+                ctx.font = '160px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.shadowColor = 'rgba(0,0,0,0.8)';
+                ctx.shadowBlur = 8;
+                ctx.fillText('ཨཱཿ', size/2, size/2);
+                
+            } else if (id === 'hum') {
+                // Blue gradient background
+                const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+                gradient.addColorStop(0, '#0000ff');
+                gradient.addColorStop(0.5, '#0000cc');
+                gradient.addColorStop(1, '#000099');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, size, size);
+                
+                // Tibetan HUM
+                ctx.fillStyle = 'white';
+                ctx.font = '160px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.shadowColor = 'rgba(0,0,0,0.8)';
+                ctx.shadowBlur = 8;
+                ctx.fillText('ཧཱུྃ', size/2, size/2);
+                
+            } else if (id === 'rainbow') {
+                // Create rainbow gradient
+                const centerX = size/2;
+                const centerY = size/2;
+                const radius = size/2;
+                
+                // Draw rainbow segments
+                const colors = ['#ff0000', '#ff8800', '#ffff00', '#00ff00', '#0088ff', '#8800ff'];
+                const segmentAngle = (2 * Math.PI) / colors.length;
+                
+                for (let i = 0; i < colors.length; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.arc(centerX, centerY, radius, i * segmentAngle, (i + 1) * segmentAngle);
+                    ctx.closePath();
+                    ctx.fillStyle = colors[i];
+                    ctx.fill();
+                }
+                
+                // Rainbow emoji
+                ctx.fillStyle = 'white';
+                ctx.font = '120px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.shadowColor = 'rgba(0,0,0,1)';
+                ctx.shadowBlur = 8;
+                ctx.fillText('🌈', size/2, size/2);
+            }
+            
+            // Convert to blob and download
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename + '.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 'image/png');
+        }
+    </script>
+</body>
+</html>
