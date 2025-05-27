@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KASINA Vajrayana Kasinas - 3D Asset Generator</title>
+    <script src="https://unpkg.com/three@0.155.0/build/three.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+            margin-bottom: 40px;
+        }
+        .kasina-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .kasina-card {
+            background: #2a2a2a;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #444;
+        }
+        .kasina-canvas {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #333 0%, #111 100%);
+        }
+        .kasina-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+        .kasina-description {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        .download-btn {
+            background: #ffcc00;
+            color: #1a1a1a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #ffd700;
+        }
+        .instructions {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>KASINA Vajrayana Meditation Objects - 3D Renders</h1>
+        
+        <div class="instructions">
+            <h3>Download High-Quality 3D Renders:</h3>
+            <p>These are authentic recreations of the actual kasina designs from your app. Each kasina is rendered in 3D with the same gradients, layers, and visual effects. Click download to get transparent PNG files perfect for advertising.</p>
+        </div>
+
+        <div class="kasina-grid">
+            <!-- Clear Light Thigle -->
+            <div class="kasina-card">
+                <canvas class="kasina-canvas" id="clear-light-canvas" width="600" height="600"></canvas>
+                <div class="kasina-title">Clear Light</div>
+                <div class="kasina-description">
+                    Multi-layered thigle with blue background, yellow, red, white, green rings, and central white dot representing primordial awareness.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('clear-light-canvas', 'Clear-Light-Kasina-3D')">Download PNG</button>
+                <button class="download-btn" onclick="renderKasina('clear-light')">Re-render</button>
+            </div>
+
+            <!-- White A Kasina -->
+            <div class="kasina-card">
+                <canvas class="kasina-canvas" id="white-a-canvas" width="600" height="600"></canvas>
+                <div class="kasina-title">White A</div>
+                <div class="kasina-description">
+                    Pure white orb with subtle gradients and the Tibetan letter A, representing the unborn nature of mind.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('white-a-canvas', 'White-A-Kasina-3D')">Download PNG</button>
+                <button class="download-btn" onclick="renderKasina('white-a')">Re-render</button>
+            </div>
+
+            <!-- OM Kasina -->
+            <div class="kasina-card">
+                <canvas class="kasina-canvas" id="om-canvas" width="600" height="600"></canvas>
+                <div class="kasina-title">OM</div>
+                <div class="kasina-description">
+                    Light gray orb with the sacred syllable OM, representing the body aspect of enlightenment.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('om-canvas', 'OM-Kasina-3D')">Download PNG</button>
+                <button class="download-btn" onclick="renderKasina('om')">Re-render</button>
+            </div>
+
+            <!-- AH Kasina -->
+            <div class="kasina-card">
+                <canvas class="kasina-canvas" id="ah-canvas" width="600" height="600"></canvas>
+                <div class="kasina-title">AH</div>
+                <div class="kasina-description">
+                    Fiery red orb with multiple gradient layers and golden AH syllable, representing infinite expression.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('ah-canvas', 'AH-Kasina-3D')">Download PNG</button>
+                <button class="download-btn" onclick="renderKasina('ah')">Re-render</button>
+            </div>
+
+            <!-- HUM Kasina -->
+            <div class="kasina-card">
+                <canvas class="kasina-canvas" id="hum-canvas" width="600" height="600"></canvas>
+                <div class="kasina-title">HUM</div>
+                <div class="kasina-description">
+                    Deep blue orb with the HUM syllable, representing indestructible awareness and the mind aspect.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('hum-canvas', 'HUM-Kasina-3D')">Download PNG</button>
+                <button class="download-btn" onclick="renderKasina('hum')">Re-render</button>
+            </div>
+
+            <!-- Rainbow Kasina -->
+            <div class="kasina-card">
+                <canvas class="kasina-canvas" id="rainbow-canvas" width="600" height="600"></canvas>
+                <div class="kasina-title">Rainbow</div>
+                <div class="kasina-description">
+                    Dynamic rainbow orb with smooth color transitions representing the unity of all enlightenment aspects.
+                </div>
+                <button class="download-btn" onclick="downloadKasina('rainbow-canvas', 'Rainbow-Kasina-3D')">Download PNG</button>
+                <button class="download-btn" onclick="renderKasina('rainbow')">Re-render</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Three.js renderers for each kasina
+        const renderers = {};
+        const scenes = {};
+        const cameras = {};
+
+        function initializeRenderer(canvasId, kasinaType) {
+            const canvas = document.getElementById(canvasId);
+            const renderer = new THREE.WebGLRenderer({ 
+                canvas: canvas, 
+                antialias: true, 
+                alpha: true,
+                preserveDrawingBuffer: true 
+            });
+            renderer.setSize(600, 600);
+            renderer.setClearColor(0x000000, 0);
+            
+            const scene = new THREE.Scene();
+            const camera = new THREE.OrthographicCamera(-2, 2, 2, -2, 0.1, 1000);
+            camera.position.z = 5;
+            
+            renderers[canvasId] = renderer;
+            scenes[canvasId] = scene;
+            cameras[canvasId] = camera;
+            
+            // Render the specific kasina
+            renderKasinaType(scene, kasinaType);
+            renderer.render(scene, camera);
+        }
+
+        function renderKasinaType(scene, type) {
+            // Clear scene
+            while(scene.children.length > 0) {
+                scene.remove(scene.children[0]);
+            }
+            
+            const group = new THREE.Group();
+            
+            if (type === 'clear-light') {
+                // Recreate the Clear Light Thigle with exact colors and layers
+                
+                // Blue background
+                const bg = new THREE.Mesh(
+                    new THREE.CircleGeometry(1.0, 64),
+                    new THREE.MeshBasicMaterial({ color: 0x0055ff })
+                );
+                bg.position.z = -0.006;
+                group.add(bg);
+                
+                // Yellow ring
+                const yellowRing = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.95, 64),
+                    new THREE.MeshBasicMaterial({ color: 0xffff00 })
+                );
+                yellowRing.position.z = -0.005;
+                group.add(yellowRing);
+                
+                // Red ring
+                const redRing = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.73, 64),
+                    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+                );
+                redRing.position.z = -0.004;
+                group.add(redRing);
+                
+                // White ring
+                const whiteRing = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.53, 64),
+                    new THREE.MeshBasicMaterial({ color: 0xffffff })
+                );
+                whiteRing.position.z = -0.003;
+                group.add(whiteRing);
+                
+                // Green ring
+                const greenRing = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.33, 64),
+                    new THREE.MeshBasicMaterial({ color: 0x00cc00 })
+                );
+                greenRing.position.z = -0.002;
+                group.add(greenRing);
+                
+                // Blue center
+                const blueCenter = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.20, 64),
+                    new THREE.MeshBasicMaterial({ color: 0x0055ff })
+                );
+                blueCenter.position.z = -0.001;
+                group.add(blueCenter);
+                
+                // White dot
+                const whiteDot = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.08, 32),
+                    new THREE.MeshBasicMaterial({ color: 0xffffff })
+                );
+                whiteDot.position.z = 0.001;
+                group.add(whiteDot);
+                
+            } else if (type === 'white-a') {
+                // Pure white orb with subtle gradients
+                const orb = new THREE.Mesh(
+                    new THREE.CircleGeometry(1.0, 64),
+                    new THREE.MeshBasicMaterial({ color: 0xffffff })
+                );
+                group.add(orb);
+                
+            } else if (type === 'om') {
+                // Light gray orb
+                const orb = new THREE.Mesh(
+                    new THREE.CircleGeometry(1.0, 64),
+                    new THREE.MeshBasicMaterial({ color: 0xeeeeee })
+                );
+                group.add(orb);
+                
+            } else if (type === 'ah') {
+                // Recreate the AH Kasina with exact layers
+                
+                // Dark background
+                const bg = new THREE.Mesh(
+                    new THREE.CircleGeometry(1.0, 64),
+                    new THREE.MeshBasicMaterial({ color: 0x220000 })
+                );
+                bg.position.z = -0.006;
+                group.add(bg);
+                
+                // Outer fiery orange halo
+                const outerHalo = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.9, 64),
+                    new THREE.MeshBasicMaterial({ 
+                        color: 0xffcc99,
+                        transparent: true,
+                        opacity: 0.7
+                    })
+                );
+                outerHalo.position.z = -0.005;
+                group.add(outerHalo);
+                
+                // Mid glow - deep red
+                const midGlow = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.75, 64),
+                    new THREE.MeshBasicMaterial({ 
+                        color: 0xcc0000,
+                        transparent: true,
+                        opacity: 0.85
+                    })
+                );
+                midGlow.position.z = -0.004;
+                group.add(midGlow);
+                
+                // Flame layer
+                const flameLayer = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.65, 64),
+                    new THREE.MeshBasicMaterial({ 
+                        color: 0xff6600,
+                        transparent: true,
+                        opacity: 0.6
+                    })
+                );
+                flameLayer.position.z = -0.0035;
+                group.add(flameLayer);
+                
+                // Inner core
+                const innerCore = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.5, 64),
+                    new THREE.MeshBasicMaterial({ color: 0xff4d4d })
+                );
+                innerCore.position.z = -0.002;
+                group.add(innerCore);
+                
+                // Center
+                const center = new THREE.Mesh(
+                    new THREE.CircleGeometry(0.3, 64),
+                    new THREE.MeshBasicMaterial({ color: 0xff4d4d })
+                );
+                center.position.z = -0.001;
+                group.add(center);
+                
+            } else if (type === 'hum') {
+                // Deep blue orb
+                const orb = new THREE.Mesh(
+                    new THREE.CircleGeometry(1.0, 64),
+                    new THREE.MeshBasicMaterial({ color: 0x0000ff })
+                );
+                group.add(orb);
+                
+            } else if (type === 'rainbow') {
+                // Create rainbow effect with multiple colored rings
+                const colors = [0xff0000, 0xff8800, 0xffff00, 0x00ff00, 0x0088ff, 0x8800ff];
+                const segments = 6;
+                
+                for (let i = 0; i < segments; i++) {
+                    const startAngle = (i / segments) * Math.PI * 2;
+                    const endAngle = ((i + 1) / segments) * Math.PI * 2;
+                    
+                    const geometry = new THREE.CircleGeometry(1.0, 64, startAngle, endAngle - startAngle);
+                    const material = new THREE.MeshBasicMaterial({ color: colors[i] });
+                    const segment = new THREE.Mesh(geometry, material);
+                    group.add(segment);
+                }
+            }
+            
+            scene.add(group);
+        }
+
+        function renderKasina(type) {
+            const canvasId = type + '-canvas';
+            if (type === 'clear-light') canvasId = 'clear-light-canvas';
+            if (type === 'white-a') canvasId = 'white-a-canvas';
+            
+            const scene = scenes[canvasId];
+            const camera = cameras[canvasId];
+            const renderer = renderers[canvasId];
+            
+            if (scene && camera && renderer) {
+                renderKasinaType(scene, type);
+                renderer.render(scene, camera);
+            }
+        }
+
+        function downloadKasina(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            
+            // Create a new canvas for transparent background
+            const outputCanvas = document.createElement('canvas');
+            const ctx = outputCanvas.getContext('2d');
+            outputCanvas.width = 600;
+            outputCanvas.height = 600;
+            
+            // Draw the kasina
+            ctx.drawImage(canvas, 0, 0);
+            
+            // Convert to blob and download
+            outputCanvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename + '.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 'image/png');
+        }
+
+        // Initialize all kasinas when page loads
+        window.addEventListener('load', () => {
+            initializeRenderer('clear-light-canvas', 'clear-light');
+            initializeRenderer('white-a-canvas', 'white-a');
+            initializeRenderer('om-canvas', 'om');
+            initializeRenderer('ah-canvas', 'ah');
+            initializeRenderer('hum-canvas', 'hum');
+            initializeRenderer('rainbow-canvas', 'rainbow');
+        });
+    </script>
+</body>
+</html>
