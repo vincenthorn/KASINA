@@ -7,6 +7,7 @@ import '../styles/breath-kasina.css';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { useKasina } from '../lib/stores/useKasina';
+import { sessionRecovery } from '../lib/sessionRecovery';
 import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
 import WhiteAKasina from './WhiteAKasina';
 import WhiteAThigle from './WhiteAThigle';
@@ -493,6 +494,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const meditationStartRef = useRef<number | null>(null);
   const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const connectionCheckRef = useRef<NodeJS.Timeout | null>(null);
+  const sessionIdRef = useRef<string | null>(null);
   
   // State for Changing Color kasina - cycles through rainbow colors with breath
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
@@ -592,10 +594,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         // Start meditation timer when entering focus mode
         if (!meditationStartRef.current) {
           meditationStartRef.current = Date.now();
+          
+          // Start session recovery tracking
+          sessionIdRef.current = sessionRecovery.startSession('breath');
+          console.log("🛡️ Started session recovery tracking for breath meditation");
+          
           meditationIntervalRef.current = setInterval(() => {
             if (meditationStartRef.current) {
               const elapsed = Math.floor((Date.now() - meditationStartRef.current) / 1000);
               setMeditationTime(elapsed);
+              
+              // Update session recovery with current duration
+              sessionRecovery.updateSession(elapsed);
             }
           }, 1000);
         }
@@ -666,6 +676,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const durationInSeconds = meditationTime;
     const durationInMinutes = Math.floor(durationInSeconds / 60); // Round down to nearest minute
     
+    // Complete session recovery tracking
+    if (sessionIdRef.current) {
+      const recoverySuccess = await sessionRecovery.completeSession(durationInSeconds);
+      console.log(`🛡️ Session recovery completion: ${recoverySuccess ? 'success' : 'failed'}`);
+    }
+    
     // Only log if there was at least 1 minute of meditation
     if (durationInMinutes >= 1) {
       console.log(`🧘 Ending meditation session: ${durationInSeconds}s (${durationInMinutes} minutes)`);
@@ -693,6 +709,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     setMeditationTime(0);
     setIsInFocusMode(false);
     meditationStartRef.current = null;
+    sessionIdRef.current = null;
     if (meditationIntervalRef.current) {
       clearInterval(meditationIntervalRef.current);
       meditationIntervalRef.current = null;
