@@ -618,7 +618,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           console.log("🛡️ Started session recovery tracking for breath meditation");
           
           // Request wake lock to prevent screen sleep during meditation
-          wakeLock.request();
+          enableWakeLock();
           console.log("🔒 Wake lock requested to prevent screen sleep during meditation");
           
           meditationIntervalRef.current = setInterval(() => {
@@ -795,7 +795,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     // Release wake lock when meditation ends
-    wakeLock.release();
+    disableWakeLock();
     console.log("🔓 Wake lock released - screen can sleep normally again");
     
     // Always navigate to Reflection page when ending session
@@ -1107,10 +1107,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     setOrbSize(newSize);
     
     // Also directly modify the DOM for immediate visual feedback
-    if (orbRef.current) {
-      orbRef.current.style.width = `${newSize}px`;
-      orbRef.current.style.height = `${newSize}px`;
-      orbRef.current.style.boxShadow = 'none'; // Remove all glow effects
+    try {
+      if (orbRef.current) {
+        orbRef.current.style.width = `${newSize}px`;
+        orbRef.current.style.height = `${newSize}px`;
+        orbRef.current.style.boxShadow = 'none'; // Remove all glow effects
+      }
+    } catch (error) {
+      console.error('Error updating orb DOM styles:', error);
     }
     
     // Log the size and rate data for debugging
