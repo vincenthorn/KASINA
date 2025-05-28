@@ -333,109 +333,6 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
     );
   };
 
-  // Show kasina selection interface
-  if (showKasinaSelection) {
-    return (
-      <div 
-        className="fixed inset-0 flex items-center justify-center"
-        style={{
-          backgroundColor: '#000000',
-          width: '100vw',
-          height: '100vh',
-          zIndex: 10
-        }}
-      >
-        <div className="max-w-4xl mx-auto p-8 text-center">
-          {kasinaSelectionStep === 'series' ? (
-            // Series Selection
-            <div>
-              <h1 className="text-4xl font-bold mb-8 text-white">Choose a Kasina Series</h1>
-              <div className="grid gap-6 max-w-2xl mx-auto">
-                {/* Color Kasinas */}
-                <div 
-                  onClick={() => handleSeriesSelection('COLOR')}
-                  className="bg-gray-800 rounded-lg p-8 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600"
-                >
-                  <div className="text-4xl mb-4">🌈</div>
-                  <h2 className="text-2xl font-bold mb-2 text-white">Color Kasinas</h2>
-                  <p className="text-gray-300">Pure color meditation objects for concentration practice</p>
-                </div>
-
-                {/* Elemental Kasinas */}
-                <div 
-                  onClick={() => handleSeriesSelection('ELEMENTAL')}
-                  className="bg-gray-800 rounded-lg p-8 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600"
-                >
-                  <div className="text-4xl mb-4">🌍</div>
-                  <h2 className="text-2xl font-bold mb-2 text-white">Elemental Kasinas</h2>
-                  <p className="text-gray-300">Earth, water, fire, air, and space meditation objects</p>
-                </div>
-
-                {/* Vajrayana Kasinas */}
-                <div 
-                  onClick={() => isPremium ? handleSeriesSelection('VAJRAYANA') : null}
-                  className={`rounded-lg p-8 border ${
-                    isPremium 
-                      ? 'bg-gray-800 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border-gray-600' 
-                      : 'bg-gray-900 border-gray-700 opacity-60 cursor-not-allowed'
-                  }`}
-                >
-                  <div className="text-4xl mb-4">🕉️</div>
-                  <h2 className="text-2xl font-bold mb-2 text-white">
-                    Vajrayana Kasinas {!isPremium && <span className="text-yellow-400 text-sm">✦ Premium</span>}
-                  </h2>
-                  <p className="text-gray-300">Advanced Tibetan meditation objects and mantras</p>
-                  {!isPremium && (
-                    <div className="mt-4">
-                      <p className="text-yellow-400 text-sm mb-3">Premium subscription required</p>
-                      <a 
-                        href="https://www.contemplative.technology/subscribe" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 px-6 rounded-full text-sm font-medium shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Upgrade to Premium
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          ) : (
-            // Individual Kasina Selection
-            <div>
-              <button 
-                onClick={() => setKasinaSelectionStep('series')}
-                className="mb-6 text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                ← Back to Series
-              </button>
-              <h1 className="text-3xl font-bold mb-8 text-white">
-                Choose Your {selectedKasinaSeries === 'COLOR' ? 'Color' : selectedKasinaSeries === 'ELEMENTAL' ? 'Elemental' : 'Vajrayana'} Kasina
-              </h1>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                {getKasinasForSeries(selectedKasinaSeries).map((kasina) => (
-                  <div
-                    key={kasina}
-                    onClick={() => handleKasinaSelection(kasina)}
-                    className="bg-gray-800 rounded-lg p-6 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600 text-center"
-                    style={{
-                      background: `linear-gradient(135deg, ${KASINA_COLORS[kasina] || '#4a5568'}, rgba(0,0,0,0.3))`
-                    }}
-                  >
-                    <div className="text-3xl mb-3">{KASINA_EMOJIS[kasina]}</div>
-                    <h3 className="text-lg font-semibold text-white">{KASINA_NAMES[kasina]}</h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div 
       className="fixed inset-0 flex items-center justify-center"
@@ -447,7 +344,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
         cursor: showCursor ? 'default' : 'none'
       }}
     >
-      {/* Three.js Canvas with kasina orb */}
+      {/* Three.js Canvas with kasina orb - always visible in background */}
       <Canvas
         style={{ width: '100%', height: '100%' }}
         camera={{ position: [0, 0, 3], fov: 75 }}
@@ -457,8 +354,107 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
         <VisualKasinaOrbMesh />
       </Canvas>
       
-      {/* Meditation timer and controls */}
-      {showControls && (
+      {/* Kasina selection overlay - matches breath kasina design exactly */}
+      {showKasinaSelection && (
+        <div 
+          className="absolute inset-0 flex items-center justify-center"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            zIndex: 20
+          }}
+        >
+          <div className="max-w-4xl mx-auto p-8 text-center">
+            {kasinaSelectionStep === 'series' ? (
+              // Series Selection
+              <div>
+                <h1 className="text-4xl font-bold mb-8 text-white">Choose a Kasina Series</h1>
+                <div className="grid gap-6 max-w-2xl mx-auto">
+                  {/* Color Kasinas */}
+                  <div 
+                    onClick={() => handleSeriesSelection('COLOR')}
+                    className="bg-gray-800 rounded-lg p-8 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600"
+                  >
+                    <div className="text-4xl mb-4">🌈</div>
+                    <h2 className="text-2xl font-bold mb-2 text-white">Color Kasinas</h2>
+                    <p className="text-gray-300">Pure color meditation objects for concentration practice</p>
+                  </div>
+
+                  {/* Elemental Kasinas */}
+                  <div 
+                    onClick={() => handleSeriesSelection('ELEMENTAL')}
+                    className="bg-gray-800 rounded-lg p-8 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600"
+                  >
+                    <div className="text-4xl mb-4">🌍</div>
+                    <h2 className="text-2xl font-bold mb-2 text-white">Elemental Kasinas</h2>
+                    <p className="text-gray-300">Earth, water, fire, air, and space meditation objects</p>
+                  </div>
+
+                  {/* Vajrayana Kasinas */}
+                  <div 
+                    onClick={() => isPremium ? handleSeriesSelection('VAJRAYANA') : null}
+                    className={`rounded-lg p-8 border ${
+                      isPremium 
+                        ? 'bg-gray-800 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border-gray-600' 
+                        : 'bg-gray-900 border-gray-700 opacity-60 cursor-not-allowed'
+                    }`}
+                  >
+                    <div className="text-4xl mb-4">🕉️</div>
+                    <h2 className="text-2xl font-bold mb-2 text-white">
+                      Vajrayana Kasinas {!isPremium && <span className="text-yellow-400 text-sm">✦ Premium</span>}
+                    </h2>
+                    <p className="text-gray-300">Advanced Tibetan meditation objects and mantras</p>
+                    {!isPremium && (
+                      <div className="mt-4">
+                        <p className="text-yellow-400 text-sm mb-3">Premium subscription required</p>
+                        <a 
+                          href="https://www.contemplative.technology/subscribe" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 px-6 rounded-full text-sm font-medium shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Upgrade to Premium
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // Individual Kasina Selection
+              <div>
+                <button 
+                  onClick={() => setKasinaSelectionStep('series')}
+                  className="mb-6 text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  ← Back to Series
+                </button>
+                <h1 className="text-3xl font-bold mb-8 text-white">
+                  Choose Your {selectedKasinaSeries === 'COLOR' ? 'Color' : selectedKasinaSeries === 'ELEMENTAL' ? 'Elemental' : 'Vajrayana'} Kasina
+                </h1>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                  {getKasinasForSeries(selectedKasinaSeries).map((kasina) => (
+                    <div
+                      key={kasina}
+                      onClick={() => handleKasinaSelection(kasina)}
+                      className="bg-gray-800 rounded-lg p-6 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600 text-center"
+                      style={{
+                        background: `linear-gradient(135deg, ${KASINA_COLORS[kasina] || '#4a5568'}, rgba(0,0,0,0.3))`
+                      }}
+                    >
+                      <div className="text-3xl mb-3">{KASINA_EMOJIS[kasina]}</div>
+                      <h3 className="text-lg font-semibold text-white">{KASINA_NAMES[kasina]}</h3>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+      
+      {/* Meditation timer and controls - only show when not selecting kasina */}
+      {!showKasinaSelection && showControls && (
         <div 
           className="absolute top-4 left-4 z-30 flex items-center space-x-3"
           style={{
@@ -503,8 +499,8 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
         </div>
       )}
 
-      {/* Fullscreen toggle */}
-      {showControls && (
+      {/* Fullscreen toggle - only show when not selecting kasina */}
+      {!showKasinaSelection && showControls && (
         <button
           onClick={toggleFullscreen}
           className="absolute top-4 right-4 z-30"
