@@ -8,6 +8,7 @@ import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { useKasina } from '../lib/stores/useKasina';
 import { sessionRecovery } from '../lib/sessionRecovery';
+import useWakeLock from '../lib/useWakeLock';
 import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
 import WhiteAKasina from './WhiteAKasina';
 import WhiteAThigle from './WhiteAThigle';
@@ -455,6 +456,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina } = useKasina();
+  const wakeLock = useWakeLock();
   
   // Log Vernier data for debugging
   console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
@@ -614,6 +616,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           // Start session recovery tracking
           sessionIdRef.current = sessionRecovery.startSession('breath');
           console.log("🛡️ Started session recovery tracking for breath meditation");
+          
+          // Request wake lock to prevent screen sleep during meditation
+          wakeLock.request();
+          console.log("🔒 Wake lock requested to prevent screen sleep during meditation");
           
           meditationIntervalRef.current = setInterval(() => {
             if (meditationStartRef.current) {
@@ -781,6 +787,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       clearInterval(meditationIntervalRef.current);
       meditationIntervalRef.current = null;
     }
+    
+    // Release wake lock when meditation ends
+    wakeLock.release();
+    console.log("🔓 Wake lock released - screen can sleep normally again");
     
     // Always navigate to Reflection page when ending session
     navigate('/reflection');
@@ -1032,11 +1042,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     // Adjusted breathing size range with scroll-based scaling - expanded range for better breathing comfort
-    const baseMinSize = 0.000390625 * 0.5; // Much smaller minimum - kasina shrinks to nearly nothing on exhale
-    const baseMaxSize = 10000 * 1.1; // 10% larger maximum - kasina expands more on inhale
+    const baseMinSize = 0.000390625 * 0.45; // 10% smaller minimum - more dramatic contraction
+    const baseMaxSize = 10000 * 1.21; // 10% increase from 1.1 to 1.21 - more dramatic expansion  
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale);
-    const maxSize = Math.min(calculatedMaxSize, 3000); // Even higher cap for vajrayana immersion
+    const maxSize = Math.min(calculatedMaxSize, 3300); // Increased cap to match new range
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
