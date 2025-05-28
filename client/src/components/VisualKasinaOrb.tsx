@@ -366,6 +366,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
           {selectedKasina === 'ah_kasina' && <AhKasina />}
           {selectedKasina === 'hum_kasina' && <HumKasina />}
           {selectedKasina === 'rainbow_kasina' && <RainbowKasina />}
+          {selectedKasina === 'light' && <ClearLightKasina />}
         </>
       );
     }
