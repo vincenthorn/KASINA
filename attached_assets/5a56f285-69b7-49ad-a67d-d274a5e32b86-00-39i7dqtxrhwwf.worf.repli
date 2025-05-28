@@ -6,6 +6,9 @@ warnOnce @ react-router-dom.js?v=9eed23f0:4394
 react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 warnOnce @ react-router-dom.js?v=9eed23f0:4394
 useAuth.tsx:169 Setting auth state with user: Object
-VisualKasinaOrb.tsx:135 🧘 Starting visual meditation session: session_1748405466166_qwviokxub
-VisualKasinaOrb.tsx:138 🛡️ Session recovery started for visual (session_1748405466166_qwviokxub)
-VisualKasinaOrb.tsx:122 🎨 Selected kasina: HUM (hum_kasina)
+VisualKasinaOrb.tsx:135 🧘 Starting visual meditation session: session_1748405719642_ogs6urwks
+VisualKasinaOrb.tsx:122 🎨 Selected kasina: Fire (fire)
+VisualKasinaOrb.tsx:214 ⏰ Entering focus mode - timer continues running
+VisualKasinaOrb.tsx:214 ⏰ Entering focus mode - timer continues running
+VisualKasinaOrb.tsx:214 ⏰ Entering focus mode - timer continues running
+VisualKasinaOrb.tsx:214 ⏰ Entering focus mode - timer continues running
