@@ -118,8 +118,67 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
     setSelectedKasina(kasina);
     setGlobalSelectedKasina(kasina as any);
     setShowKasinaSelection(false);
+    startMeditation();
     console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
   };
+
+  // Start meditation timer
+  const startMeditation = () => {
+    if (meditationStartRef.current) return; // Already started
+    
+    const startTime = Date.now();
+    meditationStartRef.current = startTime;
+    
+    // Generate session ID for recovery
+    sessionIdRef.current = `session_${startTime}_${Math.random().toString(36).substr(2, 9)}`;
+    
+    console.log(`🧘 Starting visual meditation session: ${sessionIdRef.current}`);
+    
+    // Start session recovery tracking
+    console.log(`🛡️ Session recovery started for visual (${sessionIdRef.current})`);
+    sessionRecovery.startSession(sessionIdRef.current);
+    
+    // Start timer interval
+    meditationIntervalRef.current = setInterval(() => {
+      if (meditationStartRef.current) {
+        const elapsed = Math.floor((Date.now() - meditationStartRef.current) / 1000);
+        setMeditationTime(elapsed);
+        
+        // Save checkpoint every 30 seconds
+        if (elapsed > 0 && elapsed % 30 === 0) {
+          console.log(`🔄 Session recovery checkpoint: ${elapsed}s elapsed`);
+        }
+      }
+    }, 1000);
+    
+    // Auto-hide cursor and controls after 3 seconds
+    startCursorTimeout();
+  };
+
+  // Start cursor and controls timeout
+  const startCursorTimeout = () => {
+    // Clear existing timeouts
+    if (cursorTimeoutRef.current) clearTimeout(cursorTimeoutRef.current);
+    if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+    
+    // Show cursor and controls
+    setShowCursor(true);
+    setShowControls(true);
+    
+    // Hide cursor after 3 seconds
+    cursorTimeoutRef.current = setTimeout(() => {
+      setShowCursor(false);
+    }, 3000);
+    
+    // Hide controls after 3 seconds
+    controlsTimeoutRef.current = setTimeout(() => {
+      setShowControls(false);
+    }, 3000);
+  };
+
+
+
+
 
   // Get kasinas for the selected series
   const getKasinasForSeries = (series: string) => {
