@@ -6,6 +6,7 @@ import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
 import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { useKasina } from '../lib/stores/useKasina';
+import { useAuth } from '../lib/stores/useAuth';
 import { sessionRecovery } from '../lib/sessionRecovery';
 import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
 import WhiteAKasina from './WhiteAKasina';
@@ -81,6 +82,10 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina } = useKasina();
+  const { email, subscriptionType } = useAuth();
+  
+  // Check if user has premium access
+  const isPremium = subscriptionType === "premium" || subscriptionType === "admin" || email === "admin@kasina.app";
   
   // State for kasina selection flow
   const [showKasinaSelection, setShowKasinaSelection] = useState(true);
@@ -368,12 +373,32 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
 
                 {/* Vajrayana Kasinas */}
                 <div 
-                  onClick={() => handleSeriesSelection('VAJRAYANA')}
-                  className="bg-gray-800 rounded-lg p-8 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600"
+                  onClick={() => isPremium ? handleSeriesSelection('VAJRAYANA') : null}
+                  className={`rounded-lg p-8 border ${
+                    isPremium 
+                      ? 'bg-gray-800 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border-gray-600' 
+                      : 'bg-gray-900 border-gray-700 opacity-60 cursor-not-allowed'
+                  }`}
                 >
                   <div className="text-4xl mb-4">🕉️</div>
-                  <h2 className="text-2xl font-bold mb-2 text-white">Vajrayana Kasinas</h2>
+                  <h2 className="text-2xl font-bold mb-2 text-white">
+                    Vajrayana Kasinas {!isPremium && <span className="text-yellow-400 text-sm">✦ Premium</span>}
+                  </h2>
                   <p className="text-gray-300">Advanced Tibetan meditation objects and mantras</p>
+                  {!isPremium && (
+                    <div className="mt-4">
+                      <p className="text-yellow-400 text-sm mb-3">Premium subscription required</p>
+                      <a 
+                        href="https://www.contemplative.technology/subscribe" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 px-6 rounded-full text-sm font-medium shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Upgrade to Premium
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
