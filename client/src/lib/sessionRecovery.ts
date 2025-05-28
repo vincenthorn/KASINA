@@ -130,6 +130,9 @@ export class SessionRecovery {
 
   async checkForRecovery(): Promise<void> {
     try {
+      // First check for emergency checkpoints (from fullscreen exits)
+      await this.checkEmergencyCheckpoints();
+      
       // Check for active session recovery
       const activeSession = localStorage.getItem(SESSION_STORAGE_KEY);
       if (activeSession) {
@@ -157,6 +160,49 @@ export class SessionRecovery {
       await this.retryFailedSessions();
     } catch (error) {
       console.error('Session recovery check failed:', error);
+    }
+  }
+
+  private async checkEmergencyCheckpoints(): Promise<void> {
+    try {
+      const emergencyCheckpoint = localStorage.getItem('kasina_emergency_checkpoint');
+      if (!emergencyCheckpoint) return;
+
+      const checkpoint = JSON.parse(emergencyCheckpoint);
+      const timeSinceCheckpoint = Date.now() - new Date(checkpoint.timestamp).getTime();
+      
+      // If checkpoint was created within last 5 minutes, try to recover
+      if (timeSinceCheckpoint < 300000) {
+        console.log(`🚨 Found emergency checkpoint from ${checkpoint.reason}: ${checkpoint.kasinaType} (${checkpoint.duration}s)`);
+        
+        // Try to save the emergency checkpoint session
+        const { logSession } = useSessionLogger.getState();
+        
+        // Round down to nearest minute like regular sessions
+        const durationInMinutes = Math.floor(checkpoint.duration / 60);
+        if (durationInMinutes >= 1) {
+          const success = await logSession({
+            kasinaType: checkpoint.kasinaType,
+            duration: durationInMinutes * 60,
+            showToast: true
+          });
+
+          if (success) {
+            console.log(`✅ Emergency checkpoint session recovered: ${durationInMinutes} minutes`);
+            localStorage.removeItem('kasina_emergency_checkpoint');
+          } else {
+            console.log(`❌ Emergency checkpoint save failed - keeping for retry`);
+          }
+        } else {
+          console.log(`⏱️ Emergency checkpoint too short (${checkpoint.duration}s) - discarding`);
+          localStorage.removeItem('kasina_emergency_checkpoint');
+        }
+      } else {
+        console.log(`⚠️ Emergency checkpoint too old (${Math.floor(timeSinceCheckpoint / 1000)}s ago) - discarding`);
+        localStorage.removeItem('kasina_emergency_checkpoint');
+      }
+    } catch (error) {
+      console.error('Emergency checkpoint recovery failed:', error);
     }
   }
 
