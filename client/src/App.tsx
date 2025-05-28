@@ -198,6 +198,17 @@ function App() {
                 }
               />
 
+              <Route
+                path="/kasinas/breath"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <MicBreathPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>
