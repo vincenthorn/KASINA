@@ -1070,18 +1070,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
                                normalizedRate <= 12 ? 0.3 + ((normalizedRate - 4) / 8) * 0.5 :
                                0.8 + ((normalizedRate - 12) / 8) * 0.2;
     
-    // Apply simple, direct scaling that follows the breath data naturally
+    // Direct, smooth amplitude mapping that follows breathing naturally
+    // Remove all complex scaling to prevent jerky movement
     let scaledAmplitude = finalAmplitude;
     
-    // Simple linear mapping with gentle compression for exhales
-    // This maintains the natural rhythm of the Vernier belt data
-    if (finalAmplitude < 0.5) {
-      // Light compression for exhales to make them slightly smaller
-      scaledAmplitude = finalAmplitude * 0.7; // Gentle compression
-    } else {
-      // Direct mapping for inhales with minimal modification
-      scaledAmplitude = 0.35 + ((finalAmplitude - 0.5) * 0.65); // Linear scaling
-    }
+    // Add slight smoothing to reduce jerkiness while maintaining responsiveness
+    const smoothingFactor = 0.85; // Light smoothing
+    const lastSmoothedAmplitude = lastAmplitudeRef.current || finalAmplitude;
+    scaledAmplitude = (lastSmoothedAmplitude * smoothingFactor) + (finalAmplitude * (1 - smoothingFactor));
     
     // Apply breathing rate intensity scaling
     scaledAmplitude = scaledAmplitude * intensityMultiplier;
