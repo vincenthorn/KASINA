@@ -220,9 +220,10 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
         if (!meditationStartRef.current) {
           meditationStartRef.current = Date.now();
           
-          // Start session recovery tracking
-          sessionIdRef.current = sessionRecovery.startSession('breath');
+          // Start session recovery tracking  
+          sessionIdRef.current = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
           console.log("🛡️ Started session recovery tracking for visual meditation");
+          console.log(`🧘 Starting visual meditation session: ${sessionIdRef.current}`);
           
           meditationIntervalRef.current = setInterval(() => {
             if (meditationStartRef.current) {
@@ -350,7 +351,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // Simple visual kasina orb component
+  // Visual kasina orb component - now uses the same advanced rendering as breath kasinas
   const VisualKasinaOrbMesh = () => {
     const meshRef = useRef<THREE.Mesh>(null);
 
@@ -362,6 +363,37 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       }
     });
 
+    // Check if this is a Vajrayana kasina
+    const isVajrayanaKasina = (
+      selectedKasina === 'white_a_thigle' ||
+      selectedKasina === 'white_a_kasina' ||
+      selectedKasina === 'om_kasina' ||
+      selectedKasina === 'ah_kasina' ||
+      selectedKasina === 'hum_kasina' ||
+      selectedKasina === 'rainbow_kasina'
+    );
+
+    // For Vajrayana kasinas, render the special components
+    if (isVajrayanaKasina) {
+      return (
+        <>
+          {/* Invisible sphere to maintain ref compatibility */}
+          <mesh ref={meshRef} visible={false}>
+            <sphereGeometry args={[1, 64, 64]} />
+          </mesh>
+          
+          {/* Render the appropriate Vajrayana component */}
+          {selectedKasina === 'white_a_thigle' && <WhiteAThigle />}
+          {selectedKasina === 'white_a_kasina' && <WhiteAKasina />}
+          {selectedKasina === 'om_kasina' && <OmKasina />}
+          {selectedKasina === 'ah_kasina' && <AhKasina />}
+          {selectedKasina === 'hum_kasina' && <HumKasina />}
+          {selectedKasina === 'rainbow_kasina' && <RainbowKasina />}
+        </>
+      );
+    }
+
+    // For regular kasinas, use the simple sphere
     return (
       <mesh ref={meshRef}>
         <sphereGeometry args={[1, 64, 64]} />

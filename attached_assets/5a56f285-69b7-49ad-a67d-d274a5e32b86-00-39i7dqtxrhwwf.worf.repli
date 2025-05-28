@@ -6,8 +6,16 @@ warnOnce @ react-router-dom.js?v=9eed23f0:4394
 react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 warnOnce @ react-router-dom.js?v=9eed23f0:4394
 useAuth.tsx:169 Setting auth state with user: Object
-VisualKasinaOrb.tsx:135 🧘 Starting visual meditation session: session_1748404703453_ljrzf4fz4
-VisualKasinaOrb.tsx:138 🛡️ Session recovery started for visual (session_1748404703453_ljrzf4fz4)
-VisualKasinaOrb.tsx:122 🎨 Selected kasina: Blue (blue)
-VisualKasinaOrb.tsx:276 🛡️ Exiting fullscreen during meditation - saving session state (9s)
-VisualKasinaOrb.tsx:293 💾 Emergency checkpoint saved on fullscreen exit
+ReflectionPage.tsx:47 ================================
+ReflectionPage.tsx:48 LOADING SESSIONS FROM DATABASE
+ReflectionPage.tsx:49 Refresh counter: 0
+ReflectionPage.tsx:50 Current user: admin@kasina.app
+ReflectionPage.tsx:51 ================================
+ReflectionPage.tsx:69 Fetched database sessions: 7
+ReflectionPage.tsx:73 ✅ Successfully loaded sessions from database
+ReflectionPage.tsx:116 Final sessions loaded: 7
+ReflectionPage.tsx:117 ================================
+sessionRecovery.ts:45 🛡️ Session recovery started for breath (session_1748405070323_jcr5tqbbv)
+VisualKasinaOrb.tsx:225 🛡️ Started session recovery tracking for visual meditation
+VisualKasinaOrb.tsx:122 🎨 Selected kasina: White A (white_a_kasina)
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 29s elapsed

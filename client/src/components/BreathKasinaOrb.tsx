@@ -712,7 +712,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         console.log(`🛡️ Exiting fullscreen during meditation - timer continues running`);
         
         // Show cursor and controls when exiting fullscreen
-        startCursorTimeout();
+        setShowCursor(true);
+        setShowControls(true);
       }
     };
 
