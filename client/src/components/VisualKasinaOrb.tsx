@@ -235,6 +235,9 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
         setShowCursor(false);
       }, 3000);
       
+      controlsTimeoutRef.current = setTimeout(() => {
+        setShowControls(false);
+      }, 3000);
 
     };
 
