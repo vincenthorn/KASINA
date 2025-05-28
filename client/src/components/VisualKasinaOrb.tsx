@@ -216,25 +216,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
         setShowControls(false);
         setIsInFocusMode(true);
         
-        // Start meditation timer when entering focus mode
-        if (!meditationStartRef.current) {
-          meditationStartRef.current = Date.now();
-          
-          // Start session recovery tracking  
-          sessionIdRef.current = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-          console.log("🛡️ Started session recovery tracking for visual meditation");
-          console.log(`🧘 Starting visual meditation session: ${sessionIdRef.current}`);
-          
-          meditationIntervalRef.current = setInterval(() => {
-            if (meditationStartRef.current) {
-              const elapsed = Math.floor((Date.now() - meditationStartRef.current) / 1000);
-              setMeditationTime(elapsed);
-              
-              // Update session recovery with current duration
-              sessionRecovery.updateSession(elapsed);
-            }
-          }, 1000);
-        }
+        // Timer should already be running from startMeditation() - just continue counting
       }, 3000);
     };
 
