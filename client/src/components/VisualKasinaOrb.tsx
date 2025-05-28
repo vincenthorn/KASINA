@@ -136,7 +136,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
     
     // Start session recovery tracking
     console.log(`🛡️ Session recovery started for visual (${sessionIdRef.current})`);
-    sessionRecovery.startSession(sessionIdRef.current);
+    // sessionRecovery.startSession(sessionIdRef.current);
     
     // Start timer interval
     meditationIntervalRef.current = setInterval(() => {
@@ -407,6 +407,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       <Canvas
         style={{ width: '100%', height: '100%' }}
         camera={{ position: [0, 0, 3], fov: 75 }}
+        onContextMenu={(e) => e.stopPropagation()}
       >
         <ambientLight intensity={0.8} />
         <pointLight position={[10, 10, 10]} />
