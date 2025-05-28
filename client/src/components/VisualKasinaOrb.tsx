@@ -703,33 +703,23 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
               Select a color or enter a hex code for your personalized kasina
             </div>
             
-            {/* Color preview */}
-            <div 
-              style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                backgroundColor: customColor,
-                margin: '0 auto 24px',
-                border: '3px solid #ddd',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
-              }}
-            />
-            
-            {/* HTML Color Picker */}
+            {/* Color preview and picker combined */}
             <div style={{ marginBottom: '24px' }}>
               <input
                 type="color"
                 value={customColor}
                 onChange={(e) => setCustomColor(e.target.value)}
                 style={{
-                  width: '60px',
-                  height: '60px',
-                  border: 'none',
-                  borderRadius: '8px',
+                  width: '80px',
+                  height: '80px',
+                  border: '3px solid #ddd',
+                  borderRadius: '50%',
                   cursor: 'pointer',
                   margin: '0 auto 16px',
-                  display: 'block'
+                  display: 'block',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                  WebkitAppearance: 'none',
+                  appearance: 'none'
                 }}
               />
             </div>
