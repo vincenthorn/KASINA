@@ -86,7 +86,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.FIRE]: "#000000",  // Pure black background
   [KASINA_TYPES.EARTH]: "#241000", // Very dark rich brown (almost black)
   [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)
-  [KASINA_TYPES.LIGHT]: "#1a4b99", // Deep blue to match outermost ring
+  [KASINA_TYPES.LIGHT]: "#0033aa", // Deeper blue to match outermost ring
   // Vajrayana Series
   [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff",  // More vibrant royal blue background for Clear Light Thigle
   [KASINA_TYPES.WHITE_A_KASINA]: "#0055ff",  // Same royal blue background for White A Kasina
