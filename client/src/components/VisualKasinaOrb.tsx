@@ -122,7 +122,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
     console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
   };
 
-  // Start meditation timer
+  // Start meditation timer - simplified and reliable
   const startMeditation = () => {
     if (meditationStartRef.current) return; // Already started
     
@@ -134,11 +134,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
     
     console.log(`🧘 Starting visual meditation session: ${sessionIdRef.current}`);
     
-    // Start session recovery tracking
-    console.log(`🛡️ Session recovery started for visual (${sessionIdRef.current})`);
-    // sessionRecovery.startSession(sessionIdRef.current);
-    
-    // Start timer interval
+    // Start ONE timer interval - this is the only timer
     meditationIntervalRef.current = setInterval(() => {
       if (meditationStartRef.current) {
         const elapsed = Math.floor((Date.now() - meditationStartRef.current) / 1000);
@@ -146,7 +142,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
         
         // Save checkpoint every 30 seconds
         if (elapsed > 0 && elapsed % 30 === 0) {
-          console.log(`🔄 Session recovery checkpoint: ${elapsed}s elapsed`);
+          console.log(`🔄 Timer checkpoint: ${elapsed}s elapsed`);
         }
       }
     }, 1000);
@@ -215,8 +211,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       controlsTimeoutRef.current = setTimeout(() => {
         setShowControls(false);
         setIsInFocusMode(true);
-        
-        // Timer should already be running from startMeditation() - just continue counting
+        console.log(`⏰ Entering focus mode - timer continues running`);
       }, 3000);
     };
 
