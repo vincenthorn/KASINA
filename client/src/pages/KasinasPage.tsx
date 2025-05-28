@@ -1,13 +1,8 @@
 import React from "react";
-import Layout from "../components/Layout";
-import TimerKasinas from "../components/TimerKasinas";
+import VisualKasinaOrb from "../components/VisualKasinaOrb";
 
 const KasinasPage: React.FC = () => {
-  return (
-    <Layout fullWidth={true}>
-      <TimerKasinas />
-    </Layout>
-  );
+  return <VisualKasinaOrb />;
 };
 
 export default KasinasPage;

@@ -54,6 +54,11 @@ const TimerKasinas: React.FC = () => {
   // Check if current user is premium based on their actual subscription status
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
   
+  // State for kasina selection flow (matching breath kasinas)
+  const [showKasinaSelection, setShowKasinaSelection] = useState(true);
+  const [selectedKasinaSeries, setSelectedKasinaSeries] = useState('');
+  const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
+  
   // Debug logging for marie.a.ramos@gmail.com specifically
   useEffect(() => {
     if (email === "marie.a.ramos@gmail.com") {
@@ -78,6 +83,33 @@ const TimerKasinas: React.FC = () => {
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
   
+  // Handle kasina series selection
+  const handleSeriesSelection = (series: string) => {
+    setSelectedKasinaSeries(series);
+    setKasinaSelectionStep('kasina');
+  };
+
+  // Handle individual kasina selection
+  const handleKasinaSelection = (kasina: string) => {
+    setSelectedKasina(kasina);
+    setShowKasinaSelection(false);
+    console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
+  };
+
+  // Get kasinas for the selected series
+  const getKasinasForSeries = (series: string) => {
+    switch (series) {
+      case 'COLOR':
+        return KASINA_SERIES.COLOR;
+      case 'ELEMENTAL':
+        return KASINA_SERIES.ELEMENTAL;
+      case 'VAJRAYANA':
+        return KASINA_SERIES.VAJRAYANA;
+      default:
+        return [];
+    }
+  };
+
   // Handle custom color change
   const handleCustomColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newColor = e.target.value;
