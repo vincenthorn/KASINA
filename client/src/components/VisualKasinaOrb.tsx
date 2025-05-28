@@ -147,7 +147,9 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       }
     }, 1000);
     
-    // Auto-hide cursor and controls after 3 seconds
+    // Show controls initially, then auto-hide after 3 seconds
+    setShowControls(true);
+    setShowCursor(true);
     startCursorTimeout();
   };
 
