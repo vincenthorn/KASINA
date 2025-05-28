@@ -166,10 +166,9 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       setShowCursor(false);
     }, 3000);
     
-    // Hide controls after 3 seconds and enter focus mode
+    // Hide controls after 3 seconds
     controlsTimeoutRef.current = setTimeout(() => {
       setShowControls(false);
-      setIsInFocusMode(true);
     }, 3000);
   };
 
