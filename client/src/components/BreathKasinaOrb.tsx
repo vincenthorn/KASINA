@@ -703,12 +703,39 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Handle fullscreen changes
   useEffect(() => {
     const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+      const wasFullscreen = isFullscreen;
+      const nowFullscreen = !!document.fullscreenElement;
+      setIsFullscreen(nowFullscreen);
+      
+      // If exiting fullscreen during an active meditation session, save session state
+      if (wasFullscreen && !nowFullscreen && meditationStartRef.current && meditationTime > 0) {
+        console.log(`🛡️ Exiting fullscreen during meditation - saving session state (${meditationTime}s)`);
+        
+        // Force an immediate session recovery update
+        if (sessionIdRef.current) {
+          sessionRecovery.updateSession(meditationTime);
+        }
+        
+        // Also create a backup checkpoint in case of immediate browser shutdown
+        try {
+          const checkpointData = {
+            sessionId: sessionIdRef.current,
+            kasinaType: selectedKasina,
+            duration: meditationTime,
+            timestamp: new Date().toISOString(),
+            reason: 'fullscreen_exit'
+          };
+          localStorage.setItem('kasina_emergency_checkpoint', JSON.stringify(checkpointData));
+          console.log(`💾 Emergency checkpoint saved on fullscreen exit`);
+        } catch (error) {
+          console.error('Failed to save emergency checkpoint:', error);
+        }
+      }
     };
 
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
-  }, []);
+  }, [isFullscreen, meditationTime, selectedKasina]);
 
   // Toggle fullscreen
   const toggleFullscreen = async () => {
