@@ -376,9 +376,8 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
     return (
       <mesh ref={meshRef}>
         <sphereGeometry args={[1, 64, 64]} />
-        <meshPhongMaterial 
+        <meshBasicMaterial 
           color={KASINA_COLORS[selectedKasina] || '#4a90e2'} 
-          shininess={100}
         />
       </mesh>
     );
