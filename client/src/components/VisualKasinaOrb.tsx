@@ -379,8 +379,6 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
         <meshPhongMaterial 
           color={KASINA_COLORS[selectedKasina] || '#4a90e2'} 
           shininess={100}
-          transparent
-          opacity={0.9}
         />
       </mesh>
     );
