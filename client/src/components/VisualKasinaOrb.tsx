@@ -705,23 +705,47 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
             
             {/* Color preview and picker combined */}
             <div style={{ marginBottom: '24px' }}>
-              <input
-                type="color"
-                value={customColor}
-                onChange={(e) => setCustomColor(e.target.value)}
+              <div 
                 style={{
+                  position: 'relative',
                   width: '80px',
                   height: '80px',
-                  border: '3px solid #ddd',
-                  borderRadius: '50%',
-                  cursor: 'pointer',
                   margin: '0 auto 16px',
-                  display: 'block',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-                  WebkitAppearance: 'none',
-                  appearance: 'none'
+                  cursor: 'pointer'
                 }}
-              />
+                onClick={() => document.getElementById('color-picker')?.click()}
+              >
+                <div
+                  style={{
+                    width: '80px',
+                    height: '80px',
+                    backgroundColor: customColor,
+                    borderRadius: '50%',
+                    border: '3px solid #ddd',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    transition: 'transform 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                />
+                <input
+                  id="color-picker"
+                  type="color"
+                  value={customColor}
+                  onChange={(e) => setCustomColor(e.target.value)}
+                  style={{
+                    position: 'absolute',
+                    opacity: 0,
+                    width: '80px',
+                    height: '80px',
+                    cursor: 'pointer'
+                  }}
+                />
+              </div>
             </div>
             
             {/* Hex Code Input */}
