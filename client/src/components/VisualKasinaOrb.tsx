@@ -423,20 +423,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
             backdropFilter: 'blur(4px)'
           }}
         >
-          {/* Back button */}
-          <button
-            onClick={() => navigate('/kasinas')}
-            className="absolute top-4 left-4 z-30 text-white hover:text-gray-300 transition-colors text-lg"
-            style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              border: 'none',
-              cursor: 'pointer'
-            }}
-          >
-            ← Back to Kasinas
-          </button>
+
           {kasinaSelectionStep === 'series' ? (
             <div 
               style={{
