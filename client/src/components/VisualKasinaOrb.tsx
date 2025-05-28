@@ -773,7 +773,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
                   e.currentTarget.style.backgroundColor = 'transparent';
                 }}
               >
-                Cancel
+                Go Back
               </button>
               
               <button
