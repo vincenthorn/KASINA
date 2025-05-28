@@ -637,11 +637,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Exit focus mode when mouse moves
       if (isInFocusMode) {
         setIsInFocusMode(false);
-        // Pause meditation timer but don't reset
-        if (meditationIntervalRef.current) {
-          clearInterval(meditationIntervalRef.current);
-          meditationIntervalRef.current = null;
-        }
+        // Keep meditation timer running even when out of focus mode
+        // This ensures session recovery works even if user exits fullscreen
+        // Don't clear the meditation timer - let it continue tracking
       }
       handleMouseMove();
     };
