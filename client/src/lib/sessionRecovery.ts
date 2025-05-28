@@ -77,14 +77,25 @@ export class SessionRecovery {
       sessionToSave.duration = finalDuration;
     }
 
-    console.log(`💾 Completing session: ${sessionToSave.kasinaType} for ${sessionToSave.duration}s`);
+    // Round down to nearest minute (same logic as regular breath sessions)
+    const durationInMinutes = Math.floor(sessionToSave.duration / 60);
+    const roundedDuration = durationInMinutes * 60;
+
+    console.log(`💾 Completing session: ${sessionToSave.kasinaType} for ${sessionToSave.duration}s (rounded to ${durationInMinutes} minutes)`);
+
+    // Only save if at least 1 minute of meditation
+    if (durationInMinutes < 1) {
+      console.log(`⏱️ Session too short (${sessionToSave.duration}s) - not saving via recovery`);
+      this.clearSession();
+      return true; // Consider this successful completion, just no saving needed
+    }
 
     try {
-      // Try to save the session
+      // Try to save the session with rounded duration
       const { logSession } = useSessionLogger.getState();
       const success = await logSession({
         kasinaType: sessionToSave.kasinaType,
-        duration: sessionToSave.duration,
+        duration: roundedDuration,
         showToast: true
       });
 
@@ -128,7 +139,8 @@ export class SessionRecovery {
         // If session was active within last 2 minutes, try to recover
         if (timeSinceUpdate < 120000) {
           const elapsed = Math.floor((Date.now() - session.startTime) / 1000);
-          console.log(`🔄 Recovering interrupted session: ${session.kasinaType} (${elapsed}s)`);
+          const elapsedMinutes = Math.floor(elapsed / 60);
+          console.log(`🔄 Recovering interrupted session: ${session.kasinaType} (${elapsed}s = ${elapsedMinutes} minutes)`);
           
           // Attempt to save the recovered session
           const success = await this.completeSession(elapsed);
