@@ -489,6 +489,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
   const [selectedKasina, setSelectedKasina] = useState<string>(globalSelectedKasina || KASINA_TYPES.BLUE);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
+  const [sizeMultiplier, setSizeMultiplier] = useState(1.0); // Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -1047,11 +1048,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       return;
     }
     
-    // Adjusted breathing size range with scroll-based scaling - expanded range for better breathing comfort
+    // Adjusted breathing size range with scroll-based scaling and size multiplier control
     const baseMinSize = 0.000390625 * 0.45; // 10% smaller minimum - more dramatic contraction
     const baseMaxSize = 10000 * 1.21; // 10% increase from 1.1 to 1.21 - more dramatic expansion  
     const minSize = Math.floor(baseMinSize * sizeScale);
-    const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale);
+    const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale * sizeMultiplier);
     const maxSize = Math.min(calculatedMaxSize, 3300); // Increased cap to match new range
     const sizeRange = maxSize - minSize;
     
@@ -1566,6 +1567,43 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           >
             Change Kasina
           </button>
+        </div>
+      )}
+
+      {/* Size control - bottom center */}
+      {showControls && !showKasinaSelection && (
+        <div 
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
+          style={{
+            padding: '16px 24px',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            borderRadius: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '16px',
+            color: 'white',
+            fontSize: '14px',
+            fontWeight: '500'
+          }}
+        >
+          <span>Size:</span>
+          <input
+            type="range"
+            min="0.2"
+            max="2.0"
+            step="0.1"
+            value={sizeMultiplier}
+            onChange={(e) => setSizeMultiplier(parseFloat(e.target.value))}
+            style={{
+              width: '120px',
+              height: '4px',
+              background: '#374151',
+              borderRadius: '2px',
+              outline: 'none',
+              cursor: 'pointer'
+            }}
+          />
+          <span>{Math.round(sizeMultiplier * 100)}%</span>
         </div>
       )}
 
