@@ -456,7 +456,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina } = useKasina();
-  const wakeLock = useWakeLock();
+  const { enableWakeLock, disableWakeLock } = useWakeLock();
   
   // Log Vernier data for debugging
   console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
@@ -709,17 +709,23 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Handle fullscreen changes
   useEffect(() => {
     const handleFullscreenChange = () => {
-      const wasFullscreen = isFullscreen;
-      const nowFullscreen = !!document.fullscreenElement;
-      setIsFullscreen(nowFullscreen);
-      
-      // If exiting fullscreen during an active meditation session, just show cursor/controls
-      if (wasFullscreen && !nowFullscreen && meditationStartRef.current && meditationTime > 0) {
-        console.log(`🛡️ Exiting fullscreen during meditation - timer continues running`);
+      try {
+        const wasFullscreen = isFullscreen;
+        const nowFullscreen = !!document.fullscreenElement;
+        setIsFullscreen(nowFullscreen);
         
-        // Show cursor and controls when exiting fullscreen
-        setShowCursor(true);
-        setShowControls(true);
+        // If exiting fullscreen during an active meditation session, just show cursor/controls
+        if (wasFullscreen && !nowFullscreen && meditationStartRef.current && meditationTime > 0) {
+          console.log(`🛡️ Exiting fullscreen during meditation - timer continues running`);
+          
+          // Show cursor and controls when exiting fullscreen
+          setShowCursor(true);
+          setShowControls(true);
+        }
+      } catch (error) {
+        console.error('Error in fullscreen change handler:', error);
+        // Ensure we don't crash on fullscreen errors
+        setIsFullscreen(false);
       }
     };
 
@@ -1125,11 +1131,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Apply breathing animation with easing and update shader uniforms
     useFrame(({ clock }) => {
-      // Cap orbSize at expanded range especially for vajrayana kasinas
-      const cappedOrbSize = Math.min(orbSize, 3000);
-      
-      // Add very subtle easing to reduce jerky movements while keeping responsiveness
-      const baseScale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
+      try {
+        // Cap orbSize at expanded range especially for vajrayana kasinas
+        const cappedOrbSize = Math.min(orbSize, 3000);
+        
+        // Add very subtle easing to reduce jerky movements while keeping responsiveness
+        const baseScale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
       
       // Apply easing that slows overall movement while keeping initial response
       const subtleEase = (t: number) => {
@@ -1211,12 +1218,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = time;
       if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = time;
       
-      // Update background shader uniforms too
-      if (immersionBackgroundRef.current && immersionBackgroundRef.current.material) {
-        const material = immersionBackgroundRef.current.material as any;
-        if (material.uniforms) {
-          material.uniforms.time.value = time;
+        // Update background shader uniforms too
+        if (immersionBackgroundRef.current && immersionBackgroundRef.current.material) {
+          const material = immersionBackgroundRef.current.material as any;
+          if (material.uniforms) {
+            material.uniforms.time.value = time;
+          }
         }
+      } catch (error) {
+        console.error('Error in useFrame animation loop:', error);
+        // Prevent crashes by gracefully handling animation errors
       }
     });
 
