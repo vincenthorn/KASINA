@@ -94,6 +94,10 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
   const [selectedKasina, setSelectedKasina] = useState(globalSelectedKasina || KASINA_TYPES.BLUE);
   
+  // Custom color picker state
+  const [showColorPicker, setShowColorPicker] = useState(false);
+  const [customColor, setCustomColor] = useState('#8A2BE2'); // Default purple
+  
   // Visual meditation state
   const [isInFocusMode, setIsInFocusMode] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
@@ -116,11 +120,31 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
 
   // Handle individual kasina selection
   const handleKasinaSelection = (kasina: string) => {
-    setSelectedKasina(kasina);
-    setGlobalSelectedKasina(kasina as any);
-    setShowKasinaSelection(false);
+    if (kasina === KASINA_TYPES.CUSTOM) {
+      // Show color picker for custom kasina
+      setShowColorPicker(true);
+      setShowKasinaSelection(false);
+    } else {
+      setSelectedKasina(kasina);
+      setGlobalSelectedKasina(kasina as any);
+      setShowKasinaSelection(false);
+      startMeditation();
+      console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
+    }
+  };
+
+  // Handle custom color selection
+  const handleCustomColorSelection = (color: string) => {
+    setCustomColor(color);
+    setSelectedKasina(KASINA_TYPES.CUSTOM);
+    setGlobalSelectedKasina(KASINA_TYPES.CUSTOM);
+    
+    // Update the custom color in the constants temporarily
+    KASINA_COLORS[KASINA_TYPES.CUSTOM] = color;
+    
+    setShowColorPicker(false);
     startMeditation();
-    console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
+    console.log(`🎨 Selected custom color: ${color}`);
   };
 
   // Start meditation timer - simplified and reliable
@@ -650,6 +674,142 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
               </button>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Custom Color Picker Modal */}
+      {showColorPicker && (
+        <div 
+          className="absolute inset-0 z-50 flex items-center justify-center"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            backdropFilter: 'blur(4px)'
+          }}
+        >
+          <div 
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              padding: '32px',
+              borderRadius: '16px',
+              textAlign: 'center',
+              maxWidth: '500px',
+              margin: '20px'
+            }}
+          >
+            <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', color: '#333' }}>
+              Choose Your Custom Color
+            </div>
+            <div style={{ fontSize: '16px', color: '#666', marginBottom: '32px' }}>
+              Select a color or enter a hex code for your personalized kasina
+            </div>
+            
+            {/* Color preview */}
+            <div 
+              style={{
+                width: '80px',
+                height: '80px',
+                borderRadius: '50%',
+                backgroundColor: customColor,
+                margin: '0 auto 24px',
+                border: '3px solid #ddd',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+              }}
+            />
+            
+            {/* HTML Color Picker */}
+            <div style={{ marginBottom: '24px' }}>
+              <input
+                type="color"
+                value={customColor}
+                onChange={(e) => setCustomColor(e.target.value)}
+                style={{
+                  width: '60px',
+                  height: '60px',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  margin: '0 auto 16px',
+                  display: 'block'
+                }}
+              />
+            </div>
+            
+            {/* Hex Code Input */}
+            <div style={{ marginBottom: '32px' }}>
+              <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', color: '#666' }}>
+                Or enter hex code:
+              </label>
+              <input
+                type="text"
+                value={customColor}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value.match(/^#[0-9A-F]{0,6}$/i) || value === '') {
+                    setCustomColor(value.startsWith('#') ? value : '#' + value);
+                  }
+                }}
+                placeholder="#8A2BE2"
+                style={{
+                  padding: '12px',
+                  fontSize: '16px',
+                  borderRadius: '8px',
+                  border: '2px solid #ddd',
+                  textAlign: 'center',
+                  width: '150px',
+                  fontFamily: 'monospace'
+                }}
+              />
+            </div>
+            
+            {/* Action buttons */}
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+              <button
+                onClick={() => setShowColorPicker(false)}
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#666',
+                  border: '2px solid #ddd',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease-out'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#f5f5f5';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }}
+              >
+                Cancel
+              </button>
+              
+              <button
+                onClick={() => handleCustomColorSelection(customColor)}
+                style={{
+                  backgroundColor: '#4F46E5',
+                  color: 'white',
+                  border: 'none',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease-out'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#3730A3';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#4F46E5';
+                }}
+              >
+                Start Meditation
+              </button>
+            </div>
+          </div>
         </div>
       )}
       
