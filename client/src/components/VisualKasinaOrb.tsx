@@ -378,88 +378,92 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
             ← Back to Kasinas
           </button>
           
-          <div className="max-w-4xl mx-auto p-8 text-center">
+          {/* Compact modal design matching breath kasinas */}
+          <div className="bg-white rounded-lg p-6 max-w-md mx-auto shadow-xl">
             {kasinaSelectionStep === 'series' ? (
-              // Series Selection
-              <div>
-                <h1 className="text-4xl font-bold mb-8 text-white">Choose a Kasina Series</h1>
-                <div className="grid gap-6 max-w-2xl mx-auto">
+              // Series Selection - Compact Modal Style
+              <div className="text-center">
+                <h2 className="text-xl font-semibold mb-2 text-gray-800">Choose Your Kasina Series</h2>
+                <p className="text-sm text-gray-600 mb-6">Select the type of meditation object you'd like to focus on</p>
+                
+                <div className="grid grid-cols-3 gap-3">
                   {/* Color Kasinas */}
-                  <div 
+                  <button 
                     onClick={() => handleSeriesSelection('COLOR')}
-                    className="bg-gray-800 rounded-lg p-8 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600"
+                    className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-4 transition-all transform hover:scale-105 text-center"
                   >
-                    <div className="text-4xl mb-4">🌈</div>
-                    <h2 className="text-2xl font-bold mb-2 text-white">Color Kasinas</h2>
-                    <p className="text-gray-300">Pure color meditation objects for concentration practice</p>
-                  </div>
+                    <div className="text-2xl mb-2">🌈</div>
+                    <div className="text-sm font-medium">Color</div>
+                    <div className="text-xs">Kasinas</div>
+                  </button>
 
                   {/* Elemental Kasinas */}
-                  <div 
+                  <button 
                     onClick={() => handleSeriesSelection('ELEMENTAL')}
-                    className="bg-gray-800 rounded-lg p-8 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600"
+                    className="bg-green-500 hover:bg-green-600 text-white rounded-lg p-4 transition-all transform hover:scale-105 text-center"
                   >
-                    <div className="text-4xl mb-4">🌍</div>
-                    <h2 className="text-2xl font-bold mb-2 text-white">Elemental Kasinas</h2>
-                    <p className="text-gray-300">Earth, water, fire, air, and space meditation objects</p>
-                  </div>
+                    <div className="text-2xl mb-2">🌍</div>
+                    <div className="text-sm font-medium">Elemental</div>
+                    <div className="text-xs">Kasinas</div>
+                  </button>
 
                   {/* Vajrayana Kasinas */}
-                  <div 
+                  <button 
                     onClick={() => isPremium ? handleSeriesSelection('VAJRAYANA') : null}
-                    className={`rounded-lg p-8 border ${
+                    className={`rounded-lg p-4 transition-all text-center ${
                       isPremium 
-                        ? 'bg-gray-800 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border-gray-600' 
-                        : 'bg-gray-900 border-gray-700 opacity-60 cursor-not-allowed'
+                        ? 'bg-red-500 hover:bg-red-600 text-white transform hover:scale-105' 
+                        : 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-60'
                     }`}
                   >
-                    <div className="text-4xl mb-4">🕉️</div>
-                    <h2 className="text-2xl font-bold mb-2 text-white">
-                      Vajrayana Kasinas {!isPremium && <span className="text-yellow-400 text-sm">✦ Premium</span>}
-                    </h2>
-                    <p className="text-gray-300">Advanced Tibetan meditation objects and mantras</p>
-                    {!isPremium && (
-                      <div className="mt-4">
-                        <p className="text-yellow-400 text-sm mb-3">Premium subscription required</p>
-                        <a 
-                          href="https://www.contemplative.technology/subscribe" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 px-6 rounded-full text-sm font-medium shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          Upgrade to Premium
-                        </a>
-                      </div>
-                    )}
-                  </div>
+                    <div className="text-2xl mb-2">🕉️</div>
+                    <div className="text-sm font-medium">Vajrayana</div>
+                    <div className="text-xs">Kasinas</div>
+                    {!isPremium && <div className="text-xs text-yellow-600 mt-1">Premium</div>}
+                  </button>
                 </div>
+                
+                {!isPremium && (
+                  <div className="mt-4 text-center">
+                    <p className="text-xs text-gray-600 mb-2">Vajrayana kasinas require premium subscription</p>
+                    <a 
+                      href="https://www.contemplative.technology/subscribe" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-1 px-3 rounded-full text-xs font-medium hover:from-indigo-600 hover:to-purple-600 transition-all"
+                    >
+                      Upgrade to Premium
+                    </a>
+                  </div>
+                )}
               </div>
             ) : (
-              // Individual Kasina Selection
-              <div>
+              // Individual Kasina Selection - Compact Modal Style
+              <div className="text-center">
                 <button 
                   onClick={() => setKasinaSelectionStep('series')}
-                  className="mb-6 text-blue-400 hover:text-blue-300 transition-colors"
+                  className="mb-4 text-blue-600 hover:text-blue-700 transition-colors text-sm"
                 >
                   ← Back to Series
                 </button>
-                <h1 className="text-3xl font-bold mb-8 text-white">
+                <h2 className="text-xl font-semibold mb-2 text-gray-800">
                   Choose Your {selectedKasinaSeries === 'COLOR' ? 'Color' : selectedKasinaSeries === 'ELEMENTAL' ? 'Elemental' : 'Vajrayana'} Kasina
-                </h1>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                </h2>
+                <p className="text-sm text-gray-600 mb-6">Select a meditation object to focus on</p>
+                
+                <div className="grid grid-cols-3 gap-3 max-w-lg mx-auto">
                   {getKasinasForSeries(selectedKasinaSeries).map((kasina) => (
-                    <div
+                    <button
                       key={kasina}
                       onClick={() => handleKasinaSelection(kasina)}
-                      className="bg-gray-800 rounded-lg p-6 cursor-pointer hover:bg-gray-700 transition-all transform hover:scale-105 border border-gray-600 text-center"
+                      className="rounded-lg p-3 cursor-pointer hover:scale-105 transition-all text-center text-white font-medium shadow-md"
                       style={{
-                        background: `linear-gradient(135deg, ${KASINA_COLORS[kasina] || '#4a5568'}, rgba(0,0,0,0.3))`
+                        backgroundColor: KASINA_COLORS[kasina] || '#4a5568'
                       }}
                     >
-                      <div className="text-3xl mb-3">{KASINA_EMOJIS[kasina]}</div>
-                      <h3 className="text-lg font-semibold text-white">{KASINA_NAMES[kasina]}</h3>
-                    </div>
+                      <div className="text-xl mb-1">{KASINA_EMOJIS[kasina]}</div>
+                      <div className="text-xs">{KASINA_NAMES[kasina]}</div>
+                    </button>
                   ))}
                 </div>
               </div>
