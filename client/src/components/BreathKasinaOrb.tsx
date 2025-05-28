@@ -1142,19 +1142,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         // Add very subtle easing to reduce jerky movements while keeping responsiveness
         const baseScale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
       
-      // Apply easing that slows overall movement while keeping initial response
-      const subtleEase = (t: number) => {
-        // Keep initial response fast, then gradually slow down the movement
-        return t < 0.15 
-          ? t * t * 4.4  // Quick initial response (same responsiveness)
-          : t > 0.9 
-          ? 1 - (1 - t) * (1 - t) * 8  // Slow gentle finish
-          : 0.15 + (t - 0.15) * 0.75; // Slower middle section (75% speed)
+      // Apply more natural breathing easing that follows actual breathing rhythm
+      const naturalBreathingEase = (t: number) => {
+        // Use a sine-wave based easing that feels more like natural breathing
+        // This creates a smooth acceleration and deceleration
+        return Math.sin(t * Math.PI * 0.5);
       };
       
-      // Apply minimal easing to maintain responsiveness
+      // Apply natural breathing easing
       const normalizedScale = Math.max(0, Math.min(1, baseScale / 6));
-      const easedScale = subtleEase(normalizedScale) * 6;
+      const easedScale = naturalBreathingEase(normalizedScale) * 6;
       const scale = Math.max(0.001, easedScale); // Allow orb to nearly vanish completely
       
       // Calculate immersion level based on capped orb size - start very early for all kasinas
