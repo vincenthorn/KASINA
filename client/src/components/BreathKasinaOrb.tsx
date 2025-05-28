@@ -1520,66 +1520,33 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         </div>
       )}
 
-      {/* Kasina selection (shows on mouse movement, auto-hides after 3 seconds) */}
-      {showControls && (
+      {/* Change Kasina button at bottom */}
+      {!showKasinaSelection && showControls && (
         <div 
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
-          style={{
-            padding: '16px',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            borderRadius: '12px',
-            transition: 'all 0.3s ease-out'
-          }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         >
-          <div className="text-center mb-3">
-            <div className="text-white text-sm font-medium mb-2">
-              Choose your kasina
-            </div>
-            
-            {/* Kasina series selection */}
-            <div className="flex space-x-2 mb-3">
-              {Object.entries(KASINA_SERIES).map(([seriesKey, kasinas]) => (
-                <button
-                  key={seriesKey}
-                  onClick={() => {
-                    setSelectedKasinaSeries(seriesKey);
-                    // Set first kasina of this series as selected
-                    setSelectedKasina(kasinas[0]);
-                  }}
-                  className={`px-3 py-1 rounded text-xs font-medium transition-all ${
-                    selectedKasinaSeries === seriesKey
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-600 text-gray-300 hover:bg-gray-500'
-                  }`}
-                >
-                  {seriesKey}
-                </button>
-              ))}
-            </div>
-            
-            {/* Individual kasina selection */}
-            {selectedKasinaSeries && (
-              <div className="flex flex-wrap justify-center gap-2">
-                {(KASINA_SERIES as any)[selectedKasinaSeries].map((kasinaType: string) => (
-                  <button
-                    key={kasinaType}
-                    onClick={() => {
-                      setSelectedKasina(kasinaType);
-                      setGlobalSelectedKasina(kasinaType as any); // Update global kasina store
-                    }}
-                    className={`px-2 py-1 rounded text-xs transition-all ${
-                      selectedKasina === kasinaType
-                        ? 'bg-red-600 text-white'
-                        : 'bg-gray-600 text-gray-300 hover:bg-gray-500'
-                    }`}
-                    title={KASINA_NAMES[kasinaType]}
-                  >
-                    {KASINA_EMOJIS[kasinaType]} {KASINA_NAMES[kasinaType].split(' ')[0]}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          <button
+            onClick={() => setShowKasinaSelection(true)}
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              color: 'white',
+              border: 'none',
+              padding: '12px 24px',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '16px',
+              fontWeight: '600',
+              transition: 'background-color 0.2s'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            }}
+          >
+            Change Kasina
+          </button>
         </div>
       )}
 
