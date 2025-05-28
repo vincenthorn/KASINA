@@ -339,7 +339,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       }
     });
 
-    // Check if this is a Vajrayana kasina
+    // Check if this is a Vajrayana kasina or special kasina needing Three.js rendering
     const isVajrayanaKasina = (
       selectedKasina === 'white_a_thigle' ||
       selectedKasina === 'white_a_kasina' ||
@@ -347,7 +347,8 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       selectedKasina === 'ah_kasina' ||
       selectedKasina === 'hum_kasina' ||
       selectedKasina === 'rainbow_kasina' ||
-      selectedKasina === 'light'
+      selectedKasina === 'light' ||
+      selectedKasina === 'clear_light_thigle'
     );
 
     // For Vajrayana kasinas, render the special components
@@ -366,7 +367,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
           {selectedKasina === 'ah_kasina' && <AhKasina />}
           {selectedKasina === 'hum_kasina' && <HumKasina />}
           {selectedKasina === 'rainbow_kasina' && <RainbowKasina />}
-          {selectedKasina === 'light' && <WhiteAThigle />}
+          {(selectedKasina === 'light' || selectedKasina === 'clear_light_thigle') && <WhiteAThigle />}
         </>
       );
     }
