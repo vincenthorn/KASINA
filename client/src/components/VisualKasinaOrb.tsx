@@ -603,8 +603,8 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
                     key={kasina}
                     onClick={() => handleKasinaSelection(kasina)}
                     style={{
-                      backgroundColor: KASINA_COLORS[kasina] || '#4B5563',
-                      color: kasina === 'white' || kasina === 'yellow' || kasina === 'light' || kasina === 'air' || kasina === 'om_kasina' || kasina === 'white_a_thigle' ? '#000' : '#fff',
+                      backgroundColor: kasina === 'white_a_kasina' || kasina === 'white_a_thigle' ? '#4B5563' : KASINA_COLORS[kasina] || '#4B5563',
+                      color: kasina === 'white' || kasina === 'yellow' || kasina === 'light' || kasina === 'air' || kasina === 'om_kasina' ? '#000' : '#fff',
                       border: '2px solid rgba(255,255,255,0.3)',
                       padding: '16px 12px',
                       borderRadius: '12px',
