@@ -345,8 +345,7 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       selectedKasina === 'om_kasina' ||
       selectedKasina === 'ah_kasina' ||
       selectedKasina === 'hum_kasina' ||
-      selectedKasina === 'rainbow_kasina' ||
-      selectedKasina === 'light'
+      selectedKasina === 'rainbow_kasina'
     );
 
     // For Vajrayana kasinas, render the special components
