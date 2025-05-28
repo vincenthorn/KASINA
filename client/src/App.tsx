@@ -21,6 +21,7 @@ import MicBreathPage from "./pages/MicBreathPage";
 import VernierBreathPage from "./pages/VernierBreathPage";
 import VernierOfficialBreathPage from "./pages/VernierOfficialBreathPage";
 import VernierTestPage from "./pages/VernierTestPage";
+import VisualKasinaOrb from "./components/VisualKasinaOrb";
 
 import NotFound from "./pages/not-found";
 
@@ -183,6 +184,17 @@ function App() {
                       <VernierTestPage />
                     </ErrorBoundary>
                   </AdminOnlyRoute>
+                }
+              />
+
+              <Route
+                path="/kasinas/visual"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <VisualKasinaOrb />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
                 }
               />
 
