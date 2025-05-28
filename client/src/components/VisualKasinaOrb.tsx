@@ -351,6 +351,16 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       >
         <ambientLight intensity={0.8} />
         <pointLight position={[10, 10, 10]} />
+        <OrbitControls 
+          enablePan={true}
+          enableZoom={true}
+          enableRotate={true}
+          zoomSpeed={0.5}
+          panSpeed={0.5}
+          rotateSpeed={0.5}
+          minDistance={1}
+          maxDistance={10}
+        />
         <VisualKasinaOrbMesh />
       </Canvas>
       
