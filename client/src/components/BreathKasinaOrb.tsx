@@ -495,6 +495,13 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const connectionCheckRef = useRef<NodeJS.Timeout | null>(null);
   const sessionIdRef = useRef<string | null>(null);
+  const diagnosticsRef = useRef<{
+    startTime: number;
+    memoryChecks: Array<{time: number, memory: number}>;
+    networkChecks: Array<{time: number, online: boolean}>;
+    errors: Array<{time: number, error: string, stack?: string}>;
+    performanceChecks: Array<{time: number, fps: number}>;
+  } | null>(null);
   
   // State for Changing Color kasina - cycles through rainbow colors with breath
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
@@ -595,6 +602,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         if (!meditationStartRef.current) {
           meditationStartRef.current = Date.now();
           
+          // Initialize diagnostics tracking
+          diagnosticsRef.current = {
+            startTime: Date.now(),
+            memoryChecks: [],
+            networkChecks: [],
+            errors: [],
+            performanceChecks: []
+          };
+          
           // Start session recovery tracking
           sessionIdRef.current = sessionRecovery.startSession('breath');
           console.log("🛡️ Started session recovery tracking for breath meditation");
@@ -606,6 +622,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
               
               // Update session recovery with current duration
               sessionRecovery.updateSession(elapsed);
+              
+              // Collect diagnostics every 30 seconds
+              if (elapsed % 30 === 0 && diagnosticsRef.current) {
+                collectDiagnostics();
+              }
             }
           }, 1000);
         }
@@ -630,8 +651,37 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Initial timeout
     handleMouseMove();
     
+    // Add global error handler to catch any JavaScript errors during meditation
+    const handleGlobalError = (event: ErrorEvent) => {
+      if (diagnosticsRef.current && meditationStartRef.current) {
+        diagnosticsRef.current.errors.push({
+          time: Date.now(),
+          error: `Global Error: ${event.message}`,
+          stack: event.error?.stack
+        });
+        console.error('🚨 Global error during meditation:', event);
+      }
+    };
+
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      if (diagnosticsRef.current && meditationStartRef.current) {
+        diagnosticsRef.current.errors.push({
+          time: Date.now(),
+          error: `Unhandled Promise Rejection: ${event.reason}`,
+          stack: event.reason?.stack
+        });
+        console.error('🚨 Unhandled promise rejection during meditation:', event);
+      }
+    };
+
+    window.addEventListener('error', handleGlobalError);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+
     return () => {
       document.removeEventListener('mousemove', handleMouseMoveWithFocus);
+      window.removeEventListener('error', handleGlobalError);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+      
       if (cursorTimeoutRef.current) {
         clearTimeout(cursorTimeoutRef.current);
       }
@@ -643,6 +693,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       }
       if (transitionDurationRef.current) {
         clearTimeout(transitionDurationRef.current);
+      }
+      
+      // Log diagnostics on cleanup if session was active
+      if (diagnosticsRef.current && meditationStartRef.current) {
+        logDiagnostics();
       }
     };
   }, []);
@@ -672,6 +727,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // End meditation session
   const endMeditation = async () => {
+    // Log diagnostics before ending session
+    logDiagnostics();
+    
     // Calculate duration in seconds and round down to nearest minute
     const durationInSeconds = meditationTime;
     const durationInMinutes = Math.floor(durationInSeconds / 60); // Round down to nearest minute
@@ -717,6 +775,97 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Always navigate to Reflection page when ending session
     navigate('/reflection');
+  };
+
+  // Collect system diagnostics for failure analysis
+  const collectDiagnostics = () => {
+    if (!diagnosticsRef.current) return;
+    
+    const now = Date.now();
+    
+    try {
+      // Memory usage (if available)
+      if ('memory' in performance) {
+        const memInfo = (performance as any).memory;
+        diagnosticsRef.current.memoryChecks.push({
+          time: now,
+          memory: memInfo.usedJSHeapSize / 1024 / 1024 // MB
+        });
+      }
+      
+      // Network connectivity
+      diagnosticsRef.current.networkChecks.push({
+        time: now,
+        online: navigator.onLine
+      });
+      
+      // Basic performance check (frame rate approximation)
+      const startTime = performance.now();
+      requestAnimationFrame(() => {
+        const endTime = performance.now();
+        const frameDuration = endTime - startTime;
+        const approximateFPS = frameDuration > 0 ? Math.round(1000 / frameDuration) : 0;
+        
+        if (diagnosticsRef.current) {
+          diagnosticsRef.current.performanceChecks.push({
+            time: now,
+            fps: approximateFPS
+          });
+        }
+      });
+      
+      console.log(`📊 Diagnostics collected at ${Math.floor((now - diagnosticsRef.current.startTime) / 1000)}s`);
+      
+    } catch (error) {
+      console.error('Error collecting diagnostics:', error);
+      if (diagnosticsRef.current) {
+        diagnosticsRef.current.errors.push({
+          time: now,
+          error: error instanceof Error ? error.message : String(error),
+          stack: error instanceof Error ? error.stack : undefined
+        });
+      }
+    }
+  };
+
+  // Log diagnostics when session ends (successful or failed)
+  const logDiagnostics = () => {
+    if (!diagnosticsRef.current) return;
+    
+    const totalDuration = Date.now() - diagnosticsRef.current.startTime;
+    const diagnosticsReport = {
+      sessionId: sessionIdRef.current,
+      totalDuration: Math.floor(totalDuration / 1000),
+      kasinaType: selectedKasina,
+      memoryChecks: diagnosticsRef.current.memoryChecks,
+      networkChecks: diagnosticsRef.current.networkChecks,
+      errors: diagnosticsRef.current.errors,
+      performanceChecks: diagnosticsRef.current.performanceChecks,
+      browserInfo: {
+        userAgent: navigator.userAgent,
+        platform: navigator.platform,
+        language: navigator.language,
+        hardwareConcurrency: navigator.hardwareConcurrency,
+        deviceMemory: (navigator as any).deviceMemory || 'unknown'
+      }
+    };
+    
+    // Store diagnostics in localStorage for analysis
+    try {
+      const existingDiagnostics = JSON.parse(localStorage.getItem('kasina_session_diagnostics') || '[]');
+      existingDiagnostics.push(diagnosticsReport);
+      
+      // Keep only last 10 sessions to prevent storage bloat
+      if (existingDiagnostics.length > 10) {
+        existingDiagnostics.splice(0, existingDiagnostics.length - 10);
+      }
+      
+      localStorage.setItem('kasina_session_diagnostics', JSON.stringify(existingDiagnostics));
+      console.log(`📋 Session diagnostics stored for analysis:`, diagnosticsReport);
+      
+    } catch (error) {
+      console.error('Failed to store diagnostics:', error);
+    }
   };
 
   // Format time display
