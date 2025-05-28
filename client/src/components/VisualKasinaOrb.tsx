@@ -15,6 +15,7 @@ import OmKasina from './OmKasina';
 import AhKasina from './AhKasina';
 import HumKasina from './HumKasina';
 import RainbowKasina from './RainbowKasina';
+import ClearLightKasina from './ClearLightKasina';
 import * as THREE from 'three';
 
 // Same shader materials as breath kasinas for consistency
@@ -345,7 +346,8 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       selectedKasina === 'om_kasina' ||
       selectedKasina === 'ah_kasina' ||
       selectedKasina === 'hum_kasina' ||
-      selectedKasina === 'rainbow_kasina'
+      selectedKasina === 'rainbow_kasina' ||
+      selectedKasina === 'light'
     );
 
     // For Vajrayana kasinas, render the special components
