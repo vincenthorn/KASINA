@@ -1070,16 +1070,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
                                normalizedRate <= 12 ? 0.3 + ((normalizedRate - 4) / 8) * 0.5 :
                                0.8 + ((normalizedRate - 12) / 8) * 0.2;
     
-    // Apply scaling to make exhales 2-3x smaller and adjust the curve
+    // Apply smooth, gradual scaling throughout the entire breath cycle
     let scaledAmplitude = finalAmplitude;
     
-    // For lower amplitudes (exhales), compress the range to make them much smaller
-    if (finalAmplitude < 0.5) {
-      // Make exhales 3x smaller by compressing the lower range
-      scaledAmplitude = finalAmplitude * 0.33;
+    // Use a smoother easing curve that reduces acceleration in the middle
+    // Apply cubic ease-in-out for gentler transitions
+    const easedAmplitude = finalAmplitude < 0.5 
+      ? 2 * finalAmplitude * finalAmplitude * finalAmplitude // Cubic ease-in for first half
+      : 1 - Math.pow(-2 * finalAmplitude + 2, 3) / 2; // Cubic ease-out for second half
+    
+    // For lower amplitudes (exhales), compress the range more gradually
+    if (easedAmplitude < 0.5) {
+      // Make exhales smaller but with smoother transition
+      scaledAmplitude = easedAmplitude * 0.4; // Less aggressive compression
     } else {
-      // For inhales (upper range), apply gentler scaling
-      scaledAmplitude = 0.165 + ((finalAmplitude - 0.5) * 0.67); // Maps 0.5-1.0 to 0.165-0.5
+      // For inhales (upper range), apply gentler, more linear scaling
+      scaledAmplitude = 0.2 + ((easedAmplitude - 0.5) * 0.6); // Maps 0.5-1.0 to 0.2-0.5 more smoothly
     }
     
     // Apply breathing rate intensity scaling
