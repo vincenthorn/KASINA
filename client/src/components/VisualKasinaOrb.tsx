@@ -853,8 +853,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           <span>Size:</span>
           <input
             type="range"
-            min="0.01"
-            max="3.0"
+            min="0.05"
+            max="5.0"
             step="0.01"
             value={sizeMultiplier}
             onChange={(e) => setSizeMultiplier(parseFloat(e.target.value))}
