@@ -484,42 +484,6 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Kasina breakdown endpoint - get detailed kasina usage data
-  app.get("/api/kasina-breakdown", async (req, res) => {
-    if (!req.session?.user?.email) {
-      return res.status(401).json({ message: "Authentication required" });
-    }
-    
-    try {
-      const userEmail = req.session.user.email;
-      
-      // Query kasina breakdown data from the database
-      const query = `
-        SELECT 
-          kb.kasina_type,
-          SUM(kb.duration_seconds) as total_duration_seconds
-        FROM kasina_breakdowns kb
-        JOIN sessions s ON kb.session_id = s.id
-        WHERE s.user_email = $1
-        GROUP BY kb.kasina_type
-        ORDER BY total_duration_seconds DESC
-      `;
-      
-      const result = await dbPool.query(query, [userEmail]);
-      
-      // Transform the data to match expected format
-      const breakdownData = result.rows.map(row => ({
-        kasinaType: row.kasina_type,
-        totalDuration: parseInt(row.total_duration_seconds)
-      }));
-      
-      res.json(breakdownData);
-    } catch (error) {
-      console.error('Error fetching kasina breakdown:', error);
-      res.status(500).json({ message: "Failed to fetch kasina breakdown data" });
-    }
-  });
-
   // Direct session endpoint for session logger compatibility
   app.post("/api/direct-one-minute-session", async (req, res) => {
     if (!req.session?.user?.email) {

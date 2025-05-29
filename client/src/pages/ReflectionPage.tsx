@@ -5,7 +5,7 @@ import PracticeChart from "../components/PracticeChart";
 import PracticeLog from "../components/PracticeLog";
 import PracticeConsistencyCalendar from "../components/PracticeConsistencyCalendar";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
-import { apiRequest, fetchKasinaBreakdown } from "../lib/api";
+import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
 import { toast } from "sonner";
 import { useAuth } from "../lib/stores/useAuth";
