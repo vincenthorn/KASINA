@@ -423,7 +423,7 @@ const lightShader = {
 interface VisualKasinaOrbProps {}
 
 export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
-  const { selectedKasina, selectedKasinaColor } = useKasina();
+  const { selectedKasina } = useKasina();
 
   // Visual kasina orb component with animated shaders for elemental kasinas
   const VisualKasinaOrbMesh = () => {
