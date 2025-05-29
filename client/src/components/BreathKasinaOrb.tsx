@@ -818,7 +818,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         }
 
         await logSession({
-          kasinaType: 'breath' as any, // Use 'breath' as the kasina type
+          kasinaType: mostUsedKasina as any, // Use the most-used kasina as the type
           duration: durationInMinutes * 60, // Convert back to seconds for logging
           showToast: true,
           kasinaBreakdown: finalUsage
