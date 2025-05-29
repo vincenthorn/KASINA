@@ -572,7 +572,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     return (
       <mesh ref={meshRef}>
         <sphereGeometry args={[1, 64, 64]} />
-        <meshBasicMaterial color={selectedKasinaColor || KASINA_COLORS[selectedKasina]} />
+        <meshBasicMaterial color={KASINA_COLORS[selectedKasina]} />
       </mesh>
     );
   };

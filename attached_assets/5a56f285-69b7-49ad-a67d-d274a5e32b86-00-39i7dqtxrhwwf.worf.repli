@@ -6,3 +6,92 @@ warnOnce @ react-router-dom.js?v=9eed23f0:4394
 react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 warnOnce @ react-router-dom.js?v=9eed23f0:4394
 useAuth.tsx:169 Setting auth state with user: Object
+VisualKasinaOrb.tsx:575 Uncaught ReferenceError: selectedKasinaColor is not defined
+    at VisualKasinaOrbMesh (VisualKasinaOrb.tsx:575:35)
+    at renderWithHooks (chunk-EMXP5JYR.js?v=9eed23f0:5892:26)
+    at mountIndeterminateComponent (chunk-EMXP5JYR.js?v=9eed23f0:9375:21)
+    at beginWork (chunk-EMXP5JYR.js?v=9eed23f0:10358:22)
+    at HTMLUnknownElement.callCallback2 (chunk-EMXP5JYR.js?v=9eed23f0:10589:22)
+    at Object.invokeGuardedCallbackDev (chunk-EMXP5JYR.js?v=9eed23f0:10614:24)
+    at invokeGuardedCallback (chunk-EMXP5JYR.js?v=9eed23f0:10646:39)
+    at beginWork$1 (chunk-EMXP5JYR.js?v=9eed23f0:14200:15)
+    at performUnitOfWork (chunk-EMXP5JYR.js?v=9eed23f0:13664:20)
+    at workLoopSync (chunk-EMXP5JYR.js?v=9eed23f0:13604:13)
+VisualKasinaOrb.tsx:575 Uncaught ReferenceError: selectedKasinaColor is not defined
+    at VisualKasinaOrbMesh (VisualKasinaOrb.tsx:575:35)
+    at renderWithHooks (chunk-EMXP5JYR.js?v=9eed23f0:5892:26)
+    at mountIndeterminateComponent (chunk-EMXP5JYR.js?v=9eed23f0:9375:21)
+    at beginWork (chunk-EMXP5JYR.js?v=9eed23f0:10358:22)
+    at HTMLUnknownElement.callCallback2 (chunk-EMXP5JYR.js?v=9eed23f0:10589:22)
+    at Object.invokeGuardedCallbackDev (chunk-EMXP5JYR.js?v=9eed23f0:10614:24)
+    at invokeGuardedCallback (chunk-EMXP5JYR.js?v=9eed23f0:10646:39)
+    at beginWork$1 (chunk-EMXP5JYR.js?v=9eed23f0:14200:15)
+    at performUnitOfWork (chunk-EMXP5JYR.js?v=9eed23f0:13664:20)
+    at workLoopSync (chunk-EMXP5JYR.js?v=9eed23f0:13604:13)
+chunk-EMXP5JYR.js?v=9eed23f0:18167 The above error occurred in the <VisualKasinaOrbMesh> component:
+
+    at VisualKasinaOrbMesh (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/VisualKasinaOrb.tsx:436:21)
+    at Suspense
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EMXP5JYR.js?v=9eed23f0:16490:5)
+    at FiberProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EMXP5JYR.js?v=9eed23f0:18170:21)
+    at Provider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EMXP5JYR.js?v=9eed23f0:17779:3)
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+console.error @ chunk-EMXP5JYR.js?v=9eed23f0:18167
+chunk-EMXP5JYR.js?v=9eed23f0:18276 Uncaught ReferenceError: selectedKasinaColor is not defined
+    at VisualKasinaOrbMesh (VisualKasinaOrb.tsx:575:35)
+    at renderWithHooks (chunk-EMXP5JYR.js?v=9eed23f0:5892:26)
+    at mountIndeterminateComponent (chunk-EMXP5JYR.js?v=9eed23f0:9375:21)
+    at beginWork (chunk-EMXP5JYR.js?v=9eed23f0:10358:22)
+    at beginWork$1 (chunk-EMXP5JYR.js?v=9eed23f0:14188:22)
+    at performUnitOfWork (chunk-EMXP5JYR.js?v=9eed23f0:13664:20)
+    at workLoopSync (chunk-EMXP5JYR.js?v=9eed23f0:13604:13)
+    at renderRootSync (chunk-EMXP5JYR.js?v=9eed23f0:13583:15)
+    at recoverFromConcurrentError (chunk-EMXP5JYR.js?v=9eed23f0:13173:28)
+    at performConcurrentWorkOnRoot (chunk-EMXP5JYR.js?v=9eed23f0:13121:30)
+chunk-EMXP5JYR.js?v=9eed23f0:18276 Uncaught ReferenceError: selectedKasinaColor is not defined
+    at VisualKasinaOrbMesh (VisualKasinaOrb.tsx:575:35)
+    at renderWithHooks (chunk-EMXP5JYR.js?v=9eed23f0:5892:26)
+    at mountIndeterminateComponent (chunk-EMXP5JYR.js?v=9eed23f0:9375:21)
+    at beginWork (chunk-EMXP5JYR.js?v=9eed23f0:10358:22)
+    at beginWork$1 (chunk-EMXP5JYR.js?v=9eed23f0:14188:22)
+    at performUnitOfWork (chunk-EMXP5JYR.js?v=9eed23f0:13664:20)
+    at workLoopSync (chunk-EMXP5JYR.js?v=9eed23f0:13604:13)
+    at renderRootSync (chunk-EMXP5JYR.js?v=9eed23f0:13583:15)
+    at recoverFromConcurrentError (chunk-EMXP5JYR.js?v=9eed23f0:13173:28)
+    at performConcurrentWorkOnRoot (chunk-EMXP5JYR.js?v=9eed23f0:13121:30)
+chunk-EMXP5JYR.js?v=9eed23f0:18167 The above error occurred in the <ForwardRef(Canvas)> component:
+
+    at Canvas (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EMXP5JYR.js?v=9eed23f0:18236:3)
+    at FiberProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EMXP5JYR.js?v=9eed23f0:18170:21)
+    at CanvasWrapper
+    at VisualKasinaOrb (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/VisualKasinaOrb.tsx:433:30)
+    at div
+    at KasinasPage (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/pages/KasinasPage.tsx:24:49)
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ErrorBoundary.tsx:8:5)
+    at AuthenticatedRoute (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/App.tsx?v=og9oGLnJbp4n0plaX6Gto:41:31)
+    at RenderedRoute (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=9eed23f0:4089:5)
+    at Routes (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=9eed23f0:4559:5)
+    at Router (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=9eed23f0:4502:15)
+    at BrowserRouter (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=9eed23f0:5248:5)
+    at ColorProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/lib/contexts/ColorContext.tsx:40:33)
+    at QueryClientProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=9eed23f0:2805:3)
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ErrorBoundary.tsx:8:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+console.error @ chunk-EMXP5JYR.js?v=9eed23f0:18167
+chunk-EMXP5JYR.js?v=9eed23f0:18167 ErrorBoundary caught an error: ReferenceError: selectedKasinaColor is not defined
+    at VisualKasinaOrbMesh (VisualKasinaOrb.tsx:575:35)
+    at renderWithHooks (chunk-EMXP5JYR.js?v=9eed23f0:5892:26)
+    at mountIndeterminateComponent (chunk-EMXP5JYR.js?v=9eed23f0:9375:21)
+    at beginWork (chunk-EMXP5JYR.js?v=9eed23f0:10358:22)
+    at beginWork$1 (chunk-EMXP5JYR.js?v=9eed23f0:14188:22)
+    at performUnitOfWork (chunk-EMXP5JYR.js?v=9eed23f0:13664:20)
+    at workLoopSync (chunk-EMXP5JYR.js?v=9eed23f0:13604:13)
+    at renderRootSync (chunk-EMXP5JYR.js?v=9eed23f0:13583:15)
+    at recoverFromConcurrentError (chunk-EMXP5JYR.js?v=9eed23f0:13173:28)
+    at performConcurrentWorkOnRoot (chunk-EMXP5JYR.js?v=9eed23f0:13121:30) Object
+console.error @ chunk-EMXP5JYR.js?v=9eed23f0:18167
+chunk-FUPBI32A.js?v=9eed23f0:17835 THREE.WebGLRenderer: Context Lost.
+chunk-FUPBI32A.js?v=9eed23f0:17835 THREE.WebGLRenderer: Context Lost.
