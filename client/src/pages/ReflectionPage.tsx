@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import PracticeChart from "../components/PracticeChart";
+import PracticeModeChart from "../components/PracticeModeChart";
 import PracticeLog from "../components/PracticeLog";
 import PracticeConsistencyCalendar from "../components/PracticeConsistencyCalendar";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
@@ -274,11 +275,18 @@ const ReflectionPage: React.FC = () => {
               </CardContent>
             </Card>
             
-            <PracticeChart 
-              sessions={sessions} 
-              selectedKasinaType={selectedKasinaType}
-              onSelectKasinaType={setSelectedKasinaType}
-            />
+            {/* Charts Section - Two Column Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <PracticeChart 
+                sessions={sessions} 
+                selectedKasinaType={selectedKasinaType}
+                onSelectKasinaType={setSelectedKasinaType}
+              />
+              <PracticeModeChart 
+                sessions={sessions}
+              />
+            </div>
+            
             <PracticeLog 
               sessions={sessions} 
               selectedKasinaType={selectedKasinaType}

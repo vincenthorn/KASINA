@@ -1,0 +1,216 @@
+import React, { useMemo } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from "recharts";
+
+interface PracticeModeChartProps {
+  sessions: {
+    id: string;
+    kasinaType: string;
+    kasinaName: string;
+    duration: number;
+    timestamp: string;
+  }[];
+}
+
+// Component for the active segment in the chart
+const ActiveShape = (props: any) => {
+  const { 
+    cx, cy, innerRadius, outerRadius, startAngle, endAngle, 
+    fill, payload, percent, value 
+  } = props;
+  
+  // Format time for display
+  const formatTime = (seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`;
+    }
+    return `${minutes}m`;
+  };
+
+  return (
+    <g>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#ffffff" fontSize="14" fontWeight="600">
+        {payload.displayName}
+      </text>
+      <text x={cx} y={cy} dy={28} textAnchor="middle" fill="#9CA3AF" fontSize="12">
+        {formatTime(value)}
+      </text>
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius + 10}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+      />
+    </g>
+  );
+};
+
+const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
+  // Calculate practice mode breakdown
+  const chartData = useMemo(() => {
+    if (!sessions || sessions.length === 0) return [];
+    
+    // Calculate totals for each practice mode
+    const visualTotal = sessions
+      .filter(s => s.kasinaName === 'Visual Kasina')
+      .reduce((sum, s) => sum + s.duration, 0);
+      
+    const breathTotal = sessions
+      .filter(s => s.kasinaName === 'Breath Kasina')
+      .reduce((sum, s) => sum + s.duration, 0);
+    
+    const data = [];
+    
+    if (visualTotal > 0) {
+      data.push({
+        name: 'visual',
+        value: visualTotal,
+        displayName: 'Visual',
+        color: '#6366F1', // Indigo
+        emoji: '👁️'
+      });
+    }
+    
+    if (breathTotal > 0) {
+      data.push({
+        name: 'breath',
+        value: breathTotal,
+        displayName: 'Breath',
+        color: '#10B981', // Emerald
+        emoji: '🫁'
+      });
+    }
+    
+    return data;
+  }, [sessions]);
+
+  // Calculate total time
+  const totalTime = useMemo(() => {
+    return chartData.reduce((sum, item) => sum + item.value, 0);
+  }, [chartData]);
+
+  // Format time for display
+  const formatTime = (seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`;
+    }
+    return `${minutes}m`;
+  };
+
+  // Custom tooltip
+  const CustomTooltip = ({ active, payload }: any) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      return (
+        <div className="bg-gray-800 border border-gray-600 rounded-lg p-3 shadow-lg">
+          <p className="text-white font-medium">
+            {data.emoji} {data.displayName}
+          </p>
+          <p className="text-gray-300">
+            {formatTime(data.value)}
+          </p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  if (chartData.length === 0) {
+    return (
+      <Card className="bg-gray-900 border-gray-700 shadow-xl">
+        <CardHeader className="border-b border-gray-700 pb-4">
+          <CardTitle className="text-white flex items-center">
+            <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            Practice Mode
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="p-6 text-center">
+          <p className="text-gray-400">No meditation sessions recorded yet.</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  return (
+    <Card className="bg-gray-900 border-gray-700 shadow-xl">
+      <CardHeader className="border-b border-gray-700 pb-4">
+        <CardTitle className="text-white flex items-center">
+          <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          Practice Mode
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="p-6">
+        <div className="mb-6">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-white mb-1">
+              {formatTime(totalTime)}
+            </div>
+            <div className="text-gray-400 text-sm">
+              Total Meditation Time
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:flex-row items-center gap-6">
+          {/* Pie Chart */}
+          <div className="w-80 h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={chartData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={60}
+                  outerRadius={120}
+                  paddingAngle={2}
+                  dataKey="value"
+                  activeShape={ActiveShape}
+                >
+                  {chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip content={<CustomTooltip />} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Legend */}
+          <div className="flex flex-col gap-3">
+            {chartData.map((item, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <div 
+                  className="w-4 h-4 rounded-full" 
+                  style={{ backgroundColor: item.color }}
+                ></div>
+                <span className="text-gray-300 font-medium">
+                  {item.emoji} {item.displayName}
+                </span>
+                <span className="text-gray-400 text-sm ml-auto">
+                  {formatTime(item.value)}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default PracticeModeChart;
