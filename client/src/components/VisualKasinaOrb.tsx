@@ -503,6 +503,20 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     window.history.back();
   };
 
+  // Get background color based on selected kasina
+  const getBackgroundColor = () => {
+    if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
+      return '#000080'; // Dark blue to match rainbow center
+    }
+    if (KASINA_COLORS[selectedKasina]) {
+      // For other kasinas, use a darker version of their color
+      const color = KASINA_COLORS[selectedKasina];
+      if (color === '#FFFFFF') return '#1a1a1a'; // White kasina gets dark gray
+      return color;
+    }
+    return '#000000'; // Default black
+  };
+
   // Handle series selection
   const handleSeriesSelection = (series: string) => {
     if (series === 'COLOR') {
@@ -577,13 +591,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       return <HumKasina />;
     } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
       return (
-        <>
+        <group ref={meshRef}>
           <RainbowKasina />
-          <mesh ref={meshRef}>
-            <sphereGeometry args={[1, 64, 64]} />
-            <meshBasicMaterial transparent opacity={0} />
-          </mesh>
-        </>
+        </group>
       );
     }
 
@@ -679,7 +689,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   return (
     <div 
-      className="h-screen w-screen relative bg-black overflow-hidden"
+      className="h-screen w-screen relative overflow-hidden"
+      style={{ backgroundColor: getBackgroundColor() }}
       onMouseMove={handleActivity}
       onTouchStart={handleActivity}
       onClick={handleActivity}
