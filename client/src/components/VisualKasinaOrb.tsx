@@ -653,29 +653,14 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
   // Visual kasina orb component - now uses the same advanced rendering as breath kasinas
   const VisualKasinaOrbMesh = () => {
     const meshRef = useRef<THREE.Mesh>(null);
-    const waterMaterialRef = useRef<THREE.ShaderMaterial>(null);
-    const fireMaterialRef = useRef<THREE.ShaderMaterial>(null);
-    const airMaterialRef = useRef<THREE.ShaderMaterial>(null);
-    const earthMaterialRef = useRef<THREE.ShaderMaterial>(null);
-    const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
-    const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    // Removed shader material refs since we're using simple materials now
 
     useFrame((state) => {
-      const time = state.clock.getElapsedTime();
-      
       if (meshRef.current) {
         // Gentle rotation
         meshRef.current.rotation.y += 0.01;
         meshRef.current.rotation.x += 0.005;
       }
-      
-      // Update shader uniforms for all elemental kasinas
-      if (waterMaterialRef.current) waterMaterialRef.current.uniforms.time.value = time;
-      if (fireMaterialRef.current) fireMaterialRef.current.uniforms.time.value = time;
-      if (airMaterialRef.current) airMaterialRef.current.uniforms.time.value = time;
-      if (earthMaterialRef.current) earthMaterialRef.current.uniforms.time.value = time;
-      if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = time;
-      if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = time;
     });
 
     // Check if this is a Vajrayana kasina or special kasina needing Three.js rendering
@@ -711,83 +696,47 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
       );
     }
 
-    // Elemental kasinas with Three.js shaders
+    // Elemental kasinas with simple solid colors
     if (selectedKasina === KASINA_TYPES.WATER) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={waterMaterialRef}
-            uniforms={waterShader.uniforms}
-            vertexShader={waterShader.vertexShader}
-            fragmentShader={waterShader.fragmentShader}
-            transparent={true}
-          />
+          <meshBasicMaterial color={KASINA_COLORS[KASINA_TYPES.WATER]} />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.FIRE) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={fireMaterialRef}
-            uniforms={fireShader.uniforms}
-            vertexShader={fireShader.vertexShader}
-            fragmentShader={fireShader.fragmentShader}
-            transparent={true}
-          />
+          <meshBasicMaterial color={KASINA_COLORS[KASINA_TYPES.FIRE]} />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.AIR) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={airMaterialRef}
-            uniforms={airShader.uniforms}
-            vertexShader={airShader.vertexShader}
-            fragmentShader={airShader.fragmentShader}
-            transparent={true}
-          />
+          <meshBasicMaterial color={KASINA_COLORS[KASINA_TYPES.AIR]} />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.EARTH) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={earthMaterialRef}
-            uniforms={earthShader.uniforms}
-            vertexShader={earthShader.vertexShader}
-            fragmentShader={earthShader.fragmentShader}
-            transparent={true}
-          />
+          <meshBasicMaterial color={KASINA_COLORS[KASINA_TYPES.EARTH]} />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.SPACE) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={spaceMaterialRef}
-            uniforms={spaceShader.uniforms}
-            vertexShader={spaceShader.vertexShader}
-            fragmentShader={spaceShader.fragmentShader}
-            transparent={true}
-          />
+          <meshBasicMaterial color={KASINA_COLORS[KASINA_TYPES.SPACE]} />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.LIGHT) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={lightMaterialRef}
-            uniforms={lightShader.uniforms}
-            vertexShader={lightShader.vertexShader}
-            fragmentShader={lightShader.fragmentShader}
-            transparent={true}
-          />
+          <meshBasicMaterial color={KASINA_COLORS[KASINA_TYPES.LIGHT]} />
         </mesh>
       );
     }
