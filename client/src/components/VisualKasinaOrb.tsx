@@ -488,17 +488,21 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       usage[selectedKasina] = (usage[selectedKasina] || 0) + currentTimeSpent;
     }
 
+    console.log(`📊 Kasina usage breakdown:`, usage);
+
     // Find kasina with most time
     let mostUsedKasina = selectedKasina;
     let maxTime = 0;
     
     for (const [kasina, time] of Object.entries(usage)) {
+      console.log(`  ${kasina}: ${Math.round(time / 1000)}s`);
       if (time > maxTime) {
         maxTime = time;
         mostUsedKasina = kasina;
       }
     }
     
+    console.log(`🎯 Most used kasina: ${mostUsedKasina} (${Math.round(maxTime / 1000)}s)`);
     return mostUsedKasina;
   };
   
@@ -676,6 +680,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     setSelectedKasina(kasina);
     setShowKasinaSelection(false);
     setKasinaSelectionStep('series');
+    console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
+    console.log(`📈 Current kasina usage tracking:`, kasinaUsageRef.current);
   };
 
   // Get kasinas for the selected series
