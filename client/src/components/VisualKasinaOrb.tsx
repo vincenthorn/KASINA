@@ -77,6 +77,202 @@ const waterShader = {
   `
 };
 
+const fireShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#ff4500") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    uniform float time;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      
+      vec3 pos = position;
+      float flames = sin(position.y * 8.0 + time * 2.0) * 0.03;
+      pos += normal * flames;
+      
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    
+    void main() {
+      float flames = sin(vPosition.y * 12.0 + time * 3.0) * 0.5 + 0.5;
+      flames *= sin(vPosition.x * 8.0 + time * 2.5) * 0.3 + 0.7;
+      
+      vec3 finalColor = mix(color, vec3(1.0, 0.8, 0.0), flames * 0.8);
+      finalColor += vec3(1.0, 0.2, 0.0) * flames * 0.6;
+      
+      gl_FragColor = vec4(finalColor, opacity);
+    }
+  `
+};
+
+const airShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#87ceeb") },
+    opacity: { value: 0.7 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    uniform float time;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      
+      vec3 pos = position;
+      float wind = sin(position.x * 4.0 + position.z * 3.0 + time * 1.5) * 0.02;
+      pos += normal * wind;
+      
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    
+    void main() {
+      float wind = sin(vPosition.x * 6.0 + time * 2.0) * 0.3 + 0.7;
+      wind *= sin(vPosition.z * 4.0 + time * 1.8) * 0.2 + 0.8;
+      
+      vec3 finalColor = mix(color, vec3(1.0, 1.0, 1.0), wind * 0.4);
+      
+      gl_FragColor = vec4(finalColor, opacity * 0.8);
+    }
+  `
+};
+
+const earthShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#8b4513") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    uniform float time;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      
+      vec3 pos = position;
+      float texture = sin(position.x * 15.0) * sin(position.y * 12.0) * 0.01;
+      pos += normal * texture;
+      
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    
+    void main() {
+      float texture = sin(vPosition.x * 20.0) * sin(vPosition.y * 15.0) * 0.3 + 0.7;
+      texture *= sin(vPosition.z * 18.0 + time * 0.5) * 0.1 + 0.9;
+      
+      vec3 finalColor = mix(color, vec3(0.6, 0.4, 0.2), texture * 0.5);
+      
+      gl_FragColor = vec4(finalColor, opacity);
+    }
+  `
+};
+
+const spaceShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#191970") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    uniform float time;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    
+    void main() {
+      float stars = sin(vPosition.x * 80.0) * sin(vPosition.y * 60.0) * sin(vPosition.z * 70.0);
+      stars = step(0.98, stars) * (sin(time * 5.0) * 0.3 + 0.7);
+      
+      vec3 finalColor = mix(color, vec3(1.0, 1.0, 1.0), stars);
+      
+      gl_FragColor = vec4(finalColor, opacity);
+    }
+  `
+};
+
+const lightShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#ffffff") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    uniform float time;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      
+      vec3 pos = position;
+      float glow = sin(time * 2.0) * 0.01;
+      pos += normal * glow;
+      
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    
+    void main() {
+      float glow = sin(time * 3.0) * 0.2 + 0.8;
+      
+      vec3 finalColor = color * glow;
+      
+      gl_FragColor = vec4(finalColor, opacity);
+    }
+  `
+};
+
 interface VisualKasinaOrbProps {}
 
 const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
@@ -357,13 +553,29 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
   // Visual kasina orb component - now uses the same advanced rendering as breath kasinas
   const VisualKasinaOrbMesh = () => {
     const meshRef = useRef<THREE.Mesh>(null);
+    const waterMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const fireMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const airMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const earthMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
 
     useFrame((state) => {
+      const time = state.clock.getElapsedTime();
+      
       if (meshRef.current) {
         // Gentle rotation
         meshRef.current.rotation.y += 0.01;
         meshRef.current.rotation.x += 0.005;
       }
+      
+      // Update shader uniforms for all elemental kasinas
+      if (waterMaterialRef.current) waterMaterialRef.current.uniforms.time.value = time;
+      if (fireMaterialRef.current) fireMaterialRef.current.uniforms.time.value = time;
+      if (airMaterialRef.current) airMaterialRef.current.uniforms.time.value = time;
+      if (earthMaterialRef.current) earthMaterialRef.current.uniforms.time.value = time;
+      if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = time;
+      if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = time;
     });
 
     // Check if this is a Vajrayana kasina or special kasina needing Three.js rendering
@@ -396,6 +608,87 @@ const VisualKasinaOrb: React.FC<VisualKasinaOrbProps> = () => {
           {selectedKasina === 'rainbow_kasina' && <RainbowKasina />}
           {(selectedKasina === 'light' || selectedKasina === 'clear_light_thigle') && <WhiteAThigle />}
         </>
+      );
+    }
+
+    // Elemental kasinas with Three.js shaders
+    if (selectedKasina === KASINA_TYPES.WATER) {
+      return (
+        <mesh ref={meshRef}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <shaderMaterial
+            ref={waterMaterialRef}
+            uniforms={waterShader.uniforms}
+            vertexShader={waterShader.vertexShader}
+            fragmentShader={waterShader.fragmentShader}
+            transparent={true}
+          />
+        </mesh>
+      );
+    } else if (selectedKasina === KASINA_TYPES.FIRE) {
+      return (
+        <mesh ref={meshRef}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <shaderMaterial
+            ref={fireMaterialRef}
+            uniforms={fireShader.uniforms}
+            vertexShader={fireShader.vertexShader}
+            fragmentShader={fireShader.fragmentShader}
+            transparent={true}
+          />
+        </mesh>
+      );
+    } else if (selectedKasina === KASINA_TYPES.AIR) {
+      return (
+        <mesh ref={meshRef}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <shaderMaterial
+            ref={airMaterialRef}
+            uniforms={airShader.uniforms}
+            vertexShader={airShader.vertexShader}
+            fragmentShader={airShader.fragmentShader}
+            transparent={true}
+          />
+        </mesh>
+      );
+    } else if (selectedKasina === KASINA_TYPES.EARTH) {
+      return (
+        <mesh ref={meshRef}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <shaderMaterial
+            ref={earthMaterialRef}
+            uniforms={earthShader.uniforms}
+            vertexShader={earthShader.vertexShader}
+            fragmentShader={earthShader.fragmentShader}
+            transparent={true}
+          />
+        </mesh>
+      );
+    } else if (selectedKasina === KASINA_TYPES.SPACE) {
+      return (
+        <mesh ref={meshRef}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <shaderMaterial
+            ref={spaceMaterialRef}
+            uniforms={spaceShader.uniforms}
+            vertexShader={spaceShader.vertexShader}
+            fragmentShader={spaceShader.fragmentShader}
+            transparent={true}
+          />
+        </mesh>
+      );
+    } else if (selectedKasina === KASINA_TYPES.LIGHT) {
+      return (
+        <mesh ref={meshRef}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <shaderMaterial
+            ref={lightMaterialRef}
+            uniforms={lightShader.uniforms}
+            vertexShader={lightShader.vertexShader}
+            fragmentShader={lightShader.fragmentShader}
+            transparent={true}
+          />
+        </mesh>
       );
     }
 
