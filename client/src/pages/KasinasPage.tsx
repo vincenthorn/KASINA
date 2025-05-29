@@ -62,12 +62,6 @@ const KasinasPage: React.FC = () => {
   if (!showKasinaSelection) {
     return (
       <div className="h-screen w-screen relative bg-black">
-        <button
-          onClick={() => setShowKasinaSelection(true)}
-          className="absolute top-4 left-4 z-10 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg backdrop-blur-sm transition-all"
-        >
-          ← Change Kasina
-        </button>
         <VisualKasinaOrb />
       </div>
     );
