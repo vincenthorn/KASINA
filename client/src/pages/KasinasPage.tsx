@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useKasina } from "../lib/stores/useKasina";
-import { KASINA_TYPES, KASINA_COLORS } from "../lib/constants";
+import { KASINA_TYPES, KASINA_COLORS, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES } from "../lib/constants";
 import VisualKasinaOrb from "../components/VisualKasinaOrb";
 
 const KasinasPage: React.FC = () => {
@@ -22,11 +22,11 @@ const KasinasPage: React.FC = () => {
   const getKasinasForSeries = (series: string) => {
     switch (series) {
       case 'COLOR':
-        return [KASINA_TYPES.WHITE, KASINA_TYPES.BLUE, KASINA_TYPES.YELLOW, KASINA_TYPES.RED, 'custom'];
+        return KASINA_SERIES.COLOR;
       case 'ELEMENTAL':
-        return [KASINA_TYPES.WATER, KASINA_TYPES.FIRE, KASINA_TYPES.AIR, KASINA_TYPES.EARTH, KASINA_TYPES.SPACE, KASINA_TYPES.LIGHT];
+        return KASINA_SERIES.ELEMENTAL;
       case 'VAJRAYANA':
-        return [KASINA_TYPES.WHITE_A_THIGLE, KASINA_TYPES.WHITE_A_KASINA, KASINA_TYPES.OM_KASINA, KASINA_TYPES.AH_KASINA, KASINA_TYPES.HUM_KASINA, KASINA_TYPES.RAINBOW_KASINA];
+        return KASINA_SERIES.VAJRAYANA;
       default:
         return [];
     }
@@ -36,27 +36,16 @@ const KasinasPage: React.FC = () => {
     return KASINA_COLORS[kasina as keyof typeof KASINA_COLORS] || '#666666';
   };
 
-  const getKasinaDisplayName = (kasina: string) => {
-    const names: { [key: string]: string } = {
-      [KASINA_TYPES.WHITE]: 'White',
-      [KASINA_TYPES.BLUE]: 'Blue', 
-      [KASINA_TYPES.YELLOW]: 'Yellow',
-      [KASINA_TYPES.RED]: 'Red',
-      [KASINA_TYPES.WATER]: 'Water',
-      [KASINA_TYPES.FIRE]: 'Fire',
-      [KASINA_TYPES.AIR]: 'Air',
-      [KASINA_TYPES.EARTH]: 'Earth',
-      [KASINA_TYPES.SPACE]: 'Space',
-      [KASINA_TYPES.LIGHT]: 'Light',
-      [KASINA_TYPES.WHITE_A_THIGLE]: 'White A (Thigle)',
-      [KASINA_TYPES.WHITE_A_KASINA]: 'White A (Kasina)',
-      [KASINA_TYPES.OM_KASINA]: 'OM',
-      [KASINA_TYPES.AH_KASINA]: 'AH',
-      [KASINA_TYPES.HUM_KASINA]: 'HUM',
-      [KASINA_TYPES.RAINBOW_KASINA]: 'Rainbow',
-      'custom': 'Custom Color'
-    };
-    return names[kasina] || kasina;
+  // Get additional styles for kasina
+  const getKasinaStyles = (kasina: string) => {
+    if (kasina === KASINA_TYPES.RAINBOW_KASINA) {
+      return {
+        background: 'linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3)',
+        backgroundSize: '200% 200%',
+        animation: 'rainbow-rotate 3s ease-in-out infinite'
+      };
+    }
+    return {};
   };
 
   if (!showKasinaSelection) {
@@ -226,19 +215,23 @@ const KasinasPage: React.FC = () => {
                       transition: 'all 0.2s ease-out',
                       minHeight: '80px',
                       display: 'flex',
+                      flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.8)';
+                      e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'scale(1)';
-                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                      e.currentTarget.style.boxShadow = 'none';
                     }}
                   >
-                    {getKasinaDisplayName(kasina)}
+                    <div style={{ fontSize: '24px', marginBottom: '4px' }}>
+                      {KASINA_EMOJIS[kasina]}
+                    </div>
+                    <div>{KASINA_NAMES[kasina]}</div>
                   </button>
                 ))}
               </div>
@@ -262,7 +255,7 @@ const KasinasPage: React.FC = () => {
                   e.currentTarget.style.backgroundColor = '#6B7280';
                 }}
               >
-                ← Back to Series Selection
+                ← Back to Series
               </button>
             </div>
           )}
