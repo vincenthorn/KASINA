@@ -11,6 +11,12 @@ import { parse } from "csv-parse/sync";
 const upload = multer({ storage: multer.memoryStorage() });
 import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser, addSession, getUserSessions, getAllSessions, getUserPracticeStats, getAllUsersWithStats } from "./db";
 import { handleCsvUpload, uploadMiddleware } from "./upload-fix.js";
+import { Pool } from 'pg';
+
+// Database connection pool for kasina breakdown data
+const dbPool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 // Extend the Express Request type to include session
 declare module "express-session" {
@@ -437,6 +443,27 @@ export function registerRoutes(app: Express): Server {
       );
       
       if (dbSession) {
+        // Save kasina breakdown data if provided
+        const kasinaBreakdown = safeBody.kasinaBreakdown;
+        if (kasinaBreakdown && typeof kasinaBreakdown === 'object') {
+          console.log("📊 Saving kasina breakdown data:", kasinaBreakdown);
+          
+          for (const [kasina, durationMs] of Object.entries(kasinaBreakdown)) {
+            const durationSeconds = Math.round(Number(durationMs) / 1000);
+            if (durationSeconds > 0) {
+              try {
+                await dbPool.query(
+                  'INSERT INTO kasina_breakdowns (session_id, kasina_type, duration_seconds) VALUES ($1, $2, $3)',
+                  [dbSession.id, kasina, durationSeconds]
+                );
+                console.log(`📈 Saved kasina breakdown: ${kasina} for ${durationSeconds}s`);
+              } catch (breakdownError) {
+                console.error(`Failed to save kasina breakdown for ${kasina}:`, breakdownError);
+              }
+            }
+          }
+        }
+
         const responseSession = {
           id: dbSession.id.toString(),
           userEmail: dbSession.user_email,

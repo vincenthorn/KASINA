@@ -104,7 +104,8 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
           kasinaName,
           duration: minutes * 60, // Duration in seconds
           userEmail: userEmail,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
+          kasinaBreakdown: kasinaBreakdown // Include breakdown data
         })
       });
       
