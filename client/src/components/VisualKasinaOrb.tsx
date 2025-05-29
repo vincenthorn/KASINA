@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useKasina } from '../lib/stores/useKasina';
 import { useColor } from '../lib/contexts/ColorContext';
-import { KASINA_TYPES, KASINA_COLORS } from '../lib/constants';
+import { KASINA_TYPES, KASINA_COLORS, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES } from '../lib/constants';
 import useWakeLock from '../lib/useWakeLock';
 import * as THREE from 'three';
 
@@ -436,6 +436,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const [sizeMultiplier, setSizeMultiplier] = useState(1.0);
   const [showKasinaSelection, setShowKasinaSelection] = useState(false);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
+  const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>(null);
   
   // Wake lock for preventing screen sleep
   useWakeLock();
@@ -547,13 +548,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   // Handle series selection
   const handleSeriesSelection = (series: string) => {
-    if (series === 'COLOR') {
-      setKasinaSelectionStep('kasina');
-    } else if (series === 'ELEMENTAL') {
-      setKasinaSelectionStep('kasina');
-    } else if (series === 'VAJRAYANA') {
-      setKasinaSelectionStep('kasina');
-    }
+    setSelectedKasinaSeries(series);
+    setKasinaSelectionStep('kasina');
   };
 
   // Handle kasina selection
@@ -561,6 +557,37 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     setSelectedKasina(kasina);
     setShowKasinaSelection(false);
     setKasinaSelectionStep('series');
+  };
+
+  // Get kasinas for the selected series
+  const getKasinasForSeries = (series: string) => {
+    switch (series) {
+      case 'COLOR':
+        return KASINA_SERIES.COLOR;
+      case 'ELEMENTAL':
+        return KASINA_SERIES.ELEMENTAL;
+      case 'VAJRAYANA':
+        return KASINA_SERIES.VAJRAYANA;
+      default:
+        return [];
+    }
+  };
+
+  // Get color for selected kasina - use the official KASINA_COLORS
+  const getKasinaColor = (kasina: string) => {
+    return KASINA_COLORS[kasina] || KASINA_COLORS[KASINA_TYPES.BLUE];
+  };
+
+  // Get additional styles for kasina
+  const getKasinaStyles = (kasina: string) => {
+    if (kasina === KASINA_TYPES.RAINBOW_KASINA) {
+      return {
+        background: 'linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3)',
+        backgroundSize: '200% 200%',
+        animation: 'rainbow-rotate 3s ease-in-out infinite'
+      };
+    }
+    return {};
   };
 
   // Visual kasina orb component with animated shaders for elemental kasinas
@@ -1066,75 +1093,79 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
                 margin: '20px'
               }}
             >
-              <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '32px', color: '#333' }}>
-                Select Your Kasina
+              <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', color: '#333' }}>
+                Choose Your {selectedKasinaSeries === 'COLOR' ? 'Color' : selectedKasinaSeries === 'ELEMENTAL' ? 'Elemental' : 'Vajrayana'} Kasina
+              </div>
+              <div style={{ fontSize: '16px', color: '#666', marginBottom: '32px' }}>
+                Select the specific kasina that resonates with your practice
               </div>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '16px', marginBottom: '32px' }}>
-                {Object.entries(KASINA_TYPES).map(([key, label]) => (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+                {getKasinasForSeries(selectedKasinaSeries || '').map((kasina) => (
                   <button
-                    key={key}
-                    onClick={() => handleKasinaSelection(key)}
+                    key={kasina}
+                    onClick={() => handleKasinaSelection(kasina)}
                     style={{
-                      backgroundColor: selectedKasina === key ? '#4F46E5' : 'white',
-                      color: selectedKasina === key ? 'white' : '#333',
-                      border: selectedKasina === key ? '2px solid #4F46E5' : '2px solid #E5E7EB',
-                      padding: '16px',
+                      ...(kasina === 'custom' ? {
+                        background: 'linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3)',
+                        backgroundSize: '400% 400%',
+                        animation: 'rainbowShift 3s ease-in-out infinite'
+                      } : {
+                        backgroundColor: kasina === KASINA_TYPES.WHITE_A_KASINA ? '#4B5563' : getKasinaColor(kasina)
+                      }),
+                      color: kasina === 'white' || kasina === 'yellow' || kasina === 'light' || kasina === 'air' || kasina === 'om_kasina' || kasina === 'clear_light_thigle' ? '#000' : '#fff',
+                      border: '2px solid rgba(255,255,255,0.3)',
+                      padding: '16px 12px',
                       borderRadius: '12px',
-                      cursor: 'pointer',
                       fontSize: '14px',
-                      fontWeight: '500',
+                      fontWeight: '600',
+                      cursor: 'pointer',
                       textAlign: 'center',
-                      transition: 'all 0.2s ease-out'
+                      transition: 'all 0.2s ease-out',
+                      minHeight: '80px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}
                     onMouseEnter={(e) => {
-                      if (selectedKasina !== key) {
-                        e.currentTarget.style.backgroundColor = '#F3F4F6';
-                      }
+                      e.currentTarget.style.transform = 'scale(1.05)';
+                      e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3)';
                     }}
                     onMouseLeave={(e) => {
-                      if (selectedKasina !== key) {
-                        e.currentTarget.style.backgroundColor = 'white';
-                      }
+                      e.currentTarget.style.transform = 'scale(1)';
+                      e.currentTarget.style.boxShadow = 'none';
                     }}
                   >
-                    {label}
+                    <div style={{ fontSize: '24px', marginBottom: '4px' }}>
+                      {KASINA_EMOJIS[kasina]}
+                    </div>
+                    <div>{KASINA_NAMES[kasina]}</div>
                   </button>
                 ))}
               </div>
               
-              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
-                <button
-                  onClick={() => setKasinaSelectionStep('series')}
-                  style={{
-                    backgroundColor: '#6B7280',
-                    color: 'white',
-                    border: 'none',
-                    padding: '12px 24px',
-                    borderRadius: '8px',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                    fontWeight: '500'
-                  }}
-                >
-                  Go Back
-                </button>
-                <button
-                  onClick={() => setShowKasinaSelection(false)}
-                  style={{
-                    backgroundColor: '#6B7280',
-                    color: 'white',
-                    border: 'none',
-                    padding: '12px 24px',
-                    borderRadius: '8px',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                    fontWeight: '500'
-                  }}
-                >
-                  Cancel
-                </button>
-              </div>
+              <button
+                onClick={() => setKasinaSelectionStep('series')}
+                style={{
+                  backgroundColor: '#6B7280',
+                  color: 'white',
+                  border: 'none',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease-out'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#4B5563';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#6B7280';
+                }}
+              >
+                ← Back to Series
+              </button>
             </div>
           )}
         </div>
