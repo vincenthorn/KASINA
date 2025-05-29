@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useKasina } from '../lib/stores/useKasina';
 import { KASINA_TYPES, KASINA_COLORS } from '../lib/constants';
+import useWakeLock from '../lib/useWakeLock';
 import * as THREE from 'three';
 
 // Text kasina components
@@ -424,6 +425,80 @@ interface VisualKasinaOrbProps {}
 
 export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const { selectedKasina } = useKasina();
+  
+  // State for UI controls (copied from BreathKasinaOrb)
+  const [meditationTime, setMeditationTime] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showControls, setShowControls] = useState(true);
+  const [lastActivityTime, setLastActivityTime] = useState(Date.now());
+  const [sizeMultiplier, setSizeMultiplier] = useState(1.0);
+  const [showKasinaSelection, setShowKasinaSelection] = useState(false);
+  
+  // Wake lock for preventing screen sleep
+  useWakeLock();
+  
+  // Format time display
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
+  
+  // Timer increment
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setMeditationTime(prev => prev + 1);
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, []);
+  
+  // Auto-hide controls after 3 seconds of inactivity
+  useEffect(() => {
+    const hideTimer = setTimeout(() => {
+      if (Date.now() - lastActivityTime > 3000) {
+        setShowControls(false);
+      }
+    }, 3000);
+
+    return () => clearTimeout(hideTimer);
+  }, [lastActivityTime]);
+
+  // Handle mouse/touch activity
+  const handleActivity = () => {
+    setLastActivityTime(Date.now());
+    setShowControls(true);
+  };
+
+  // Fullscreen functionality
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().then(() => {
+        setIsFullscreen(true);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().then(() => {
+          setIsFullscreen(false);
+        });
+      }
+    }
+  };
+
+  // Listen for fullscreen changes
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  const endMeditation = () => {
+    // Navigate back or close
+    window.history.back();
+  };
 
   // Visual kasina orb component with animated shaders for elemental kasinas
   const VisualKasinaOrbMesh = () => {
@@ -439,6 +514,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       if (meshRef.current) {
         // Gentle rotation
         meshRef.current.rotation.y += 0.002;
+        
+        // Apply size multiplier
+        const targetScale = sizeMultiplier;
+        meshRef.current.scale.setScalar(targetScale);
       }
 
       // Update shader time uniforms for elemental kasinas
@@ -578,10 +657,158 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   };
 
   return (
-    <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[5, 5, 5]} intensity={0.8} />
-      <VisualKasinaOrbMesh />
-    </Canvas>
+    <div 
+      className="h-screen w-screen relative bg-black overflow-hidden"
+      onMouseMove={handleActivity}
+      onTouchStart={handleActivity}
+      onClick={handleActivity}
+    >
+      <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[5, 5, 5]} intensity={0.8} />
+        <VisualKasinaOrbMesh />
+      </Canvas>
+
+      {/* Fullscreen button */}
+      {showControls && (
+        <div className="absolute top-4 right-4 z-20">
+          <button
+            onClick={toggleFullscreen}
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              color: 'white',
+              border: 'none',
+              padding: '12px',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '18px',
+              transition: 'background-color 0.2s'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            }}
+          >
+            {isFullscreen ? '⤡' : '⤢'}
+          </button>
+        </div>
+      )}
+
+      {/* Timer and End button */}
+      {showControls && (
+        <div 
+          className="absolute top-4 left-4 z-20 flex flex-col items-start gap-2"
+          style={{
+            padding: '12px 16px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease-out'
+          }}
+        >
+          <div 
+            style={{
+              color: 'white',
+              fontSize: '20px',
+              fontWeight: 'bold',
+              fontFamily: 'monospace',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+            }}
+          >
+            {formatTime(meditationTime)}
+          </div>
+          <button
+            onClick={endMeditation}
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              border: 'none',
+              padding: '6px 12px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: '500',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease-out'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            }}
+          >
+            End
+          </button>
+        </div>
+      )}
+
+      {/* Change Kasina button at bottom */}
+      {!showKasinaSelection && showControls && (
+        <div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        >
+          <button
+            onClick={() => setShowKasinaSelection(true)}
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              color: 'white',
+              border: 'none',
+              padding: '12px 24px',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '16px',
+              fontWeight: '600',
+              transition: 'background-color 0.2s'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            }}
+          >
+            Change Kasina
+          </button>
+        </div>
+      )}
+
+      {/* Size control - bottom center */}
+      {showControls && !showKasinaSelection && (
+        <div 
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
+          style={{
+            padding: '16px 24px',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            borderRadius: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '16px',
+            color: 'white',
+            fontSize: '14px',
+            fontWeight: '500'
+          }}
+        >
+          <span>Size:</span>
+          <input
+            type="range"
+            min="0.2"
+            max="2.0"
+            step="0.1"
+            value={sizeMultiplier}
+            onChange={(e) => setSizeMultiplier(parseFloat(e.target.value))}
+            style={{
+              width: '120px',
+              height: '4px',
+              background: '#374151',
+              borderRadius: '2px',
+              outline: 'none',
+              appearance: 'none'
+            }}
+          />
+          <span>{Math.round(sizeMultiplier * 100)}%</span>
+        </div>
+      )}
+    </div>
   );
 }
