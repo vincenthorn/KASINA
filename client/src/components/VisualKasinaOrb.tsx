@@ -451,6 +451,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const meditationStartRef = useRef<number | null>(null);
   const sessionIdRef = useRef<string | null>(null);
+  const sessionInitializedRef = useRef<boolean>(false);
   
   // Format time display
   const formatTime = (seconds: number) => {
@@ -461,21 +462,24 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   
   // Initialize meditation session
   useEffect(() => {
+    // Only initialize once to prevent infinite loop
+    if (sessionInitializedRef.current) return;
+    
     const initializeSession = async () => {
       const now = Date.now();
       meditationStartRef.current = now;
       
       // Create session recovery entry
-      sessionIdRef.current = await sessionRecovery.startSession({
-        kasinaType: selectedKasina as any,
-        startTime: now
-      });
+      sessionIdRef.current = sessionRecovery.startSession(selectedKasina as any);
       
       console.log('🧘 Visual kasina meditation session started');
       
       // Enable wake lock to prevent screen from sleeping
       enableWakeLock();
       console.log("🔒 Wake lock enabled - screen will stay awake during meditation");
+      
+      // Mark as initialized
+      sessionInitializedRef.current = true;
     };
 
     initializeSession();
@@ -492,7 +496,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       }
       disableWakeLock();
     };
-  }, [selectedKasina, enableWakeLock, disableWakeLock]);
+  }, []); // Empty dependency array to only run once
   
   // Auto-hide controls after 3 seconds of inactivity
   useEffect(() => {
