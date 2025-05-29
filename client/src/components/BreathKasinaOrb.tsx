@@ -543,7 +543,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     const handleWheel = (e: any) => {
       e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.04 : 0.04; // Scroll down = smaller, scroll up = larger
+      const delta = e.deltaY > 0 ? -0.03 : 0.03; // Scroll down = smaller, scroll up = larger
       setSizeMultiplier(prev => Math.max(0.05, Math.min(5.0, prev + delta))); // Range: 5% to 500%
     };
 
