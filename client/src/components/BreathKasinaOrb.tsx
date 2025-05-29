@@ -11,6 +11,7 @@ import { sessionRecovery } from '../lib/sessionRecovery';
 import useWakeLock from '../lib/useWakeLock';
 import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
 import UnifiedSessionInterface from './UnifiedSessionInterface';
+import KasinaSelectionInterface from './KasinaSelectionInterface';
 import WhiteAKasina from './WhiteAKasina';
 import WhiteAThigle from './WhiteAThigle';
 import OmKasina from './OmKasina';
@@ -1494,189 +1495,44 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         <BreathingKasinaOrb />
       </Canvas>
       
-      {/* Meditation timer and controls - upper left corner */}
-      {showControls && (
-        <div 
-          className="absolute top-4 left-4 z-30 flex items-center space-x-3"
-          style={{
-            padding: '12px 16px',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease-out'
-          }}
-        >
-          <div 
-            style={{
-              color: 'white',
-              fontSize: '20px',
-              fontWeight: 'bold',
-              fontFamily: 'monospace',
-              textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
-            }}
-          >
-            {formatTime(meditationTime)}
-          </div>
-          <button
-            onClick={endMeditation}
-            style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-              color: 'white',
-              border: 'none',
-              padding: '6px 12px',
-              borderRadius: '4px',
-              fontSize: '14px',
-              fontWeight: '500',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease-out'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-            }}
-          >
-            End
-          </button>
-        </div>
+      {/* Unified Session Interface */}
+      {!showKasinaSelection && (
+        <UnifiedSessionInterface
+          meditationTime={meditationTime}
+          onEndSession={endMeditation}
+          sizeMultiplier={sizeMultiplier}
+          onSizeChange={(size) => setSizeMultiplier(size)}
+          isFullscreen={isFullscreen}
+          onToggleFullscreen={toggleFullscreen}
+          onChangeKasina={() => setShowKasinaSelection(true)}
+          showControls={showControls}
+          breathingRate={activeBreathingRate}
+        />
       )}
 
-      {/* Change Kasina button at bottom */}
-      {!showKasinaSelection && showControls && (
-        <div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-        >
-          <button
-            onClick={() => setShowKasinaSelection(true)}
-            style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              color: 'white',
-              border: 'none',
-              padding: '12px 24px',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              fontSize: '16px',
-              fontWeight: '600',
-              transition: 'background-color 0.2s'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-            }}
-          >
-            Change Kasina
-          </button>
-        </div>
-      )}
-
-      {/* Size control - bottom center */}
-      {showControls && !showKasinaSelection && (
-        <div 
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
-          style={{
-            padding: '16px 24px',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            borderRadius: '12px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '16px',
-            color: 'white',
-            fontSize: '14px',
-            fontWeight: '500'
-          }}
-        >
-          <span>Size:</span>
-          <input
-            type="range"
-            min="0.05"
-            max="5.0"
-            step="0.01"
-            value={sizeMultiplier}
-            onChange={(e) => setSizeMultiplier(parseFloat(e.target.value))}
-            style={{
-              width: '120px',
-              height: '4px',
-              background: '#374151',
-              borderRadius: '2px',
-              outline: 'none',
-              cursor: 'pointer'
-            }}
-          />
-          <span>{Math.round(sizeMultiplier * 100)}%</span>
-        </div>
-      )}
-
-      {/* Fullscreen control - upper right corner */}
-      {showControls && (
-        <div 
-          className="absolute top-4 right-4 z-30 cursor-pointer"
-          onClick={toggleFullscreen}
-          style={{
-            padding: '12px',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease-out'
-          }}
-        >
-          <svg 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="white" 
-            strokeWidth="2"
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            {isFullscreen ? (
-              // Exit fullscreen icon
-              <>
-                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
-              </>
-            ) : (
-              // Enter fullscreen icon
-              <>
-                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-              </>
-            )}
-          </svg>
-        </div>
-      )}
-
-      {/* Kasina selection overlay */}
+      {/* Kasina Selection Overlay */}
       {showKasinaSelection && (
         <div 
-          className="absolute inset-0 z-50 flex items-end justify-center pb-20"
+          className="absolute inset-0 z-50 flex items-center justify-center"
           style={{
             backgroundColor: 'rgba(0, 0, 0, 0.8)',
             backdropFilter: 'blur(4px)'
           }}
         >
-          {kasinaSelectionStep === 'series' ? (
-            <div 
-              style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                padding: '32px',
-                borderRadius: '16px',
-                textAlign: 'center',
-                maxWidth: '600px',
-                margin: '20px'
-              }}
-            >
-              <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', color: '#333' }}>
-                Choose Your Kasina Series
-              </div>
-              <div style={{ fontSize: '16px', color: '#666', marginBottom: '32px' }}>
-                Select the type of meditation object you'd like to focus on
-              </div>
-              
-              <div style={{ display: 'flex', gap: '24px', justifyContent: 'center' }}>
-                <button
-                  onClick={() => handleSeriesSelection('COLOR')}
-                  style={{
-                    backgroundColor: '#4F46E5',
+          <KasinaSelectionInterface
+            showKasinaSelection={showKasinaSelection}
+            kasinaSelectionStep={kasinaSelectionStep}
+            selectedKasinaSeries={selectedKasinaSeries}
+            onSeriesSelection={handleSeriesSelection}
+            onKasinaSelection={handleKasinaSelection}
+            onBackToSeries={() => setKasinaSelectionStep('series')}
+            onCancel={() => setShowKasinaSelection(false)}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
                     color: 'white',
                     border: 'none',
                     padding: '24px 32px',
