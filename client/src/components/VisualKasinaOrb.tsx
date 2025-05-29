@@ -569,13 +569,13 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       return <WhiteAThigle />;
     } else if (selectedKasina === KASINA_TYPES.WHITE_A_KASINA) {
       return <WhiteAKasina />;
-    } else if (selectedKasina === KASINA_TYPES.OM) {
+    } else if (selectedKasina === KASINA_TYPES.OM_KASINA) {
       return <OmKasina />;
-    } else if (selectedKasina === KASINA_TYPES.AH) {
+    } else if (selectedKasina === KASINA_TYPES.AH_KASINA) {
       return <AhKasina />;
-    } else if (selectedKasina === KASINA_TYPES.HUM) {
+    } else if (selectedKasina === KASINA_TYPES.HUM_KASINA) {
       return <HumKasina />;
-    } else if (selectedKasina === KASINA_TYPES.RAINBOW) {
+    } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
       return (
         <>
           <RainbowKasina />
@@ -692,28 +692,47 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
       {/* Fullscreen button */}
       {showControls && (
-        <div className="absolute top-4 right-4 z-20">
-          <button
-            onClick={toggleFullscreen}
-            style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              color: 'white',
-              border: 'none',
-              padding: '12px',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              fontSize: '18px',
-              transition: 'background-color 0.2s'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-            }}
+        <div 
+          className="absolute top-4 right-4 z-30 cursor-pointer"
+          onClick={toggleFullscreen}
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            padding: '12px',
+            borderRadius: '8px',
+            transition: 'background-color 0.2s',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+          }}
+        >
+          <svg 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="white" 
+            strokeWidth="2"
+            strokeLinecap="round" 
+            strokeLinejoin="round"
           >
-            {isFullscreen ? '⤡' : '⤢'}
-          </button>
+            {isFullscreen ? (
+              // Exit fullscreen icon
+              <>
+                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+              </>
+            ) : (
+              // Enter fullscreen icon
+              <>
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+              </>
+            )}
+          </svg>
         </div>
       )}
 
