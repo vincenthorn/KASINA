@@ -56,7 +56,7 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
       
       // Normalize kasina type
       const kasinaTypeNormalized = kasinaType.toLowerCase() as KasinaType;
-      const kasinaName = customSessionName || `${kasinaTypeNormalized.charAt(0).toUpperCase() + kasinaTypeNormalized.slice(1)} (${minutes}-${minuteText})`;
+      const kasinaName = customSessionName || `${kasinaTypeNormalized.charAt(0).toUpperCase() + kasinaTypeNormalized.slice(1)} Kasina`;
       
       // Get the current user's email from auth store
       const authState = useAuth.getState();

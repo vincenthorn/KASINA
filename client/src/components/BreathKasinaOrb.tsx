@@ -822,7 +822,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           duration: durationInMinutes * 60, // Convert back to seconds for logging
           showToast: true,
           kasinaBreakdown: finalUsage,
-          customSessionName: `Breath Kasina (${durationInMinutes}-${durationInMinutes === 1 ? 'minute' : 'minutes'})`
+          customSessionName: `Breath Kasina`
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
         
