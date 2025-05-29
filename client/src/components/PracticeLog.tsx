@@ -176,12 +176,12 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
                           ? 'text-indigo-300' 
                           : 'text-white'
                       }`}>
-                        {session.kasinaType === 'clear_light_thigle' 
+                        {session.kasinaName || (session.kasinaType === 'clear_light_thigle' 
                           ? 'Clear Light Kasina'
                           : session.kasinaType.includes('kasina')
                             ? session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ')
                             : session.kasinaType.charAt(0).toUpperCase() + session.kasinaType.slice(1).replace(/_/g, ' ') + ' Kasina'
-                        }
+                        )}
                       </h3>
                       <p className="text-gray-500 text-sm mt-0.5">{format(new Date(session.timestamp), 'PPp')}</p>
                     </div>
