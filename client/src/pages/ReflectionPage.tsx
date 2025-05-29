@@ -277,13 +277,13 @@ const ReflectionPage: React.FC = () => {
             
             {/* Charts Section - Two Column Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <PracticeModeChart 
+                sessions={sessions}
+              />
               <PracticeChart 
                 sessions={sessions} 
                 selectedKasinaType={selectedKasinaType}
                 onSelectKasinaType={setSelectedKasinaType}
-              />
-              <PracticeModeChart 
-                sessions={sessions}
               />
             </div>
             
