@@ -784,6 +784,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           onToggleFullscreen={toggleFullscreen}
           onChangeKasina={() => setShowKasinaSelection(true)}
           showControls={showControls}
+          mode="visual"
         />
       )}
 

@@ -1506,6 +1506,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           onToggleFullscreen={toggleFullscreen}
           onChangeKasina={() => setShowKasinaSelection(true)}
           showControls={showControls}
+          mode="breath"
           breathingRate={activeBreathingRate}
         />
       )}

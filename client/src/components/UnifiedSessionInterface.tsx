@@ -19,6 +19,9 @@ interface UnifiedSessionInterfaceProps {
   // Visibility controls
   showControls: boolean;
   
+  // Mode to determine slider scale
+  mode: 'visual' | 'breath';
+  
   // Optional breathing rate for breath mode
   breathingRate?: number;
 }
@@ -32,6 +35,7 @@ export default function UnifiedSessionInterface({
   onToggleFullscreen,
   onChangeKasina,
   showControls,
+  mode,
   breathingRate
 }: UnifiedSessionInterfaceProps) {
   
@@ -41,6 +45,11 @@ export default function UnifiedSessionInterface({
     const remainingSeconds = seconds % 60;
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
+
+  // Configure slider based on mode
+  const sliderConfig = mode === 'breath' 
+    ? { min: 0.05, max: 1.0, step: 0.05 }  // Breath kasinas: 5% to 100%
+    : { min: 0.05, max: 5.0, step: 0.05 }; // Visual kasinas: 5% to 500%
 
   // Handle size slider change
   const handleSizeSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -126,9 +135,9 @@ export default function UnifiedSessionInterface({
         </span>
         <input
           type="range"
-          min="0.05"
-          max="5.0"
-          step="0.05"
+          min={sliderConfig.min}
+          max={sliderConfig.max}
+          step={sliderConfig.step}
           value={sizeMultiplier}
           onChange={handleSizeSliderChange}
           style={{
@@ -147,7 +156,10 @@ export default function UnifiedSessionInterface({
           minWidth: '35px',
           textAlign: 'right'
         }}>
-          {Math.round(sizeMultiplier * 100)}%
+          {mode === 'breath' 
+            ? Math.round(sizeMultiplier * 100) + '%'  // Breath: Direct percentage (1.0 = 100%)
+            : Math.round(sizeMultiplier * 100) + '%'  // Visual: Direct percentage (5.0 = 500%)
+          }
         </span>
       </div>
 
