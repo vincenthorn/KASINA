@@ -739,7 +739,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       {/* Timer and End button */}
       {showControls && (
         <div 
-          className="absolute top-4 left-4 z-20 flex flex-col items-start gap-2"
+          className="absolute top-4 left-4 z-30 flex items-center space-x-3"
           style={{
             padding: '12px 16px',
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -813,10 +813,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         </div>
       )}
 
-      {/* Size control - bottom center */}
+      {/* Size control - top center */}
       {showControls && !showKasinaSelection && (
         <div 
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
+          className="absolute top-4 left-1/2 transform -translate-x-1/2 z-30"
           style={{
             padding: '16px 24px',
             backgroundColor: 'rgba(0, 0, 0, 0.8)',
