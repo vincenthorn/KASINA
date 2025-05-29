@@ -503,6 +503,21 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     window.history.back();
   };
 
+  // Handle mouse wheel/trackpad scroll for size adjustment
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? -0.05 : 0.05; // Scroll down = smaller, scroll up = larger
+      setSizeMultiplier(prev => {
+        const newSize = Math.max(0.05, Math.min(5.0, prev + delta));
+        return newSize;
+      });
+    };
+
+    document.addEventListener('wheel', handleWheel, { passive: false });
+    return () => document.removeEventListener('wheel', handleWheel);
+  }, []);
+
   // Get background color based on selected kasina
   const getBackgroundColor = () => {
     if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {

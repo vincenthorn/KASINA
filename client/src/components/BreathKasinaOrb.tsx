@@ -537,12 +537,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
   };
   
-  // Handle wheel scroll to adjust breathing range scale (perfectly balanced smooth)
+  // Handle wheel scroll to adjust size multiplier (smooth adjustment)
   useEffect(() => {
     const handleWheel = (e: any) => {
       e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.001 : 0.001; // 100x slower: 0.1 → 0.001 for perfectly balanced, smooth adjustments
-      setSizeScale(prev => Math.max(0.025, Math.min(3.0, prev + delta))); // Range: 0.025x to 3.0x (2x smaller minimum zoom-out)
+      const delta = e.deltaY > 0 ? -0.05 : 0.05; // Scroll down = smaller, scroll up = larger
+      setSizeMultiplier(prev => Math.max(0.05, Math.min(5.0, prev + delta))); // Range: 5% to 500%
     };
 
     document.addEventListener('wheel', handleWheel, { passive: false });
