@@ -18,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   const { showCursor, showControls } = useAutoHide({ 
     hideDelay: 3000, 
     hideCursor: true, 
-    hideControls: true 
+    hideControls: isFocusMode // Only hide controls in focus mode
   });
 
   // Check if user is admin or premium
