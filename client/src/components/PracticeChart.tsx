@@ -24,6 +24,10 @@ interface PracticeChartProps {
     kasinaName: string;
     duration: number;
     timestamp: string;
+    kasinaBreakdown?: Array<{
+      kasina_type: string;
+      duration_seconds: number;
+    }>;
   }[];
   selectedKasinaType: string | null;
   onSelectKasinaType: (kasinaType: string | null) => void;
@@ -132,6 +136,34 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
     return `${minutes}m`;
   };
 
+  // Helper function to round time (round up to nearest minute if > 30 seconds)
+  const roundTime = (seconds: number): number => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    
+    if (remainingSeconds > 30) {
+      return (minutes + 1) * 60;
+    }
+    return minutes * 60;
+  };
+
+  // Helper function to get kasina time totals from breakdown data
+  const getKasinaTimeFromBreakdowns = (sessions: any[], kasinaType: string): number => {
+    let totalTime = 0;
+    
+    sessions.forEach(session => {
+      if (session.kasinaBreakdown && Array.isArray(session.kasinaBreakdown)) {
+        session.kasinaBreakdown.forEach((breakdown: any) => {
+          if (breakdown.kasina_type === kasinaType) {
+            totalTime += breakdown.duration_seconds;
+          }
+        });
+      }
+    });
+    
+    return totalTime;
+  };
+
   // Process chart data based on current view mode
   const chartData = useMemo(() => {
     if (!sessions || sessions.length === 0) return [];
@@ -144,17 +176,15 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
     // Prepare data based on current mode
     if (chartMode === 'overview') {
       // Create overview data (Color vs Elemental vs Vajrayana - all kasina sets)
-      const colorTotal = sessions
-        .filter(s => colorKasinas.includes(s.kasinaType))
-        .reduce((sum, s) => sum + s.duration, 0);
+      // Sum up time from breakdown data for each category
+      const colorTotal = colorKasinas.reduce((sum, kasinaType) => 
+        sum + getKasinaTimeFromBreakdowns(sessions, kasinaType), 0);
         
-      const elementalTotal = sessions
-        .filter(s => elementalKasinas.includes(s.kasinaType))
-        .reduce((sum, s) => sum + s.duration, 0);
+      const elementalTotal = elementalKasinas.reduce((sum, kasinaType) => 
+        sum + getKasinaTimeFromBreakdowns(sessions, kasinaType), 0);
       
-      const vajrayanaTotal = sessions
-        .filter(s => vajrayanaKasinas.includes(s.kasinaType))
-        .reduce((sum, s) => sum + s.duration, 0);
+      const vajrayanaTotal = vajrayanaKasinas.reduce((sum, kasinaType) => 
+        sum + getKasinaTimeFromBreakdowns(sessions, kasinaType), 0);
         
       return [
         {
@@ -184,17 +214,16 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
       ].filter(item => item.value > 0);
       
     } else if (chartMode === 'color') {
-      // Show detailed breakdown of color kasinas
+      // Show detailed breakdown of color kasinas using breakdown data
       return colorKasinas
         .map(type => {
-          const totalTime = sessions
-            .filter(s => s.kasinaType === type)
-            .reduce((sum, s) => sum + s.duration, 0);
+          const totalTime = getKasinaTimeFromBreakdowns(sessions, type);
+          const roundedTime = roundTime(totalTime);
             
           return {
             name: type,
             kasinaType: type,
-            value: totalTime,
+            value: roundedTime,
             emoji: KASINA_EMOJIS[type] || '⚪',
             displayName: KASINA_NAMES[type] || type,
             color: KASINA_COLORS[type] || '#ffffff'
@@ -203,17 +232,16 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
         .filter(item => item.value > 0);
         
     } else if (chartMode === 'elemental') {
-      // Show detailed breakdown of elemental kasinas
+      // Show detailed breakdown of elemental kasinas using breakdown data
       return elementalKasinas
         .map(type => {
-          const totalTime = sessions
-            .filter(s => s.kasinaType === type)
-            .reduce((sum, s) => sum + s.duration, 0);
+          const totalTime = getKasinaTimeFromBreakdowns(sessions, type);
+          const roundedTime = roundTime(totalTime);
             
           return {
             name: type,
             kasinaType: type,
-            value: totalTime,
+            value: roundedTime,
             emoji: KASINA_EMOJIS[type] || '✨',
             displayName: KASINA_NAMES[type] || type,
             color: KASINA_COLORS[type] || '#ffffff'
@@ -221,17 +249,16 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
         })
         .filter(item => item.value > 0);
     } else if (chartMode === 'vajrayana') {
-      // Show detailed breakdown of Vajrayana kasinas
+      // Show detailed breakdown of Vajrayana kasinas using breakdown data
       return vajrayanaKasinas
         .map(type => {
-          const totalTime = sessions
-            .filter(s => s.kasinaType === type)
-            .reduce((sum, s) => sum + s.duration, 0);
+          const totalTime = getKasinaTimeFromBreakdowns(sessions, type);
+          const roundedTime = roundTime(totalTime);
             
           return {
             name: type,
             kasinaType: type,
-            value: totalTime,
+            value: roundedTime,
             emoji: KASINA_EMOJIS[type] || '💀',
             displayName: KASINA_NAMES[type] || type,
             color: KASINA_COLORS[type] || '#8855ff'
