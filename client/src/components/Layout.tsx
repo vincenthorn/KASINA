@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
+import { useAutoHide } from "../lib/useAutoHide";
 import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle, Monitor, Expand, PieChart, Waves } from "lucide-react";
 
 interface LayoutProps {
@@ -14,6 +15,11 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMode = false }) => {
   const location = useLocation();
   const { logout, email, subscriptionType } = useAuth();
+  const { showCursor, showControls } = useAutoHide({ 
+    hideDelay: 3000, 
+    hideCursor: true, 
+    hideControls: true 
+  });
 
   // Check if user is admin or premium
   const isAdmin = email === "admin@kasina.app";
@@ -42,9 +48,9 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
   const adminItem = { path: "/admin", label: "Admin", icon: <Settings className="w-5 h-5" /> };
 
   return (
-    <div className="flex h-screen bg-black text-white">
+    <div className={`flex h-screen bg-black text-white ${!showCursor ? 'cursor-none' : ''}`}>
       {/* Sidebar navigation - hidden in focus mode */}
-      {!isFocusMode && (
+      {!isFocusMode && showControls && (
         <div className="w-64 bg-gray-900 border-r border-gray-800 p-4 hidden md:flex flex-col">
           <div className="mb-8 mt-4">
             <Logo sidebarMode={true} alwaysVertical={true} />
@@ -101,7 +107,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
       )}
       
       {/* Mobile top navigation - hidden in focus mode */}
-      {!isFocusMode && (
+      {!isFocusMode && showControls && (
         <div className="md:hidden fixed top-0 left-0 right-0 bg-gray-900 z-10 border-b border-gray-800">
           <div className="flex items-center justify-between p-4">
             <Logo size="small" showTagline={false} alwaysVertical={false} />
