@@ -49,7 +49,7 @@ export default function UnifiedSessionInterface({
   // Configure slider based on mode
   const sliderConfig = mode === 'breath' 
     ? { min: 0.05, max: 1.0, step: 0.05 }  // Breath kasinas: 5% to 100%
-    : { min: 0.05, max: 5.0, step: 0.05 }; // Visual kasinas: 5% to 500%
+    : { min: 0.05, max: 3.0, step: 0.05 }; // Visual kasinas: 5% to 300%
 
   // Handle size slider change
   const handleSizeSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
