@@ -612,7 +612,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           kasinaType: mostUsedKasina as any, // Use the most-used kasina as the type
           duration: durationInMinutes * 60, // Convert back to seconds for logging
           showToast: true,
-          kasinaBreakdown: finalUsage
+          kasinaBreakdown: finalUsage,
+          customSessionName: `Visual Kasina`
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
         
