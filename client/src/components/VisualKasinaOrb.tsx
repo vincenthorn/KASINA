@@ -587,12 +587,6 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     const durationInSeconds = meditationTime;
     const durationInMinutes = Math.floor(durationInSeconds / 60); // Round down to nearest minute
     
-    // Complete session recovery tracking
-    if (sessionIdRef.current) {
-      const recoverySuccess = await sessionRecovery.completeSession(durationInSeconds);
-      console.log(`🛡️ Session recovery completion: ${recoverySuccess ? 'success' : 'failed'}`);
-    }
-    
     // Only log if there was at least 1 minute of meditation
     if (durationInMinutes >= 1) {
       console.log(`🧘 Ending visual kasina session: ${durationInSeconds}s (${durationInMinutes} minutes)`);
@@ -603,10 +597,18 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         const kasinaName = `Visual Kasina`; // Just use the mode name
         const kasinaEmoji = KASINA_EMOJIS[mostUsedKasina];
         
+        // Get final kasina usage data
+        const finalUsage = { ...kasinaUsageRef.current };
+        const currentTimeSpent = Date.now() - currentKasinaStartRef.current;
+        if (selectedKasina) {
+          finalUsage[selectedKasina] = (finalUsage[selectedKasina] || 0) + currentTimeSpent;
+        }
+
         await logSession({
-          kasinaType: mostUsedKasina as any, // Use the most-used kasina type
+          kasinaType: 'visual' as any, // Use 'visual' as the kasina type
           duration: durationInMinutes * 60, // Convert back to seconds for logging
-          showToast: true
+          showToast: true,
+          kasinaBreakdown: finalUsage
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
         
@@ -615,6 +617,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       }
     } else {
       console.log(`⏱️ Session too short (${durationInSeconds}s) - not logging`);
+    }
+
+    // Complete session recovery tracking (after our main logging to avoid duplicates)
+    if (sessionIdRef.current) {
+      sessionRecovery.clearSession(); // Just clear it since we already logged above
+      console.log(`🛡️ Session recovery cleared`);
     }
     
     // Reset all meditation state

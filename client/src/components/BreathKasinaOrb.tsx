@@ -800,12 +800,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const durationInSeconds = meditationTime;
     const durationInMinutes = Math.floor(durationInSeconds / 60); // Round down to nearest minute
     
-    // Complete session recovery tracking
-    if (sessionIdRef.current) {
-      const recoverySuccess = await sessionRecovery.completeSession(durationInSeconds);
-      console.log(`🛡️ Session recovery completion: ${recoverySuccess ? 'success' : 'failed'}`);
-    }
-    
     // Only log if there was at least 1 minute of meditation
     if (durationInMinutes >= 1) {
       console.log(`🧘 Ending meditation session: ${durationInSeconds}s (${durationInMinutes} minutes)`);
@@ -836,6 +830,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       }
     } else {
       console.log(`⏱️ Session too short (${durationInSeconds}s) - not logging`);
+    }
+
+    // Complete session recovery tracking (after our main logging to avoid duplicates)
+    if (sessionIdRef.current) {
+      sessionRecovery.clearSession(); // Just clear it since we already logged above
+      console.log(`🛡️ Session recovery cleared`);
     }
     
     // Reset all meditation state
