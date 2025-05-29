@@ -155,17 +155,6 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
         </CardTitle>
       </CardHeader>
       <CardContent className="p-6">
-        <div className="mb-6">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-1">
-              {formatTime(totalTime)}
-            </div>
-            <div className="text-gray-400 text-sm">
-              Total Meditation Time
-            </div>
-          </div>
-        </div>
-
         <div className="flex flex-col lg:flex-row items-center gap-6">
           {/* Pie Chart */}
           <div className="w-80 h-80">

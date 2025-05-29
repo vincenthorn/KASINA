@@ -443,21 +443,9 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
             </ResponsiveContainer>
           </div>
           
-          {/* Statistics and legend - more space on desktop */}
+          {/* Legend - more space on desktop */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
-            <div className="text-center lg:text-left">
-              <h3 className="text-lg md:text-xl text-gray-400">Total Meditation Time</h3>
-              <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-1">
-                {formatTime(currentViewTotalTime)}
-              </p>
-              <p className="text-sm md:text-base text-gray-500 mt-1">
-                {chartMode !== 'overview' 
-                  ? `Viewing ${chartMode === 'color' ? 'Color' : 'Elemental'} Kasinas` 
-                  : 'Overview of all sessions'}
-              </p>
-            </div>
-            
-            <div className="flex flex-wrap gap-3 mt-4 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               {chartData.map((entry, i) => {
                 const isActive = activeIndex !== null && chartData[activeIndex]?.name === entry.name;
                 return (
