@@ -4,6 +4,7 @@ import { useKasina } from '../lib/stores/useKasina';
 import { useColor } from '../lib/contexts/ColorContext';
 import { KASINA_TYPES, KASINA_COLORS, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES } from '../lib/constants';
 import KasinaRenderer, { getKasinaBackgroundColor } from './KasinaRenderer';
+import KasinaSelectionInterface from './KasinaSelectionInterface';
 import useWakeLock from '../lib/useWakeLock';
 import * as THREE from 'three';
 
@@ -941,12 +942,13 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }}
         >
           <KasinaSelectionInterface
-            onKasinaSelect={(kasina) => {
-              setSelectedKasina(kasina);
-              setShowKasinaSelection(false);
-            }}
-            onBack={() => setShowKasinaSelection(false)}
-            mode="visual"
+            showKasinaSelection={showKasinaSelection}
+            kasinaSelectionStep={kasinaSelectionStep}
+            selectedKasinaSeries={selectedKasinaSeries}
+            onSeriesSelection={handleSeriesSelection}
+            onKasinaSelection={handleKasinaSelection}
+            onBackToSeries={() => setKasinaSelectionStep('series')}
+            onCancel={() => setShowKasinaSelection(false)}
           />
         </div>
       )}
