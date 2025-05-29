@@ -816,10 +816,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         const kasinaName = `Breath Kasina (${KASINA_NAMES[mostUsedKasina]})`;
         const kasinaEmoji = KASINA_EMOJIS[mostUsedKasina];
         
+        // Get final kasina usage data
+        const finalUsage = { ...kasinaUsageRef.current };
+        const currentTimeSpent = Date.now() - currentKasinaStartRef.current;
+        if (selectedKasina) {
+          finalUsage[selectedKasina] = (finalUsage[selectedKasina] || 0) + currentTimeSpent;
+        }
+
         await logSession({
           kasinaType: 'breath' as any, // Use 'breath' as the kasina type
           duration: durationInMinutes * 60, // Convert back to seconds for logging
-          showToast: true
+          showToast: true,
+          kasinaBreakdown: finalUsage
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
         
