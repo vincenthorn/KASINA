@@ -17,6 +17,10 @@ interface Session {
   kasinaName: string;
   duration: number;
   timestamp: string;
+  kasinaBreakdown?: Array<{
+    kasina_type: string;
+    duration_seconds: number;
+  }>;
 }
 
 const ReflectionPage: React.FC = () => {

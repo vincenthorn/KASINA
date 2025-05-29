@@ -293,7 +293,8 @@ export function registerRoutes(app: Express): Server {
         kasinaType: session.kasina_type,
         kasinaName: session.kasina_name,
         duration: session.duration_seconds,
-        timestamp: session.session_date.toISOString()
+        timestamp: session.session_date.toISOString(),
+        kasinaBreakdown: (session as any).kasina_breakdown || []
       }));
       
       res.json(formattedSessions);

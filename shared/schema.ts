@@ -50,7 +50,12 @@ export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
 export type InsertSession = z.infer<typeof insertSessionSchema>;
-export type Session = typeof sessions.$inferSelect;
+export type Session = typeof sessions.$inferSelect & {
+  kasina_breakdown?: Array<{
+    kasina_type: string;
+    duration_seconds: number;
+  }>;
+};
 
 export type InsertKasinaBreakdown = z.infer<typeof insertKasinaBreakdownSchema>;
 export type KasinaBreakdown = typeof kasinaBreakdowns.$inferSelect;

@@ -140,13 +140,26 @@ export async function addSession(userEmail: string, kasinaType: string, duration
   }
 }
 
-// Get sessions for a specific user
+// Get sessions for a specific user with kasina breakdown data
 export async function getUserSessions(userEmail: string): Promise<Session[]> {
   try {
     const result = await pool.query(
-      `SELECT * FROM sessions 
-       WHERE LOWER(user_email) = LOWER($1) 
-       ORDER BY session_date DESC`,
+      `SELECT 
+        s.*,
+        COALESCE(
+          json_agg(
+            json_build_object(
+              'kasina_type', kb.kasina_type,
+              'duration_seconds', kb.duration_seconds
+            )
+          ) FILTER (WHERE kb.kasina_type IS NOT NULL),
+          '[]'
+        ) as kasina_breakdown
+       FROM sessions s
+       LEFT JOIN kasina_breakdowns kb ON s.id = kb.session_id
+       WHERE LOWER(s.user_email) = LOWER($1) 
+       GROUP BY s.id
+       ORDER BY s.session_date DESC`,
       [userEmail]
     );
     return result.rows;
