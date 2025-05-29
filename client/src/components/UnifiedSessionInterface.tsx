@@ -51,8 +51,25 @@ export default function UnifiedSessionInterface({
     ? { min: 0.05, max: 1.0, step: 0.05 }  // Breath kasinas: 5% to 100%
     : { min: 0.05, max: 3.0, step: 0.05 }; // Visual kasinas: 5% to 300%
 
-  // Clamp size to max value for current mode
-  const clampedSize = Math.min(sizeMultiplier, sliderConfig.max);
+  // For visual mode, we need to map between display percentage (0-100%) and actual multiplier (0.05-3.0)
+  const getDisplayValue = () => {
+    if (mode === 'breath') {
+      return Math.min(sizeMultiplier, sliderConfig.max);
+    } else {
+      // Visual mode: map 0.05-3.0 to 0-100
+      const clampedSize = Math.min(sizeMultiplier, sliderConfig.max);
+      return ((clampedSize - 0.05) / (3.0 - 0.05)) * 100;
+    }
+  };
+
+  const getDisplayPercentage = () => {
+    if (mode === 'breath') {
+      return Math.round(Math.min(sizeMultiplier, sliderConfig.max) * 100);
+    } else {
+      // Visual mode: show 0-100%
+      return Math.round(getDisplayValue());
+    }
+  };
   
   // Auto-clamp size when it exceeds the new maximum
   useEffect(() => {
@@ -63,8 +80,15 @@ export default function UnifiedSessionInterface({
   
   // Handle size slider change
   const handleSizeSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newSize = parseFloat(event.target.value);
-    onSizeChange(newSize);
+    const sliderValue = parseFloat(event.target.value);
+    
+    if (mode === 'breath') {
+      onSizeChange(sliderValue);
+    } else {
+      // Visual mode: map 0-100 back to 0.05-3.0
+      const actualSize = 0.05 + (sliderValue / 100) * (3.0 - 0.05);
+      onSizeChange(actualSize);
+    }
   };
 
   if (!showControls) return null;
@@ -145,10 +169,10 @@ export default function UnifiedSessionInterface({
         </span>
         <input
           type="range"
-          min={sliderConfig.min}
-          max={sliderConfig.max}
-          step={sliderConfig.step}
-          value={clampedSize}
+          min={mode === 'breath' ? sliderConfig.min : 0}
+          max={mode === 'breath' ? sliderConfig.max : 100}
+          step={mode === 'breath' ? sliderConfig.step : 1}
+          value={getDisplayValue()}
           onChange={handleSizeSliderChange}
           style={{
             flex: 1,
@@ -166,7 +190,7 @@ export default function UnifiedSessionInterface({
           minWidth: '35px',
           textAlign: 'right'
         }}>
-          {Math.round(clampedSize * 100)}%
+          {getDisplayPercentage()}%
         </span>
       </div>
 
