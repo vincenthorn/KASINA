@@ -116,7 +116,7 @@ export default function UnifiedSessionInterface({
         >
           {formatTime(meditationTime)}
         </div>
-        {breathingRate && mode === 'breath' && (
+        {breathingRate && (
           <div 
             style={{
               color: 'rgba(255, 255, 255, 0.8)',
