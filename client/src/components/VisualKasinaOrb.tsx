@@ -609,7 +609,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         }
 
         await logSession({
-          kasinaType: 'visual' as any, // Use 'visual' as the kasina type
+          kasinaType: mostUsedKasina as any, // Use the most-used kasina as the type
           duration: durationInMinutes * 60, // Convert back to seconds for logging
           showToast: true,
           kasinaBreakdown: finalUsage
