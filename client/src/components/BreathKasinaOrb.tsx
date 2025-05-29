@@ -10,6 +10,7 @@ import { useKasina } from '../lib/stores/useKasina';
 import { sessionRecovery } from '../lib/sessionRecovery';
 import useWakeLock from '../lib/useWakeLock';
 import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
+import UnifiedSessionInterface from './UnifiedSessionInterface';
 import WhiteAKasina from './WhiteAKasina';
 import WhiteAThigle from './WhiteAThigle';
 import OmKasina from './OmKasina';

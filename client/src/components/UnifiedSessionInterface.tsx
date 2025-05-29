@@ -1,0 +1,225 @@
+import React from 'react';
+
+interface UnifiedSessionInterfaceProps {
+  // Timer and session controls
+  meditationTime: number;
+  onEndSession: () => void;
+  
+  // Size control
+  sizeMultiplier: number;
+  onSizeChange: (size: number) => void;
+  
+  // Fullscreen control
+  isFullscreen: boolean;
+  onToggleFullscreen: () => void;
+  
+  // Kasina selection
+  onChangeKasina: () => void;
+  
+  // Visibility controls
+  showControls: boolean;
+  
+  // Optional breathing rate for breath mode
+  breathingRate?: number;
+}
+
+export default function UnifiedSessionInterface({
+  meditationTime,
+  onEndSession,
+  sizeMultiplier,
+  onSizeChange,
+  isFullscreen,
+  onToggleFullscreen,
+  onChangeKasina,
+  showControls,
+  breathingRate
+}: UnifiedSessionInterfaceProps) {
+  
+  // Format time display
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
+
+  // Handle size slider change
+  const handleSizeSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newSize = parseFloat(event.target.value);
+    onSizeChange(newSize);
+  };
+
+  if (!showControls) return null;
+
+  return (
+    <>
+      {/* Timer and End button - Upper Left */}
+      <div 
+        className="absolute top-4 left-4 z-30 flex items-center space-x-3"
+        style={{
+          padding: '12px 16px',
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease-out'
+        }}
+      >
+        <div 
+          style={{
+            color: 'white',
+            fontSize: '20px',
+            fontWeight: 'bold',
+            fontFamily: 'monospace',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+          }}
+        >
+          {formatTime(meditationTime)}
+        </div>
+        {breathingRate && (
+          <div 
+            style={{
+              color: 'rgba(255, 255, 255, 0.8)',
+              fontSize: '14px',
+              fontWeight: '500'
+            }}
+          >
+            {breathingRate} BPM
+          </div>
+        )}
+        <button
+          onClick={onEndSession}
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            color: 'white',
+            border: 'none',
+            padding: '6px 12px',
+            borderRadius: '4px',
+            fontSize: '14px',
+            fontWeight: '500',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease-out'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+          }}
+        >
+          End
+        </button>
+      </div>
+
+      {/* Size Control Slider - Top Center */}
+      <div 
+        className="absolute top-4 left-1/2 transform -translate-x-1/2 z-30"
+        style={{
+          padding: '12px 20px',
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          borderRadius: '8px',
+          minWidth: '200px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}
+      >
+        <span style={{ color: 'white', fontSize: '14px', fontWeight: '500' }}>
+          Size
+        </span>
+        <input
+          type="range"
+          min="0.05"
+          max="5.0"
+          step="0.05"
+          value={sizeMultiplier}
+          onChange={handleSizeSliderChange}
+          style={{
+            flex: 1,
+            height: '4px',
+            background: 'rgba(255, 255, 255, 0.3)',
+            borderRadius: '2px',
+            outline: 'none',
+            cursor: 'pointer'
+          }}
+        />
+        <span style={{ 
+          color: 'rgba(255, 255, 255, 0.8)', 
+          fontSize: '12px', 
+          fontWeight: '500',
+          minWidth: '35px',
+          textAlign: 'right'
+        }}>
+          {Math.round(sizeMultiplier * 100)}%
+        </span>
+      </div>
+
+      {/* Fullscreen Button - Upper Right */}
+      <div 
+        className="absolute top-4 right-4 z-30"
+        style={{
+          padding: '12px',
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          transition: 'all 0.2s ease-out'
+        }}
+        onClick={onToggleFullscreen}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+        }}
+      >
+        <svg 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="white" 
+          strokeWidth="2"
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          {isFullscreen ? (
+            // Exit fullscreen icon
+            <>
+              <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+            </>
+          ) : (
+            // Enter fullscreen icon
+            <>
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </>
+          )}
+        </svg>
+      </div>
+
+      {/* Change Kasina Button - Bottom Center */}
+      <div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+      >
+        <button
+          onClick={onChangeKasina}
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            color: 'white',
+            border: 'none',
+            padding: '12px 24px',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: '600',
+            transition: 'background-color 0.2s'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+          }}
+        >
+          Change Kasina
+        </button>
+      </div>
+    </>
+  );
+}
