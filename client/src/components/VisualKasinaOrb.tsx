@@ -18,7 +18,7 @@ import RainbowKasina from './RainbowKasina';
 
 import * as THREE from 'three';
 
-// Same shader materials as breath kasinas for consistency
+// Shader materials copied exactly from original KasinaOrb component
 const waterShader = {
   uniforms: {
     time: { value: 0 },

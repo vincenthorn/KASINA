@@ -1,0 +1,593 @@
+// Water shader from original KasinaOrb
+const waterShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#0065b3") }, // Deeper water base color
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    uniform float time;
+    
+    // Add slight vertex displacement for more dynamic water surface
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      
+      // Apply subtle vertex displacement for wave effect
+      vec3 pos = position;
+      
+      // Only deform surface slightly, not too much to keep spherical shape
+      float deformAmount = 0.025; // 2.5% deformation
+      
+      // Gentle wave motion on the surface
+      pos += normal * sin(position.x * 2.0 + position.y * 3.0 + time * 0.7) * deformAmount;
+      
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    
+    // Hash function for noise
+    float hash(float n) {
+      return fract(sin(n) * 43758.5453);
+    }
+    
+    // 3D noise function
+    float noise(vec3 x) {
+      vec3 p = floor(x);
+      vec3 f = fract(x);
+      f = f * f * (3.0 - 2.0 * f);
+      
+      float n = p.x + p.y * 57.0 + p.z * 113.0;
+      return mix(
+        mix(
+          mix(hash(n), hash(n + 1.0), f.x),
+          mix(hash(n + 57.0), hash(n + 58.0), f.x),
+          f.y),
+        mix(
+          mix(hash(n + 113.0), hash(n + 114.0), f.x),
+          mix(hash(n + 170.0), hash(n + 171.0), f.x),
+          f.y),
+        f.z);
+    }
+    
+    // Wave movement function
+    vec3 waveDisplacement(vec3 p, float t) {
+      // Convert to spherical coordinates for smooth mapping
+      float radius = length(p);
+      float theta = acos(p.z / radius);
+      float phi = atan(p.y, p.x);
+      
+      // Create wave patterns
+      // Fast primary wave
+      float wave1 = sin(phi * 3.0 + theta * 4.0 + t * 0.6) * 0.5 + 0.5;
+      // Secondary intersecting wave
+      float wave2 = sin(phi * 5.0 - theta * 2.0 + t * 0.4) * 0.5 + 0.5;
+      // Slow undulating wave
+      float wave3 = sin(phi * 1.0 + t * 0.2) * 0.5 + 0.5;
+      
+      // Combine waves with different strengths for natural water movement
+      float wave = wave1 * 0.6 + wave2 * 0.3 + wave3 * 0.1;
+      
+      // Return wave displacement vector
+      return vec3(wave);
+    }
+    
+    // Function to create fluid water currents
+    float waterFlow(vec3 p, float t) {
+      // Get basic wave displacement
+      vec3 wave = waveDisplacement(p, t);
+      
+      // Convert to spherical for base mapping
+      float radius = length(p);
+      float theta = acos(p.z / radius);
+      float phi = atan(p.y, p.x);
+      
+      // Apply wave displacement to coordinates for fluid motion
+      phi += sin(wave.x * 3.1415) * 0.2; // Displace angle based on wave
+      theta += cos(wave.y * 3.1415) * 0.15; // Displace another angle
+      
+      // Build layered water currents
+      float flow = 0.0;
+      
+      // Add several layers of flowing noise
+      for (float i = 1.0; i <= 4.0; i++) {
+        // Faster flow speeds for more layers
+        float speed = 0.4 - 0.05 * i;
+        float scale = pow(1.8, i - 1.0);
+        float intensity = pow(0.7, i); // Higher intensity for water currents
+        
+        // Create flowing water currents
+        vec3 flowCoord = vec3(
+          phi * 2.5 * scale + t * speed * sin(theta),
+          theta * 2.5 * scale + t * speed * 0.5,
+          radius * scale + t * speed
+        );
+        
+        // Add noise layer with flowing water effect
+        flow += noise(flowCoord) * intensity;
+      }
+      
+      return flow * 0.6; // Adjust flow intensity
+    }
+    
+    void main() {
+      // Get dynamic water current flows
+      float flowValue = waterFlow(vPosition, time);
+      
+      // Create a palette of vibrant water colors
+      vec3 deepOceanBlue = vec3(0.0, 0.2, 0.5);     // Deep ocean blue
+      vec3 midnightBlue = vec3(0.05, 0.25, 0.6);    // Midnight ocean blue
+      vec3 azureBlue = vec3(0.1, 0.4, 0.75);        // Azure water blue
+      vec3 caribbeanBlue = vec3(0.0, 0.5, 0.8);     // Caribbean blue
+      vec3 tropicalBlue = vec3(0.2, 0.65, 0.9);     // Tropical turquoise
+      
+      // Build complex wave patterns
+      vec3 p = normalize(vPosition); // Use normalized position
+      
+      // Create dynamic wave patterns with different frequencies
+      float waves = 0.0;
+      waves += sin(p.x * 8.0 + p.y * 4.0 + time * 0.8) * 0.08;
+      waves += sin(p.y * 7.0 - p.z * 5.0 + time * 0.6) * 0.06;
+      waves += sin(p.z * 6.0 + p.x * 3.0 + time * 0.4) * 0.04;
+      
+      // Add waves to flowValue for more complex patterns
+      flowValue += waves;
+      
+      // Calculate water color based on flow patterns
+      vec3 waterColor;
+      if (flowValue < 0.25) {
+        float t = flowValue / 0.25;
+        waterColor = mix(deepOceanBlue, midnightBlue, t);
+      } else if (flowValue < 0.5) {
+        float t = (flowValue - 0.25) / 0.25;
+        waterColor = mix(midnightBlue, azureBlue, t);
+      } else if (flowValue < 0.75) {
+        float t = (flowValue - 0.5) / 0.25;
+        waterColor = mix(azureBlue, caribbeanBlue, t);
+      } else {
+        float t = (flowValue - 0.75) / 0.25;
+        waterColor = mix(caribbeanBlue, tropicalBlue, t);
+      }
+      
+      // Add specular highlights for water surface
+      float fresnel = pow(1.0 - max(0.0, dot(normalize(vPosition), vec3(0.0, 0.0, 1.0))), 2.0);
+      
+      // Surface ripples and circular wave patterns
+      float ripples = 0.0;
+      // Small fast ripples
+      ripples += sin(length(p) * 40.0 - time * 1.0) * 0.01;
+      // Medium ripples
+      ripples += sin(p.x * 15.0 + p.y * 15.0 + time * 0.8) * sin(p.y * 10.0 + p.z * 10.0 + time * 1.2) * 0.025;
+      
+      // Add soft underwater glow/light rays
+      float glow = pow(1.0 - length(vPosition) * 0.5, 2.0) * 0.15;
+      
+      // Add water surface highlights based on viewing angle
+      float highlight = fresnel * 0.15;
+      
+      // Final water color with all effects combined
+      vec3 finalColor = waterColor + ripples + glow + highlight;
+      
+      // Final color with slightly enhanced transparency for water
+      gl_FragColor = vec4(finalColor, opacity * 0.9);
+    }
+  `
+};
+
+// Fire shader from original KasinaOrb
+const fireShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#ff6600") }, // Fiery orange base color
+    opacity: { value: 1.0 },
+    pulseIntensity: { value: 0.0 } // Added for external pulsing effect
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      vNormal = normalize(normalMatrix * normal);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    uniform float opacity;
+    uniform float pulseIntensity; // External pulsing effect intensity
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
+    // Noise functions for fire effect
+    float random(vec2 st) {
+      return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+    }
+    
+    float noise(vec2 st) {
+      vec2 i = floor(st);
+      vec2 f = fract(st);
+      
+      // Four corners in 2D of a tile
+      float a = random(i);
+      float b = random(i + vec2(1.0, 0.0));
+      float c = random(i + vec2(0.0, 1.0));
+      float d = random(i + vec2(1.0, 1.0));
+      
+      // Smooth interpolation
+      vec2 u = f * f * (3.0 - 2.0 * f);
+      
+      // Mix 4 corners
+      return mix(a, b, u.x) + 
+            (c - a)* u.y * (1.0 - u.x) + 
+            (d - b) * u.x * u.y;
+    }
+    
+    // Layered noise for organic fire movement
+    float fbm(vec2 st) {
+      float value = 0.0;
+      float amplitude = 0.5;
+      float frequency = 1.0;
+      
+      // Loop of octaves
+      for (int i = 0; i < 5; i++) {
+        value += amplitude * noise(st * frequency);
+        st *= 2.0; // frequency doubles each octave
+        amplitude *= 0.5; // amplitude halves each octave
+      }
+      
+      return value;
+    }
+    
+    void main() {
+      // Normalize position for consistent calculations
+      vec3 nPos = normalize(vPosition);
+      
+      // DEFINE FIRE COLOR PALETTE
+      vec3 emberColor = vec3(0.6, 0.05, 0.0);   // Deep ember red (cooler)
+      vec3 darkRed = vec3(0.8, 0.1, 0.0);       // Dark red flame
+      vec3 fireRed = vec3(1.0, 0.2, 0.0);       // Vibrant red flame
+      vec3 fireOrange = vec3(1.0, 0.4, 0.0);    // Rich orange flame
+      vec3 fireYellow = vec3(1.0, 0.7, 0.1);    // Bright yellow flame
+      vec3 hotYellow = vec3(1.0, 0.9, 0.3);     // Hot yellow core
+      vec3 coreColor = vec3(1.0, 0.95, 0.8);    // White-hot core
+      vec3 blueColor = vec3(0.4, 0.5, 1.0);     // Blue flame base (hottest)
+      
+      float height = nPos.y * 0.5 + 0.5;
+      float distFromCenter = length(vec2(nPos.x, nPos.z));
+      float baseShape = 1.0 - smoothstep(0.0, 0.8, distFromCenter);
+      
+      float flames = 0.0;
+      
+      vec2 largeFlameCoord = vec2(
+        nPos.x * 2.0 + sin(time * 0.7) * 0.2, 
+        nPos.y * 2.0 + time * 0.8
+      );
+      float largeFlame = fbm(largeFlameCoord) * 0.6;
+      
+      vec2 medFlameCoord = vec2(
+        nPos.x * 4.0 + sin(time * 1.2 + nPos.z) * 0.3, 
+        nPos.y * 3.0 + time * 1.5
+      );
+      float medFlame = fbm(medFlameCoord) * 0.3;
+      
+      vec2 detailFlameCoord = vec2(
+        nPos.x * 8.0 + sin(time * 2.0 + nPos.z * 2.0) * 0.4, 
+        nPos.y * 5.0 + time * 3.0
+      );
+      float detailFlame = fbm(detailFlameCoord) * 0.15;
+      
+      float lateralMovement = sin(nPos.y * 4.0 + time * 2.5) * cos(time * 1.8) * 0.15;
+      
+      flames = largeFlame + medFlame + detailFlame + lateralMovement;
+      flames *= smoothstep(-0.2, 0.8, nPos.y);
+      
+      float slowFlicker = noise(vec2(time * 1.5, 0.0)) * 0.5 + 0.5;
+      float medFlicker = noise(vec2(time * 3.0, 0.5)) * 0.3 + 0.7;
+      float fastFlicker = noise(vec2(time * 8.0, 1.0)) * 0.2 + 0.8;
+      
+      float flicker = slowFlicker * medFlicker * fastFlicker;
+      
+      float emberNoise = fbm(vec2(nPos.x * 5.0 + time * 0.2, nPos.z * 5.0 - time * 0.3)) * 0.5 + 0.5;
+      float hotspotNoise = fbm(vec2(nPos.x * 3.0 - time * 0.4, nPos.z * 3.0 + time * 0.5)) * 0.5 + 0.5;
+      
+      float embers = smoothstep(0.6, 0.8, emberNoise) * (1.0 - baseShape) * 0.8;
+      float hotspots = smoothstep(0.7, 0.9, hotspotNoise) * baseShape * 0.7;
+      
+      float blueFlameNoise = fbm(vec2(nPos.x * 4.0 - time * 0.3, nPos.z * 4.0 + time * 0.2)) * 0.5 + 0.5;
+      float blueFlame = smoothstep(0.7, 0.9, blueFlameNoise) * smoothstep(0.0, 0.4, nPos.y + 0.6) * 0.8;
+      
+      float fireIntensity = (baseShape * 0.6 + flames * 0.8) * flicker;
+      fireIntensity = clamp(fireIntensity, 0.0, 1.0);
+      
+      vec3 fireColor;
+      
+      if (fireIntensity > 0.85) {
+        fireColor = mix(hotYellow, coreColor, (fireIntensity - 0.85) * 6.67);
+        fireColor = mix(fireColor, blueColor, blueFlame * (fireIntensity - 0.85) * 3.0);
+      } 
+      else if (fireIntensity > 0.6) {
+        fireColor = mix(fireOrange, fireYellow, (fireIntensity - 0.6) * 4.0);
+        fireColor = mix(fireColor, hotYellow, hotspots * 0.6);
+      } 
+      else if (fireIntensity > 0.3) {
+        fireColor = mix(fireRed, fireOrange, (fireIntensity - 0.3) * 3.33);
+        fireColor = mix(fireColor, blueColor * 0.7, blueFlame * 0.3);
+        fireColor = mix(fireColor, emberColor, embers * 0.3);
+      } 
+      else {
+        fireColor = mix(emberColor, darkRed, fireIntensity * 3.33);
+        fireColor = mix(fireColor, emberColor * 0.8, embers * 0.7);
+      }
+      
+      float verticalGradient = smoothstep(-1.0, 1.0, nPos.y);
+      fireColor *= mix(0.7, 1.3, verticalGradient);
+      
+      float microFlicker = noise(vec2(time * 12.0, nPos.y * 8.0)) * 0.15 + 0.925;
+      fireColor *= microFlicker;
+      
+      float glowFalloff = 1.0 / (1.0 + distFromCenter * 3.0);
+      fireColor *= mix(1.0, 3.0, glowFalloff);
+      
+      fireColor += vec3(0.2, 0.05, 0.0) * fireIntensity;
+      
+      vec3 pulseColor = vec3(1.0, 0.6, 0.2);
+      float pulseStrength = pulseIntensity * 0.6;
+      
+      float edgeGlow = smoothstep(0.7, 1.0, length(nPos));
+      fireColor += pulseColor * pulseStrength * edgeGlow * 2.0; 
+      
+      float blueFlash = noise(vec2(time * 3.0, nPos.x * 4.0)) * blueFlame * 0.3;
+      fireColor = mix(fireColor, blueColor * 1.2, blueFlash * (1.0 - verticalGradient));
+      
+      fireColor = pow(fireColor, vec3(0.6));
+      
+      float alpha = max(fireIntensity * 0.95, 0.8);
+      
+      gl_FragColor = vec4(fireColor, alpha);
+    }
+  `
+};
+
+// Air shader from original KasinaOrb  
+const airShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#d3f0ff") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    
+    void main() {
+      vec2 p = -1.0 + 2.0 * vUv;
+      float a = time * 0.05;
+      float s = sin(a * 2.0);
+      float c = cos(a * 2.0);
+      
+      float d = pow(1.0 - length(p), 2.0);
+      vec2 q = vec2(p.x * c - p.y * s, p.x * s + p.y * c) * d;
+      
+      float f = 0.0;
+      for(float i = 1.0; i < 6.0; i++) {
+        float t = time * (0.1 + 0.05 * i);
+        f += sin(q.x * i + t) * sin(q.y * i + t);
+      }
+      
+      vec3 finalColor = color + 0.15 * sin(f);
+      gl_FragColor = vec4(finalColor, 1.0);
+    }
+  `
+};
+
+// Earth shader from original KasinaOrb
+const earthShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#CC6633") }, // Warm terracotta clay color
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
+    void main() {
+      vUv = uv;
+      vPosition = position;
+      vNormal = normalize(normalMatrix * normal);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    varying vec3 vPosition;
+    varying vec3 vNormal;
+    
+    // Noise function for clay-like texture
+    float rand(vec2 co) {
+      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    }
+    
+    // Worley noise for natural clay texture
+    float worleyNoise(vec2 uv, float scale) {
+      vec2 id = floor(uv * scale);
+      vec2 lv = fract(uv * scale);
+      
+      float minDist = 1.0;
+      
+      for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+          vec2 offset = vec2(float(x), float(y));
+          vec2 pos = offset + 0.5 + 0.3 * vec2(
+            sin(rand(id + offset) * 6.28),
+            cos(rand(id + offset + vec2(1.0, 2.0)) * 6.28)
+          );
+          float dist = length(pos - lv);
+          minDist = min(minDist, dist);
+        }
+      }
+      
+      return minDist;
+    }
+    
+    void main() {
+      // Base terracotta clay color
+      vec3 baseColor = color;
+      
+      // Create natural clay-like texture with granular detail
+      // Combine multiple scales of Worley noise patterns
+      float clayTexture = 0.0;
+      
+      // Clay granular structure at different scales
+      float large = worleyNoise(vUv * 2.0, 4.0);
+      float medium = worleyNoise(vUv * 4.0, 8.0);
+      float small = worleyNoise(vUv * 8.0, 16.0);
+      
+      // Combine the different scales with varying weights
+      clayTexture = large * 0.6 + medium * 0.3 + small * 0.1;
+      
+      // Add some slow-moving subtle variation
+      float timeShift = sin(time * 0.05) * 0.02;
+      clayTexture += timeShift;
+      
+      // Distance from center for lighting effect
+      float d = length(vUv - vec2(0.5, 0.5));
+      
+      // Create a solid, firm appearance with subtle lighting
+      // Make the edges a bit darker to enhance the 3D solid appearance
+      float lightIntensity = 1.0 - smoothstep(0.0, 0.8, d);
+      
+      // Add shading based on normal direction for 3D effect
+      float normalShading = 0.5 + 0.5 * dot(vNormal, vec3(0.5, 0.5, 0.5));
+      
+      // Mix darker and lighter variations of the clay color
+      vec3 darkClay = baseColor * 0.7;  // Darker variation
+      vec3 lightClay = baseColor * 1.3; // Lighter variation
+      
+      // Create the final clay appearance with texture and lighting
+      vec3 clayColor = mix(darkClay, lightClay, clayTexture);
+      
+      // Apply subtle ambient and directional lighting
+      clayColor *= 0.7 + 0.3 * normalShading + 0.2 * lightIntensity;
+      
+      // Add very subtle surface irregularities
+      float surfaceNoise = rand(vUv * 100.0) * 0.05;
+      clayColor *= 0.97 + surfaceNoise;
+      
+      gl_FragColor = vec4(clayColor, 1.0);
+    }
+  `
+};
+
+// Space shader from original KasinaOrb
+const spaceShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#000000") }, // Black color for the inverted space orb
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    
+    float rand(vec2 co) {
+      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    }
+    
+    void main() {
+      vec2 uv = vUv;
+      vec3 baseColor = color;
+      
+      // Center dark effect for black orb
+      float d = length(uv - vec2(0.5, 0.5));
+      
+      // Subtle purple edge glow for the black orb
+      float edgeGlow = smoothstep(0.45, 0.5, d);
+      vec3 edgeColor = vec3(0.16, 0.0, 0.33); // Dark purple tint
+      
+      // Add very subtle ripple effect
+      float ripple = sin(d * 20.0 - time * 0.2) * 0.02;
+      float intensity = smoothstep(0.0, 0.5, d + ripple);
+      
+      // Mix with a subtle deep purple at the edges
+      vec3 finalColor = mix(baseColor, edgeColor, intensity * edgeGlow);
+      gl_FragColor = vec4(finalColor, 1.0);
+    }
+  `
+};
+
+// Light shader from original KasinaOrb
+const lightShader = {
+  uniforms: {
+    time: { value: 0 },
+    color: { value: new THREE.Color("#fffaf0") },
+    opacity: { value: 1.0 }
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    void main() {
+      vUv = uv;
+      vNormal = normalize(normalMatrix * normal);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    
+    void main() {
+      vec2 uv = vUv;
+      float d = length(uv - vec2(0.5, 0.5));
+      
+      // Much more gentle falloff at edges, keeping most of the orb bright
+      float brightness = 1.0 - smoothstep(0.45, 0.5, d);
+      
+      // Gentle pulsing effect
+      float pulse = 0.05 * sin(time * 1.5);
+      
+      // Calculate lighting factor based on normal
+      // This makes the light source always come from the viewer's direction
+      vec3 lightDir = vec3(0.0, 0.0, 1.0); // Light from camera direction
+      float lightFactor = max(0.85, dot(vNormal, lightDir)); // Minimum 85% brightness
+      
+      // Add extra brightness to the whole orb with lightFactor to eliminate dark side
+      vec3 finalColor = color * (brightness + pulse + 0.25) * lightFactor;
+      gl_FragColor = vec4(finalColor, 1.0);
+    }
+  `
+};
