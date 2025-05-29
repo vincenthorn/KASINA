@@ -585,7 +585,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     const handleWheel = (e: any) => {
       e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.02 : 0.02; // Scroll down = smaller, scroll up = larger
+      const delta = e.deltaY > 0 ? -0.025 : 0.025; // Scroll down = smaller, scroll up = larger
       setSizeMultiplier(prev => Math.max(0.05, Math.min(5.0, prev + delta))); // Range: 5% to 500%
     };
 
@@ -813,7 +813,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       try {
         // Get the most used kasina for this session
         const mostUsedKasina = getMostUsedKasina();
-        const kasinaName = `Breath Kasina (${KASINA_NAMES[mostUsedKasina]})`;
+        const kasinaName = `Breath Kasina`; // Just use the mode name
         const kasinaEmoji = KASINA_EMOJIS[mostUsedKasina];
         
         // Get final kasina usage data

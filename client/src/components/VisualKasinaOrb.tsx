@@ -600,7 +600,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       try {
         // Get the most used kasina for this session
         const mostUsedKasina = getMostUsedKasina();
-        const kasinaName = `Visual Kasina (${KASINA_NAMES[mostUsedKasina]})`;
+        const kasinaName = `Visual Kasina`; // Just use the mode name
         const kasinaEmoji = KASINA_EMOJIS[mostUsedKasina];
         
         await logSession({
@@ -638,7 +638,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.02 : 0.02; // Scroll down = smaller, scroll up = larger
+      const delta = e.deltaY > 0 ? -0.025 : 0.025; // Scroll down = smaller, scroll up = larger
       setSizeMultiplier(prev => {
         const newSize = Math.max(0.05, Math.min(5.0, prev + delta));
         return newSize;
