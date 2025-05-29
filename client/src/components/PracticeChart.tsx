@@ -6,14 +6,14 @@ import { KASINA_NAMES, KASINA_COLORS, KASINA_EMOJIS } from "../lib/constants";
 import { Button } from './ui/button';
 
 // Define chart data types and categories
-type ChartMode = 'overview' | 'color' | 'elemental' | 'vajrayana' | 'breath';
+type ChartMode = 'overview' | 'color' | 'elemental' | 'vajrayana';
 type ChartDataItem = {
   name: string;
   value: number;
   emoji: string;
   displayName: string;
   color: string;
-  category?: 'color' | 'elemental' | 'vajrayana' | 'breath';
+  category?: 'color' | 'elemental' | 'vajrayana';
   kasinaType?: string;
 };
 
@@ -113,8 +113,6 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
       onSelectKasinaType('category:elemental');
     } else if (chartMode === 'vajrayana') {
       onSelectKasinaType('category:vajrayana');
-    } else if (chartMode === 'breath') {
-      onSelectKasinaType('category:breath');
     }
   }, [chartMode, onSelectKasinaType]);
 
@@ -138,15 +136,14 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
   const chartData = useMemo(() => {
     if (!sessions || sessions.length === 0) return [];
     
-    // Group the kasina types into "color", "elemental", "vajrayana", and "breath" categories
+    // Group the kasina types into three Visual kasina categories
     const colorKasinas = ['white', 'blue', 'red', 'yellow', 'custom'];
     const elementalKasinas = ['water', 'air', 'fire', 'earth', 'space', 'light'];
     const vajrayanaKasinas = ['clear_light_thigle', 'om_kasina', 'ah_kasina', 'hum_kasina', 'white_a_kasina', 'rainbow_kasina'];
-    const breathKasinas = ['breath'];
     
     // Prepare data based on current mode
     if (chartMode === 'overview') {
-      // Create overview data (Color vs Elemental vs Vajrayana)
+      // Create overview data (Color vs Elemental vs Vajrayana - Visual kasina sets only)
       const colorTotal = sessions
         .filter(s => colorKasinas.includes(s.kasinaType))
         .reduce((sum, s) => sum + s.duration, 0);
@@ -157,10 +154,6 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
       
       const vajrayanaTotal = sessions
         .filter(s => vajrayanaKasinas.includes(s.kasinaType))
-        .reduce((sum, s) => sum + s.duration, 0);
-        
-      const breathTotal = sessions
-        .filter(s => breathKasinas.includes(s.kasinaType))
         .reduce((sum, s) => sum + s.duration, 0);
         
       return [
@@ -187,14 +180,6 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
           displayName: 'Vajrayana Kasinas',
           color: '#333333',
           category: 'vajrayana' as const
-        },
-        {
-          name: 'breath',
-          value: breathTotal,
-          emoji: '🫁',
-          displayName: 'Breath Kasinas',
-          color: '#0000FF',
-          category: 'breath' as const
         }
       ].filter(item => item.value > 0);
       
@@ -250,24 +235,6 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
             emoji: KASINA_EMOJIS[type] || '💀',
             displayName: KASINA_NAMES[type] || type,
             color: KASINA_COLORS[type] || '#8855ff'
-          };
-        })
-        .filter(item => item.value > 0);
-    } else if (chartMode === 'breath') {
-      // Show detailed breakdown of breath kasinas
-      return breathKasinas
-        .map(type => {
-          const totalTime = sessions
-            .filter(s => s.kasinaType === type)
-            .reduce((sum, s) => sum + s.duration, 0);
-            
-          return {
-            name: type,
-            kasinaType: type,
-            value: totalTime,
-            emoji: KASINA_EMOJIS[type] || '🫁',
-            displayName: KASINA_NAMES[type] || type,
-            color: KASINA_COLORS[type] || '#10b981'
           };
         })
         .filter(item => item.value > 0);
@@ -390,14 +357,12 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
             {chartMode === 'overview' 
-              ? 'Breakdown' 
+              ? 'Kasina Breakdown' 
               : chartMode === 'color' 
                 ? 'Color Kasinas' 
                 : chartMode === 'elemental'
                   ? 'Elemental Kasinas'
-                  : chartMode === 'vajrayana'
-                    ? 'Vajrayana Kasinas'
-                    : 'Breath Kasinas'}
+                  : 'Vajrayana Kasinas'}
           </CardTitle>
           {chartMode !== 'overview' && (
             <CardDescription className="text-gray-400">
