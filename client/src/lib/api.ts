@@ -42,4 +42,28 @@ export const updateUserName = async (email: string, name: string) => {
   }
 };
 
+// Fetch kasina breakdown data
+export const fetchKasinaBreakdown = async () => {
+  try {
+    const response = await fetch('/api/kasina-breakdown', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+      },
+      credentials: 'include'
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch kasina breakdown: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching kasina breakdown:', error);
+    throw error;
+  }
+};
+
 // Add more API utility functions here as needed
