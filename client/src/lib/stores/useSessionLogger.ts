@@ -21,6 +21,7 @@ interface SessionLoggerState {
     duration: number;
     showToast?: boolean;
     kasinaBreakdown?: { [kasina: string]: number };
+    customSessionName?: string;
   }) => Promise<boolean>;
   
   // For debugging
@@ -32,7 +33,7 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
   lastSaved: null,
   lastError: null,
   
-  logSession: async ({ kasinaType, duration, showToast = true, kasinaBreakdown = {} }) => {
+  logSession: async ({ kasinaType, duration, showToast = true, kasinaBreakdown = {}, customSessionName }) => {
     // Prevent duplicate saves within 2 seconds
     const { lastSaved, isSaving } = get();
     if (isSaving) {
@@ -55,7 +56,7 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
       
       // Normalize kasina type
       const kasinaTypeNormalized = kasinaType.toLowerCase() as KasinaType;
-      const kasinaName = `${kasinaTypeNormalized.charAt(0).toUpperCase() + kasinaTypeNormalized.slice(1)} (${minutes}-${minuteText})`;
+      const kasinaName = customSessionName || `${kasinaTypeNormalized.charAt(0).toUpperCase() + kasinaTypeNormalized.slice(1)} (${minutes}-${minuteText})`;
       
       // Get the current user's email from auth store
       const authState = useAuth.getState();

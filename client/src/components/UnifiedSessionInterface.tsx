@@ -116,17 +116,7 @@ export default function UnifiedSessionInterface({
         >
           {formatTime(meditationTime)}
         </div>
-        {breathingRate && (
-          <div 
-            style={{
-              color: 'rgba(255, 255, 255, 0.8)',
-              fontSize: '14px',
-              fontWeight: '500'
-            }}
-          >
-            {breathingRate} BPM
-          </div>
-        )}
+
         <button
           onClick={onEndSession}
           style={{
