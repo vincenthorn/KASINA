@@ -1589,9 +1589,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           <span>Size:</span>
           <input
             type="range"
-            min="0.2"
-            max="2.0"
-            step="0.1"
+            min="0.01"
+            max="3.0"
+            step="0.01"
             value={sizeMultiplier}
             onChange={(e) => setSizeMultiplier(parseFloat(e.target.value))}
             style={{
