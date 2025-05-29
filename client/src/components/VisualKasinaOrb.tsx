@@ -1,7 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useKasina } from '../lib/stores/useKasina';
 import { useColor } from '../lib/contexts/ColorContext';
+import { useSessionLogger } from '../lib/stores/useSessionLogger';
+import { sessionRecovery } from '../lib/sessionRecovery';
 import { KASINA_TYPES, KASINA_COLORS, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES } from '../lib/constants';
 import KasinaRenderer, { getKasinaBackgroundColor } from './KasinaRenderer';
 import KasinaSelectionInterface from './KasinaSelectionInterface';
@@ -430,6 +433,9 @@ interface VisualKasinaOrbProps {}
 export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const { selectedKasina, setSelectedKasina } = useKasina();
   const { currentColor } = useColor();
+  const navigate = useNavigate();
+  const { logSession } = useSessionLogger();
+  const { enableWakeLock, disableWakeLock } = useWakeLock();
   
   // State for UI controls (copied from BreathKasinaOrb)
   const [meditationTime, setMeditationTime] = useState(0);
@@ -441,8 +447,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>(null);
   
-  // Wake lock for preventing screen sleep
-  useWakeLock();
+  // Session tracking refs
+  const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const meditationStartRef = useRef<number | null>(null);
+  const sessionIdRef = useRef<string | null>(null);
   
   // Format time display
   const formatTime = (seconds: number) => {
@@ -451,14 +459,40 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
   
-  // Timer increment
+  // Initialize meditation session
   useEffect(() => {
-    const timer = setInterval(() => {
+    const initializeSession = async () => {
+      const now = Date.now();
+      meditationStartRef.current = now;
+      
+      // Create session recovery entry
+      sessionIdRef.current = await sessionRecovery.startSession({
+        kasinaType: selectedKasina as any,
+        startTime: now
+      });
+      
+      console.log('🧘 Visual kasina meditation session started');
+      
+      // Enable wake lock to prevent screen from sleeping
+      enableWakeLock();
+      console.log("🔒 Wake lock enabled - screen will stay awake during meditation");
+    };
+
+    initializeSession();
+
+    // Start meditation timer
+    meditationIntervalRef.current = setInterval(() => {
       setMeditationTime(prev => prev + 1);
     }, 1000);
-    
-    return () => clearInterval(timer);
-  }, []);
+
+    // Cleanup function
+    return () => {
+      if (meditationIntervalRef.current) {
+        clearInterval(meditationIntervalRef.current);
+      }
+      disableWakeLock();
+    };
+  }, [selectedKasina, enableWakeLock, disableWakeLock]);
   
   // Auto-hide controls after 3 seconds of inactivity
   useEffect(() => {
@@ -502,9 +536,55 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
   }, []);
 
-  const endMeditation = () => {
-    // Navigate back or close
-    window.history.back();
+  const endMeditation = async () => {
+    // Calculate duration in seconds and round down to nearest minute
+    const durationInSeconds = meditationTime;
+    const durationInMinutes = Math.floor(durationInSeconds / 60); // Round down to nearest minute
+    
+    // Complete session recovery tracking
+    if (sessionIdRef.current) {
+      const recoverySuccess = await sessionRecovery.completeSession(durationInSeconds);
+      console.log(`🛡️ Session recovery completion: ${recoverySuccess ? 'success' : 'failed'}`);
+    }
+    
+    // Only log if there was at least 1 minute of meditation
+    if (durationInMinutes >= 1) {
+      console.log(`🧘 Ending visual kasina session: ${durationInSeconds}s (${durationInMinutes} minutes)`);
+      
+      try {
+        // Create a more descriptive kasina name that includes the specific kasina used
+        const kasinaName = `Visual Kasina (${KASINA_NAMES[selectedKasina]})`;
+        const kasinaEmoji = KASINA_EMOJIS[selectedKasina];
+        
+        await logSession({
+          kasinaType: selectedKasina as any, // Use the specific kasina type
+          duration: durationInMinutes * 60, // Convert back to seconds for logging
+          showToast: true
+        });
+        console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
+        
+      } catch (error) {
+        console.error('Failed to log meditation session:', error);
+      }
+    } else {
+      console.log(`⏱️ Session too short (${durationInSeconds}s) - not logging`);
+    }
+    
+    // Reset all meditation state
+    setMeditationTime(0);
+    meditationStartRef.current = null;
+    sessionIdRef.current = null;
+    if (meditationIntervalRef.current) {
+      clearInterval(meditationIntervalRef.current);
+      meditationIntervalRef.current = null;
+    }
+    
+    // Release wake lock when meditation ends
+    disableWakeLock();
+    console.log("🔓 Wake lock released - screen can sleep normally again");
+    
+    // Always navigate to Reflection page when ending session
+    navigate('/reflection');
   };
 
   // Handle mouse wheel/trackpad scroll for size adjustment
