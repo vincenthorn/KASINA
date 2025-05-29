@@ -593,9 +593,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         selectedKasina === KASINA_TYPES.AH_KASINA ||
         selectedKasina === KASINA_TYPES.HUM_KASINA
       )) {
-        // Apply size multiplier to the group
-        const targetScale = sizeMultiplier;
-        groupRef.current.scale.setScalar(targetScale);
+        // Apply size multiplier to the group with normalization factor
+        // Text-based kasinas need a smaller scale factor to match elemental kasinas
+        const normalizedScale = sizeMultiplier * 0.4; // Reduce scale to match sphere kasinas
+        groupRef.current.scale.setScalar(normalizedScale);
       }
 
       // Update shader time uniforms for elemental kasinas
