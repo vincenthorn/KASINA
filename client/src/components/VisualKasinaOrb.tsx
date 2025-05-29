@@ -603,7 +603,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       )) {
         // Apply size multiplier to the group with normalization factor
         // Text-based kasinas need a smaller scale factor to match elemental kasinas
-        const normalizedScale = sizeMultiplier * 0.4; // Reduce scale to match sphere kasinas
+        const normalizedScale = sizeMultiplier * 1.2; // Increase scale to better match sphere kasinas
         groupRef.current.scale.setScalar(normalizedScale);
       }
 
