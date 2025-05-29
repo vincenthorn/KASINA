@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface UnifiedSessionInterfaceProps {
   // Timer and session controls
@@ -51,6 +51,16 @@ export default function UnifiedSessionInterface({
     ? { min: 0.05, max: 1.0, step: 0.05 }  // Breath kasinas: 5% to 100%
     : { min: 0.05, max: 3.0, step: 0.05 }; // Visual kasinas: 5% to 300%
 
+  // Clamp size to max value for current mode
+  const clampedSize = Math.min(sizeMultiplier, sliderConfig.max);
+  
+  // Auto-clamp size when it exceeds the new maximum
+  useEffect(() => {
+    if (sizeMultiplier > sliderConfig.max) {
+      onSizeChange(sliderConfig.max);
+    }
+  }, [mode, sizeMultiplier, sliderConfig.max, onSizeChange]);
+  
   // Handle size slider change
   const handleSizeSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newSize = parseFloat(event.target.value);
@@ -138,7 +148,7 @@ export default function UnifiedSessionInterface({
           min={sliderConfig.min}
           max={sliderConfig.max}
           step={sliderConfig.step}
-          value={sizeMultiplier}
+          value={clampedSize}
           onChange={handleSizeSliderChange}
           style={{
             flex: 1,
@@ -156,10 +166,7 @@ export default function UnifiedSessionInterface({
           minWidth: '35px',
           textAlign: 'right'
         }}>
-          {mode === 'breath' 
-            ? Math.round(sizeMultiplier * 100) + '%'  // Breath: Direct percentage (1.0 = 100%)
-            : Math.round(sizeMultiplier * 100) + '%'  // Visual: Direct percentage (5.0 = 500%)
-          }
+          {Math.round(clampedSize * 100)}%
         </span>
       </div>
 
