@@ -506,7 +506,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // Get background color based on selected kasina
   const getBackgroundColor = () => {
     if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
-      return '#000080'; // Dark blue to match rainbow center
+      // Match the exact background color from RainbowKasina shader: vec3(0.123, 0.0, 0.8)
+      // Convert RGB values: 0.123 * 255 = 31, 0.0 * 255 = 0, 0.8 * 255 = 204
+      return '#1F00CC'; // Blue-violet background that matches rainbow center
     }
     if (KASINA_COLORS[selectedKasina]) {
       // For other kasinas, use a darker version of their color
@@ -538,6 +540,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // Visual kasina orb component with animated shaders for elemental kasinas
   const VisualKasinaOrbMesh = () => {
     const meshRef = useRef<THREE.Mesh>(null);
+    const groupRef = useRef<THREE.Group>(null);
     const waterMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const fireMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const airMaterialRef = useRef<THREE.ShaderMaterial>(null);
@@ -553,6 +556,13 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         // Apply size multiplier
         const targetScale = sizeMultiplier;
         meshRef.current.scale.setScalar(targetScale);
+      }
+      
+      // Handle Rainbow Kasina scaling separately
+      if (groupRef.current && selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
+        // Apply size multiplier to the group
+        const targetScale = sizeMultiplier;
+        groupRef.current.scale.setScalar(targetScale);
       }
 
       // Update shader time uniforms for elemental kasinas
@@ -591,7 +601,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       return <HumKasina />;
     } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
       return (
-        <group ref={meshRef}>
+        <group ref={groupRef}>
           <RainbowKasina />
         </group>
       );
