@@ -520,18 +520,29 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   // Get background color based on selected kasina
   const getBackgroundColor = () => {
-    if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
-      // Match the exact background color from RainbowKasina shader: vec3(0.123, 0.0, 0.8)
-      // Convert RGB values: 0.123 * 255 = 31, 0.0 * 255 = 0, 0.8 * 255 = 204
-      return '#1F00CC'; // Blue-violet background that matches rainbow center
+    switch (selectedKasina) {
+      case KASINA_TYPES.RAINBOW_KASINA:
+        // Match the exact background color from RainbowKasina shader: vec3(0.123, 0.0, 0.8)
+        return '#1F00CC'; // Blue-violet background that matches rainbow center
+      
+      case KASINA_TYPES.AIR:
+        return '#000080'; // Dark blue for Air kasina
+      
+      case KASINA_TYPES.SPACE:
+        return '#000000'; // Black for Space kasina
+      
+      // All other kasinas get black background
+      case KASINA_TYPES.BLUE:
+      case KASINA_TYPES.YELLOW:
+      case KASINA_TYPES.RED:
+      case KASINA_TYPES.WHITE:
+      case KASINA_TYPES.WATER:
+      case KASINA_TYPES.FIRE:
+      case KASINA_TYPES.EARTH:
+      case KASINA_TYPES.LIGHT:
+      default:
+        return '#000000'; // Black background
     }
-    if (KASINA_COLORS[selectedKasina]) {
-      // For other kasinas, use a darker version of their color
-      const color = KASINA_COLORS[selectedKasina];
-      if (color === '#FFFFFF') return '#1a1a1a'; // White kasina gets dark gray
-      return color;
-    }
-    return '#000000'; // Default black
   };
 
   // Handle series selection
