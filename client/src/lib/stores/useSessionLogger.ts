@@ -20,6 +20,7 @@ interface SessionLoggerState {
     kasinaType: KasinaType;
     duration: number;
     showToast?: boolean;
+    kasinaBreakdown?: { [kasina: string]: number };
   }) => Promise<boolean>;
   
   // For debugging
@@ -31,7 +32,7 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
   lastSaved: null,
   lastError: null,
   
-  logSession: async ({ kasinaType, duration, showToast = true }) => {
+  logSession: async ({ kasinaType, duration, showToast = true, kasinaBreakdown = {} }) => {
     // Prevent duplicate saves within 2 seconds
     const { lastSaved, isSaving } = get();
     if (isSaving) {
