@@ -584,8 +584,15 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         meshRef.current.scale.setScalar(targetScale);
       }
       
-      // Handle Rainbow Kasina scaling separately
-      if (groupRef.current && selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
+      // Handle text-based kasinas scaling (including Rainbow, Vajrayana, and White A kasinas)
+      if (groupRef.current && (
+        selectedKasina === KASINA_TYPES.RAINBOW_KASINA ||
+        selectedKasina === KASINA_TYPES.WHITE_A_THIGLE ||
+        selectedKasina === KASINA_TYPES.WHITE_A_KASINA ||
+        selectedKasina === KASINA_TYPES.OM_KASINA ||
+        selectedKasina === KASINA_TYPES.AH_KASINA ||
+        selectedKasina === KASINA_TYPES.HUM_KASINA
+      )) {
         // Apply size multiplier to the group
         const targetScale = sizeMultiplier;
         groupRef.current.scale.setScalar(targetScale);
@@ -616,15 +623,35 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
     // Text-based kasinas
     if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE) {
-      return <WhiteAThigle />;
+      return (
+        <group ref={groupRef}>
+          <WhiteAThigle />
+        </group>
+      );
     } else if (selectedKasina === KASINA_TYPES.WHITE_A_KASINA) {
-      return <WhiteAKasina />;
+      return (
+        <group ref={groupRef}>
+          <WhiteAKasina />
+        </group>
+      );
     } else if (selectedKasina === KASINA_TYPES.OM_KASINA) {
-      return <OmKasina />;
+      return (
+        <group ref={groupRef}>
+          <OmKasina />
+        </group>
+      );
     } else if (selectedKasina === KASINA_TYPES.AH_KASINA) {
-      return <AhKasina />;
+      return (
+        <group ref={groupRef}>
+          <AhKasina />
+        </group>
+      );
     } else if (selectedKasina === KASINA_TYPES.HUM_KASINA) {
-      return <HumKasina />;
+      return (
+        <group ref={groupRef}>
+          <HumKasina />
+        </group>
+      );
     } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
       return (
         <group ref={groupRef}>
