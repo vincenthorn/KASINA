@@ -10,6 +10,7 @@ import KasinaRenderer, { getKasinaBackgroundColor } from './KasinaRenderer';
 import KasinaSelectionInterface from './KasinaSelectionInterface';
 import UnifiedSessionInterface from './UnifiedSessionInterface';
 import useWakeLock from '../lib/useWakeLock';
+import { useAutoHide } from '../lib/useAutoHide';
 import * as THREE from 'three';
 
 // Text kasina components
@@ -440,9 +441,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // State for UI controls (copied from BreathKasinaOrb)
   const [meditationTime, setMeditationTime] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [showControls, setShowControls] = useState(true);
-  const [lastActivityTime, setLastActivityTime] = useState(Date.now());
   const [sizeMultiplier, setSizeMultiplier] = useState(1.0);
+  
+  // Use universal auto-hide functionality
+  const { showCursor, showControls } = useAutoHide({ 
+    hideDelay: 3000, 
+    hideCursor: true, 
+    hideControls: true 
+  });
   const [showKasinaSelection, setShowKasinaSelection] = useState(false);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>(null);
@@ -544,22 +550,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     };
   }, []); // Empty dependency array to only run once
   
-  // Auto-hide controls after 3 seconds of inactivity
-  useEffect(() => {
-    const hideTimer = setTimeout(() => {
-      if (Date.now() - lastActivityTime > 3000) {
-        setShowControls(false);
-      }
-    }, 3000);
 
-    return () => clearTimeout(hideTimer);
-  }, [lastActivityTime]);
-
-  // Handle mouse/touch activity
-  const handleActivity = () => {
-    setLastActivityTime(Date.now());
-    setShowControls(true);
-  };
 
   // Fullscreen functionality
   const toggleFullscreen = () => {
@@ -906,11 +897,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   return (
     <div 
-      className="h-screen w-screen relative overflow-hidden"
+      className={`h-screen w-screen relative overflow-hidden ${!showCursor ? 'cursor-none' : ''}`}
       style={{ backgroundColor: getBackgroundColor() }}
-      onMouseMove={handleActivity}
-      onTouchStart={handleActivity}
-      onClick={handleActivity}
     >
       <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
         <ambientLight intensity={0.6} />
