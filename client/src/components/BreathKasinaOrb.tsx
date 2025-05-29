@@ -500,6 +500,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const connectionCheckRef = useRef<NodeJS.Timeout | null>(null);
   const sessionIdRef = useRef<string | null>(null);
+  
+  // Kasina usage tracking
+  const kasinaUsageRef = useRef<{ [kasina: string]: number }>({});
+  const currentKasinaStartRef = useRef<number>(Date.now());
   const diagnosticsRef = useRef<{
     startTime: number;
     memoryChecks: Array<{time: number, memory: number}>;
@@ -537,6 +541,44 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const b = Math.round(b1 + (b2 - b1) * ratio);
     
     return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+  };
+
+  // Track kasina usage when switching kasinas
+  const trackKasinaUsage = (newKasina: string) => {
+    const now = Date.now();
+    const timeSpent = now - currentKasinaStartRef.current;
+    
+    // Add time to current kasina
+    if (selectedKasina) {
+      kasinaUsageRef.current[selectedKasina] = (kasinaUsageRef.current[selectedKasina] || 0) + timeSpent;
+    }
+    
+    // Start tracking new kasina
+    currentKasinaStartRef.current = now;
+  };
+
+  // Get the most used kasina for session logging
+  const getMostUsedKasina = () => {
+    // Add current kasina time before calculating
+    const now = Date.now();
+    const currentTimeSpent = now - currentKasinaStartRef.current;
+    const usage = { ...kasinaUsageRef.current };
+    if (selectedKasina) {
+      usage[selectedKasina] = (usage[selectedKasina] || 0) + currentTimeSpent;
+    }
+
+    // Find kasina with most time
+    let mostUsedKasina = selectedKasina;
+    let maxTime = 0;
+    
+    for (const [kasina, time] of Object.entries(usage)) {
+      if (time > maxTime) {
+        maxTime = time;
+        mostUsedKasina = kasina;
+      }
+    }
+    
+    return mostUsedKasina;
   };
   
   // Handle wheel scroll to adjust size multiplier (smooth adjustment)
@@ -911,6 +953,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Handle individual kasina selection
   const handleKasinaSelection = (kasina: string) => {
+    // Track usage before switching
+    trackKasinaUsage(kasina);
+    
     setSelectedKasina(kasina);
     setGlobalSelectedKasina(kasina as any); // Update global kasina store
     setShowKasinaSelection(false);

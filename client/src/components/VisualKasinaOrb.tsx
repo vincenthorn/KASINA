@@ -453,11 +453,53 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const sessionIdRef = useRef<string | null>(null);
   const sessionInitializedRef = useRef<boolean>(false);
   
+  // Kasina usage tracking
+  const kasinaUsageRef = useRef<{ [kasina: string]: number }>({});
+  const currentKasinaStartRef = useRef<number>(Date.now());
+  
   // Format time display
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
+
+  // Track kasina usage when switching kasinas
+  const trackKasinaUsage = (newKasina: string) => {
+    const now = Date.now();
+    const timeSpent = now - currentKasinaStartRef.current;
+    
+    // Add time to current kasina
+    if (selectedKasina) {
+      kasinaUsageRef.current[selectedKasina] = (kasinaUsageRef.current[selectedKasina] || 0) + timeSpent;
+    }
+    
+    // Start tracking new kasina
+    currentKasinaStartRef.current = now;
+  };
+
+  // Get the most used kasina for session logging
+  const getMostUsedKasina = () => {
+    // Add current kasina time before calculating
+    const now = Date.now();
+    const currentTimeSpent = now - currentKasinaStartRef.current;
+    const usage = { ...kasinaUsageRef.current };
+    if (selectedKasina) {
+      usage[selectedKasina] = (usage[selectedKasina] || 0) + currentTimeSpent;
+    }
+
+    // Find kasina with most time
+    let mostUsedKasina = selectedKasina;
+    let maxTime = 0;
+    
+    for (const [kasina, time] of Object.entries(usage)) {
+      if (time > maxTime) {
+        maxTime = time;
+        mostUsedKasina = kasina;
+      }
+    }
+    
+    return mostUsedKasina;
   };
   
   // Initialize meditation session
@@ -556,12 +598,13 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       console.log(`🧘 Ending visual kasina session: ${durationInSeconds}s (${durationInMinutes} minutes)`);
       
       try {
-        // Create a more descriptive kasina name that includes the specific kasina used
-        const kasinaName = `Visual Kasina (${KASINA_NAMES[selectedKasina]})`;
-        const kasinaEmoji = KASINA_EMOJIS[selectedKasina];
+        // Get the most used kasina for this session
+        const mostUsedKasina = getMostUsedKasina();
+        const kasinaName = `Visual Kasina (${KASINA_NAMES[mostUsedKasina]})`;
+        const kasinaEmoji = KASINA_EMOJIS[mostUsedKasina];
         
         await logSession({
-          kasinaType: selectedKasina as any, // Use the specific kasina type
+          kasinaType: mostUsedKasina as any, // Use the most-used kasina type
           duration: durationInMinutes * 60, // Convert back to seconds for logging
           showToast: true
         });
@@ -619,6 +662,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   // Handle kasina selection
   const handleKasinaSelection = (kasina: string) => {
+    // Track usage before switching
+    trackKasinaUsage(kasina);
+    
     setSelectedKasina(kasina);
     setShowKasinaSelection(false);
     setKasinaSelectionStep('series');
