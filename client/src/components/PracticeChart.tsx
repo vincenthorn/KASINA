@@ -409,10 +409,10 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
         )}
       </CardHeader>
       <CardContent className="p-6">
-        {/* Improved responsive layout for better desktop experience */}
-        <div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
-          {/* Chart container - larger on desktop */}
-          <div className="w-full lg:w-1/2 h-80 lg:h-[450px] flex items-center justify-center">
+        {/* Improved layout with chart above and legend below */}
+        <div className="flex flex-col items-center gap-6">
+          {/* Chart container */}
+          <div className="w-80 h-80">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -443,9 +443,9 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
             </ResponsiveContainer>
           </div>
           
-          {/* Legend - more space on desktop */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+          {/* Legend below chart */}
+          <div className="w-full flex flex-col space-y-3">
+            <div className="flex flex-wrap gap-3 justify-center">
               {chartData.map((entry, i) => {
                 const isActive = activeIndex !== null && chartData[activeIndex]?.name === entry.name;
                 return (
