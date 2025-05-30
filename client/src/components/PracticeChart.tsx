@@ -450,8 +450,13 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                     key={entry.name} 
                     className={`flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full transition-all
                       ${isActive
-                        ? 'bg-gray-700 border border-gray-500 shadow-lg scale-110' 
-                        : 'bg-gray-800 hover:bg-gray-700 border border-transparent'}`}
+                        ? 'border border-gray-500 shadow-lg scale-110' 
+                        : 'hover:bg-gray-700 border border-transparent'}`}
+                    style={{
+                      backgroundColor: isActive ? `${entry.color}40` : `${entry.color}20`,
+                      cursor: 'pointer',
+                      boxShadow: isActive ? `0 0 8px ${entry.color}40` : 'none'
+                    }}
                     onClick={() => {
                       // Handle click based on the current mode and data
                       if (chartMode === 'overview') {
@@ -497,16 +502,12 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                         }
                       }
                     }}
-                    style={{
-                      cursor: 'pointer',
-                      boxShadow: isActive ? `0 0 8px ${entry.color}40` : 'none'
-                    }}
                   >
                     <span className="mr-2 text-xl md:text-2xl">{entry.emoji}</span>
-                    <span className={`text-sm md:text-base ${isActive ? 'text-white font-medium' : 'text-gray-300'}`}>
+                    <span className={`text-sm md:text-base ${isActive ? 'text-white font-medium' : 'text-white'}`}>
                       {entry.displayName}
                     </span>
-                    <span className={`ml-2 text-xs md:text-sm ${isActive ? 'text-gray-200' : 'text-gray-400'}`}>
+                    <span className={`ml-2 text-xs md:text-sm ${isActive ? 'text-gray-200' : 'text-gray-300'}`}>
                       {formatTime(entry.value)}
                     </span>
                   </div>

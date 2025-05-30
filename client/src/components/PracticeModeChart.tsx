@@ -351,6 +351,12 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
               {['Color Kasinas', 'Elemental Kasinas', 'Vajrayana Kasinas'].map((series) => {
                 const seriesColor = getSeriesColor(series);
                 const lightColor = seriesColor + '20'; // Add 20% opacity
+                
+                // Calculate total time for this series across all modes
+                const seriesTotal = chartData.reduce((sum, modeData) => sum + (modeData[series] || 0), 0);
+                const seriesEmoji = series === 'Color Kasinas' ? '🎨' : 
+                                  series === 'Elemental Kasinas' ? '✨' : '💀';
+                
                 return (
                   <div 
                     key={series}
@@ -358,7 +364,10 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     style={{ backgroundColor: lightColor }}
                   >
                     <span className="text-white font-medium text-sm">
-                      {series}
+                      {seriesEmoji} {series}
+                    </span>
+                    <span className="text-gray-300 text-xs ml-2">
+                      {formatTime(seriesTotal)}
                     </span>
                   </div>
                 );
