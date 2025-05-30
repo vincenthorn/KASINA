@@ -158,8 +158,8 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
 
   // Get appropriate text color based on background brightness
   const getTextColor = (backgroundColor: string) => {
-    // For bright colors like yellow, use black text
-    const brightColors = ['#FCD34D', '#FBBF24', '#F59E0B', '#FFFFCC', '#FFFF00'];
+    // For bright colors like yellow and light cyan, use black text
+    const brightColors = ['#FCD34D', '#FBBF24', '#F59E0B', '#FFFFCC', '#FFFF00', '#67E8F9'];
     if (brightColors.includes(backgroundColor)) {
       return 'text-black';
     }
