@@ -392,11 +392,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                   ? 'Elemental Kasinas'
                   : 'Vajrayana Kasinas'}
           </CardTitle>
-          {chartMode !== 'overview' && (
-            <CardDescription className="text-gray-400">
-              Click segments for details or return to overview
-            </CardDescription>
-          )}
+
         </div>
         {chartMode !== 'overview' && (
           <Button 
