@@ -62,7 +62,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.FIRE]: "#FB923C",  // Gentle orange for fire
   [KASINA_TYPES.EARTH]: "#A3E635", // Gentle green for earth
   [KASINA_TYPES.SPACE]: "#C084FC", // Gentle purple for space
-  [KASINA_TYPES.LIGHT]: "#67E8F9", // Gentle cyan for light
+  [KASINA_TYPES.LIGHT]: "#FDE047", // Bright yellow for light
   // Vajrayana Series
   [KASINA_TYPES.WHITE_A_THIGLE]: "#67E8F9", // Gentle cyan for Clear Light Thigle
   [KASINA_TYPES.WHITE_A_KASINA]: "#A78BFA", // Gentle purple for White A
