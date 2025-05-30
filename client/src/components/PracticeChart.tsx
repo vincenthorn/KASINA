@@ -192,7 +192,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
           value: colorTotal,
           emoji: '🎨',
           displayName: 'Color Kasinas',
-          color: '#FF0000',
+          color: '#F59E0B',
           category: 'color' as const
         },
         {
@@ -200,7 +200,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
           value: elementalTotal,
           emoji: '✨',
           displayName: 'Elemental Kasinas',
-          color: '#964B00',
+          color: '#10B981',
           category: 'elemental' as const
         },
         {
@@ -208,7 +208,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
           value: vajrayanaTotal,
           emoji: '💀',
           displayName: 'Vajrayana Kasinas',
-          color: '#333333',
+          color: '#EC4899',
           category: 'vajrayana' as const
         }
       ].filter(item => item.value > 0);

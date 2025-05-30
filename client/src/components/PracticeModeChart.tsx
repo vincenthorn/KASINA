@@ -72,7 +72,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
         name: 'visual',
         value: visualTotal,
         displayName: 'Visual',
-        color: '#6366F1', // Indigo
+        color: '#8B5CF6', // Purple - represents insight/wisdom
         emoji: '👁️'
       });
     }
@@ -82,7 +82,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
         name: 'breath',
         value: breathTotal,
         displayName: 'Breath',
-        color: '#10B981', // Emerald
+        color: '#06B6D4', // Cyan - represents air/breath
         emoji: '🫁'
       });
     }
