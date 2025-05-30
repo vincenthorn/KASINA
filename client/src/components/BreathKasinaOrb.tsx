@@ -666,14 +666,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           enableWakeLock();
           console.log("🔒 Wake lock requested to prevent screen sleep during meditation");
           
-          // Auto-enter fullscreen for focused meditation
-          if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().then(() => {
-              console.log("📺 Auto-entered fullscreen for meditation session");
-            }).catch((error) => {
-              console.log("📺 Fullscreen auto-entry failed (user interaction may be required):", error);
-            });
-          }
+          // Fullscreen is now triggered by user interaction in KasinaSelectionInterface
           
           meditationIntervalRef.current = setInterval(() => {
             if (meditationStartRef.current) {

@@ -194,7 +194,20 @@ export default function KasinaSelectionInterface({
             {getKasinasForSeries(selectedKasinaSeries || '').map((kasina) => (
               <button
                 key={kasina}
-                onClick={() => onKasinaSelection(kasina)}
+                onClick={async () => {
+                  // Trigger fullscreen when user selects their kasina
+                  try {
+                    if (!document.fullscreenElement) {
+                      await document.documentElement.requestFullscreen();
+                      console.log("📺 Entered fullscreen for meditation session");
+                    }
+                  } catch (error) {
+                    console.log("📺 Fullscreen request failed:", error);
+                  }
+                  
+                  // Then proceed with kasina selection
+                  onKasinaSelection(kasina);
+                }}
                 style={{
                   ...(kasina === 'custom' ? {
                     background: 'linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3)',
