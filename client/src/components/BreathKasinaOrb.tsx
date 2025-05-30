@@ -666,6 +666,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           enableWakeLock();
           console.log("🔒 Wake lock requested to prevent screen sleep during meditation");
           
+          // Auto-enter fullscreen for focused meditation
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().then(() => {
+              console.log("📺 Auto-entered fullscreen for meditation session");
+            }).catch((error) => {
+              console.log("📺 Fullscreen auto-entry failed (user interaction may be required):", error);
+            });
+          }
+          
           meditationIntervalRef.current = setInterval(() => {
             if (meditationStartRef.current) {
               const elapsed = Math.floor((Date.now() - meditationStartRef.current) / 1000);
@@ -852,6 +861,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Release wake lock when meditation ends
     disableWakeLock();
     console.log("🔓 Wake lock released - screen can sleep normally again");
+    
+    // Auto-exit fullscreen when session ends
+    if (document.fullscreenElement) {
+      document.exitFullscreen().then(() => {
+        console.log("📺 Auto-exited fullscreen after meditation session");
+      }).catch((error) => {
+        console.log("📺 Fullscreen auto-exit failed:", error);
+      });
+    }
     
     // Always navigate to Reflection page when ending session
     navigate('/reflection');
