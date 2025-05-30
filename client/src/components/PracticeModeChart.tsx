@@ -150,7 +150,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-gray-800 border border-gray-600 rounded-lg p-3 shadow-lg">
-          <p className="text-white font-medium mb-2">{label} Mode</p>
+          <p className="text-white font-medium mb-2">{label} Kasina</p>
           {payload.map((entry: any, index: number) => (
             entry.value > 0 && (
               <div key={index} className="text-gray-300 text-sm">
