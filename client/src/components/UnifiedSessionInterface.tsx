@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface UnifiedSessionInterfaceProps {
   // Timer and session controls
@@ -38,6 +38,7 @@ export default function UnifiedSessionInterface({
   mode,
   breathingRate
 }: UnifiedSessionInterfaceProps) {
+  const [isEnding, setIsEnding] = useState(false);
   
   // Format time display
   const formatTime = (seconds: number) => {
@@ -91,6 +92,21 @@ export default function UnifiedSessionInterface({
     }
   };
 
+  // Handle end session with debouncing
+  const handleEndSession = async () => {
+    if (isEnding) return; // Prevent multiple clicks
+    
+    setIsEnding(true);
+    try {
+      await onEndSession();
+    } catch (error) {
+      console.error('Error ending session:', error);
+      setIsEnding(false); // Re-enable button on error
+    }
+    // Note: We don't reset isEnding to false on success because the component 
+    // will unmount when navigating away from the session
+  };
+
   if (!showControls) return null;
 
   return (
@@ -118,26 +134,31 @@ export default function UnifiedSessionInterface({
         </div>
 
         <button
-          onClick={onEndSession}
+          onClick={handleEndSession}
+          disabled={isEnding}
           style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            color: 'white',
+            backgroundColor: isEnding ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.2)',
+            color: isEnding ? 'rgba(255, 255, 255, 0.5)' : 'white',
             border: 'none',
             padding: '6px 12px',
             borderRadius: '4px',
             fontSize: '14px',
             fontWeight: '500',
-            cursor: 'pointer',
+            cursor: isEnding ? 'not-allowed' : 'pointer',
             transition: 'all 0.2s ease-out'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            if (!isEnding) {
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            }
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            if (!isEnding) {
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            }
           }}
         >
-          End
+          {isEnding ? 'Ending...' : 'End'}
         </button>
       </div>
 
