@@ -74,9 +74,8 @@ const waterShader = {
     }
     
     float waterFlow(vec3 p, float t) {
-      float radius = length(p);
-      float theta = acos(p.z / radius);
-      float phi = atan(p.y, p.x);
+      // Use 3D position directly instead of spherical coordinates to avoid seams
+      vec3 pos = normalize(p);
       
       float flow = 0.0;
       for (float i = 1.0; i <= 4.0; i++) {
@@ -84,10 +83,11 @@ const waterShader = {
         float scale = pow(1.8, i - 1.0);
         float intensity = pow(0.7, i);
         
-        vec3 flowCoord = vec3(
-          phi * 2.5 * scale + t * speed * sin(theta),
-          theta * 2.5 * scale + t * speed * 0.5,
-          radius * scale + t * speed
+        // Use seamless 3D coordinates instead of spherical
+        vec3 flowCoord = pos * 3.0 * scale + vec3(
+          t * speed * 0.3,
+          t * speed * 0.5,
+          t * speed * 0.7
         );
         
         flow += noise(flowCoord) * intensity;
@@ -129,8 +129,10 @@ const waterShader = {
       }
       
       float fresnel = pow(1.0 - max(0.0, dot(normalize(vPosition), vec3(0.0, 0.0, 1.0))), 2.0);
-      float ripples = sin(length(p) * 40.0 - time * 1.0) * 0.01;
-      ripples += sin(p.x * 15.0 + p.y * 15.0 + time * 0.8) * sin(p.y * 10.0 + p.z * 10.0 + time * 1.2) * 0.025;
+      // Use seamless 3D coordinates for ripples to avoid seams
+      float ripples = sin(length(p) * 30.0 - time * 1.0) * 0.008;
+      ripples += sin(p.x * 12.0 + p.y * 12.0 + p.z * 8.0 + time * 0.8) * 0.015;
+      ripples += sin(p.y * 8.0 + p.z * 8.0 + p.x * 6.0 + time * 1.2) * 0.012;
       
       float glow = pow(1.0 - length(vPosition) * 0.5, 2.0) * 0.15;
       float highlight = fresnel * 0.15;
