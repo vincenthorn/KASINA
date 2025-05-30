@@ -31,7 +31,7 @@ const CustomBar = (props: any) => {
 };
 
 const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
-  const [drillDownMode, setDrillDownMode] = useState<{ mode: string; series: string } | null>(null);
+  const [drillDownSeries, setDrillDownSeries] = useState<string | null>(null);
 
   // Helper function to get kasina series from kasina type
   const getKasinaSeries = (kasinaType: string) => {
@@ -79,27 +79,38 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
 
   // Calculate drill-down pie chart data
   const drillDownData = useMemo(() => {
-    if (!drillDownMode || !sessions) return [];
+    if (!drillDownSeries || !sessions) return [];
     
-    const filteredSessions = sessions.filter(s => {
-      const mode = s.kasinaName === 'Visual Kasina' ? 'Visual' : 'Breath';
-      const series = getKasinaSeries(s.kasinaType);
-      return mode === drillDownMode.mode && series === drillDownMode.series;
-    });
+    // Get all kasina types in the selected series
+    let seriesKasinas: string[] = [];
+    if (drillDownSeries === 'Color Kasinas') {
+      seriesKasinas = KASINA_SERIES.COLOR;
+    } else if (drillDownSeries === 'Elemental Kasinas') {
+      seriesKasinas = KASINA_SERIES.ELEMENTAL;
+    } else if (drillDownSeries === 'Vajrayana Kasinas') {
+      seriesKasinas = KASINA_SERIES.VAJRAYANA;
+    }
+
+    // Filter sessions for this series only
+    const filteredSessions = sessions.filter(s => 
+      seriesKasinas.includes(s.kasinaType)
+    );
 
     const kasinaData: { [kasina: string]: number } = {};
     filteredSessions.forEach(session => {
       kasinaData[session.kasinaType] = (kasinaData[session.kasinaType] || 0) + session.duration;
     });
 
-    return Object.entries(kasinaData).map(([kasina, duration]) => ({
-      name: kasina,
-      value: duration,
-      displayName: KASINA_NAMES[kasina] || kasina,
-      emoji: KASINA_EMOJIS[kasina] || '⚫',
-      color: getKasinaColor(kasina)
-    }));
-  }, [drillDownMode, sessions]);
+    return Object.entries(kasinaData)
+      .filter(([_, duration]) => duration > 0)
+      .map(([kasina, duration]) => ({
+        name: kasina,
+        value: duration,
+        displayName: KASINA_NAMES[kasina] || kasina,
+        emoji: KASINA_EMOJIS[kasina] || '⚫',
+        color: getKasinaColor(kasina)
+      }));
+  }, [drillDownSeries, sessions]);
 
   // Get color for kasina series
   const getSeriesColor = (series: string) => {
@@ -149,7 +160,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
   const StackedTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-gray-800 border border-gray-600 rounded-lg p-3 shadow-lg">
+        <div className="bg-gray-900 border border-gray-600 rounded-lg p-3 shadow-xl">
           <p className="text-white font-medium mb-2">{label} Kasina</p>
           {payload.map((entry: any, index: number) => (
             entry.value > 0 && (
@@ -182,10 +193,12 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     return null;
   };
 
-  // Handle bar click for drill-down
-  const handleBarClick = (data: any, series: string) => {
-    if (data[series] > 0) {
-      setDrillDownMode({ mode: data.mode, series });
+  // Handle click for drill-down (both bar and legend)
+  const handleSeriesClick = (series: string) => {
+    // Check if this series has any data
+    const seriesTotal = chartData.reduce((sum, modeData) => sum + (modeData[series] || 0), 0);
+    if (seriesTotal > 0) {
+      setDrillDownSeries(series);
     }
   };
 
@@ -219,15 +232,15 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
         </CardTitle>
       </CardHeader>
       <CardContent className="p-6">
-        {drillDownMode ? (
+        {drillDownSeries ? (
           // Drill-down pie chart view
           <div className="flex flex-col gap-6">
             <div className="flex items-center justify-between">
               <h3 className="text-white font-medium">
-                {drillDownMode.series} in {drillDownMode.mode} Mode
+                {drillDownSeries}
               </h3>
               <button
-                onClick={() => setDrillDownMode(null)}
+                onClick={() => setDrillDownSeries(null)}
                 className="text-blue-400 hover:text-blue-300 text-sm"
               >
                 ← Back to Overview
@@ -324,7 +337,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     stackId="mode"
                     fill={getSeriesColor('Color Kasinas')}
                     radius={[0, 0, 0, 0]}
-                    onClick={(data) => handleBarClick(data, 'Color Kasinas')}
+                    onClick={() => handleSeriesClick('Color Kasinas')}
                     style={{ cursor: 'pointer' }}
                   />
                   <Bar 
@@ -332,7 +345,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     stackId="mode"
                     fill={getSeriesColor('Elemental Kasinas')}
                     radius={[0, 0, 0, 0]}
-                    onClick={(data) => handleBarClick(data, 'Elemental Kasinas')}
+                    onClick={() => handleSeriesClick('Elemental Kasinas')}
                     style={{ cursor: 'pointer' }}
                   />
                   <Bar 
@@ -340,7 +353,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     stackId="mode"
                     fill={getSeriesColor('Vajrayana Kasinas')}
                     radius={[4, 4, 0, 0]}
-                    onClick={(data) => handleBarClick(data, 'Vajrayana Kasinas')}
+                    onClick={() => handleSeriesClick('Vajrayana Kasinas')}
                     style={{ cursor: 'pointer' }}
                   />
                 </BarChart>
@@ -361,8 +374,9 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                 return (
                   <div 
                     key={series}
-                    className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all"
+                    className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all cursor-pointer"
                     style={{ backgroundColor: lightColor }}
+                    onClick={() => handleSeriesClick(series)}
                   >
                     <span className="mr-2 text-xl md:text-2xl">{seriesEmoji}</span>
                     <span className="text-sm md:text-base text-white">
