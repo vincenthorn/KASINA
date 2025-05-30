@@ -12,6 +12,7 @@ import UnifiedSessionInterface from './UnifiedSessionInterface';
 import useWakeLock from '../lib/useWakeLock';
 import { useAutoHide } from '../lib/useAutoHide';
 import * as THREE from 'three';
+import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 
 // Text kasina components
 import WhiteAKasina from './WhiteAKasina';

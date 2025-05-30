@@ -6,19 +6,23 @@ import * as THREE from 'three';
 export const waterShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#4fc3f7") },
+    color: { value: new THREE.Color("#0065b3") },
     opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
     varying vec3 vPosition;
-    varying vec3 vNormal;
+    uniform float time;
     
     void main() {
       vUv = uv;
       vPosition = position;
-      vNormal = normalize(normalMatrix * normal);
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      
+      vec3 pos = position;
+      float deformAmount = 0.025;
+      pos += normal * sin(position.x * 2.0 + position.y * 3.0 + time * 0.7) * deformAmount;
+      
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     }
   `,
   fragmentShader: `
@@ -27,26 +31,92 @@ export const waterShader = {
     uniform float opacity;
     varying vec2 vUv;
     varying vec3 vPosition;
-    varying vec3 vNormal;
+    
+    float hash(float n) {
+      return fract(sin(n) * 43758.5453);
+    }
+    
+    float noise(vec3 x) {
+      vec3 p = floor(x);
+      vec3 f = fract(x);
+      f = f * f * (3.0 - 2.0 * f);
+      
+      float n = p.x + p.y * 57.0 + p.z * 113.0;
+      return mix(
+        mix(
+          mix(hash(n), hash(n + 1.0), f.x),
+          mix(hash(n + 57.0), hash(n + 58.0), f.x),
+          f.y),
+        mix(
+          mix(hash(n + 113.0), hash(n + 114.0), f.x),
+          mix(hash(n + 170.0), hash(n + 171.0), f.x),
+          f.y),
+        f.z);
+    }
+    
+    float waterFlow(vec3 p, float t) {
+      // Use 3D position directly instead of spherical coordinates to avoid seams
+      vec3 pos = normalize(p);
+      
+      float flow = 0.0;
+      for (float i = 1.0; i <= 4.0; i++) {
+        float speed = 0.4 - 0.05 * i;
+        float scale = pow(1.8, i - 1.0);
+        float intensity = pow(0.7, i);
+        
+        // Use seamless 3D coordinates instead of spherical
+        vec3 flowCoord = pos * 3.0 * scale + vec3(
+          t * speed * 0.3,
+          t * speed * 0.5,
+          t * speed * 0.7
+        );
+        
+        flow += noise(flowCoord) * intensity;
+      }
+      
+      return flow * 0.6;
+    }
     
     void main() {
-      vec3 pos = vPosition;
+      float flowValue = waterFlow(vPosition, time);
       
-      // Water base color
-      vec3 waterColor = vec3(0.2, 0.6, 0.9);
+      vec3 deepOceanBlue = vec3(0.0, 0.2, 0.5);
+      vec3 midnightBlue = vec3(0.05, 0.25, 0.6);
+      vec3 azureBlue = vec3(0.1, 0.4, 0.75);
+      vec3 caribbeanBlue = vec3(0.0, 0.5, 0.8);
+      vec3 tropicalBlue = vec3(0.2, 0.65, 0.9);
       
-      // Create ripple patterns using seamless 3D coordinates
-      float ripple1 = sin(pos.x * 8.0 + time * 2.0) * 0.3;
-      float ripple2 = sin(pos.y * 6.0 + time * 1.5) * 0.2;
-      float ripple3 = sin(pos.z * 10.0 + time * 3.0) * 0.1;
+      vec3 p = normalize(vPosition);
+      float waves = 0.0;
+      waves += sin(p.x * 8.0 + p.y * 4.0 + time * 0.8) * 0.08;
+      waves += sin(p.y * 7.0 - p.z * 5.0 + time * 0.6) * 0.06;
+      waves += sin(p.z * 6.0 + p.x * 3.0 + time * 0.4) * 0.04;
       
-      vec3 ripples = vec3(ripple1, ripple2, ripple3) * 0.4;
+      flowValue += waves;
       
-      // Glow effect
-      float glow = sin(time * 1.5) * 0.1 + 0.9;
+      vec3 waterColor;
+      if (flowValue < 0.25) {
+        float t = flowValue / 0.25;
+        waterColor = mix(deepOceanBlue, midnightBlue, t);
+      } else if (flowValue < 0.5) {
+        float t = (flowValue - 0.25) / 0.25;
+        waterColor = mix(midnightBlue, azureBlue, t);
+      } else if (flowValue < 0.75) {
+        float t = (flowValue - 0.5) / 0.25;
+        waterColor = mix(azureBlue, caribbeanBlue, t);
+      } else {
+        float t = (flowValue - 0.75) / 0.25;
+        waterColor = mix(caribbeanBlue, tropicalBlue, t);
+      }
       
-      // Highlight
-      vec3 highlight = vec3(0.1, 0.3, 0.5) * sin(time * 4.0 + pos.x * 3.0) * 0.3;
+      float fresnel = pow(1.0 - max(0.0, dot(normalize(vPosition), vec3(0.0, 0.0, 1.0))), 2.0);
+      // Use seamless 3D coordinates for ripples to avoid seams
+      float ripples = sin(length(p) * 30.0 - time * 1.0) * 0.008;
+      ripples += sin(p.x * 12.0 + p.y * 12.0 + p.z * 8.0 + time * 0.8) * 0.015;
+      ripples += sin(p.y * 8.0 + p.z * 8.0 + p.x * 6.0 + time * 1.2) * 0.012;
+      
+      float glow = pow(1.0 - length(vPosition) * 0.5, 2.0) * 0.15;
+      float highlight = fresnel * 0.15;
       
       vec3 finalColor = waterColor + ripples + glow + highlight;
       gl_FragColor = vec4(finalColor, opacity * 0.9);
@@ -113,39 +183,33 @@ export const airShader = {
   },
   vertexShader: `
     varying vec2 vUv;
-    varying vec3 vPosition;
-    varying vec3 vNormal;
-    
     void main() {
       vUv = uv;
-      vPosition = position;
-      vNormal = normalize(normalMatrix * normal);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
   fragmentShader: `
     uniform float time;
     uniform vec3 color;
-    uniform float opacity;
     varying vec2 vUv;
-    varying vec3 vPosition;
-    varying vec3 vNormal;
     
     void main() {
-      vec3 pos = vPosition;
+      vec2 p = -1.0 + 2.0 * vUv;
+      float a = time * 0.05;
+      float s = sin(a * 2.0);
+      float c = cos(a * 2.0);
       
-      vec3 airColor = vec3(0.7, 0.9, 1.0);
+      float d = pow(1.0 - length(p), 2.0);
+      vec2 q = vec2(p.x * c - p.y * s, p.x * s + p.y * c) * d;
       
-      float flow1 = sin(pos.x * 4.0 + time * 1.5) * 0.2;
-      float flow2 = sin(pos.y * 3.0 + time * 1.2) * 0.15;
-      float flow3 = sin(pos.z * 5.0 + time * 2.0) * 0.1;
+      float f = 0.0;
+      for(float i = 1.0; i < 6.0; i++) {
+        float t = time * (0.1 + 0.05 * i);
+        f += sin(q.x * i + t) * sin(q.y * i + t);
+      }
       
-      vec3 flows = vec3(flow1, flow2, flow3) * 0.5;
-      
-      float transparency = sin(time * 1.0) * 0.1 + 0.7;
-      
-      vec3 finalColor = airColor + flows;
-      gl_FragColor = vec4(finalColor, opacity * transparency);
+      vec3 finalColor = color + 0.15 * sin(f);
+      gl_FragColor = vec4(finalColor, 1.0);
     }
   `
 };
@@ -153,7 +217,7 @@ export const airShader = {
 export const earthShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#8b4513") },
+    color: { value: new THREE.Color("#CC6633") },
     opacity: { value: 1.0 }
   },
   vertexShader: `
@@ -171,26 +235,58 @@ export const earthShader = {
   fragmentShader: `
     uniform float time;
     uniform vec3 color;
-    uniform float opacity;
     varying vec2 vUv;
     varying vec3 vPosition;
     varying vec3 vNormal;
     
+    float rand(vec2 co) {
+      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    }
+    
+    float worleyNoise(vec2 uv, float scale) {
+      vec2 id = floor(uv * scale);
+      vec2 lv = fract(uv * scale);
+      
+      float minDist = 1.0;
+      
+      for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+          vec2 offset = vec2(float(x), float(y));
+          vec2 pos = offset + 0.5 + 0.3 * vec2(
+            sin(rand(id + offset) * 6.28),
+            cos(rand(id + offset + vec2(1.0, 2.0)) * 6.28)
+          );
+          float dist = length(pos - lv);
+          minDist = min(minDist, dist);
+        }
+      }
+      
+      return minDist;
+    }
+    
     void main() {
-      vec3 pos = vPosition;
+      vec3 baseColor = color;
       
-      vec3 earthColor = vec3(0.6, 0.4, 0.2);
+      float clayTexture = 0.0;
+      float large = worleyNoise(vUv * 2.0, 4.0);
+      float medium = worleyNoise(vUv * 4.0, 8.0);
+      float small = worleyNoise(vUv * 8.0, 16.0);
       
-      float texture1 = sin(pos.x * 12.0 + time * 0.5) * 0.1;
-      float texture2 = sin(pos.y * 8.0 + time * 0.3) * 0.08;
-      float texture3 = sin(pos.z * 15.0 + time * 0.7) * 0.06;
+      clayTexture = large * 0.6 + medium * 0.3 + small * 0.1;
+      clayTexture += sin(time * 0.05) * 0.02;
       
-      vec3 textures = vec3(texture1, texture2, texture3) * 0.3;
+      float d = length(vUv - vec2(0.5, 0.5));
+      float lightIntensity = 1.0 - smoothstep(0.0, 0.8, d);
+      float normalShading = 0.5 + 0.5 * dot(vNormal, vec3(0.5, 0.5, 0.5));
       
-      float stability = sin(time * 0.5) * 0.05 + 0.95;
+      vec3 darkClay = baseColor * 0.7;
+      vec3 lightClay = baseColor * 1.3;
+      vec3 clayColor = mix(darkClay, lightClay, clayTexture);
       
-      vec3 finalColor = earthColor + textures;
-      gl_FragColor = vec4(finalColor, opacity * stability);
+      clayColor *= 0.7 + 0.3 * normalShading + 0.2 * lightIntensity;
+      clayColor *= 0.97 + rand(vUv * 100.0) * 0.05;
+      
+      gl_FragColor = vec4(clayColor, 1.0);
     }
   `
 };
@@ -203,39 +299,34 @@ export const spaceShader = {
   },
   vertexShader: `
     varying vec2 vUv;
-    varying vec3 vPosition;
-    varying vec3 vNormal;
-    
     void main() {
       vUv = uv;
-      vPosition = position;
-      vNormal = normalize(normalMatrix * normal);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
   fragmentShader: `
     uniform float time;
     uniform vec3 color;
-    uniform float opacity;
     varying vec2 vUv;
-    varying vec3 vPosition;
-    varying vec3 vNormal;
+    
+    float rand(vec2 co) {
+      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    }
     
     void main() {
-      vec3 pos = vPosition;
+      vec2 uv = vUv;
+      vec3 baseColor = color;
       
-      vec3 spaceColor = vec3(0.05, 0.05, 0.15);
+      float d = length(uv - vec2(0.5, 0.5));
       
-      float depth1 = sin(pos.x * 6.0 + time * 0.8) * 0.1;
-      float depth2 = sin(pos.y * 4.0 + time * 0.6) * 0.08;
-      float depth3 = sin(pos.z * 8.0 + time * 1.0) * 0.06;
+      float edgeGlow = smoothstep(0.45, 0.5, d);
+      vec3 edgeColor = vec3(0.16, 0.0, 0.33);
       
-      vec3 depths = vec3(depth1, depth2, depth3) * 0.4;
+      float ripple = sin(d * 20.0 - time * 0.2) * 0.02;
+      float intensity = smoothstep(0.0, 0.5, d + ripple);
       
-      float void_effect = sin(time * 0.3) * 0.05 + 0.9;
-      
-      vec3 finalColor = spaceColor + depths;
-      gl_FragColor = vec4(finalColor, opacity * void_effect);
+      vec3 finalColor = mix(baseColor, edgeColor, intensity * edgeGlow);
+      gl_FragColor = vec4(finalColor, 1.0);
     }
   `
 };
@@ -243,17 +334,14 @@ export const spaceShader = {
 export const lightShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#ffffff") },
+    color: { value: new THREE.Color("#fffaf0") },
     opacity: { value: 1.0 }
   },
   vertexShader: `
     varying vec2 vUv;
-    varying vec3 vPosition;
     varying vec3 vNormal;
-    
     void main() {
       vUv = uv;
-      vPosition = position;
       vNormal = normalize(normalMatrix * normal);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
@@ -261,26 +349,21 @@ export const lightShader = {
   fragmentShader: `
     uniform float time;
     uniform vec3 color;
-    uniform float opacity;
     varying vec2 vUv;
-    varying vec3 vPosition;
     varying vec3 vNormal;
     
     void main() {
-      vec3 pos = vPosition;
+      vec2 uv = vUv;
+      float d = length(uv - vec2(0.5, 0.5));
       
-      vec3 lightColor = vec3(1.0, 1.0, 0.95);
+      float brightness = 1.0 - smoothstep(0.45, 0.5, d);
+      float pulse = 0.05 * sin(time * 1.5);
       
-      float radiance1 = sin(pos.x * 5.0 + time * 1.2) * 0.1;
-      float radiance2 = sin(pos.y * 3.0 + time * 0.9) * 0.08;
-      float radiance3 = sin(pos.z * 7.0 + time * 1.5) * 0.06;
+      vec3 lightDir = vec3(0.0, 0.0, 1.0);
+      float lightFactor = max(0.85, dot(vNormal, lightDir));
       
-      vec3 radiances = vec3(radiance1, radiance2, radiance3) * 0.3;
-      
-      float brightness = sin(time * 0.8) * 0.1 + 0.95;
-      
-      vec3 finalColor = lightColor + radiances;
-      gl_FragColor = vec4(finalColor, opacity * brightness);
+      vec3 finalColor = color * (brightness + pulse + 0.25) * lightFactor;
+      gl_FragColor = vec4(finalColor, 1.0);
     }
   `
 };
