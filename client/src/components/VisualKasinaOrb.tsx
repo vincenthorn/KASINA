@@ -807,13 +807,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={fireMaterialRef}
-            uniforms={fireShader.uniforms}
-            vertexShader={fireShader.vertexShader}
-            fragmentShader={fireShader.fragmentShader}
-            transparent={true}
-          />
+          <meshBasicMaterial color="#ff6600" />
         </mesh>
       );
     } else if (selectedKasina === KASINA_TYPES.AIR) {
