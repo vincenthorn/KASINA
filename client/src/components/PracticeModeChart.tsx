@@ -273,7 +273,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                         className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all"
                         style={{ backgroundColor: lightColor }}
                       >
-                        <span className="text-white font-medium text-sm">
+                        <span className="text-white font-medium text-xs">
                           {item.emoji} {item.displayName}
                         </span>
                         <span className="text-gray-300 text-xs ml-2">
@@ -363,7 +363,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all"
                     style={{ backgroundColor: lightColor }}
                   >
-                    <span className="text-white font-medium text-sm">
+                    <span className="text-white font-medium text-xs">
                       {seriesEmoji} {series}
                     </span>
                     <span className="text-gray-300 text-xs ml-2">
