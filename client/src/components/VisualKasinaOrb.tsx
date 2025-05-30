@@ -732,8 +732,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
     useFrame((state) => {
       if (meshRef.current) {
-        // Gentle rotation
-        meshRef.current.rotation.y += 0.002;
+        // Smooth, continuous rotation based on elapsed time
+        const time = state.clock.getElapsedTime();
+        meshRef.current.rotation.y = time * 0.2; // Slow, smooth rotation
         
         // Apply size multiplier
         const targetScale = sizeMultiplier;
