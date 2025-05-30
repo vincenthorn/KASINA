@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip, Cell } from "recharts";
 
 interface PracticeModeChartProps {
   sessions: {
@@ -161,9 +161,10 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                 <Bar 
                   dataKey="value" 
                   radius={[4, 4, 0, 0]}
+                  fill="#8884d8"
                 >
                   {chartData.map((entry, index) => (
-                    <Bar key={`cell-${index}`} fill={entry.color} />
+                    <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Bar>
               </BarChart>
