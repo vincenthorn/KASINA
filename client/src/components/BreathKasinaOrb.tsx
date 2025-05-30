@@ -491,7 +491,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
   const [selectedKasina, setSelectedKasina] = useState<string>(globalSelectedKasina || KASINA_TYPES.BLUE);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
-  const [sizeMultiplier, setSizeMultiplier] = useState(1.0); // Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
+  const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<NodeJS.Timeout | null>(null);

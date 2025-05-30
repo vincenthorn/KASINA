@@ -441,7 +441,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // State for UI controls (copied from BreathKasinaOrb)
   const [meditationTime, setMeditationTime] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [sizeMultiplier, setSizeMultiplier] = useState(1.0);
+  const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30%
   
   // Use universal auto-hide functionality
   const { showCursor, showControls } = useAutoHide({ 
