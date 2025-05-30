@@ -218,7 +218,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
           Practice Breakdown
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-6 flex flex-col justify-end h-full">
+      <CardContent className="p-6">
         {drillDownMode ? (
           // Drill-down pie chart view
           <div className="flex flex-col gap-6">
@@ -265,23 +265,23 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
               {/* Legend below chart */}
               <div className="w-full flex flex-col space-y-3">
                 <div className="flex flex-wrap gap-3 justify-center">
-                  {drillDownData.map((item, index) => (
-                    <div 
-                      key={index} 
-                      className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full bg-gray-800 hover:bg-gray-700 border border-transparent transition-all"
-                    >
+                  {drillDownData.map((item, index) => {
+                    const lightColor = item.color + '20'; // Add 20% opacity
+                    return (
                       <div 
-                        className="w-3 h-3 rounded-full mr-2" 
-                        style={{ backgroundColor: item.color }}
-                      ></div>
-                      <span className="text-gray-300 font-medium text-sm">
-                        {item.emoji} {item.displayName}
-                      </span>
-                      <span className="text-gray-400 text-xs ml-2">
-                        {formatTime(item.value)}
-                      </span>
-                    </div>
-                  ))}
+                        key={index} 
+                        className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all"
+                        style={{ backgroundColor: lightColor }}
+                      >
+                        <span className="text-white font-medium text-sm">
+                          {item.emoji} {item.displayName}
+                        </span>
+                        <span className="text-gray-300 text-xs ml-2">
+                          {formatTime(item.value)}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -348,20 +348,21 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
 
             {/* Legend for stacked bars */}
             <div className="flex flex-wrap gap-3 justify-center">
-              {['Color Kasinas', 'Elemental Kasinas', 'Vajrayana Kasinas'].map((series) => (
-                <div 
-                  key={series}
-                  className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full bg-gray-800 border border-transparent"
-                >
+              {['Color Kasinas', 'Elemental Kasinas', 'Vajrayana Kasinas'].map((series) => {
+                const seriesColor = getSeriesColor(series);
+                const lightColor = seriesColor + '20'; // Add 20% opacity
+                return (
                   <div 
-                    className="w-3 h-3 rounded-full mr-2" 
-                    style={{ backgroundColor: getSeriesColor(series) }}
-                  ></div>
-                  <span className="text-gray-300 font-medium text-sm">
-                    {series}
-                  </span>
-                </div>
-              ))}
+                    key={series}
+                    className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all"
+                    style={{ backgroundColor: lightColor }}
+                  >
+                    <span className="text-white font-medium text-sm">
+                      {series}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
