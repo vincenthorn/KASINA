@@ -170,26 +170,21 @@ const fireShader = {
     varying vec3 vNormal;
     
     void main() {
-      // Fire colors
-      vec3 red = vec3(1.0, 0.2, 0.0);
-      vec3 orange = vec3(1.0, 0.6, 0.0);
-      vec3 yellow = vec3(1.0, 1.0, 0.3);
+      vec3 pos = vPosition;
       
-      // Distance from center
-      float dist = length(vPosition);
+      vec3 fireColor = vec3(1.0, 0.3, 0.0);
       
-      // Basic flame intensity
-      float intensity = 1.0 - dist;
+      float flame1 = sin(pos.x * 8.0 + time * 3.0) * 0.3;
+      float flame2 = sin(pos.y * 6.0 + time * 2.5) * 0.2;
+      float flame3 = sin(pos.z * 10.0 + time * 4.0) * 0.1;
       
-      // Animate with time
-      float flicker = sin(time * 4.0) * 0.1 + 0.9;
-      intensity *= flicker;
+      vec3 flames = vec3(flame1, flame2, flame3) * 0.8;
       
-      // Color gradient
-      vec3 fireColor = mix(red, orange, intensity);
-      fireColor = mix(fireColor, yellow, intensity * intensity);
+      float intensity = 1.0 - length(pos);
+      intensity = max(0.0, intensity);
       
-      gl_FragColor = vec4(fireColor, intensity * 0.8);
+      vec3 finalColor = fireColor + flames;
+      gl_FragColor = vec4(finalColor, opacity * intensity);
     }
   `
 };
