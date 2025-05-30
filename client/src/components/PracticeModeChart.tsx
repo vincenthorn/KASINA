@@ -221,32 +221,30 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
   return (
     <Card className="bg-gray-900 border-gray-700 shadow-xl">
       <CardHeader className="border-b border-gray-700 pb-4">
-        <CardTitle className="text-white flex items-center">
-          <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-          </svg>
-          Practice Breakdown
-        </CardTitle>
+        <div>
+          <CardTitle className="text-white flex items-center">
+            <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            {drillDownSeries || 'Practice Breakdown'}
+          </CardTitle>
+        </div>
+        {drillDownSeries && (
+          <button
+            onClick={() => setDrillDownSeries(null)}
+            className="absolute top-4 right-4 text-blue-400 hover:text-blue-300 text-sm"
+          >
+            ← Back to Overview
+          </button>
+        )}
       </CardHeader>
       <CardContent className="p-6">
         {drillDownSeries ? (
-          // Drill-down pie chart view
-          <div className="flex flex-col gap-6">
-            <div className="flex items-center justify-between">
-              <h3 className="text-white font-medium">
-                {drillDownSeries}
-              </h3>
-              <button
-                onClick={() => setDrillDownSeries(null)}
-                className="text-blue-400 hover:text-blue-300 text-sm"
-              >
-                ← Back to Overview
-              </button>
-            </div>
+          // Drill-down pie chart view - matching Practice Breakdown structure
+          <div className="flex flex-col items-center gap-6">
             
-            <div className="flex flex-col items-center gap-6">
-              {/* Chart container - matching PracticeChart sizing exactly */}
-              <div className="w-80 h-80">
+            {/* Chart container - matching PracticeChart sizing exactly */}
+            <div className="w-80 h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
@@ -273,7 +271,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
               </div>
               
               {/* Legend below chart - aligned height with fully opaque colors */}
-              <div className="w-full flex flex-col space-y-3">
+              <div className="w-full flex flex-col">
                 <div className="flex flex-wrap gap-3 justify-center items-center">
                   {drillDownData.map((item, index) => {
                     return (
@@ -295,7 +293,6 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                 </div>
               </div>
             </div>
-          </div>
         ) : (
           // Main stacked bar chart view
           <div className="flex flex-col gap-6">
