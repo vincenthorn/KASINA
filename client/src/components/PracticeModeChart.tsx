@@ -41,27 +41,27 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     return 'Other';
   };
 
-  // Get color for individual kasinas
+  // Get color for individual kasinas - using gentler colors matching the Practice Breakdown
   const getKasinaColor = (kasina: string) => {
     const colors: { [key: string]: string } = {
       [KASINA_TYPES.BLUE]: '#3B82F6',
-      [KASINA_TYPES.RED]: '#EF4444', 
-      [KASINA_TYPES.YELLOW]: '#EAB308',
+      [KASINA_TYPES.RED]: '#F87171', 
+      [KASINA_TYPES.YELLOW]: '#FCD34D',
       [KASINA_TYPES.WHITE]: '#F3F4F6',
-      [KASINA_TYPES.WATER]: '#06B6D4',
-      [KASINA_TYPES.FIRE]: '#F97316',
-      [KASINA_TYPES.EARTH]: '#84CC16',
-      [KASINA_TYPES.AIR]: '#8B5CF6',
-      [KASINA_TYPES.SPACE]: '#A855F7',
-      [KASINA_TYPES.LIGHT]: '#06B6D4',
-      [KASINA_TYPES.WHITE_A_KASINA]: '#8B5CF6',
-      [KASINA_TYPES.WHITE_A_THIGLE]: '#06B6D4',
-      [KASINA_TYPES.OM_KASINA]: '#F59E0B',
-      [KASINA_TYPES.AH_KASINA]: '#EF4444',
-      [KASINA_TYPES.HUM_KASINA]: '#10B981',
-      [KASINA_TYPES.RAINBOW_KASINA]: '#8B5CF6',
+      [KASINA_TYPES.WATER]: '#67E8F9',
+      [KASINA_TYPES.FIRE]: '#FB923C',
+      [KASINA_TYPES.EARTH]: '#A3E635',
+      [KASINA_TYPES.AIR]: '#A78BFA',
+      [KASINA_TYPES.SPACE]: '#C084FC',
+      [KASINA_TYPES.LIGHT]: '#67E8F9',
+      [KASINA_TYPES.WHITE_A_KASINA]: '#A78BFA',
+      [KASINA_TYPES.WHITE_A_THIGLE]: '#67E8F9',
+      [KASINA_TYPES.OM_KASINA]: '#FBBF24',
+      [KASINA_TYPES.AH_KASINA]: '#F87171',
+      [KASINA_TYPES.HUM_KASINA]: '#34D399',
+      [KASINA_TYPES.RAINBOW_KASINA]: '#A78BFA',
     };
-    return colors[kasina] || '#6B7280';
+    return colors[kasina] || '#9CA3AF';
   };
 
   // Calculate stacked bar chart data
@@ -235,7 +235,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
             </div>
             
             <div className="flex flex-col items-center gap-6">
-              {/* Chart container */}
+              {/* Chart container - matching PracticeChart sizing */}
               <div className="w-80 h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -247,7 +247,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                       innerRadius={60}
                       dataKey="value"
                       labelLine={false}
-                      paddingAngle={2}
+                      paddingAngle={1}
                     >
                       {drillDownData.map((entry, index) => (
                         <Cell 

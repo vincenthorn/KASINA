@@ -48,28 +48,28 @@ export const KASINA_NAMES: Record<string, string> = {
   [KASINA_TYPES.BREATH]: "Breath Kasina"
 };
 
-// Kasina colors (hex codes)
+// Kasina colors (hex codes) - using gentler, more muted colors for better visual harmony
 export const KASINA_COLORS: Record<string, string> = {
   // Basic Color Kasinas
-  [KASINA_TYPES.WHITE]: "#FFFFFF",
-  [KASINA_TYPES.BLUE]: "#0000FF",
-  [KASINA_TYPES.RED]: "#FF0000",
-  [KASINA_TYPES.YELLOW]: "#FFFF00",
-  [KASINA_TYPES.CUSTOM]: "#8A2BE2", // Default to a medium violet red for custom
+  [KASINA_TYPES.WHITE]: "#F3F4F6",
+  [KASINA_TYPES.BLUE]: "#3B82F6",
+  [KASINA_TYPES.RED]: "#F87171",
+  [KASINA_TYPES.YELLOW]: "#FCD34D",
+  [KASINA_TYPES.CUSTOM]: "#A78BFA", // Gentle purple for custom
   // Elemental Kasinas
-  [KASINA_TYPES.WATER]: "#0065b3", // Deeper ocean blue for water
-  [KASINA_TYPES.AIR]: "#a0d6f7",   // Distinct medium sky blue with a hint of aqua
-  [KASINA_TYPES.FIRE]: "#FF6600",  // Bright orange for fire
-  [KASINA_TYPES.EARTH]: "#CC6633", // Warm terracotta clay color
-  [KASINA_TYPES.SPACE]: "#330066", // Deep purple
-  [KASINA_TYPES.LIGHT]: "#FFFFCC", // Light yellowish white with significantly increased brightness
+  [KASINA_TYPES.WATER]: "#67E8F9", // Gentle cyan for water
+  [KASINA_TYPES.AIR]: "#A78BFA",   // Gentle purple for air
+  [KASINA_TYPES.FIRE]: "#FB923C",  // Gentle orange for fire
+  [KASINA_TYPES.EARTH]: "#A3E635", // Gentle green for earth
+  [KASINA_TYPES.SPACE]: "#C084FC", // Gentle purple for space
+  [KASINA_TYPES.LIGHT]: "#67E8F9", // Gentle cyan for light
   // Vajrayana Series
-  [KASINA_TYPES.WHITE_A_THIGLE]: "#FFCC00", // Gold/amber for Clear Light Thigle
-  [KASINA_TYPES.WHITE_A_KASINA]: "#FFFFFF", // Pure white for the Tibetan letter A
-  [KASINA_TYPES.OM_KASINA]: "#EEEEEE", // Very light grey for OM in charts
-  [KASINA_TYPES.AH_KASINA]: "#FF0000", // Deep red orb with golden glow
-  [KASINA_TYPES.HUM_KASINA]: "#0000FF", // Deep blue orb
-  [KASINA_TYPES.RAINBOW_KASINA]: "#FF69B4" // Pink for Rainbow kasina in charts
+  [KASINA_TYPES.WHITE_A_THIGLE]: "#67E8F9", // Gentle cyan for Clear Light Thigle
+  [KASINA_TYPES.WHITE_A_KASINA]: "#A78BFA", // Gentle purple for White A
+  [KASINA_TYPES.OM_KASINA]: "#FBBF24", // Gentle amber for OM
+  [KASINA_TYPES.AH_KASINA]: "#F87171", // Gentle red for AH
+  [KASINA_TYPES.HUM_KASINA]: "#34D399", // Gentle green for HUM
+  [KASINA_TYPES.RAINBOW_KASINA]: "#A78BFA" // Gentle purple for Rainbow
 };
 
 // Background colors for elemental kasinas
