@@ -145,7 +145,7 @@ const waterShader = {
 
 const fireShader = {
   uniforms: {
-    time: { value: 0 },
+    time: { value: 0.0 },
     color: { value: new THREE.Color("#ff6600") },
     opacity: { value: 1.0 }
   },
@@ -169,113 +169,27 @@ const fireShader = {
     varying vec3 vPosition;
     varying vec3 vNormal;
     
-    float random(vec2 st) {
-      return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
-    }
-    
-    float noise(vec2 st) {
-      vec2 i = floor(st);
-      vec2 f = fract(st);
-      float a = random(i);
-      float b = random(i + vec2(1.0, 0.0));
-      float c = random(i + vec2(0.0, 1.0));
-      float d = random(i + vec2(1.0, 1.0));
-      vec2 u = f * f * (3.0 - 2.0 * f);
-      return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
-    }
-    
-    float fbm(vec2 st) {
-      float value = 0.0;
-      float amplitude = 0.5;
-      for (int i = 0; i < 6; i++) {
-        value += amplitude * noise(st);
-        st *= 2.0;
-        amplitude *= 0.5;
-      }
-      return value;
-    }
-    
-    // Orb flame intensity function
-    float flameIntensity(vec3 pos) {
-      // Use distance from center to create flame-like intensity patterns
-      float distFromCenter = length(pos);
-      
-      // Create layered flame effect within the sphere
-      float coreIntensity = 1.0 - smoothstep(0.0, 0.4, distFromCenter);
-      float midIntensity = 1.0 - smoothstep(0.2, 0.7, distFromCenter);
-      float outerIntensity = 1.0 - smoothstep(0.5, 1.0, distFromCenter);
-      
-      // Combine layers for realistic flame depth
-      return coreIntensity * 0.8 + midIntensity * 0.4 + outerIntensity * 0.2;
-    }
-    
     void main() {
-      vec3 pos = vPosition;
+      vec3 pos = normalize(vPosition);
       
-      // Realistic candle flame colors
-      vec3 deepRed = vec3(0.8, 0.1, 0.0);        // Deep red base
-      vec3 brightOrange = vec3(1.0, 0.3, 0.0);   // Bright orange
-      vec3 warmOrange = vec3(1.0, 0.5, 0.1);     // Warm orange
-      vec3 brightYellow = vec3(1.0, 0.8, 0.2);   // Bright yellow
-      vec3 hotWhite = vec3(1.0, 0.95, 0.8);      // Hot white core
+      // Simple fire colors
+      vec3 orange = vec3(1.0, 0.4, 0.0);
+      vec3 yellow = vec3(1.0, 0.8, 0.2);
+      vec3 red = vec3(0.8, 0.1, 0.0);
       
-      // Add realistic flame flickering
-      float flicker1 = sin(time * 8.0 + pos.x * 10.0) * 0.15;
-      float flicker2 = sin(time * 12.0 + pos.z * 8.0) * 0.1;
-      float flicker3 = sin(time * 15.0) * 0.05;
+      // Basic flame effect based on position and time
+      float distFromCenter = length(vPosition);
+      float flame = 1.0 - smoothstep(0.0, 1.0, distFromCenter);
       
-      // Apply flickering to position
-      vec3 flickerPos = pos;
-      flickerPos.x += flicker1;
-      flickerPos.z += flicker2;
-      flickerPos.y += flicker3;
+      // Add simple animation
+      float flicker = sin(time * 3.0 + pos.x * 5.0) * 0.1 + 0.9;
+      flame *= flicker;
       
-      // Get basic flame intensity for orb
-      float flame = flameIntensity(flickerPos);
+      // Simple color mixing
+      vec3 flameColor = mix(red, orange, flame);
+      flameColor = mix(flameColor, yellow, flame * 0.5);
       
-      // Add turbulence for realistic flame texture within the orb
-      vec2 turbCoord1 = pos.xy * 3.0 + vec2(time * 1.5, time * 2.0);
-      vec2 turbCoord2 = pos.xz * 3.5 + vec2(time * 1.8, time * 1.4);
-      float turbulence = fbm(turbCoord1) * 0.3 + fbm(turbCoord2) * 0.2;
-      
-      // Secondary detail turbulence
-      vec2 detailCoord = pos.yz * 6.0 + vec2(time * 2.5, time * 3.0);
-      float detail = fbm(detailCoord) * 0.15;
-      
-      // Combine flame base with turbulence
-      float finalFlameIntensity = flame * (1.0 + turbulence + detail);
-      finalFlameIntensity = clamp(finalFlameIntensity, 0.0, 1.0);
-      
-      // Create realistic flame color gradient based on distance from center
-      float distFromCenter = length(pos);
-      vec3 flameColor;
-      
-      if (finalFlameIntensity > 0.8) {
-        // Hottest core - white/yellow center
-        flameColor = mix(brightYellow, hotWhite, (finalFlameIntensity - 0.8) * 5.0);
-      } else if (finalFlameIntensity > 0.5) {
-        // Hot yellow zone
-        flameColor = mix(warmOrange, brightYellow, (finalFlameIntensity - 0.5) * 3.33);
-      } else if (finalFlameIntensity > 0.2) {
-        // Orange zone
-        flameColor = mix(brightOrange, warmOrange, (finalFlameIntensity - 0.2) * 3.33);
-      } else {
-        // Red outer edges
-        flameColor = mix(deepRed, brightOrange, finalFlameIntensity * 5.0);
-      }
-      
-      // Add radial color variation (cooler toward edges)
-      float radialGradient = 1.0 - smoothstep(0.0, 1.0, distFromCenter);
-      flameColor = mix(flameColor * 0.7, flameColor, radialGradient);
-      
-      // Add realistic flame glow
-      float glow = pow(finalFlameIntensity, 0.3) * 1.3;
-      flameColor *= glow;
-      
-      // Make flame edges more transparent for realistic orb look
-      float alpha = smoothstep(0.0, 0.4, finalFlameIntensity) * 0.95;
-      
-      gl_FragColor = vec4(flameColor, alpha);
+      gl_FragColor = vec4(flameColor, flame * 0.9);
     }
   `
 };
