@@ -136,12 +136,12 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
     return `${minutes}m`;
   };
 
-  // Helper function to round time (round up to nearest minute)
+  // Helper function to round time (round up to nearest minute if > 30 seconds)
   const roundTime = (seconds: number): number => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     
-    if (remainingSeconds > 0) {
+    if (remainingSeconds > 30) {
       return (minutes + 1) * 60;
     }
     return minutes * 60;
