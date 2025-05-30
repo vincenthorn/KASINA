@@ -376,8 +376,8 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
   }
 
   return (
-    <Card className="bg-gray-900 border-gray-700 shadow-xl">
-      <CardHeader className="border-b border-gray-700 pb-4 flex flex-row items-center justify-between">
+    <Card className="bg-gray-900 border-gray-700 shadow-xl relative">
+      <CardHeader className="border-b border-gray-700 pb-4">
         <div>
           <CardTitle className="text-white flex items-center">
             <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -399,7 +399,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
             variant="outline" 
             size="sm" 
             onClick={handleBackToOverview}
-            className="text-sm bg-gray-800 hover:bg-gray-700 border-gray-600"
+            className="absolute top-4 right-4 text-sm bg-gray-800 hover:bg-gray-700 border-gray-600"
           >
             Back to Overview
           </Button>
