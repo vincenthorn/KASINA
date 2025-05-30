@@ -180,23 +180,26 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
           </div>
 
           {/* Legend */}
-          <div className="flex flex-col gap-3 w-full">
-            {chartData.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 justify-between">
-                <div className="flex items-center gap-3">
+          <div className="w-full flex flex-col space-y-3">
+            <div className="flex flex-wrap gap-3 justify-center">
+              {chartData.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full bg-gray-800 hover:bg-gray-700 border border-transparent transition-all"
+                >
                   <div 
-                    className="w-4 h-4 rounded-full" 
+                    className="w-3 h-3 rounded-full mr-2" 
                     style={{ backgroundColor: item.color }}
                   ></div>
-                  <span className="text-gray-300 font-medium">
+                  <span className="text-gray-300 font-medium text-sm">
                     {item.emoji} {item.displayName}
                   </span>
+                  <span className="text-gray-400 text-xs ml-2">
+                    {formatTime(item.value)}
+                  </span>
                 </div>
-                <span className="text-gray-400 text-sm">
-                  {formatTime(item.value)}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </CardContent>

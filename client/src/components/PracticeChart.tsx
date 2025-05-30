@@ -519,7 +519,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
             </div>
             
             {chartMode === 'overview' && (
-              <p className="text-center lg:text-left text-xs text-blue-300 mt-2">
+              <p className="text-center text-xs text-blue-300 mt-2">
                 Click on a section to see detailed breakdown
               </p>
             )}
