@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import PracticeChart from "../components/PracticeChart";
 import PracticeModeChart from "../components/PracticeModeChart";
 import PracticeLog from "../components/PracticeLog";
-
+import PracticeConsistencyCalendar from "../components/PracticeConsistencyCalendar";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
@@ -257,6 +257,24 @@ const ReflectionPage: React.FC = () => {
           </div>
         ) : (
           <div className="space-y-8">
+            {/* Practice Consistency Calendar */}
+            <Card className="bg-gray-900 border-gray-700 shadow-xl">
+              <CardHeader className="border-b border-gray-700 pb-4">
+                <CardTitle className="text-white flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Consistency
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <PracticeConsistencyCalendar 
+                  sessions={sessions} 
+                  userRegistrationDate={userRegistrationDate} 
+                />
+              </CardContent>
+            </Card>
+            
             {/* Charts Section - Two Column Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <PracticeModeChart 
