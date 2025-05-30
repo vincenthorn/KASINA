@@ -233,13 +233,14 @@ const fireShader = {
       // Get basic flame intensity for orb
       float flame = flameIntensity(flickerPos);
       
-      // Add 3D turbulence for realistic flame texture within the orb
-      vec3 turbCoord = pos * 3.0 + vec3(time * 1.5, time * 2.0, time * 1.2);
-      float turbulence = fbm(turbCoord.xy) * fbm(turbCoord.yz) * 0.4;
+      // Add turbulence for realistic flame texture within the orb
+      vec2 turbCoord1 = pos.xy * 3.0 + vec2(time * 1.5, time * 2.0);
+      vec2 turbCoord2 = pos.xz * 3.5 + vec2(time * 1.8, time * 1.4);
+      float turbulence = fbm(turbCoord1) * 0.3 + fbm(turbCoord2) * 0.2;
       
       // Secondary detail turbulence
-      vec3 detailCoord = pos * 6.0 + vec3(time * 2.5, time * 3.0, time * 2.0);
-      float detail = fbm(detailCoord.xz) * 0.2;
+      vec2 detailCoord = pos.yz * 6.0 + vec2(time * 2.5, time * 3.0);
+      float detail = fbm(detailCoord) * 0.15;
       
       // Combine flame base with turbulence
       float finalFlameIntensity = flame * (1.0 + turbulence + detail);
