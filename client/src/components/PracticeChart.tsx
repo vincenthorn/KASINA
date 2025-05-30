@@ -446,20 +446,21 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
             </ResponsiveContainer>
           </div>
           
-          {/* Legend below chart */}
+          {/* Legend below chart - aligned height with fully opaque colors */}
           <div className="w-full flex flex-col">
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-wrap gap-3 justify-center items-center">
               {chartData.map((entry, i) => {
                 const isActive = activeIndex !== null && chartData[activeIndex]?.name === entry.name;
+                const displayName = entry.displayName?.replace(' Kasinas', '') || entry.name; // Remove "Kasinas"
                 return (
                   <div 
                     key={entry.name} 
-                    className={`flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full transition-all
+                    className={`flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full transition-all h-12
                       ${isActive
                         ? 'border border-gray-500 shadow-lg scale-110' 
-                        : 'hover:bg-gray-700 border border-transparent'}`}
+                        : 'hover:border-gray-600 border border-transparent'}`}
                     style={{
-                      backgroundColor: isActive ? `${entry.color}40` : `${entry.color}20`,
+                      backgroundColor: entry.color, // Use fully opaque color
                       cursor: 'pointer',
                       boxShadow: isActive ? `0 0 8px ${entry.color}40` : 'none'
                     }}
@@ -510,10 +511,10 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                     }}
                   >
                     <span className="mr-2 text-xl md:text-2xl">{entry.emoji}</span>
-                    <span className={`text-sm md:text-base ${isActive ? 'text-white font-medium' : 'text-white'}`}>
-                      {entry.displayName}
+                    <span className="text-sm md:text-base text-white font-medium">
+                      {entry.displayName?.replace(' Kasinas', '') || entry.name}
                     </span>
-                    <span className={`ml-2 text-xs md:text-sm ${isActive ? 'text-gray-200' : 'text-gray-300'}`}>
+                    <span className="ml-2 text-xs md:text-sm text-gray-200">
                       {formatTime(entry.value)}
                     </span>
                   </div>

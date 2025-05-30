@@ -135,12 +135,12 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
       }));
   }, [drillDownSeries, sessions]);
 
-  // Get color for kasina series
+  // Get color for kasina series - matching Practice Breakdown colors
   const getSeriesColor = (series: string) => {
     switch (series) {
-      case 'Color Kasinas': return '#8B5CF6'; // Purple
-      case 'Elemental Kasinas': return '#06B6D4'; // Cyan
-      case 'Vajrayana Kasinas': return '#F59E0B'; // Amber
+      case 'Color Kasinas': return '#F59E0B'; // Amber
+      case 'Elemental Kasinas': return '#10B981'; // Green
+      case 'Vajrayana Kasinas': return '#EC4899'; // Pink
       default: return '#6B7280'; // Gray
     }
   };
@@ -156,22 +156,9 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     return `${minutes}m`;
   };
 
-  // Custom tooltip for stacked bar
+  // Custom tooltip for stacked bar - removed to prevent grey hover background
   const StackedTooltip = ({ active, payload, label }: any) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="bg-gray-900 border border-gray-600 rounded-lg p-3 shadow-xl">
-          <p className="text-white font-medium mb-2">{label} Kasina</p>
-          {payload.map((entry: any, index: number) => (
-            entry.value > 0 && (
-              <div key={index} className="text-gray-300 text-sm">
-                <span style={{ color: entry.color }}>●</span> {entry.dataKey}: {formatTime(entry.value)}
-              </div>
-            )
-          ))}
-        </div>
-      );
-    }
+    // Return null to disable tooltips on hover
     return null;
   };
 
@@ -275,22 +262,21 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                 </ResponsiveContainer>
               </div>
               
-              {/* Legend below chart */}
+              {/* Legend below chart - aligned height with fully opaque colors */}
               <div className="w-full flex flex-col space-y-3">
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-wrap gap-3 justify-center items-center">
                   {drillDownData.map((item, index) => {
-                    const lightColor = item.color + '20'; // Add 20% opacity
                     return (
                       <div 
                         key={index} 
-                        className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all"
-                        style={{ backgroundColor: lightColor }}
+                        className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all h-12"
+                        style={{ backgroundColor: item.color }}
                       >
                         <span className="mr-2 text-xl md:text-2xl">{item.emoji}</span>
-                        <span className="text-sm md:text-base text-white">
+                        <span className="text-sm md:text-base text-white font-medium">
                           {item.displayName}
                         </span>
-                        <span className="ml-2 text-xs md:text-sm text-gray-300">
+                        <span className="ml-2 text-xs md:text-sm text-gray-200">
                           {formatTime(item.value)}
                         </span>
                       </div>
@@ -339,6 +325,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     radius={[0, 0, 0, 0]}
                     onClick={() => handleSeriesClick('Color Kasinas')}
                     style={{ cursor: 'pointer' }}
+                    shape={(props: any) => <CustomBar {...props} onClick={() => handleSeriesClick('Color Kasinas')} />}
                   />
                   <Bar 
                     dataKey="Elemental Kasinas"
@@ -347,6 +334,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     radius={[0, 0, 0, 0]}
                     onClick={() => handleSeriesClick('Elemental Kasinas')}
                     style={{ cursor: 'pointer' }}
+                    shape={(props: any) => <CustomBar {...props} onClick={() => handleSeriesClick('Elemental Kasinas')} />}
                   />
                   <Bar 
                     dataKey="Vajrayana Kasinas"
@@ -355,34 +343,34 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     radius={[4, 4, 0, 0]}
                     onClick={() => handleSeriesClick('Vajrayana Kasinas')}
                     style={{ cursor: 'pointer' }}
+                    shape={(props: any) => <CustomBar {...props} onClick={() => handleSeriesClick('Vajrayana Kasinas')} />}
                   />
                 </BarChart>
               </ResponsiveContainer>
             </div>
 
-            {/* Legend for stacked bars */}
-            <div className="flex flex-wrap gap-3 justify-center">
+            {/* Legend for stacked bars - aligned height with fully opaque colors */}
+            <div className="flex flex-wrap gap-3 justify-center items-center">
               {['Color Kasinas', 'Elemental Kasinas', 'Vajrayana Kasinas'].map((series) => {
                 const seriesColor = getSeriesColor(series);
-                const lightColor = seriesColor + '20'; // Add 20% opacity
                 
                 // Calculate total time for this series across all modes
                 const seriesTotal = chartData.reduce((sum, modeData) => sum + (modeData[series] || 0), 0);
                 const seriesEmoji = series === 'Color Kasinas' ? '🎨' : 
                                   series === 'Elemental Kasinas' ? '✨' : '💀';
+                const seriesName = series.replace(' Kasinas', ''); // Remove "Kasinas"
                 
                 return (
                   <div 
                     key={series}
-                    className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all cursor-pointer"
-                    style={{ backgroundColor: lightColor }}
-                    onClick={() => handleSeriesClick(series)}
+                    className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all cursor-pointer h-12"
+                    style={{ backgroundColor: seriesColor }}
                   >
                     <span className="mr-2 text-xl md:text-2xl">{seriesEmoji}</span>
-                    <span className="text-sm md:text-base text-white">
-                      {series}
+                    <span className="text-sm md:text-base text-white font-medium">
+                      {seriesName}
                     </span>
-                    <span className="ml-2 text-xs md:text-sm text-gray-300">
+                    <span className="ml-2 text-xs md:text-sm text-gray-200">
                       {formatTime(seriesTotal)}
                     </span>
                   </div>
