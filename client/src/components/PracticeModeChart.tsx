@@ -41,6 +41,29 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     return 'Other';
   };
 
+  // Get color for individual kasinas
+  const getKasinaColor = (kasina: string) => {
+    const colors: { [key: string]: string } = {
+      [KASINA_TYPES.BLUE]: '#3B82F6',
+      [KASINA_TYPES.RED]: '#EF4444', 
+      [KASINA_TYPES.YELLOW]: '#EAB308',
+      [KASINA_TYPES.WHITE]: '#F3F4F6',
+      [KASINA_TYPES.WATER]: '#06B6D4',
+      [KASINA_TYPES.FIRE]: '#F97316',
+      [KASINA_TYPES.EARTH]: '#84CC16',
+      [KASINA_TYPES.AIR]: '#8B5CF6',
+      [KASINA_TYPES.SPACE]: '#A855F7',
+      [KASINA_TYPES.LIGHT]: '#06B6D4',
+      [KASINA_TYPES.WHITE_A_KASINA]: '#8B5CF6',
+      [KASINA_TYPES.WHITE_A_THIGLE]: '#06B6D4',
+      [KASINA_TYPES.OM_KASINA]: '#F59E0B',
+      [KASINA_TYPES.AH_KASINA]: '#EF4444',
+      [KASINA_TYPES.HUM_KASINA]: '#10B981',
+      [KASINA_TYPES.RAINBOW_KASINA]: '#8B5CF6',
+    };
+    return colors[kasina] || '#6B7280';
+  };
+
   // Calculate stacked bar chart data
   const chartData = useMemo(() => {
     if (!sessions || sessions.length === 0) return [];
@@ -120,29 +143,6 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
       case 'Vajrayana Kasinas': return '#F59E0B'; // Amber
       default: return '#6B7280'; // Gray
     }
-  };
-
-  // Get color for individual kasinas
-  const getKasinaColor = (kasina: string) => {
-    const colors: { [key: string]: string } = {
-      [KASINA_TYPES.BLUE]: '#3B82F6',
-      [KASINA_TYPES.RED]: '#EF4444', 
-      [KASINA_TYPES.YELLOW]: '#EAB308',
-      [KASINA_TYPES.WHITE]: '#F3F4F6',
-      [KASINA_TYPES.WATER]: '#06B6D4',
-      [KASINA_TYPES.FIRE]: '#F97316',
-      [KASINA_TYPES.EARTH]: '#84CC16',
-      [KASINA_TYPES.AIR]: '#8B5CF6',
-      [KASINA_TYPES.SPACE]: '#A855F7',
-      [KASINA_TYPES.LIGHT]: '#06B6D4',
-      [KASINA_TYPES.WHITE_A_KASINA]: '#8B5CF6',
-      [KASINA_TYPES.WHITE_A_THIGLE]: '#06B6D4',
-      [KASINA_TYPES.OM_KASINA]: '#F59E0B',
-      [KASINA_TYPES.AH_KASINA]: '#EF4444',
-      [KASINA_TYPES.HUM_KASINA]: '#10B981',
-      [KASINA_TYPES.RAINBOW_KASINA]: '#8B5CF6',
-    };
-    return colors[kasina] || '#6B7280';
   };
 
   // Format time for display
