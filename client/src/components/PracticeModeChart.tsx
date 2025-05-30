@@ -156,6 +156,16 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     return `${minutes}m`;
   };
 
+  // Get appropriate text color based on background brightness
+  const getTextColor = (backgroundColor: string) => {
+    // For bright colors like yellow, use black text
+    const brightColors = ['#FCD34D', '#FBBF24', '#F59E0B', '#FFFFCC', '#FFFF00'];
+    if (brightColors.includes(backgroundColor)) {
+      return 'text-black';
+    }
+    return 'text-white';
+  };
+
   // Custom tooltip for stacked bar - removed to prevent grey hover background
   const StackedTooltip = ({ active, payload, label }: any) => {
     // Return null to disable tooltips on hover
@@ -235,7 +245,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
             </div>
             
             <div className="flex flex-col items-center gap-6">
-              {/* Chart container - matching PracticeChart sizing */}
+              {/* Chart container - matching PracticeChart sizing exactly */}
               <div className="w-80 h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -247,7 +257,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                       innerRadius={60}
                       dataKey="value"
                       labelLine={false}
-                      paddingAngle={1}
+                      paddingAngle={2}
                     >
                       {drillDownData.map((entry, index) => (
                         <Cell 
@@ -273,10 +283,10 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                         style={{ backgroundColor: item.color }}
                       >
                         <span className="mr-2 text-xl md:text-2xl">{item.emoji}</span>
-                        <span className="text-sm md:text-base text-white font-medium">
+                        <span className={`text-sm md:text-base font-medium ${getTextColor(item.color)}`}>
                           {item.displayName}
                         </span>
-                        <span className="ml-2 text-xs md:text-sm text-gray-200">
+                        <span className={`ml-2 text-xs md:text-sm ${getTextColor(item.color)} opacity-90`}>
                           {formatTime(item.value)}
                         </span>
                       </div>
@@ -293,17 +303,19 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
               Click on a section to see detailed breakdown
             </div>
             
-            <div className="w-full h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={chartData}
-                  margin={{
-                    top: 20,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                  }}
-                >
+            {/* Chart container - adjusted to match pie chart height */}
+            <div className="flex flex-col items-center gap-6">
+              <div className="w-full h-64">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={chartData}
+                    margin={{
+                      top: 20,
+                      right: 30,
+                      left: 20,
+                      bottom: 5,
+                    }}
+                  >
                   <XAxis 
                     dataKey="mode" 
                     axisLine={false}
@@ -345,12 +357,12 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     style={{ cursor: 'pointer' }}
                     shape={(props: any) => <CustomBar {...props} onClick={() => handleSeriesClick('Vajrayana Kasinas')} />}
                   />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
 
-            {/* Legend for stacked bars - aligned height with fully opaque colors */}
-            <div className="flex flex-wrap gap-3 justify-center items-center">
+              {/* Legend for stacked bars - aligned height with fully opaque colors */}
+              <div className="flex flex-wrap gap-3 justify-center items-center">
               {['Color Kasinas', 'Elemental Kasinas', 'Vajrayana Kasinas'].map((series) => {
                 const seriesColor = getSeriesColor(series);
                 
@@ -365,17 +377,19 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     key={series}
                     className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all cursor-pointer h-12"
                     style={{ backgroundColor: seriesColor }}
+                    onClick={() => handleSeriesClick(series)}
                   >
                     <span className="mr-2 text-xl md:text-2xl">{seriesEmoji}</span>
-                    <span className="text-sm md:text-base text-white font-medium">
+                    <span className={`text-sm md:text-base font-medium ${getTextColor(seriesColor)}`}>
                       {seriesName}
                     </span>
-                    <span className="ml-2 text-xs md:text-sm text-gray-200">
+                    <span className={`ml-2 text-xs md:text-sm ${getTextColor(seriesColor)} opacity-90`}>
                       {formatTime(seriesTotal)}
                     </span>
                   </div>
                 );
               })}
+              </div>
             </div>
           </div>
         )}

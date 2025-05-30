@@ -136,6 +136,16 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
     return `${minutes}m`;
   };
 
+  // Get appropriate text color based on background brightness
+  const getTextColor = (backgroundColor: string) => {
+    // For bright colors like yellow, use black text
+    const brightColors = ['#FCD34D', '#FBBF24', '#F59E0B', '#FFFFCC', '#FFFF00'];
+    if (brightColors.includes(backgroundColor)) {
+      return 'text-black';
+    }
+    return 'text-white';
+  };
+
   // Helper function to round time (round up to nearest minute if > 30 seconds)
   const roundTime = (seconds: number): number => {
     const minutes = Math.floor(seconds / 60);
@@ -511,10 +521,10 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                     }}
                   >
                     <span className="mr-2 text-xl md:text-2xl">{entry.emoji}</span>
-                    <span className="text-sm md:text-base text-white font-medium">
+                    <span className={`text-sm md:text-base font-medium ${getTextColor(entry.color)}`}>
                       {entry.displayName?.replace(' Kasinas', '') || entry.name}
                     </span>
-                    <span className="ml-2 text-xs md:text-sm text-gray-200">
+                    <span className={`ml-2 text-xs md:text-sm ${getTextColor(entry.color)} opacity-90`}>
                       {formatTime(entry.value)}
                     </span>
                   </div>
