@@ -145,7 +145,7 @@ const waterShader = {
 
 const fireShader = {
   uniforms: {
-    time: { value: 0.0 },
+    time: { value: 0 },
     color: { value: new THREE.Color("#ff6600") },
     opacity: { value: 1.0 }
   },
@@ -172,19 +172,24 @@ const fireShader = {
     void main() {
       vec3 pos = vPosition;
       
-      vec3 fireColor = vec3(1.0, 0.3, 0.0);
+      // Fire base color
+      vec3 fireColor = vec3(1.0, 0.4, 0.0);
       
-      float flame1 = sin(pos.x * 8.0 + time * 3.0) * 0.3;
-      float flame2 = sin(pos.y * 6.0 + time * 2.5) * 0.2;
-      float flame3 = sin(pos.z * 10.0 + time * 4.0) * 0.1;
+      // Create flame patterns similar to water but with different frequencies
+      float flame1 = sin(pos.x * 10.0 + time * 4.0) * 0.4;
+      float flame2 = sin(pos.y * 8.0 + time * 3.5) * 0.3;
+      float flame3 = sin(pos.z * 12.0 + time * 5.0) * 0.2;
       
-      vec3 flames = vec3(flame1, flame2, flame3) * 0.8;
+      vec3 flames = vec3(flame1 + 0.3, flame2 + 0.2, flame3) * 0.6;
       
-      float intensity = 1.0 - length(pos);
-      intensity = max(0.0, intensity);
+      // Glow effect
+      float glow = sin(time * 2.0) * 0.1 + 0.9;
       
-      vec3 finalColor = fireColor + flames;
-      gl_FragColor = vec4(finalColor, opacity * intensity);
+      // Highlight
+      vec3 highlight = vec3(0.3, 0.1, 0.0) * sin(time * 6.0 + pos.x * 5.0) * 0.2;
+      
+      vec3 finalColor = fireColor + flames + glow + highlight;
+      gl_FragColor = vec4(finalColor, opacity * 0.9);
     }
   `
 };
