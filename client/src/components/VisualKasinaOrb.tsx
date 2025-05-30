@@ -732,9 +732,22 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
     useFrame((state) => {
       if (meshRef.current) {
-        // Smooth, continuous rotation based on elapsed time
         const time = state.clock.getElapsedTime();
-        meshRef.current.rotation.y = time * 0.2; // Slow, smooth rotation
+        
+        // Different rotation behaviors for different kasinas
+        if (selectedKasina === KASINA_TYPES.WATER) {
+          // Water kasina gets flowing motion instead of uniform rotation
+          meshRef.current.rotation.y = Math.sin(time * 0.3) * 0.1 + time * 0.05;
+          meshRef.current.rotation.x = Math.cos(time * 0.2) * 0.05;
+        } else if (selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.LIGHT) {
+          // Space and Light kasinas have no rotation to avoid shadow artifacts
+          meshRef.current.rotation.y = 0;
+          meshRef.current.rotation.x = 0;
+          meshRef.current.rotation.z = 0;
+        } else {
+          // Other elemental kasinas get smooth, continuous rotation
+          meshRef.current.rotation.y = time * 0.15; // Slightly slower rotation
+        }
         
         // Apply size multiplier
         const targetScale = sizeMultiplier;
