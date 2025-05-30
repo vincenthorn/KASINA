@@ -530,6 +530,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       enableWakeLock();
       console.log("🔒 Wake lock enabled - screen will stay awake during meditation");
       
+      // Auto-enter fullscreen for focused meditation
+      try {
+        if (!document.fullscreenElement) {
+          await document.documentElement.requestFullscreen();
+          console.log("📺 Auto-entered fullscreen for meditation session");
+        }
+      } catch (error) {
+        console.log("📺 Fullscreen auto-entry failed (user interaction may be required):", error);
+      }
+      
       // Mark as initialized
       sessionInitializedRef.current = true;
     };
@@ -633,6 +643,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     // Release wake lock when meditation ends
     disableWakeLock();
     console.log("🔓 Wake lock released - screen can sleep normally again");
+    
+    // Auto-exit fullscreen when session ends
+    try {
+      if (document.fullscreenElement) {
+        await document.exitFullscreen();
+        console.log("📺 Auto-exited fullscreen after meditation session");
+      }
+    } catch (error) {
+      console.log("📺 Fullscreen auto-exit failed:", error);
+    }
     
     // Always navigate to Reflection page when ending session
     navigate('/reflection');
