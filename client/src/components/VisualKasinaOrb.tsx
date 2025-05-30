@@ -488,7 +488,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       enableWakeLock();
       console.log("🔒 Wake lock enabled - screen will stay awake during meditation");
       
-      // Fullscreen is now triggered by user interaction in KasinaSelectionInterface
+      // Auto-enter fullscreen for meditation session
+      try {
+        if (!document.fullscreenElement) {
+          await document.documentElement.requestFullscreen();
+          setIsFullscreen(true);
+          console.log("📺 Entered fullscreen for Visual Kasina meditation session");
+        }
+      } catch (error) {
+        console.log("📺 Fullscreen request failed:", error);
+      }
       
       // Mark as initialized
       sessionInitializedRef.current = true;

@@ -166,71 +166,27 @@ const fireShader = {
     varying vec3 vPosition;
     varying vec3 vNormal;
     
-    float random(vec2 st) {
-      return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
-    }
-    
-    float noise(vec2 st) {
-      vec2 i = floor(st);
-      vec2 f = fract(st);
-      float a = random(i);
-      float b = random(i + vec2(1.0, 0.0));
-      float c = random(i + vec2(0.0, 1.0));
-      float d = random(i + vec2(1.0, 1.0));
-      vec2 u = f * f * (3.0 - 2.0 * f);
-      return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
-    }
-    
-    float fbm(vec2 st) {
-      float value = 0.0;
-      float amplitude = 0.5;
-      for (int i = 0; i < 5; i++) {
-        value += amplitude * noise(st);
-        st *= 2.0;
-        amplitude *= 0.5;
-      }
-      return value;
-    }
-    
     void main() {
-      vec3 nPos = normalize(vPosition);
+      vec3 pos = vPosition;
       
-      vec3 emberColor = vec3(0.6, 0.05, 0.0);
-      vec3 fireRed = vec3(1.0, 0.2, 0.0);
-      vec3 fireOrange = vec3(1.0, 0.4, 0.0);
-      vec3 fireYellow = vec3(1.0, 0.7, 0.1);
-      vec3 hotYellow = vec3(1.0, 0.9, 0.3);
+      // Fire base color
+      vec3 fireColor = vec3(1.0, 0.4, 0.0);
       
-      float height = nPos.y * 0.5 + 0.5;
-      float distFromCenter = length(vec2(nPos.x, nPos.z));
-      float baseShape = 1.0 - smoothstep(0.0, 0.8, distFromCenter);
+      // Create flame patterns similar to water but with different frequencies
+      float flame1 = sin(pos.x * 10.0 + time * 4.0) * 0.4;
+      float flame2 = sin(pos.y * 8.0 + time * 3.5) * 0.3;
+      float flame3 = sin(pos.z * 12.0 + time * 5.0) * 0.2;
       
-      float flames = 0.0;
-      vec2 largeFlameCoord = vec2(nPos.x * 2.0 + sin(time * 0.7) * 0.2, nPos.y * 2.0 + time * 0.8);
-      flames += fbm(largeFlameCoord) * 0.6;
+      vec3 flames = vec3(flame1 + 0.3, flame2 + 0.2, flame3) * 0.6;
       
-      vec2 medFlameCoord = vec2(nPos.x * 4.0 + sin(time * 1.2 + nPos.z) * 0.3, nPos.y * 3.0 + time * 1.5);
-      flames += fbm(medFlameCoord) * 0.3;
+      // Glow effect
+      float glow = sin(time * 2.0) * 0.1 + 0.9;
       
-      flames *= smoothstep(-0.2, 0.8, nPos.y);
+      // Highlight
+      vec3 highlight = vec3(0.3, 0.1, 0.0) * sin(time * 6.0 + pos.x * 5.0) * 0.2;
       
-      float flicker = (noise(vec2(time * 1.5, 0.0)) * 0.5 + 0.5) * (noise(vec2(time * 3.0, 0.5)) * 0.3 + 0.7);
-      float fireIntensity = clamp((baseShape * 0.6 + flames * 0.8) * flicker, 0.0, 1.0);
-      
-      vec3 fireColor;
-      if (fireIntensity > 0.6) {
-        fireColor = mix(fireOrange, fireYellow, (fireIntensity - 0.6) * 2.5);
-      } else if (fireIntensity > 0.3) {
-        fireColor = mix(fireRed, fireOrange, (fireIntensity - 0.3) * 3.33);
-      } else {
-        fireColor = mix(emberColor, fireRed, fireIntensity * 3.33);
-      }
-      
-      float verticalGradient = smoothstep(-1.0, 1.0, nPos.y);
-      fireColor *= mix(0.7, 1.3, verticalGradient);
-      fireColor = pow(fireColor, vec3(0.6));
-      
-      gl_FragColor = vec4(fireColor, max(fireIntensity * 0.95, 0.8));
+      vec3 finalColor = fireColor + flames + glow + highlight;
+      gl_FragColor = vec4(finalColor, opacity * 0.9);
     }
   `
 };
