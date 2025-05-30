@@ -405,14 +405,12 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
 
         </div>
         {chartMode !== 'overview' && (
-          <Button 
-            variant="outline" 
-            size="sm" 
+          <button
             onClick={handleBackToOverview}
-            className="absolute top-4 right-4 text-sm bg-gray-800 hover:bg-gray-700 border-gray-600"
+            className="absolute top-4 right-4 text-blue-400 hover:text-blue-300 text-sm"
           >
-            Back to Overview
-          </Button>
+            ← Back to Overview
+          </button>
         )}
       </CardHeader>
       <CardContent className="p-6">
