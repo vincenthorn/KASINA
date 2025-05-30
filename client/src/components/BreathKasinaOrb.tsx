@@ -19,6 +19,7 @@ import AhKasina from './AhKasina';
 import HumKasina from './HumKasina';
 import RainbowKasina from './RainbowKasina';
 import * as THREE from 'three';
+import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 
 // Shader materials for the elemental kasinas (copied from main KasinaOrb component)
 const waterShader = {

@@ -799,81 +799,29 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       );
     }
 
-    // Elemental kasinas with animated shaders
-    if (selectedKasina === KASINA_TYPES.WATER) {
+    // Elemental kasinas with animated shaders using shared library
+    const elementalKasinas = [
+      KASINA_TYPES.WATER, KASINA_TYPES.FIRE, KASINA_TYPES.AIR, 
+      KASINA_TYPES.EARTH, KASINA_TYPES.SPACE, KASINA_TYPES.LIGHT
+    ];
+    
+    if (elementalKasinas.includes(selectedKasina)) {
+      const shader = getKasinaShader(selectedKasina);
+      const materialRef = selectedKasina === KASINA_TYPES.WATER ? waterMaterialRef :
+                         selectedKasina === KASINA_TYPES.FIRE ? fireMaterialRef :
+                         selectedKasina === KASINA_TYPES.AIR ? airMaterialRef :
+                         selectedKasina === KASINA_TYPES.EARTH ? earthMaterialRef :
+                         selectedKasina === KASINA_TYPES.SPACE ? spaceMaterialRef :
+                         lightMaterialRef;
+                         
       return (
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
           <shaderMaterial
-            ref={waterMaterialRef}
-            uniforms={waterShader.uniforms}
-            vertexShader={waterShader.vertexShader}
-            fragmentShader={waterShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
-      );
-    } else if (selectedKasina === KASINA_TYPES.FIRE) {
-      return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={fireMaterialRef}
-            uniforms={fireShader.uniforms}
-            vertexShader={fireShader.vertexShader}
-            fragmentShader={fireShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
-      );
-    } else if (selectedKasina === KASINA_TYPES.AIR) {
-      return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={airMaterialRef}
-            uniforms={airShader.uniforms}
-            vertexShader={airShader.vertexShader}
-            fragmentShader={airShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
-      );
-    } else if (selectedKasina === KASINA_TYPES.EARTH) {
-      return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={earthMaterialRef}
-            uniforms={earthShader.uniforms}
-            vertexShader={earthShader.vertexShader}
-            fragmentShader={earthShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
-      );
-    } else if (selectedKasina === KASINA_TYPES.SPACE) {
-      return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={spaceMaterialRef}
-            uniforms={spaceShader.uniforms}
-            vertexShader={spaceShader.vertexShader}
-            fragmentShader={spaceShader.fragmentShader}
-            transparent={true}
-          />
-        </mesh>
-      );
-    } else if (selectedKasina === KASINA_TYPES.LIGHT) {
-      return (
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={lightMaterialRef}
-            uniforms={lightShader.uniforms}
-            vertexShader={lightShader.vertexShader}
-            fragmentShader={lightShader.fragmentShader}
+            ref={materialRef}
+            uniforms={shader.uniforms}
+            vertexShader={shader.vertexShader}
+            fragmentShader={shader.fragmentShader}
             transparent={true}
           />
         </mesh>
