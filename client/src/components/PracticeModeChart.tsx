@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 
 interface PracticeModeChartProps {
   sessions: {
@@ -12,42 +12,20 @@ interface PracticeModeChartProps {
   }[];
 }
 
-// Component for the active segment in the chart
-const ActiveShape = (props: any) => {
-  const { 
-    cx, cy, innerRadius, outerRadius, startAngle, endAngle, 
-    fill, payload, percent, value 
-  } = props;
+// Custom bar component for the chart
+const CustomBar = (props: any) => {
+  const { fill, x, y, width, height } = props;
   
-  // Format time for display
-  const formatTime = (seconds: number) => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    
-    if (hours > 0) {
-      return `${hours}h ${minutes}m`;
-    }
-    return `${minutes}m`;
-  };
-
   return (
-    <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#ffffff" fontSize="14" fontWeight="600">
-        {payload.displayName}
-      </text>
-      <text x={cx} y={cy} dy={28} textAnchor="middle" fill="#9CA3AF" fontSize="12">
-        {formatTime(value)}
-      </text>
-      <Sector
-        cx={cx}
-        cy={cy}
-        innerRadius={innerRadius}
-        outerRadius={outerRadius + 10}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        fill={fill}
-      />
-    </g>
+    <rect
+      x={x}
+      y={y}
+      width={width}
+      height={height}
+      fill={fill}
+      rx={4}
+      ry={4}
+    />
   );
 };
 
@@ -148,34 +126,47 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
       <CardHeader className="border-b border-gray-700 pb-4">
         <CardTitle className="text-white flex items-center">
           <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
           Practice Breakdown
         </CardTitle>
       </CardHeader>
       <CardContent className="p-6">
-        <div className="flex flex-col items-center gap-6">
-          {/* Pie Chart */}
-          <div className="w-80 h-80">
+        <div className="flex flex-col gap-6">
+          {/* Bar Chart */}
+          <div className="w-full h-64">
             <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={chartData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={120}
-                  paddingAngle={2}
-                  dataKey="value"
-                  activeShape={ActiveShape}
+              <BarChart
+                data={chartData}
+                margin={{
+                  top: 20,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <XAxis 
+                  dataKey="displayName" 
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fill: '#9CA3AF', fontSize: 14 }}
+                />
+                <YAxis 
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                  tickFormatter={(value) => formatTime(value)}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Bar 
+                  dataKey="value" 
+                  radius={[4, 4, 0, 0]}
                 >
                   {chartData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
+                    <Bar key={`cell-${index}`} fill={entry.color} />
                   ))}
-                </Pie>
-                <Tooltip content={<CustomTooltip />} />
-              </PieChart>
+                </Bar>
+              </BarChart>
             </ResponsiveContainer>
           </div>
 
