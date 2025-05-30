@@ -408,6 +408,12 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
       <CardContent className="p-6">
         {/* Improved layout with chart above and legend below */}
         <div className="flex flex-col items-center gap-6">
+          {chartMode === 'overview' && (
+            <div className="text-center text-gray-400 text-sm">
+              Click on a section to see detailed breakdown
+            </div>
+          )}
+          
           {/* Chart container */}
           <div className="w-80 h-80">
             <ResponsiveContainer width="100%" height="100%">
@@ -441,7 +447,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
           </div>
           
           {/* Legend below chart */}
-          <div className="w-full flex flex-col space-y-3">
+          <div className="w-full flex flex-col">
             <div className="flex flex-wrap gap-3 justify-center">
               {chartData.map((entry, i) => {
                 const isActive = activeIndex !== null && chartData[activeIndex]?.name === entry.name;
@@ -514,12 +520,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                 );
               })}
             </div>
-            
-            {chartMode === 'overview' && (
-              <p className="text-center text-xs text-blue-300 mt-2">
-                Click on a section to see detailed breakdown
-              </p>
-            )}
+
           </div>
         </div>
       </CardContent>
