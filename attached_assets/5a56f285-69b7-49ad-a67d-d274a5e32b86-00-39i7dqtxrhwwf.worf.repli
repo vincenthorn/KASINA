@@ -6,12 +6,9 @@ warnOnce @ react-router-dom.js?v=9eed23f0:4394
 react-router-dom.js?v=9eed23f0:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 warnOnce @ react-router-dom.js?v=9eed23f0:4394
 useAuth.tsx:169 Setting auth state with user: Object
-sessionRecovery.ts:45 🛡️ Session recovery started for fire (session_1748610631738_mnoxgygkg)
+sessionRecovery.ts:45 🛡️ Session recovery started for fire (session_1748610759135_yndakxdtu)
 VisualKasinaOrb.tsx:485 🧘 Visual kasina meditation session started
 useWakeLock.tsx:44 Requesting screen wake lock...
 VisualKasinaOrb.tsx:489 🔒 Wake lock enabled - screen will stay awake during meditation
 useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
 KasinaSelectionInterface.tsx:202 📺 Entered fullscreen for meditation session
-useWakeLock.tsx:56 Screen wake lock was released
-useWakeLock.tsx:44 Requesting screen wake lock...
-useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
