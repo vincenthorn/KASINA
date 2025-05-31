@@ -313,14 +313,15 @@ export default function KasinaRenderer({
       immersionBackgroundRef.current.scale.setScalar(scale);
     }
 
-    // Update shader uniforms
-    const time = state.clock.getElapsedTime();
-    if (waterMaterialRef.current) waterMaterialRef.current.uniforms.time.value = time;
-    if (fireMaterialRef.current) fireMaterialRef.current.uniforms.time.value = time;
-    if (airMaterialRef.current) airMaterialRef.current.uniforms.time.value = time;
-    if (earthMaterialRef.current) earthMaterialRef.current.uniforms.time.value = time;
-    if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = time;
-    if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = time;
+    // Update shader uniforms with time wrapping to prevent overflow
+    const rawTime = state.clock.getElapsedTime();
+    const wrappedTime = rawTime % 1000; // Reset every 1000 seconds to prevent floating-point overflow
+    if (waterMaterialRef.current) waterMaterialRef.current.uniforms.time.value = wrappedTime;
+    if (fireMaterialRef.current) fireMaterialRef.current.uniforms.time.value = wrappedTime;
+    if (airMaterialRef.current) airMaterialRef.current.uniforms.time.value = wrappedTime;
+    if (earthMaterialRef.current) earthMaterialRef.current.uniforms.time.value = wrappedTime;
+    if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = wrappedTime;
+    if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = wrappedTime;
   });
 
   // Determine if kasina should be rendered as sphere

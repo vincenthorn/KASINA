@@ -700,7 +700,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         meshRef.current.lookAt(camera.position);
         
         // Add more dynamic floating motion
-        const time = clock.getElapsedTime();
+        const rawTime = clock.getElapsedTime();
+        const time = rawTime % 1000; // Wrap time to prevent overflow
         meshRef.current.position.y = Math.sin(time * 0.5) * 0.08;
         meshRef.current.position.x = Math.sin(time * 0.3) * 0.04;
         
@@ -729,7 +730,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       // Special rotation handling for Light kasina
       else if (selectedKasina === KASINA_TYPES.LIGHT) {
         // Limited 180 degree oscillation with dark side always facing away
-        const time = clock.getElapsedTime();
+        const rawTime = clock.getElapsedTime();
+        const time = rawTime % 1000; // Wrap time to prevent overflow
         // Use sine wave to create oscillation between -0.5 and 0.5 (radians)
         meshRef.current.rotation.y = Math.sin(time * 0.1) * 0.5;
         
@@ -739,7 +741,9 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         meshRef.current.rotation.z = 0;
       } else {
         // Regular rotation for other kasinas at half the original speed
-        meshRef.current.rotation.y = clock.getElapsedTime() * 0.05; // Reduced from 0.1 to 0.05 (half speed)
+        const rawTime = clock.getElapsedTime();
+        const wrappedTime = rawTime % 1000; // Wrap time to prevent overflow
+        meshRef.current.rotation.y = wrappedTime * 0.05; // Reduced from 0.1 to 0.05 (half speed)
       }
       
       // We'll store our timer data in component instance to persist between frames
@@ -815,7 +819,8 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
         }
         
         // Breathing effects for Space kasina and Fire kasina when not in end-of-session shrinking
-        const time = clock.getElapsedTime();
+        const rawTime = clock.getElapsedTime();
+        const time = rawTime % 1000; // Wrap time to prevent overflow
         
         // Use cubic-bezier-like timing function for smoother animation
         // Different timing for each kasina type
@@ -928,9 +933,11 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
       }
     }
     
-    // Update time uniform for shader materials
+    // Update time uniform for shader materials with time wrapping
     if (materialRef.current && 'uniforms' in materialRef.current) {
-      (materialRef.current as THREE.ShaderMaterial).uniforms.time.value = clock.getElapsedTime();
+      const rawTime = clock.getElapsedTime();
+      const wrappedTime = rawTime % 1000; // Wrap time to prevent overflow
+      (materialRef.current as THREE.ShaderMaterial).uniforms.time.value = wrappedTime;
     }
   });
 
