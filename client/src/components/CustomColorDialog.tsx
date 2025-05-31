@@ -34,7 +34,7 @@ const CustomColorDialog: React.FC<CustomColorDialogProps> = ({
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md bg-white border-gray-300 rounded-2xl">
+      <DialogContent className="sm:max-w-md bg-white border-gray-300 !rounded-2xl">
         <DialogHeader>
           <DialogTitle className="text-gray-800 text-center">
             Choose Your Custom Color
