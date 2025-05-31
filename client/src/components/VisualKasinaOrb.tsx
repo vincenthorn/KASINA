@@ -394,6 +394,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // IMMEDIATE CRASH DETECTION - Log on component mount
   console.log('🚀 VisualKasinaOrb component loading - crash detection active');
   
+  // Immediate localStorage marker for hard crash detection
+  localStorage.setItem('visualModeActive', 'true');
+  localStorage.setItem('visualModeStartTime', Date.now().toString());
+  
   const { selectedKasina, setSelectedKasina } = useKasina();
   const { currentColor } = useColor();
   const navigate = useNavigate();
@@ -526,7 +530,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       localStorage.removeItem('visualModeStartTime');
       console.log('Visual mode session ended cleanly, crash monitoring stopped');
     };
-  }, [meditationTime, selectedKasina, sizeMultiplier]);
+  }, []); // Run only once on mount
   
   // Format time display
   const formatTime = (seconds: number) => {
