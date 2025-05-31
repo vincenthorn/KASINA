@@ -472,6 +472,18 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       localStorage.setItem('visualModeCrash', JSON.stringify(crashData));
       console.error('Visual mode crash logged:', crashData);
       
+      // Also save to a persistent crash log file that survives logout
+      const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
+      const crashes = JSON.parse(crashLog);
+      crashes.push({
+        ...crashData,
+        sessionId: sessionIdRef.current,
+        crashType: 'javascript_error'
+      });
+      // Keep only last 10 crashes to prevent storage bloat
+      if (crashes.length > 10) crashes.shift();
+      localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
+      
       if (meditationTime >= 60) {
         endMeditation().catch(() => {});
       }
@@ -515,13 +527,25 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
           
           // Log critical memory state
-          localStorage.setItem('visualModeCriticalMemory', JSON.stringify({
+          const criticalMemoryData = {
             timestamp: new Date().toISOString(),
             meditationTime,
             memoryMB: usedMB,
             limitMB,
             action: 'emergency_prevention'
-          }));
+          };
+          localStorage.setItem('visualModeCriticalMemory', JSON.stringify(criticalMemoryData));
+          
+          // Also save to persistent crash log
+          const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
+          const crashes = JSON.parse(crashLog);
+          crashes.push({
+            ...criticalMemoryData,
+            sessionId: sessionIdRef.current,
+            crashType: 'critical_memory'
+          });
+          if (crashes.length > 10) crashes.shift();
+          localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
           
           // If still critical after 30 seconds, force session end
           setTimeout(() => {

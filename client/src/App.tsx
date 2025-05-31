@@ -24,6 +24,7 @@ import VernierTestPage from "./pages/VernierTestPage";
 import VisualKasinaOrb from "./components/VisualKasinaOrb";
 
 import NotFound from "./pages/not-found";
+import CrashLogPage from "./pages/CrashLogPage";
 
 // Base authenticated route for any logged in user
 function AuthenticatedRoute({ children }: { children: React.ReactNode }) {
@@ -70,6 +71,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/logo-export" element={<LogoExportPage />} />
+              <Route path="/crash-log" element={<CrashLogPage />} />
               <Route
                 path="/"
                 element={

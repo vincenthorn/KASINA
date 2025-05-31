@@ -29,6 +29,21 @@ const HomePage: React.FC = () => {
       console.error('HARD CRASH DETECTED: Visual mode was active but did not exit cleanly');
       console.error(`Session lasted approximately ${sessionDuration} seconds before crash`);
       
+      // Save hard crash to persistent log
+      const hardCrashData = {
+        timestamp: new Date().toISOString(),
+        sessionDuration,
+        crashType: 'hard_crash',
+        message: 'Visual mode was active but did not exit cleanly',
+        userAgent: navigator.userAgent
+      };
+      
+      const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
+      const crashes = JSON.parse(crashLog);
+      crashes.push(hardCrashData);
+      if (crashes.length > 10) crashes.shift();
+      localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
+      
       // Clear the flags
       localStorage.removeItem('visualModeActive');
       localStorage.removeItem('visualModeStartTime');
