@@ -38,8 +38,6 @@ const KasinasPage: React.FC = () => {
 
   return (
     <div className="h-screen w-screen relative bg-black flex items-center justify-center">
-      <VisualKasinaOrb />
-      
       <KasinaSelectionInterface
         showKasinaSelection={showKasinaSelection}
         kasinaSelectionStep={kasinaSelectionStep}

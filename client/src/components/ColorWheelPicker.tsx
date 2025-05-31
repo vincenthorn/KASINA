@@ -339,7 +339,7 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
     <div className={`space-y-4 ${className}`}>
       {/* Color Wheel */}
       <div className="flex flex-col items-center space-y-2">
-        <Label className="text-sm font-medium text-white">Color Wheel</Label>
+        <Label className="text-sm font-medium text-gray-700">Color Wheel</Label>
         <canvas
           ref={canvasRef}
           width={200}
@@ -355,7 +355,7 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
 
       {/* Brightness Slider */}
       <div className="flex flex-col items-center space-y-2">
-        <Label className="text-sm font-medium text-white">Brightness</Label>
+        <Label className="text-sm font-medium text-gray-700">Brightness</Label>
         <canvas
           ref={brightnessRef}
           width={200}
@@ -371,7 +371,7 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
 
       {/* HEX Input */}
       <div className="flex flex-col space-y-2">
-        <Label htmlFor="hex-input" className="text-sm font-medium text-white">
+        <Label htmlFor="hex-input" className="text-sm font-medium text-gray-700">
           HEX Color Code
         </Label>
         <Input
@@ -381,14 +381,14 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
           onChange={handleHexChange}
           placeholder="#RRGGBB"
           pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-          className="bg-black/30 text-white border-gray-600 focus:border-gray-400 text-center font-mono"
+          className="bg-gray-50 text-gray-800 border-gray-300 focus:border-blue-400 text-center font-mono"
           maxLength={7}
         />
       </div>
 
       {/* Color Preview */}
       <div className="flex flex-col items-center space-y-2">
-        <Label className="text-sm font-medium text-white">Preview</Label>
+        <Label className="text-sm font-medium text-gray-700">Preview</Label>
         <div 
           className="w-full h-12 border border-gray-600 rounded"
           style={{ backgroundColor: hexInput }}
