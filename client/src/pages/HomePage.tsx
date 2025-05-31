@@ -10,6 +10,23 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const { email, subscriptionType } = useAuth();
   
+  // Check for crash logs from visual mode
+  React.useEffect(() => {
+    const crashData = localStorage.getItem('visualModeCrash');
+    const promiseRejectionData = localStorage.getItem('visualModePromiseRejection');
+    
+    if (crashData) {
+      console.error('Retrieved visual mode crash data:', JSON.parse(crashData));
+      // Clear after logging so it doesn't persist
+      localStorage.removeItem('visualModeCrash');
+    }
+    
+    if (promiseRejectionData) {
+      console.error('Retrieved visual mode promise rejection:', JSON.parse(promiseRejectionData));
+      localStorage.removeItem('visualModePromiseRejection');
+    }
+  }, []);
+  
   // Check if user is admin or premium
   const isAdmin = email === "admin@kasina.app";
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";

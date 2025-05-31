@@ -422,19 +422,52 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const kasinaUsageRef = useRef<{ [kasina: string]: number }>({});
   const currentKasinaStartRef = useRef<number>(Date.now());
   
-  // Minimal error tracking
+  // Persistent crash logging that survives page refresh
   useEffect(() => {
     const handleError = (event: ErrorEvent) => {
-      console.error('Visual mode error:', event.message);
+      const crashData = {
+        timestamp: new Date().toISOString(),
+        meditationTime,
+        selectedKasina,
+        sizeMultiplier,
+        message: event.message,
+        filename: event.filename,
+        line: event.lineno,
+        column: event.colno,
+        userAgent: navigator.userAgent
+      };
+      
+      // Save crash data to localStorage before page refreshes
+      localStorage.setItem('visualModeCrash', JSON.stringify(crashData));
+      console.error('Visual mode crash logged:', crashData);
+      
       // Emergency session save if needed
       if (meditationTime >= 60) {
         endMeditation().catch(() => {});
       }
     };
     
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      const crashData = {
+        timestamp: new Date().toISOString(),
+        meditationTime,
+        selectedKasina,
+        type: 'promise_rejection',
+        reason: event.reason?.toString() || 'Unknown promise rejection'
+      };
+      
+      localStorage.setItem('visualModePromiseRejection', JSON.stringify(crashData));
+      console.error('Promise rejection logged:', crashData);
+    };
+    
     window.addEventListener('error', handleError);
-    return () => window.removeEventListener('error', handleError);
-  }, [meditationTime]);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+    
+    return () => {
+      window.removeEventListener('error', handleError);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    };
+  }, [meditationTime, selectedKasina, sizeMultiplier]);
   
   // Format time display
   const formatTime = (seconds: number) => {
