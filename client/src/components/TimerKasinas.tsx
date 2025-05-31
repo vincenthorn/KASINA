@@ -17,6 +17,7 @@ import notificationManager from '../lib/notificationManager';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Separator } from './ui/separator';
+import CustomColorDialog from './CustomColorDialog';
 import { useAuth } from '../lib/stores/useAuth';
 import { sessionRecovery } from '../lib/sessionRecovery';
 
@@ -79,6 +80,7 @@ const TimerKasinas: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<string>("simple");
   const [elapsedTime, setElapsedTime] = useState(0);
   const [tempCustomColor, setTempCustomColor] = useState(customColor);
+  const [isColorDialogOpen, setIsColorDialogOpen] = useState(false);
   
   // Convert selectedKasina to KasinaType
   const typedKasina = selectedKasina as KasinaType;
@@ -110,23 +112,19 @@ const TimerKasinas: React.FC = () => {
     }
   };
 
-  // Handle custom color change
-  const handleCustomColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newColor = e.target.value;
+  // Handle custom color change from the color wheel picker
+  const handleCustomColorChange = (newColor: string) => {
     setTempCustomColor(newColor);
+    setCustomColor(newColor);
     
-    // Automatically select Custom Color when using the color picker or hex input
-    if (selectedKasina !== KASINA_TYPES.CUSTOM) {
-      setSelectedKasina(KASINA_TYPES.CUSTOM);
-    }
-    
-    // Only update the actual custom color if it's a valid hex color
-    if (/^#([0-9A-F]{3}){1,2}$/i.test(newColor)) {
-      setCustomColor(newColor);
-      
-      // Update the color in the constants
-      KASINA_COLORS[KASINA_TYPES.CUSTOM] = newColor;
-    }
+    // Update the color in the constants
+    KASINA_COLORS[KASINA_TYPES.CUSTOM] = newColor;
+  };
+
+  // Handle custom color selection (when user clicks "Select Color" in dialog)
+  const handleCustomColorSelect = () => {
+    setSelectedKasina(KASINA_TYPES.CUSTOM);
+    console.log(`🎨 Selected custom color: ${tempCustomColor}`);
   };
   
   // Special debug for Yellow Kasina to identify selection issues
@@ -814,51 +812,26 @@ const TimerKasinas: React.FC = () => {
                           
                           {/* Custom Color Picker Section - Available to all users */}
                           <div className="mt-3">
-                            <Button
-                              variant={selectedKasina === KASINA_TYPES.CUSTOM ? "default" : "outline"}
-                              onClick={() => setSelectedKasina(KASINA_TYPES.CUSTOM)}
-                              className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base mb-2"
-                              style={{ 
-                                backgroundColor: selectedKasina === KASINA_TYPES.CUSTOM ? customColor : 'transparent',
-                                color: selectedKasina === KASINA_TYPES.CUSTOM ? 
-                                  (isColorLight(customColor) ? 'black' : 'white') : 'white'
-                              }}
+                            <CustomColorDialog
+                              isOpen={isColorDialogOpen}
+                              onOpenChange={setIsColorDialogOpen}
+                              customColor={tempCustomColor}
+                              onColorChange={handleCustomColorChange}
+                              onSelect={handleCustomColorSelect}
                             >
-                              <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.CUSTOM]}</span>
-                              <span>Custom Color</span>
-                            </Button>
-                              
-                            {/* Color Controls matching size of color buttons above */}
-                            <div className="grid grid-cols-2 gap-3 items-center">
                               <Button
-                                variant="outline"
-                                className="w-full h-[70px] flex items-center justify-center"
+                                variant={selectedKasina === KASINA_TYPES.CUSTOM ? "default" : "outline"}
+                                className="w-full h-[70px] flex items-center justify-center gap-2 text-sm md:text-base"
+                                style={{ 
+                                  backgroundColor: selectedKasina === KASINA_TYPES.CUSTOM ? customColor : 'transparent',
+                                  color: selectedKasina === KASINA_TYPES.CUSTOM ? 
+                                    (isColorLight(customColor) ? 'black' : 'white') : 'white'
+                                }}
                               >
-                                <Input 
-                                  type="text"
-                                  id="hex-input"
-                                  value={tempCustomColor}
-                                  onChange={handleCustomColorChange}
-                                  placeholder="#RRGGBB"
-                                  pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-                                  className="bg-black/30 text-white border-none focus:border-none focus:ring-0 w-full h-full text-center"
-                                />
+                                <span className="text-2xl">{KASINA_EMOJIS[KASINA_TYPES.CUSTOM]}</span>
+                                <span>Custom Color</span>
                               </Button>
-                              <Button
-                                variant="outline"
-                                className="w-full h-[70px] flex items-center justify-center p-0 overflow-hidden"
-                              >
-                                <input 
-                                  type="color" 
-                                  id="color-picker"
-                                  value={tempCustomColor}
-                                  onChange={handleCustomColorChange}
-                                  className="w-full h-full cursor-pointer border-none"
-                                  title="Choose a color"
-                                  style={{ backgroundColor: 'transparent' }}
-                                />
-                              </Button>
-                            </div>
+                            </CustomColorDialog>
                           </div>
                         </div>
                       )}
