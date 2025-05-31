@@ -34,7 +34,7 @@ const CustomColorDialog: React.FC<CustomColorDialogProps> = ({
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md bg-white border-gray-300">
+      <DialogContent className="sm:max-w-md bg-white border-gray-300 rounded-2xl">
         <DialogHeader>
           <DialogTitle className="text-gray-800 text-center">
             Choose Your Custom Color
@@ -54,13 +54,13 @@ const CustomColorDialog: React.FC<CustomColorDialogProps> = ({
             <Button
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="flex-1 border-gray-300 text-gray-600 hover:bg-gray-50"
+              className="flex-1 border-gray-300 text-gray-600 hover:bg-gray-50 rounded-lg"
             >
               Cancel
             </Button>
             <Button
               onClick={handleSelectColor}
-              className="flex-1 text-white hover:opacity-90"
+              className="flex-1 text-white hover:opacity-90 rounded-lg"
               style={{ backgroundColor: customColor }}
             >
               Select Color

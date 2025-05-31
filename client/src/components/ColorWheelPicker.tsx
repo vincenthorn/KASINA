@@ -344,7 +344,7 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
           ref={canvasRef}
           width={200}
           height={200}
-          className="border border-gray-600 rounded-lg cursor-crosshair"
+          className="border border-gray-300 rounded-xl cursor-crosshair"
           onMouseDown={(e) => {
             setIsDragging(true);
             handleWheelInteraction(e);
@@ -360,7 +360,7 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
           ref={brightnessRef}
           width={200}
           height={20}
-          className="border border-gray-600 rounded cursor-pointer"
+          className="border border-gray-300 rounded-lg cursor-pointer"
           onMouseDown={(e) => {
             setIsBrightnessDragging(true);
             handleBrightnessInteraction(e);
@@ -381,7 +381,7 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
           onChange={handleHexChange}
           placeholder="#RRGGBB"
           pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-          className="bg-gray-50 text-gray-800 border-gray-300 focus:border-blue-400 text-center font-mono"
+          className="bg-gray-50 text-gray-800 border-gray-300 focus:border-blue-400 text-center font-mono rounded-lg"
           maxLength={7}
         />
       </div>
@@ -390,7 +390,7 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
       <div className="flex flex-col items-center space-y-2">
         <Label className="text-sm font-medium text-gray-700">Preview</Label>
         <div 
-          className="w-full h-12 border border-gray-600 rounded"
+          className="w-full h-12 border border-gray-300 rounded-lg"
           style={{ backgroundColor: hexInput }}
         />
       </div>
