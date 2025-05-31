@@ -17,6 +17,21 @@ const HomePage: React.FC = () => {
     const promiseRejectionData = localStorage.getItem('visualModePromiseRejection');
     const memoryWarningData = localStorage.getItem('visualModeMemoryWarning');
     
+    // Check for hard crashes (visual mode was active but no clean exit)
+    const wasVisualModeActive = localStorage.getItem('visualModeActive');
+    const visualModeStartTime = localStorage.getItem('visualModeStartTime');
+    
+    if (wasVisualModeActive === 'true') {
+      const startTime = visualModeStartTime ? parseInt(visualModeStartTime) : Date.now();
+      const sessionDuration = Math.round((Date.now() - startTime) / 1000);
+      console.error('HARD CRASH DETECTED: Visual mode was active but did not exit cleanly');
+      console.error(`Session lasted approximately ${sessionDuration} seconds before crash`);
+      
+      // Clear the flags
+      localStorage.removeItem('visualModeActive');
+      localStorage.removeItem('visualModeStartTime');
+    }
+    
     if (sessionData) {
       console.log('Last visual mode session data:', JSON.parse(sessionData));
       localStorage.removeItem('visualModeSession');

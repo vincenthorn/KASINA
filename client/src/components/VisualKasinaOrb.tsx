@@ -391,6 +391,9 @@ const lightShader = {
 interface VisualKasinaOrbProps {}
 
 export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
+  // IMMEDIATE CRASH DETECTION - Log on component mount
+  console.log('🚀 VisualKasinaOrb component loading - crash detection active');
+  
   const { selectedKasina, setSelectedKasina } = useKasina();
   const { currentColor } = useColor();
   const navigate = useNavigate();
@@ -424,7 +427,11 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   
   // Comprehensive crash monitoring
   useEffect(() => {
-    console.log('Visual mode session started, crash monitoring active');
+    console.log('🔍 Visual mode session started, crash monitoring active');
+    
+    // Immediate localStorage marker to detect hard crashes
+    localStorage.setItem('visualModeActive', 'true');
+    localStorage.setItem('visualModeStartTime', Date.now().toString());
     
     // Track session for debugging
     const sessionData = {
@@ -513,7 +520,11 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       window.removeEventListener('error', handleError);
       window.removeEventListener('unhandledrejection', handleUnhandledRejection);
       clearInterval(memoryCheckInterval);
-      console.log('Visual mode session ended, crash monitoring stopped');
+      
+      // Mark clean exit
+      localStorage.removeItem('visualModeActive');
+      localStorage.removeItem('visualModeStartTime');
+      console.log('Visual mode session ended cleanly, crash monitoring stopped');
     };
   }, [meditationTime, selectedKasina, sizeMultiplier]);
   
