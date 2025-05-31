@@ -29,6 +29,7 @@ const KasinasPage: React.FC = () => {
   };
 
   if (!showKasinaSelection) {
+    console.log('🎯 KasinasPage: Rendering VisualKasinaOrb component');
     return (
       <div className="h-screen w-screen relative bg-black">
         <VisualKasinaOrb />
