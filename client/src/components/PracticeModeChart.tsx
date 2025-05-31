@@ -44,13 +44,14 @@ const CustomBar = (props: any) => {
       {/* Custom tooltip that appears on hover */}
       {isHovered && (
         <foreignObject
-          x={x + width / 2 - 50}
-          y={y - 35}
-          width={100}
-          height={30}
+          x={x + width / 2 - 60}
+          y={y - 45}
+          width={120}
+          height={40}
+          style={{ pointerEvents: 'none', zIndex: 1000 }}
         >
-          <div className="bg-gray-800 border border-gray-600 rounded-lg px-3 py-1 shadow-lg text-center">
-            <p className="text-white text-xs font-medium">
+          <div className="bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 shadow-xl text-center transform -translate-y-1">
+            <p className="text-white text-sm font-medium whitespace-nowrap">
               {dataKey?.replace(' Kasinas', '')}
             </p>
           </div>
@@ -196,7 +197,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     return 'text-white';
   };
 
-  // Custom tooltip for stacked bar - removed to prevent grey hover background
+  // Custom tooltip for stacked bar - completely disabled to prevent grey hover background
   const StackedTooltip = ({ active, payload, label }: any) => {
     // Return null to disable tooltips on hover
     return null;
@@ -355,7 +356,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     tick={{ fill: '#9CA3AF', fontSize: 12 }}
                     tickFormatter={(value) => formatTime(value)}
                   />
-                  <Tooltip content={<StackedTooltip />} />
+
                   
                   <Bar 
                     dataKey="Color Kasinas"
