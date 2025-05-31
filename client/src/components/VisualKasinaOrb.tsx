@@ -422,54 +422,19 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const kasinaUsageRef = useRef<{ [kasina: string]: number }>({});
   const currentKasinaStartRef = useRef<number>(Date.now());
   
-  // Add global error boundary and crash detection
+  // Minimal error tracking
   useEffect(() => {
     const handleError = (event: ErrorEvent) => {
-      console.error(`[CRASH DETECTED at ${meditationTime}s] Visual Kasina Error:`, event.error);
-      console.error('Error details:', {
-        message: event.message,
-        filename: event.filename,
-        line: event.lineno,
-        column: event.colno,
-        meditationTime,
-        selectedKasina,
-        sizeMultiplier
-      });
-      
-      // Try emergency session save
+      console.error('Visual mode error:', event.message);
+      // Emergency session save if needed
       if (meditationTime >= 60) {
-        console.log('Attempting emergency session save...');
-        endMeditation().catch(err => console.error('Emergency save failed:', err));
+        endMeditation().catch(() => {});
       }
     };
-    
-    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-      console.error(`[PROMISE REJECTION at ${meditationTime}s]:`, event.reason);
-    };
-    
-    // Add intensive monitoring around 4-minute mark
-    const crashMonitor = setInterval(() => {
-      if (meditationTime >= 210 && meditationTime <= 250) {
-        console.warn(`[${meditationTime}s] CRASH ZONE MONITORING - Still running...`);
-        
-        // Check for memory leaks or stuck intervals
-        const activeIntervals = (window as any).activeIntervals || 0;
-        console.log(`Active intervals: ${activeIntervals}`);
-        
-        // Log renderer state
-        console.log(`Renderer state - Kasina: ${selectedKasina}, Size: ${sizeMultiplier}`);
-      }
-    }, 5000);
     
     window.addEventListener('error', handleError);
-    window.addEventListener('unhandledrejection', handleUnhandledRejection);
-    
-    return () => {
-      window.removeEventListener('error', handleError);
-      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
-      clearInterval(crashMonitor);
-    };
-  }, [meditationTime, selectedKasina, sizeMultiplier]);
+    return () => window.removeEventListener('error', handleError);
+  }, [meditationTime]);
   
   // Format time display
   const formatTime = (seconds: number) => {
@@ -747,39 +712,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
     
-    // Add memory monitoring and crash detection for production debugging
+    // Simplified monitoring to avoid interference
     useEffect(() => {
-      const debugInterval = setInterval(() => {
-        try {
-          // Cast performance to any to access memory property (Chrome-specific)
-          const perf = performance as any;
-          if (perf.memory) {
-            const memory = perf.memory;
-            const usedMB = Math.round(memory.usedJSHeapSize / 1024 / 1024);
-            const totalMB = Math.round(memory.totalJSHeapSize / 1024 / 1024);
-            console.log(`[${meditationTime}s] Memory: ${usedMB}MB used, ${totalMB}MB total`);
-            
-            // Log warning if memory usage is high
-            if (memory.usedJSHeapSize > memory.totalJSHeapSize * 0.8) {
-              console.warn(`[${meditationTime}s] HIGH MEMORY WARNING: ${usedMB}MB/${totalMB}MB`);
-            }
-          }
-          
-          // Check Three.js renderer info
-          console.log(`[${meditationTime}s] Kasina: ${selectedKasina}, Size: ${sizeMultiplier}`);
-          
-          // Log critical milestone approaching
-          if (meditationTime >= 210 && meditationTime <= 250) { // 3.5-4.2 minutes
-            console.warn(`[${meditationTime}s] CRITICAL: Approaching crash window (4min mark)`);
-          }
-          
-        } catch (error) {
-          console.error(`[${meditationTime}s] Debug monitoring error:`, error);
-        }
-      }, 15000); // Check every 15 seconds for more frequent monitoring
+      const basicMonitor = setInterval(() => {
+        console.log(`[${meditationTime}s] Visual kasina running - ${selectedKasina}`);
+      }, 30000); // Check every 30 seconds
       
-      return () => clearInterval(debugInterval);
-    }, [meditationTime, selectedKasina, sizeMultiplier]);
+      return () => clearInterval(basicMonitor);
+    }, [meditationTime, selectedKasina]);
 
     useFrame((state) => {
       try {
@@ -935,7 +875,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       className={`h-screen w-screen relative overflow-hidden ${!showCursor ? 'cursor-none' : ''}`}
       style={{ backgroundColor: getBackgroundColor() }}
     >
-      <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 4], fov: 50 }}
+        gl={{ 
+          antialias: false, // Disable antialiasing for better production performance
+          powerPreference: "high-performance",
+          failIfMajorPerformanceCaveat: false
+        }}
+        dpr={[1, 2]} // Limit device pixel ratio to prevent memory issues
+        performance={{ min: 0.5 }} // Lower performance threshold
+      >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={0.8} />
         <VisualKasinaOrbMesh />
