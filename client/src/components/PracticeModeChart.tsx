@@ -324,16 +324,16 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
               Click on a section to see detailed breakdown
             </div>
             
-            {/* External tooltip display */}
-            {hoveredSegment && (
-              <div className="flex justify-center">
+            {/* Reserved space for tooltip to prevent layout shift */}
+            <div className="flex justify-center h-10">
+              {hoveredSegment && (
                 <div className="bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 shadow-lg">
                   <p className="text-white text-sm font-medium">
                     {hoveredSegment}
                   </p>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
             
             {/* Chart container - adjusted to match pie chart height */}
             <div className="flex flex-col items-center gap-6">
