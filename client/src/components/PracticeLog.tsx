@@ -183,7 +183,7 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType,
             {sessionsToDisplay.map((session) => (
               <div 
                 key={session.id} 
-                className={`flex items-center p-4 transition-colors rounded-lg border ${
+                className={`group relative flex items-center p-4 transition-colors rounded-lg border ${
                   // Check if we should highlight this session
                   // 1. Direct match with the kasinaType
                   // 2. Compound selection with this kasinaType
@@ -194,6 +194,18 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType,
                     : 'bg-gray-800 hover:bg-gray-700 border-gray-700'
                 }`}
               >
+                {/* Subtle delete button - only visible on hover */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDeleteClick(session);
+                  }}
+                  className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-1.5 rounded-full bg-red-600 hover:bg-red-700 text-white"
+                  title="Delete session"
+                  disabled={isDeleting}
+                >
+                  <Trash2 size={12} />
+                </button>
                 <div 
                   className={`text-3xl mr-4 p-2 rounded-full flex items-center justify-center h-12 w-12 flex-shrink-0 transition-all ${
                     (selectedKasinaType === session.kasinaType || 
@@ -254,6 +266,18 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType,
           )}
         </div>
       </CardContent>
+
+      {/* Delete confirmation dialog */}
+      <ConfirmationDialog
+        isOpen={deleteDialogOpen}
+        onClose={() => setDeleteDialogOpen(false)}
+        onConfirm={handleDeleteConfirm}
+        title="Delete Session"
+        message={`Are you sure you want to delete this ${sessionToDelete?.kasinaName || sessionToDelete?.kasinaType} session from your log? This action cannot be undone.`}
+        confirmText="Delete"
+        cancelText="Cancel"
+        variant="destructive"
+      />
     </Card>
   );
 };

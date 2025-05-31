@@ -290,6 +290,7 @@ const ReflectionPage: React.FC = () => {
             <PracticeLog 
               sessions={sessions} 
               selectedKasinaType={selectedKasinaType}
+              onSessionDeleted={() => setRefreshCounter(prev => prev + 1)}
             />
           </div>
         )}
