@@ -389,8 +389,8 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
 
   return (
     <Card className="bg-gray-900 border-gray-700 shadow-xl relative">
-      <CardHeader className="border-b border-gray-700 pb-4">
-        <div>
+      <CardHeader className="border-b border-gray-700 pb-4 relative">
+        <div className="flex justify-between items-start">
           <CardTitle className="text-white flex items-center">
             <svg className="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
@@ -405,18 +405,14 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                   : 'Vajrayana Kasinas'}
           </CardTitle>
 
-        </div>
-        {chartMode !== 'overview' && (
-          <button
-            onClick={handleBackToOverview}
-            className="absolute top-4 right-4 text-blue-400 hover:text-blue-300 text-sm z-10 bg-gray-800 px-2 py-1 rounded"
-          >
-            ← Back to Overview
-          </button>
-        )}
-        {/* Debug info */}
-        <div className="absolute top-4 left-4 text-xs text-gray-500">
-          Mode: {chartMode}
+          {chartMode !== 'overview' && (
+            <button
+              onClick={handleBackToOverview}
+              className="text-blue-400 hover:text-blue-300 text-sm bg-gray-800 px-3 py-1 rounded-md border border-gray-600"
+            >
+              ← Back to Overview
+            </button>
+          )}
         </div>
       </CardHeader>
       <CardContent className="p-6">
