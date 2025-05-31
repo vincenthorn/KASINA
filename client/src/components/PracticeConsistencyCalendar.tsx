@@ -56,6 +56,7 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
   const calculateStreak = () => {
     let streak = 0;
     let checkDate = new Date(now);
+    let isFirstDay = true;
     
     // Start from today and go backwards
     while (true) {
@@ -80,14 +81,18 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
         });
       }
       
+      // For today (first day), don't break the streak if no practice yet
+      // Only break if it's a past day with no practice
       if (dayHasPractice) {
         streak++;
-      } else {
+      } else if (!isFirstDay) {
+        // Only break streak for past days, not today
         break;
       }
       
       // Move to previous day
       checkDate.setDate(checkDate.getDate() - 1);
+      isFirstDay = false;
       
       // Stop if we've gone back too far (reasonable limit)
       if (streak > 365) break;
@@ -279,7 +284,9 @@ const PracticeConsistencyCalendar: React.FC<PracticeConsistencyCalendarProps> = 
         <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg border border-orange-500/30 p-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-orange-400 flex items-center justify-center mb-1">
-              <span className="text-orange-400 text-2xl mr-2">🔥</span>
+              <span className="text-orange-400 text-2xl mr-2">
+                {currentStreak > 0 ? '🔥' : '💫'}
+              </span>
               {currentStreak}
             </div>
             <div className="text-sm text-orange-300">day streak</div>
