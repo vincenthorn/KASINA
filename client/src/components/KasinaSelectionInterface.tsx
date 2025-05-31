@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { KASINA_TYPES, KASINA_COLORS, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES } from '../lib/constants';
+import CustomColorDialog from './CustomColorDialog';
+import { useKasina } from '../lib/stores/useKasina';
 
 interface KasinaSelectionInterfaceProps {
   showKasinaSelection: boolean;
@@ -20,6 +22,10 @@ export default function KasinaSelectionInterface({
   onBackToSeries,
   onCancel
 }: KasinaSelectionInterfaceProps) {
+  const { customColor, setCustomColor } = useKasina();
+  const [isColorDialogOpen, setIsColorDialogOpen] = useState(false);
+  const [tempCustomColor, setTempCustomColor] = useState(customColor);
+
   // Get kasinas for the selected series
   const getKasinasForSeries = (series: string) => {
     switch (series) {
@@ -39,18 +45,75 @@ export default function KasinaSelectionInterface({
     return KASINA_COLORS[kasina] || KASINA_COLORS[KASINA_TYPES.BLUE];
   };
 
+  // Handle custom color change from the color wheel picker
+  const handleCustomColorChange = (newColor: string) => {
+    setTempCustomColor(newColor);
+    setCustomColor(newColor);
+    
+    // Update the color in the constants
+    KASINA_COLORS[KASINA_TYPES.CUSTOM] = newColor;
+  };
+
+  // Handle custom color selection (when user clicks "Select Color" in dialog)
+  const handleCustomColorSelect = async () => {
+    // Trigger fullscreen when user selects their custom color
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+        console.log("📺 Entered fullscreen for custom color meditation session");
+      }
+    } catch (error) {
+      console.log("📺 Fullscreen request failed:", error);
+    }
+    
+    // Then proceed with kasina selection
+    onKasinaSelection('custom');
+  };
+
+  // Handle kasina click - intercept custom color to show picker
+  const handleKasinaClick = async (kasina: string) => {
+    if (kasina === 'custom') {
+      // For custom color, open the color picker dialog instead of immediately starting session
+      setIsColorDialogOpen(true);
+      return;
+    }
+
+    // For all other kasinas, proceed normally
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+        console.log("📺 Entered fullscreen for meditation session");
+      }
+    } catch (error) {
+      console.log("📺 Fullscreen request failed:", error);
+    }
+    
+    onKasinaSelection(kasina);
+  };
+
   if (!showKasinaSelection) {
     return null;
   }
 
   return (
-    <div 
-      className="absolute inset-0 z-50 flex items-end justify-center pb-20"
-      style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        backdropFilter: 'blur(4px)'
-      }}
-    >
+    <>
+      <CustomColorDialog
+        isOpen={isColorDialogOpen}
+        onOpenChange={setIsColorDialogOpen}
+        customColor={tempCustomColor}
+        onColorChange={handleCustomColorChange}
+        onSelect={handleCustomColorSelect}
+      >
+        <div></div>
+      </CustomColorDialog>
+      
+      <div 
+        className="absolute inset-0 z-50 flex items-end justify-center pb-20"
+        style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          backdropFilter: 'blur(4px)'
+        }}
+      >
       {kasinaSelectionStep === 'series' ? (
         <div 
           style={{
@@ -194,20 +257,7 @@ export default function KasinaSelectionInterface({
             {getKasinasForSeries(selectedKasinaSeries || '').map((kasina) => (
               <button
                 key={kasina}
-                onClick={async () => {
-                  // Trigger fullscreen when user selects their kasina
-                  try {
-                    if (!document.fullscreenElement) {
-                      await document.documentElement.requestFullscreen();
-                      console.log("📺 Entered fullscreen for meditation session");
-                    }
-                  } catch (error) {
-                    console.log("📺 Fullscreen request failed:", error);
-                  }
-                  
-                  // Then proceed with kasina selection
-                  onKasinaSelection(kasina);
-                }}
+                onClick={() => handleKasinaClick(kasina)}
                 style={{
                   ...(kasina === 'custom' ? {
                     background: 'linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3)',
@@ -271,6 +321,7 @@ export default function KasinaSelectionInterface({
           </button>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }
