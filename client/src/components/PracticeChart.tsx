@@ -285,9 +285,11 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
   
   // Handle pie sector click
   const handlePieClick = (data: any, index: number) => {
+    console.log('PracticeChart click:', { chartMode, data, index });
     if (chartMode === 'overview') {
       // When in overview mode, clicking navigates to detailed view
       const category = data.category;
+      console.log('Switching to category:', category);
       
       // Temporarily disable tooltips during transition
       setShowTooltips(false);
