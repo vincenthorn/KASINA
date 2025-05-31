@@ -13,20 +13,50 @@ interface PracticeModeChartProps {
   }[];
 }
 
-// Custom bar component for the chart
+// Custom bar component for the chart with hover effects
 const CustomBar = (props: any) => {
-  const { fill, x, y, width, height } = props;
+  const { fill, x, y, width, height, payload, dataKey } = props;
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Calculate expanded dimensions when hovered
+  const expandAmount = isHovered ? 4 : 0;
+  const adjustedX = x - expandAmount / 2;
+  const adjustedWidth = width + expandAmount;
   
   return (
-    <rect
-      x={x}
-      y={y}
-      width={width}
-      height={height}
-      fill={fill}
-      rx={4}
-      ry={4}
-    />
+    <g>
+      <rect
+        x={adjustedX}
+        y={y}
+        width={adjustedWidth}
+        height={height}
+        fill={fill}
+        rx={4}
+        ry={4}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={{
+          transition: 'all 0.2s ease-in-out',
+          cursor: 'pointer',
+          filter: isHovered ? 'brightness(1.1)' : 'none'
+        }}
+      />
+      {/* Custom tooltip that appears on hover */}
+      {isHovered && (
+        <foreignObject
+          x={x + width / 2 - 50}
+          y={y - 35}
+          width={100}
+          height={30}
+        >
+          <div className="bg-gray-800 border border-gray-600 rounded-lg px-3 py-1 shadow-lg text-center">
+            <p className="text-white text-xs font-medium">
+              {dataKey?.replace(' Kasinas', '')}
+            </p>
+          </div>
+        </foreignObject>
+      )}
+    </g>
   );
 };
 
@@ -334,7 +364,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     radius={[0, 0, 0, 0]}
                     onClick={() => handleSeriesClick('Color Kasinas')}
                     style={{ cursor: 'pointer' }}
-                    shape={(props: any) => <CustomBar {...props} onClick={() => handleSeriesClick('Color Kasinas')} />}
+                    shape={(props: any) => <CustomBar {...props} dataKey="Color Kasinas" onClick={() => handleSeriesClick('Color Kasinas')} />}
                   />
                   <Bar 
                     dataKey="Elemental Kasinas"
@@ -343,7 +373,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     radius={[0, 0, 0, 0]}
                     onClick={() => handleSeriesClick('Elemental Kasinas')}
                     style={{ cursor: 'pointer' }}
-                    shape={(props: any) => <CustomBar {...props} onClick={() => handleSeriesClick('Elemental Kasinas')} />}
+                    shape={(props: any) => <CustomBar {...props} dataKey="Elemental Kasinas" onClick={() => handleSeriesClick('Elemental Kasinas')} />}
                   />
                   <Bar 
                     dataKey="Vajrayana Kasinas"
@@ -352,7 +382,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     radius={[4, 4, 0, 0]}
                     onClick={() => handleSeriesClick('Vajrayana Kasinas')}
                     style={{ cursor: 'pointer' }}
-                    shape={(props: any) => <CustomBar {...props} onClick={() => handleSeriesClick('Vajrayana Kasinas')} />}
+                    shape={(props: any) => <CustomBar {...props} dataKey="Vajrayana Kasinas" onClick={() => handleSeriesClick('Vajrayana Kasinas')} />}
                   />
                   </BarChart>
                 </ResponsiveContainer>
