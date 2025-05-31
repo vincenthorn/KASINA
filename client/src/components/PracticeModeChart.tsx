@@ -44,29 +44,17 @@ const CustomBar = (props: any) => {
       {/* Custom tooltip that appears on hover */}
       {isHovered && (
         <foreignObject
-          x={x + width / 2 - 60}
-          y={y - 60}
-          width={120}
-          height={50}
+          x={x + width / 2 - 50}
+          y={y - 35}
+          width={100}
+          height={30}
           style={{ 
             pointerEvents: 'none', 
-            overflow: 'visible',
-            position: 'relative',
-            zIndex: 9999 
+            overflow: 'visible'
           }}
         >
-          <div 
-            className="bg-gray-900 border-2 border-gray-500 rounded-lg px-4 py-2 shadow-2xl text-center"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              zIndex: 9999,
-              transform: 'translateY(-100%)'
-            }}
-          >
-            <p className="text-white text-sm font-bold whitespace-nowrap">
+          <div className="bg-black border border-white/30 rounded-md px-3 py-1 shadow-lg text-center">
+            <p className="text-white text-xs font-semibold whitespace-nowrap">
               {dataKey?.replace(' Kasinas', '')}
             </p>
           </div>
