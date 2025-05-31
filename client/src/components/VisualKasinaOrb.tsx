@@ -397,7 +397,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const { logSession } = useSessionLogger();
   const { enableWakeLock, disableWakeLock } = useWakeLock();
   
-  // State for UI controls (copied from BreathKasinaOrb)
+  // State for UI controls (moved before error handlers)
   const [meditationTime, setMeditationTime] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30%
@@ -421,6 +421,55 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // Kasina usage tracking
   const kasinaUsageRef = useRef<{ [kasina: string]: number }>({});
   const currentKasinaStartRef = useRef<number>(Date.now());
+  
+  // Add global error boundary and crash detection
+  useEffect(() => {
+    const handleError = (event: ErrorEvent) => {
+      console.error(`[CRASH DETECTED at ${meditationTime}s] Visual Kasina Error:`, event.error);
+      console.error('Error details:', {
+        message: event.message,
+        filename: event.filename,
+        line: event.lineno,
+        column: event.colno,
+        meditationTime,
+        selectedKasina,
+        sizeMultiplier
+      });
+      
+      // Try emergency session save
+      if (meditationTime >= 60) {
+        console.log('Attempting emergency session save...');
+        endMeditation().catch(err => console.error('Emergency save failed:', err));
+      }
+    };
+    
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      console.error(`[PROMISE REJECTION at ${meditationTime}s]:`, event.reason);
+    };
+    
+    // Add intensive monitoring around 4-minute mark
+    const crashMonitor = setInterval(() => {
+      if (meditationTime >= 210 && meditationTime <= 250) {
+        console.warn(`[${meditationTime}s] CRASH ZONE MONITORING - Still running...`);
+        
+        // Check for memory leaks or stuck intervals
+        const activeIntervals = (window as any).activeIntervals || 0;
+        console.log(`Active intervals: ${activeIntervals}`);
+        
+        // Log renderer state
+        console.log(`Renderer state - Kasina: ${selectedKasina}, Size: ${sizeMultiplier}`);
+      }
+    }, 5000);
+    
+    window.addEventListener('error', handleError);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+    
+    return () => {
+      window.removeEventListener('error', handleError);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+      clearInterval(crashMonitor);
+    };
+  }, [meditationTime, selectedKasina, sizeMultiplier]);
   
   // Format time display
   const formatTime = (seconds: number) => {
@@ -697,6 +746,40 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     const earthMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    
+    // Add memory monitoring and crash detection for production debugging
+    useEffect(() => {
+      const debugInterval = setInterval(() => {
+        try {
+          // Cast performance to any to access memory property (Chrome-specific)
+          const perf = performance as any;
+          if (perf.memory) {
+            const memory = perf.memory;
+            const usedMB = Math.round(memory.usedJSHeapSize / 1024 / 1024);
+            const totalMB = Math.round(memory.totalJSHeapSize / 1024 / 1024);
+            console.log(`[${meditationTime}s] Memory: ${usedMB}MB used, ${totalMB}MB total`);
+            
+            // Log warning if memory usage is high
+            if (memory.usedJSHeapSize > memory.totalJSHeapSize * 0.8) {
+              console.warn(`[${meditationTime}s] HIGH MEMORY WARNING: ${usedMB}MB/${totalMB}MB`);
+            }
+          }
+          
+          // Check Three.js renderer info
+          console.log(`[${meditationTime}s] Kasina: ${selectedKasina}, Size: ${sizeMultiplier}`);
+          
+          // Log critical milestone approaching
+          if (meditationTime >= 210 && meditationTime <= 250) { // 3.5-4.2 minutes
+            console.warn(`[${meditationTime}s] CRITICAL: Approaching crash window (4min mark)`);
+          }
+          
+        } catch (error) {
+          console.error(`[${meditationTime}s] Debug monitoring error:`, error);
+        }
+      }, 15000); // Check every 15 seconds for more frequent monitoring
+      
+      return () => clearInterval(debugInterval);
+    }, [meditationTime, selectedKasina, sizeMultiplier]);
 
     useFrame((state) => {
       try {
