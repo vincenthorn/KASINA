@@ -3,6 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { format } from "date-fns";
 import { useKasina } from "../lib/stores/useKasina";
 import { Button } from "./ui/button";
+import { Trash2 } from "lucide-react";
+import ConfirmationDialog from "./ConfirmationDialog";
+import { apiRequest } from "../lib/api";
+import { toast } from "sonner";
 
 interface Session {
   id: string;
@@ -15,6 +19,7 @@ interface Session {
 interface PracticeLogProps {
   sessions: Session[];
   selectedKasinaType: string | null;
+  onSessionDeleted?: () => void;
 }
 
 // Initial number of sessions to display
@@ -22,10 +27,14 @@ const INITIAL_DISPLAY_COUNT = 12;
 // Number of additional sessions to load when "Load More" is clicked
 const LOAD_INCREMENT = 6;
 
-const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType }) => {
+const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType, onSessionDeleted }) => {
   const { getKasinaEmoji } = useKasina();
   // State to track how many sessions to display
   const [displayCount, setDisplayCount] = useState(INITIAL_DISPLAY_COUNT);
+  // State for delete confirmation dialog
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [sessionToDelete, setSessionToDelete] = useState<Session | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   // Format time display
   const formatTime = (seconds: number) => {
@@ -42,6 +51,35 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType 
   // Function to load more sessions
   const handleLoadMore = () => {
     setDisplayCount(prevCount => prevCount + LOAD_INCREMENT);
+  };
+
+  // Handle delete session
+  const handleDeleteClick = (session: Session) => {
+    setSessionToDelete(session);
+    setDeleteDialogOpen(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!sessionToDelete) return;
+    
+    setIsDeleting(true);
+    try {
+      const response = await apiRequest("DELETE", `/api/sessions/${sessionToDelete.id}`, undefined);
+      
+      if (response.ok) {
+        toast.success("Session deleted successfully");
+        onSessionDeleted?.(); // Trigger refresh of sessions
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || "Failed to delete session");
+      }
+    } catch (error) {
+      console.error("Error deleting session:", error);
+      toast.error("Failed to delete session");
+    } finally {
+      setIsDeleting(false);
+      setSessionToDelete(null);
+    }
   };
 
   // Prioritize and sort sessions based on selectedKasinaType

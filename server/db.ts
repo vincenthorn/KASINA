@@ -211,6 +211,32 @@ export async function getUserPracticeStats(userEmail: string): Promise<{totalSec
   }
 }
 
+// Delete a session (user must own the session)
+export async function deleteUserSession(userEmail: string, sessionId: number): Promise<boolean> {
+  try {
+    console.log(`🗑️ Deleting session: ${sessionId} for user: ${userEmail}`);
+    
+    // First, delete any kasina breakdown data associated with this session
+    await pool.query(
+      'DELETE FROM kasina_breakdowns WHERE session_id = $1',
+      [sessionId]
+    );
+    
+    // Then delete the session itself, but only if it belongs to the user
+    const result = await pool.query(
+      'DELETE FROM sessions WHERE id = $1 AND LOWER(user_email) = LOWER($2)',
+      [sessionId, userEmail]
+    );
+    
+    const success = (result.rowCount || 0) > 0;
+    console.log(success ? '✅ Session deleted successfully' : '❌ Session not found or not owned by user');
+    return success;
+  } catch (error) {
+    console.error('Error deleting session:', error);
+    return false;
+  }
+}
+
 // Get all users with their practice stats
 export async function getAllUsersWithStats(): Promise<Array<User & {practiceStats: {totalSeconds: number, sessionCount: number}}>> {
   try {

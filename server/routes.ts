@@ -9,7 +9,7 @@ import { parse } from "csv-parse/sync";
 
 // Configure multer for file uploads
 const upload = multer({ storage: multer.memoryStorage() });
-import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser, addSession, getUserSessions, getAllSessions, getUserPracticeStats, getAllUsersWithStats } from "./db";
+import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser, addSession, getUserSessions, getAllSessions, getUserPracticeStats, getAllUsersWithStats, deleteUserSession } from "./db";
 import { handleCsvUpload, uploadMiddleware } from "./upload-fix.js";
 import { Pool } from 'pg';
 
@@ -311,6 +311,33 @@ export function registerRoutes(app: Express): Server {
       }
       res.json({ message: "Logout successful" });
     });
+  });
+
+  // Delete session endpoint
+  app.delete("/api/sessions/:id", async (req, res) => {
+    if (!req.session?.user?.email) {
+      return res.status(401).json({ message: "Authentication required" });
+    }
+    
+    try {
+      const sessionId = parseInt(req.params.id);
+      const userEmail = req.session.user.email;
+      
+      if (isNaN(sessionId)) {
+        return res.status(400).json({ message: "Invalid session ID" });
+      }
+      
+      const success = await deleteUserSession(userEmail, sessionId);
+      
+      if (success) {
+        res.json({ message: "Session deleted successfully" });
+      } else {
+        res.status(404).json({ message: "Session not found or access denied" });
+      }
+    } catch (error) {
+      console.error('Error deleting session:', error);
+      res.status(500).json({ message: "Failed to delete session" });
+    }
   });
 
   // Zapier webhook endpoints for automatic user registration
