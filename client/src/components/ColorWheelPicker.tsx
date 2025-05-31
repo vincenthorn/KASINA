@@ -390,7 +390,7 @@ const ColorWheelPicker: React.FC<ColorWheelPickerProps> = ({ value, onChange, cl
       <div className="flex flex-col items-center space-y-2">
         <Label className="text-sm font-medium text-gray-700">Preview</Label>
         <div 
-          className="w-full h-12 border border-gray-300 rounded-lg"
+          className="w-12 h-12 border border-gray-300 rounded-full mx-auto"
           style={{ backgroundColor: hexInput }}
         />
       </div>
