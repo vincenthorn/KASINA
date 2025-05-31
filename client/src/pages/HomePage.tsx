@@ -10,20 +10,31 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const { email, subscriptionType } = useAuth();
   
-  // Check for crash logs from visual mode
+  // Check for crash logs and monitoring data from visual mode
   React.useEffect(() => {
+    const sessionData = localStorage.getItem('visualModeSession');
     const crashData = localStorage.getItem('visualModeCrash');
     const promiseRejectionData = localStorage.getItem('visualModePromiseRejection');
+    const memoryWarningData = localStorage.getItem('visualModeMemoryWarning');
+    
+    if (sessionData) {
+      console.log('Last visual mode session data:', JSON.parse(sessionData));
+      localStorage.removeItem('visualModeSession');
+    }
     
     if (crashData) {
       console.error('Retrieved visual mode crash data:', JSON.parse(crashData));
-      // Clear after logging so it doesn't persist
       localStorage.removeItem('visualModeCrash');
     }
     
     if (promiseRejectionData) {
       console.error('Retrieved visual mode promise rejection:', JSON.parse(promiseRejectionData));
       localStorage.removeItem('visualModePromiseRejection');
+    }
+    
+    if (memoryWarningData) {
+      console.warn('Memory warning from last session:', JSON.parse(memoryWarningData));
+      localStorage.removeItem('visualModeMemoryWarning');
     }
   }, []);
   

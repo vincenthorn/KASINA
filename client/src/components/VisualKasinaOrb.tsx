@@ -422,8 +422,24 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const kasinaUsageRef = useRef<{ [kasina: string]: number }>({});
   const currentKasinaStartRef = useRef<number>(Date.now());
   
-  // Persistent crash logging that survives page refresh
+  // Comprehensive crash monitoring
   useEffect(() => {
+    console.log('Visual mode session started, crash monitoring active');
+    
+    // Track session for debugging
+    const sessionData = {
+      startTime: new Date().toISOString(),
+      kasina: selectedKasina,
+      size: sizeMultiplier,
+      userAgent: navigator.userAgent,
+      memoryInfo: (performance as any).memory ? {
+        usedJSHeapSize: (performance as any).memory.usedJSHeapSize,
+        totalJSHeapSize: (performance as any).memory.totalJSHeapSize,
+        jsHeapSizeLimit: (performance as any).memory.jsHeapSizeLimit
+      } : 'not available'
+    };
+    localStorage.setItem('visualModeSession', JSON.stringify(sessionData));
+    
     const handleError = (event: ErrorEvent) => {
       const crashData = {
         timestamp: new Date().toISOString(),
@@ -434,14 +450,17 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         filename: event.filename,
         line: event.lineno,
         column: event.colno,
-        userAgent: navigator.userAgent
+        userAgent: navigator.userAgent,
+        memoryAtCrash: (performance as any).memory ? {
+          usedJSHeapSize: (performance as any).memory.usedJSHeapSize,
+          totalJSHeapSize: (performance as any).memory.totalJSHeapSize,
+          jsHeapSizeLimit: (performance as any).memory.jsHeapSizeLimit
+        } : 'not available'
       };
       
-      // Save crash data to localStorage before page refreshes
       localStorage.setItem('visualModeCrash', JSON.stringify(crashData));
       console.error('Visual mode crash logged:', crashData);
       
-      // Emergency session save if needed
       if (meditationTime >= 60) {
         endMeditation().catch(() => {});
       }
@@ -453,12 +472,39 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         meditationTime,
         selectedKasina,
         type: 'promise_rejection',
-        reason: event.reason?.toString() || 'Unknown promise rejection'
+        reason: event.reason?.toString() || 'Unknown promise rejection',
+        memoryAtCrash: (performance as any).memory ? {
+          usedJSHeapSize: (performance as any).memory.usedJSHeapSize,
+          totalJSHeapSize: (performance as any).memory.totalJSHeapSize
+        } : 'not available'
       };
       
       localStorage.setItem('visualModePromiseRejection', JSON.stringify(crashData));
       console.error('Promise rejection logged:', crashData);
     };
+    
+    // Memory monitoring
+    const memoryCheckInterval = setInterval(() => {
+      if ((performance as any).memory) {
+        const memInfo = (performance as any).memory;
+        const usedMB = Math.round(memInfo.usedJSHeapSize / 1024 / 1024);
+        const totalMB = Math.round(memInfo.totalJSHeapSize / 1024 / 1024);
+        const limitMB = Math.round(memInfo.jsHeapSizeLimit / 1024 / 1024);
+        
+        console.log(`Memory: ${usedMB}MB used / ${totalMB}MB total / ${limitMB}MB limit`);
+        
+        // Warning if memory usage is high
+        if (usedMB > limitMB * 0.8) {
+          console.warn('HIGH MEMORY USAGE WARNING:', usedMB, 'MB');
+          localStorage.setItem('visualModeMemoryWarning', JSON.stringify({
+            timestamp: new Date().toISOString(),
+            meditationTime,
+            memoryMB: usedMB,
+            limitMB
+          }));
+        }
+      }
+    }, 10000); // Check every 10 seconds
     
     window.addEventListener('error', handleError);
     window.addEventListener('unhandledrejection', handleUnhandledRejection);
@@ -466,6 +512,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     return () => {
       window.removeEventListener('error', handleError);
       window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+      clearInterval(memoryCheckInterval);
+      console.log('Visual mode session ended, crash monitoring stopped');
     };
   }, [meditationTime, selectedKasina, sizeMultiplier]);
   
