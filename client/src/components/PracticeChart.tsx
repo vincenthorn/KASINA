@@ -414,6 +414,10 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
             ← Back to Overview
           </button>
         )}
+        {/* Debug info */}
+        <div className="absolute top-4 left-4 text-xs text-gray-500">
+          Mode: {chartMode}
+        </div>
       </CardHeader>
       <CardContent className="p-6">
         {/* Improved layout with chart above and legend below */}
