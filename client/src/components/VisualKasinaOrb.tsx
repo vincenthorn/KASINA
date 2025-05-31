@@ -699,27 +699,31 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
 
     useFrame((state) => {
-      if (meshRef.current) {
-        const time = state.clock.getElapsedTime();
-        
-        // Different rotation behaviors for different kasinas
-        if (selectedKasina === KASINA_TYPES.WATER) {
-          // Water kasina gets flowing motion instead of uniform rotation
-          meshRef.current.rotation.y = Math.sin(time * 0.3) * 0.1 + time * 0.05;
-          meshRef.current.rotation.x = Math.cos(time * 0.2) * 0.05;
-        } else if (selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.LIGHT) {
-          // Space and Light kasinas have no rotation to avoid shadow artifacts
-          meshRef.current.rotation.y = 0;
-          meshRef.current.rotation.x = 0;
-          meshRef.current.rotation.z = 0;
-        } else {
-          // Other elemental kasinas get smooth, continuous rotation
-          meshRef.current.rotation.y = time * 0.15; // Slightly slower rotation
+      try {
+        if (meshRef.current) {
+          const time = state.clock.getElapsedTime();
+          
+          // Different rotation behaviors for different kasinas
+          if (selectedKasina === KASINA_TYPES.WATER) {
+            // Water kasina gets flowing motion instead of uniform rotation
+            meshRef.current.rotation.y = Math.sin(time * 0.3) * 0.1 + time * 0.05;
+            meshRef.current.rotation.x = Math.cos(time * 0.2) * 0.05;
+          } else if (selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.LIGHT) {
+            // Space and Light kasinas have no rotation to avoid shadow artifacts
+            meshRef.current.rotation.y = 0;
+            meshRef.current.rotation.x = 0;
+            meshRef.current.rotation.z = 0;
+          } else {
+            // Other elemental kasinas get smooth, continuous rotation
+            meshRef.current.rotation.y = time * 0.15; // Slightly slower rotation
+          }
+          
+          // Apply size multiplier
+          const targetScale = sizeMultiplier;
+          meshRef.current.scale.setScalar(targetScale);
         }
-        
-        // Apply size multiplier
-        const targetScale = sizeMultiplier;
-        meshRef.current.scale.setScalar(targetScale);
+      } catch (error) {
+        console.error('Error in mesh animation frame:', error);
       }
       
       // Handle text-based kasinas scaling (including Rainbow, Vajrayana, and White A kasinas)
@@ -738,25 +742,31 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       }
 
       // Update shader time uniforms for elemental kasinas
-      const time = state.clock.getElapsedTime();
-      
-      if (waterMaterialRef.current) {
-        waterMaterialRef.current.uniforms.time.value = time;
-      }
-      if (fireMaterialRef.current) {
-        fireMaterialRef.current.uniforms.time.value = time;
-      }
-      if (airMaterialRef.current) {
-        airMaterialRef.current.uniforms.time.value = time;
-      }
-      if (earthMaterialRef.current) {
-        earthMaterialRef.current.uniforms.time.value = time;
-      }
-      if (spaceMaterialRef.current) {
-        spaceMaterialRef.current.uniforms.time.value = time;
-      }
-      if (lightMaterialRef.current) {
-        lightMaterialRef.current.uniforms.time.value = time;
+      // Wrap time to prevent floating-point precision issues in production
+      try {
+        const rawTime = state.clock.getElapsedTime();
+        const wrappedTime = rawTime % 1000; // Reset time every 1000 seconds to prevent overflow
+        
+        if (waterMaterialRef.current) {
+          waterMaterialRef.current.uniforms.time.value = wrappedTime;
+        }
+        if (fireMaterialRef.current) {
+          fireMaterialRef.current.uniforms.time.value = wrappedTime;
+        }
+        if (airMaterialRef.current) {
+          airMaterialRef.current.uniforms.time.value = wrappedTime;
+        }
+        if (earthMaterialRef.current) {
+          earthMaterialRef.current.uniforms.time.value = wrappedTime;
+        }
+        if (spaceMaterialRef.current) {
+          spaceMaterialRef.current.uniforms.time.value = wrappedTime;
+        }
+        if (lightMaterialRef.current) {
+          lightMaterialRef.current.uniforms.time.value = wrappedTime;
+        }
+      } catch (error) {
+        console.error('Error updating shader uniforms:', error);
       }
     });
 
