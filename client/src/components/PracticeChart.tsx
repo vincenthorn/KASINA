@@ -285,11 +285,9 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
   
   // Handle pie sector click
   const handlePieClick = (data: any, index: number) => {
-    console.log('PracticeChart click:', { chartMode, data, index });
     if (chartMode === 'overview') {
       // When in overview mode, clicking navigates to detailed view
       const category = data.category;
-      console.log('Switching to category:', category);
       
       // Temporarily disable tooltips during transition
       setShowTooltips(false);
@@ -405,14 +403,13 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
                   : 'Vajrayana Kasinas'}
           </CardTitle>
 
-          {chartMode !== 'overview' && (
-            <button
-              onClick={handleBackToOverview}
-              className="text-blue-400 hover:text-blue-300 text-sm bg-gray-800 px-3 py-1 rounded-md border border-gray-600"
-            >
-              ← Back to Overview
-            </button>
-          )}
+          <button
+            onClick={handleBackToOverview}
+            className="text-blue-400 hover:text-blue-300 text-sm bg-gray-800 px-3 py-1 rounded-md border border-gray-600"
+            style={{ display: chartMode !== 'overview' ? 'block' : 'none' }}
+          >
+            ← Back to Overview
+          </button>
         </div>
       </CardHeader>
       <CardContent className="p-6">
