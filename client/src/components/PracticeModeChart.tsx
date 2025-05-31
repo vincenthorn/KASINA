@@ -253,19 +253,20 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
             {drillDownSeries || 'Practice Breakdown'}
           </CardTitle>
         </div>
-        {drillDownSeries && (
-          <button
-            onClick={() => setDrillDownSeries(null)}
-            className="absolute top-4 right-4 text-blue-400 hover:text-blue-300 text-sm"
-          >
-            ← Back to Overview
-          </button>
-        )}
+
       </CardHeader>
       <CardContent className="p-6">
         {drillDownSeries ? (
           // Drill-down pie chart view - matching Practice Breakdown structure
           <div className="flex flex-col items-center gap-6">
+            
+            {/* Back to Overview button */}
+            <button
+              onClick={() => setDrillDownSeries(null)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+            >
+              ← Back to Overview
+            </button>
             
             {/* Chart container - matching PracticeChart sizing exactly */}
             <div className="w-80 h-80">
