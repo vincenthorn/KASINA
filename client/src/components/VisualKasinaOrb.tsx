@@ -494,7 +494,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       console.error('Promise rejection logged:', crashData);
     };
     
-    // Memory monitoring
+    // More frequent memory monitoring with crash prevention
     const memoryCheckInterval = setInterval(() => {
       if ((performance as any).memory) {
         const memInfo = (performance as any).memory;
@@ -504,8 +504,38 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         
         console.log(`Memory: ${usedMB}MB used / ${totalMB}MB total / ${limitMB}MB limit`);
         
+        // Emergency crash prevention - force garbage collection if memory is critical
+        if (usedMB > limitMB * 0.85) {
+          console.error('CRITICAL MEMORY USAGE - EMERGENCY PREVENTION:', usedMB, 'MB');
+          
+          // Force garbage collection if available
+          if ((window as any).gc) {
+            (window as any).gc();
+            console.log('Forced garbage collection');
+          }
+          
+          // Log critical memory state
+          localStorage.setItem('visualModeCriticalMemory', JSON.stringify({
+            timestamp: new Date().toISOString(),
+            meditationTime,
+            memoryMB: usedMB,
+            limitMB,
+            action: 'emergency_prevention'
+          }));
+          
+          // If still critical after 30 seconds, force session end
+          setTimeout(() => {
+            if ((performance as any).memory) {
+              const newUsedMB = Math.round((performance as any).memory.usedJSHeapSize / 1024 / 1024);
+              if (newUsedMB > limitMB * 0.85) {
+                console.error('Memory still critical - ending session to prevent crash');
+                endMeditation().catch(() => {});
+              }
+            }
+          }, 30000);
+        }
         // Warning if memory usage is high
-        if (usedMB > limitMB * 0.8) {
+        else if (usedMB > limitMB * 0.7) {
           console.warn('HIGH MEMORY USAGE WARNING:', usedMB, 'MB');
           localStorage.setItem('visualModeMemoryWarning', JSON.stringify({
             timestamp: new Date().toISOString(),
@@ -515,7 +545,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }));
         }
       }
-    }, 10000); // Check every 10 seconds
+    }, 5000); // Check every 5 seconds instead of 10
     
     window.addEventListener('error', handleError);
     window.addEventListener('unhandledrejection', handleUnhandledRejection);
@@ -616,9 +646,36 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
     initializeSession();
 
-    // Start meditation timer
+    // Start meditation timer with safety limits
     meditationIntervalRef.current = setInterval(() => {
-      setMeditationTime(prev => prev + 1);
+      setMeditationTime(prev => {
+        const newTime = prev + 1;
+        
+        // Safety limit: Auto-end session after 60 minutes to prevent crashes
+        if (newTime >= 3600) {
+          console.warn('Session reached 60-minute safety limit, ending to prevent crashes');
+          localStorage.setItem('visualModeSessionLimit', JSON.stringify({
+            timestamp: new Date().toISOString(),
+            duration: newTime,
+            reason: 'safety_limit_60min'
+          }));
+          setTimeout(() => endMeditation(), 1000);
+          return newTime;
+        }
+        
+        // Memory cleanup every 5 minutes during long sessions
+        if (newTime > 0 && newTime % 300 === 0) {
+          console.log(`5-minute cleanup at ${Math.floor(newTime / 60)} minutes`);
+          
+          // Force garbage collection if available
+          if ((window as any).gc) {
+            (window as any).gc();
+            console.log('Performed 5-minute memory cleanup');
+          }
+        }
+        
+        return newTime;
+      });
     }, 1000);
 
     // Cleanup function
@@ -976,10 +1033,15 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         gl={{ 
           antialias: false, // Disable antialiasing for better production performance
           powerPreference: "high-performance",
-          failIfMajorPerformanceCaveat: false
+          failIfMajorPerformanceCaveat: false,
+          preserveDrawingBuffer: false, // Reduce memory usage
+          alpha: false, // Disable alpha channel for better performance
+          depth: false, // Disable depth buffer if not needed
+          stencil: false // Disable stencil buffer
         }}
-        dpr={[1, 2]} // Limit device pixel ratio to prevent memory issues
-        performance={{ min: 0.5 }} // Lower performance threshold
+        dpr={[1, 1.5]} // Further limit device pixel ratio to prevent memory issues
+        performance={{ min: 0.3 }} // Even lower performance threshold to prevent crashes
+        frameloop="always" // Keep animations running but with performance limits
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={0.8} />

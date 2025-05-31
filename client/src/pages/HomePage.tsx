@@ -16,6 +16,8 @@ const HomePage: React.FC = () => {
     const crashData = localStorage.getItem('visualModeCrash');
     const promiseRejectionData = localStorage.getItem('visualModePromiseRejection');
     const memoryWarningData = localStorage.getItem('visualModeMemoryWarning');
+    const criticalMemoryData = localStorage.getItem('visualModeCriticalMemory');
+    const sessionLimitData = localStorage.getItem('visualModeSessionLimit');
     
     // Check for hard crashes (visual mode was active but no clean exit)
     const wasVisualModeActive = localStorage.getItem('visualModeActive');
@@ -50,6 +52,16 @@ const HomePage: React.FC = () => {
     if (memoryWarningData) {
       console.warn('Memory warning from last session:', JSON.parse(memoryWarningData));
       localStorage.removeItem('visualModeMemoryWarning');
+    }
+    
+    if (criticalMemoryData) {
+      console.error('Critical memory warning from last session:', JSON.parse(criticalMemoryData));
+      localStorage.removeItem('visualModeCriticalMemory');
+    }
+    
+    if (sessionLimitData) {
+      console.log('Session limit data from last session:', JSON.parse(sessionLimitData));
+      localStorage.removeItem('visualModeSessionLimit');
     }
   }, []);
   
