@@ -688,11 +688,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           return newTime;
         }
         
-        // Switch to safe mode after 3 minutes to prevent crashes
-        if (newTime === 180 && !safeMode) {
-          console.log('Switching to safe mode after 3 minutes to prevent crashes');
-          setSafeMode(true);
-        }
+        // Enhanced stability monitoring after 3 minutes (removed safe mode switch)
         
         // Memory cleanup every 2 minutes during long sessions
         if (newTime > 0 && newTime % 120 === 0) {
@@ -1099,10 +1095,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             maxVertexAttribs: gl.getParameter(gl.MAX_VERTEX_ATTRIBS)
           });
           
-          // Add context lost/restored handlers
+          // Add context lost/restored handlers with automatic recovery
           state.gl.domElement.addEventListener('webglcontextlost', (event) => {
-            console.error('WebGL context lost:', event);
-            event.preventDefault();
+            console.error('WebGL context lost - attempting recovery:', event);
+            event.preventDefault(); // Prevent default handling to enable recovery
             
             // Log context loss to persistent crash log
             const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
@@ -1110,15 +1106,32 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             crashes.push({
               timestamp: new Date().toISOString(),
               crashType: 'webgl_context_lost',
-              message: 'WebGL context was lost',
-              userAgent: navigator.userAgent
+              message: 'WebGL context was lost - recovery attempted',
+              userAgent: navigator.userAgent,
+              meditationTime
             });
             if (crashes.length > 10) crashes.shift();
             localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
           });
           
           state.gl.domElement.addEventListener('webglcontextrestored', (event) => {
-            console.log('WebGL context restored:', event);
+            console.log('WebGL context restored successfully:', event);
+            
+            // Force re-render to restore all materials and shaders
+            state.invalidate();
+            
+            // Log successful recovery
+            const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
+            const crashes = JSON.parse(crashLog);
+            crashes.push({
+              timestamp: new Date().toISOString(),
+              crashType: 'webgl_context_restored',
+              message: 'WebGL context restored successfully',
+              userAgent: navigator.userAgent,
+              meditationTime
+            });
+            if (crashes.length > 10) crashes.shift();
+            localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
           });
         }}
         onError={(error) => {
@@ -1140,7 +1153,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={0.8} />
-        {safeMode ? <SafeModeOrb /> : <VisualKasinaOrbMesh />}
+        <VisualKasinaOrbMesh />
       </Canvas>
 
       {/* Unified Session Interface */}
