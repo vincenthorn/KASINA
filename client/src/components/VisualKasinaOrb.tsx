@@ -413,6 +413,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30%
   const [safeMode, setSafeMode] = useState(false); // Fallback to simple rendering
+  const [sceneKey, setSceneKey] = useState(0); // For seamless scene recreation
   
   // Use universal auto-hide functionality
   const { showCursor, showControls } = useAutoHide({ 
@@ -781,35 +782,28 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Frequent gentle GPU refresh to prevent driver timeouts
-        if (newTime % 60 === 0 && newTime > 0) {
-          console.log(`Performing thorough GPU refresh at ${newTime} seconds`);
+        // Scene recreation strategy to prevent GPU driver timeouts
+        if (newTime % 120 === 0 && newTime > 0) {
+          console.log(`Performing seamless scene recreation at ${newTime} seconds`);
+          
+          // Trigger scene recreation through a state update
+          // This will cause the React Three Fiber scene to remount completely
+          setSceneKey(prev => prev + 1);
+          
+          console.log(`Scene recreation initiated at ${newTime} seconds`);
+        }
+        
+        // Lightweight GPU maintenance between recreations
+        if (newTime % 60 === 0 && newTime > 0 && newTime % 120 !== 0) {
+          console.log(`Performing lightweight GPU maintenance at ${newTime} seconds`);
           
           const canvas = document.querySelector('canvas');
           if (canvas) {
             const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
             if (gl) {
-              // Thorough GPU state management without context loss
               gl.flush();
               gl.finish();
-              
-              // Clear all GPU buffers
-              gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
-              
-              // Force GPU memory garbage collection
-              gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array(4));
-              
-              // Clear shader program cache by forcing validation
-              const currentProgram = gl.getParameter(gl.CURRENT_PROGRAM);
-              if (currentProgram) {
-                gl.validateProgram(currentProgram);
-              }
-              
-              // Force texture memory flush
-              gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
-              gl.pixelStorei(gl.PACK_ALIGNMENT, 1);
-              
-              console.log(`Thorough GPU refresh completed at ${newTime} seconds`);
+              console.log(`GPU maintenance completed at ${newTime} seconds`);
             }
           }
         }
@@ -1187,6 +1181,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       style={{ backgroundColor: getBackgroundColor() }}
     >
       <Canvas 
+        key={sceneKey} // Force scene recreation when key changes
         camera={{ position: [0, 0, 4], fov: 50 }}
         gl={{ 
           antialias: false,
