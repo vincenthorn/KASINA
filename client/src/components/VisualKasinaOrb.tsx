@@ -1194,7 +1194,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           powerPreference: "default", // Use default instead of low-power
           failIfMajorPerformanceCaveat: false, // Allow all GPU configurations
           preserveDrawingBuffer: false,
-          alpha: false,
+          alpha: true, // Allow transparency to show background colors
           depth: true,
           stencil: false,
           // Force stable context creation

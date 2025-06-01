@@ -2,9 +2,9 @@ login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAA
 
  Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
-warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+warnOnce @ react-router-dom.js:4394
  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
-warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+warnOnce @ react-router-dom.js:4394
  Last visual mode session data: Object
  === COMPLETE DIAGNOSTIC REPORT ===
  WebGL Capabilities: Object
@@ -14,12 +14,12 @@ warnOnce @ react-router-dom.js?v=0a6bad1d:4394
  Snapshot 18: Object
  Snapshot 19: Object
  Snapshot 20: Object
- Memory trend in final snapshots: +2MB
- === END PERFORMANCE ANALYSIS ===
- Crash History: Array(10)
- Crash #1: Object
- Crash #2: Object
- Crash #3: Object
+HomePage.tsx:114 Memory trend in final snapshots: +7MB
+HomePage.tsx:116 === END PERFORMANCE ANALYSIS ===
+HomePage.tsx:123 Crash History: Array(10)
+HomePage.tsx:125 Crash #1: Object
+HomePage.tsx:125 Crash #2: Object
+HomePage.tsx:125 Crash #3: Object
 HomePage.tsx:125 Crash #4: Object
 HomePage.tsx:125 Crash #5: Object
 HomePage.tsx:125 Crash #6: Object
@@ -29,23 +29,17 @@ HomePage.tsx:125 Crash #9: Object
 HomePage.tsx:125 Crash #10: Object
 HomePage.tsx:132 === END DIAGNOSTIC REPORT ===
 HomePage.tsx:139 Found incomplete session from crash: Object
-HomePage.tsx:143 Logging crashed session: 4 minutes
+HomePage.tsx:143 Logging crashed session: 0 minutes
 useAuth.tsx:169 Setting auth state with user: Object
 KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
 KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
 VisualKasinaOrb.tsx:399 🚀 VisualKasinaOrb component loading - crash detection active
 VisualKasinaOrb.tsx:440 🔍 Visual mode session started, crash monitoring active
-sessionRecovery.ts:45 🛡️ Session recovery started for air (session_1748749177942_47r11zcrb)
+sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748749492979_rg9o77neo)
 VisualKasinaOrb.tsx:693 🧘 Visual kasina meditation session started
 useWakeLock.tsx:44 Requesting screen wake lock...
 VisualKasinaOrb.tsx:697 🔒 Wake lock enabled - screen will stay awake during meditation
 useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
-VisualKasinaOrb.tsx:1232 WebGL Diagnostics: Object
-VisualKasinaOrb.tsx:526 Memory: 91MB used / 108MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 95MB used / 113MB total / 4096MB limit
-VisualKasinaOrb.tsx:956 🎨 Selected kasina: Space (space)
-VisualKasinaOrb.tsx:957 📈 Current kasina usage tracking: Object
-KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
-VisualKasinaOrb.tsx:526 Memory: 91MB used / 113MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 93MB used / 119MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 95MB used / 120MB total / 4096MB limit
+VisualKasinaOrb.tsx:1235 WebGL Diagnostics: Object
+VisualKasinaOrb.tsx:526 Memory: 96MB used / 153MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 98MB used / 156MB total / 4096MB limit
