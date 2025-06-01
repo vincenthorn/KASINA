@@ -745,22 +745,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Reduced logging in the critical crash window (200-300 seconds) - only every 10 seconds
-        if (newTime >= 200 && newTime <= 300 && newTime % 10 === 0) {
-          console.warn(`🚨 CRITICAL WINDOW: ${newTime}s - Enhanced monitoring active`);
-          
-          // Reduced detailed logging in crash-prone timeframe
-          const canvas = document.querySelector('canvas');
-          if (canvas) {
-            const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-            if (gl && gl.isContextLost()) {
-              console.warn(`GPU State at ${newTime}s - Context Lost:`, {
-                isContextLost: true,
-                getError: gl.getError()
-              });
-            }
-          }
-        }
+        // Removed critical window monitoring
         
         // Removed GPU reset logic - it was causing context loss crashes
         
