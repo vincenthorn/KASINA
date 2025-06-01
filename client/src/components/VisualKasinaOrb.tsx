@@ -728,31 +728,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         
 
         
-        // Enhanced WebGL diagnostic monitoring every 30 seconds
+        // Basic performance monitoring every 30 seconds
         if (newTime > 0 && newTime % 30 === 0) {
-          const canvas = document.querySelector('canvas');
-          const gl = canvas ? canvas.getContext('webgl2') || canvas.getContext('webgl') : null;
-          
-          const webglDiagnostics = gl ? {
-            // WebGL-specific resource limits and usage
-            maxTextureSize: gl.getParameter(gl.MAX_TEXTURE_SIZE),
-            maxTextureUnits: gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS),
-            maxVertexAttribs: gl.getParameter(gl.MAX_VERTEX_ATTRIBS),
-            maxFragmentUniforms: gl.getParameter(gl.MAX_FRAGMENT_UNIFORM_VECTORS),
-            maxVertexUniforms: gl.getParameter(gl.MAX_VERTEX_UNIFORM_VECTORS),
-            // Check for memory info extensions
-            memoryInfo: gl.getExtension('WEBGL_debug_renderer_info') ? {
-              renderer: gl.getParameter(gl.getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL),
-              vendor: gl.getParameter(gl.getExtension('WEBGL_debug_renderer_info').UNMASKED_VENDOR_WEBGL)
-            } : null,
-            // Check current state
-            currentProgram: gl.getParameter(gl.CURRENT_PROGRAM),
-            activeTexture: gl.getParameter(gl.ACTIVE_TEXTURE),
-            // Error state
-            error: gl.getError(),
-            contextAttributes: gl.getContextAttributes()
-          } : null;
-          
           const snapshot = {
             timestamp: new Date().toISOString(),
             sessionTime: newTime,
@@ -761,15 +738,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
               total: Math.round((performance as any).memory.totalJSHeapSize / 1024 / 1024),
               limit: Math.round((performance as any).memory.jsHeapSizeLimit / 1024 / 1024)
             } : null,
-            webgl: webglDiagnostics,
-            kasina: selectedKasina,
-            performance: {
-              timing: performance.timing,
-              navigation: performance.navigation
-            }
+            kasina: selectedKasina
           };
           
-          // Store snapshots - try IndexedDB first, fallback to localStorage
+          // Store snapshots
           (async () => {
             try {
               const existing = await storage.getItemSafe('diagnostics', 'performanceSnapshots') || [];
@@ -791,84 +763,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             }
           })();
           
-          console.log(`WebGL diagnostic snapshot at ${newTime}s:`, snapshot);
+          console.log(`Performance snapshot at ${newTime}s:`, snapshot);
           
-          // Check for WebGL errors specifically
-          if (webglDiagnostics && webglDiagnostics.error !== gl.NO_ERROR) {
-            console.warn(`WebGL error detected at ${newTime}s:`, webglDiagnostics.error);
-          }
-          
-          // Progressive stress testing to isolate the cause - start early
-          if (newTime === 120) {
-            console.log('🧪 Starting progressive stress tests');
-            
-            // Test 1: Memory allocation stress
-            try {
-              const memoryTest = new Array(1000000).fill(0).map((_, i) => ({ id: i, data: Math.random() }));
-              console.log('✅ Memory allocation test passed:', memoryTest.length);
-              memoryTest.length = 0; // Clear immediately
-            } catch (error) {
-              console.error('❌ Memory allocation test failed:', error);
-            }
 
-            // Test 2: Independent WebGL context
-            try {
-              const testCanvas = document.createElement('canvas');
-              const testGl = testCanvas.getContext('webgl2') || testCanvas.getContext('webgl');
-              if (testGl) {
-                console.log('✅ Independent WebGL context created successfully');
-                testCanvas.remove();
-              } else {
-                console.error('❌ Failed to create independent WebGL context');
-              }
-            } catch (error) {
-              console.error('❌ WebGL context creation threw error:', error);
-            }
-
-            // Test 3: High-frequency timer stress
-            let timerCount = 0;
-            const stressTimer = setInterval(() => {
-              timerCount++;
-              if (timerCount > 100) {
-                clearInterval(stressTimer);
-                console.log('✅ Timer stress test completed:', timerCount);
-              }
-            }, 10);
-          }
-
-          // Test 4: Near-crash environment detection - start earlier and more frequent
-          if (newTime >= 150 && newTime % 10 === 0) {
-            console.log(`🔍 Near-crash environment test at ${newTime}s`);
-            
-            // Check if we can still create new objects
-            try {
-              const testObj = { timestamp: Date.now(), data: new Array(1000).fill(newTime) };
-              console.log(`✅ Object creation still works at ${newTime}s`);
-            } catch (error) {
-              console.error(`❌ Object creation failed at ${newTime}s:`, error);
-            }
-
-            // Check DOM manipulation
-            try {
-              const testDiv = document.createElement('div');
-              testDiv.id = `test-${newTime}`;
-              document.body.appendChild(testDiv);
-              document.body.removeChild(testDiv);
-              console.log(`✅ DOM manipulation works at ${newTime}s`);
-            } catch (error) {
-              console.error(`❌ DOM manipulation failed at ${newTime}s:`, error);
-            }
-
-            // Check localStorage access
-            try {
-              localStorage.setItem(`test-${newTime}`, JSON.stringify({ time: newTime }));
-              const retrieved = localStorage.getItem(`test-${newTime}`);
-              localStorage.removeItem(`test-${newTime}`);
-              console.log(`✅ localStorage access works at ${newTime}s`);
-            } catch (error) {
-              console.error(`❌ localStorage access failed at ${newTime}s:`, error);
-            }
-          }
           
           // Incremental session logging every 30 seconds using IndexedDB
           const incrementalSessionData = {
