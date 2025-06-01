@@ -130,6 +130,28 @@ const HomePage: React.FC = () => {
     }
     
     console.log('=== END DIAGNOSTIC REPORT ===');
+    
+    // Check for incomplete sessions that ended due to crashes
+    const incrementalSession = localStorage.getItem('incrementalSession');
+    if (incrementalSession) {
+      try {
+        const sessionData = JSON.parse(incrementalSession);
+        console.log('Found incomplete session from crash:', sessionData);
+        
+        // Log the session with the duration up to the crash
+        if (sessionData.duration >= 30) { // Only log sessions longer than 30 seconds
+          console.log(`Logging crashed session: ${Math.floor(sessionData.duration / 60)} minutes`);
+          // You can integrate this with your session logging system
+          // logSession(sessionData.duration, sessionData.kasina, 'crashed');
+        }
+        
+        // Clear the incremental session data
+        localStorage.removeItem('incrementalSession');
+      } catch (e) {
+        console.error('Failed to parse incremental session data:', e);
+        localStorage.removeItem('incrementalSession');
+      }
+    }
   }, []);
   
   // Check if user is admin or premium

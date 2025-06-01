@@ -740,7 +740,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         
         // Enhanced stability monitoring after 3 minutes (removed safe mode switch)
         
-        // Continuous performance monitoring and memory cleanup
+        // Continuous performance monitoring and incremental session logging
         if (newTime > 0 && newTime % 30 === 0) {
           // Take performance snapshot every 30 seconds
           const snapshot = {
@@ -767,6 +767,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           localStorage.setItem('performanceSnapshots', JSON.stringify(snapshots));
           
           console.log(`Performance snapshot at ${newTime}s:`, snapshot);
+          
+          // Incremental session logging every 30 seconds to survive crashes
+          const incrementalSessionData = {
+            timestamp: new Date().toISOString(),
+            duration: newTime,
+            kasina: getMostUsedKasina(),
+            status: 'in_progress',
+            lastUpdate: newTime
+          };
+          localStorage.setItem('incrementalSession', JSON.stringify(incrementalSessionData));
         }
         
         // Balanced memory cleanup optimized for stability
