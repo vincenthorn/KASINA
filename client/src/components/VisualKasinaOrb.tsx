@@ -406,7 +406,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       console.error('🚨 Unhandled error in visual kasina:', event.error);
       const errorData = {
         timestamp: new Date().toISOString(),
-        sessionTime: meditationTime,
+        sessionTime: 0, // Will be updated when meditationTime is available
         error: {
           message: event.message,
           filename: event.filename,
@@ -430,7 +430,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       console.error('🚨 Unhandled promise rejection in visual kasina:', event.reason);
       const errorData = {
         timestamp: new Date().toISOString(),
-        sessionTime: meditationTime,
+        sessionTime: 0, // Will be updated when meditationTime is available
         error: {
           reason: event.reason?.toString(),
           stack: event.reason?.stack
@@ -459,7 +459,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       window.removeEventListener('error', handleUnhandledError);
       window.removeEventListener('unhandledrejection', handleUnhandledRejection);
     };
-  }, [meditationTime]);
+  }, []);
   
   const { selectedKasina, setSelectedKasina } = useKasina();
   const { currentColor } = useColor();
