@@ -719,31 +719,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Invisible GPU maintenance strategy - no visual interruption
-        // Skip maintenance on reset intervals to avoid conflicts
-        if (newTime % 45 === 0 && newTime > 0 && newTime % 90 !== 0) {
-          console.log(`Performing invisible GPU refresh at ${newTime} seconds`);
-          
-          const canvas = document.querySelector('canvas');
-          if (canvas) {
-            const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-            if (gl) {
-              // Advanced GPU maintenance without context loss
-              gl.flush();
-              gl.finish();
-              
-              // Clear any accumulated GPU state
-              if (gl.clear) {
-                const currentClearColor = gl.getParameter(gl.COLOR_CLEAR_VALUE);
-                gl.clearColor(0, 0, 0, 0);
-                gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-                gl.clearColor(currentClearColor[0], currentClearColor[1], currentClearColor[2], currentClearColor[3]);
-              }
-              
-              console.log(`Invisible GPU refresh completed at ${newTime} seconds`);
-            }
-          }
-        }
+
         
         // Removed critical window monitoring
         

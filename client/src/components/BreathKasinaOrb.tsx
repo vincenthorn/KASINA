@@ -1190,19 +1190,24 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         const cappedScale = immersionLevel > 0 ? Math.min(scale, 6) : scale;
         groupRef.current.scale.setScalar(cappedScale);
         
-        // Fade out the main orb as we approach full immersion
+        // Optimize opacity updates - only update when there's a meaningful change
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
-        groupRef.current.traverse((child) => {
-          if (child instanceof THREE.Mesh && child.material) {
-            const material = child.material as any;
-            if (material.uniforms && material.uniforms.opacity) {
-              material.uniforms.opacity.value = orbOpacity;
-            } else if (material.transparent !== undefined) {
-              material.transparent = true;
-              material.opacity = orbOpacity;
+        const opacityChanged = Math.abs(orbOpacity - (groupRef.current.userData.lastOpacity || 1)) > 0.01;
+        
+        if (opacityChanged) {
+          groupRef.current.userData.lastOpacity = orbOpacity;
+          groupRef.current.traverse((child) => {
+            if (child instanceof THREE.Mesh && child.material) {
+              const material = child.material as any;
+              if (material.uniforms && material.uniforms.opacity) {
+                material.uniforms.opacity.value = orbOpacity;
+              } else if (material.transparent !== undefined) {
+                material.transparent = true;
+                material.opacity = orbOpacity;
+              }
             }
-          }
-        });
+          });
+        }
       }
       
       if (meshRef.current) {
@@ -1210,41 +1215,60 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         const cappedScale = immersionLevel > 0 ? Math.min(scale, 6) : scale;
         meshRef.current.scale.setScalar(cappedScale);
         
+        // Optimize material updates - only update when opacity changes significantly
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
-        if (meshRef.current.material && !Array.isArray(meshRef.current.material)) {
-          const material = meshRef.current.material as any;
-          material.transparent = true;
-          material.opacity = orbOpacity;
+        const lastMeshOpacity = meshRef.current.userData.lastOpacity || 1;
+        
+        if (Math.abs(orbOpacity - lastMeshOpacity) > 0.01) {
+          meshRef.current.userData.lastOpacity = orbOpacity;
+          if (meshRef.current.material && !Array.isArray(meshRef.current.material)) {
+            const material = meshRef.current.material as any;
+            material.transparent = true;
+            material.opacity = orbOpacity;
+          }
         }
       }
       
-      // Update immersion background
+      // Update immersion background - optimize updates
       if (immersionBackgroundRef.current) {
         // Make the background visible and scale it with breathing
         const backgroundScale = 200; // Even larger sphere to ensure full coverage
         immersionBackgroundRef.current.scale.setScalar(backgroundScale);
         
-        // Set opacity based on immersion level - ensure it's visible when needed
-        if (immersionBackgroundRef.current.material && !Array.isArray(immersionBackgroundRef.current.material)) {
-          const material = immersionBackgroundRef.current.material as any;
-          material.transparent = true;
-          material.depthWrite = false; // Prevent depth issues
-          material.depthTest = false; // Ensure it renders behind everything
-          // Show background with full brightness for perfect immersion
-          material.opacity = immersionLevel > 0.01 ? 1.0 : 0;
-          material.visible = immersionLevel > 0.001; // Show immediately when any immersion starts
+        // Optimize background material updates
+        const targetOpacity = immersionLevel > 0.01 ? 1.0 : 0;
+        const targetVisible = immersionLevel > 0.001;
+        const lastBgOpacity = immersionBackgroundRef.current.userData.lastOpacity || 0;
+        const lastBgVisible = immersionBackgroundRef.current.userData.lastVisible || false;
+        
+        if (Math.abs(targetOpacity - lastBgOpacity) > 0.01 || targetVisible !== lastBgVisible) {
+          immersionBackgroundRef.current.userData.lastOpacity = targetOpacity;
+          immersionBackgroundRef.current.userData.lastVisible = targetVisible;
+          
+          if (immersionBackgroundRef.current.material && !Array.isArray(immersionBackgroundRef.current.material)) {
+            const material = immersionBackgroundRef.current.material as any;
+            material.transparent = true;
+            material.depthWrite = false; // Prevent depth issues
+            material.depthTest = false; // Ensure it renders behind everything
+            material.opacity = targetOpacity;
+            material.visible = targetVisible;
+          }
         }
       }
       
-      // Update shader time uniforms for all elemental kasinas
+      // Throttle shader time updates - only update every few frames to reduce load
       const time = clock.getElapsedTime();
-      if (waterMaterialRef.current) waterMaterialRef.current.uniforms.time.value = time;
-      if (fireMaterialRef.current) fireMaterialRef.current.uniforms.time.value = time;
-      if (airMaterialRef.current) airMaterialRef.current.uniforms.time.value = time;
-      if (earthMaterialRef.current) earthMaterialRef.current.uniforms.time.value = time;
-      if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = time;
-      if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = time;
+      const frameCount = Math.floor(time * 60); // Approximate frame count
       
+      // Update shader uniforms only every 3rd frame to reduce computational load
+      if (frameCount % 3 === 0) {
+        if (waterMaterialRef.current) waterMaterialRef.current.uniforms.time.value = time;
+        if (fireMaterialRef.current) fireMaterialRef.current.uniforms.time.value = time;
+        if (airMaterialRef.current) airMaterialRef.current.uniforms.time.value = time;
+        if (earthMaterialRef.current) earthMaterialRef.current.uniforms.time.value = time;
+        if (spaceMaterialRef.current) spaceMaterialRef.current.uniforms.time.value = time;
+        if (lightMaterialRef.current) lightMaterialRef.current.uniforms.time.value = time;
+        
         // Update background shader uniforms too
         if (immersionBackgroundRef.current && immersionBackgroundRef.current.material) {
           const material = immersionBackgroundRef.current.material as any;
@@ -1252,6 +1276,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
             material.uniforms.time.value = time;
           }
         }
+      }
       } catch (error) {
         console.error('Error in useFrame animation loop:', error);
         // Prevent crashes by gracefully handling animation errors
