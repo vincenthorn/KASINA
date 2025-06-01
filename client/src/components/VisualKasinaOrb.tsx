@@ -689,33 +689,23 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       useSimpleTimer.getState().setInfiniteMode();
       console.log('🔄 Forced infinite timer mode for visual kasina session');
       
-      // PRODUCTION TIMEOUT BYPASS: Prevent Replit/production platform timeouts
-      // Set up aggressive session refresh to prevent platform-level termination
-      const isProduction = window.location.hostname !== 'localhost';
-      if (isProduction) {
-        console.log('🏭 Production environment detected - implementing timeout bypass');
-        
-        // Frequent platform timeout bypass every 2 minutes
-        const platformTimeoutBypass = setInterval(() => {
-          try {
-            // Simple localStorage touch to show activity
-            localStorage.setItem('lastActivity', Date.now().toString());
-            
-            // Minimal console activity
-            console.log('🔄 Platform timeout bypass refresh executed');
-          } catch (e) {
-            console.warn('Platform timeout bypass failed:', e);
-          }
-        }, 120000); // Every 2 minutes
-        
-        // Store the interval ID for cleanup
-        (window as any).platformTimeoutBypass = platformTimeoutBypass;
-        
-
-      }
+      // TESTING: Platform timeout bypass temporarily disabled to test crash theory
+      // const isProduction = window.location.hostname !== 'localhost';
+      // if (isProduction) {
+      //   console.log('🏭 Production environment detected - implementing timeout bypass');
+      //   const platformTimeoutBypass = setInterval(() => {
+      //     try {
+      //       localStorage.setItem('lastActivity', Date.now().toString());
+      //       console.log('🔄 Platform timeout bypass refresh executed');
+      //     } catch (e) {
+      //       console.warn('Platform timeout bypass failed:', e);
+      //     }
+      //   }, 120000);
+      //   (window as any).platformTimeoutBypass = platformTimeoutBypass;
+      // }
       
-      // Create session recovery entry
-      sessionIdRef.current = sessionRecovery.startSession(selectedKasina as any);
+      // TESTING: Session recovery temporarily disabled to test crash theory
+      // sessionIdRef.current = sessionRecovery.startSession(selectedKasina as any);
       
       console.log('🧘 Visual kasina meditation session started');
       
@@ -782,12 +772,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         clearInterval(meditationIntervalRef.current);
       }
       
-      // CRITICAL FIX: Clear session recovery when component unmounts
-      if (sessionIdRef.current) {
-        console.log('🛡️ Clearing session recovery on component unmount');
-        sessionRecovery.clearSession();
-        sessionIdRef.current = null;
-      }
+      // TESTING: Session recovery cleanup disabled during crash testing
+      // if (sessionIdRef.current) {
+      //   console.log('🛡️ Clearing session recovery on component unmount');
+      //   sessionRecovery.clearSession();
+      //   sessionIdRef.current = null;
+      // }
       
       disableWakeLock();
     };
