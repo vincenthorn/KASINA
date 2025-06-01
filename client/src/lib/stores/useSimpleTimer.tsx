@@ -3,7 +3,7 @@ import { create } from 'zustand';
 // Add global tracking for debugging
 declare global {
   interface Window {
-    __DEBUG_TIMER: {
+    __DEBUG_TIMER?: {
       originalDuration: number | null;
       currentDuration: number | null;
     };
@@ -52,8 +52,15 @@ export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
     
     // Update global debug object
     if (typeof window !== 'undefined') {
-      window.__DEBUG_TIMER.originalDuration = duration;
-      window.__DEBUG_TIMER.currentDuration = duration;
+      if (!window.__DEBUG_TIMER) {
+        window.__DEBUG_TIMER = {
+          originalDuration: duration,
+          currentDuration: duration
+        };
+      } else {
+        window.__DEBUG_TIMER.originalDuration = duration;
+        window.__DEBUG_TIMER.currentDuration = duration;
+      }
     }
     
     // Calculate minutes from seconds
