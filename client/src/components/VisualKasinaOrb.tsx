@@ -524,7 +524,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         const limitMB = Math.round(memInfo.jsHeapSizeLimit / 1024 / 1024);
         
         // Only log memory every 30 seconds to reduce console spam
-        if (sessionTime % 30 === 0) {
+        const currentTime = Math.floor((Date.now() - meditationStartRef.current!) / 1000);
+        if (currentTime % 30 === 0 && currentTime > 0) {
           console.log(`Memory: ${usedMB}MB used / ${totalMB}MB total / ${limitMB}MB limit`);
         }
         
@@ -828,15 +829,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Ultra-aggressive GPU reset to prevent driver timeouts  
-        if (newTime % 90 === 0 && newTime > 0) {
-          console.log(`Performing ultra-aggressive deep GPU reset at ${newTime} seconds (1.5 min mark)`);
-          
-          // Recreate scene at 90-second intervals to stay well under driver timeout limits
-          setSceneKey(prev => prev + 1);
-          
-          console.log(`Ultra-aggressive deep GPU reset completed at ${newTime} seconds`);
-        }
+        // Removed GPU reset logic - it was causing context loss crashes
         
         return newTime;
       });
