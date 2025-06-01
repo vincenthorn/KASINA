@@ -408,6 +408,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const [meditationTime, setMeditationTime] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30%
+  const [safeMode, setSafeMode] = useState(false); // Fallback to simple rendering
   
   // Use universal auto-hide functionality
   const { showCursor, showControls } = useAutoHide({ 
@@ -687,14 +688,20 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           return newTime;
         }
         
-        // Memory cleanup every 5 minutes during long sessions
-        if (newTime > 0 && newTime % 300 === 0) {
-          console.log(`5-minute cleanup at ${Math.floor(newTime / 60)} minutes`);
+        // Switch to safe mode after 3 minutes to prevent crashes
+        if (newTime === 180 && !safeMode) {
+          console.log('Switching to safe mode after 3 minutes to prevent crashes');
+          setSafeMode(true);
+        }
+        
+        // Memory cleanup every 2 minutes during long sessions
+        if (newTime > 0 && newTime % 120 === 0) {
+          console.log(`2-minute cleanup at ${Math.floor(newTime / 60)} minutes`);
           
           // Force garbage collection if available
           if ((window as any).gc) {
             (window as any).gc();
-            console.log('Performed 5-minute memory cleanup');
+            console.log('Performed 2-minute memory cleanup');
           }
         }
         
@@ -1133,7 +1140,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={0.8} />
-        <VisualKasinaOrbMesh />
+        {safeMode ? <SafeModeOrb /> : <VisualKasinaOrbMesh />}
       </Canvas>
 
       {/* Unified Session Interface */}
