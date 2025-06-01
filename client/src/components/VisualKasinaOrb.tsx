@@ -924,7 +924,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
     
-    // Simplified monitoring to avoid interference
+    // Simplified monitoring to avoid interference  
     useEffect(() => {
       const basicMonitor = setInterval(() => {
         console.log(`[${meditationTime}s] Visual kasina running - ${selectedKasina}`);
