@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { storage } from '@/lib/indexedDBStorage';
 
 interface DiagnosticData {
   contextLoss: any;
@@ -14,43 +15,48 @@ export default function DiagnosticsPage() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    // Test localStorage functionality first
-    try {
-      localStorage.setItem('diagnosticTest', 'working');
-      const test = localStorage.getItem('diagnosticTest');
-      console.log('localStorage test:', test);
-      
-      // Show all localStorage keys
-      console.log('All localStorage keys:', Object.keys(localStorage));
-      
-      // Get raw values to debug parsing issues
-      const rawContextLoss = localStorage.getItem('webglContextLoss');
-      const rawSnapshots = localStorage.getItem('performanceSnapshots');
-      const rawSession = localStorage.getItem('incrementalSession');
-      const rawCrashLog = localStorage.getItem('crashLog');
-      
-      console.log('Raw localStorage values:');
-      console.log('webglContextLoss:', rawContextLoss);
-      console.log('performanceSnapshots:', rawSnapshots);
-      console.log('incrementalSession:', rawSession);
-      console.log('crashLog:', rawCrashLog);
-      
-      const diagnosticData: DiagnosticData = {
-        contextLoss: rawContextLoss ? JSON.parse(rawContextLoss) : null,
-        snapshots: rawSnapshots ? JSON.parse(rawSnapshots) : [],
-        incrementalSession: rawSession ? JSON.parse(rawSession) : null,
-        crashLog: rawCrashLog ? JSON.parse(rawCrashLog) : null
-      };
-      setData(diagnosticData);
-    } catch (error) {
-      console.error('localStorage error:', error);
-      setData({
-        contextLoss: null,
-        snapshots: [],
-        incrementalSession: null,
-        crashLog: null
-      });
-    }
+    const loadDiagnosticData = async () => {
+      try {
+        console.log('Loading diagnostic data from IndexedDB and localStorage...');
+        
+        // Try IndexedDB first, fallback to localStorage
+        const [contextLoss, snapshots, incrementalSession, crashLog] = await Promise.all([
+          storage.getItemSafe('diagnostics', 'webglContextLoss').catch(() => 
+            localStorage.getItem('webglContextLoss') ? JSON.parse(localStorage.getItem('webglContextLoss')!) : null
+          ),
+          storage.getItemSafe('diagnostics', 'performanceSnapshots').catch(() => 
+            localStorage.getItem('performanceSnapshots') ? JSON.parse(localStorage.getItem('performanceSnapshots')!) : []
+          ),
+          storage.getItemSafe('sessions', 'incrementalSession').catch(() => 
+            localStorage.getItem('incrementalSession') ? JSON.parse(localStorage.getItem('incrementalSession')!) : null
+          ),
+          storage.getItemSafe('diagnostics', 'crashLog').catch(() => 
+            localStorage.getItem('crashLog') ? JSON.parse(localStorage.getItem('crashLog')!) : null
+          )
+        ]);
+
+        console.log('Loaded data:', { contextLoss, snapshots: snapshots?.length, incrementalSession, crashLog });
+
+        const diagnosticData: DiagnosticData = {
+          contextLoss,
+          snapshots: Array.isArray(snapshots) ? snapshots : [],
+          incrementalSession,
+          crashLog
+        };
+        
+        setData(diagnosticData);
+      } catch (error) {
+        console.error('Failed to load diagnostic data:', error);
+        setData({
+          contextLoss: null,
+          snapshots: [],
+          incrementalSession: null,
+          crashLog: null
+        });
+      }
+    };
+
+    loadDiagnosticData();
   }, []);
 
   const copyToClipboard = () => {

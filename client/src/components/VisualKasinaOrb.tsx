@@ -13,6 +13,7 @@ import useWakeLock from '../lib/useWakeLock';
 import { useAutoHide } from '../lib/useAutoHide';
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
+import { storage } from '../lib/indexedDBStorage';
 
 // Text kasina components
 import WhiteAKasina from './WhiteAKasina';
@@ -710,13 +711,27 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             }
           };
           
-          // Store snapshots
-          const existing = localStorage.getItem('performanceSnapshots') || '[]';
-          const snapshots = JSON.parse(existing);
-          snapshots.push(snapshot);
-          // Keep only last 20 snapshots (10 minutes of data)
-          if (snapshots.length > 20) snapshots.shift();
-          localStorage.setItem('performanceSnapshots', JSON.stringify(snapshots));
+          // Store snapshots - try IndexedDB first, fallback to localStorage
+          (async () => {
+            try {
+              const existing = await storage.getItemSafe('diagnostics', 'performanceSnapshots') || [];
+              const snapshots = Array.isArray(existing) ? existing : [];
+              snapshots.push(snapshot);
+              if (snapshots.length > 20) snapshots.shift();
+              await storage.setItemSafe('diagnostics', 'performanceSnapshots', snapshots);
+            } catch (error) {
+              console.error('Failed to save performance snapshot:', error);
+              try {
+                const existing = localStorage.getItem('performanceSnapshots') || '[]';
+                const snapshots = JSON.parse(existing);
+                snapshots.push(snapshot);
+                if (snapshots.length > 20) snapshots.shift();
+                localStorage.setItem('performanceSnapshots', JSON.stringify(snapshots));
+              } catch (localError) {
+                console.error('Both storage methods failed:', localError);
+              }
+            }
+          })();
           
           console.log(`WebGL diagnostic snapshot at ${newTime}s:`, snapshot);
           
@@ -797,7 +812,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             }
           }
           
-          // Incremental session logging every 30 seconds to survive crashes
+          // Incremental session logging every 30 seconds using IndexedDB
           const incrementalSessionData = {
             timestamp: new Date().toISOString(),
             duration: newTime,
@@ -805,7 +820,15 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             status: 'in_progress',
             lastUpdate: newTime
           };
-          localStorage.setItem('incrementalSession', JSON.stringify(incrementalSessionData));
+          
+          (async () => {
+            try {
+              await storage.setItemSafe('sessions', 'incrementalSession', incrementalSessionData);
+            } catch (error) {
+              console.error('Failed to save incremental session:', error);
+              localStorage.setItem('incrementalSession', JSON.stringify(incrementalSessionData));
+            }
+          })();
         }
         
 
