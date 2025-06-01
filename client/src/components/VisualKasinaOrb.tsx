@@ -725,21 +725,75 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             console.warn(`WebGL error detected at ${newTime}s:`, webglDiagnostics.error);
           }
           
-          // Test WebGL context creation at 3.5 minutes to isolate the issue
+          // Progressive stress testing to isolate the cause
           if (newTime === 210) {
-            console.log('🧪 Testing independent WebGL context creation');
+            console.log('🧪 Starting progressive stress tests');
+            
+            // Test 1: Memory allocation stress
+            try {
+              const memoryTest = new Array(1000000).fill(0).map((_, i) => ({ id: i, data: Math.random() }));
+              console.log('✅ Memory allocation test passed:', memoryTest.length);
+              memoryTest.length = 0; // Clear immediately
+            } catch (error) {
+              console.error('❌ Memory allocation test failed:', error);
+            }
+
+            // Test 2: Independent WebGL context
             try {
               const testCanvas = document.createElement('canvas');
               const testGl = testCanvas.getContext('webgl2') || testCanvas.getContext('webgl');
               if (testGl) {
                 console.log('✅ Independent WebGL context created successfully');
-                // Clean up immediately
                 testCanvas.remove();
               } else {
                 console.error('❌ Failed to create independent WebGL context');
               }
             } catch (error) {
               console.error('❌ WebGL context creation threw error:', error);
+            }
+
+            // Test 3: High-frequency timer stress
+            let timerCount = 0;
+            const stressTimer = setInterval(() => {
+              timerCount++;
+              if (timerCount > 100) {
+                clearInterval(stressTimer);
+                console.log('✅ Timer stress test completed:', timerCount);
+              }
+            }, 10);
+          }
+
+          // Test 4: Near-crash environment detection
+          if (newTime >= 240 && newTime % 10 === 0) {
+            console.log(`🔍 Near-crash environment test at ${newTime}s`);
+            
+            // Check if we can still create new objects
+            try {
+              const testObj = { timestamp: Date.now(), data: new Array(1000).fill(newTime) };
+              console.log(`✅ Object creation still works at ${newTime}s`);
+            } catch (error) {
+              console.error(`❌ Object creation failed at ${newTime}s:`, error);
+            }
+
+            // Check DOM manipulation
+            try {
+              const testDiv = document.createElement('div');
+              testDiv.id = `test-${newTime}`;
+              document.body.appendChild(testDiv);
+              document.body.removeChild(testDiv);
+              console.log(`✅ DOM manipulation works at ${newTime}s`);
+            } catch (error) {
+              console.error(`❌ DOM manipulation failed at ${newTime}s:`, error);
+            }
+
+            // Check localStorage access
+            try {
+              localStorage.setItem(`test-${newTime}`, JSON.stringify({ time: newTime }));
+              const retrieved = localStorage.getItem(`test-${newTime}`);
+              localStorage.removeItem(`test-${newTime}`);
+              console.log(`✅ localStorage access works at ${newTime}s`);
+            } catch (error) {
+              console.error(`❌ localStorage access failed at ${newTime}s:`, error);
             }
           }
           

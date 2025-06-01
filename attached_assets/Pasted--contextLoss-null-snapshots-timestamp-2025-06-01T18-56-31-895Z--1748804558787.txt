@@ -1,0 +1,332 @@
+{
+  "contextLoss": null,
+  "snapshots": [
+    {
+      "timestamp": "2025-06-01T18:56:31.895Z",
+      "sessionTime": 30,
+      "memory": {
+        "used": 44,
+        "total": 45,
+        "limit": 4096
+      },
+      "webgl": {
+        "maxTextureSize": 16384,
+        "maxTextureUnits": 16,
+        "maxVertexAttribs": 16,
+        "maxFragmentUniforms": 1024,
+        "maxVertexUniforms": 1024,
+        "memoryInfo": {
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "currentProgram": {},
+        "activeTexture": 33984,
+        "error": 0,
+        "contextAttributes": {
+          "alpha": true,
+          "antialias": false,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "default",
+          "premultipliedAlpha": false,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        }
+      },
+      "kasina": "fire",
+      "performance": {
+        "timing": {
+          "connectStart": 1748804141928,
+          "secureConnectionStart": 1748804141956,
+          "unloadEventEnd": 0,
+          "domainLookupStart": 1748804141837,
+          "domainLookupEnd": 1748804141928,
+          "responseStart": 1748804142067,
+          "connectEnd": 1748804141990,
+          "responseEnd": 1748804142067,
+          "requestStart": 1748804141990,
+          "domLoading": 1748804142070,
+          "redirectStart": 0,
+          "loadEventEnd": 1748804143380,
+          "domComplete": 1748804143380,
+          "navigationStart": 1748804141830,
+          "loadEventStart": 1748804143380,
+          "domContentLoadedEventEnd": 1748804143247,
+          "unloadEventStart": 0,
+          "redirectEnd": 0,
+          "domInteractive": 1748804142078,
+          "fetchStart": 1748804141836,
+          "domContentLoadedEventStart": 1748804143247
+        },
+        "navigation": {
+          "type": 0,
+          "redirectCount": 0
+        }
+      }
+    },
+    {
+      "timestamp": "2025-06-01T18:57:01.895Z",
+      "sessionTime": 60,
+      "memory": {
+        "used": 46,
+        "total": 47,
+        "limit": 4096
+      },
+      "webgl": {
+        "maxTextureSize": 16384,
+        "maxTextureUnits": 16,
+        "maxVertexAttribs": 16,
+        "maxFragmentUniforms": 1024,
+        "maxVertexUniforms": 1024,
+        "memoryInfo": {
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "currentProgram": {},
+        "activeTexture": 33984,
+        "error": 0,
+        "contextAttributes": {
+          "alpha": true,
+          "antialias": false,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "default",
+          "premultipliedAlpha": false,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        }
+      },
+      "kasina": "fire",
+      "performance": {
+        "timing": {
+          "connectStart": 1748804141928,
+          "secureConnectionStart": 1748804141956,
+          "unloadEventEnd": 0,
+          "domainLookupStart": 1748804141837,
+          "domainLookupEnd": 1748804141928,
+          "responseStart": 1748804142067,
+          "connectEnd": 1748804141990,
+          "responseEnd": 1748804142067,
+          "requestStart": 1748804141990,
+          "domLoading": 1748804142070,
+          "redirectStart": 0,
+          "loadEventEnd": 1748804143380,
+          "domComplete": 1748804143380,
+          "navigationStart": 1748804141830,
+          "loadEventStart": 1748804143380,
+          "domContentLoadedEventEnd": 1748804143247,
+          "unloadEventStart": 0,
+          "redirectEnd": 0,
+          "domInteractive": 1748804142078,
+          "fetchStart": 1748804141836,
+          "domContentLoadedEventStart": 1748804143247
+        },
+        "navigation": {
+          "type": 0,
+          "redirectCount": 0
+        }
+      }
+    },
+    {
+      "timestamp": "2025-06-01T18:57:31.895Z",
+      "sessionTime": 90,
+      "memory": {
+        "used": 43,
+        "total": 46,
+        "limit": 4096
+      },
+      "webgl": {
+        "maxTextureSize": 16384,
+        "maxTextureUnits": 16,
+        "maxVertexAttribs": 16,
+        "maxFragmentUniforms": 1024,
+        "maxVertexUniforms": 1024,
+        "memoryInfo": {
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "currentProgram": {},
+        "activeTexture": 33984,
+        "error": 0,
+        "contextAttributes": {
+          "alpha": true,
+          "antialias": false,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "default",
+          "premultipliedAlpha": false,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        }
+      },
+      "kasina": "fire",
+      "performance": {
+        "timing": {
+          "connectStart": 1748804141928,
+          "secureConnectionStart": 1748804141956,
+          "unloadEventEnd": 0,
+          "domainLookupStart": 1748804141837,
+          "domainLookupEnd": 1748804141928,
+          "responseStart": 1748804142067,
+          "connectEnd": 1748804141990,
+          "responseEnd": 1748804142067,
+          "requestStart": 1748804141990,
+          "domLoading": 1748804142070,
+          "redirectStart": 0,
+          "loadEventEnd": 1748804143380,
+          "domComplete": 1748804143380,
+          "navigationStart": 1748804141830,
+          "loadEventStart": 1748804143380,
+          "domContentLoadedEventEnd": 1748804143247,
+          "unloadEventStart": 0,
+          "redirectEnd": 0,
+          "domInteractive": 1748804142078,
+          "fetchStart": 1748804141836,
+          "domContentLoadedEventStart": 1748804143247
+        },
+        "navigation": {
+          "type": 0,
+          "redirectCount": 0
+        }
+      }
+    },
+    {
+      "timestamp": "2025-06-01T18:58:02.025Z",
+      "sessionTime": 120,
+      "memory": {
+        "used": 42,
+        "total": 44,
+        "limit": 4096
+      },
+      "webgl": {
+        "maxTextureSize": 16384,
+        "maxTextureUnits": 16,
+        "maxVertexAttribs": 16,
+        "maxFragmentUniforms": 1024,
+        "maxVertexUniforms": 1024,
+        "memoryInfo": {
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "currentProgram": {},
+        "activeTexture": 33984,
+        "error": 0,
+        "contextAttributes": {
+          "alpha": true,
+          "antialias": false,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "default",
+          "premultipliedAlpha": false,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        }
+      },
+      "kasina": "fire",
+      "performance": {
+        "timing": {
+          "connectStart": 1748804141928,
+          "secureConnectionStart": 1748804141956,
+          "unloadEventEnd": 0,
+          "domainLookupStart": 1748804141837,
+          "domainLookupEnd": 1748804141928,
+          "responseStart": 1748804142067,
+          "connectEnd": 1748804141990,
+          "responseEnd": 1748804142067,
+          "requestStart": 1748804141990,
+          "domLoading": 1748804142070,
+          "redirectStart": 0,
+          "loadEventEnd": 1748804143380,
+          "domComplete": 1748804143380,
+          "navigationStart": 1748804141830,
+          "loadEventStart": 1748804143380,
+          "domContentLoadedEventEnd": 1748804143247,
+          "unloadEventStart": 0,
+          "redirectEnd": 0,
+          "domInteractive": 1748804142078,
+          "fetchStart": 1748804141836,
+          "domContentLoadedEventStart": 1748804143247
+        },
+        "navigation": {
+          "type": 0,
+          "redirectCount": 0
+        }
+      }
+    },
+    {
+      "timestamp": "2025-06-01T18:58:32.026Z",
+      "sessionTime": 150,
+      "memory": {
+        "used": 43,
+        "total": 44,
+        "limit": 4096
+      },
+      "webgl": {
+        "maxTextureSize": 16384,
+        "maxTextureUnits": 16,
+        "maxVertexAttribs": 16,
+        "maxFragmentUniforms": 1024,
+        "maxVertexUniforms": 1024,
+        "memoryInfo": {
+          "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+          "vendor": "Google Inc. (Apple)"
+        },
+        "currentProgram": {},
+        "activeTexture": 33984,
+        "error": 0,
+        "contextAttributes": {
+          "alpha": true,
+          "antialias": false,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "default",
+          "premultipliedAlpha": false,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        }
+      },
+      "kasina": "fire",
+      "performance": {
+        "timing": {
+          "connectStart": 1748804141928,
+          "secureConnectionStart": 1748804141956,
+          "unloadEventEnd": 0,
+          "domainLookupStart": 1748804141837,
+          "domainLookupEnd": 1748804141928,
+          "responseStart": 1748804142067,
+          "connectEnd": 1748804141990,
+          "responseEnd": 1748804142067,
+          "requestStart": 1748804141990,
+          "domLoading": 1748804142070,
+          "redirectStart": 0,
+          "loadEventEnd": 1748804143380,
+          "domComplete": 1748804143380,
+          "navigationStart": 1748804141830,
+          "loadEventStart": 1748804143380,
+          "domContentLoadedEventEnd": 1748804143247,
+          "unloadEventStart": 0,
+          "redirectEnd": 0,
+          "domInteractive": 1748804142078,
+          "fetchStart": 1748804141836,
+          "domContentLoadedEventStart": 1748804143247
+        },
+        "navigation": {
+          "type": 0,
+          "redirectCount": 0
+        }
+      }
+    }
+  ],
+  "incrementalSession": null,
+  "crashLog": null
+}
