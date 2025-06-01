@@ -1,0 +1,74 @@
+chunk-RPCDYKBN.js?v=0a6bad1d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+useAuth.tsx:169 Setting auth state with user: Object
+HomePage.tsx:87 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:91 WebGL Capabilities: Object
+HomePage.tsx:96 Performance Snapshots: Array(9)
+HomePage.tsx:100 === PERFORMANCE ANALYSIS ===
+HomePage.tsx:101 Last 3 snapshots before crash:
+HomePage.tsx:104 Snapshot 7: Object
+HomePage.tsx:104 Snapshot 8: Object
+HomePage.tsx:104 Snapshot 9: Object
+HomePage.tsx:114 Memory trend in final snapshots: 0MB
+HomePage.tsx:116 === END PERFORMANCE ANALYSIS ===
+HomePage.tsx:123 Crash History: Array(1)
+HomePage.tsx:125 Crash #1: Object
+HomePage.tsx:132 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:169 Setting auth state with user: Object
+KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
+KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
+VisualKasinaOrb.tsx:399 🚀 VisualKasinaOrb component loading - crash detection active
+VisualKasinaOrb.tsx:440 🔍 Visual mode session started, crash monitoring active
+sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748779776654_p14qut4b0)
+VisualKasinaOrb.tsx:630 🧘 Visual kasina meditation session started
+useWakeLock.tsx:44 Requesting screen wake lock...
+VisualKasinaOrb.tsx:634 🔒 Wake lock enabled - screen will stay awake during meditation
+VisualKasinaOrb.tsx:1191 WebGL Diagnostics: Object
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 30s elapsed
+VisualKasinaOrb.tsx:698 Performance snapshot at 30s: {timestamp: '2025-06-01T12:10:06.656Z', sessionTime: 30, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:600 📊 Kasina usage breakdown: {space: 30006}
+VisualKasinaOrb.tsx:607   space: 30s
+VisualKasinaOrb.tsx:614 🎯 Most used kasina: space (30s)
+VisualKasinaOrb.tsx:725 Performing invisible GPU refresh at 45 seconds
+VisualKasinaOrb.tsx:743 Invisible GPU refresh completed at 45 seconds
+useWakeLock.tsx:56 Screen wake lock was released
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 60s elapsed
+VisualKasinaOrb.tsx:698 Performance snapshot at 60s: {timestamp: '2025-06-01T12:10:37.360Z', sessionTime: 60, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:600 📊 Kasina usage breakdown: {space: 60710}
+VisualKasinaOrb.tsx:607   space: 61s
+VisualKasinaOrb.tsx:614 🎯 Most used kasina: space (61s)
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 90s elapsed
+VisualKasinaOrb.tsx:698 Performance snapshot at 90s: {timestamp: '2025-06-01T12:11:07.361Z', sessionTime: 90, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:600 📊 Kasina usage breakdown: {space: 90711}
+VisualKasinaOrb.tsx:607   space: 91s
+VisualKasinaOrb.tsx:614 🎯 Most used kasina: space (91s)
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+useWakeLock.tsx:56 Screen wake lock was released
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 120s elapsed
+VisualKasinaOrb.tsx:698 Performance snapshot at 120s: {timestamp: '2025-06-01T12:11:37.362Z', sessionTime: 120, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:600 📊 Kasina usage breakdown: {space: 120712}
+VisualKasinaOrb.tsx:607   space: 121s
+VisualKasinaOrb.tsx:614 🎯 Most used kasina: space (121s)
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+VisualKasinaOrb.tsx:725 Performing invisible GPU refresh at 135 seconds
+VisualKasinaOrb.tsx:743 Invisible GPU refresh completed at 135 seconds
+useWakeLock.tsx:56 Screen wake lock was released
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 150s elapsed
+VisualKasinaOrb.tsx:698 Performance snapshot at 150s: {timestamp: '2025-06-01T12:12:07.363Z', sessionTime: 150, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:600 📊 Kasina usage breakdown: {space: 150712}
+VisualKasinaOrb.tsx:607   space: 151s
+VisualKasinaOrb.tsx:614 🎯 Most used kasina: space (151s)
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 180s elapsed
+VisualKasinaOrb.tsx:698 Performance snapshot at 180s: {timestamp: '2025-06-01T12:12:36.660Z', sessionTime: 180, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:600 📊 Kasina usage breakdown: {space: 180010}
+VisualKasinaOrb.tsx:607   space: 180s
+VisualKasinaOrb.tsx:614 🎯 Most used kasina: space (180s)
+VisualKasinaOrb.tsx:713 3-minute cleanup at 3 minutes
