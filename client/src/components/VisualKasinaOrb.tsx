@@ -667,7 +667,25 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           return newTime;
         }
         
-        // Enhanced stability monitoring after 3 minutes (removed safe mode switch)
+        // Proactive stability management - prevent crashes before they occur
+        if (newTime === 240) {
+          console.log('🛡️ Proactive WebGL refresh at 4 minutes to prevent crash');
+          
+          // Force a gentle Three.js scene refresh
+          setTimeout(() => {
+            try {
+              const canvas = document.querySelector('canvas');
+              if (canvas) {
+                // Trigger a scene invalidation to refresh WebGL state
+                const event = new Event('webglcontextrestored');
+                canvas.dispatchEvent(event);
+                console.log('WebGL context refresh completed');
+              }
+            } catch (error) {
+              console.log('Context refresh failed, continuing normally:', error);
+            }
+          }, 100);
+        }
         
         // Continuous performance monitoring and incremental session logging
         if (newTime > 0 && newTime % 30 === 0) {
