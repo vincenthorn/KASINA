@@ -1,0 +1,178 @@
+chunk-RPCDYKBN.js?v=0a6bad1d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+api/auth/me:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+HomePage.tsx:87 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:132 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:169 Setting auth state with user: Object
+KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
+KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
+VisualKasinaOrb.tsx:402 🚀 VisualKasinaOrb component loading - crash detection active
+VisualKasinaOrb.tsx:499 🔍 Visual mode session started, crash monitoring active
+sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748807096790_mn0y6fapa)
+VisualKasinaOrb.tsx:689 🧘 Visual kasina meditation session started
+useWakeLock.tsx:44 Requesting screen wake lock...
+VisualKasinaOrb.tsx:693 🔒 Wake lock enabled - screen will stay awake during meditation
+VisualKasinaOrb.tsx:1362 WebGL Diagnostics: Object
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 30s elapsed
+VisualKasinaOrb.tsx:794 WebGL diagnostic snapshot at 30s: {timestamp: '2025-06-01T19:45:26.792Z', sessionTime: 30, memory: {…}, webgl: {…}, kasina: 'space', …}
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {space: 30006}
+VisualKasinaOrb.tsx:666   space: 30s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: space (30s)
+indexedDBStorage.ts:92 ⚠️ IndexedDB failed, falling back to localStorage: DataCloneError: Failed to execute 'put' on 'IDBObjectStore': WebGLProgram object could not be cloned.
+    at indexedDBStorage.ts:38:29
+    at new Promise (<anonymous>)
+    at IndexedDBStorage.setItem (indexedDBStorage.ts:35:12)
+    at IndexedDBStorage.setItemSafe (indexedDBStorage.ts:89:18)
+    at VisualKasinaOrb.tsx:779:29
+setItemSafe @ indexedDBStorage.ts:92
+await in setItemSafe
+(anonymous) @ VisualKasinaOrb.tsx:779
+await in (anonymous)
+(anonymous) @ VisualKasinaOrb.tsx:792
+basicStateReducer @ chunk-RPCDYKBN.js?v=0a6bad1d:11703
+updateReducer @ chunk-RPCDYKBN.js?v=0a6bad1d:11794
+updateState @ chunk-RPCDYKBN.js?v=0a6bad1d:12021
+useState @ chunk-RPCDYKBN.js?v=0a6bad1d:12753
+useState @ chunk-QCHXOAYK.js?v=0a6bad1d:1066
+VisualKasinaOrb @ VisualKasinaOrb.tsx:471
+renderWithHooks @ chunk-RPCDYKBN.js?v=0a6bad1d:11548
+updateFunctionComponent @ chunk-RPCDYKBN.js?v=0a6bad1d:14582
+beginWork @ chunk-RPCDYKBN.js?v=0a6bad1d:15924
+beginWork$1 @ chunk-RPCDYKBN.js?v=0a6bad1d:19753
+performUnitOfWork @ chunk-RPCDYKBN.js?v=0a6bad1d:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=0a6bad1d:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=0a6bad1d:19116
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=0a6bad1d:18678
+workLoop @ chunk-RPCDYKBN.js?v=0a6bad1d:197
+flushWork @ chunk-RPCDYKBN.js?v=0a6bad1d:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=0a6bad1d:384
+indexedDBStorage.ts:95 ✅ localStorage fallback successful: diagnostics/performanceSnapshots
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+useWakeLock.tsx:56 Screen wake lock was released
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 60s elapsed
+VisualKasinaOrb.tsx:794 WebGL diagnostic snapshot at 60s: {timestamp: '2025-06-01T19:45:56.793Z', sessionTime: 60, memory: {…}, webgl: {…}, kasina: 'space', …}
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {space: 60007}
+VisualKasinaOrb.tsx:666   space: 60s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: space (60s)
+indexedDBStorage.ts:92 ⚠️ IndexedDB failed, falling back to localStorage: DataCloneError: Failed to execute 'put' on 'IDBObjectStore': WebGLProgram object could not be cloned.
+    at indexedDBStorage.ts:38:29
+    at new Promise (<anonymous>)
+    at IndexedDBStorage.setItem (indexedDBStorage.ts:35:12)
+    at IndexedDBStorage.setItemSafe (indexedDBStorage.ts:89:18)
+    at VisualKasinaOrb.tsx:779:29
+setItemSafe @ indexedDBStorage.ts:92
+await in setItemSafe
+(anonymous) @ VisualKasinaOrb.tsx:779
+await in (anonymous)
+(anonymous) @ VisualKasinaOrb.tsx:792
+basicStateReducer @ chunk-RPCDYKBN.js?v=0a6bad1d:11703
+updateReducer @ chunk-RPCDYKBN.js?v=0a6bad1d:11794
+updateState @ chunk-RPCDYKBN.js?v=0a6bad1d:12021
+useState @ chunk-RPCDYKBN.js?v=0a6bad1d:12753
+useState @ chunk-QCHXOAYK.js?v=0a6bad1d:1066
+VisualKasinaOrb @ VisualKasinaOrb.tsx:471
+renderWithHooks @ chunk-RPCDYKBN.js?v=0a6bad1d:11548
+updateFunctionComponent @ chunk-RPCDYKBN.js?v=0a6bad1d:14582
+beginWork @ chunk-RPCDYKBN.js?v=0a6bad1d:15924
+beginWork$1 @ chunk-RPCDYKBN.js?v=0a6bad1d:19753
+performUnitOfWork @ chunk-RPCDYKBN.js?v=0a6bad1d:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=0a6bad1d:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=0a6bad1d:19116
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=0a6bad1d:18678
+workLoop @ chunk-RPCDYKBN.js?v=0a6bad1d:197
+flushWork @ chunk-RPCDYKBN.js?v=0a6bad1d:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=0a6bad1d:384
+indexedDBStorage.ts:95 ✅ localStorage fallback successful: diagnostics/performanceSnapshots
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+useWakeLock.tsx:56 Screen wake lock was released
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 90s elapsed
+VisualKasinaOrb.tsx:794 WebGL diagnostic snapshot at 90s: {timestamp: '2025-06-01T19:46:26.985Z', sessionTime: 90, memory: {…}, webgl: {…}, kasina: 'space', …}
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {space: 90198}
+VisualKasinaOrb.tsx:666   space: 90s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: space (90s)
+indexedDBStorage.ts:92 ⚠️ IndexedDB failed, falling back to localStorage: DataCloneError: Failed to execute 'put' on 'IDBObjectStore': WebGLProgram object could not be cloned.
+    at indexedDBStorage.ts:38:29
+    at new Promise (<anonymous>)
+    at IndexedDBStorage.setItem (indexedDBStorage.ts:35:12)
+    at IndexedDBStorage.setItemSafe (indexedDBStorage.ts:89:18)
+    at VisualKasinaOrb.tsx:779:29
+setItemSafe @ indexedDBStorage.ts:92
+await in setItemSafe
+(anonymous) @ VisualKasinaOrb.tsx:779
+await in (anonymous)
+(anonymous) @ VisualKasinaOrb.tsx:792
+basicStateReducer @ chunk-RPCDYKBN.js?v=0a6bad1d:11703
+updateReducer @ chunk-RPCDYKBN.js?v=0a6bad1d:11794
+updateState @ chunk-RPCDYKBN.js?v=0a6bad1d:12021
+useState @ chunk-RPCDYKBN.js?v=0a6bad1d:12753
+useState @ chunk-QCHXOAYK.js?v=0a6bad1d:1066
+VisualKasinaOrb @ VisualKasinaOrb.tsx:471
+renderWithHooks @ chunk-RPCDYKBN.js?v=0a6bad1d:11548
+updateFunctionComponent @ chunk-RPCDYKBN.js?v=0a6bad1d:14582
+beginWork @ chunk-RPCDYKBN.js?v=0a6bad1d:15924
+beginWork$1 @ chunk-RPCDYKBN.js?v=0a6bad1d:19753
+performUnitOfWork @ chunk-RPCDYKBN.js?v=0a6bad1d:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=0a6bad1d:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=0a6bad1d:19116
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=0a6bad1d:18678
+workLoop @ chunk-RPCDYKBN.js?v=0a6bad1d:197
+flushWork @ chunk-RPCDYKBN.js?v=0a6bad1d:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=0a6bad1d:384
+indexedDBStorage.ts:95 ✅ localStorage fallback successful: diagnostics/performanceSnapshots
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+useWakeLock.tsx:56 Screen wake lock was released
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 120s elapsed
+VisualKasinaOrb.tsx:794 WebGL diagnostic snapshot at 120s: {timestamp: '2025-06-01T19:46:56.793Z', sessionTime: 120, memory: {…}, webgl: {…}, kasina: 'space', …}
+VisualKasinaOrb.tsx:803 🧪 Starting progressive stress tests
+VisualKasinaOrb.tsx:808 ✅ Memory allocation test passed: 1000000
+VisualKasinaOrb.tsx:819 ✅ Independent WebGL context created successfully
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {space: 120068}
+VisualKasinaOrb.tsx:666   space: 120s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: space (120s)
+indexedDBStorage.ts:92 ⚠️ IndexedDB failed, falling back to localStorage: DataCloneError: Failed to execute 'put' on 'IDBObjectStore': WebGLProgram object could not be cloned.
+    at indexedDBStorage.ts:38:29
+    at new Promise (<anonymous>)
+    at IndexedDBStorage.setItem (indexedDBStorage.ts:35:12)
+    at IndexedDBStorage.setItemSafe (indexedDBStorage.ts:89:18)
+    at VisualKasinaOrb.tsx:779:29
+setItemSafe @ indexedDBStorage.ts:92
+await in setItemSafe
+(anonymous) @ VisualKasinaOrb.tsx:779
+await in (anonymous)
+(anonymous) @ VisualKasinaOrb.tsx:792
+basicStateReducer @ chunk-RPCDYKBN.js?v=0a6bad1d:11703
+updateReducer @ chunk-RPCDYKBN.js?v=0a6bad1d:11794
+updateState @ chunk-RPCDYKBN.js?v=0a6bad1d:12021
+useState @ chunk-RPCDYKBN.js?v=0a6bad1d:12753
+useState @ chunk-QCHXOAYK.js?v=0a6bad1d:1066
+VisualKasinaOrb @ VisualKasinaOrb.tsx:471
+renderWithHooks @ chunk-RPCDYKBN.js?v=0a6bad1d:11548
+updateFunctionComponent @ chunk-RPCDYKBN.js?v=0a6bad1d:14582
+beginWork @ chunk-RPCDYKBN.js?v=0a6bad1d:15924
+beginWork$1 @ chunk-RPCDYKBN.js?v=0a6bad1d:19753
+performUnitOfWork @ chunk-RPCDYKBN.js?v=0a6bad1d:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=0a6bad1d:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=0a6bad1d:19116
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=0a6bad1d:18678
+workLoop @ chunk-RPCDYKBN.js?v=0a6bad1d:197
+flushWork @ chunk-RPCDYKBN.js?v=0a6bad1d:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=0a6bad1d:384
+indexedDBStorage.ts:95 ✅ localStorage fallback successful: diagnostics/performanceSnapshots
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+VisualKasinaOrb.tsx:834 ✅ Timer stress test completed: 101
+useWakeLock.tsx:56 Screen wake lock was released
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on

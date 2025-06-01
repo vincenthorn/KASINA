@@ -733,25 +733,40 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           const canvas = document.querySelector('canvas');
           const gl = canvas ? canvas.getContext('webgl2') || canvas.getContext('webgl') : null;
           
-          const webglDiagnostics = gl ? {
-            // WebGL-specific resource limits and usage
-            maxTextureSize: gl.getParameter(gl.MAX_TEXTURE_SIZE),
-            maxTextureUnits: gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS),
-            maxVertexAttribs: gl.getParameter(gl.MAX_VERTEX_ATTRIBS),
-            maxFragmentUniforms: gl.getParameter(gl.MAX_FRAGMENT_UNIFORM_VECTORS),
-            maxVertexUniforms: gl.getParameter(gl.MAX_VERTEX_UNIFORM_VECTORS),
-            // Check for memory info extensions
-            memoryInfo: gl.getExtension('WEBGL_debug_renderer_info') ? {
-              renderer: gl.getParameter(gl.getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL),
-              vendor: gl.getParameter(gl.getExtension('WEBGL_debug_renderer_info').UNMASKED_VENDOR_WEBGL)
-            } : null,
-            // Check current state
-            currentProgram: gl.getParameter(gl.CURRENT_PROGRAM),
-            activeTexture: gl.getParameter(gl.ACTIVE_TEXTURE),
-            // Error state
-            error: gl.getError(),
-            contextAttributes: gl.getContextAttributes()
-          } : null;
+          // Sanitize WebGL data to prevent DataCloneError and memory pressure
+          const sanitizeWebGLData = (gl: WebGLRenderingContext | null) => {
+            if (!gl) return null;
+            
+            const currentProgram = gl.getParameter(gl.CURRENT_PROGRAM);
+            
+            return {
+              // WebGL-specific resource limits and usage
+              maxTextureSize: gl.getParameter(gl.MAX_TEXTURE_SIZE),
+              maxTextureUnits: gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS),
+              maxVertexAttribs: gl.getParameter(gl.MAX_VERTEX_ATTRIBS),
+              maxFragmentUniforms: gl.getParameter(gl.MAX_FRAGMENT_UNIFORM_VECTORS),
+              maxVertexUniforms: gl.getParameter(gl.MAX_VERTEX_UNIFORM_VECTORS),
+              // Check for memory info extensions
+              memoryInfo: (() => {
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                return debugInfo ? {
+                  renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+                  vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL)
+                } : null;
+              })(),
+              // Sanitized current state - convert WebGL objects to serializable data
+              currentProgram: currentProgram ? {
+                isValid: gl.isProgram(currentProgram),
+                linkStatus: gl.getProgramParameter(currentProgram, gl.LINK_STATUS)
+              } : null,
+              activeTexture: gl.getParameter(gl.ACTIVE_TEXTURE),
+              // Error state
+              error: gl.getError(),
+              contextAttributes: gl.getContextAttributes()
+            };
+          };
+
+          const webglDiagnostics = sanitizeWebGLData(gl);
           
           const snapshot = {
             timestamp: new Date().toISOString(),
@@ -764,8 +779,29 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             webgl: webglDiagnostics,
             kasina: selectedKasina,
             performance: {
-              timing: performance.timing,
-              navigation: performance.navigation
+              timing: performance.timing ? {
+                connectStart: performance.timing.connectStart,
+                secureConnectionStart: performance.timing.secureConnectionStart,
+                domainLookupStart: performance.timing.domainLookupStart,
+                domainLookupEnd: performance.timing.domainLookupEnd,
+                responseStart: performance.timing.responseStart,
+                connectEnd: performance.timing.connectEnd,
+                responseEnd: performance.timing.responseEnd,
+                requestStart: performance.timing.requestStart,
+                domLoading: performance.timing.domLoading,
+                loadEventEnd: performance.timing.loadEventEnd,
+                domComplete: performance.timing.domComplete,
+                navigationStart: performance.timing.navigationStart,
+                loadEventStart: performance.timing.loadEventStart,
+                domContentLoadedEventEnd: performance.timing.domContentLoadedEventEnd,
+                domInteractive: performance.timing.domInteractive,
+                fetchStart: performance.timing.fetchStart,
+                domContentLoadedEventStart: performance.timing.domContentLoadedEventStart
+              } : null,
+              navigation: performance.navigation ? {
+                type: performance.navigation.type,
+                redirectCount: performance.navigation.redirectCount
+              } : null
             }
           };
           
@@ -794,7 +830,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`WebGL diagnostic snapshot at ${newTime}s:`, snapshot);
           
           // Check for WebGL errors specifically
-          if (webglDiagnostics && webglDiagnostics.error !== gl.NO_ERROR) {
+          if (webglDiagnostics && webglDiagnostics.error !== 0) {
             console.warn(`WebGL error detected at ${newTime}s:`, webglDiagnostics.error);
           }
           

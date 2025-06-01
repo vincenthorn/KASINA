@@ -82,7 +82,8 @@ export default function DiagnosticsPage() {
       contextLoss: null,
       snapshots: [],
       incrementalSession: null,
-      crashLog: null
+      crashLog: null,
+      lastError: null
     });
   };
 
