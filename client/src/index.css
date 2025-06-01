@@ -94,3 +94,9 @@ canvas {
 .cursor-none {
   cursor: none !important;
 }
+
+/* Kasina background color override */
+.kasina-container {
+  background-color: var(--kasina-bg-color) !important;
+  background: var(--kasina-bg-color) !important;
+}

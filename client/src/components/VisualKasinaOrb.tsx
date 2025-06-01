@@ -1177,11 +1177,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   return (
     <div 
-      className={`h-screen w-screen relative overflow-hidden ${!showCursor ? 'cursor-none' : ''}`}
+      className={`kasina-container h-screen w-screen relative overflow-hidden ${!showCursor ? 'cursor-none' : ''}`}
       style={{ 
-        backgroundColor,
-        background: backgroundColor // Force override any CSS background rules
-      }}
+        '--kasina-bg-color': backgroundColor,
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 1
+      } as React.CSSProperties & { '--kasina-bg-color': string }}
     >
       <Canvas 
         key={sceneKey} // Force scene recreation when key changes

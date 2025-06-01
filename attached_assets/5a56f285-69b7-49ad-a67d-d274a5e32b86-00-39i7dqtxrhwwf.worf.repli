@@ -2,12 +2,10 @@ login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAA
 
  Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
-warnOnce @ react-router-dom.js:4394
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
-warnOnce @ react-router-dom.js:4394
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
  Last visual mode session data: Object
- Retrieved visual mode crash data: Object
-console.error @ chunk-EMXP5JYR.js:18167
  === COMPLETE DIAGNOSTIC REPORT ===
  WebGL Capabilities: Object
  Performance Snapshots: Array(20)
@@ -18,43 +16,36 @@ console.error @ chunk-EMXP5JYR.js:18167
  Snapshot 20: Object
  Memory trend in final snapshots: +2MB
  === END PERFORMANCE ANALYSIS ===
- Crash History: Array(6)
+ Crash History: Array(10)
  Crash #1: Object
  Crash #2: Object
  Crash #3: Object
- Crash #4: Object
- Crash #5: Object
- Crash #6: Object
- === END DIAGNOSTIC REPORT ===
- Found incomplete session from crash: Object
- Logging crashed session: 0 minutes
+HomePage.tsx:125 Crash #4: Object
+HomePage.tsx:125 Crash #5: Object
+HomePage.tsx:125 Crash #6: Object
+HomePage.tsx:125 Crash #7: Object
+HomePage.tsx:125 Crash #8: Object
+HomePage.tsx:125 Crash #9: Object
+HomePage.tsx:125 Crash #10: Object
+HomePage.tsx:132 === END DIAGNOSTIC REPORT ===
+HomePage.tsx:139 Found incomplete session from crash: Object
+HomePage.tsx:143 Logging crashed session: 4 minutes
 useAuth.tsx:169 Setting auth state with user: Object
 KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
 KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
 VisualKasinaOrb.tsx:399 🚀 VisualKasinaOrb component loading - crash detection active
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
 VisualKasinaOrb.tsx:440 🔍 Visual mode session started, crash monitoring active
-sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748748421987_natcr7cax)
+sessionRecovery.ts:45 🛡️ Session recovery started for air (session_1748749177942_47r11zcrb)
 VisualKasinaOrb.tsx:693 🧘 Visual kasina meditation session started
 useWakeLock.tsx:44 Requesting screen wake lock...
 VisualKasinaOrb.tsx:697 🔒 Wake lock enabled - screen will stay awake during meditation
 useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
-VisualKasinaOrb.tsx:1231 WebGL Diagnostics: Object
-VisualKasinaOrb.tsx:526 Memory: 96MB used / 153MB total / 4096MB limit
-useWakeLock.tsx:56 Screen wake lock was released
-VisualKasinaOrb.tsx:526 Memory: 101MB used / 153MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 104MB used / 153MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 109MB used / 153MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 92MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 93MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 30s elapsed
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 93MB total / 4096MB limit
-useWakeLock.tsx:44 Requesting screen wake lock...
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 94MB total / 4096MB limit
-useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
-VisualKasinaOrb.tsx:761 Performance snapshot at 30s: Object
-VisualKasinaOrb.tsx:663 📊 Kasina usage breakdown: Object
-VisualKasinaOrb.tsx:670   space: 44s
-VisualKasinaOrb.tsx:677 🎯 Most used kasina: space (44s)
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 100MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 101MB total / 4096MB limit
+VisualKasinaOrb.tsx:1232 WebGL Diagnostics: Object
+VisualKasinaOrb.tsx:526 Memory: 91MB used / 108MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 95MB used / 113MB total / 4096MB limit
+VisualKasinaOrb.tsx:956 🎨 Selected kasina: Space (space)
+VisualKasinaOrb.tsx:957 📈 Current kasina usage tracking: Object
+KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
+VisualKasinaOrb.tsx:526 Memory: 91MB used / 113MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 93MB used / 119MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 95MB used / 120MB total / 4096MB limit
