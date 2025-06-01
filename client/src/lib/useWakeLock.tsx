@@ -51,15 +51,13 @@ function useWakeLock(): WakeLockState {
         
         console.log("Screen wake lock enabled - screen will remain on");
         
-        // Add listener to reacquire wake lock if it's released
+        // Add listener to track wake lock release without aggressive re-acquisition
         lock.addEventListener('release', () => {
           console.log("Screen wake lock was released");
           setIsEnabled(false);
           
-          // Try to reacquire wake lock if session is still active
-          if (document.visibilityState === 'visible') {
-            enableWakeLock(); // Re-enable wake lock
-          }
+          // Don't automatically re-acquire to avoid triggering browser policies
+          // that terminate long-running sessions due to aggressive wake lock cycling
         });
       }
     } catch (err) {
