@@ -17,8 +17,8 @@ export function useAutoHide(options: UseAutoHideOptions = {}) {
   const [showControls, setShowControls] = useState(true);
   const [lastActivityTime, setLastActivityTime] = useState(Date.now());
   
-  const cursorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const cursorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const controlsTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Handle activity (mouse movement, touch, etc.)
   const handleActivity = () => {

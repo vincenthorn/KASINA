@@ -426,7 +426,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>(null);
   
   // Session tracking refs
-  const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const meditationIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const meditationStartRef = useRef<number | null>(null);
   const sessionIdRef = useRef<string | null>(null);
   const sessionInitializedRef = useRef<boolean>(false);
@@ -784,7 +784,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         
         // Invisible GPU maintenance strategy - no visual interruption
         // Skip maintenance on reset intervals to avoid conflicts
-        if (newTime % 45 === 0 && newTime > 0 && newTime % 180 !== 0) {
+        if (newTime % 45 === 0 && newTime > 0 && newTime % 90 !== 0) {
           console.log(`Performing invisible GPU refresh at ${newTime} seconds`);
           
           const canvas = document.querySelector('canvas');
@@ -829,14 +829,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // More aggressive GPU reset to prevent earlier crashes  
-        if (newTime % 180 === 0 && newTime > 0) {
-          console.log(`Performing aggressive deep GPU reset at ${newTime} seconds (3 min mark)`);
+        // Ultra-aggressive GPU reset to prevent driver timeouts  
+        if (newTime % 90 === 0 && newTime > 0) {
+          console.log(`Performing ultra-aggressive deep GPU reset at ${newTime} seconds (1.5 min mark)`);
           
-          // Recreate scene at 3-minute intervals to prevent crashes before 4 minutes
+          // Recreate scene at 90-second intervals to stay well under driver timeout limits
           setSceneKey(prev => prev + 1);
           
-          console.log(`Aggressive deep GPU reset completed at ${newTime} seconds`);
+          console.log(`Ultra-aggressive deep GPU reset completed at ${newTime} seconds`);
         }
         
         return newTime;

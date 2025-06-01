@@ -451,11 +451,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
-  const cursorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const cursorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const controlsTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const meditationStartRef = useRef<number | null>(null);
-  const meditationIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  const connectionCheckRef = useRef<NodeJS.Timeout | null>(null);
+  const meditationIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const connectionCheckRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sessionIdRef = useRef<string | null>(null);
   
   // Kasina usage tracking
