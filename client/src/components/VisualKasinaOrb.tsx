@@ -695,59 +695,23 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       if (isProduction) {
         console.log('🏭 Production environment detected - implementing timeout bypass');
         
-        // Aggressively refresh browser state every 2 minutes to prevent platform timeouts
+        // Minimal platform timeout bypass every 3 minutes
         const platformTimeoutBypass = setInterval(() => {
-          // Refresh critical browser APIs to prevent timeout
           try {
-            // Touch localStorage to show activity
+            // Simple localStorage touch to show activity
             localStorage.setItem('lastActivity', Date.now().toString());
             
-            // Refresh wake lock if supported
-            if ('wakeLock' in navigator) {
-              navigator.wakeLock.request('screen').catch(() => {});
-            }
-            
-            // Force garbage collection if available
-            if (window.gc) {
-              window.gc();
-            }
-            
-            // Create a small DOM manipulation to show browser activity
-            const activityMarker = document.createElement('div');
-            activityMarker.style.display = 'none';
-            document.body.appendChild(activityMarker);
-            document.body.removeChild(activityMarker);
-            
+            // Minimal console activity
             console.log('🔄 Platform timeout bypass refresh executed');
           } catch (e) {
             console.warn('Platform timeout bypass failed:', e);
           }
-        }, 120000); // Every 2 minutes
+        }, 180000); // Every 3 minutes
         
         // Store the interval ID for cleanup
         (window as any).platformTimeoutBypass = platformTimeoutBypass;
         
-        // Additional activity pulse every 30 seconds to continuously signal active session
-        const activityPulse = setInterval(() => {
-          try {
-            // Minimal activity indicators
-            const timestamp = Date.now();
-            localStorage.setItem('sessionPulse', timestamp.toString());
-            
-            // Trigger a minimal reflow to show DOM activity
-            document.body.style.transform = 'translateZ(0)';
-            
-            // Create and immediately remove a micro DOM element
-            const pulse = document.createElement('span');
-            document.body.appendChild(pulse);
-            document.body.removeChild(pulse);
-            
-          } catch (e) {
-            // Silent fail for activity pulse
-          }
-        }, 30000); // Every 30 seconds
-        
-        (window as any).activityPulse = activityPulse;
+
       }
       
       // Create session recovery entry
