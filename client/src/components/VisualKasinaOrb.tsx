@@ -783,7 +783,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         }
         
         // Invisible GPU maintenance strategy - no visual interruption
-        if (newTime % 45 === 0 && newTime > 0) {
+        // Skip maintenance on reset intervals to avoid conflicts
+        if (newTime % 45 === 0 && newTime > 0 && newTime % 180 !== 0) {
           console.log(`Performing invisible GPU refresh at ${newTime} seconds`);
           
           const canvas = document.querySelector('canvas');
