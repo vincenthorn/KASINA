@@ -759,8 +759,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         
 
         
-        // Simple session tracking every 30 seconds
-        if (newTime > 0 && newTime % 30 === 0) {
+        // Simple session tracking every 60 seconds
+        if (newTime > 0 && newTime % 60 === 0) {
           console.log(`🔄 Session checkpoint: ${newTime}s elapsed`);
         }
         
