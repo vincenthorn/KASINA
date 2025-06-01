@@ -582,10 +582,53 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     window.addEventListener('error', handleError);
     window.addEventListener('unhandledrejection', handleUnhandledRejection);
     
+    // WebGL context loss detection and recovery
+    const handleWebGLContextLoss = (event: Event) => {
+      console.error('WebGL context lost! Attempting recovery...');
+      event.preventDefault();
+      
+      const crashData = {
+        timestamp: new Date().toISOString(),
+        meditationTime,
+        selectedKasina,
+        crashType: 'webgl_context_loss',
+        memoryAtCrash: (performance as any).memory ? {
+          used: Math.round((performance as any).memory.usedJSHeapSize / 1024 / 1024),
+          total: Math.round((performance as any).memory.totalJSHeapSize / 1024 / 1024),
+          limit: Math.round((performance as any).memory.jsHeapSizeLimit / 1024 / 1024)
+        } : 'not available'
+      };
+      
+      localStorage.setItem('visualModeWebGLLoss', JSON.stringify(crashData));
+      
+      // End session gracefully to prevent further issues
+      setTimeout(() => {
+        endMeditation().catch(() => {});
+      }, 1000);
+    };
+    
+    const handleWebGLContextRestored = (event: Event) => {
+      console.log('WebGL context restored');
+    };
+    
+    // Listen for WebGL context events on canvas
+    const canvas = document.querySelector('canvas');
+    if (canvas) {
+      canvas.addEventListener('webglcontextlost', handleWebGLContextLoss);
+      canvas.addEventListener('webglcontextrestored', handleWebGLContextRestored);
+    }
+    
     return () => {
       window.removeEventListener('error', handleError);
       window.removeEventListener('unhandledrejection', handleUnhandledRejection);
       clearInterval(memoryCheckInterval);
+      
+      // Clean up WebGL event listeners
+      const canvas = document.querySelector('canvas');
+      if (canvas) {
+        canvas.removeEventListener('webglcontextlost', handleWebGLContextLoss);
+        canvas.removeEventListener('webglcontextrestored', handleWebGLContextRestored);
+      }
       
       // Mark clean exit
       localStorage.removeItem('visualModeActive');

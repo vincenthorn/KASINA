@@ -87,11 +87,34 @@ const HomePage: React.FC = () => {
     console.log('=== COMPLETE DIAGNOSTIC REPORT ===');
     
     if (webglDiagnostics) {
-      console.log('WebGL Capabilities:', JSON.parse(webglDiagnostics));
+      const webglData = JSON.parse(webglDiagnostics);
+      console.log('WebGL Capabilities:', webglData);
     }
     
     if (performanceData) {
-      console.log('Performance Snapshots:', JSON.parse(performanceData));
+      const perfData = JSON.parse(performanceData);
+      console.log('Performance Snapshots:', perfData);
+      
+      // Analyze the last few snapshots before crash
+      if (perfData.length > 0) {
+        console.log('=== PERFORMANCE ANALYSIS ===');
+        console.log('Last 3 snapshots before crash:');
+        const lastSnapshots = perfData.slice(-3);
+        lastSnapshots.forEach((snapshot: any, index: number) => {
+          console.log(`Snapshot ${perfData.length - 3 + index + 1}:`, {
+            time: snapshot.sessionTime + 's',
+            memory: snapshot.memory,
+            kasina: snapshot.kasina
+          });
+        });
+        
+        // Check for memory trend
+        if (lastSnapshots.length >= 2) {
+          const memoryTrend = lastSnapshots[lastSnapshots.length - 1].memory.used - lastSnapshots[0].memory.used;
+          console.log(`Memory trend in final snapshots: ${memoryTrend > 0 ? '+' : ''}${memoryTrend}MB`);
+        }
+        console.log('=== END PERFORMANCE ANALYSIS ===');
+      }
     }
     
     if (persistentCrashLog) {
