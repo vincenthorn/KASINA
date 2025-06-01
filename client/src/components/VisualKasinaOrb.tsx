@@ -792,15 +792,69 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     }
   };
 
-  // Listen for fullscreen changes
+  // Listen for fullscreen changes and WebGL context loss
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
 
+    // WebGL context loss detection
+    const handleContextLoss = (event: Event) => {
+      console.error('🚨 WebGL context lost detected!', {
+        timestamp: new Date().toISOString(),
+        sessionTime: meditationTime,
+        event: event
+      });
+      
+      // Save critical data immediately
+      const contextLossData = {
+        timestamp: new Date().toISOString(),
+        sessionTime: meditationTime,
+        kasina: selectedKasina,
+        cause: 'webgl_context_loss',
+        userAgent: navigator.userAgent
+      };
+      localStorage.setItem('webglContextLoss', JSON.stringify(contextLossData));
+      
+      // Prevent default behavior to see if we can handle it gracefully
+      event.preventDefault();
+    };
+
+    const handleContextRestored = (event: Event) => {
+      console.log('✅ WebGL context restored', {
+        timestamp: new Date().toISOString(),
+        sessionTime: meditationTime
+      });
+    };
+
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
-  }, []);
+    
+    // Add WebGL context event listeners to all canvas elements
+    const addWebGLListeners = () => {
+      const canvases = document.querySelectorAll('canvas');
+      canvases.forEach(canvas => {
+        canvas.addEventListener('webglcontextlost', handleContextLoss);
+        canvas.addEventListener('webglcontextrestored', handleContextRestored);
+      });
+    };
+
+    // Add listeners immediately and after a short delay for dynamic canvases
+    addWebGLListeners();
+    const timeoutId = setTimeout(addWebGLListeners, 1000);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      
+      // Remove WebGL listeners
+      const canvases = document.querySelectorAll('canvas');
+      canvases.forEach(canvas => {
+        canvas.removeEventListener('webglcontextlost', handleContextLoss);
+        canvas.removeEventListener('webglcontextrestored', handleContextRestored);
+      });
+      
+      clearTimeout(timeoutId);
+    };
+  }, [meditationTime, selectedKasina]);
 
   const endMeditation = async () => {
     // Calculate duration in seconds and round down to nearest minute
