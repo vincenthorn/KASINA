@@ -689,6 +689,39 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       useSimpleTimer.getState().setInfiniteMode();
       console.log('🔄 Forced infinite timer mode for visual kasina session');
       
+      // PRODUCTION TIMEOUT BYPASS: Prevent Replit/production platform timeouts
+      // Set up aggressive session refresh to prevent platform-level termination
+      const isProduction = window.location.hostname !== 'localhost';
+      if (isProduction) {
+        console.log('🏭 Production environment detected - implementing timeout bypass');
+        
+        // Aggressively refresh browser state every 4 minutes to prevent platform timeouts
+        const platformTimeoutBypass = setInterval(() => {
+          // Refresh critical browser APIs to prevent timeout
+          try {
+            // Touch localStorage to show activity
+            localStorage.setItem('lastActivity', Date.now().toString());
+            
+            // Refresh wake lock if supported
+            if ('wakeLock' in navigator) {
+              navigator.wakeLock.request('screen').catch(() => {});
+            }
+            
+            // Force garbage collection if available
+            if (window.gc) {
+              window.gc();
+            }
+            
+            console.log('🔄 Platform timeout bypass refresh executed');
+          } catch (e) {
+            console.warn('Platform timeout bypass failed:', e);
+          }
+        }, 240000); // Every 4 minutes
+        
+        // Store the interval ID for cleanup
+        (window as any).platformTimeoutBypass = platformTimeoutBypass;
+      }
+      
       // Create session recovery entry
       sessionIdRef.current = sessionRecovery.startSession(selectedKasina as any);
       
@@ -1084,6 +1117,13 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     if (meditationIntervalRef.current) {
       clearInterval(meditationIntervalRef.current);
       meditationIntervalRef.current = null;
+    }
+    
+    // Clean up platform timeout bypass if it exists
+    if ((window as any).platformTimeoutBypass) {
+      clearInterval((window as any).platformTimeoutBypass);
+      delete (window as any).platformTimeoutBypass;
+      console.log('🏭 Platform timeout bypass cleaned up');
     }
     
     // Release wake lock when meditation ends
