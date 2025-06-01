@@ -464,10 +464,13 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         column: event.colno,
         userAgent: navigator.userAgent,
         memoryAtCrash: (performance as any).memory ? {
-          usedJSHeapSize: (performance as any).memory.usedJSHeapSize,
-          totalJSHeapSize: (performance as any).memory.totalJSHeapSize,
-          jsHeapSizeLimit: (performance as any).memory.jsHeapSizeLimit
-        } : 'not available'
+          used: Math.round((performance as any).memory.usedJSHeapSize / 1024 / 1024),
+          total: Math.round((performance as any).memory.totalJSHeapSize / 1024 / 1024),
+          limit: Math.round((performance as any).memory.jsHeapSizeLimit / 1024 / 1024)
+        } : 'not available',
+        webglState: 'error_occurred_during_session',
+        lastPerformanceSnapshot: localStorage.getItem('performanceSnapshots') ? 
+          JSON.parse(localStorage.getItem('performanceSnapshots') || '[]').slice(-1)[0] : null
       };
       
       localStorage.setItem('visualModeCrash', JSON.stringify(crashData));
@@ -689,6 +692,35 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         }
         
         // Enhanced stability monitoring after 3 minutes (removed safe mode switch)
+        
+        // Continuous performance monitoring and memory cleanup
+        if (newTime > 0 && newTime % 30 === 0) {
+          // Take performance snapshot every 30 seconds
+          const snapshot = {
+            timestamp: new Date().toISOString(),
+            sessionTime: newTime,
+            memory: (performance as any).memory ? {
+              used: Math.round((performance as any).memory.usedJSHeapSize / 1024 / 1024),
+              total: Math.round((performance as any).memory.totalJSHeapSize / 1024 / 1024),
+              limit: Math.round((performance as any).memory.jsHeapSizeLimit / 1024 / 1024)
+            } : null,
+            kasina: selectedKasina,
+            performance: {
+              timing: performance.timing,
+              navigation: performance.navigation
+            }
+          };
+          
+          // Store snapshots
+          const existing = localStorage.getItem('performanceSnapshots') || '[]';
+          const snapshots = JSON.parse(existing);
+          snapshots.push(snapshot);
+          // Keep only last 20 snapshots (10 minutes of data)
+          if (snapshots.length > 20) snapshots.shift();
+          localStorage.setItem('performanceSnapshots', JSON.stringify(snapshots));
+          
+          console.log(`Performance snapshot at ${newTime}s:`, snapshot);
+        }
         
         // Memory cleanup every 2 minutes during long sessions
         if (newTime > 0 && newTime % 120 === 0) {
@@ -1086,14 +1118,30 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           // Add WebGL context error handling
           const gl = state.gl.getContext();
           
-          // Log WebGL capabilities for debugging
-          console.log('WebGL Context Created:', {
+          // Comprehensive WebGL diagnostics
+          const diagnostics = {
+            timestamp: new Date().toISOString(),
             renderer: gl.getParameter(gl.RENDERER),
             vendor: gl.getParameter(gl.VENDOR),
             version: gl.getParameter(gl.VERSION),
+            shadingLanguageVersion: gl.getParameter(gl.SHADING_LANGUAGE_VERSION),
             maxTextureSize: gl.getParameter(gl.MAX_TEXTURE_SIZE),
-            maxVertexAttribs: gl.getParameter(gl.MAX_VERTEX_ATTRIBS)
-          });
+            maxVertexAttribs: gl.getParameter(gl.MAX_VERTEX_ATTRIBS),
+            maxFragmentUniformVectors: gl.getParameter(gl.MAX_FRAGMENT_UNIFORM_VECTORS),
+            maxVertexUniformVectors: gl.getParameter(gl.MAX_VERTEX_UNIFORM_VECTORS),
+            maxVaryingVectors: gl.getParameter(gl.MAX_VARYING_VECTORS),
+            extensions: gl.getSupportedExtensions(),
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            memory: (performance as any).memory ? {
+              usedJSHeapSize: (performance as any).memory.usedJSHeapSize,
+              totalJSHeapSize: (performance as any).memory.totalJSHeapSize,
+              jsHeapSizeLimit: (performance as any).memory.jsHeapSizeLimit
+            } : null
+          };
+          
+          console.log('WebGL Diagnostics:', diagnostics);
+          localStorage.setItem('webglDiagnostics', JSON.stringify(diagnostics));
           
           // Add context lost/restored handlers with automatic recovery
           state.gl.domElement.addEventListener('webglcontextlost', (event) => {

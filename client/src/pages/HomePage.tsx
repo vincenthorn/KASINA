@@ -79,20 +79,34 @@ const HomePage: React.FC = () => {
       localStorage.removeItem('visualModeSessionLimit');
     }
     
-    // Log persistent crash data for debugging
+    // Log ALL diagnostic data for debugging
     const persistentCrashLog = localStorage.getItem('persistentCrashLog');
+    const webglDiagnostics = localStorage.getItem('webglDiagnostics');
+    const performanceData = localStorage.getItem('performanceSnapshots');
+    
+    console.log('=== COMPLETE DIAGNOSTIC REPORT ===');
+    
+    if (webglDiagnostics) {
+      console.log('WebGL Capabilities:', JSON.parse(webglDiagnostics));
+    }
+    
+    if (performanceData) {
+      console.log('Performance Snapshots:', JSON.parse(performanceData));
+    }
+    
     if (persistentCrashLog) {
-      console.log('=== PERSISTENT CRASH LOG ===');
       try {
         const crashes = JSON.parse(persistentCrashLog);
+        console.log('Crash History:', crashes);
         crashes.forEach((crash: any, index: number) => {
           console.log(`Crash #${index + 1}:`, crash);
         });
-        console.log('=== END CRASH LOG ===');
       } catch (e) {
         console.error('Failed to parse persistent crash log:', e);
       }
     }
+    
+    console.log('=== END DIAGNOSTIC REPORT ===');
   }, []);
   
   // Check if user is admin or premium
