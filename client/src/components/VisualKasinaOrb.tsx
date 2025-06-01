@@ -769,30 +769,28 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`Performance snapshot at ${newTime}s:`, snapshot);
         }
         
-        // Aggressive memory cleanup for hour-long sessions
-        if (newTime > 0 && newTime % 60 === 0) {
-          console.log(`1-minute cleanup at ${Math.floor(newTime / 60)} minutes`);
+        // Balanced memory cleanup optimized for stability
+        if (newTime > 0 && newTime % 180 === 0) {
+          console.log(`3-minute cleanup at ${Math.floor(newTime / 60)} minutes`);
           
-          // Force garbage collection if available
+          // Gentle garbage collection if available
           if ((window as any).gc) {
             (window as any).gc();
-            console.log('Performed 1-minute memory cleanup');
+            console.log('Performed 3-minute memory cleanup');
           }
+        }
+        
+        // GPU driver timeout prevention every 5 minutes
+        if (newTime > 0 && newTime % 300 === 0) {
+          console.log('Performing GPU timeout prevention at', Math.floor(newTime / 60), 'minutes');
           
-          // Prevent GPU driver timeouts with periodic refresh
-          if (newTime > 0 && newTime % 300 === 0) {
-            // Every 5 minutes, force a brief render pause to reset GPU state
-            console.log('Performing GPU timeout prevention at', Math.floor(newTime / 60), 'minutes');
-            
-            const canvas = document.querySelector('canvas');
-            if (canvas) {
-              const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-              if (gl) {
-                // Force a frame flush to prevent driver timeouts
-                gl.flush();
-                gl.finish();
-                console.log('GPU state refreshed successfully');
-              }
+          const canvas = document.querySelector('canvas');
+          if (canvas) {
+            const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+            if (gl) {
+              gl.flush();
+              gl.finish();
+              console.log('GPU state refreshed successfully');
             }
           }
         }
@@ -1150,11 +1148,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       );
     }
 
-    // For color and other kasinas, use simple sphere
+    // For color and other kasinas, use optimized sphere with stability measures
     return (
       <mesh ref={meshRef}>
-        <sphereGeometry args={[1, 64, 64]} />
-        <meshBasicMaterial color={KASINA_COLORS[selectedKasina]} />
+        <sphereGeometry args={[1, 32, 32]} />
+        <meshBasicMaterial 
+          color={KASINA_COLORS[selectedKasina] || currentColor || '#4A90E2'} 
+          transparent={false}
+          depthWrite={true}
+          depthTest={true}
+        />
       </mesh>
     );
   };
