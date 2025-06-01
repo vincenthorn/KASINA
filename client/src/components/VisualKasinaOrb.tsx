@@ -765,6 +765,25 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           
           console.log(`Performance snapshot at ${newTime}s:`, snapshot);
           
+          // Authentication monitoring every 30 seconds
+          (async () => {
+            try {
+              const authResponse = await fetch('/api/auth/me');
+              const authData = {
+                timestamp: new Date().toISOString(),
+                sessionTime: newTime,
+                status: authResponse.status,
+                authenticated: authResponse.ok
+              };
+              
+              if (!authResponse.ok) {
+                console.warn(`🚨 Authentication failed at ${newTime}s:`, authData);
+                await storage.setItemSafe('diagnostics', 'authFailure', authData);
+              }
+            } catch (error) {
+              console.error(`Authentication check failed at ${newTime}s:`, error);
+            }
+          })();
 
           
           // Incremental session logging every 30 seconds using IndexedDB
