@@ -523,7 +523,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         const totalMB = Math.round(memInfo.totalJSHeapSize / 1024 / 1024);
         const limitMB = Math.round(memInfo.jsHeapSizeLimit / 1024 / 1024);
         
-        console.log(`Memory: ${usedMB}MB used / ${totalMB}MB total / ${limitMB}MB limit`);
+        // Only log memory every 30 seconds to reduce console spam
+        if (sessionTime % 30 === 0) {
+          console.log(`Memory: ${usedMB}MB used / ${totalMB}MB total / ${limitMB}MB limit`);
+        }
         
         // Emergency crash prevention - force garbage collection if memory is critical
         if (usedMB > limitMB * 0.85) {
@@ -808,22 +811,18 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Enhanced logging in the critical crash window (200-300 seconds)
-        if (newTime >= 200 && newTime <= 300) {
+        // Reduced logging in the critical crash window (200-300 seconds) - only every 10 seconds
+        if (newTime >= 200 && newTime <= 300 && newTime % 10 === 0) {
           console.warn(`🚨 CRITICAL WINDOW: ${newTime}s - Enhanced monitoring active`);
           
-          // Extra detailed logging in crash-prone timeframe
+          // Reduced detailed logging in crash-prone timeframe
           const canvas = document.querySelector('canvas');
           if (canvas) {
             const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-            if (gl) {
-              console.warn(`GPU State at ${newTime}s:`, {
-                isContextLost: gl.isContextLost(),
-                drawingBufferWidth: gl.drawingBufferWidth,
-                drawingBufferHeight: gl.drawingBufferHeight,
-                getError: gl.getError(),
-                getParameter_VENDOR: gl.getParameter(gl.VENDOR),
-                getParameter_RENDERER: gl.getParameter(gl.RENDERER)
+            if (gl && gl.isContextLost()) {
+              console.warn(`GPU State at ${newTime}s - Context Lost:`, {
+                isContextLost: true,
+                getError: gl.getError()
               });
             }
           }
