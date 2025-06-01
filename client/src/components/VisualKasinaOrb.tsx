@@ -782,8 +782,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Scene recreation strategy to prevent GPU driver timeouts
-        if (newTime % 120 === 0 && newTime > 0) {
+        // Aggressive scene recreation strategy to prevent GPU driver timeouts
+        if (newTime % 90 === 0 && newTime > 0) {
           console.log(`Performing seamless scene recreation at ${newTime} seconds`);
           
           // Trigger scene recreation through a state update
@@ -793,8 +793,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`Scene recreation initiated at ${newTime} seconds`);
         }
         
-        // Lightweight GPU maintenance between recreations
-        if (newTime % 60 === 0 && newTime > 0 && newTime % 120 !== 0) {
+        // More frequent GPU maintenance between recreations
+        if (newTime % 30 === 0 && newTime > 0 && newTime % 90 !== 0) {
           console.log(`Performing lightweight GPU maintenance at ${newTime} seconds`);
           
           const canvas = document.querySelector('canvas');
