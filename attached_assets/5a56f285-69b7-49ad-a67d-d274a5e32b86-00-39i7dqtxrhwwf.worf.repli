@@ -5,153 +5,56 @@ login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAA
 warnOnce @ react-router-dom.js:4394
  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 warnOnce @ react-router-dom.js:4394
- HARD CRASH DETECTED: Visual mode was active but did not exit cleanly
-console.error @ chunk-EMXP5JYR.js:18167
- Session lasted approximately 31 seconds before crash
-console.error @ chunk-EMXP5JYR.js:18167
  Last visual mode session data: Object
+ Retrieved visual mode crash data: Object
+console.error @ chunk-EMXP5JYR.js:18167
  === COMPLETE DIAGNOSTIC REPORT ===
  WebGL Capabilities: Object
  Performance Snapshots: Array(20)
  === PERFORMANCE ANALYSIS ===
  Last 3 snapshots before crash:
-HomePage.tsx:104 Snapshot 18: Object
-HomePage.tsx:104 Snapshot 19: Object
-HomePage.tsx:104 Snapshot 20: Object
-HomePage.tsx:114 Memory trend in final snapshots: -2MB
-HomePage.tsx:116 === END PERFORMANCE ANALYSIS ===
-HomePage.tsx:123 Crash History: Array(3)
-HomePage.tsx:125 Crash #1: Object
-HomePage.tsx:125 Crash #2: Object
-HomePage.tsx:125 Crash #3: Object
-HomePage.tsx:132 === END DIAGNOSTIC REPORT ===
-HomePage.tsx:139 Found incomplete session from crash: Object
-HomePage.tsx:143 Logging crashed session: 1 minutes
+ Snapshot 18: Object
+ Snapshot 19: Object
+ Snapshot 20: Object
+ Memory trend in final snapshots: +2MB
+ === END PERFORMANCE ANALYSIS ===
+ Crash History: Array(6)
+ Crash #1: Object
+ Crash #2: Object
+ Crash #3: Object
+ Crash #4: Object
+ Crash #5: Object
+ Crash #6: Object
+ === END DIAGNOSTIC REPORT ===
+ Found incomplete session from crash: Object
+ Logging crashed session: 0 minutes
 useAuth.tsx:169 Setting auth state with user: Object
 KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
 KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
 VisualKasinaOrb.tsx:399 🚀 VisualKasinaOrb component loading - crash detection active
 VisualKasinaOrb.tsx:940 Background color for space: #2a0055
 VisualKasinaOrb.tsx:440 🔍 Visual mode session started, crash monitoring active
-sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748748324020_k33p28z5z)
+sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748748421987_natcr7cax)
 VisualKasinaOrb.tsx:693 🧘 Visual kasina meditation session started
 useWakeLock.tsx:44 Requesting screen wake lock...
 VisualKasinaOrb.tsx:697 🔒 Wake lock enabled - screen will stay awake during meditation
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:1231 WebGL Diagnostics: Object
 useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:526 Memory: 110MB used / 160MB total / 4096MB limit
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:526 Memory: 96MB used / 152MB total / 4096MB limit
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:1231 WebGL Diagnostics: Object
+VisualKasinaOrb.tsx:526 Memory: 96MB used / 153MB total / 4096MB limit
+useWakeLock.tsx:56 Screen wake lock was released
+VisualKasinaOrb.tsx:526 Memory: 101MB used / 153MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 104MB used / 153MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 109MB used / 153MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 89MB used / 92MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 89MB used / 93MB total / 4096MB limit
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 30s elapsed
+VisualKasinaOrb.tsx:526 Memory: 89MB used / 93MB total / 4096MB limit
+useWakeLock.tsx:44 Requesting screen wake lock...
+VisualKasinaOrb.tsx:526 Memory: 89MB used / 94MB total / 4096MB limit
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+VisualKasinaOrb.tsx:761 Performance snapshot at 30s: Object
+VisualKasinaOrb.tsx:663 📊 Kasina usage breakdown: Object
+VisualKasinaOrb.tsx:670   space: 44s
+VisualKasinaOrb.tsx:677 🎯 Most used kasina: space (44s)
+VisualKasinaOrb.tsx:526 Memory: 89MB used / 100MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 89MB used / 101MB total / 4096MB limit
