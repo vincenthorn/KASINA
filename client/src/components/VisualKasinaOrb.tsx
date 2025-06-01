@@ -907,14 +907,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
     
-    // Simplified monitoring to avoid interference  
-    useEffect(() => {
-      const basicMonitor = setInterval(() => {
-        console.log(`[${meditationTime}s] Visual kasina running - ${selectedKasina}`);
-      }, 30000); // Check every 30 seconds
-      
-      return () => clearInterval(basicMonitor);
-    }, []); // Remove dependencies to prevent re-render loop
+    // Remove interval-based monitoring to prevent memory leaks
 
     useFrame((state) => {
       try {
