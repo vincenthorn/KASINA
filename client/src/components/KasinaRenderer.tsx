@@ -483,24 +483,12 @@ export default function KasinaRenderer({
       <>
         <mesh ref={meshRef}>
           <sphereGeometry args={[1, 64, 64]} />
-          <shaderMaterial
-            ref={spaceMaterialRef}
-            uniforms={spaceShader.uniforms}
-            vertexShader={spaceShader.vertexShader}
-            fragmentShader={spaceShader.fragmentShader}
-            transparent={true}
-          />
+          <meshBasicMaterial color="#1a1a2e" transparent={true} opacity={0.9} />
         </mesh>
         {showImmersiveBackground && (
           <mesh ref={immersionBackgroundRef}>
             <sphereGeometry args={[1, 64, 64]} />
-            <shaderMaterial
-              uniforms={spaceShader.uniforms}
-              vertexShader={spaceShader.vertexShader}
-              fragmentShader={spaceShader.fragmentShader}
-              transparent={true}
-              side={THREE.BackSide}
-            />
+            <meshBasicMaterial color="#0a0a1a" transparent={true} opacity={0.3} side={THREE.BackSide} />
           </mesh>
         )}
       </>
