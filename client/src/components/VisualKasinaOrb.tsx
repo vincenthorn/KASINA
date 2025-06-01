@@ -807,6 +807,27 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
+        // Enhanced logging in the critical crash window (260-300 seconds)
+        if (newTime >= 260 && newTime <= 300) {
+          console.warn(`🚨 CRITICAL WINDOW: ${newTime}s - Enhanced monitoring active`);
+          
+          // Extra detailed logging in crash-prone timeframe
+          const canvas = document.querySelector('canvas');
+          if (canvas) {
+            const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+            if (gl) {
+              console.warn(`GPU State at ${newTime}s:`, {
+                isContextLost: gl.isContextLost(),
+                drawingBufferWidth: gl.drawingBufferWidth,
+                drawingBufferHeight: gl.drawingBufferHeight,
+                getError: gl.getError(),
+                getParameter_VENDOR: gl.getParameter(gl.VENDOR),
+                getParameter_RENDERER: gl.getParameter(gl.RENDERER)
+              });
+            }
+          }
+        }
+        
         // Strategic deep GPU reset before the crash window  
         if (newTime % 240 === 0 && newTime > 0) {
           console.log(`Performing strategic deep GPU reset at ${newTime} seconds (4 min mark)`);
