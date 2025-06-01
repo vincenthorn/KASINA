@@ -1,13 +1,15 @@
-login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+login:1 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
 
  Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 warnOnce @ react-router-dom.js:4394
  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 warnOnce @ react-router-dom.js:4394
- Last visual mode session data: Object
- Retrieved visual mode crash data: Object
+ HARD CRASH DETECTED: Visual mode was active but did not exit cleanly
 console.error @ chunk-EMXP5JYR.js:18167
+ Session lasted approximately 220 seconds before crash
+console.error @ chunk-EMXP5JYR.js:18167
+ Last visual mode session data: Object
  === COMPLETE DIAGNOSTIC REPORT ===
  WebGL Capabilities: Object
  Performance Snapshots: Array(20)
@@ -18,43 +20,92 @@ console.error @ chunk-EMXP5JYR.js:18167
  Snapshot 20: Object
  Memory trend in final snapshots: +2MB
  === END PERFORMANCE ANALYSIS ===
- Crash History: Array(6)
+ Crash History: Array(7)
  Crash #1: Object
  Crash #2: Object
  Crash #3: Object
  Crash #4: Object
  Crash #5: Object
  Crash #6: Object
+ Crash #7: Object
  === END DIAGNOSTIC REPORT ===
  Found incomplete session from crash: Object
  Logging crashed session: 0 minutes
-useAuth.tsx:169 Setting auth state with user: Object
-KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
-KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
-VisualKasinaOrb.tsx:399 🚀 VisualKasinaOrb component loading - crash detection active
-VisualKasinaOrb.tsx:940 Background color for space: #2a0055
-VisualKasinaOrb.tsx:440 🔍 Visual mode session started, crash monitoring active
-sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748748421987_natcr7cax)
-VisualKasinaOrb.tsx:693 🧘 Visual kasina meditation session started
-useWakeLock.tsx:44 Requesting screen wake lock...
-VisualKasinaOrb.tsx:697 🔒 Wake lock enabled - screen will stay awake during meditation
-useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
-VisualKasinaOrb.tsx:1231 WebGL Diagnostics: Object
-VisualKasinaOrb.tsx:526 Memory: 96MB used / 153MB total / 4096MB limit
-useWakeLock.tsx:56 Screen wake lock was released
-VisualKasinaOrb.tsx:526 Memory: 101MB used / 153MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 104MB used / 153MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 109MB used / 153MB total / 4096MB limit
+ Setting auth state with user: Object
+ 📺 Entered fullscreen for meditation session
+ 🎯 KasinasPage: Rendering VisualKasinaOrb component
+ 🚀 VisualKasinaOrb component loading - crash detection active
+ Background color for space: #2a0055
+ 🔍 Visual mode session started, crash monitoring active
+ 🛡️ Session recovery started for space (session_1748748646064_wyqtvcduj)
+ 🧘 Visual kasina meditation session started
+ Requesting screen wake lock...
+ 🔒 Wake lock enabled - screen will stay awake during meditation
+ Screen wake lock enabled - screen will remain on
+ WebGL Diagnostics: Object
+ Memory: 117MB used / 148MB total / 4096MB limit
+ Memory: 88MB used / 142MB total / 4096MB limit
+ Memory: 95MB used / 143MB total / 4096MB limit
+ Memory: 89MB used / 143MB total / 4096MB limit
+ Memory: 88MB used / 143MB total / 4096MB limit
+ Memory: 94MB used / 143MB total / 4096MB limit
+ 🔄 Session recovery checkpoint: 30s elapsed
+ Performance snapshot at 30s: {timestamp: '2025-06-01T03:31:16.065Z', sessionTime: 30, memory: {…}, kasina: 'space', performance: {…}}
+ 📊 Kasina usage breakdown: {space: 30013}
+   space: 30s
+ 🎯 Most used kasina: space (30s)
+ Memory: 88MB used / 92MB total / 4096MB limit
+ Memory: 89MB used / 92MB total / 4096MB limit
+ Memory: 89MB used / 93MB total / 4096MB limit
+ Memory: 89MB used / 95MB total / 4096MB limit
+ Memory: 89MB used / 95MB total / 4096MB limit
+ Memory: 89MB used / 96MB total / 4096MB limit
+ 🔄 Session recovery checkpoint: 60s elapsed
+ Performance snapshot at 60s: {timestamp: '2025-06-01T03:31:46.121Z', sessionTime: 60, memory: {…}, kasina: 'space', performance: {…}}
+ 📊 Kasina usage breakdown: {space: 60067}
+   space: 60s
+ 🎯 Most used kasina: space (60s)
+ Performing lightweight GPU maintenance at 60 seconds
+ GPU maintenance completed at 60 seconds
+ Memory: 89MB used / 95MB total / 4096MB limit
+ Memory: 89MB used / 96MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 92MB used / 99MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 95MB used / 102MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 96MB used / 106MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 91MB used / 107MB total / 4096MB limit
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 90s elapsed
+VisualKasinaOrb.tsx:761 Performance snapshot at 90s: {timestamp: '2025-06-01T03:32:16.119Z', sessionTime: 90, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:663 📊 Kasina usage breakdown: {space: 90066}
+VisualKasinaOrb.tsx:670   space: 90s
+VisualKasinaOrb.tsx:677 🎯 Most used kasina: space (90s)
+VisualKasinaOrb.tsx:526 Memory: 90MB used / 106MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 95MB used / 106MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 89MB used / 106MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 90MB used / 93MB total / 4096MB limit
 VisualKasinaOrb.tsx:526 Memory: 89MB used / 92MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 93MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 30s elapsed
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 93MB total / 4096MB limit
-useWakeLock.tsx:44 Requesting screen wake lock...
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 94MB total / 4096MB limit
-useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
-VisualKasinaOrb.tsx:761 Performance snapshot at 30s: Object
-VisualKasinaOrb.tsx:663 📊 Kasina usage breakdown: Object
-VisualKasinaOrb.tsx:670   space: 44s
-VisualKasinaOrb.tsx:677 🎯 Most used kasina: space (44s)
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 100MB total / 4096MB limit
-VisualKasinaOrb.tsx:526 Memory: 89MB used / 101MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 90MB used / 96MB total / 4096MB limit
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 120s elapsed
+VisualKasinaOrb.tsx:761 Performance snapshot at 120s: {timestamp: '2025-06-01T03:32:46.065Z', sessionTime: 120, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:663 📊 Kasina usage breakdown: {space: 120012}
+VisualKasinaOrb.tsx:670   space: 120s
+VisualKasinaOrb.tsx:677 🎯 Most used kasina: space (120s)
+VisualKasinaOrb.tsx:787 Performing seamless scene recreation at 120 seconds
+VisualKasinaOrb.tsx:793 Scene recreation initiated at 120 seconds
+VisualKasinaOrb.tsx:1231 WebGL Diagnostics: {timestamp: '2025-06-01T03:32:46.138Z', renderer: 'WebKit WebGL', vendor: 'WebKit', version: 'WebGL 2.0 (OpenGL ES 3.0 Chromium)', shadingLanguageVersion: 'WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)', …}
+VisualKasinaOrb.tsx:588 WebGL context lost - logging for diagnostics
+chunk-FUPBI32A.js?v=0a6bad1d:17835 THREE.WebGLRenderer: Context Lost.
+VisualKasinaOrb.tsx:1236 WebGL context lost - attempting recovery: WebGLContextEvent {isTrusted: true, statusMessage: '', type: 'webglcontextlost', target: canvas, currentTarget: canvas, …}
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167
+(anonymous) @ VisualKasinaOrb.tsx:1236
+VisualKasinaOrb.tsx:526 Memory: 90MB used / 96MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 95MB used / 112MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 92MB used / 107MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 93MB used / 108MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 92MB used / 108MB total / 4096MB limit
+VisualKasinaOrb.tsx:526 Memory: 92MB used / 109MB total / 4096MB limit
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 150s elapsed
+VisualKasinaOrb.tsx:761 Performance snapshot at 150s: {timestamp: '2025-06-01T03:33:16.067Z', sessionTime: 150, memory: {…}, kasina: 'space', performance: {…}}
+VisualKasinaOrb.tsx:663 📊 Kasina usage breakdown: {space: 150014}
+VisualKasinaOrb.tsx:670   space: 150s
+VisualKasinaOrb.tsx:677 🎯 Most used kasina: space (150s)
+VisualKasinaOrb.tsx:526 Memory: 91MB used / 109MB total / 4096MB limit
