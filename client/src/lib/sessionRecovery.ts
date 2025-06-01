@@ -59,14 +59,14 @@ export class SessionRecovery {
       clearInterval(this.recoveryInterval);
     }
 
-    // Update localStorage every 30 seconds during active session
+    // Update localStorage every 60 seconds during active session
     this.recoveryInterval = window.setInterval(() => {
       if (this.currentSession) {
         const elapsed = Math.floor((Date.now() - this.currentSession.startTime) / 1000);
         this.updateSession(elapsed);
         console.log(`🔄 Session recovery checkpoint: ${elapsed}s elapsed`);
       }
-    }, 30000);
+    }, 60000);
   }
 
   async completeSession(finalDuration?: number): Promise<boolean> {
