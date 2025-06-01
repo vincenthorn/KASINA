@@ -45,8 +45,7 @@ export default function DiagnosticsPage() {
           contextLoss,
           snapshots: Array.isArray(snapshots) ? snapshots : [],
           incrementalSession,
-          crashLog,
-          lastError
+          crashLog
         };
         
         setData(diagnosticData);
@@ -56,8 +55,7 @@ export default function DiagnosticsPage() {
           contextLoss: null,
           snapshots: [],
           incrementalSession: null,
-          crashLog: null,
-          lastError: null
+          crashLog: null
         });
       }
     };
@@ -78,13 +76,11 @@ export default function DiagnosticsPage() {
     localStorage.removeItem('performanceSnapshots');
     localStorage.removeItem('incrementalSession');
     localStorage.removeItem('crashLog');
-    localStorage.removeItem('lastError');
     setData({
       contextLoss: null,
       snapshots: [],
       incrementalSession: null,
-      crashLog: null,
-      lastError: null
+      crashLog: null
     });
   };
 
