@@ -807,14 +807,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Very gentle GPU reset only when absolutely necessary  
-        if (newTime % 300 === 0 && newTime > 0) {
-          console.log(`Performing deep GPU reset at ${newTime} seconds (5 min mark)`);
+        // Strategic deep GPU reset before the crash window  
+        if (newTime % 240 === 0 && newTime > 0) {
+          console.log(`Performing strategic deep GPU reset at ${newTime} seconds (4 min mark)`);
           
-          // Only recreate scene at 5-minute intervals to minimize disruption
+          // Recreate scene at 4-minute intervals to prevent the 4:45 crash pattern
           setSceneKey(prev => prev + 1);
           
-          console.log(`Deep GPU reset completed at ${newTime} seconds`);
+          console.log(`Strategic deep GPU reset completed at ${newTime} seconds`);
         }
         
         return newTime;
