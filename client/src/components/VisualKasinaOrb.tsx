@@ -779,14 +779,20 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             console.log('Performed 1-minute memory cleanup');
           }
           
-          // Additional cleanup for sessions over 10 minutes
-          if (newTime >= 600) {
-            // Clear any cached textures or geometries
-            const renderer = document.querySelector('canvas')?.getContext('webgl2') || 
-                           document.querySelector('canvas')?.getContext('webgl');
-            if (renderer && (renderer as any).getExtension) {
-              // Force texture memory cleanup
-              console.log('Performing deep memory cleanup for long session');
+          // Prevent GPU driver timeouts with periodic refresh
+          if (newTime > 0 && newTime % 300 === 0) {
+            // Every 5 minutes, force a brief render pause to reset GPU state
+            console.log('Performing GPU timeout prevention at', Math.floor(newTime / 60), 'minutes');
+            
+            const canvas = document.querySelector('canvas');
+            if (canvas) {
+              const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+              if (gl) {
+                // Force a frame flush to prevent driver timeouts
+                gl.flush();
+                gl.finish();
+                console.log('GPU state refreshed successfully');
+              }
             }
           }
         }
