@@ -476,7 +476,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [transitionProgress, setTransitionProgress] = useState(0);
   const [lastBreathState, setLastBreathState] = useState<'peak' | 'valley' | 'middle'>('middle');
   const rainbowColors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#8b00ff'];
-  const transitionDurationRef = useRef<NodeJS.Timeout | null>(null);
+  const transitionDurationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   
   // Better breath detection using recent amplitude history
   const breathHistoryRef = useRef<number[]>([]);
