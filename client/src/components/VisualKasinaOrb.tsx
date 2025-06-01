@@ -967,6 +967,19 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         }
       } catch (error) {
         console.error('Error updating shader uniforms:', error);
+        
+        // Log shader errors to persistent crash log
+        const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
+        const crashes = JSON.parse(crashLog);
+        crashes.push({
+          timestamp: new Date().toISOString(),
+          crashType: 'shader_error',
+          message: `Shader uniform update failed: ${error}`,
+          selectedKasina,
+          userAgent: navigator.userAgent
+        });
+        if (crashes.length > 10) crashes.shift();
+        localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
       }
     });
 
@@ -1055,17 +1068,68 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       <Canvas 
         camera={{ position: [0, 0, 4], fov: 50 }}
         gl={{ 
-          antialias: false, // Disable antialiasing for better production performance
+          antialias: false,
           powerPreference: "high-performance",
           failIfMajorPerformanceCaveat: false,
-          preserveDrawingBuffer: false, // Reduce memory usage
-          alpha: false, // Disable alpha channel for better performance
-          depth: false, // Disable depth buffer if not needed
-          stencil: false // Disable stencil buffer
+          preserveDrawingBuffer: false,
+          alpha: false,
+          depth: true, // Re-enable depth buffer for stability
+          stencil: false
         }}
-        dpr={[1, 1.5]} // Further limit device pixel ratio to prevent memory issues
-        performance={{ min: 0.3 }} // Even lower performance threshold to prevent crashes
-        frameloop="always" // Keep animations running but with performance limits
+        dpr={[1, 1.5]}
+        performance={{ min: 0.3 }}
+        frameloop="always"
+        onCreated={(state) => {
+          // Add WebGL context error handling
+          const gl = state.gl.getContext();
+          
+          // Log WebGL capabilities for debugging
+          console.log('WebGL Context Created:', {
+            renderer: gl.getParameter(gl.RENDERER),
+            vendor: gl.getParameter(gl.VENDOR),
+            version: gl.getParameter(gl.VERSION),
+            maxTextureSize: gl.getParameter(gl.MAX_TEXTURE_SIZE),
+            maxVertexAttribs: gl.getParameter(gl.MAX_VERTEX_ATTRIBS)
+          });
+          
+          // Add context lost/restored handlers
+          state.gl.domElement.addEventListener('webglcontextlost', (event) => {
+            console.error('WebGL context lost:', event);
+            event.preventDefault();
+            
+            // Log context loss to persistent crash log
+            const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
+            const crashes = JSON.parse(crashLog);
+            crashes.push({
+              timestamp: new Date().toISOString(),
+              crashType: 'webgl_context_lost',
+              message: 'WebGL context was lost',
+              userAgent: navigator.userAgent
+            });
+            if (crashes.length > 10) crashes.shift();
+            localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
+          });
+          
+          state.gl.domElement.addEventListener('webglcontextrestored', (event) => {
+            console.log('WebGL context restored:', event);
+          });
+        }}
+        onError={(error) => {
+          console.error('Canvas error:', error);
+          
+          // Log Canvas errors to persistent crash log
+          const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
+          const crashes = JSON.parse(crashLog);
+          crashes.push({
+            timestamp: new Date().toISOString(),
+            crashType: 'canvas_error',
+            message: 'Canvas initialization error',
+            error: error.toString(),
+            userAgent: navigator.userAgent
+          });
+          if (crashes.length > 10) crashes.shift();
+          localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
+        }}
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={0.8} />
