@@ -781,6 +781,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       if (meditationIntervalRef.current) {
         clearInterval(meditationIntervalRef.current);
       }
+      
+      // CRITICAL FIX: Clear session recovery when component unmounts
+      if (sessionIdRef.current) {
+        console.log('🛡️ Clearing session recovery on component unmount');
+        sessionRecovery.clearSession();
+        sessionIdRef.current = null;
+      }
+      
       disableWakeLock();
     };
   }, []); // Empty dependency array to only run once
