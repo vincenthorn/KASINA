@@ -1104,29 +1104,30 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       );
     }
 
-    // Elemental kasinas with simplified rendering to prevent GPU timeouts
+    // Elemental kasinas with optimized shaders for stability
     const elementalKasinas = [
       KASINA_TYPES.WATER, KASINA_TYPES.FIRE, KASINA_TYPES.AIR, 
       KASINA_TYPES.EARTH, KASINA_TYPES.SPACE, KASINA_TYPES.LIGHT
     ];
     
     if (elementalKasinas.includes(selectedKasina)) {
-      // Use simple colored materials instead of complex shaders to prevent crashes
-      const elementalColors = {
-        [KASINA_TYPES.WATER]: "#0065b3",
-        [KASINA_TYPES.FIRE]: "#ff4500", 
-        [KASINA_TYPES.AIR]: "#87ceeb",
-        [KASINA_TYPES.EARTH]: "#8b4513",
-        [KASINA_TYPES.SPACE]: "#191970",
-        [KASINA_TYPES.LIGHT]: "#ffffcc"
-      };
+      const shader = getKasinaShader(selectedKasina);
+      const materialRef = selectedKasina === KASINA_TYPES.WATER ? waterMaterialRef :
+                         selectedKasina === KASINA_TYPES.FIRE ? fireMaterialRef :
+                         selectedKasina === KASINA_TYPES.AIR ? airMaterialRef :
+                         selectedKasina === KASINA_TYPES.EARTH ? earthMaterialRef :
+                         selectedKasina === KASINA_TYPES.SPACE ? spaceMaterialRef :
+                         lightMaterialRef;
                          
       return (
         <mesh ref={meshRef}>
-          <sphereGeometry args={[1, 64, 64]} />
-          <meshBasicMaterial 
-            color={elementalColors[selectedKasina] || KASINA_COLORS[selectedKasina]}
-            transparent={false}
+          <sphereGeometry args={[1, 32, 32]} />
+          <shaderMaterial
+            ref={materialRef}
+            uniforms={shader.uniforms}
+            vertexShader={shader.vertexShader}
+            fragmentShader={shader.fragmentShader}
+            transparent={true}
           />
         </mesh>
       );
