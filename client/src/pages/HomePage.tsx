@@ -29,6 +29,18 @@ const HomePage: React.FC = () => {
       console.error('HARD CRASH DETECTED: Visual mode was active but did not exit cleanly');
       console.error(`Session lasted approximately ${sessionDuration} seconds before crash`);
       
+      // Check if this crash happened during an ongoing meditation (>4 minutes)
+      if (sessionDuration > 240) {
+        console.log('Detected platform timeout crash during meditation - setting up auto-restart');
+        localStorage.setItem('autoRestartMeditation', JSON.stringify({
+          timestamp: Date.now(),
+          originalStartTime: startTime,
+          accumulatedDuration: sessionDuration,
+          kasina: localStorage.getItem('visualModeSession') ? 
+            JSON.parse(localStorage.getItem('visualModeSession') || '{}').kasina : 'space'
+        }));
+      }
+      
       // Save hard crash to persistent log
       const hardCrashData = {
         timestamp: new Date().toISOString(),
