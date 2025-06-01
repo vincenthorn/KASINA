@@ -936,7 +936,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   // Use unified background color function
   const getBackgroundColor = () => {
-    return getKasinaBackgroundColor(selectedKasina);
+    const bgColor = getKasinaBackgroundColor(selectedKasina);
+    console.log(`Background color for ${selectedKasina}:`, bgColor);
+    return bgColor;
   };
 
   // Handle series selection
