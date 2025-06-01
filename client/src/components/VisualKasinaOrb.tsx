@@ -757,15 +757,39 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             }
           }
           
-          // Incremental session logging every 30 seconds to survive crashes
+          // Enhanced crash-resistant logging every 30 seconds
           const incrementalSessionData = {
             timestamp: new Date().toISOString(),
             duration: newTime,
             kasina: getMostUsedKasina(),
             status: 'in_progress',
-            lastUpdate: newTime
+            lastUpdate: newTime,
+            webglState: webglDiagnostics,
+            memoryState: snapshot.memory,
+            crashResistantLog: true
           };
           localStorage.setItem('incrementalSession', JSON.stringify(incrementalSessionData));
+          
+          // Save continuous crash analysis data
+          const crashAnalysisLog = localStorage.getItem('crashAnalysisLog') || '[]';
+          const analysisEntries = JSON.parse(crashAnalysisLog);
+          analysisEntries.push({
+            sessionTime: newTime,
+            timestamp: new Date().toISOString(),
+            webglError: webglDiagnostics?.error || 0,
+            memoryUsed: snapshot.memory?.used || 0,
+            kasina: selectedKasina,
+            webglHealth: {
+              contextValid: !!gl,
+              errorCode: webglDiagnostics?.error || 0,
+              activeTexture: webglDiagnostics?.activeTexture,
+              currentProgram: !!webglDiagnostics?.currentProgram
+            }
+          });
+          
+          // Keep only last 20 entries (10 minutes)
+          if (analysisEntries.length > 20) analysisEntries.shift();
+          localStorage.setItem('crashAnalysisLog', JSON.stringify(analysisEntries));
         }
         
 

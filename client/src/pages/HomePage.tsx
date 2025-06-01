@@ -161,6 +161,42 @@ const HomePage: React.FC = () => {
       }
     }
     
+    // Display continuous crash analysis data
+    const crashAnalysisLog = localStorage.getItem('crashAnalysisLog');
+    if (crashAnalysisLog) {
+      try {
+        const analysisData = JSON.parse(crashAnalysisLog);
+        console.log('=== DETAILED CRASH ANALYSIS ===');
+        console.log('Session timeline before crash:', analysisData);
+        
+        if (analysisData.length > 0) {
+          const lastEntry = analysisData[analysisData.length - 1];
+          console.log('Final session state:', {
+            sessionTime: lastEntry.sessionTime + 's',
+            webglError: lastEntry.webglError,
+            memoryUsed: lastEntry.memoryUsed + 'MB',
+            webglHealth: lastEntry.webglHealth
+          });
+        }
+        console.log('=== END CRASH ANALYSIS ===');
+      } catch (e) {
+        console.error('Failed to parse crash analysis log:', e);
+      }
+    }
+    
+    // Show last quick snapshot (every 5 seconds)
+    const lastQuickSnapshot = localStorage.getItem('lastQuickSnapshot');
+    if (lastQuickSnapshot) {
+      try {
+        const quickData = JSON.parse(lastQuickSnapshot);
+        console.log('=== LAST MOMENT BEFORE CRASH ===');
+        console.log('Quick snapshot:', quickData);
+        console.log('=== END LAST MOMENT DATA ===');
+      } catch (e) {
+        console.error('Failed to parse quick snapshot:', e);
+      }
+    }
+    
     console.log('=== END DIAGNOSTIC REPORT ===');
     
     // Check for incomplete sessions that ended due to crashes
