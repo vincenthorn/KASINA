@@ -782,30 +782,39 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Aggressive scene recreation strategy to prevent GPU driver timeouts
-        if (newTime % 90 === 0 && newTime > 0) {
-          console.log(`Performing seamless scene recreation at ${newTime} seconds`);
-          
-          // Trigger scene recreation through a state update
-          // This will cause the React Three Fiber scene to remount completely
-          setSceneKey(prev => prev + 1);
-          
-          console.log(`Scene recreation initiated at ${newTime} seconds`);
-        }
-        
-        // More frequent GPU maintenance between recreations
-        if (newTime % 30 === 0 && newTime > 0 && newTime % 90 !== 0) {
-          console.log(`Performing lightweight GPU maintenance at ${newTime} seconds`);
+        // Invisible GPU maintenance strategy - no visual interruption
+        if (newTime % 45 === 0 && newTime > 0) {
+          console.log(`Performing invisible GPU refresh at ${newTime} seconds`);
           
           const canvas = document.querySelector('canvas');
           if (canvas) {
             const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
             if (gl) {
+              // Advanced GPU maintenance without context loss
               gl.flush();
               gl.finish();
-              console.log(`GPU maintenance completed at ${newTime} seconds`);
+              
+              // Clear any accumulated GPU state
+              if (gl.clear) {
+                const currentClearColor = gl.getParameter(gl.COLOR_CLEAR_VALUE);
+                gl.clearColor(0, 0, 0, 0);
+                gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+                gl.clearColor(currentClearColor[0], currentClearColor[1], currentClearColor[2], currentClearColor[3]);
+              }
+              
+              console.log(`Invisible GPU refresh completed at ${newTime} seconds`);
             }
           }
+        }
+        
+        // Very gentle GPU reset only when absolutely necessary  
+        if (newTime % 300 === 0 && newTime > 0) {
+          console.log(`Performing deep GPU reset at ${newTime} seconds (5 min mark)`);
+          
+          // Only recreate scene at 5-minute intervals to minimize disruption
+          setSceneKey(prev => prev + 1);
+          
+          console.log(`Deep GPU reset completed at ${newTime} seconds`);
         }
         
         return newTime;
