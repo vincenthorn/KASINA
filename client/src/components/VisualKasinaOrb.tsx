@@ -667,24 +667,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           return newTime;
         }
         
-        // Proactive stability management - prevent crashes before they occur
+        // Experimental: Try reducing frame rate at 4 minutes to see if it's rendering intensity
         if (newTime === 240) {
-          console.log('🛡️ Proactive WebGL refresh at 4 minutes to prevent crash');
+          console.log('📉 Reducing rendering intensity at 4 minutes');
           
-          // Force a gentle Three.js scene refresh
-          setTimeout(() => {
-            try {
-              const canvas = document.querySelector('canvas');
-              if (canvas) {
-                // Trigger a scene invalidation to refresh WebGL state
-                const event = new Event('webglcontextrestored');
-                canvas.dispatchEvent(event);
-                console.log('WebGL context refresh completed');
-              }
-            } catch (error) {
-              console.log('Context refresh failed, continuing normally:', error);
-            }
-          }, 100);
+          // Set a flag to reduce frame rate in useFrame
+          localStorage.setItem('reduceFrameRate', 'true');
         }
         
         // Continuous performance monitoring and incremental session logging
@@ -928,6 +916,15 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     // Remove interval-based monitoring to prevent memory leaks
 
     useFrame((state) => {
+      // Check if we should reduce frame rate after 4 minutes
+      const shouldReduceFrameRate = localStorage.getItem('reduceFrameRate') === 'true';
+      const frameCount = Math.floor(state.clock.getElapsedTime() * 60);
+      
+      // Skip frames to reduce rendering load if flag is set
+      if (shouldReduceFrameRate && frameCount % 3 !== 0) {
+        return; // Skip 2 out of every 3 frames
+      }
+      
       try {
         if (meshRef.current) {
           const time = state.clock.getElapsedTime();
