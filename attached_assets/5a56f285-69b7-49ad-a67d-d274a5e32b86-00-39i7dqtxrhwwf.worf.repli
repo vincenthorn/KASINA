@@ -1,275 +1,157 @@
 login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
 
-chunk-RPCDYKBN.js?v=0a6bad1d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
-react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
-warnOnce @ react-router-dom.js?v=0a6bad1d:4394
-react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
-warnOnce @ react-router-dom.js?v=0a6bad1d:4394
-HomePage.tsx:87 === COMPLETE DIAGNOSTIC REPORT ===
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js:4394
+ ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js:4394
+ HARD CRASH DETECTED: Visual mode was active but did not exit cleanly
+console.error @ chunk-EMXP5JYR.js:18167
+ Session lasted approximately 31 seconds before crash
+console.error @ chunk-EMXP5JYR.js:18167
+ Last visual mode session data: Object
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Performance Snapshots: Array(20)
+ === PERFORMANCE ANALYSIS ===
+ Last 3 snapshots before crash:
+HomePage.tsx:104 Snapshot 18: Object
+HomePage.tsx:104 Snapshot 19: Object
+HomePage.tsx:104 Snapshot 20: Object
+HomePage.tsx:114 Memory trend in final snapshots: -2MB
+HomePage.tsx:116 === END PERFORMANCE ANALYSIS ===
+HomePage.tsx:123 Crash History: Array(3)
+HomePage.tsx:125 Crash #1: Object
+HomePage.tsx:125 Crash #2: Object
+HomePage.tsx:125 Crash #3: Object
 HomePage.tsx:132 === END DIAGNOSTIC REPORT ===
+HomePage.tsx:139 Found incomplete session from crash: Object
+HomePage.tsx:143 Logging crashed session: 1 minutes
 useAuth.tsx:169 Setting auth state with user: Object
 KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
 KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
 VisualKasinaOrb.tsx:399 🚀 VisualKasinaOrb component loading - crash detection active
-VisualKasinaOrb.tsx:439 🔍 Visual mode session started, crash monitoring active
-sessionRecovery.ts:45 🛡️ Session recovery started for red (session_1748746251539_h3ot7k1k2)
-VisualKasinaOrb.tsx:692 🧘 Visual kasina meditation session started
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:440 🔍 Visual mode session started, crash monitoring active
+sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748748324020_k33p28z5z)
+VisualKasinaOrb.tsx:693 🧘 Visual kasina meditation session started
 useWakeLock.tsx:44 Requesting screen wake lock...
-VisualKasinaOrb.tsx:696 🔒 Wake lock enabled - screen will stay awake during meditation
-VisualKasinaOrb.tsx:1234 WebGL Diagnostics: Object
+VisualKasinaOrb.tsx:697 🔒 Wake lock enabled - screen will stay awake during meditation
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:1231 WebGL Diagnostics: Object
 useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
-VisualKasinaOrb.tsx:525 Memory: 99MB used / 156MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 106MB used / 157MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 153MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 155MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 153MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 89MB used / 90MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 30s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 30s: {timestamp: '2025-06-01T02:51:21.541Z', sessionTime: 30, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 30005}
-VisualKasinaOrb.tsx:669   red: 30s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (30s)
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 94MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 95MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 95MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 95MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 98MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 100MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 60s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 60s: {timestamp: '2025-06-01T02:51:51.540Z', sessionTime: 60, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 60004}
-VisualKasinaOrb.tsx:669   red: 60s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (60s)
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 60 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 60 seconds
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 99MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 99MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 99MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 100MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 90s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 90s: {timestamp: '2025-06-01T02:52:21.540Z', sessionTime: 90, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 90004}
-VisualKasinaOrb.tsx:669   red: 90s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (90s)
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 100MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 102MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 120s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 120s: {timestamp: '2025-06-01T02:52:51.540Z', sessionTime: 120, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 120004}
-VisualKasinaOrb.tsx:669   red: 120s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (120s)
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 120 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 120 seconds
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 103MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 103MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 96MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 96MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 150s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 150s: {timestamp: '2025-06-01T02:53:21.540Z', sessionTime: 150, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 150004}
-VisualKasinaOrb.tsx:669   red: 150s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (150s)
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 96MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 96MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 93MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 97MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 97MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 97MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 180s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 180s: {timestamp: '2025-06-01T02:53:51.540Z', sessionTime: 180, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 180004}
-VisualKasinaOrb.tsx:669   red: 180s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (180s)
-VisualKasinaOrb.tsx:775 3-minute cleanup at 3 minutes
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 180 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 180 seconds
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 97MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 98MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 99MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 100MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 100MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 100MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 210s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 210s: {timestamp: '2025-06-01T02:54:21.539Z', sessionTime: 210, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 210004}
-VisualKasinaOrb.tsx:669   red: 210s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (210s)
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 102MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 240s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 240s: {timestamp: '2025-06-01T02:54:51.539Z', sessionTime: 240, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 240003}
-VisualKasinaOrb.tsx:669   red: 240s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (240s)
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 240 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 240 seconds
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 97MB used / 107MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 94MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 94MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 97MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 270s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 270s: {timestamp: '2025-06-01T02:55:21.540Z', sessionTime: 270, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 270004}
-VisualKasinaOrb.tsx:669   red: 270s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (270s)
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 98MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 98MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 98MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 98MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 103MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 300s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 300s: {timestamp: '2025-06-01T02:55:51.539Z', sessionTime: 300, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 300004}
-VisualKasinaOrb.tsx:669   red: 300s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (300s)
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 300 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 300 seconds
-VisualKasinaOrb.tsx:525 Memory: 90MB used / 94MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 94MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 95MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 95MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 95MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 97MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 330s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 330s: {timestamp: '2025-06-01T02:56:21.539Z', sessionTime: 330, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 330003}
-VisualKasinaOrb.tsx:669   red: 330s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (330s)
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 98MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 99MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 99MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 99MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 98MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 359s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 360s: {timestamp: '2025-06-01T02:56:51.538Z', sessionTime: 360, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 360003}
-VisualKasinaOrb.tsx:669   red: 360s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (360s)
-VisualKasinaOrb.tsx:775 3-minute cleanup at 6 minutes
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 360 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 360 seconds
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 103MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 103MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 389s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 390s: {timestamp: '2025-06-01T02:57:21.538Z', sessionTime: 390, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 390003}
-VisualKasinaOrb.tsx:669   red: 390s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (390s)
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 103MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 103MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 104MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 104MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 104MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 104MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 420s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 420s: {timestamp: '2025-06-01T02:57:51.539Z', sessionTime: 420, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 420003}
-VisualKasinaOrb.tsx:669   red: 420s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (420s)
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 420 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 420 seconds
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 105MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 97MB used / 105MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 104MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 100MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 449s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 450s: {timestamp: '2025-06-01T02:58:21.538Z', sessionTime: 450, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 450003}
-VisualKasinaOrb.tsx:669   red: 450s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (450s)
-VisualKasinaOrb.tsx:525 Memory: 91MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 102MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 102MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 479s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 480s: {timestamp: '2025-06-01T02:58:51.538Z', sessionTime: 480, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 480002}
-VisualKasinaOrb.tsx:669   red: 480s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (480s)
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 480 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 480 seconds
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 103MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 103MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 103MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 104MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 104MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 95MB used / 104MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 509s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 510s: {timestamp: '2025-06-01T02:59:21.538Z', sessionTime: 510, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 510002}
-VisualKasinaOrb.tsx:669   red: 510s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (510s)
-VisualKasinaOrb.tsx:525 Memory: 97MB used / 104MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 101MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 109MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 110MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 110MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 539s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 540s: {timestamp: '2025-06-01T02:59:51.537Z', sessionTime: 540, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 540002}
-VisualKasinaOrb.tsx:669   red: 540s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (540s)
-VisualKasinaOrb.tsx:775 3-minute cleanup at 9 minutes
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 540 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 540 seconds
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 110MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 93MB used / 108MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 108MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 109MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 109MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 109MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 569s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 570s: {timestamp: '2025-06-01T03:00:21.538Z', sessionTime: 570, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 570003}
-VisualKasinaOrb.tsx:669   red: 570s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (570s)
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 109MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 98MB used / 110MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 98MB used / 110MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 98MB used / 110MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 111MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 111MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 599s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 600s: {timestamp: '2025-06-01T03:00:51.538Z', sessionTime: 600, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 600002}
-VisualKasinaOrb.tsx:669   red: 600s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (600s)
-VisualKasinaOrb.tsx:786 Performing thorough GPU refresh at 600 seconds
-VisualKasinaOrb.tsx:812 Thorough GPU refresh completed at 600 seconds
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 112MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 96MB used / 112MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 98MB used / 112MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 98MB used / 112MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 94MB used / 112MB total / 4096MB limit
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 109MB total / 4096MB limit
-sessionRecovery.ts:67 🔄 Session recovery checkpoint: 629s elapsed
-VisualKasinaOrb.tsx:760 Performance snapshot at 630s: {timestamp: '2025-06-01T03:01:21.537Z', sessionTime: 630, memory: {…}, kasina: 'red', performance: {…}}
-VisualKasinaOrb.tsx:662 📊 Kasina usage breakdown: {red: 630002}
-VisualKasinaOrb.tsx:669   red: 630s
-VisualKasinaOrb.tsx:676 🎯 Most used kasina: red (630s)
-VisualKasinaOrb.tsx:525 Memory: 92MB used / 109MB total / 4096MB limit
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:526 Memory: 110MB used / 160MB total / 4096MB limit
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:526 Memory: 96MB used / 152MB total / 4096MB limit
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055
+VisualKasinaOrb.tsx:940 Background color for space: #2a0055

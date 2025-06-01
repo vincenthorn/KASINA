@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useKasina } from '../lib/stores/useKasina';
@@ -934,12 +934,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     return () => document.removeEventListener('wheel', handleWheel);
   }, []);
 
-  // Use unified background color function
-  const getBackgroundColor = () => {
+  // Use unified background color function with memoization
+  const backgroundColor = useMemo(() => {
     const bgColor = getKasinaBackgroundColor(selectedKasina);
     console.log(`Background color for ${selectedKasina}:`, bgColor);
     return bgColor;
-  };
+  }, [selectedKasina]);
 
   // Handle series selection
   const handleSeriesSelection = (series: string) => {
@@ -1180,7 +1180,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   return (
     <div 
       className={`h-screen w-screen relative overflow-hidden ${!showCursor ? 'cursor-none' : ''}`}
-      style={{ backgroundColor: getBackgroundColor() }}
+      style={{ backgroundColor }}
     >
       <Canvas 
         key={sceneKey} // Force scene recreation when key changes
