@@ -1,0 +1,112 @@
+chunk-RPCDYKBN.js?v=0a6bad1d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+api/auth/me:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+HomePage.tsx:87 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:132 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:169 Setting auth state with user: Object
+KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
+KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
+VisualKasinaOrb.tsx:402 🚀 VisualKasinaOrb component loading - crash detection active
+VisualKasinaOrb.tsx:499 🔍 Visual mode session started, crash monitoring active
+sessionRecovery.ts:45 🛡️ Session recovery started for water (session_1748810117113_x79qdb581)
+VisualKasinaOrb.tsx:689 🧘 Visual kasina meditation session started
+useWakeLock.tsx:44 Requesting screen wake lock...
+VisualKasinaOrb.tsx:693 🔒 Wake lock enabled - screen will stay awake during meditation
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+VisualKasinaOrb.tsx:1398 WebGL Diagnostics: Object
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 30s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 30s: {timestamp: '2025-06-01T20:35:47.115Z', sessionTime: 30, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 30006}
+VisualKasinaOrb.tsx:666   water: 30s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (30s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 60s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 60s: {timestamp: '2025-06-01T20:36:17.116Z', sessionTime: 60, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 60008}
+VisualKasinaOrb.tsx:666   water: 60s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (60s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 90s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 90s: {timestamp: '2025-06-01T20:36:47.117Z', sessionTime: 90, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 90008}
+VisualKasinaOrb.tsx:666   water: 90s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (90s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 120s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 120s: {timestamp: '2025-06-01T20:37:17.117Z', sessionTime: 120, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:839 🧪 Starting progressive stress tests
+VisualKasinaOrb.tsx:844 ✅ Memory allocation test passed: 1000000
+VisualKasinaOrb.tsx:855 ✅ Independent WebGL context created successfully
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 120073}
+VisualKasinaOrb.tsx:666   water: 120s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (120s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots
+VisualKasinaOrb.tsx:870 ✅ Timer stress test completed: 101
+useWakeLock.tsx:56 Screen wake lock was released
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 150s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 150s: {timestamp: '2025-06-01T20:37:47.801Z', sessionTime: 150, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:877 🔍 Near-crash environment test at 150s
+VisualKasinaOrb.tsx:882 ✅ Object creation still works at 150s
+VisualKasinaOrb.tsx:893 ✅ DOM manipulation works at 150s
+VisualKasinaOrb.tsx:903 ✅ localStorage access works at 150s
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 150693}
+VisualKasinaOrb.tsx:666   water: 151s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (151s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 180s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 180s: {timestamp: '2025-06-01T20:38:17.117Z', sessionTime: 180, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:877 🔍 Near-crash environment test at 180s
+VisualKasinaOrb.tsx:882 ✅ Object creation still works at 180s
+VisualKasinaOrb.tsx:893 ✅ DOM manipulation works at 180s
+VisualKasinaOrb.tsx:903 ✅ localStorage access works at 180s
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 180010}
+VisualKasinaOrb.tsx:666   water: 180s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (180s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 210s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 210s: {timestamp: '2025-06-01T20:38:47.117Z', sessionTime: 210, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:877 🔍 Near-crash environment test at 210s
+VisualKasinaOrb.tsx:882 ✅ Object creation still works at 210s
+VisualKasinaOrb.tsx:893 ✅ DOM manipulation works at 210s
+VisualKasinaOrb.tsx:903 ✅ localStorage access works at 210s
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 210010}
+VisualKasinaOrb.tsx:666   water: 210s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (210s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 240s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 240s: {timestamp: '2025-06-01T20:39:17.117Z', sessionTime: 240, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:877 🔍 Near-crash environment test at 240s
+VisualKasinaOrb.tsx:882 ✅ Object creation still works at 240s
+VisualKasinaOrb.tsx:893 ✅ DOM manipulation works at 240s
+VisualKasinaOrb.tsx:903 ✅ localStorage access works at 240s
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 240010}
+VisualKasinaOrb.tsx:666   water: 240s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (240s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 270s elapsed
+VisualKasinaOrb.tsx:830 WebGL diagnostic snapshot at 270s: {timestamp: '2025-06-01T20:39:47.117Z', sessionTime: 270, memory: {…}, webgl: {…}, kasina: 'water', …}
+VisualKasinaOrb.tsx:877 🔍 Near-crash environment test at 270s
+VisualKasinaOrb.tsx:882 ✅ Object creation still works at 270s
+VisualKasinaOrb.tsx:893 ✅ DOM manipulation works at 270s
+VisualKasinaOrb.tsx:903 ✅ localStorage access works at 270s
+VisualKasinaOrb.tsx:659 📊 Kasina usage breakdown: {water: 270010}
+VisualKasinaOrb.tsx:666   water: 270s
+VisualKasinaOrb.tsx:673 🎯 Most used kasina: water (270s)
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: sessions/incrementalSession
+indexedDBStorage.ts:90 ✅ IndexedDB save successful: diagnostics/performanceSnapshots

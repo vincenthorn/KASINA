@@ -683,6 +683,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       const now = Date.now();
       meditationStartRef.current = now;
       
+      // CRITICAL FIX: Force infinite timer mode for visual kasina sessions
+      // This ensures any cached timer state is overridden
+      const { useSimpleTimer } = await import('../lib/stores/useSimpleTimer');
+      useSimpleTimer.getState().setInfiniteMode();
+      console.log('🔄 Forced infinite timer mode for visual kasina session');
+      
       // Create session recovery entry
       sessionIdRef.current = sessionRecovery.startSession(selectedKasina as any);
       
