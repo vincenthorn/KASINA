@@ -780,9 +780,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // GPU driver timeout prevention every 5 minutes
-        if (newTime > 0 && newTime % 300 === 0) {
-          console.log('Performing GPU timeout prevention at', Math.floor(newTime / 60), 'minutes');
+        // Early GPU refresh to prevent 2-3 minute crashes
+        if (newTime === 90) {
+          console.log('Performing early GPU refresh at 90 seconds to prevent typical crash window');
           
           const canvas = document.querySelector('canvas');
           if (canvas) {
@@ -790,7 +790,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             if (gl) {
               gl.flush();
               gl.finish();
-              console.log('GPU state refreshed successfully');
+              // Force shader recompilation by clearing cache
+              gl.getExtension('WEBGL_lose_context')?.loseContext();
+              setTimeout(() => {
+                gl.getExtension('WEBGL_lose_context')?.restoreContext();
+              }, 100);
+              console.log('GPU context refreshed at 90 seconds');
             }
           }
         }
@@ -1171,12 +1176,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         camera={{ position: [0, 0, 4], fov: 50 }}
         gl={{ 
           antialias: false,
-          powerPreference: "low-power", // Reduce GPU stress to prevent driver timeouts
-          failIfMajorPerformanceCaveat: true, // Avoid problematic GPU configurations
+          powerPreference: "default", // Use default instead of low-power
+          failIfMajorPerformanceCaveat: false, // Allow all GPU configurations
           preserveDrawingBuffer: false,
           alpha: false,
           depth: true,
-          stencil: false
+          stencil: false,
+          // Force stable context creation
+          premultipliedAlpha: false
         }}
         dpr={[1, 1.5]}
         performance={{ min: 0.3 }}
