@@ -78,6 +78,21 @@ const HomePage: React.FC = () => {
       console.log('Session limit data from last session:', JSON.parse(sessionLimitData));
       localStorage.removeItem('visualModeSessionLimit');
     }
+    
+    // Log persistent crash data for debugging
+    const persistentCrashLog = localStorage.getItem('persistentCrashLog');
+    if (persistentCrashLog) {
+      console.log('=== PERSISTENT CRASH LOG ===');
+      try {
+        const crashes = JSON.parse(persistentCrashLog);
+        crashes.forEach((crash: any, index: number) => {
+          console.log(`Crash #${index + 1}:`, crash);
+        });
+        console.log('=== END CRASH LOG ===');
+      } catch (e) {
+        console.error('Failed to parse persistent crash log:', e);
+      }
+    }
   }, []);
   
   // Check if user is admin or premium
