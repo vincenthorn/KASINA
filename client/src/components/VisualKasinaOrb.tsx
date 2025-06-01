@@ -936,9 +936,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   // Use unified background color function with memoization
   const backgroundColor = useMemo(() => {
-    const bgColor = getKasinaBackgroundColor(selectedKasina);
-    console.log(`Background color for ${selectedKasina}:`, bgColor);
-    return bgColor;
+    return getKasinaBackgroundColor(selectedKasina);
   }, [selectedKasina]);
 
   // Handle series selection
@@ -1180,7 +1178,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   return (
     <div 
       className={`h-screen w-screen relative overflow-hidden ${!showCursor ? 'cursor-none' : ''}`}
-      style={{ backgroundColor }}
+      style={{ 
+        backgroundColor,
+        background: backgroundColor // Force override any CSS background rules
+      }}
     >
       <Canvas 
         key={sceneKey} // Force scene recreation when key changes
