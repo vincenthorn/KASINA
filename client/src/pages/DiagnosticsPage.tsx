@@ -14,13 +14,43 @@ export default function DiagnosticsPage() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const diagnosticData: DiagnosticData = {
-      contextLoss: JSON.parse(localStorage.getItem('webglContextLoss') || 'null'),
-      snapshots: JSON.parse(localStorage.getItem('performanceSnapshots') || '[]'),
-      incrementalSession: JSON.parse(localStorage.getItem('incrementalSession') || 'null'),
-      crashLog: JSON.parse(localStorage.getItem('crashLog') || 'null')
-    };
-    setData(diagnosticData);
+    // Test localStorage functionality first
+    try {
+      localStorage.setItem('diagnosticTest', 'working');
+      const test = localStorage.getItem('diagnosticTest');
+      console.log('localStorage test:', test);
+      
+      // Show all localStorage keys
+      console.log('All localStorage keys:', Object.keys(localStorage));
+      
+      // Get raw values to debug parsing issues
+      const rawContextLoss = localStorage.getItem('webglContextLoss');
+      const rawSnapshots = localStorage.getItem('performanceSnapshots');
+      const rawSession = localStorage.getItem('incrementalSession');
+      const rawCrashLog = localStorage.getItem('crashLog');
+      
+      console.log('Raw localStorage values:');
+      console.log('webglContextLoss:', rawContextLoss);
+      console.log('performanceSnapshots:', rawSnapshots);
+      console.log('incrementalSession:', rawSession);
+      console.log('crashLog:', rawCrashLog);
+      
+      const diagnosticData: DiagnosticData = {
+        contextLoss: rawContextLoss ? JSON.parse(rawContextLoss) : null,
+        snapshots: rawSnapshots ? JSON.parse(rawSnapshots) : [],
+        incrementalSession: rawSession ? JSON.parse(rawSession) : null,
+        crashLog: rawCrashLog ? JSON.parse(rawCrashLog) : null
+      };
+      setData(diagnosticData);
+    } catch (error) {
+      console.error('localStorage error:', error);
+      setData({
+        contextLoss: null,
+        snapshots: [],
+        incrementalSession: null,
+        crashLog: null
+      });
+    }
   }, []);
 
   const copyToClipboard = () => {
