@@ -695,7 +695,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       if (isProduction) {
         console.log('🏭 Production environment detected - implementing timeout bypass');
         
-        // Aggressively refresh browser state every 4 minutes to prevent platform timeouts
+        // Aggressively refresh browser state every 2 minutes to prevent platform timeouts
         const platformTimeoutBypass = setInterval(() => {
           // Refresh critical browser APIs to prevent timeout
           try {
@@ -712,14 +712,42 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
               window.gc();
             }
             
+            // Create a small DOM manipulation to show browser activity
+            const activityMarker = document.createElement('div');
+            activityMarker.style.display = 'none';
+            document.body.appendChild(activityMarker);
+            document.body.removeChild(activityMarker);
+            
             console.log('🔄 Platform timeout bypass refresh executed');
           } catch (e) {
             console.warn('Platform timeout bypass failed:', e);
           }
-        }, 240000); // Every 4 minutes
+        }, 120000); // Every 2 minutes
         
         // Store the interval ID for cleanup
         (window as any).platformTimeoutBypass = platformTimeoutBypass;
+        
+        // Additional activity pulse every 30 seconds to continuously signal active session
+        const activityPulse = setInterval(() => {
+          try {
+            // Minimal activity indicators
+            const timestamp = Date.now();
+            localStorage.setItem('sessionPulse', timestamp.toString());
+            
+            // Trigger a minimal reflow to show DOM activity
+            document.body.style.transform = 'translateZ(0)';
+            
+            // Create and immediately remove a micro DOM element
+            const pulse = document.createElement('span');
+            document.body.appendChild(pulse);
+            document.body.removeChild(pulse);
+            
+          } catch (e) {
+            // Silent fail for activity pulse
+          }
+        }, 30000); // Every 30 seconds
+        
+        (window as any).activityPulse = activityPulse;
       }
       
       // Create session recovery entry
