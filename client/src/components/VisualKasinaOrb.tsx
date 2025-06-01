@@ -515,74 +515,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       console.error('Promise rejection logged:', crashData);
     };
     
-    // More frequent memory monitoring with crash prevention
-    const memoryCheckInterval = setInterval(() => {
-      if ((performance as any).memory) {
-        const memInfo = (performance as any).memory;
-        const usedMB = Math.round(memInfo.usedJSHeapSize / 1024 / 1024);
-        const totalMB = Math.round(memInfo.totalJSHeapSize / 1024 / 1024);
-        const limitMB = Math.round(memInfo.jsHeapSizeLimit / 1024 / 1024);
-        
-        // Only log memory every 30 seconds to reduce console spam
-        const currentTime = Math.floor((Date.now() - meditationStartRef.current!) / 1000);
-        if (currentTime % 30 === 0 && currentTime > 0) {
-          console.log(`Memory: ${usedMB}MB used / ${totalMB}MB total / ${limitMB}MB limit`);
-        }
-        
-        // Emergency crash prevention - force garbage collection if memory is critical
-        if (usedMB > limitMB * 0.85) {
-          console.error('CRITICAL MEMORY USAGE - EMERGENCY PREVENTION:', usedMB, 'MB');
-          
-          // Force garbage collection if available
-          if ((window as any).gc) {
-            (window as any).gc();
-            console.log('Forced garbage collection');
-          }
-          
-          // Log critical memory state
-          const criticalMemoryData = {
-            timestamp: new Date().toISOString(),
-            meditationTime,
-            memoryMB: usedMB,
-            limitMB,
-            action: 'emergency_prevention'
-          };
-          localStorage.setItem('visualModeCriticalMemory', JSON.stringify(criticalMemoryData));
-          
-          // Also save to persistent crash log
-          const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
-          const crashes = JSON.parse(crashLog);
-          crashes.push({
-            ...criticalMemoryData,
-            sessionId: sessionIdRef.current,
-            crashType: 'critical_memory'
-          });
-          if (crashes.length > 10) crashes.shift();
-          localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
-          
-          // If still critical after 30 seconds, force session end
-          setTimeout(() => {
-            if ((performance as any).memory) {
-              const newUsedMB = Math.round((performance as any).memory.usedJSHeapSize / 1024 / 1024);
-              if (newUsedMB > limitMB * 0.85) {
-                console.error('Memory still critical - ending session to prevent crash');
-                endMeditation().catch(() => {});
-              }
-            }
-          }, 30000);
-        }
-        // Warning if memory usage is high
-        else if (usedMB > limitMB * 0.7) {
-          console.warn('HIGH MEMORY USAGE WARNING:', usedMB, 'MB');
-          localStorage.setItem('visualModeMemoryWarning', JSON.stringify({
-            timestamp: new Date().toISOString(),
-            meditationTime,
-            memoryMB: usedMB,
-            limitMB
-          }));
-        }
-      }
-    }, 5000); // Check every 5 seconds instead of 10
+    // Removed aggressive memory monitoring
     
     window.addEventListener('error', handleError);
     window.addEventListener('unhandledrejection', handleUnhandledRejection);
@@ -617,7 +550,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     return () => {
       window.removeEventListener('error', handleError);
       window.removeEventListener('unhandledrejection', handleUnhandledRejection);
-      clearInterval(memoryCheckInterval);
+      // Removed memory monitoring cleanup
       
       // Clean up WebGL event listeners
       const canvas = document.querySelector('canvas');
