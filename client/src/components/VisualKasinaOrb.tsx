@@ -695,7 +695,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       if (isProduction) {
         console.log('🏭 Production environment detected - implementing timeout bypass');
         
-        // Minimal platform timeout bypass every 3 minutes
+        // Frequent platform timeout bypass every 2 minutes
         const platformTimeoutBypass = setInterval(() => {
           try {
             // Simple localStorage touch to show activity
@@ -706,7 +706,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           } catch (e) {
             console.warn('Platform timeout bypass failed:', e);
           }
-        }, 180000); // Every 3 minutes
+        }, 120000); // Every 2 minutes
         
         // Store the interval ID for cleanup
         (window as any).platformTimeoutBypass = platformTimeoutBypass;

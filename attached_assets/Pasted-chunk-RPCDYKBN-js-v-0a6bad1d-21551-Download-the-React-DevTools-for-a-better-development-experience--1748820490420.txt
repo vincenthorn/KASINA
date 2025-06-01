@@ -1,0 +1,63 @@
+chunk-RPCDYKBN.js?v=0a6bad1d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+api/auth/me:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+HomePage.tsx:87 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:91 WebGL Capabilities: Object
+HomePage.tsx:123 Crash History: Array(4)
+HomePage.tsx:125 Crash #1: Object
+HomePage.tsx:125 Crash #2: Object
+HomePage.tsx:125 Crash #3: Object
+HomePage.tsx:125 Crash #4: Object
+HomePage.tsx:132 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:169 Setting auth state with user: Object
+KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
+KasinasPage.tsx:32 🎯 KasinasPage: Rendering VisualKasinaOrb component
+VisualKasinaOrb.tsx:402 🚀 VisualKasinaOrb component loading - crash detection active
+VisualKasinaOrb.tsx:499 🔍 Visual mode session started, crash monitoring active
+VisualKasinaOrb.tsx:690 🔄 Forced infinite timer mode for visual kasina session
+VisualKasinaOrb.tsx:696 🏭 Production environment detected - implementing timeout bypass
+sessionRecovery.ts:45 🛡️ Session recovery started for space (session_1748820264497_xcyv8rhio)
+VisualKasinaOrb.tsx:720 🧘 Visual kasina meditation session started
+useWakeLock.tsx:44 Requesting screen wake lock...
+VisualKasinaOrb.tsx:724 🔒 Wake lock enabled - screen will stay awake during meditation
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+VisualKasinaOrb.tsx:1244 WebGL Diagnostics: Object
+VisualKasinaOrb.tsx:764 🔄 Session checkpoint: 30s elapsed
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 30s elapsed
+useWakeLock.tsx:56 Screen wake lock was released
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+useWakeLock.tsx:56 Screen wake lock was released
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 60s elapsed
+VisualKasinaOrb.tsx:764 🔄 Session checkpoint: 60s elapsed
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 90s elapsed
+VisualKasinaOrb.tsx:764 🔄 Session checkpoint: 90s elapsed
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+useWakeLock.tsx:56 Screen wake lock was released
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 120s elapsed
+VisualKasinaOrb.tsx:764 🔄 Session checkpoint: 120s elapsed
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+useWakeLock.tsx:56 Screen wake lock was released
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 150s elapsed
+VisualKasinaOrb.tsx:764 🔄 Session checkpoint: 150s elapsed
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+useWakeLock.tsx:56 Screen wake lock was released
+VisualKasinaOrb.tsx:705 🔄 Platform timeout bypass refresh executed
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 180s elapsed
+VisualKasinaOrb.tsx:764 🔄 Session checkpoint: 180s elapsed
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+useWakeLock.tsx:56 Screen wake lock was released
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+VisualKasinaOrb.tsx:764 🔄 Session checkpoint: 210s elapsed
+sessionRecovery.ts:67 🔄 Session recovery checkpoint: 210s elapsed
