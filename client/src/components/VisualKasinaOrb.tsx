@@ -725,8 +725,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             console.warn(`WebGL error detected at ${newTime}s:`, webglDiagnostics.error);
           }
           
-          // Progressive stress testing to isolate the cause
-          if (newTime === 210) {
+          // Progressive stress testing to isolate the cause - start early
+          if (newTime === 120) {
             console.log('🧪 Starting progressive stress tests');
             
             // Test 1: Memory allocation stress
@@ -763,8 +763,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             }, 10);
           }
 
-          // Test 4: Near-crash environment detection
-          if (newTime >= 240 && newTime % 10 === 0) {
+          // Test 4: Near-crash environment detection - start earlier and more frequent
+          if (newTime >= 150 && newTime % 10 === 0) {
             console.log(`🔍 Near-crash environment test at ${newTime}s`);
             
             // Check if we can still create new objects
