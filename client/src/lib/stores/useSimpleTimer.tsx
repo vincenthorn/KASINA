@@ -13,8 +13,8 @@ declare global {
 // Initialize global debug object
 if (typeof window !== 'undefined') {
   window.__DEBUG_TIMER = {
-    originalDuration: null,
-    currentDuration: null
+    originalDuration: null, // null means infinite/no timer
+    currentDuration: null   // null means infinite/no timer
   };
 }
 
@@ -39,12 +39,12 @@ interface SimpleTimerState {
 }
 
 export const useSimpleTimer = create<SimpleTimerState>((set, get) => ({
-  duration: 60, // Default to 60 seconds (1 minute)
-  originalDuration: 60, // Store the original setting
-  durationInMinutes: 1, // Store the minutes directly
+  duration: null, // Default to infinite/no timer for uninterrupted meditation
+  originalDuration: null, // Store the original setting
+  durationInMinutes: null, // Store the minutes directly
   isRunning: false,
   elapsedTime: 0,
-  timeRemaining: 60,
+  timeRemaining: null, // null means infinite time
   lastStartedAt: null,
   
   setDuration: (duration: number | null) => {
