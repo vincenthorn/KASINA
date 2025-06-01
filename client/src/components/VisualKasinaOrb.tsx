@@ -708,16 +708,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           localStorage.setItem('incrementalSession', JSON.stringify(incrementalSessionData));
         }
         
-        // Balanced memory cleanup optimized for stability
-        if (newTime > 0 && newTime % 180 === 0) {
-          console.log(`3-minute cleanup at ${Math.floor(newTime / 60)} minutes`);
-          
-          // Gentle garbage collection if available
-          if ((window as any).gc) {
-            (window as any).gc();
-            console.log('Performed 3-minute memory cleanup');
-          }
-        }
+
         
 
         
