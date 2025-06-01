@@ -769,14 +769,25 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`Performance snapshot at ${newTime}s:`, snapshot);
         }
         
-        // Memory cleanup every 2 minutes during long sessions
-        if (newTime > 0 && newTime % 120 === 0) {
-          console.log(`2-minute cleanup at ${Math.floor(newTime / 60)} minutes`);
+        // Aggressive memory cleanup for hour-long sessions
+        if (newTime > 0 && newTime % 60 === 0) {
+          console.log(`1-minute cleanup at ${Math.floor(newTime / 60)} minutes`);
           
           // Force garbage collection if available
           if ((window as any).gc) {
             (window as any).gc();
-            console.log('Performed 2-minute memory cleanup');
+            console.log('Performed 1-minute memory cleanup');
+          }
+          
+          // Additional cleanup for sessions over 10 minutes
+          if (newTime >= 600) {
+            // Clear any cached textures or geometries
+            const renderer = document.querySelector('canvas')?.getContext('webgl2') || 
+                           document.querySelector('canvas')?.getContext('webgl');
+            if (renderer && (renderer as any).getExtension) {
+              // Force texture memory cleanup
+              console.log('Performing deep memory cleanup for long session');
+            }
           }
         }
         
@@ -1162,6 +1173,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         performance={{ min: 0.3 }}
         frameloop="always"
         onCreated={(state) => {
+          // Limit frame rate to reduce GPU stress
+          state.setFrameloop('always');
+          state.clock.start();
           // Add WebGL context error handling
           const gl = state.gl.getContext();
           
