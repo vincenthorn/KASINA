@@ -807,8 +807,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Enhanced logging in the critical crash window (260-300 seconds)
-        if (newTime >= 260 && newTime <= 300) {
+        // Enhanced logging in the critical crash window (200-300 seconds)
+        if (newTime >= 200 && newTime <= 300) {
           console.warn(`🚨 CRITICAL WINDOW: ${newTime}s - Enhanced monitoring active`);
           
           // Extra detailed logging in crash-prone timeframe
@@ -828,14 +828,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Strategic deep GPU reset before the crash window  
-        if (newTime % 240 === 0 && newTime > 0) {
-          console.log(`Performing strategic deep GPU reset at ${newTime} seconds (4 min mark)`);
+        // More aggressive GPU reset to prevent earlier crashes  
+        if (newTime % 180 === 0 && newTime > 0) {
+          console.log(`Performing aggressive deep GPU reset at ${newTime} seconds (3 min mark)`);
           
-          // Recreate scene at 4-minute intervals to prevent the 4:45 crash pattern
+          // Recreate scene at 3-minute intervals to prevent crashes before 4 minutes
           setSceneKey(prev => prev + 1);
           
-          console.log(`Strategic deep GPU reset completed at ${newTime} seconds`);
+          console.log(`Aggressive deep GPU reset completed at ${newTime} seconds`);
         }
         
         return newTime;
