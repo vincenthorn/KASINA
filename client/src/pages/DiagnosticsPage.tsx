@@ -8,6 +8,7 @@ interface DiagnosticData {
   snapshots: any[];
   incrementalSession: any;
   crashLog: any;
+  lastError: any;
 }
 
 export default function DiagnosticsPage() {
@@ -20,7 +21,7 @@ export default function DiagnosticsPage() {
         console.log('Loading diagnostic data from IndexedDB and localStorage...');
         
         // Try IndexedDB first, fallback to localStorage
-        const [contextLoss, snapshots, incrementalSession, crashLog] = await Promise.all([
+        const [contextLoss, snapshots, incrementalSession, crashLog, lastError] = await Promise.all([
           storage.getItemSafe('diagnostics', 'webglContextLoss').catch(() => 
             localStorage.getItem('webglContextLoss') ? JSON.parse(localStorage.getItem('webglContextLoss')!) : null
           ),
@@ -32,6 +33,9 @@ export default function DiagnosticsPage() {
           ),
           storage.getItemSafe('diagnostics', 'crashLog').catch(() => 
             localStorage.getItem('crashLog') ? JSON.parse(localStorage.getItem('crashLog')!) : null
+          ),
+          storage.getItemSafe('diagnostics', 'lastError').catch(() => 
+            localStorage.getItem('lastError') ? JSON.parse(localStorage.getItem('lastError')!) : null
           )
         ]);
 

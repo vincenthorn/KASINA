@@ -395,13 +395,71 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // Use ref to ensure initialization only happens once
   const componentInitialized = useRef(false);
   
-  // CONTROLLED CRASH DETECTION - Log only on first mount
-  if (!componentInitialized.current) {
+  // Enhanced error monitoring and crash detection
+  useEffect(() => {
+    if (componentInitialized.current) return;
+    
     console.log('🚀 VisualKasinaOrb component loading - crash detection active');
+    
+    // Global error handlers for catching hidden exceptions
+    const handleUnhandledError = (event: ErrorEvent) => {
+      console.error('🚨 Unhandled error in visual kasina:', event.error);
+      const errorData = {
+        timestamp: new Date().toISOString(),
+        sessionTime: meditationTime,
+        error: {
+          message: event.message,
+          filename: event.filename,
+          lineno: event.lineno,
+          colno: event.colno,
+          stack: event.error?.stack
+        },
+        type: 'unhandled_error'
+      };
+      
+      (async () => {
+        try {
+          await storage.setItemSafe('diagnostics', 'lastError', errorData);
+        } catch (e) {
+          localStorage.setItem('lastError', JSON.stringify(errorData));
+        }
+      })();
+    };
+
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      console.error('🚨 Unhandled promise rejection in visual kasina:', event.reason);
+      const errorData = {
+        timestamp: new Date().toISOString(),
+        sessionTime: meditationTime,
+        error: {
+          reason: event.reason?.toString(),
+          stack: event.reason?.stack
+        },
+        type: 'unhandled_rejection'
+      };
+      
+      (async () => {
+        try {
+          await storage.setItemSafe('diagnostics', 'lastError', errorData);
+        } catch (e) {
+          localStorage.setItem('lastError', JSON.stringify(errorData));
+        }
+      })();
+    };
+
+    // Add global error listeners
+    window.addEventListener('error', handleUnhandledError);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+    
     localStorage.setItem('visualModeActive', 'true');
     localStorage.setItem('visualModeStartTime', Date.now().toString());
     componentInitialized.current = true;
-  }
+    
+    return () => {
+      window.removeEventListener('error', handleUnhandledError);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    };
+  }, [meditationTime]);
   
   const { selectedKasina, setSelectedKasina } = useKasina();
   const { currentColor } = useColor();
