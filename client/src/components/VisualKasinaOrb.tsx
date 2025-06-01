@@ -781,28 +781,35 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Gentle GPU state refresh to prevent driver timeouts
-        if (newTime === 90 || newTime === 180 || newTime === 270) {
-          console.log(`Performing gentle GPU refresh at ${newTime} seconds`);
+        // Frequent gentle GPU refresh to prevent driver timeouts
+        if (newTime % 60 === 0 && newTime > 0) {
+          console.log(`Performing thorough GPU refresh at ${newTime} seconds`);
           
           const canvas = document.querySelector('canvas');
           if (canvas) {
             const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
             if (gl) {
-              // Gentle GPU state management without context loss
+              // Thorough GPU state management without context loss
               gl.flush();
               gl.finish();
               
-              // Clear GPU command buffers and force memory cleanup
-              gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+              // Clear all GPU buffers
+              gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
               
-              // Force texture memory cleanup if available
-              const loseContext = gl.getExtension('WEBGL_lose_context');
-              if (loseContext) {
-                // Just flush, don't actually lose context
-                gl.flush();
-                console.log(`GPU state refreshed gently at ${newTime} seconds`);
+              // Force GPU memory garbage collection
+              gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array(4));
+              
+              // Clear shader program cache by forcing validation
+              const currentProgram = gl.getParameter(gl.CURRENT_PROGRAM);
+              if (currentProgram) {
+                gl.validateProgram(currentProgram);
               }
+              
+              // Force texture memory flush
+              gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+              gl.pixelStorei(gl.PACK_ALIGNMENT, 1);
+              
+              console.log(`Thorough GPU refresh completed at ${newTime} seconds`);
             }
           }
         }
