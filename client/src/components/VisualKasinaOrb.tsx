@@ -968,45 +968,35 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         groupRef.current.scale.setScalar(normalizedScale);
       }
 
-      // Update shader time uniforms for elemental kasinas
-      // Wrap time to prevent floating-point precision issues in production
+      // Throttle shader time updates - only update every few frames to reduce computational load
       try {
         const rawTime = state.clock.getElapsedTime();
         const wrappedTime = rawTime % 1000; // Reset time every 1000 seconds to prevent overflow
+        const frameCount = Math.floor(rawTime * 60); // Approximate frame count
         
-        if (waterMaterialRef.current) {
-          waterMaterialRef.current.uniforms.time.value = wrappedTime;
-        }
-        if (fireMaterialRef.current) {
-          fireMaterialRef.current.uniforms.time.value = wrappedTime;
-        }
-        if (airMaterialRef.current) {
-          airMaterialRef.current.uniforms.time.value = wrappedTime;
-        }
-        if (earthMaterialRef.current) {
-          earthMaterialRef.current.uniforms.time.value = wrappedTime;
-        }
-        if (spaceMaterialRef.current) {
-          spaceMaterialRef.current.uniforms.time.value = wrappedTime;
-        }
-        if (lightMaterialRef.current) {
-          lightMaterialRef.current.uniforms.time.value = wrappedTime;
+        // Update shader uniforms only every 3rd frame to reduce computational load
+        if (frameCount % 3 === 0) {
+          if (waterMaterialRef.current) {
+            waterMaterialRef.current.uniforms.time.value = wrappedTime;
+          }
+          if (fireMaterialRef.current) {
+            fireMaterialRef.current.uniforms.time.value = wrappedTime;
+          }
+          if (airMaterialRef.current) {
+            airMaterialRef.current.uniforms.time.value = wrappedTime;
+          }
+          if (earthMaterialRef.current) {
+            earthMaterialRef.current.uniforms.time.value = wrappedTime;
+          }
+          if (spaceMaterialRef.current) {
+            spaceMaterialRef.current.uniforms.time.value = wrappedTime;
+          }
+          if (lightMaterialRef.current) {
+            lightMaterialRef.current.uniforms.time.value = wrappedTime;
+          }
         }
       } catch (error) {
         console.error('Error updating shader uniforms:', error);
-        
-        // Log shader errors to persistent crash log
-        const crashLog = localStorage.getItem('persistentCrashLog') || '[]';
-        const crashes = JSON.parse(crashLog);
-        crashes.push({
-          timestamp: new Date().toISOString(),
-          crashType: 'shader_error',
-          message: `Shader uniform update failed: ${error}`,
-          selectedKasina,
-          userAgent: navigator.userAgent
-        });
-        if (crashes.length > 10) crashes.shift();
-        localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
       }
     });
 
