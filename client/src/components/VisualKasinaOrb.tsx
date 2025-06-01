@@ -720,9 +720,23 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           
           console.log(`WebGL diagnostic snapshot at ${newTime}s:`, snapshot);
           
+          // Save detailed WebGL diagnostics that survive crashes
+          localStorage.setItem('lastWebGLSnapshot', JSON.stringify({
+            ...snapshot,
+            detailedWebGL: webglDiagnostics
+          }));
+          
           // Check for WebGL errors specifically
           if (webglDiagnostics && webglDiagnostics.error !== gl.NO_ERROR) {
             console.warn(`WebGL error detected at ${newTime}s:`, webglDiagnostics.error);
+            
+            // Immediately save error state
+            localStorage.setItem('webglErrorDetected', JSON.stringify({
+              timestamp: new Date().toISOString(),
+              sessionTime: newTime,
+              errorCode: webglDiagnostics.error,
+              webglState: webglDiagnostics
+            }));
           }
           
           // Test WebGL context creation at 3.5 minutes to isolate the issue

@@ -129,6 +129,38 @@ const HomePage: React.FC = () => {
       }
     }
     
+    // Check for last WebGL snapshot before crash
+    const lastWebGLSnapshot = localStorage.getItem('lastWebGLSnapshot');
+    if (lastWebGLSnapshot) {
+      try {
+        const webglSnapshot = JSON.parse(lastWebGLSnapshot);
+        console.log('=== LAST WEBGL STATE BEFORE CRASH ===');
+        console.log('WebGL Snapshot:', webglSnapshot);
+        if (webglSnapshot.detailedWebGL) {
+          console.log('WebGL Error Code:', webglSnapshot.detailedWebGL.error);
+          console.log('WebGL Limits:', {
+            maxTextureSize: webglSnapshot.detailedWebGL.maxTextureSize,
+            maxTextureUnits: webglSnapshot.detailedWebGL.maxTextureUnits,
+            maxVertexAttribs: webglSnapshot.detailedWebGL.maxVertexAttribs
+          });
+        }
+        console.log('=== END WEBGL CRASH DATA ===');
+      } catch (e) {
+        console.error('Failed to parse WebGL snapshot:', e);
+      }
+    }
+    
+    // Check for specific WebGL errors
+    const webglError = localStorage.getItem('webglErrorDetected');
+    if (webglError) {
+      try {
+        const errorData = JSON.parse(webglError);
+        console.log('🚨 WEBGL ERROR DETECTED BEFORE CRASH:', errorData);
+      } catch (e) {
+        console.error('Failed to parse WebGL error:', e);
+      }
+    }
+    
     console.log('=== END DIAGNOSTIC REPORT ===');
     
     // Check for incomplete sessions that ended due to crashes
