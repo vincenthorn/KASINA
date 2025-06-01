@@ -669,9 +669,31 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         
 
         
-        // Continuous performance monitoring and incremental session logging
+        // Enhanced WebGL diagnostic monitoring every 30 seconds
         if (newTime > 0 && newTime % 30 === 0) {
-          // Take performance snapshot every 30 seconds
+          const canvas = document.querySelector('canvas');
+          const gl = canvas ? canvas.getContext('webgl2') || canvas.getContext('webgl') : null;
+          
+          const webglDiagnostics = gl ? {
+            // WebGL-specific resource limits and usage
+            maxTextureSize: gl.getParameter(gl.MAX_TEXTURE_SIZE),
+            maxTextureUnits: gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS),
+            maxVertexAttribs: gl.getParameter(gl.MAX_VERTEX_ATTRIBS),
+            maxFragmentUniforms: gl.getParameter(gl.MAX_FRAGMENT_UNIFORM_VECTORS),
+            maxVertexUniforms: gl.getParameter(gl.MAX_VERTEX_UNIFORM_VECTORS),
+            // Check for memory info extensions
+            memoryInfo: gl.getExtension('WEBGL_debug_renderer_info') ? {
+              renderer: gl.getParameter(gl.getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL),
+              vendor: gl.getParameter(gl.getExtension('WEBGL_debug_renderer_info').UNMASKED_VENDOR_WEBGL)
+            } : null,
+            // Check current state
+            currentProgram: gl.getParameter(gl.CURRENT_PROGRAM),
+            activeTexture: gl.getParameter(gl.ACTIVE_TEXTURE),
+            // Error state
+            error: gl.getError(),
+            contextAttributes: gl.getContextAttributes()
+          } : null;
+          
           const snapshot = {
             timestamp: new Date().toISOString(),
             sessionTime: newTime,
@@ -680,6 +702,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
               total: Math.round((performance as any).memory.totalJSHeapSize / 1024 / 1024),
               limit: Math.round((performance as any).memory.jsHeapSizeLimit / 1024 / 1024)
             } : null,
+            webgl: webglDiagnostics,
             kasina: selectedKasina,
             performance: {
               timing: performance.timing,
@@ -695,7 +718,30 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           if (snapshots.length > 20) snapshots.shift();
           localStorage.setItem('performanceSnapshots', JSON.stringify(snapshots));
           
-          console.log(`Performance snapshot at ${newTime}s:`, snapshot);
+          console.log(`WebGL diagnostic snapshot at ${newTime}s:`, snapshot);
+          
+          // Check for WebGL errors specifically
+          if (webglDiagnostics && webglDiagnostics.error !== gl.NO_ERROR) {
+            console.warn(`WebGL error detected at ${newTime}s:`, webglDiagnostics.error);
+          }
+          
+          // Test WebGL context creation at 3.5 minutes to isolate the issue
+          if (newTime === 210) {
+            console.log('🧪 Testing independent WebGL context creation');
+            try {
+              const testCanvas = document.createElement('canvas');
+              const testGl = testCanvas.getContext('webgl2') || testCanvas.getContext('webgl');
+              if (testGl) {
+                console.log('✅ Independent WebGL context created successfully');
+                // Clean up immediately
+                testCanvas.remove();
+              } else {
+                console.error('❌ Failed to create independent WebGL context');
+              }
+            } catch (error) {
+              console.error('❌ WebGL context creation threw error:', error);
+            }
+          }
           
           // Incremental session logging every 30 seconds to survive crashes
           const incrementalSessionData = {
