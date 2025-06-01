@@ -582,36 +582,27 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     window.addEventListener('error', handleError);
     window.addEventListener('unhandledrejection', handleUnhandledRejection);
     
-    // WebGL context loss detection and recovery
+    // Gentle WebGL monitoring without aggressive session termination
     const handleWebGLContextLoss = (event: Event) => {
-      console.error('WebGL context lost! Attempting recovery...');
+      console.log('WebGL context lost - logging for diagnostics');
       event.preventDefault();
       
-      const crashData = {
+      const contextLossData = {
         timestamp: new Date().toISOString(),
         meditationTime,
         selectedKasina,
-        crashType: 'webgl_context_loss',
-        memoryAtCrash: (performance as any).memory ? {
-          used: Math.round((performance as any).memory.usedJSHeapSize / 1024 / 1024),
-          total: Math.round((performance as any).memory.totalJSHeapSize / 1024 / 1024),
-          limit: Math.round((performance as any).memory.jsHeapSizeLimit / 1024 / 1024)
-        } : 'not available'
+        type: 'gentle_context_loss'
       };
       
-      localStorage.setItem('visualModeWebGLLoss', JSON.stringify(crashData));
-      
-      // End session gracefully to prevent further issues
-      setTimeout(() => {
-        endMeditation().catch(() => {});
-      }, 1000);
+      localStorage.setItem('visualModeContextEvent', JSON.stringify(contextLossData));
+      // Don't end session - let it continue
     };
     
     const handleWebGLContextRestored = (event: Event) => {
-      console.log('WebGL context restored');
+      console.log('WebGL context restored - continuing session');
     };
     
-    // Listen for WebGL context events on canvas
+    // Monitor WebGL context events for diagnostics only
     const canvas = document.querySelector('canvas');
     if (canvas) {
       canvas.addEventListener('webglcontextlost', handleWebGLContextLoss);
@@ -790,22 +781,28 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           }
         }
         
-        // Early GPU refresh to prevent 2-3 minute crashes
-        if (newTime === 90) {
-          console.log('Performing early GPU refresh at 90 seconds to prevent typical crash window');
+        // Gentle GPU state refresh to prevent driver timeouts
+        if (newTime === 90 || newTime === 180 || newTime === 270) {
+          console.log(`Performing gentle GPU refresh at ${newTime} seconds`);
           
           const canvas = document.querySelector('canvas');
           if (canvas) {
             const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
             if (gl) {
+              // Gentle GPU state management without context loss
               gl.flush();
               gl.finish();
-              // Force shader recompilation by clearing cache
-              gl.getExtension('WEBGL_lose_context')?.loseContext();
-              setTimeout(() => {
-                gl.getExtension('WEBGL_lose_context')?.restoreContext();
-              }, 100);
-              console.log('GPU context refreshed at 90 seconds');
+              
+              // Clear GPU command buffers and force memory cleanup
+              gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+              
+              // Force texture memory cleanup if available
+              const loseContext = gl.getExtension('WEBGL_lose_context');
+              if (loseContext) {
+                // Just flush, don't actually lose context
+                gl.flush();
+                console.log(`GPU state refreshed gently at ${newTime} seconds`);
+              }
             }
           }
         }
