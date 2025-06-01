@@ -667,13 +667,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           return newTime;
         }
         
-        // Experimental: Try reducing frame rate at 4 minutes to see if it's rendering intensity
-        if (newTime === 240) {
-          console.log('📉 Reducing rendering intensity at 4 minutes');
-          
-          // Set a flag to reduce frame rate in useFrame
-          localStorage.setItem('reduceFrameRate', 'true');
-        }
+
         
         // Continuous performance monitoring and incremental session logging
         if (newTime > 0 && newTime % 30 === 0) {
@@ -916,14 +910,6 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     // Remove interval-based monitoring to prevent memory leaks
 
     useFrame((state) => {
-      // Check if we should reduce frame rate after 4 minutes
-      const shouldReduceFrameRate = localStorage.getItem('reduceFrameRate') === 'true';
-      const frameCount = Math.floor(state.clock.getElapsedTime() * 60);
-      
-      // Skip frames to reduce rendering load if flag is set
-      if (shouldReduceFrameRate && frameCount % 3 !== 0) {
-        return; // Skip 2 out of every 3 frames
-      }
       
       try {
         if (meshRef.current) {
