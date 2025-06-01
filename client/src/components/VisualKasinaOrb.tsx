@@ -391,12 +391,16 @@ const lightShader = {
 interface VisualKasinaOrbProps {}
 
 export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
-  // IMMEDIATE CRASH DETECTION - Log on component mount
-  console.log('🚀 VisualKasinaOrb component loading - crash detection active');
+  // Use ref to ensure initialization only happens once
+  const componentInitialized = useRef(false);
   
-  // Immediate localStorage marker for hard crash detection
-  localStorage.setItem('visualModeActive', 'true');
-  localStorage.setItem('visualModeStartTime', Date.now().toString());
+  // CONTROLLED CRASH DETECTION - Log only on first mount
+  if (!componentInitialized.current) {
+    console.log('🚀 VisualKasinaOrb component loading - crash detection active');
+    localStorage.setItem('visualModeActive', 'true');
+    localStorage.setItem('visualModeStartTime', Date.now().toString());
+    componentInitialized.current = true;
+  }
   
   const { selectedKasina, setSelectedKasina } = useKasina();
   const { currentColor } = useColor();
@@ -931,7 +935,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       }, 30000); // Check every 30 seconds
       
       return () => clearInterval(basicMonitor);
-    }, [meditationTime, selectedKasina]);
+    }, []); // Remove dependencies to prevent re-render loop
 
     useFrame((state) => {
       try {
