@@ -54,7 +54,7 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.WHITE]: "#F3F4F6",
   [KASINA_TYPES.BLUE]: "#0000FF",
   [KASINA_TYPES.RED]: "#FF0000",
-  [KASINA_TYPES.YELLOW]: "#FCD34D",
+  [KASINA_TYPES.YELLOW]: "#FFFF00",
   [KASINA_TYPES.CUSTOM]: "#A78BFA", // Gentle purple for custom
   // Elemental Kasinas
   [KASINA_TYPES.WATER]: "#67E8F9", // Gentle cyan for water
