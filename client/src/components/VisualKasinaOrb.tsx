@@ -735,6 +735,21 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       setMeditationTime(prev => {
         const newTime = prev + 1;
         
+        // TESTING: GPU driver timeout prevention
+        // Many GPU drivers timeout WebGL contexts after ~5 minutes of continuous use
+        // Try gentle context refresh every 4 minutes to prevent driver timeouts
+        if (newTime > 0 && newTime % 240 === 0) {
+          console.log(`🔄 GPU driver timeout prevention: ${newTime}s elapsed - triggering gentle context refresh`);
+          try {
+            // Force a gentle render cycle to reset any driver timeout counters
+            if (typeof window !== 'undefined' && window.dispatchEvent) {
+              window.dispatchEvent(new Event('resize'));
+            }
+          } catch (e) {
+            console.warn('GPU refresh attempt failed:', e);
+          }
+        }
+        
         // Safety limit: Auto-end session after 60 minutes to prevent crashes
         if (newTime >= 3600) {
           console.warn('Session reached 60-minute safety limit, ending to prevent crashes');
@@ -1207,9 +1222,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           // Force stable context creation
           premultipliedAlpha: false
         }}
-        dpr={[1, 1.5]}
-        performance={{ min: 0.3 }}
-        frameloop="always"
+        dpr={[1, 1]}
+        performance={{ min: 0.5 }}
+        frameloop="demand"
         onCreated={(state) => {
           // Limit frame rate to reduce GPU stress
           state.setFrameloop('always');

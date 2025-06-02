@@ -1,0 +1,71 @@
+chunk-RPCDYKBN.js?v=0a6bad1d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+logDeprecation @ react-router-dom.js?v=0a6bad1d:4397
+logV6DeprecationWarnings @ react-router-dom.js?v=0a6bad1d:4400
+(anonymous) @ react-router-dom.js?v=0a6bad1d:5272
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=0a6bad1d:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=0a6bad1d:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=0a6bad1d:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=0a6bad1d:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=0a6bad1d:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=0a6bad1d:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=0a6bad1d:19447
+(anonymous) @ chunk-RPCDYKBN.js?v=0a6bad1d:19328
+workLoop @ chunk-RPCDYKBN.js?v=0a6bad1d:197
+flushWork @ chunk-RPCDYKBN.js?v=0a6bad1d:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=0a6bad1d:384
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+logDeprecation @ react-router-dom.js?v=0a6bad1d:4397
+logV6DeprecationWarnings @ react-router-dom.js?v=0a6bad1d:4403
+(anonymous) @ react-router-dom.js?v=0a6bad1d:5272
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=0a6bad1d:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=0a6bad1d:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=0a6bad1d:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=0a6bad1d:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=0a6bad1d:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=0a6bad1d:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=0a6bad1d:19447
+(anonymous) @ chunk-RPCDYKBN.js?v=0a6bad1d:19328
+workLoop @ chunk-RPCDYKBN.js?v=0a6bad1d:197
+flushWork @ chunk-RPCDYKBN.js?v=0a6bad1d:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=0a6bad1d:384
+useAuth.tsx:169 Setting auth state with user: {email: 'user@kasina.app', subscriptionType: 'freemium', subscription: 'free'}
+HomePage.tsx:29 HARD CRASH DETECTED: Visual mode was active but did not exit cleanly
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167
+(anonymous) @ HomePage.tsx:29
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=0a6bad1d:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=0a6bad1d:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=0a6bad1d:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=0a6bad1d:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=0a6bad1d:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=0a6bad1d:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=0a6bad1d:19447
+(anonymous) @ chunk-RPCDYKBN.js?v=0a6bad1d:19328
+workLoop @ chunk-RPCDYKBN.js?v=0a6bad1d:197
+flushWork @ chunk-RPCDYKBN.js?v=0a6bad1d:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=0a6bad1d:384
+HomePage.tsx:30 Session lasted approximately 294 seconds before crash
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167
+(anonymous) @ HomePage.tsx:30
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=0a6bad1d:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=0a6bad1d:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=0a6bad1d:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=0a6bad1d:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=0a6bad1d:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=0a6bad1d:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=0a6bad1d:19447
+(anonymous) @ chunk-RPCDYKBN.js?v=0a6bad1d:19328
+workLoop @ chunk-RPCDYKBN.js?v=0a6bad1d:197
+flushWork @ chunk-RPCDYKBN.js?v=0a6bad1d:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=0a6bad1d:384
+HomePage.tsx:34 Detected platform timeout crash during meditation - setting up auto-restart
+HomePage.tsx:65 Last visual mode session data: {startTime: '2025-06-02T00:04:52.603Z', kasina: 'fire', size: 0.3, userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36', memoryInfo: {…}}
+HomePage.tsx:99 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:103 WebGL Capabilities: {timestamp: '2025-06-02T00:04:52.626Z', renderer: 'WebKit WebGL', vendor: 'WebKit', version: 'WebGL 2.0 (OpenGL ES 3.0 Chromium)', shadingLanguageVersion: 'WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)', …}
+HomePage.tsx:135 Crash History: (2) [{…}, {…}]
+HomePage.tsx:137 Crash #1: {timestamp: '2025-06-01T23:46:21.975Z', sessionDuration: 283, crashType: 'hard_crash', message: 'Visual mode was active but did not exit cleanly', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36'}
+HomePage.tsx:137 Crash #2: {timestamp: '2025-06-02T00:09:46.436Z', sessionDuration: 294, crashType: 'hard_crash', message: 'Visual mode was active but did not exit cleanly', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36'}
+HomePage.tsx:144 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:169 Setting auth state with user: {email: 'user@kasina.app', subscriptionType: 'freemium', subscription: 'free'}
