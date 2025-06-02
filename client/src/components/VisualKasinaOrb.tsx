@@ -549,9 +549,58 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
     detectPlatformTermination();
     
-    return () => clearTimeout(timeoutId);
+    // Proactive GPU context reset to prevent platform timeout
+    const scheduleContextReset = () => {
+      const resetTimeoutId = setTimeout(() => {
+        console.log('🔄 Proactive GPU context reset to prevent platform timeout at 270s');
+        
+        // Find the WebGL canvas and reset context
+        const canvases = document.querySelectorAll('canvas');
+        canvases.forEach(canvas => {
+          const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+          if (gl) {
+            const ext = gl.getExtension('WEBGL_lose_context');
+            if (ext) {
+              console.log('💫 Gracefully resetting WebGL context - meditation continues');
+              
+              // Log the proactive reset
+              const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
+              lifecycleEvents.push({
+                type: 'PROACTIVE_CONTEXT_RESET',
+                component: 'VisualKasinaOrb',
+                timestamp: new Date().toISOString(),
+                sessionTime: 270,
+                reason: 'prevent_platform_timeout'
+              });
+              localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
+              
+              // Trigger context loss and restoration
+              ext.loseContext();
+              setTimeout(() => {
+                if (ext) {
+                  ext.restoreContext();
+                  console.log('✨ WebGL context restored - session continues seamlessly');
+                }
+              }, 200);
+            }
+          }
+        });
+        
+        // Schedule the next reset for another 270 seconds
+        scheduleContextReset();
+      }, 270000); // Reset every 4.5 minutes
+      
+      return resetTimeoutId;
+    };
     
-    console.log('🚀 VisualKasinaOrb component loading - crash detection active');
+    const contextResetTimeoutId = scheduleContextReset();
+    
+    return () => {
+      clearTimeout(timeoutId);
+      clearTimeout(contextResetTimeoutId);
+    };
+    
+    console.log('🚀 VisualKasinaOrb component loading - crash detection and proactive reset active');
     
     // Global error handlers for catching hidden exceptions
     const handleUnhandledError = (event: ErrorEvent) => {
