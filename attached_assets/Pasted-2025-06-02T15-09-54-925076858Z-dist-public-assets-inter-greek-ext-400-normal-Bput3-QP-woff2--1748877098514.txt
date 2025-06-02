@@ -1,0 +1,58 @@
+2025-06-02T15:09:54.925076858Z ../dist/public/assets/inter-greek-ext-400-normal-Bput3-QP.woff2          5.23 kB
+2025-06-02T15:09:54.925184775Z ../dist/public/assets/nunito-vietnamese-700-normal-C-RkuVXY.woff2        5.97 kB
+2025-06-02T15:09:54.925203137Z ../dist/public/assets/nunito-vietnamese-400-normal-BowtMkz5.woff2        6.12 kB
+2025-06-02T15:09:54.925205427Z ../dist/public/assets/inter-vietnamese-400-normal-BUNmGMP1.woff          6.68 kB
+2025-06-02T15:09:54.925207927Z ../dist/public/assets/inter-greek-ext-400-normal-DCpCPQOf.woff           7.14 kB
+2025-06-02T15:09:54.925226858Z ../dist/public/assets/inter-cyrillic-400-normal-BLGc9T1a.woff2           7.71 kB
+2025-06-02T15:09:54.925239709Z ../dist/public/assets/inter-greek-400-normal-DxZsaF_h.woff2              7.84 kB
+2025-06-02T15:09:54.92524932Z ../dist/public/assets/nunito-vietnamese-700-normal-ZI5H6tdD.woff         8.27 kB
+2025-06-02T15:09:54.92525172Z ../dist/public/assets/nunito-cyrillic-400-normal-CMsAdKHI.woff2          8.32 kB
+2025-06-02T15:09:54.925312364Z ../dist/public/assets/nunito-vietnamese-400-normal-BnU0WwCs.woff         8.43 kB
+2025-06-02T15:09:54.925318354Z ../dist/public/assets/nunito-cyrillic-700-normal-C2ZPAHu5.woff2          8.44 kB
+2025-06-02T15:09:54.925320754Z ../dist/public/assets/inter-greek-400-normal-BZzXV7-1.woff               9.96 kB
+2025-06-02T15:09:54.925326585Z ../dist/public/assets/inter-cyrillic-400-normal-ZzOtrSSW.woff           10.14 kB
+2025-06-02T15:09:54.925486485Z ../dist/public/assets/inter-cyrillic-ext-400-normal-Dc4VJyIJ.woff2      10.22 kB
+2025-06-02T15:09:54.925490996Z ../dist/public/assets/nunito-cyrillic-700-normal-CY6xiUxZ.woff          10.44 kB
+2025-06-02T15:09:54.925495976Z ../dist/public/assets/nunito-cyrillic-400-normal-hvcJLrVW.woff          10.50 kB
+2025-06-02T15:09:54.925498296Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-Cgrooa9T.woff2     10.88 kB
+2025-06-02T15:09:54.925513707Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CiC2fk4J.woff2     11.05 kB
+2025-06-02T15:09:54.925517597Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-D-e9fzlR.woff      14.12 kB
+2025-06-02T15:09:54.925566821Z ../dist/public/assets/inter-cyrillic-ext-400-normal-BPnxn4xp.woff       14.19 kB
+2025-06-02T15:09:54.925570621Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CUrc3HHF.woff      14.36 kB
+2025-06-02T15:09:54.925572841Z ../dist/public/assets/nunito-latin-ext-700-normal-DwQwRZln.woff2        15.39 kB
+2025-06-02T15:09:54.925577701Z ../dist/public/assets/nunito-latin-ext-400-normal-Z5e_fnxp.woff2        15.45 kB
+2025-06-02T15:09:54.925579802Z ../dist/public/assets/nunito-latin-400-normal-CA33qtOw.woff2            16.29 kB
+2025-06-02T15:09:54.925622044Z ../dist/public/assets/nunito-latin-700-normal-CGDVIs8t.woff2            16.31 kB
+2025-06-02T15:09:54.925628015Z ../dist/public/assets/nunito-latin-700-normal-C5gyHyFo.woff             20.19 kB
+2025-06-02T15:09:54.925633995Z ../dist/public/assets/nunito-latin-400-normal-nExtXIcZ.woff             20.52 kB
+2025-06-02T15:09:54.925636315Z ../dist/public/assets/nunito-latin-ext-700-normal-G8lcDK0M.woff         20.82 kB
+2025-06-02T15:09:54.925665207Z ../dist/public/assets/nunito-latin-ext-400-normal-DZILPSLY.woff         21.07 kB
+2025-06-02T15:09:54.925667837Z ../dist/public/assets/inter-latin-400-normal-BOOGhInR.woff2             23.69 kB
+2025-06-02T15:09:54.925670108Z ../dist/public/assets/inter-latin-ext-400-normal-hnt3BR84.woff2         30.68 kB
+2025-06-02T15:09:54.925758874Z ../dist/public/assets/inter-latin-400-normal-gitzw0hO.woff              31.20 kB
+2025-06-02T15:09:54.925765774Z ../dist/public/assets/inter-latin-ext-400-normal-C1t-h-pH.woff          42.88 kB
+2025-06-02T15:09:54.925770874Z ../dist/public/assets/index-C75lwuwY.css                               106.60 kB │ gzip:  17.74 kB
+2025-06-02T15:09:54.925773124Z ../dist/public/assets/godirect.min.esm-D_z86mMB.js                      12.66 kB │ gzip:   4.19 kB
+2025-06-02T15:09:54.925808797Z ../dist/public/assets/index-48jfYaqi.js                              1,851.93 kB │ gzip: 513.04 kB
+2025-06-02T15:09:54.925823408Z 
+2025-06-02T15:09:54.925826428Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-06-02T15:09:54.925829028Z - Using dynamic import() to code-split the application
+2025-06-02T15:09:54.925831778Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-06-02T15:09:54.925833938Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-06-02T15:09:54.926113097Z ✓ built in 12.46s
+2025-06-02T15:09:55.083590403Z 
+2025-06-02T15:09:55.083665568Z   dist/index.js  27.8kb
+2025-06-02T15:09:55.083668348Z 
+2025-06-02T15:09:55.083670838Z ⚡ Done in 6ms
+2025-06-02T15:09:56.454414789Z ==> Uploading build...
+2025-06-02T15:10:35.155863814Z ==> Uploaded in 32.7s. Compression took 6.0s
+2025-06-02T15:10:35.414384964Z ==> Build successful 🎉
+2025-06-02T15:10:38.048688461Z ==> Deploying...
+2025-06-02T15:11:19.230469635Z ==> Running 'npm run start'
+2025-06-02T15:11:19.452085645Z 
+2025-06-02T15:11:19.452106636Z > rest-express@1.0.0 start
+2025-06-02T15:11:19.452110796Z > NODE_ENV=production node dist/index.js
+2025-06-02T15:11:19.452112537Z 
+2025-06-02T15:11:20.311141046Z 3:11:20 PM [express] KASINA meditation app serving on port 10000
+2025-06-02T15:11:20.846068172Z 📥 INCOMING REQUEST: HEAD /
+2025-06-02T15:11:28.634562342Z ==> Your service is live 🎉
