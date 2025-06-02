@@ -187,6 +187,16 @@ export const useAuth = create<AuthState>((set) => ({
           isAdmin,
           subscriptionType: serverSubscriptionType
         });
+        
+        // Log successful auth
+        const authEvents = JSON.parse(localStorage.getItem('authEvents') || '[]');
+        authEvents.push({
+          type: 'AUTH_SUCCESS',
+          timestamp: new Date().toISOString(),
+          email: userEmail,
+          subscriptionType: serverSubscriptionType
+        });
+        localStorage.setItem('authEvents', JSON.stringify(authEvents));
       } else {
         console.log(`[AUTH_CHECK] Authentication failed - status: ${response.status} at ${new Date().toISOString()}`);
         set({
@@ -195,6 +205,16 @@ export const useAuth = create<AuthState>((set) => ({
           user: null,
           isAdmin: false
         });
+        
+        // Log auth failure
+        const authEvents = JSON.parse(localStorage.getItem('authEvents') || '[]');
+        authEvents.push({
+          type: 'AUTH_FAILURE',
+          timestamp: new Date().toISOString(),
+          status: response.status,
+          reason: 'api_check_failed'
+        });
+        localStorage.setItem('authEvents', JSON.stringify(authEvents));
       }
     } catch (error) {
       console.error('Auth check error:', error);

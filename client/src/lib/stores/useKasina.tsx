@@ -21,6 +21,19 @@ export const useKasina = create<KasinaState>((set, get) => ({
   customColor: getLocalStorage("customColor", "#8A2BE2"), // Default to medium violet red
   
   setSelectedKasina: (type: string) => {
+    console.log(`[STATE_CHANGE] Kasina selection changed to: ${type}`);
+    
+    // Log state change for crash detection
+    const stateChanges = JSON.parse(localStorage.getItem('stateChanges') || '[]');
+    stateChanges.push({
+      type: 'KASINA_SELECTION',
+      timestamp: new Date().toISOString(),
+      from: get().selectedKasina,
+      to: type,
+      component: 'useKasina'
+    });
+    localStorage.setItem('stateChanges', JSON.stringify(stateChanges));
+    
     set({ selectedKasina: type });
     setLocalStorage("selectedKasina", type);
   },
