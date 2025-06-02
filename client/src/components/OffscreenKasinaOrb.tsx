@@ -22,25 +22,44 @@ export default function OffscreenKasinaOrb({
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Check OffscreenCanvas support
+    // Small delay to ensure canvas is fully mounted
+    const checkSupport = () => {
+      const canvas = canvasRef.current;
+      
+      // More comprehensive support detection
+      const hasOffscreenCanvas = 'OffscreenCanvas' in window;
+      const hasTransferControl = canvas && typeof canvas.transferControlToOffscreen === 'function';
+      
+      if (!hasOffscreenCanvas || !hasTransferControl) {
+        console.log('OffscreenCanvas not supported:', {
+          hasOffscreenCanvas,
+          hasTransferControl,
+          canvasElement: !!canvas,
+          userAgent: navigator.userAgent,
+          chromeVersion: navigator.userAgent.match(/Chrome\/(\d+)/)?.[1]
+        });
+        setIsSupported(false);
+        onError?.('OffscreenCanvas not supported');
+        return;
+      }
+      
+      console.log('OffscreenCanvas support confirmed, initializing worker...');
+      initializeWorker();
+    };
+
+    // Check immediately, then with a small delay if canvas isn't ready
     const canvas = canvasRef.current;
-    
-    // More comprehensive support detection
-    const hasOffscreenCanvas = 'OffscreenCanvas' in window;
-    const hasTransferControl = canvas && typeof canvas.transferControlToOffscreen === 'function';
-    
-    if (!hasOffscreenCanvas || !hasTransferControl) {
-      console.log('OffscreenCanvas not supported:', {
-        hasOffscreenCanvas,
-        hasTransferControl,
-        canvasElement: !!canvas,
-        userAgent: navigator.userAgent,
-        chromeVersion: navigator.userAgent.match(/Chrome\/(\d+)/)?.[1]
-      });
-      setIsSupported(false);
-      onError?.('OffscreenCanvas not supported');
-      return;
+    if (canvas && typeof canvas.transferControlToOffscreen === 'function') {
+      checkSupport();
+    } else {
+      // Canvas not ready, try again after a brief delay
+      setTimeout(checkSupport, 100);
     }
+  }, []);
+
+  const initializeWorker = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
     setIsSupported(true);
     
@@ -98,9 +117,12 @@ export default function OffscreenKasinaOrb({
 
     } catch (error) {
       console.error('Failed to create worker:', error);
-      onError?.(error.message);
+      onError?.(error instanceof Error ? error.message : String(error));
     }
+  };
 
+  // Cleanup function
+  useEffect(() => {
     return () => {
       if (workerRef.current) {
         workerRef.current.postMessage({ type: 'destroy' });
