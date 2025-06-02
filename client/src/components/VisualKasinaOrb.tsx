@@ -442,6 +442,115 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   useEffect(() => {
     if (componentInitialized.current) return;
     
+    // Add GPU driver timeout detection
+    const detectDriverTimeout = () => {
+      const canvases = document.querySelectorAll('canvas');
+      canvases.forEach(canvas => {
+        const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+        if (gl) {
+          // Check for GPU driver timeouts (common at 5-minute intervals)
+          const originalGetError = gl.getError.bind(gl);
+          gl.getError = function() {
+            const error = originalGetError();
+            if (error === gl.CONTEXT_LOST_WEBGL) {
+              console.error('🚨 GPU DRIVER TIMEOUT DETECTED:', {
+                timestamp: new Date().toISOString(),
+                sessionTime: meditationTime,
+                error: 'CONTEXT_LOST_WEBGL',
+                likely_cause: 'gpu_driver_timeout'
+              });
+              
+              // Log this specific type of crash
+              const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
+              lifecycleEvents.push({
+                type: 'GPU_DRIVER_TIMEOUT',
+                component: 'VisualKasinaOrb',
+                timestamp: new Date().toISOString(),
+                sessionTime: meditationTime,
+                reason: 'webgl_context_lost_driver_timeout'
+              });
+              localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
+            }
+            return error;
+          };
+        }
+      });
+    };
+    
+    // Set up driver timeout detection after a short delay
+    const timeoutId = setTimeout(detectDriverTimeout, 1000);
+    
+    // Add platform-level termination detection
+    const detectPlatformTermination = () => {
+      // Memory pressure API (Chrome/Edge)
+      if ('memory' in performance) {
+        const memoryInfo = (performance as any).memory;
+        if (memoryInfo.usedJSHeapSize > memoryInfo.jsHeapSizeLimit * 0.9) {
+          console.error('🚨 MEMORY PRESSURE DETECTED:', {
+            timestamp: new Date().toISOString(),
+            sessionTime: meditationTime,
+            usedHeap: memoryInfo.usedJSHeapSize,
+            heapLimit: memoryInfo.jsHeapSizeLimit,
+            likely_cause: 'browser_memory_policy'
+          });
+          
+          const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
+          lifecycleEvents.push({
+            type: 'MEMORY_PRESSURE',
+            component: 'VisualKasinaOrb',
+            timestamp: new Date().toISOString(),
+            sessionTime: meditationTime,
+            reason: 'browser_memory_policy_enforcement'
+          });
+          localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
+        }
+      }
+
+      // Page lifecycle API detection
+      if ('onfreeze' in document) {
+        document.addEventListener('freeze', () => {
+          console.error('🚨 PAGE FREEZE DETECTED:', {
+            timestamp: new Date().toISOString(),
+            sessionTime: meditationTime,
+            likely_cause: 'browser_tab_management'
+          });
+          
+          const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
+          lifecycleEvents.push({
+            type: 'PAGE_FREEZE',
+            component: 'VisualKasinaOrb',
+            timestamp: new Date().toISOString(),
+            sessionTime: meditationTime,
+            reason: 'browser_tab_lifecycle_management'
+          });
+          localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
+        });
+      }
+
+      // Visibility state monitoring for background tab policies
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          console.log('🔍 Tab became hidden - potential policy enforcement point:', {
+            timestamp: new Date().toISOString(),
+            sessionTime: meditationTime
+          });
+          
+          const stateChanges = JSON.parse(localStorage.getItem('stateChanges') || '[]');
+          stateChanges.push({
+            type: 'TAB_HIDDEN',
+            timestamp: new Date().toISOString(),
+            sessionTime: meditationTime,
+            component: 'VisualKasinaOrb'
+          });
+          localStorage.setItem('stateChanges', JSON.stringify(stateChanges));
+        }
+      });
+    };
+
+    detectPlatformTermination();
+    
+    return () => clearTimeout(timeoutId);
+    
     console.log('🚀 VisualKasinaOrb component loading - crash detection active');
     
     // Global error handlers for catching hidden exceptions
