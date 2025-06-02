@@ -754,26 +754,21 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`🔄 Session checkpoint: ${newTime}s elapsed`);
         }
         
-        // MICRO-PAUSE: WebGL rendering break every 4 minutes to comply with browser resource policies
+        // MICRO-PAUSE: Thread yield every 4 minutes to comply with browser resource policies
         if (newTime > 0 && newTime % 240 === 0) { // Every 4 minutes (240 seconds)
-          console.log(`🌙 Micro-pause: WebGL rendering break at ${newTime}s to maintain browser compliance`);
+          console.log(`🌙 Micro-pause: Thread yield at ${newTime}s to maintain browser compliance`);
           
-          // More aggressive pause - briefly stop the animation frame and WebGL rendering
-          const canvas = document.querySelector('canvas');
-          if (canvas) {
-            // Hide canvas briefly to interrupt WebGL context
-            canvas.style.visibility = 'hidden';
-            
-            // Force a brief DOM reflow to ensure browser detects the pause
-            canvas.offsetHeight;
-            
-            setTimeout(() => {
-              canvas.style.visibility = 'visible';
-              // Force another reflow
-              canvas.offsetHeight;
-              console.log(`🔄 Micro-pause complete - WebGL rendering resumed`);
-            }, 750); // Slightly longer pause
-          }
+          // Yield control to browser main thread briefly using MessageChannel
+          // This signals to the browser that we're responsive, not stuck in a tight loop
+          const channel = new MessageChannel();
+          channel.port2.onmessage = () => {
+            console.log(`🔄 Micro-pause complete - thread yield successful`);
+          };
+          
+          // Post message to yield thread control
+          setTimeout(() => {
+            channel.port1.postMessage('yield');
+          }, 0);
         }
         
 
