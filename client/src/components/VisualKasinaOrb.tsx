@@ -869,21 +869,36 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       enableWakeLock();
       console.log("🔒 Wake lock enabled - screen will stay awake during meditation");
       
-      // Implement periodic activity signals to prevent platform timeout
+      // Implement aggressive timeout prevention with multiple strategies
       const activitySignal = setInterval(() => {
-        // Brief DOM interaction to signal activity
+        // Multiple DOM interactions to signal activity
         document.body.style.transform = 'translateZ(0)';
+        document.body.offsetHeight; // Force reflow
+        document.body.style.transform = '';
+        
+        // Create and remove a small element to trigger DOM activity
+        const tempEl = document.createElement('div');
+        tempEl.style.position = 'absolute';
+        tempEl.style.left = '-9999px';
+        document.body.appendChild(tempEl);
         setTimeout(() => {
-          document.body.style.transform = '';
+          if (tempEl.parentNode) {
+            tempEl.parentNode.removeChild(tempEl);
+          }
         }, 1);
         
-        // Update localStorage to signal ongoing activity
+        // Update localStorage and sessionStorage
         try {
-          localStorage.setItem('meditation_active', Date.now().toString());
+          const timestamp = Date.now().toString();
+          localStorage.setItem('meditation_active', timestamp);
+          sessionStorage.setItem('session_heartbeat', timestamp);
         } catch (e) {
           // Silent fail for storage issues
         }
-      }, 30000); // Every 30 seconds
+        
+        // Post message to self to maintain message loop activity
+        window.postMessage({ type: 'meditation_heartbeat', timestamp: Date.now() }, '*');
+      }, 15000); // Every 15 seconds (more frequent)
       
       (window as any).meditationActivitySignal = activitySignal;
       
@@ -1231,11 +1246,15 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     // Remove interval-based monitoring to prevent memory leaks
 
     useFrame((state) => {
-      // Periodic yielding to prevent platform timeout detection
+      // More aggressive periodic yielding to prevent platform timeout detection
       const frameCount = state.clock.getElapsedTime() * 60; // Approximate frame count
-      if (Math.floor(frameCount) % 300 === 0) { // Every 5 seconds
+      if (Math.floor(frameCount) % 180 === 0) { // Every 3 seconds
         // Brief yield to let browser process other tasks
         setTimeout(() => {}, 0);
+        // Additional yield with requestIdleCallback if available
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(() => {});
+        }
       }
       
       try {
