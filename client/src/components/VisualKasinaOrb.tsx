@@ -754,6 +754,22 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`🔄 Session checkpoint: ${newTime}s elapsed`);
         }
         
+        // MICRO-PAUSE: Luminance dip every 4 minutes to comply with browser resource policies
+        if (newTime > 0 && newTime % 240 === 0) { // Every 4 minutes (240 seconds)
+          console.log(`🌙 Micro-pause: Brief luminance dip at ${newTime}s to maintain browser compliance`);
+          
+          // Trigger a gentle 500ms brightness reduction
+          const orbElement = document.querySelector('.kasina-orb-container');
+          if (orbElement) {
+            (orbElement as HTMLElement).style.transition = 'opacity 250ms ease-in-out';
+            (orbElement as HTMLElement).style.opacity = '0.8';
+            
+            setTimeout(() => {
+              (orbElement as HTMLElement).style.opacity = '1.0';
+            }, 500);
+          }
+        }
+        
 
         
 
