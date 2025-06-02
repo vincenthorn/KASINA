@@ -550,40 +550,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
     detectPlatformTermination();
     
-    // Visual Chapters system - transform platform constraint into feature
-    let currentChapter = 0;
-    const scheduleChapterTransition = () => {
-      const chapterTimeoutId = setTimeout(() => {
-        currentChapter++;
-        console.log(`🌀 Transitioning to Chapter ${currentChapter} - deepening meditation`);
-        
-        // Log the chapter transition
-        const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
-        lifecycleEvents.push({
-          type: 'CHAPTER_TRANSITION',
-          component: 'VisualKasinaOrb',
-          timestamp: new Date().toISOString(),
-          sessionTime: currentChapter * 240,
-          chapter: currentChapter,
-          reason: 'natural_progression'
-        });
-        localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
-        
-        // Chapter transition complete - this prevents the 270s platform timeout
-        console.log(`✅ Chapter ${currentChapter} active - platform timeout prevented`);
-        
-        // Schedule the next chapter
-        scheduleChapterTransition();
-      }, 240000); // New chapter every 4 minutes
-      
-      return chapterTimeoutId;
-    };
-    
-    const chapterTimeoutId = scheduleChapterTransition();
-    
     return () => {
       clearTimeout(timeoutId);
-      clearTimeout(chapterTimeoutId);
     };
     
     console.log('🚀 VisualKasinaOrb component loading - crash detection and proactive reset active');
@@ -660,6 +628,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30%
   const [safeMode, setSafeMode] = useState(false); // Fallback to simple rendering
   const [sceneKey, setSceneKey] = useState(0); // For seamless scene recreation
+  const [useOffscreenCanvas, setUseOffscreenCanvas] = useState(true); // Default to worker-based rendering
   
   // Use universal auto-hide functionality
   const { showCursor, showControls } = useAutoHide({ 
@@ -1412,23 +1381,37 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         zIndex: 1
       } as React.CSSProperties & { '--kasina-bg-color': string }}
     >
-      <Canvas 
-        key={sceneKey} // Force scene recreation when key changes
-        camera={{ position: [0, 0, 4], fov: 50 }}
-        gl={{ 
-          antialias: false,
-          powerPreference: "default", // Use default instead of low-power
-          failIfMajorPerformanceCaveat: false, // Allow all GPU configurations
-          preserveDrawingBuffer: false,
-          alpha: true, // Allow transparency to show background colors
-          depth: true,
-          stencil: false,
-          // Force stable context creation
-          premultipliedAlpha: false
-        }}
-        dpr={[1, 1.5]}
-        performance={{ min: 0.3 }}
-        frameloop="always"
+      {useOffscreenCanvas ? (
+        <OffscreenKasinaOrb
+          selectedKasina={selectedKasina}
+          currentColor={currentColor}
+          size={sizeMultiplier}
+          onReady={() => {
+            console.log('🎯 OffscreenCanvas worker ready - platform timeout protection active');
+          }}
+          onError={(error) => {
+            console.log('OffscreenCanvas not supported, falling back to main thread rendering');
+            setUseOffscreenCanvas(false);
+          }}
+        />
+      ) : (
+        <Canvas 
+          key={sceneKey} // Force scene recreation when key changes
+          camera={{ position: [0, 0, 4], fov: 50 }}
+          gl={{ 
+            antialias: false,
+            powerPreference: "default", // Use default instead of low-power
+            failIfMajorPerformanceCaveat: false, // Allow all GPU configurations
+            preserveDrawingBuffer: false,
+            alpha: true, // Allow transparency to show background colors
+            depth: true,
+            stencil: false,
+            // Force stable context creation
+            premultipliedAlpha: false
+          }}
+          dpr={[1, 1.5]}
+          performance={{ min: 0.3 }}
+          frameloop="always"
         onCreated={(state) => {
           // Limit frame rate to reduce GPU stress
           state.setFrameloop('always');
@@ -1517,10 +1500,11 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           localStorage.setItem('persistentCrashLog', JSON.stringify(crashes));
         }}
       >
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[5, 5, 5]} intensity={0.8} />
-        <VisualKasinaOrbMesh />
-      </Canvas>
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[5, 5, 5]} intensity={0.8} />
+          <VisualKasinaOrbMesh />
+        </Canvas>
+      )}
 
       {/* Unified Session Interface */}
       {!showKasinaSelection && (
