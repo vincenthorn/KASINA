@@ -440,81 +440,90 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     };
   }, []);
   
+  // Low power mode state for resource management
+  const [lowPowerMode, setLowPowerMode] = useState(false);
+  
   // Simplified WebGL recovery monitoring
   useEffect(() => {
     if (componentInitialized.current) return;
     
-    // Add platform-level termination detection
-    const detectPlatformTermination = () => {
-      // Memory pressure API (Chrome/Edge)
+    const performResourceCleanup = () => {
+      // WebGL resource cleanup
+      const canvas = document.querySelector('canvas');
+      if (canvas) {
+        const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+        if (gl) {
+          gl.flush();
+          gl.finish();
+          
+          // Clear unused textures and buffers
+          const numTextureUnits = gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS);
+          for (let i = 0; i < numTextureUnits; i++) {
+            gl.activeTexture(gl.TEXTURE0 + i);
+            gl.bindTexture(gl.TEXTURE_2D, null);
+            gl.bindTexture(gl.TEXTURE_CUBE_MAP, null);
+          }
+        }
+      }
+      
+      // Force garbage collection if available
+      if ((window as any).gc) {
+        (window as any).gc();
+      }
+    };
+    
+    const detectAndPreventCrash = () => {
+      // Memory pressure detection
       if ('memory' in performance) {
         const memoryInfo = (performance as any).memory;
-        if (memoryInfo.usedJSHeapSize > memoryInfo.jsHeapSizeLimit * 0.9) {
-          console.error('🚨 MEMORY PRESSURE DETECTED:', {
+        const memoryUsageRatio = memoryInfo.usedJSHeapSize / memoryInfo.jsHeapSizeLimit;
+        
+        if (memoryUsageRatio > 0.7) {
+          console.warn('⚠️ High memory usage - activating cleanup:', {
             timestamp: new Date().toISOString(),
             sessionTime: meditationTime,
-            usedHeap: memoryInfo.usedJSHeapSize,
-            heapLimit: memoryInfo.jsHeapSizeLimit,
-            likely_cause: 'browser_memory_policy'
+            ratio: memoryUsageRatio
           });
           
-          const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
-          lifecycleEvents.push({
-            type: 'MEMORY_PRESSURE',
-            component: 'VisualKasinaOrb',
-            timestamp: new Date().toISOString(),
-            sessionTime: meditationTime,
-            reason: 'browser_memory_policy_enforcement'
-          });
-          localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
+          setLowPowerMode(true);
+          performResourceCleanup();
         }
       }
-
-      // Page lifecycle API detection
-      if ('onfreeze' in document) {
-        document.addEventListener('freeze', () => {
-          console.error('🚨 PAGE FREEZE DETECTED:', {
-            timestamp: new Date().toISOString(),
-            sessionTime: meditationTime,
-            likely_cause: 'browser_tab_management'
-          });
-          
-          const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
-          lifecycleEvents.push({
-            type: 'PAGE_FREEZE',
-            component: 'VisualKasinaOrb',
-            timestamp: new Date().toISOString(),
-            sessionTime: meditationTime,
-            reason: 'browser_tab_lifecycle_management'
-          });
-          localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
+      
+      // Proactive restart before 295-second crash threshold
+      if (meditationTime >= 280 && meditationTime < 290) {
+        console.log('🔄 Proactive restart triggered to prevent platform timeout at:', {
+          timestamp: new Date().toISOString(),
+          sessionTime: meditationTime
+        });
+        
+        // Force scene restart with fresh resources
+        setSceneKey(prev => prev + 1);
+        setLowPowerMode(false);
+        performResourceCleanup();
+        
+        console.log('✅ Scene restarted - session continues with fresh resources');
+      }
+    };
+    
+    // Run prevention checks every 5 seconds
+    const preventionInterval = setInterval(detectAndPreventCrash, 5000);
+    
+    // Visibility state monitoring
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        console.log('🔍 Tab became hidden - potential policy enforcement point:', {
+          timestamp: new Date().toISOString(),
+          sessionTime: meditationTime
         });
       }
-
-      // Visibility state monitoring for background tab policies
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          console.log('🔍 Tab became hidden - potential policy enforcement point:', {
-            timestamp: new Date().toISOString(),
-            sessionTime: meditationTime
-          });
-          
-          const stateChanges = JSON.parse(localStorage.getItem('stateChanges') || '[]');
-          stateChanges.push({
-            type: 'TAB_HIDDEN',
-            timestamp: new Date().toISOString(),
-            sessionTime: meditationTime,
-            component: 'VisualKasinaOrb'
-          });
-          localStorage.setItem('stateChanges', JSON.stringify(stateChanges));
-        }
-      });
-    };
-
-    detectPlatformTermination();
+    });
+    
+    // Run initial check
+    detectAndPreventCrash();
     
     return () => {
-      // Cleanup handled by platform detection
+      clearInterval(preventionInterval);
     };
     
     console.log('🚀 VisualKasinaOrb component loading - crash detection and proactive reset active');
@@ -1382,18 +1391,17 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           camera={{ position: [0, 0, 4], fov: 50 }}
           gl={{ 
             antialias: false,
-            powerPreference: "default", // Use default instead of low-power
-            failIfMajorPerformanceCaveat: false, // Allow all GPU configurations
+            powerPreference: lowPowerMode ? "low-power" : "default",
+            failIfMajorPerformanceCaveat: false,
             preserveDrawingBuffer: false,
-            alpha: true, // Allow transparency to show background colors
+            alpha: true,
             depth: true,
             stencil: false,
-            // Force stable context creation
             premultipliedAlpha: false
           }}
-          dpr={[1, 1.5]}
-          performance={{ min: 0.3 }}
-          frameloop="always"
+          dpr={lowPowerMode ? [0.5, 1] : [1, 1.5]}
+          performance={{ min: lowPowerMode ? 0.1 : 0.3 }}
+          frameloop={lowPowerMode || document.hidden ? "demand" : "always"}
         onCreated={(state) => {
           // Limit frame rate to reduce GPU stress
           state.setFrameloop('always');
