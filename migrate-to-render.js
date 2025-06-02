@@ -113,12 +113,12 @@ async function importToRender(exportData, renderDatabaseUrl) {
 async function migrate() {
   try {
     // Export from Replit
-    const exportData = await exportData();
+    const data = await exportData();
     
     console.log('\n📋 Data export summary:');
-    console.log(`Users: ${exportData.users.length}`);
-    console.log(`Sessions: ${exportData.sessions.length}`);
-    console.log(`Kasina Breakdowns: ${exportData.kasina_breakdowns.length}`);
+    console.log(`Users: ${data.users.length}`);
+    console.log(`Sessions: ${data.sessions.length}`);
+    console.log(`Kasina Breakdowns: ${data.kasina_breakdowns.length}`);
     
     console.log('\n🔗 To complete the migration, run:');
     console.log('RENDER_DATABASE_URL="your-render-db-url" node migrate-to-render.js import');
