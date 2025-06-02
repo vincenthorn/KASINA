@@ -22,48 +22,35 @@ export default function OffscreenKasinaOrb({
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Small delay to ensure canvas is fully mounted
-    const checkSupport = () => {
-      const canvas = canvasRef.current;
-      
-      // More comprehensive support detection
-      const hasOffscreenCanvas = 'OffscreenCanvas' in window;
-      const hasTransferControl = canvas && typeof canvas.transferControlToOffscreen === 'function';
-      
-      if (!hasOffscreenCanvas || !hasTransferControl) {
-        console.log('OffscreenCanvas not supported:', {
-          hasOffscreenCanvas,
-          hasTransferControl,
-          canvasElement: !!canvas,
-          userAgent: navigator.userAgent,
-          chromeVersion: navigator.userAgent.match(/Chrome\/(\d+)/)?.[1]
-        });
-        setIsSupported(false);
-        onError?.('OffscreenCanvas not supported');
-        return;
-      }
-      
-      console.log('OffscreenCanvas support confirmed, initializing worker...');
-      initializeWorker();
-    };
+    // Check OffscreenCanvas support immediately since canvas should be mounted
+    const canvas = canvasRef.current;
+    
+    if (!canvas) {
+      console.log('Canvas element not found');
+      setIsSupported(false);
+      onError?.('Canvas element not found');
+      return;
+    }
 
-    // Check with multiple retries to ensure canvas is ready
-    const checkWithRetry = (attempts = 0) => {
-      const canvas = canvasRef.current;
-      if (canvas && typeof canvas.transferControlToOffscreen === 'function') {
-        checkSupport();
-      } else if (attempts < 5) {
-        // Canvas not ready, try again with increasing delay
-        setTimeout(() => checkWithRetry(attempts + 1), 50 * (attempts + 1));
-      } else {
-        // Final attempt failed
-        console.log('OffscreenCanvas canvas element not available after retries');
-        setIsSupported(false);
-        onError?.('Canvas element not available for OffscreenCanvas');
-      }
-    };
-
-    checkWithRetry();
+    // Check browser support
+    const hasOffscreenCanvas = 'OffscreenCanvas' in window;
+    const hasTransferControl = typeof canvas.transferControlToOffscreen === 'function';
+    
+    if (!hasOffscreenCanvas || !hasTransferControl) {
+      console.log('OffscreenCanvas not supported:', {
+        hasOffscreenCanvas,
+        hasTransferControl,
+        canvasElement: !!canvas,
+        userAgent: navigator.userAgent,
+        chromeVersion: navigator.userAgent.match(/Chrome\/(\d+)/)?.[1]
+      });
+      setIsSupported(false);
+      onError?.('OffscreenCanvas not supported');
+      return;
+    }
+    
+    console.log('OffscreenCanvas support confirmed, initializing worker...');
+    initializeWorker();
   }, []);
 
   const initializeWorker = () => {
