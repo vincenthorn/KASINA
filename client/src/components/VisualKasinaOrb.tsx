@@ -1403,64 +1403,48 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       );
     }
 
-    // For color kasinas, apply chapter-based saturation progression
+    // For color kasinas, apply chapter-based intensity progression
     const getChapterColor = (baseColor: string) => {
       if (currentChapter === 0) return baseColor;
       
+      console.log(`🎨 Chapter ${currentChapter}: Intensifying color from ${baseColor}`);
+      
       // Convert hex to RGB
       const hex = baseColor.replace('#', '');
-      const r = parseInt(hex.substr(0, 2), 16) / 255;
-      const g = parseInt(hex.substr(2, 2), 16) / 255;
-      const b = parseInt(hex.substr(4, 2), 16) / 255;
+      let r = parseInt(hex.substr(0, 2), 16);
+      let g = parseInt(hex.substr(2, 2), 16);
+      let b = parseInt(hex.substr(4, 2), 16);
       
-      // Convert to HSL for saturation adjustment
-      const max = Math.max(r, g, b);
-      const min = Math.min(r, g, b);
-      const l = (max + min) / 2;
-      let s = 0;
+      // Progressive intensity boost - make colors more vibrant
+      const intensityMultiplier = 1 + (currentChapter * 0.3); // 30% more intense per chapter
       
-      if (max !== min) {
-        s = l > 0.5 ? (max - min) / (2 - max - min) : (max - min) / (max + min);
-      }
+      // Boost the dominant color channel(s) more aggressively
+      const maxChannel = Math.max(r, g, b);
+      if (r === maxChannel) r = Math.min(255, r * intensityMultiplier);
+      if (g === maxChannel) g = Math.min(255, g * intensityMultiplier);
+      if (b === maxChannel) b = Math.min(255, b * intensityMultiplier);
       
-      // Increase saturation with each chapter (max 20% per chapter)
-      const saturationBoost = Math.min(currentChapter * 0.2, 0.8);
-      const newSaturation = Math.min(s + saturationBoost, 1);
+      // Slightly reduce weaker channels for more contrast
+      const minChannel = Math.min(r, g, b);
+      if (r === minChannel && r !== maxChannel) r = Math.max(0, r * 0.8);
+      if (g === minChannel && g !== maxChannel) g = Math.max(0, g * 0.8);
+      if (b === minChannel && b !== maxChannel) b = Math.max(0, b * 0.8);
       
-      // Convert back to RGB
-      const hue = r === max ? (g - b) / (max - min) : 
-                  g === max ? 2 + (b - r) / (max - min) : 
-                  4 + (r - g) / (max - min);
-      
-      const c = (1 - Math.abs(2 * l - 1)) * newSaturation;
-      const x = c * (1 - Math.abs((hue * 60) % 2 - 1));
-      const m = l - c / 2;
-      
-      let newR, newG, newB;
-      if (hue >= 0 && hue < 1) [newR, newG, newB] = [c, x, 0];
-      else if (hue >= 1 && hue < 2) [newR, newG, newB] = [x, c, 0];
-      else if (hue >= 2 && hue < 3) [newR, newG, newB] = [0, c, x];
-      else if (hue >= 3 && hue < 4) [newR, newG, newB] = [0, x, c];
-      else if (hue >= 4 && hue < 5) [newR, newG, newB] = [x, 0, c];
-      else [newR, newG, newB] = [c, 0, x];
-      
-      newR = Math.round((newR + m) * 255);
-      newG = Math.round((newG + m) * 255);
-      newB = Math.round((newB + m) * 255);
-      
-      return `rgb(${newR}, ${newG}, ${newB})`;
+      const newColor = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+      console.log(`🎨 New chapter color: ${newColor}`);
+      return newColor;
     };
 
     const baseColor = KASINA_COLORS[selectedKasina] || currentColor || '#4A90E2';
     const chapterColor = getChapterColor(baseColor);
     
     return (
-      <mesh ref={meshRef} style={{ opacity: chapterTransition ? 0.3 : 1 }}>
+      <mesh ref={meshRef}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshBasicMaterial 
           color={chapterColor} 
           transparent={chapterTransition}
-          opacity={chapterTransition ? 0.3 : 1}
+          opacity={chapterTransition ? 0.5 : 1}
           depthWrite={true}
           depthTest={true}
         />

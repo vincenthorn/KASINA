@@ -1,0 +1,48 @@
+5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+chunk-RPCDYKBN.js?v=0a6bad1d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-02T02:16:51.169Z
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+useAuth.tsx:181 Setting auth state with user: Object
+chunk-EMXP5JYR.js?v=0a6bad1d:18167 HARD CRASH DETECTED: Visual mode was active but did not exit cleanly
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167
+chunk-EMXP5JYR.js?v=0a6bad1d:18167 Session lasted approximately 3227 seconds before crash
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167
+HomePage.tsx:34 Detected platform timeout crash during meditation - setting up auto-restart
+HomePage.tsx:65 Last visual mode session data: Object
+HomePage.tsx:99 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:103 WebGL Capabilities: Object
+HomePage.tsx:135 Crash History: Array(1)
+HomePage.tsx:137 Crash #1: Object
+HomePage.tsx:144 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-02T02:16:52.265Z
+useAuth.tsx:181 Setting auth state with user: Object
+KasinasPage.tsx:12 [KASINAS_PAGE] showKasinaSelection changed to: true at 2025-06-02T02:16:53.696Z
+KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
+useKasina.tsx:24 [STATE_CHANGE] Kasina selection changed to: red
+KasinasPage.tsx:37 🎯 KasinasPage: Rendering VisualKasinaOrb component
+VisualKasinaOrb.tsx:401 [MOUNT] VisualKasinaOrb mounted at 2025-06-02T02:16:55.821Z
+VisualKasinaOrb.tsx:687 🔍 Visual mode session started, crash monitoring active
+KasinasPage.tsx:12 [KASINAS_PAGE] showKasinaSelection changed to: false at 2025-06-02T02:16:55.822Z
+VisualKasinaOrb.tsx:878 🔄 Forced infinite timer mode for visual kasina session
+VisualKasinaOrb.tsx:898 🧘 Visual kasina meditation session started
+useWakeLock.tsx:44 Requesting screen wake lock...
+VisualKasinaOrb.tsx:902 🔒 Wake lock enabled - screen will stay awake during meditation
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+VisualKasinaOrb.tsx:1528 WebGL Diagnostics: Object
+VisualKasinaOrb.tsx:942 🔄 Session checkpoint: 60s elapsed
+VisualKasinaOrb.tsx:942 🔄 Session checkpoint: 120s elapsed
+VisualKasinaOrb.tsx:942 🔄 Session checkpoint: 180s elapsed
+VisualKasinaOrb.tsx:557 🌀 Transitioning to Chapter 1 - deepening meditation
+VisualKasinaOrb.tsx:1239 🎭 Visual transition to Chapter 1
+VisualKasinaOrb.tsx:942 🔄 Session checkpoint: 240s elapsed
+VisualKasinaOrb.tsx:947 🌙 Micro-pause: Thread yield at 240s to maintain browser compliance
+VisualKasinaOrb.tsx:953 🔄 Micro-pause complete - thread yield successful
+useWakeLock.tsx:56 Screen wake lock was released
+VisualKasinaOrb.tsx:533 🔍 Tab became hidden - potential policy enforcement point: {timestamp: '2025-06-02T02:21:19.521Z', sessionTime: 0}
+useWakeLock.tsx:44 Requesting screen wake lock...
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+VisualKasinaOrb.tsx:942 🔄 Session checkpoint: 300s elapsed
