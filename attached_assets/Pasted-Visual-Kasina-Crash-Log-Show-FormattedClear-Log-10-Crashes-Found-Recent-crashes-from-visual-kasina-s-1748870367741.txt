@@ -1,0 +1,82 @@
+Visual Kasina Crash Log
+Show FormattedClear Log
+10 Crashes Found
+Recent crashes from visual kasina sessions are shown below.
+
+Raw Crash Data
+[
+  {
+    "timestamp": "2025-06-01T03:40:11.541Z",
+    "crashType": "webgl_context_lost",
+    "message": "WebGL context was lost - recovery attempted",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+    "meditationTime": 0
+  },
+  {
+    "timestamp": "2025-06-01T03:47:51.453Z",
+    "sessionDuration": 104,
+    "crashType": "hard_crash",
+    "message": "Visual mode was active but did not exit cleanly",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+  },
+  {
+    "timestamp": "2025-06-01T03:50:14.972Z",
+    "crashType": "webgl_context_lost",
+    "message": "WebGL context was lost - recovery attempted",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+    "meditationTime": 0
+  },
+  {
+    "timestamp": "2025-06-01T19:32:56.845Z",
+    "sessionDuration": 56683,
+    "crashType": "hard_crash",
+    "message": "Visual mode was active but did not exit cleanly",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+  },
+  {
+    "timestamp": "2025-06-01T19:35:58.150Z",
+    "crashType": "webgl_context_lost",
+    "message": "WebGL context was lost - recovery attempted",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+    "meditationTime": 0
+  },
+  {
+    "timestamp": "2025-06-01T19:36:08.927Z",
+    "crashType": "webgl_context_lost",
+    "message": "WebGL context was lost - recovery attempted",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+    "meditationTime": 0
+  },
+  {
+    "timestamp": "2025-06-01T20:01:09.197Z",
+    "crashType": "webgl_context_lost",
+    "message": "WebGL context was lost - recovery attempted",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+    "meditationTime": 0
+  },
+  {
+    "timestamp": "2025-06-01T21:31:34.811Z",
+    "sessionDuration": 1994,
+    "crashType": "hard_crash",
+    "message": "Visual mode was active but did not exit cleanly",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+  },
+  {
+    "timestamp": "2025-06-01T21:31:42.326Z",
+    "crashType": "webgl_context_lost",
+    "message": "WebGL context was lost - recovery attempted",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+    "meditationTime": 0
+  },
+  {
+    "timestamp": "2025-06-01T23:58:49.316Z",
+    "crashType": "webgl_context_lost",
+    "message": "WebGL context was lost - recovery attempted",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+    "meditationTime": 0
+  }
+]
+About This Log
+This log persists across browser sessions and logouts. It tracks crashes, memory issues, and unexpected session endings from the visual kasina meditation feature. The log automatically keeps only the 10 most recent crash events to prevent storage bloat.
+
+Access this page anytime at: /crash-log

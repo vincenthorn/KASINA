@@ -439,47 +439,9 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     };
   }, []);
   
-  // Enhanced error monitoring and crash detection
+  // Simplified WebGL recovery monitoring
   useEffect(() => {
     if (componentInitialized.current) return;
-    
-    // Add GPU driver timeout detection
-    const detectDriverTimeout = () => {
-      const canvases = document.querySelectorAll('canvas');
-      canvases.forEach(canvas => {
-        const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-        if (gl) {
-          // Check for GPU driver timeouts (common at 5-minute intervals)
-          const originalGetError = gl.getError.bind(gl);
-          gl.getError = function() {
-            const error = originalGetError();
-            if (error === gl.CONTEXT_LOST_WEBGL) {
-              console.error('🚨 GPU DRIVER TIMEOUT DETECTED:', {
-                timestamp: new Date().toISOString(),
-                sessionTime: meditationTime,
-                error: 'CONTEXT_LOST_WEBGL',
-                likely_cause: 'gpu_driver_timeout'
-              });
-              
-              // Log this specific type of crash
-              const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
-              lifecycleEvents.push({
-                type: 'GPU_DRIVER_TIMEOUT',
-                component: 'VisualKasinaOrb',
-                timestamp: new Date().toISOString(),
-                sessionTime: meditationTime,
-                reason: 'webgl_context_lost_driver_timeout'
-              });
-              localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
-            }
-            return error;
-          };
-        }
-      });
-    };
-    
-    // Set up driver timeout detection after a short delay
-    const timeoutId = setTimeout(detectDriverTimeout, 1000);
     
     // Add platform-level termination detection
     const detectPlatformTermination = () => {
@@ -735,32 +697,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     window.addEventListener('error', handleError);
     window.addEventListener('unhandledrejection', handleUnhandledRejection);
     
-    // Gentle WebGL monitoring without aggressive session termination
-    const handleWebGLContextLoss = (event: Event) => {
-      console.log('WebGL context lost - logging for diagnostics');
-      event.preventDefault();
-      
-      const contextLossData = {
-        timestamp: new Date().toISOString(),
-        meditationTime,
-        selectedKasina,
-        type: 'gentle_context_loss'
-      };
-      
-      localStorage.setItem('visualModeContextEvent', JSON.stringify(contextLossData));
-      // Don't end session - let it continue
-    };
-    
-    const handleWebGLContextRestored = (event: Event) => {
-      console.log('WebGL context restored - continuing session');
-    };
-    
-    // Monitor WebGL context events for diagnostics only
-    const canvas = document.querySelector('canvas');
-    if (canvas) {
-      canvas.addEventListener('webglcontextlost', handleWebGLContextLoss);
-      canvas.addEventListener('webglcontextrestored', handleWebGLContextRestored);
-    }
+    // WebGL recovery will be handled by the centralized system
     
     return () => {
       window.removeEventListener('error', handleError);
