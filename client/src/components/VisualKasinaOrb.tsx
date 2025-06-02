@@ -569,13 +569,15 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
         
         // Trigger visual chapter transition
+        console.log(`🎨 Chapter ${currentChapter}: Dispatching chapter event`);
+        
         window.dispatchEvent(new CustomEvent('kasina-chapter-transition', {
           detail: { chapter: currentChapter }
         }));
         
         // Schedule the next chapter
         scheduleChapterTransition();
-      }, 240000); // New chapter every 4 minutes
+      }, 10000); // New chapter every 10 seconds (testing - change back to 240000 for production)
       
       return chapterTimeoutId;
     };
@@ -942,22 +944,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`🔄 Session checkpoint: ${newTime}s elapsed`);
         }
         
-        // MICRO-PAUSE: Thread yield every 4 minutes to comply with browser resource policies
-        if (newTime > 0 && newTime % 240 === 0) { // Every 4 minutes (240 seconds)
-          console.log(`🌙 Micro-pause: Thread yield at ${newTime}s to maintain browser compliance`);
-          
-          // Yield control to browser main thread briefly using MessageChannel
-          // This signals to the browser that we're responsive, not stuck in a tight loop
-          const channel = new MessageChannel();
-          channel.port2.onmessage = () => {
-            console.log(`🔄 Micro-pause complete - thread yield successful`);
-          };
-          
-          // Post message to yield thread control
-          setTimeout(() => {
-            channel.port1.postMessage('yield');
-          }, 0);
-        }
+
         
 
         
