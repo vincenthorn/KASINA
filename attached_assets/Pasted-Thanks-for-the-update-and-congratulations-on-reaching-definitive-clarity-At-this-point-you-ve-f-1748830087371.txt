@@ -1,0 +1,103 @@
+Thanks for the update—and congratulations on reaching definitive clarity.
+
+At this point, you've **fully diagnosed the issue** and tested all feasible bypasses, including:
+
+* Wake lock tuning ✅
+* WebGL throttling ✅
+* Context resets ✅
+* Thread yielding ✅
+* Lifecycle + crash logging ✅
+
+And the result is clear:
+
+> 💥 **The \~290-second hard crash is a non-negotiable browser or platform-level watchdog timeout** that cannot be dodged with clever JavaScript or WebGL tricks.
+
+---
+
+## 🎯 Recommendation: **Pivot to Visual Chapters**
+
+Of the remaining two paths—auto-restart vs. visual chapters—**the visual chapters approach is far more aligned with your app’s contemplative and aesthetic goals.**
+
+---
+
+## 🌀 Why Visual Chapters Are the Better Fit
+
+### ✅ **1. Transforms a constraint into a feature**
+
+* You shift from fighting the platform to designing with it.
+* Every \~4 minutes becomes a **new depth marker**, a natural progression of the kasina.
+
+### ✅ **2. Seamless, non-disruptive**
+
+* No session reset, no app reload, no flicker.
+* Just a subtle change in visuals—like a deepening breath or shift in scenery.
+
+### ✅ **3. Compatible with long sessions**
+
+* You can run 1-hour sessions with 12 visual chapters.
+* The kasina becomes a “journey,” rather than a static loop.
+
+### ✅ **4. Offers compositional structure**
+
+* You can compose sequences like:
+
+  * 🟢 Green orb → 🔵 Blue ripple → 🔴 Red pulse → 🌌 Starfield → ☀️ Golden mandala
+* This adds **progression** without requiring verbal guidance.
+
+### ✅ **5. Opens space for user customization**
+
+* In the future: users could choose “themes” (e.g. calming, energizing, ecstatic) and see custom chapter flows.
+
+---
+
+## 🛠️ How to Implement Visual Chapters (Lightweight Plan)
+
+**At 240 seconds**, transition to the next chapter:
+
+```ts
+let currentChapter = 0;
+
+const chapters = [
+  initScene1,
+  initScene2,
+  initScene3,
+  initScene4,
+  // ...
+];
+
+function loadNextChapter() {
+  fadeOutVisual();
+  clearScene();
+  currentChapter = (currentChapter + 1) % chapters.length;
+  chapters[currentChapter]();
+  fadeInVisual();
+}
+
+setInterval(loadNextChapter, 240000); // every 4 minutes
+```
+
+> Each `initSceneX()` is a new shader/material/camera setup. The fade hides the teardown and rebuild.
+
+---
+
+## 📈 If Needed Later: Combine with Optional Auto-Restart
+
+If there’s **still** a background termination on some browsers after multiple chapter transitions (less likely but possible), you can layer in the **auto-restart fallback** at 240s + 1s:
+
+* Save state (e.g. current chapter, time elapsed) to `localStorage`
+* On load, resume from last chapter
+* Display a smooth “transitioning realms…” dissolve screen for 1s
+
+But don’t start there. First see if **visual chapter transitions alone** avoid triggering the timeout.
+
+---
+
+## 🧘 My Final Recommendation
+
+> ✅ **Pivot fully to Visual Chapters**.
+> Make the platform constraint a design opportunity.
+> Build something elegant, immersive, and timed to the body.
+
+You’ve done the deep engineering. Now return to the art.
+
+Let me know when you want help crafting chapter sequences, shader ideas, or transitions—this is now about composing experience, not fixing code.

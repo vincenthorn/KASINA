@@ -549,50 +549,42 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
     detectPlatformTermination();
     
-    // Proactive session refresh to prevent platform timeout
-    const scheduleSessionRefresh = () => {
-      const refreshTimeoutId = setTimeout(() => {
-        console.log('🔄 Proactive session refresh to prevent platform timeout at 240s');
+    // Visual Chapters system - transform platform constraint into feature
+    let currentChapter = 0;
+    const scheduleChapterTransition = () => {
+      const chapterTimeoutId = setTimeout(() => {
+        currentChapter++;
+        console.log(`🌀 Transitioning to Chapter ${currentChapter} - deepening meditation`);
         
-        // Log the proactive refresh
+        // Log the chapter transition
         const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
         lifecycleEvents.push({
-          type: 'PROACTIVE_SESSION_REFRESH',
-          component: 'VisualKasinaOrb', 
+          type: 'CHAPTER_TRANSITION',
+          component: 'VisualKasinaOrb',
           timestamp: new Date().toISOString(),
-          sessionTime: 240,
-          reason: 'prevent_platform_timeout'
+          sessionTime: currentChapter * 240,
+          chapter: currentChapter,
+          reason: 'natural_progression'
         });
         localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
         
-        // Navigate to home and back to restart the session cleanly
-        console.log('💫 Performing seamless session restart');
+        // Trigger visual chapter transition
+        window.dispatchEvent(new CustomEvent('kasina-chapter-transition', {
+          detail: { chapter: currentChapter }
+        }));
         
-        // Store current session data for recovery
-        const sessionData = {
-          kasina: selectedKasina,
-          startTime: Date.now(),
-          reason: 'proactive_restart'
-        };
-        localStorage.setItem('meditationRestart', JSON.stringify(sessionData));
-        
-        // Brief navigation to reset platform timers
-        setTimeout(() => {
-          window.location.href = '/kasinas';
-        }, 100);
-        
-        // Schedule the next refresh
-        scheduleSessionRefresh();
-      }, 240000); // Refresh every 4 minutes
+        // Schedule the next chapter
+        scheduleChapterTransition();
+      }, 240000); // New chapter every 4 minutes
       
-      return refreshTimeoutId;
+      return chapterTimeoutId;
     };
     
-    const sessionRefreshTimeoutId = scheduleSessionRefresh();
+    const chapterTimeoutId = scheduleChapterTransition();
     
     return () => {
       clearTimeout(timeoutId);
-      clearTimeout(sessionRefreshTimeoutId);
+      clearTimeout(chapterTimeoutId);
     };
     
     console.log('🚀 VisualKasinaOrb component loading - crash detection and proactive reset active');
@@ -1235,6 +1227,30 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
     
+    // Chapter state for visual progression
+    const [currentChapter, setCurrentChapter] = useState(0);
+    const [chapterTransition, setChapterTransition] = useState(false);
+    
+    // Listen for chapter transitions
+    useEffect(() => {
+      const handleChapterTransition = (event: Event) => {
+        const customEvent = event as CustomEvent;
+        setChapterTransition(true);
+        console.log(`🎭 Visual transition to Chapter ${customEvent.detail.chapter}`);
+        
+        // Fade out, change chapter, fade in
+        setTimeout(() => {
+          setCurrentChapter(customEvent.detail.chapter);
+          setTimeout(() => {
+            setChapterTransition(false);
+          }, 500);
+        }, 500);
+      };
+      
+      window.addEventListener('kasina-chapter-transition', handleChapterTransition);
+      return () => window.removeEventListener('kasina-chapter-transition', handleChapterTransition);
+    }, []);
+    
     // Remove interval-based monitoring to prevent memory leaks
 
     useFrame((state) => {
@@ -1243,19 +1259,25 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         if (meshRef.current) {
           const time = state.clock.getElapsedTime();
           
+          // Chapter-based visual modifications
+          const chapterIntensity = 1 + (currentChapter * 0.2); // Gradually increase intensity
+          const chapterSpeed = 1 + (currentChapter * 0.1); // Gradually increase speed
+          
           // Different rotation behaviors for different kasinas
           if (selectedKasina === KASINA_TYPES.WATER) {
             // Water kasina gets flowing motion instead of uniform rotation
-            meshRef.current.rotation.y = Math.sin(time * 0.3) * 0.1 + time * 0.05;
-            meshRef.current.rotation.x = Math.cos(time * 0.2) * 0.05;
+            meshRef.current.rotation.y = Math.sin(time * 0.3 * chapterSpeed) * 0.1 * chapterIntensity + time * 0.05;
+            meshRef.current.rotation.x = Math.cos(time * 0.2 * chapterSpeed) * 0.05 * chapterIntensity;
           } else if (selectedKasina === KASINA_TYPES.SPACE || selectedKasina === KASINA_TYPES.LIGHT) {
-            // Space and Light kasinas have no rotation to avoid shadow artifacts
+            // Space and Light kasinas have subtle pulsing that intensifies with chapters
+            const pulse = Math.sin(time * chapterSpeed) * 0.1 * chapterIntensity;
+            meshRef.current.scale.set(1 + pulse, 1 + pulse, 1 + pulse);
             meshRef.current.rotation.y = 0;
             meshRef.current.rotation.x = 0;
             meshRef.current.rotation.z = 0;
           } else {
-            // Other elemental kasinas get smooth, continuous rotation
-            meshRef.current.rotation.y = time * 0.15; // Slightly slower rotation
+            // Other elemental kasinas get rotation that evolves with chapters
+            meshRef.current.rotation.y = time * 0.15 * chapterSpeed;
           }
           
           // Apply size multiplier
