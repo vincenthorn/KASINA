@@ -754,21 +754,19 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`🔄 Session checkpoint: ${newTime}s elapsed`);
         }
         
-        // MICRO-PAUSE: Thread yield every 4 minutes to comply with browser resource policies
-        if (newTime > 0 && newTime % 240 === 0) { // Every 4 minutes (240 seconds)
-          console.log(`🌙 Micro-pause: Thread yield at ${newTime}s to maintain browser compliance`);
-          
-          // Yield control to browser main thread briefly using MessageChannel
-          // This signals to the browser that we're responsive, not stuck in a tight loop
-          const channel = new MessageChannel();
-          channel.port2.onmessage = () => {
-            console.log(`🔄 Micro-pause complete - thread yield successful`);
-          };
-          
-          // Post message to yield thread control
-          setTimeout(() => {
-            channel.port1.postMessage('yield');
-          }, 0);
+        // DEEP INVESTIGATION: Monitor exact state at crash timing
+        if (newTime >= 270 && newTime <= 300) { // Critical crash window
+          if (newTime % 5 === 0) { // Every 5 seconds during critical period
+            const memInfo = (performance as any).memory;
+            const gl = document.querySelector('canvas')?.getContext('webgl2');
+            
+            console.log(`🔍 Critical period monitoring at ${newTime}s:`, {
+              memoryUsed: memInfo ? Math.round(memInfo.usedJSHeapSize / 1024 / 1024) : 'unknown',
+              webglActive: !!gl,
+              documentVisible: !document.hidden,
+              frameCount: newTime
+            });
+          }
         }
         
 
