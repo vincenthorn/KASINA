@@ -20,8 +20,8 @@ async function quickImport() {
     await renderDb.query('DELETE FROM sessions');  
     await renderDb.query('DELETE FROM users');
     
-    // Batch insert users (first 100 for speed)
-    const users = exportData.users.slice(0, 100);
+    // Import all users
+    const users = exportData.users;
     for (const user of users) {
       await renderDb.query(
         'INSERT INTO users (id, email, name, subscription_type, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT (email) DO NOTHING',
