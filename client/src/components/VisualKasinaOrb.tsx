@@ -869,6 +869,24 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       enableWakeLock();
       console.log("🔒 Wake lock enabled - screen will stay awake during meditation");
       
+      // Implement periodic activity signals to prevent platform timeout
+      const activitySignal = setInterval(() => {
+        // Brief DOM interaction to signal activity
+        document.body.style.transform = 'translateZ(0)';
+        setTimeout(() => {
+          document.body.style.transform = '';
+        }, 1);
+        
+        // Update localStorage to signal ongoing activity
+        try {
+          localStorage.setItem('meditation_active', Date.now().toString());
+        } catch (e) {
+          // Silent fail for storage issues
+        }
+      }, 30000); // Every 30 seconds
+      
+      (window as any).meditationActivitySignal = activitySignal;
+      
       // Auto-enter fullscreen for meditation session
       try {
         if (!document.fullscreenElement) {
@@ -1019,6 +1037,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       });
       
       clearTimeout(timeoutId);
+      
+      // Clean up activity signal
+      if ((window as any).meditationActivitySignal) {
+        clearInterval((window as any).meditationActivitySignal);
+        delete (window as any).meditationActivitySignal;
+      }
     };
   }, [meditationTime, selectedKasina]);
 
@@ -1207,6 +1231,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     // Remove interval-based monitoring to prevent memory leaks
 
     useFrame((state) => {
+      // Periodic yielding to prevent platform timeout detection
+      const frameCount = state.clock.getElapsedTime() * 60; // Approximate frame count
+      if (Math.floor(frameCount) % 300 === 0) { // Every 5 seconds
+        // Brief yield to let browser process other tasks
+        setTimeout(() => {}, 0);
+      }
       
       try {
         if (meshRef.current) {
