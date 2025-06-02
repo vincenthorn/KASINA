@@ -568,16 +568,12 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         });
         localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
         
-        // Trigger visual chapter transition
-        console.log(`🎨 Chapter ${currentChapter}: Dispatching chapter event`);
-        
-        window.dispatchEvent(new CustomEvent('kasina-chapter-transition', {
-          detail: { chapter: currentChapter }
-        }));
+        // Chapter transition complete - this prevents the 270s platform timeout
+        console.log(`✅ Chapter ${currentChapter} active - platform timeout prevented`);
         
         // Schedule the next chapter
         scheduleChapterTransition();
-      }, 10000); // New chapter every 10 seconds (testing - change back to 240000 for production)
+      }, 240000); // New chapter every 4 minutes
       
       return chapterTimeoutId;
     };
@@ -1390,48 +1386,13 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       );
     }
 
-    // For color kasinas, apply chapter-based intensity progression
-    const getChapterColor = (baseColor: string) => {
-      if (currentChapter === 0) return baseColor;
-      
-      console.log(`🎨 Chapter ${currentChapter}: Intensifying color from ${baseColor}`);
-      
-      // Convert hex to RGB
-      const hex = baseColor.replace('#', '');
-      let r = parseInt(hex.substr(0, 2), 16);
-      let g = parseInt(hex.substr(2, 2), 16);
-      let b = parseInt(hex.substr(4, 2), 16);
-      
-      // Progressive intensity boost - make colors more vibrant
-      const intensityMultiplier = 1 + (currentChapter * 0.3); // 30% more intense per chapter
-      
-      // Boost the dominant color channel(s) more aggressively
-      const maxChannel = Math.max(r, g, b);
-      if (r === maxChannel) r = Math.min(255, r * intensityMultiplier);
-      if (g === maxChannel) g = Math.min(255, g * intensityMultiplier);
-      if (b === maxChannel) b = Math.min(255, b * intensityMultiplier);
-      
-      // Slightly reduce weaker channels for more contrast
-      const minChannel = Math.min(r, g, b);
-      if (r === minChannel && r !== maxChannel) r = Math.max(0, r * 0.8);
-      if (g === minChannel && g !== maxChannel) g = Math.max(0, g * 0.8);
-      if (b === minChannel && b !== maxChannel) b = Math.max(0, b * 0.8);
-      
-      const newColor = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
-      console.log(`🎨 New chapter color: ${newColor}`);
-      return newColor;
-    };
-
     const baseColor = KASINA_COLORS[selectedKasina] || currentColor || '#4A90E2';
-    const chapterColor = getChapterColor(baseColor);
     
     return (
       <mesh ref={meshRef}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshBasicMaterial 
-          color={chapterColor} 
-          transparent={chapterTransition}
-          opacity={chapterTransition ? 0.5 : 1}
+          color={baseColor} 
           depthWrite={true}
           depthTest={true}
         />
