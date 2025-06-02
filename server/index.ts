@@ -119,8 +119,8 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // Always serve on port 5000
-  const port = 5000;
+  // Use PORT environment variable for deployment platforms (Render, etc.)
+  const port = parseInt(process.env.PORT || "5000");
   server.listen({
     port,
     host: "0.0.0.0",
