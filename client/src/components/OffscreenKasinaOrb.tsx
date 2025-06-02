@@ -47,14 +47,23 @@ export default function OffscreenKasinaOrb({
       initializeWorker();
     };
 
-    // Check immediately, then with a small delay if canvas isn't ready
-    const canvas = canvasRef.current;
-    if (canvas && typeof canvas.transferControlToOffscreen === 'function') {
-      checkSupport();
-    } else {
-      // Canvas not ready, try again after a brief delay
-      setTimeout(checkSupport, 100);
-    }
+    // Check with multiple retries to ensure canvas is ready
+    const checkWithRetry = (attempts = 0) => {
+      const canvas = canvasRef.current;
+      if (canvas && typeof canvas.transferControlToOffscreen === 'function') {
+        checkSupport();
+      } else if (attempts < 5) {
+        // Canvas not ready, try again with increasing delay
+        setTimeout(() => checkWithRetry(attempts + 1), 50 * (attempts + 1));
+      } else {
+        // Final attempt failed
+        console.log('OffscreenCanvas canvas element not available after retries');
+        setIsSupported(false);
+        onError?.('Canvas element not available for OffscreenCanvas');
+      }
+    };
+
+    checkWithRetry();
   }, []);
 
   const initializeWorker = () => {
