@@ -15,6 +15,7 @@ import OffscreenKasinaOrb from './OffscreenKasinaOrb';
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 import { storage } from '../lib/indexedDBStorage';
+import { WebGLContextManager } from './WebGLContextManager';
 
 // Text kasina components
 import WhiteAKasina from './WhiteAKasina';
@@ -513,7 +514,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     detectPlatformTermination();
     
     return () => {
-      clearTimeout(timeoutId);
+      // Cleanup handled by platform detection
     };
     
     console.log('🚀 VisualKasinaOrb component loading - crash detection and proactive reset active');
@@ -704,12 +705,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       window.removeEventListener('unhandledrejection', handleUnhandledRejection);
       // Removed memory monitoring cleanup
       
-      // Clean up WebGL event listeners
-      const canvas = document.querySelector('canvas');
-      if (canvas) {
-        canvas.removeEventListener('webglcontextlost', handleWebGLContextLoss);
-        canvas.removeEventListener('webglcontextrestored', handleWebGLContextRestored);
-      }
+      // WebGL cleanup handled by centralized recovery system
       
       // Mark clean exit
       localStorage.removeItem('visualModeActive');
