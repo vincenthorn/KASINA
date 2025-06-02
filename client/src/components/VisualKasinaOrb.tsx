@@ -401,6 +401,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     console.log(`[MOUNT] VisualKasinaOrb mounted at ${mountTime}`);
     localStorage.setItem('visualKasinaLastMount', mountTime);
     
+    // Save to diagnostics log
+    const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
+    lifecycleEvents.push({
+      type: 'MOUNT',
+      component: 'VisualKasinaOrb',
+      timestamp: mountTime,
+      sessionTime: 0
+    });
+    localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
+    
     return () => {
       const unmountTime = new Date().toISOString();
       console.log(`[UNMOUNT] VisualKasinaOrb unmounting at ${unmountTime}`);
@@ -408,11 +418,23 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       
       // Log the duration for analysis
       const mountTimeStored = localStorage.getItem('visualKasinaLastMount');
+      let duration = 0;
       if (mountTimeStored) {
-        const duration = (new Date().getTime() - new Date(mountTimeStored).getTime()) / 1000;
+        duration = (new Date().getTime() - new Date(mountTimeStored).getTime()) / 1000;
         console.log(`[UNMOUNT] Component was mounted for ${duration} seconds`);
         localStorage.setItem('visualKasinaLastDuration', duration.toString());
       }
+      
+      // Save unmount event to diagnostics log
+      const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
+      lifecycleEvents.push({
+        type: 'UNMOUNT',
+        component: 'VisualKasinaOrb',
+        timestamp: unmountTime,
+        sessionTime: duration,
+        reason: 'component_cleanup'
+      });
+      localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
     };
   }, []);
   

@@ -143,7 +143,18 @@ export const useAuth = create<AuthState>((set) => ({
   
   checkAuthStatus: async () => {
     try {
-      console.log(`[AUTH_CHECK] Checking authentication status at ${new Date().toISOString()}`);
+      const timestamp = new Date().toISOString();
+      console.log(`[AUTH_CHECK] Checking authentication status at ${timestamp}`);
+      
+      // Save auth check to diagnostics log
+      const authEvents = JSON.parse(localStorage.getItem('authEvents') || '[]');
+      authEvents.push({
+        type: 'AUTH_CHECK_START',
+        timestamp,
+        action: 'checking_auth_status'
+      });
+      localStorage.setItem('authEvents', JSON.stringify(authEvents));
+      
       const response = await fetch('/api/auth/me', {
         credentials: 'include',
       });

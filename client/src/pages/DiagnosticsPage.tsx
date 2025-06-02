@@ -9,6 +9,9 @@ interface DiagnosticData {
   incrementalSession: any;
   crashLog: any;
   lastError: any;
+  componentLifecycle: any[];
+  authEvents: any[];
+  stateChanges: any[];
 }
 
 export default function DiagnosticsPage() {
@@ -21,7 +24,7 @@ export default function DiagnosticsPage() {
         console.log('Loading diagnostic data from IndexedDB and localStorage...');
         
         // Try IndexedDB first, fallback to localStorage
-        const [contextLoss, snapshots, incrementalSession, crashLog, lastError] = await Promise.all([
+        const [contextLoss, snapshots, incrementalSession, crashLog, lastError, componentLifecycle, authEvents, stateChanges] = await Promise.all([
           storage.getItemSafe('diagnostics', 'webglContextLoss').catch(() => 
             localStorage.getItem('webglContextLoss') ? JSON.parse(localStorage.getItem('webglContextLoss')!) : null
           ),
@@ -36,6 +39,16 @@ export default function DiagnosticsPage() {
           ),
           storage.getItemSafe('diagnostics', 'lastError').catch(() => 
             localStorage.getItem('lastError') ? JSON.parse(localStorage.getItem('lastError')!) : null
+          ),
+          // New crash detection logs
+          storage.getItemSafe('diagnostics', 'componentLifecycle').catch(() => 
+            localStorage.getItem('componentLifecycle') ? JSON.parse(localStorage.getItem('componentLifecycle')!) : []
+          ),
+          storage.getItemSafe('diagnostics', 'authEvents').catch(() => 
+            localStorage.getItem('authEvents') ? JSON.parse(localStorage.getItem('authEvents')!) : []
+          ),
+          storage.getItemSafe('diagnostics', 'stateChanges').catch(() => 
+            localStorage.getItem('stateChanges') ? JSON.parse(localStorage.getItem('stateChanges')!) : []
           )
         ]);
 
@@ -46,7 +59,10 @@ export default function DiagnosticsPage() {
           snapshots: Array.isArray(snapshots) ? snapshots : [],
           incrementalSession,
           crashLog,
-          lastError
+          lastError,
+          componentLifecycle: Array.isArray(componentLifecycle) ? componentLifecycle : [],
+          authEvents: Array.isArray(authEvents) ? authEvents : [],
+          stateChanges: Array.isArray(stateChanges) ? stateChanges : []
         };
         
         setData(diagnosticData);
@@ -57,7 +73,10 @@ export default function DiagnosticsPage() {
           snapshots: [],
           incrementalSession: null,
           crashLog: null,
-          lastError: null
+          lastError: null,
+          componentLifecycle: [],
+          authEvents: [],
+          stateChanges: []
         });
       }
     };
@@ -83,7 +102,10 @@ export default function DiagnosticsPage() {
       snapshots: [],
       incrementalSession: null,
       crashLog: null,
-      lastError: null
+      lastError: null,
+      componentLifecycle: [],
+      authEvents: [],
+      stateChanges: []
     });
   };
 
@@ -156,11 +178,50 @@ export default function DiagnosticsPage() {
 
         <Card className="bg-black/20 border-gray-700">
           <CardHeader>
+            <CardTitle className="text-cyan-400">Component Lifecycle Events</CardTitle>
+            <CardDescription>Mount/unmount events that could indicate crashes</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <pre className="text-sm overflow-auto bg-black/30 p-4 rounded max-h-60">
+              {data.componentLifecycle.length > 0 ? JSON.stringify(data.componentLifecycle, null, 2) : 'No component lifecycle events recorded'}
+            </pre>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-black/20 border-gray-700">
+          <CardHeader>
+            <CardTitle className="text-yellow-400">Authentication Events</CardTitle>
+            <CardDescription>Auth checks and potential logout events</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <pre className="text-sm overflow-auto bg-black/30 p-4 rounded max-h-60">
+              {data.authEvents.length > 0 ? JSON.stringify(data.authEvents, null, 2) : 'No authentication events recorded'}
+            </pre>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-black/20 border-gray-700">
+          <CardHeader>
+            <CardTitle className="text-pink-400">State Changes</CardTitle>
+            <CardDescription>Component state changes that could trigger unmounts</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <pre className="text-sm overflow-auto bg-black/30 p-4 rounded max-h-60">
+              {data.stateChanges.length > 0 ? JSON.stringify(data.stateChanges, null, 2) : 'No state changes recorded'}
+            </pre>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-black/20 border-gray-700">
+          <CardHeader>
             <CardTitle className="text-purple-400">Summary</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
             <p><strong>WebGL Context Loss:</strong> {data.contextLoss ? 'YES - Context loss detected!' : 'No context loss recorded'}</p>
             <p><strong>Performance Snapshots:</strong> {data.snapshots.length} records</p>
+            <p><strong>Component Events:</strong> {data.componentLifecycle.length} lifecycle events</p>
+            <p><strong>Auth Events:</strong> {data.authEvents.length} authentication checks</p>
+            <p><strong>State Changes:</strong> {data.stateChanges.length} component state changes</p>
             <p><strong>Last Session Duration:</strong> {data.incrementalSession?.duration || 'Unknown'} seconds</p>
             <p><strong>Last Kasina:</strong> {data.incrementalSession?.kasina || 'Unknown'}</p>
           </CardContent>
