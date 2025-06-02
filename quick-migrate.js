@@ -38,7 +38,7 @@ async function quickImport() {
         [session.sid, session.sess, session.expire]
       );
     }
-    console.log(`✅ Imported ${exportData.sessions.length} sessions`);
+    console.log(`✅ Imported ${validSessions.length} sessions`);
     
     console.log('✅ Quick migration completed!');
     
