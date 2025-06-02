@@ -24,8 +24,19 @@ export default function OffscreenKasinaOrb({
   useEffect(() => {
     // Check OffscreenCanvas support
     const canvas = canvasRef.current;
-    if (!canvas || !canvas.transferControlToOffscreen) {
-      console.log('OffscreenCanvas not supported, falling back to main thread');
+    
+    // More comprehensive support detection
+    const hasOffscreenCanvas = 'OffscreenCanvas' in window;
+    const hasTransferControl = canvas && typeof canvas.transferControlToOffscreen === 'function';
+    
+    if (!hasOffscreenCanvas || !hasTransferControl) {
+      console.log('OffscreenCanvas not supported:', {
+        hasOffscreenCanvas,
+        hasTransferControl,
+        canvasElement: !!canvas,
+        userAgent: navigator.userAgent,
+        chromeVersion: navigator.userAgent.match(/Chrome\/(\d+)/)?.[1]
+      });
       setIsSupported(false);
       onError?.('OffscreenCanvas not supported');
       return;
