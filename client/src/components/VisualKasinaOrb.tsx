@@ -1403,13 +1403,64 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       );
     }
 
-    // For color and other kasinas, use optimized sphere with stability measures
+    // For color kasinas, apply chapter-based saturation progression
+    const getChapterColor = (baseColor: string) => {
+      if (currentChapter === 0) return baseColor;
+      
+      // Convert hex to RGB
+      const hex = baseColor.replace('#', '');
+      const r = parseInt(hex.substr(0, 2), 16) / 255;
+      const g = parseInt(hex.substr(2, 2), 16) / 255;
+      const b = parseInt(hex.substr(4, 2), 16) / 255;
+      
+      // Convert to HSL for saturation adjustment
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      const l = (max + min) / 2;
+      let s = 0;
+      
+      if (max !== min) {
+        s = l > 0.5 ? (max - min) / (2 - max - min) : (max - min) / (max + min);
+      }
+      
+      // Increase saturation with each chapter (max 20% per chapter)
+      const saturationBoost = Math.min(currentChapter * 0.2, 0.8);
+      const newSaturation = Math.min(s + saturationBoost, 1);
+      
+      // Convert back to RGB
+      const hue = r === max ? (g - b) / (max - min) : 
+                  g === max ? 2 + (b - r) / (max - min) : 
+                  4 + (r - g) / (max - min);
+      
+      const c = (1 - Math.abs(2 * l - 1)) * newSaturation;
+      const x = c * (1 - Math.abs((hue * 60) % 2 - 1));
+      const m = l - c / 2;
+      
+      let newR, newG, newB;
+      if (hue >= 0 && hue < 1) [newR, newG, newB] = [c, x, 0];
+      else if (hue >= 1 && hue < 2) [newR, newG, newB] = [x, c, 0];
+      else if (hue >= 2 && hue < 3) [newR, newG, newB] = [0, c, x];
+      else if (hue >= 3 && hue < 4) [newR, newG, newB] = [0, x, c];
+      else if (hue >= 4 && hue < 5) [newR, newG, newB] = [x, 0, c];
+      else [newR, newG, newB] = [c, 0, x];
+      
+      newR = Math.round((newR + m) * 255);
+      newG = Math.round((newG + m) * 255);
+      newB = Math.round((newB + m) * 255);
+      
+      return `rgb(${newR}, ${newG}, ${newB})`;
+    };
+
+    const baseColor = KASINA_COLORS[selectedKasina] || currentColor || '#4A90E2';
+    const chapterColor = getChapterColor(baseColor);
+    
     return (
-      <mesh ref={meshRef}>
+      <mesh ref={meshRef} style={{ opacity: chapterTransition ? 0.3 : 1 }}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshBasicMaterial 
-          color={KASINA_COLORS[selectedKasina] || currentColor || '#4A90E2'} 
-          transparent={false}
+          color={chapterColor} 
+          transparent={chapterTransition}
+          opacity={chapterTransition ? 0.3 : 1}
           depthWrite={true}
           depthTest={true}
         />
