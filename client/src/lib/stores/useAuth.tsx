@@ -143,6 +143,7 @@ export const useAuth = create<AuthState>((set) => ({
   
   checkAuthStatus: async () => {
     try {
+      console.log(`[AUTH_CHECK] Checking authentication status at ${new Date().toISOString()}`);
       const response = await fetch('/api/auth/me', {
         credentials: 'include',
       });
@@ -176,6 +177,7 @@ export const useAuth = create<AuthState>((set) => ({
           subscriptionType: serverSubscriptionType
         });
       } else {
+        console.log(`[AUTH_CHECK] Authentication failed - status: ${response.status} at ${new Date().toISOString()}`);
         set({
           isAuthenticated: false,
           email: null,

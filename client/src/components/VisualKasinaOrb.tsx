@@ -395,6 +395,27 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // Use ref to ensure initialization only happens once
   const componentInitialized = useRef(false);
   
+  // CRITICAL DEBUGGING: Track component lifecycle
+  useEffect(() => {
+    const mountTime = new Date().toISOString();
+    console.log(`[MOUNT] VisualKasinaOrb mounted at ${mountTime}`);
+    localStorage.setItem('visualKasinaLastMount', mountTime);
+    
+    return () => {
+      const unmountTime = new Date().toISOString();
+      console.log(`[UNMOUNT] VisualKasinaOrb unmounting at ${unmountTime}`);
+      localStorage.setItem('visualKasinaLastUnmount', unmountTime);
+      
+      // Log the duration for analysis
+      const mountTimeStored = localStorage.getItem('visualKasinaLastMount');
+      if (mountTimeStored) {
+        const duration = (new Date().getTime() - new Date(mountTimeStored).getTime()) / 1000;
+        console.log(`[UNMOUNT] Component was mounted for ${duration} seconds`);
+        localStorage.setItem('visualKasinaLastDuration', duration.toString());
+      }
+    };
+  }, []);
+  
   // Enhanced error monitoring and crash detection
   useEffect(() => {
     if (componentInitialized.current) return;

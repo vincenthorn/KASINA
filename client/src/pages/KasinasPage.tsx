@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useKasina } from "../lib/stores/useKasina";
 import VisualKasinaOrb from "../components/VisualKasinaOrb";
 import KasinaSelectionInterface from "../components/KasinaSelectionInterface";
@@ -6,6 +6,11 @@ import KasinaSelectionInterface from "../components/KasinaSelectionInterface";
 const KasinasPage: React.FC = () => {
   const { selectedKasina, setSelectedKasina } = useKasina();
   const [showKasinaSelection, setShowKasinaSelection] = useState(true);
+  
+  // CRITICAL DEBUGGING: Log any state changes that might trigger unmount
+  useEffect(() => {
+    console.log(`[KASINAS_PAGE] showKasinaSelection changed to: ${showKasinaSelection} at ${new Date().toISOString()}`);
+  }, [showKasinaSelection]);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>(null);
 

@@ -1,0 +1,73 @@
+That leaves us with 3 top remaining suspects:
+1. Application-level Timeout Logic or Unintentional Trigger (MOST LIKELY)
+Some piece of your app is still triggering a redirect, unmount, or reset right around the 4:45 mark—even if you can’t find it yet.
+
+Even subtle things like:
+
+Token/session refresh logic
+
+Silent redirect to homepage on expired session
+
+Timer set early in the session
+
+Conditional setState or navigate() that hits after ~5 mins
+
+✅ Next Diagnostic Step:
+Log all app navigation events and component unmounts with timestamps:
+
+tsx
+Copy
+Edit
+useEffect(() => {
+  console.log(`[MOUNT] VisualKasinaOrb at ${new Date().toISOString()}`);
+  return () => {
+    console.log(`[UNMOUNT] VisualKasinaOrb at ${new Date().toISOString()}`);
+  };
+}, []);
+And log all navigation actions:
+
+tsx
+Copy
+Edit
+history.listen((location, action) => {
+  console.log(`[NAVIGATION] ${action} to ${location.pathname} at ${new Date().toISOString()}`);
+});
+This will catch the exact trigger the moment the crash happens. You’ll know what, where, and why.
+
+2. Authentication or Session Token Expiry
+If your app uses:
+
+Firebase
+
+Supabase
+
+JWTs
+
+OAuth session tokens
+
+…it’s possible that production is configured to expire a session at 5 minutes due to missing refresh token handling or secure HTTP-only cookies that don’t refresh properly.
+
+✅ Diagnostic Test:
+Check the network tab for a silent 401 or 403 just before the crash.
+
+Also, log:
+
+tsx
+Copy
+Edit
+console.log('Auth token expires at:', token?.exp);
+And watch what happens at minute 5.
+
+3. Deployment Environment-Specific Policy
+If you're still hosting the production build on Replit's web container, and all of this still happens only on https://kasina.app or the production alias…
+
+…it’s possible that Replit is enforcing a hard platform-level timeout or memory cap for browser-connected apps that run continuously with WebGL or animation loops.
+
+This may not manifest as a “crash” in the usual sense, but as an internal container reload, idle timeout, or IFrame memory flush.
+
+✅ Diagnostic Test:
+Deploy the same production build on another platform (e.g. Vercel, Netlify, Cloudflare Pages).
+
+Run for 10+ minutes.
+
+If the crash does not occur there, the root cause is almost certainly Replit platform constraints.
