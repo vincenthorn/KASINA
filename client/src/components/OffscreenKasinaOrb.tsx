@@ -174,14 +174,19 @@ export default function OffscreenKasinaOrb({
   }
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="w-full h-full"
-      style={{
-        display: 'block',
-        width: '100%',
-        height: '100%'
-      }}
-    />
+    <div className="w-full h-full relative">
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full absolute inset-0"
+        style={{
+          display: 'block',
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0
+        }}
+      />
+    </div>
   );
 }
