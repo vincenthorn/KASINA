@@ -754,19 +754,25 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           console.log(`🔄 Session checkpoint: ${newTime}s elapsed`);
         }
         
-        // MICRO-PAUSE: Luminance dip every 4 minutes to comply with browser resource policies
+        // MICRO-PAUSE: WebGL rendering break every 4 minutes to comply with browser resource policies
         if (newTime > 0 && newTime % 240 === 0) { // Every 4 minutes (240 seconds)
-          console.log(`🌙 Micro-pause: Brief luminance dip at ${newTime}s to maintain browser compliance`);
+          console.log(`🌙 Micro-pause: WebGL rendering break at ${newTime}s to maintain browser compliance`);
           
-          // Trigger a gentle 500ms brightness reduction
-          const orbElement = document.querySelector('.kasina-orb-container');
-          if (orbElement) {
-            (orbElement as HTMLElement).style.transition = 'opacity 250ms ease-in-out';
-            (orbElement as HTMLElement).style.opacity = '0.8';
+          // More aggressive pause - briefly stop the animation frame and WebGL rendering
+          const canvas = document.querySelector('canvas');
+          if (canvas) {
+            // Hide canvas briefly to interrupt WebGL context
+            canvas.style.visibility = 'hidden';
+            
+            // Force a brief DOM reflow to ensure browser detects the pause
+            canvas.offsetHeight;
             
             setTimeout(() => {
-              (orbElement as HTMLElement).style.opacity = '1.0';
-            }, 500);
+              canvas.style.visibility = 'visible';
+              // Force another reflow
+              canvas.offsetHeight;
+              console.log(`🔄 Micro-pause complete - WebGL rendering resumed`);
+            }, 750); // Slightly longer pause
           }
         }
         
