@@ -11,7 +11,7 @@ import KasinaSelectionInterface from './KasinaSelectionInterface';
 import UnifiedSessionInterface from './UnifiedSessionInterface';
 import useWakeLock from '../lib/useWakeLock';
 import { useAutoHide } from '../lib/useAutoHide';
-import OffscreenKasinaOrb from './OffscreenKasinaOrb';
+
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 import { storage } from '../lib/indexedDBStorage';
@@ -1372,20 +1372,6 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         zIndex: 1
       } as React.CSSProperties & { '--kasina-bg-color': string }}
     >
-      {useOffscreenCanvas ? (
-        <OffscreenKasinaOrb
-          selectedKasina={selectedKasina}
-          currentColor={currentColor}
-          size={sizeMultiplier}
-          onReady={() => {
-            console.log('🎯 OffscreenCanvas worker ready - platform timeout protection active');
-          }}
-          onError={(error) => {
-            console.log('OffscreenCanvas not supported, falling back to main thread rendering');
-            setUseOffscreenCanvas(false);
-          }}
-        />
-      ) : (
         <Canvas 
           key={sceneKey} // Force scene recreation when key changes
           camera={{ position: [0, 0, 4], fov: 50 }}
@@ -1494,7 +1480,6 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           <directionalLight position={[5, 5, 5]} intensity={0.8} />
           <VisualKasinaOrbMesh />
         </Canvas>
-      )}
 
       {/* Unified Session Interface */}
       {!showKasinaSelection && (
