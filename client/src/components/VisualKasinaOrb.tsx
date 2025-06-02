@@ -11,6 +11,7 @@ import KasinaSelectionInterface from './KasinaSelectionInterface';
 import UnifiedSessionInterface from './UnifiedSessionInterface';
 import useWakeLock from '../lib/useWakeLock';
 import { useAutoHide } from '../lib/useAutoHide';
+import OffscreenKasinaOrb from './OffscreenKasinaOrb';
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 import { storage } from '../lib/indexedDBStorage';
