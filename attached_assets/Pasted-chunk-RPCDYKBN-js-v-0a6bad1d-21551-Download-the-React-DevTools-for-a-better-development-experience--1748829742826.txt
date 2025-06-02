@@ -1,0 +1,30 @@
+chunk-RPCDYKBN.js?v=0a6bad1d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-02T01:59:20.261Z
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+react-router-dom.js?v=0a6bad1d:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+/api/auth/me:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+useAuth.tsx:201 [AUTH_CHECK] Authentication failed - status: 401 at 2025-06-02T01:59:20.360Z
+HomePage.tsx:99 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:144 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-02T01:59:42.281Z
+useAuth.tsx:181 Setting auth state with user: Object
+KasinasPage.tsx:12 [KASINAS_PAGE] showKasinaSelection changed to: true at 2025-06-02T01:59:46.650Z
+KasinaSelectionInterface.tsx:85 📺 Entered fullscreen for meditation session
+useKasina.tsx:24 [STATE_CHANGE] Kasina selection changed to: space
+KasinasPage.tsx:37 🎯 KasinasPage: Rendering VisualKasinaOrb component
+VisualKasinaOrb.tsx:401 [MOUNT] VisualKasinaOrb mounted at 2025-06-02T01:59:50.226Z
+VisualKasinaOrb.tsx:700 🔍 Visual mode session started, crash monitoring active
+KasinasPage.tsx:12 [KASINAS_PAGE] showKasinaSelection changed to: false at 2025-06-02T01:59:50.227Z
+VisualKasinaOrb.tsx:891 🔄 Forced infinite timer mode for visual kasina session
+VisualKasinaOrb.tsx:911 🧘 Visual kasina meditation session started
+useWakeLock.tsx:44 Requesting screen wake lock...
+VisualKasinaOrb.tsx:915 🔒 Wake lock enabled - screen will stay awake during meditation
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+VisualKasinaOrb.tsx:1460 WebGL Diagnostics: {timestamp: '2025-06-02T01:59:50.392Z', renderer: 'WebKit WebGL', vendor: 'WebKit', version: 'WebGL 2.0 (OpenGL ES 3.0 Chromium)', shadingLanguageVersion: 'WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)', …}
+VisualKasinaOrb.tsx:955 🔄 Session checkpoint: 60s elapsed
+VisualKasinaOrb.tsx:955 🔄 Session checkpoint: 120s elapsed

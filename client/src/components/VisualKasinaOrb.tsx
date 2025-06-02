@@ -549,55 +549,50 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
     detectPlatformTermination();
     
-    // Proactive GPU context reset to prevent platform timeout
-    const scheduleContextReset = () => {
-      const resetTimeoutId = setTimeout(() => {
-        console.log('🔄 Proactive GPU context reset to prevent platform timeout at 270s');
+    // Proactive session refresh to prevent platform timeout
+    const scheduleSessionRefresh = () => {
+      const refreshTimeoutId = setTimeout(() => {
+        console.log('🔄 Proactive session refresh to prevent platform timeout at 240s');
         
-        // Find the WebGL canvas and reset context
-        const canvases = document.querySelectorAll('canvas');
-        canvases.forEach(canvas => {
-          const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-          if (gl) {
-            const ext = gl.getExtension('WEBGL_lose_context');
-            if (ext) {
-              console.log('💫 Gracefully resetting WebGL context - meditation continues');
-              
-              // Log the proactive reset
-              const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
-              lifecycleEvents.push({
-                type: 'PROACTIVE_CONTEXT_RESET',
-                component: 'VisualKasinaOrb',
-                timestamp: new Date().toISOString(),
-                sessionTime: 270,
-                reason: 'prevent_platform_timeout'
-              });
-              localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
-              
-              // Trigger context loss and restoration
-              ext.loseContext();
-              setTimeout(() => {
-                if (ext) {
-                  ext.restoreContext();
-                  console.log('✨ WebGL context restored - session continues seamlessly');
-                }
-              }, 200);
-            }
-          }
+        // Log the proactive refresh
+        const lifecycleEvents = JSON.parse(localStorage.getItem('componentLifecycle') || '[]');
+        lifecycleEvents.push({
+          type: 'PROACTIVE_SESSION_REFRESH',
+          component: 'VisualKasinaOrb', 
+          timestamp: new Date().toISOString(),
+          sessionTime: 240,
+          reason: 'prevent_platform_timeout'
         });
+        localStorage.setItem('componentLifecycle', JSON.stringify(lifecycleEvents));
         
-        // Schedule the next reset for another 270 seconds
-        scheduleContextReset();
-      }, 270000); // Reset every 4.5 minutes
+        // Navigate to home and back to restart the session cleanly
+        console.log('💫 Performing seamless session restart');
+        
+        // Store current session data for recovery
+        const sessionData = {
+          kasina: selectedKasina,
+          startTime: Date.now(),
+          reason: 'proactive_restart'
+        };
+        localStorage.setItem('meditationRestart', JSON.stringify(sessionData));
+        
+        // Brief navigation to reset platform timers
+        setTimeout(() => {
+          window.location.href = '/kasinas';
+        }, 100);
+        
+        // Schedule the next refresh
+        scheduleSessionRefresh();
+      }, 240000); // Refresh every 4 minutes
       
-      return resetTimeoutId;
+      return refreshTimeoutId;
     };
     
-    const contextResetTimeoutId = scheduleContextReset();
+    const sessionRefreshTimeoutId = scheduleSessionRefresh();
     
     return () => {
       clearTimeout(timeoutId);
-      clearTimeout(contextResetTimeoutId);
+      clearTimeout(sessionRefreshTimeoutId);
     };
     
     console.log('🚀 VisualKasinaOrb component loading - crash detection and proactive reset active');
