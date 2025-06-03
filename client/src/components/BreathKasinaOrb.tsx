@@ -1073,12 +1073,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       return;
     }
     
-    // Reasonable breathing size range with scroll-based scaling
-    const baseMinSize = 50; // Minimum orb size (50px)
-    const baseMaxSize = 400; // Maximum orb size (400px)
+    // Dramatic breathing size range - barely visible to larger than screen
+    const baseMinSize = 5; // Barely visible minimum (5px)
+    const baseMaxSize = 2000; // Larger than screen maximum (2000px)
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale * sizeMultiplier);
-    const maxSize = Math.min(calculatedMaxSize, 800); // Cap at reasonable maximum
+    const maxSize = Math.min(calculatedMaxSize, 3000); // Cap at very large size
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
