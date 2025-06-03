@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useKasina } from "../lib/stores/useKasina";
 import VisualKasinaOrb from "../components/VisualKasinaOrb";
 import KasinaSelectionInterface from "../components/KasinaSelectionInterface";
 
 const KasinasPage: React.FC = () => {
+  const navigate = useNavigate();
   const { selectedKasina, setSelectedKasina } = useKasina();
   const [showKasinaSelection, setShowKasinaSelection] = useState(true);
   
@@ -30,7 +32,7 @@ const KasinasPage: React.FC = () => {
   };
 
   const handleCancel = () => {
-    setShowKasinaSelection(false);
+    navigate('/');
   };
 
   if (!showKasinaSelection) {
