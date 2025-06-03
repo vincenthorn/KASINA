@@ -1225,17 +1225,17 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             meshRef.current.rotation.y = time * 0.15 * chapterSpeed;
           }
           
-          // Apply unified kasina scaling for consistent behavior
+          // Apply consistent scaling for all kasina types
           const kasConfig = getKasinaConfig(selectedKasina);
-          const orbSize = 150 * sizeMultiplier; // Convert multiplier to pixel size
-          const { scale: unifiedScale } = calculateKasinaScale(selectedKasina, orbSize);
-          const targetScale = unifiedScale;
-          meshRef.current.scale.setScalar(targetScale);
+          let targetScale = sizeMultiplier;
           
-          // Debug scaling for color kasinas
+          // Color kasinas get reduced scaling to match other types
           if (kasConfig.type === 'color') {
-            logKasinaScaling(selectedKasina, orbSize, unifiedScale, unifiedScale);
+            targetScale = sizeMultiplier * 0.1; // Much smaller scale for color kasinas
+            console.log(`🎯 Color kasina ${selectedKasina} scaled to: ${targetScale.toFixed(3)}x`);
           }
+          
+          meshRef.current.scale.setScalar(targetScale);
         }
       } catch (error) {
         console.error('Error in mesh animation frame:', error);
@@ -1250,11 +1250,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         selectedKasina === KASINA_TYPES.AH_KASINA ||
         selectedKasina === KASINA_TYPES.HUM_KASINA
       )) {
-        // Apply unified kasina scaling for text-based kasinas
-        const kasConfig = getKasinaConfig(selectedKasina);
-        const orbSize = 150 * sizeMultiplier; // Convert multiplier to pixel size
-        const { scale: unifiedScale } = calculateKasinaScale(selectedKasina, orbSize);
-        const normalizedScale = unifiedScale * 1.4; // Text kasinas need slightly larger scale
+        // Apply consistent scaling for text-based kasinas
+        const normalizedScale = sizeMultiplier * 1.4; // Text kasinas need slightly larger scale
         groupRef.current.scale.setScalar(normalizedScale);
       }
 
