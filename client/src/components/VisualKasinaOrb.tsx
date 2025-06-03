@@ -1225,9 +1225,17 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             meshRef.current.rotation.y = time * 0.15 * chapterSpeed;
           }
           
-          // Apply size multiplier
-          const targetScale = sizeMultiplier;
+          // Apply unified kasina scaling for consistent behavior
+          const kasConfig = getKasinaConfig(selectedKasina);
+          const orbSize = 150 * sizeMultiplier; // Convert multiplier to pixel size
+          const { scale: unifiedScale } = calculateKasinaScale(selectedKasina, orbSize);
+          const targetScale = unifiedScale;
           meshRef.current.scale.setScalar(targetScale);
+          
+          // Debug scaling for color kasinas
+          if (kasConfig.type === 'color') {
+            logKasinaScaling(selectedKasina, orbSize, unifiedScale, unifiedScale);
+          }
         }
       } catch (error) {
         console.error('Error in mesh animation frame:', error);
@@ -1242,9 +1250,11 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         selectedKasina === KASINA_TYPES.AH_KASINA ||
         selectedKasina === KASINA_TYPES.HUM_KASINA
       )) {
-        // Apply size multiplier to the group with normalization factor
-        // Text-based kasinas need a smaller scale factor to match elemental kasinas
-        const normalizedScale = sizeMultiplier * 1.4; // Increase scale to better match sphere kasinas
+        // Apply unified kasina scaling for text-based kasinas
+        const kasConfig = getKasinaConfig(selectedKasina);
+        const orbSize = 150 * sizeMultiplier; // Convert multiplier to pixel size
+        const { scale: unifiedScale } = calculateKasinaScale(selectedKasina, orbSize);
+        const normalizedScale = unifiedScale * 1.4; // Text kasinas need slightly larger scale
         groupRef.current.scale.setScalar(normalizedScale);
       }
 
