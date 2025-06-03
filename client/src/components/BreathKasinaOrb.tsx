@@ -1186,7 +1186,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         let finalGroupScale = cappedScale;
         
         if (kasConfig.type === 'color') {
-          finalGroupScale = cappedScale * 0.01; // Much smaller scale for color kasinas
+          finalGroupScale = cappedScale * 0.008; // Even smaller scale for color kasinas
           console.log(`🎯 Group color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalGroupScale.toFixed(3)}`);
         }
         
