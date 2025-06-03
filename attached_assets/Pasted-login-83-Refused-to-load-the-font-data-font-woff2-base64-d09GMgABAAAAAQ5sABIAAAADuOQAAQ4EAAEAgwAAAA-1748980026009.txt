@@ -1,0 +1,1447 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+ ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Crash History: Array(10)
+ Crash #1: Object
+ Crash #2: Object
+ Crash #3: Object
+ Crash #4: Object
+ Crash #5: Object
+ Crash #6: Object
+ Crash #7: Object
+ Crash #8: Object
+ Crash #9: Object
+ Crash #10: Object
+ === END DIAGNOSTIC REPORT ===
+ [AUTH_CHECK] Checking authentication status at 2025-06-03T19:45:40.358Z
+ Setting auth state with user: Object
+ [KASINAS_PAGE] showKasinaSelection changed to: true at 2025-06-03T19:45:41.630Z
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Crash History: Array(10)
+ Crash #1: Object
+ Crash #2: Object
+ Crash #3: Object
+ Crash #4: Object
+ Crash #5: Object
+ Crash #6: Object
+ Crash #7: Object
+ Crash #8: Object
+ Crash #9: Object
+ Crash #10: Object
+ === END DIAGNOSTIC REPORT ===
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Crash History: Array(10)
+ Crash #1: Object
+ Crash #2: Object
+ Crash #3: Object
+ Crash #4: Object
+ Crash #5: Object
+ Crash #6: Object
+ Crash #7: Object
+ Crash #8: Object
+ Crash #9: Object
+ Crash #10: Object
+ === END DIAGNOSTIC REPORT ===
+ [AUTH_CHECK] Checking authentication status at 2025-06-03T19:46:12.849Z
+ Setting auth state with user: Object
+ [AUTH_CHECK] Checking authentication status at 2025-06-03T19:46:14.338Z
+ Setting auth state with user: Object
+ Vernier GoDirect library loaded successfully from package
+ Connecting to Vernier device using official GoDirect library...
+ GoDirect library loaded successfully
+ Connected to: GDX-RB 0K7001C3
+ Enabled sensors: Array(2)
+ Successfully connected to Vernier respiration belt via official library
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Vernier GoDirect library already loaded
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 0px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 0px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 14.374855041503906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.37N
+ Official Vernier data - Sensor: Respiration Rate, Value: 0, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 0px, baseScale: 0, scale: 0.001, cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 14.428512573242188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.43N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 14.500053405761719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.50N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 14.655906677246094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 14.724891662597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.72N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 14.760665893554688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.76N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 14.985504150390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.19757080078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.251220703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.25N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.447959899902344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.45N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.72900390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.73N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.925743103027344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 16.16335678100586, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 16.32687759399414, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.33N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 16.306438446044922, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.31N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 16.16080093383789, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.923187255859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.769889831542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.78521728515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.79N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.690681457519531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 53px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 53px, baseScale: 0.35333333333333333, scale: 0.554926760089908, cappedScale: 0.554926760089908
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 53px, baseScale: 0.35333333333333333, scale: 0.554926760089908, cappedScale: 0.554926760089908
+ 🔴 Color kasina white - orbSize: 53px, baseScale: 0.35333333333333333, scale: 0.554926760089908, cappedScale: 0.554926760089908
+ 🔴 Color kasina white - orbSize: 53px, baseScale: 0.35333333333333333, scale: 0.554926760089908, cappedScale: 0.554926760089908
+ Official Vernier data - Sensor: Force, Value: 15.496505737304688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.50N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 50px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina white - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina white - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ Official Vernier data - Sensor: Force, Value: 15.414741516113281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina white - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina white - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina white - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina white - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina white - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina white - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina white - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ Official Vernier data - Sensor: Force, Value: 15.30743408203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.31N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 45px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ 🔴 Color kasina white - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ 🔴 Color kasina white - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ 🔴 Color kasina white - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ Official Vernier data - Sensor: Force, Value: 15.161796569824219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ 🔴 Color kasina white - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina white - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ Official Vernier data - Sensor: Force, Value: 15.095367431640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 40px, baseScale: 0.26666666666666666, scale: 0.4188412147330138, cappedScale: 0.4188412147330138
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 40px, baseScale: 0.26666666666666666, scale: 0.4188412147330138, cappedScale: 0.4188412147330138
+ 🔴 Color kasina white - orbSize: 40px, baseScale: 0.26666666666666666, scale: 0.4188412147330138, cappedScale: 0.4188412147330138
+ Official Vernier data - Sensor: Force, Value: 15.021270751953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.02N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 38px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ 🔴 Color kasina white - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ 🔴 Color kasina white - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ 🔴 Color kasina white - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ 🔴 Color kasina white - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ Official Vernier data - Sensor: Force, Value: 14.916519165039062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina white - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 14.86541748046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.87N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 34px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ Official Vernier data - Sensor: Force, Value: 14.798988342285156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina white - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 33px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 14.704452514648438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina white - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 26px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 26px, baseScale: 0.17333333333333334, scale: 0.27226098074587174, cappedScale: 0.27226098074587174
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 14.661018371582031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina white - orbSize: 26px, baseScale: 0.17333333333333334, scale: 0.27226098074587174, cappedScale: 0.27226098074587174
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 25px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina white - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ Official Vernier data - Sensor: Force, Value: 14.643135070800781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 25px
+ 🔴 Color kasina white - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina white - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina white - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ Official Vernier data - Sensor: Force, Value: 14.66357421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 25px
+ 🔴 Color kasina white - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina white - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina white - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 📺 Entered fullscreen for meditation session
+ [STATE_CHANGE] Kasina selection changed to: blue
+ 🎨 Selected kasina: Blue (blue)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ Official Vernier data - Sensor: Force, Value: 14.709564208984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 27px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 14.712120056152344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.714675903320312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.696784973144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.666130065917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 26px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 26px, baseScale: 0.17333333333333334, scale: 0.27226098074587174, cappedScale: 0.27226098074587174
+ Official Vernier data - Sensor: Force, Value: 14.658462524414062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina blue - orbSize: 26px, baseScale: 0.17333333333333334, scale: 0.27226098074587174, cappedScale: 0.27226098074587174
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 25px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ Official Vernier data - Sensor: Force, Value: 14.60736083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 24px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ Official Vernier data - Sensor: Force, Value: 14.615028381347656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.62N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 25px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 14.673789978027344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 27px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 27px, baseScale: 0.18, scale: 0.28273171161277216, cappedScale: 0.28273171161277216
+ 🔴 Color kasina blue - orbSize: 27px, baseScale: 0.18, scale: 0.28273171161277216, cappedScale: 0.28273171161277216
+ 🔴 Color kasina blue - orbSize: 27px, baseScale: 0.18, scale: 0.28273171161277216, cappedScale: 0.28273171161277216
+ 🔴 Color kasina blue - orbSize: 27px, baseScale: 0.18, scale: 0.28273171161277216, cappedScale: 0.28273171161277216
+ Official Vernier data - Sensor: Force, Value: 14.60736083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 25px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ 🔴 Color kasina blue - orbSize: 25px, baseScale: 0.16666666666666666, scale: 0.2617901577284878, cappedScale: 0.2617901577284878
+ Official Vernier data - Sensor: Force, Value: 14.579254150390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.58N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 24px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 14.727447509765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.73N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina blue - orbSize: 24px, baseScale: 0.16, scale: 0.25131924610461487, cappedScale: 0.25131924610461487
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 29px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 14.919075012207031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 35px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ Official Vernier data - Sensor: Force, Value: 15.131134033203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.13N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ Official Vernier data - Sensor: Force, Value: 15.424964904785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.42N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 51px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 51px, baseScale: 0.34, scale: 0.5339923935319936, cappedScale: 0.5339923935319936
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 51px, baseScale: 0.34, scale: 0.5339923935319936, cappedScale: 0.5339923935319936
+ 🔴 Color kasina blue - orbSize: 51px, baseScale: 0.34, scale: 0.5339923935319936, cappedScale: 0.5339923935319936
+ 🔴 Color kasina blue - orbSize: 51px, baseScale: 0.34, scale: 0.5339923935319936, cappedScale: 0.5339923935319936
+ 🔴 Color kasina blue - orbSize: 51px, baseScale: 0.34, scale: 0.5339923935319936, cappedScale: 0.5339923935319936
+ 🔴 Color kasina blue - orbSize: 51px, baseScale: 0.34, scale: 0.5339923935319936, cappedScale: 0.5339923935319936
+ 🔴 Color kasina blue - orbSize: 51px, baseScale: 0.34, scale: 0.5339923935319936, cappedScale: 0.5339923935319936
+ Official Vernier data - Sensor: Force, Value: 15.736671447753906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.74N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 61px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 61px, baseScale: 0.4066666666666667, scale: 0.6386564300121307, cappedScale: 0.6386564300121307
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 61px, baseScale: 0.4066666666666667, scale: 0.6386564300121307, cappedScale: 0.6386564300121307
+ 🔴 Color kasina blue - orbSize: 61px, baseScale: 0.4066666666666667, scale: 0.6386564300121307, cappedScale: 0.6386564300121307
+ 🔴 Color kasina blue - orbSize: 61px, baseScale: 0.4066666666666667, scale: 0.6386564300121307, cappedScale: 0.6386564300121307
+ 🔴 Color kasina blue - orbSize: 61px, baseScale: 0.4066666666666667, scale: 0.6386564300121307, cappedScale: 0.6386564300121307
+ Official Vernier data - Sensor: Force, Value: 15.997283935546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 67px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ Official Vernier data - Sensor: Force, Value: 16.24767303466797, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.25N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 72px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 16.51339340209961, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 16.71523666381836, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.72N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 16.89664077758789, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 17.121482849121094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 17.32843780517578, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.33N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 17.481739044189453, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.48N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 17.571163177490234, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.57N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 17.62226104736328, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.62N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 17.568607330322266, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.57N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ 🔴 Color kasina blue - orbSize: 72px, baseScale: 0.48, scale: 0.7537617671255932, cappedScale: 0.7537617671255932
+ Official Vernier data - Sensor: Force, Value: 17.364208221435547, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.36N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+ 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+ 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+ 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+ 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+ Official Vernier data - Sensor: Force, Value: 17.136810302734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.14N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 67px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+ Official Vernier data - Sensor: Force, Value: 16.919635772705078, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 64px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 64px, baseScale: 0.4266666666666667, scale: 0.6700515869726246, cappedScale: 0.6700515869726246
+ 🔴 Color kasina blue - orbSize: 64px, baseScale: 0.4266666666666667, scale: 0.6700515869726246, cappedScale: 0.6700515869726246
+ 🔴 Color kasina blue - orbSize: 64px, baseScale: 0.4266666666666667, scale: 0.6700515869726246, cappedScale: 0.6700515869726246
+ 🔴 Color kasina blue - orbSize: 64px, baseScale: 0.4266666666666667, scale: 0.6700515869726246, cappedScale: 0.6700515869726246
+ 🔴 Color kasina blue - orbSize: 64px, baseScale: 0.4266666666666667, scale: 0.6700515869726246, cappedScale: 0.6700515869726246
+ Official Vernier data - Sensor: Force, Value: 16.625812530517578, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.63N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 59px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 59px, baseScale: 0.3933333333333333, scale: 0.6177252386580175, cappedScale: 0.6177252386580175
+ 🔴 Color kasina blue - orbSize: 59px, baseScale: 0.3933333333333333, scale: 0.6177252386580175, cappedScale: 0.6177252386580175
+ 🔴 Color kasina blue - orbSize: 59px, baseScale: 0.3933333333333333, scale: 0.6177252386580175, cappedScale: 0.6177252386580175
+ 🔴 Color kasina blue - orbSize: 59px, baseScale: 0.3933333333333333, scale: 0.6177252386580175, cappedScale: 0.6177252386580175
+ 🔴 Color kasina blue - orbSize: 59px, baseScale: 0.3933333333333333, scale: 0.6177252386580175, cappedScale: 0.6177252386580175
+ 🔴 Color kasina blue - orbSize: 59px, baseScale: 0.3933333333333333, scale: 0.6177252386580175, cappedScale: 0.6177252386580175
+ 🔴 Color kasina blue - orbSize: 59px, baseScale: 0.3933333333333333, scale: 0.6177252386580175, cappedScale: 0.6177252386580175
+ Official Vernier data - Sensor: Force, Value: 16.34731674194336, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.35N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 54px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ Official Vernier data - Sensor: Force, Value: 16.13269805908203, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.13N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 50px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ Official Vernier data - Sensor: Force, Value: 15.902748107910156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 47px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 47px, baseScale: 0.31333333333333335, scale: 0.49212151991435127, cappedScale: 0.49212151991435127
+ 🔴 Color kasina blue - orbSize: 47px, baseScale: 0.31333333333333335, scale: 0.49212151991435127, cappedScale: 0.49212151991435127
+ 🔴 Color kasina blue - orbSize: 47px, baseScale: 0.31333333333333335, scale: 0.49212151991435127, cappedScale: 0.49212151991435127
+ 🔴 Color kasina blue - orbSize: 47px, baseScale: 0.31333333333333335, scale: 0.49212151991435127, cappedScale: 0.49212151991435127
+ 🔴 Color kasina blue - orbSize: 47px, baseScale: 0.31333333333333335, scale: 0.49212151991435127, cappedScale: 0.49212151991435127
+ 🔴 Color kasina blue - orbSize: 47px, baseScale: 0.31333333333333335, scale: 0.49212151991435127, cappedScale: 0.49212151991435127
+ Official Vernier data - Sensor: Force, Value: 15.736671447753906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.74N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 44px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 44px, baseScale: 0.29333333333333333, scale: 0.4607166033652013, cappedScale: 0.4607166033652013
+ 🔴 Color kasina blue - orbSize: 44px, baseScale: 0.29333333333333333, scale: 0.4607166033652013, cappedScale: 0.4607166033652013
+ 🔴 Color kasina blue - orbSize: 44px, baseScale: 0.29333333333333333, scale: 0.4607166033652013, cappedScale: 0.4607166033652013
+ 🔴 Color kasina blue - orbSize: 44px, baseScale: 0.29333333333333333, scale: 0.4607166033652013, cappedScale: 0.4607166033652013
+ 🔴 Color kasina blue - orbSize: 44px, baseScale: 0.29333333333333333, scale: 0.4607166033652013, cappedScale: 0.4607166033652013
+ 🔴 Color kasina blue - orbSize: 44px, baseScale: 0.29333333333333333, scale: 0.4607166033652013, cappedScale: 0.4607166033652013
+ Official Vernier data - Sensor: Force, Value: 15.60125732421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.60N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 44px, baseScale: 0.29333333333333333, scale: 0.4607166033652013, cappedScale: 0.4607166033652013
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ Official Vernier data - Sensor: Force, Value: 15.440292358398438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 38px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ 🔴 Color kasina blue - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ 🔴 Color kasina blue - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ 🔴 Color kasina blue - orbSize: 38px, baseScale: 0.25333333333333335, scale: 0.3979026556679787, cappedScale: 0.3979026556679787
+ Official Vernier data - Sensor: Force, Value: 15.286994934082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.29N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.195014953613281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 34px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ Official Vernier data - Sensor: Force, Value: 15.115806579589844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 33px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ Official Vernier data - Sensor: Force, Value: 14.972724914550781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.97N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ Official Vernier data - Sensor: Force, Value: 14.870529174804688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.87N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 29px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+ Official Vernier data - Sensor: Force, Value: 14.824539184570312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 28px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+ 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+ 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+ 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+ Official Vernier data - Sensor: Force, Value: 14.814315795898438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 28px
+ Official Vernier data - Sensor: Force, Value: 14.801544189453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.763214111328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.76N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.750442504882812, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.75N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.747886657714844, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.75N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.768325805664062, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.77N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 27px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.824539184570312, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.82N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 28px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 27px, baseScale: 0.18, scale: 0.28273171161277216, cappedScale: 0.28273171161277216
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.857749938964844, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.86N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 29px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.842422485351562, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.84N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 28px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.880744934082031, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.88N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 29px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.885856628417969, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.89N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 29px
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.819427490234375, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.82N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 28px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.827095031738281, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.83N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 28px
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.860305786132812, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.86N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 29px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 14.896080017089844, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.90N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 28px, baseScale: 0.18666666666666668, scale: 0.2932023467852259, cappedScale: 0.2932023467852259
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 29px
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 15.000831604003906, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.00N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 31px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 15.156684875488281, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.16N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 29px, baseScale: 0.19333333333333333, scale: 0.30367288271930193, cappedScale: 0.30367288271930193
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 34px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 15.322761535644531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.32N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 37px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 15.534828186035156, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.53N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 41px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 15.71112060546875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.71N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 37px, baseScale: 0.24666666666666667, scale: 0.387433172350252, cappedScale: 0.387433172350252
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 45px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 15.838874816894531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.84N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 47px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 16.033050537109375, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.03N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 47px, baseScale: 0.31333333333333335, scale: 0.49212151991435127, cappedScale: 0.49212151991435127
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 51px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 16.24767303466797, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.25N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 47px, baseScale: 0.31333333333333335, scale: 0.49212151991435127, cappedScale: 0.49212151991435127
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 55px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 51px, baseScale: 0.34, scale: 0.5339923935319936, cappedScale: 0.5339923935319936
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 16.40863800048828, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.41N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 55px, baseScale: 0.36666666666666664, scale: 0.5758603753574281, cappedScale: 0.5758603753574281
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 58px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 16.574710845947266, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.57N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: 0, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 55px, baseScale: 0.36666666666666664, scale: 0.5758603753574281, cappedScale: 0.5758603753574281
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 61px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 58px, baseScale: 0.38666666666666666, scale: 0.6072593275933921, cappedScale: 0.6072593275933921
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 61px, baseScale: 0.4066666666666667, scale: 0.6386564300121307, cappedScale: 0.6386564300121307
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 16.733123779296875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.73N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 61px, baseScale: 0.4066666666666667, scale: 0.6386564300121307, cappedScale: 0.6386564300121307
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 64px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 16.876201629638672, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.88N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 61px, baseScale: 0.4066666666666667, scale: 0.6386564300121307, cappedScale: 0.6386564300121307
+sessionRecovery.ts:45 🛡️ Session recovery started for breath (session_1748979993663_ggo0w4g5o)
+BreathKasinaOrb.tsx:620 🛡️ Started session recovery tracking for breath meditation
+useWakeLock.tsx:44 Requesting screen wake lock...
+BreathKasinaOrb.tsx:624 🔒 Wake lock requested to prevent screen sleep during meditation
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 67px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 17.047386169433594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.05N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useWakeLock.tsx:52 Screen wake lock enabled - screen will remain on
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 70px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 17.200687408447266, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.20N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 70px
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 17.305442810058594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.31N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 70px
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 70px, baseScale: 0.4666666666666667, scale: 0.7328356819847248, cappedScale: 0.7328356819847248
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 17.379535675048828, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.38N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 71px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 17.410198211669922, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.41N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 71px
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 71px, baseScale: 0.47333333333333333, scale: 0.7432988503450322, cappedScale: 0.7432988503450322
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 17.364208221435547, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.36N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 68px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 68px, baseScale: 0.4533333333333333, scale: 0.7119086046905704, cappedScale: 0.7119086046905704
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 68px, baseScale: 0.4533333333333333, scale: 0.7119086046905704, cappedScale: 0.7119086046905704
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 68px, baseScale: 0.4533333333333333, scale: 0.7119086046905704, cappedScale: 0.7119086046905704
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 68px, baseScale: 0.4533333333333333, scale: 0.7119086046905704, cappedScale: 0.7119086046905704
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 68px, baseScale: 0.4533333333333333, scale: 0.7119086046905704, cappedScale: 0.7119086046905704
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 68px, baseScale: 0.4533333333333333, scale: 0.7119086046905704, cappedScale: 0.7119086046905704
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 17.272228240966797, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.27N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 67px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 17.152141571044922, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.15N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 65px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 67px, baseScale: 0.44666666666666666, scale: 0.701444702839781, cappedScale: 0.701444702839781
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 65px, baseScale: 0.43333333333333335, scale: 0.6805161904390362, cappedScale: 0.6805161904390362
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 65px, baseScale: 0.43333333333333335, scale: 0.6805161904390362, cappedScale: 0.6805161904390362
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 65px, baseScale: 0.43333333333333335, scale: 0.6805161904390362, cappedScale: 0.6805161904390362
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 65px, baseScale: 0.43333333333333335, scale: 0.6805161904390362, cappedScale: 0.6805161904390362
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 65px, baseScale: 0.43333333333333335, scale: 0.6805161904390362, cappedScale: 0.6805161904390362
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 65px, baseScale: 0.43333333333333335, scale: 0.6805161904390362, cappedScale: 0.6805161904390362
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 16.98351287841797, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.98N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1147 Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 62px
+BreathKasinaOrb.tsx:421 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 62px, baseScale: 0.41333333333333333, scale: 0.6491217032171677, cappedScale: 0.6491217032171677
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 62px, baseScale: 0.41333333333333333, scale: 0.6491217032171677, cappedScale: 0.6491217032171677
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 62px, baseScale: 0.41333333333333333, scale: 0.6491217032171677, cappedScale: 0.6491217032171677
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 62px, baseScale: 0.41333333333333333, scale: 0.6491217032171677, cappedScale: 0.6491217032171677
+BreathKasinaOrb.tsx:1227 🔴 Color kasina blue - orbSize: 62px, baseScale: 0.41333333333333333, scale: 0.6491217032171677, cappedScale: 0.6491217032171677
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 16.840431213378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.84N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 60px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 62px, baseScale: 0.41333333333333333, scale: 0.6491217032171677, cappedScale: 0.6491217032171677
+ 🔴 Color kasina blue - orbSize: 60px, baseScale: 0.4, scale: 0.6281909406450175, cappedScale: 0.6281909406450175
+ 🔴 Color kasina blue - orbSize: 60px, baseScale: 0.4, scale: 0.6281909406450175, cappedScale: 0.6281909406450175
+ 🔴 Color kasina blue - orbSize: 60px, baseScale: 0.4, scale: 0.6281909406450175, cappedScale: 0.6281909406450175
+ 🔴 Color kasina blue - orbSize: 60px, baseScale: 0.4, scale: 0.6281909406450175, cappedScale: 0.6281909406450175
+ 🔴 Color kasina blue - orbSize: 60px, baseScale: 0.4, scale: 0.6281909406450175, cappedScale: 0.6281909406450175
+ 🔴 Color kasina blue - orbSize: 60px, baseScale: 0.4, scale: 0.6281909406450175, cappedScale: 0.6281909406450175
+ Official Vernier data - Sensor: Force, Value: 16.68457794189453, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.68N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 57px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 60px, baseScale: 0.4, scale: 0.6281909406450175, cappedScale: 0.6281909406450175
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 57px, baseScale: 0.38, scale: 0.5967932109934729, cappedScale: 0.5967932109934729
+ 🔴 Color kasina blue - orbSize: 57px, baseScale: 0.38, scale: 0.5967932109934729, cappedScale: 0.5967932109934729
+ 🔴 Color kasina blue - orbSize: 57px, baseScale: 0.38, scale: 0.5967932109934729, cappedScale: 0.5967932109934729
+ 🔴 Color kasina blue - orbSize: 57px, baseScale: 0.38, scale: 0.5967932109934729, cappedScale: 0.5967932109934729
+ 🔴 Color kasina blue - orbSize: 57px, baseScale: 0.38, scale: 0.5967932109934729, cappedScale: 0.5967932109934729
+ Official Vernier data - Sensor: Force, Value: 16.508281707763672, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 54px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ 🔴 Color kasina blue - orbSize: 54px, baseScale: 0.36, scale: 0.5653936634063093, cappedScale: 0.5653936634063093
+ Official Vernier data - Sensor: Force, Value: 16.385643005371094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 52px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 52px, baseScale: 0.3466666666666667, scale: 0.5444596689508925, cappedScale: 0.5444596689508925
+ 🔴 Color kasina blue - orbSize: 52px, baseScale: 0.3466666666666667, scale: 0.5444596689508925, cappedScale: 0.5444596689508925
+ 🔴 Color kasina blue - orbSize: 52px, baseScale: 0.3466666666666667, scale: 0.5444596689508925, cappedScale: 0.5444596689508925
+ 🔴 Color kasina blue - orbSize: 52px, baseScale: 0.3466666666666667, scale: 0.5444596689508925, cappedScale: 0.5444596689508925
+ 🔴 Color kasina blue - orbSize: 52px, baseScale: 0.3466666666666667, scale: 0.5444596689508925, cappedScale: 0.5444596689508925
+ Official Vernier data - Sensor: Force, Value: 16.250228881835938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.25N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 50px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ 🔴 Color kasina blue - orbSize: 50px, baseScale: 0.3333333333333333, scale: 0.5235249373760053, cappedScale: 0.5235249373760053
+ Official Vernier data - Sensor: Force, Value: 16.11737060546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina blue - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina blue - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina blue - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina blue - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina blue - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ 🔴 Color kasina blue - orbSize: 48px, baseScale: 0.32, scale: 0.5025894970242398, cappedScale: 0.5025894970242398
+ Official Vernier data - Sensor: Force, Value: 16.00749969482422, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 46px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 46px, baseScale: 0.30666666666666664, scale: 0.4816533762391475, cappedScale: 0.4816533762391475
+ 🔴 Color kasina blue - orbSize: 46px, baseScale: 0.30666666666666664, scale: 0.4816533762391475, cappedScale: 0.4816533762391475
+ 🔴 Color kasina blue - orbSize: 46px, baseScale: 0.30666666666666664, scale: 0.4816533762391475, cappedScale: 0.4816533762391475
+ 🔴 Color kasina blue - orbSize: 46px, baseScale: 0.30666666666666664, scale: 0.4816533762391475, cappedScale: 0.4816533762391475
+ 🔴 Color kasina blue - orbSize: 46px, baseScale: 0.30666666666666664, scale: 0.4816533762391475, cappedScale: 0.4816533762391475
+ 🔴 Color kasina blue - orbSize: 46px, baseScale: 0.30666666666666664, scale: 0.4816533762391475, cappedScale: 0.4816533762391475
+ 🔴 Color kasina blue - orbSize: 46px, baseScale: 0.30666666666666664, scale: 0.4816533762391475, cappedScale: 0.4816533762391475
+ Official Vernier data - Sensor: Force, Value: 15.905303955078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 45px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ 🔴 Color kasina blue - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ 🔴 Color kasina blue - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ 🔴 Color kasina blue - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ 🔴 Color kasina blue - orbSize: 45px, baseScale: 0.3, scale: 0.4711850695417167, cappedScale: 0.4711850695417167
+ Official Vernier data - Sensor: Force, Value: 15.818435668945312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 43px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 43px, baseScale: 0.2866666666666667, scale: 0.45024798125279814, cappedScale: 0.45024798125279814
+ 🔴 Color kasina blue - orbSize: 43px, baseScale: 0.2866666666666667, scale: 0.45024798125279814, cappedScale: 0.45024798125279814
+ 🔴 Color kasina blue - orbSize: 43px, baseScale: 0.2866666666666667, scale: 0.45024798125279814, cappedScale: 0.45024798125279814
+ 🔴 Color kasina blue - orbSize: 43px, baseScale: 0.2866666666666667, scale: 0.45024798125279814, cappedScale: 0.45024798125279814
+ 🔴 Color kasina blue - orbSize: 43px, baseScale: 0.2866666666666667, scale: 0.45024798125279814, cappedScale: 0.45024798125279814
+ 🔴 Color kasina blue - orbSize: 43px, baseScale: 0.2866666666666667, scale: 0.45024798125279814, cappedScale: 0.45024798125279814
+ Official Vernier data - Sensor: Force, Value: 15.754554748535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ Official Vernier data - Sensor: Force, Value: 15.677909851074219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.68N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 42px, baseScale: 0.28, scale: 0.43977920674775683, cappedScale: 0.43977920674775683
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ Official Vernier data - Sensor: Force, Value: 15.555267333984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.56N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 41px, baseScale: 0.2733333333333333, scale: 0.429310283393378, cappedScale: 0.429310283393378
+ 🔴 Color kasina blue - orbSize: 39px, baseScale: 0.26, scale: 0.40837200431006443, cappedScale: 0.40837200431006443
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 39px, baseScale: 0.26, scale: 0.40837200431006443, cappedScale: 0.40837200431006443
+ 🔴 Color kasina blue - orbSize: 39px, baseScale: 0.26, scale: 0.40837200431006443, cappedScale: 0.40837200431006443
+ 🔴 Color kasina blue - orbSize: 39px, baseScale: 0.26, scale: 0.40837200431006443, cappedScale: 0.40837200431006443
+ 🔴 Color kasina blue - orbSize: 39px, baseScale: 0.26, scale: 0.40837200431006443, cappedScale: 0.40837200431006443
+ 🔴 Color kasina blue - orbSize: 39px, baseScale: 0.26, scale: 0.40837200431006443, cappedScale: 0.40837200431006443
+ Official Vernier data - Sensor: Force, Value: 15.45306396484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.45N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 37px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 39px, baseScale: 0.26, scale: 0.40837200431006443, cappedScale: 0.40837200431006443
+ 🔴 Color kasina blue - orbSize: 37px, baseScale: 0.24666666666666667, scale: 0.387433172350252, cappedScale: 0.387433172350252
+ 🔴 Color kasina blue - orbSize: 37px, baseScale: 0.24666666666666667, scale: 0.387433172350252, cappedScale: 0.387433172350252
+ 🔴 Color kasina blue - orbSize: 37px, baseScale: 0.24666666666666667, scale: 0.387433172350252, cappedScale: 0.387433172350252
+ 🔴 Color kasina blue - orbSize: 37px, baseScale: 0.24666666666666667, scale: 0.387433172350252, cappedScale: 0.387433172350252
+ 🔴 Color kasina blue - orbSize: 37px, baseScale: 0.24666666666666667, scale: 0.387433172350252, cappedScale: 0.387433172350252
+ Official Vernier data - Sensor: Force, Value: 15.384078979492188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.38N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ 🔴 Color kasina blue - orbSize: 36px, baseScale: 0.24, scale: 0.37696355790042524, cappedScale: 0.37696355790042524
+ Official Vernier data - Sensor: Force, Value: 15.34320068359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.34N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 35px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ Official Vernier data - Sensor: Force, Value: 15.312545776367188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.31N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 35px
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ Official Vernier data - Sensor: Force, Value: 15.261444091796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 34px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 35px, baseScale: 0.23333333333333334, scale: 0.36649381586208396, cappedScale: 0.36649381586208396
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ Official Vernier data - Sensor: Force, Value: 15.230781555175781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 34px
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ 🔴 Color kasina blue - orbSize: 34px, baseScale: 0.22666666666666666, scale: 0.3560239497788567, cappedScale: 0.3560239497788567
+ Official Vernier data - Sensor: Force, Value: 15.200119018554688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 33px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ 🔴 Color kasina blue - orbSize: 33px, baseScale: 0.22, scale: 0.345553963194414, cappedScale: 0.345553963194414
+ Official Vernier data - Sensor: Force, Value: 15.169464111328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ Official Vernier data - Sensor: Force, Value: 15.164352416992188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 32px
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ Official Vernier data - Sensor: Force, Value: 15.166908264160156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 32px
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ Official Vernier data - Sensor: Force, Value: 15.169464111328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 32px
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ 🔴 Color kasina blue - orbSize: 32px, baseScale: 0.21333333333333335, scale: 0.3350838596524672, cappedScale: 0.3350838596524672
+ Official Vernier data - Sensor: Force, Value: 15.143913269042969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.14N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ Official Vernier data - Sensor: Force, Value: 15.113250732421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.11N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, range: 0-90px, current: 31px
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
+ 🔴 Color kasina blue - orbSize: 31px, baseScale: 0.20666666666666667, scale: 0.32461364269676707, cappedScale: 0.32461364269676707
