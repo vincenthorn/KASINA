@@ -1507,16 +1507,24 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         kasinaColor = getKasinaColor(selectedKasina);
       }
         
+      // Apply color kasina scaling fix directly to geometry
+      const kasConfig = getKasinaConfig(selectedKasina);
+      const baseRadius = kasConfig.type === 'color' ? 0.01 : 1; // Much smaller radius for color kasinas
+      
+      if (kasConfig.type === 'color') {
+        console.log(`🎯 Color kasina ${selectedKasina} using radius: ${baseRadius}`);
+      }
+      
       return (
         <>
           {/* Main orb */}
           <mesh ref={meshRef}>
-            <sphereGeometry args={[1, 64, 64]} />
+            <sphereGeometry args={[baseRadius, 64, 64]} />
             <meshBasicMaterial color={kasinaColor} />
           </mesh>
           {/* Immersion background - inside-out sphere */}
           <mesh ref={immersionBackgroundRef}>
-            <sphereGeometry args={[1, 64, 64]} />
+            <sphereGeometry args={[baseRadius, 64, 64]} />
             <meshBasicMaterial 
               color={kasinaColor} 
               transparent={true}
