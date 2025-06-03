@@ -215,15 +215,15 @@ export const KASINA_CONFIGS: Record<string, KasinaConfig> = {
   // Special kasinas
   custom: {
     name: 'Changing Color',
-    type: 'special',
-    scaling: SCALING_PRESETS.special,
+    type: 'color',
+    scaling: SCALING_PRESETS.color,
     requiresShader: false,
     backgroundEnabled: true
   },
   rainbow: {
     name: 'Rainbow',
-    type: 'special',
-    scaling: SCALING_PRESETS.special,
+    type: 'vajrayana',
+    scaling: SCALING_PRESETS.vajrayana,
     requiresShader: false,
     backgroundEnabled: true
   }
