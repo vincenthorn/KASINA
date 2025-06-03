@@ -24,12 +24,12 @@ export interface KasinaConfig {
 // Using elemental/vajrayana scaling as the foundation for immersive experience
 const SCALING_PRESETS: Record<string, KasinaScaleConfig> = {
   color: {
-    baseScale: 18,        // Match elemental dramatic scaling
-    maxScale: 18,         // Allow full expansion
+    baseScale: 8,         // More conservative scaling for color kasinas
+    maxScale: 8,          // Prevent oversizing
     minScale: 0.001,
-    expansionRate: 18,    // Match elemental expansion rate
+    expansionRate: 8,     // Less dramatic expansion
     immersionThreshold: 300,
-    maxImmersion: 3000    // Match elemental immersion range
+    maxImmersion: 3000    // Keep immersion range consistent
   },
   elemental: {
     baseScale: 18,
