@@ -20,6 +20,7 @@ import HumKasina from './HumKasina';
 import RainbowKasina from './RainbowKasina';
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
+import { calculateKasinaScale, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
 
 // Shader materials for the elemental kasinas (copied from main KasinaOrb component)
 const waterShader = {
@@ -1162,52 +1163,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Apply breathing animation with easing and update shader uniforms
     useFrame(({ clock }) => {
       try {
-        // Cap orbSize at expanded range especially for vajrayana kasinas
-        const cappedOrbSize = Math.min(orbSize, 3000);
+        // Apply natural breathing easing that follows actual breathing rhythm
+        const naturalBreathingEase = (t: number) => {
+          // Use a sine-wave based easing that feels more like natural breathing
+          return Math.sin(t * Math.PI * 0.5);
+        };
         
-        // Add very subtle easing to reduce jerky movements while keeping responsiveness
-        const baseScale = cappedOrbSize / 150; // 150px = 1.0 scale baseline
-      
-      // Apply more natural breathing easing that follows actual breathing rhythm
-      const naturalBreathingEase = (t: number) => {
-        // Use a sine-wave based easing that feels more like natural breathing
-        // This creates a smooth acceleration and deceleration
-        return Math.sin(t * Math.PI * 0.5);
-      };
-      
-      // Apply different scaling based on kasina type
-      let normalizedScale, easedScale, scale;
-      
-      // Check if this is an elemental kasina that needs dramatic expansion
-      const isElementalKasina = ['water', 'fire', 'air', 'earth', 'space', 'light'].includes(selectedKasina);
-      
-      if (isElementalKasina) {
-        // Elemental kasinas: dramatic expansion with larger multiplier
-        normalizedScale = Math.max(0, Math.min(1, baseScale / 18)); // Large expansion for elementals
-        easedScale = naturalBreathingEase(normalizedScale) * 18;
-        scale = Math.max(0.001, easedScale);
-      } else {
-        // Color kasinas: more conservative scaling to prevent oversizing
-        normalizedScale = Math.max(0, Math.min(1, baseScale / 6)); // Conservative scaling for colors
-        easedScale = naturalBreathingEase(normalizedScale) * 6;
-        scale = Math.max(0.001, easedScale);
-      }
-      
-      // Calculate immersion level based on capped orb size - start very early for all kasinas
-      const immersionThreshold = 300; // Start background much earlier to prevent black screens
-      const maxImmersion = 3000; // Full immersion at expanded size for all kasinas
-      const immersionLevel = Math.max(0, Math.min(1, (cappedOrbSize - immersionThreshold) / (maxImmersion - immersionThreshold)));
+        // Use unified scaling system for consistent behavior across all kasinas
+        const scalingResult = calculateKasinaScale(selectedKasina, orbSize, 0, naturalBreathingEase);
+        const { scale, cappedScale, immersionLevel, config } = scalingResult;
       
       if (groupRef.current) {
-        // Scale the main orb, but cap it to prevent it from getting too large
-        const maxScale = isElementalKasina ? 18 : 6; // Different caps for different kasina types
-        const cappedScale = immersionLevel > 0 ? Math.min(scale, maxScale) : scale;
+        // Apply the calculated scale
         
-        // Debug logging for color kasinas
+        // Debug logging using unified system
         if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-          const bgColor = KASINA_BACKGROUNDS[selectedKasina] || '#000000';
-          const kasinaColor = getKasinaColor(selectedKasina);
-          console.log(`🔴 Color kasina ${selectedKasina} - orbSize: ${orbSize}px, baseScale: ${baseScale}, scale: ${scale}, cappedScale: ${cappedScale}, bgColor: ${bgColor}, kasinaColor: ${kasinaColor}`);
+          logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
         }
         
         groupRef.current.scale.setScalar(cappedScale);
@@ -1234,12 +1205,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       if (meshRef.current) {
         // For basic kasinas, also apply scale and opacity
-        const maxScale = isElementalKasina ? 18 : 6; // Different caps for different kasina types
-        const cappedScale = immersionLevel > 0 ? Math.min(scale, maxScale) : scale;
-        
-        // Debug logging for color kasinas
+        // Debug logging using unified system
         if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-          console.log(`🔴 Color kasina ${selectedKasina} - orbSize: ${orbSize}px, baseScale: ${baseScale}, scale: ${scale}, cappedScale: ${cappedScale}`);
+          logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
         }
         
         meshRef.current.scale.setScalar(cappedScale);

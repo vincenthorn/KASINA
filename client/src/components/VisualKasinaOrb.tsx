@@ -16,6 +16,7 @@ import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 import { storage } from '../lib/indexedDBStorage';
 import { WebGLContextManager } from './WebGLContextManager';
+import { calculateKasinaScale, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
 
 // Text kasina components
 import WhiteAKasina from './WhiteAKasina';
