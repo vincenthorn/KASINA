@@ -1176,8 +1176,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       };
       
       // Apply natural breathing easing with consistent scaling for all kasina types
-      const normalizedScale = Math.max(0, Math.min(1, baseScale / 3)); // Reduced divisor for more reasonable scaling
-      const easedScale = naturalBreathingEase(normalizedScale) * 3; // Reduced multiplier to match
+      const normalizedScale = Math.max(0, Math.min(1, baseScale / 6)); // Restored to 6 for proper large scaling
+      const easedScale = naturalBreathingEase(normalizedScale) * 6; // Restored to 6 to match
       const scale = Math.max(0.001, easedScale); // Allow orb to nearly vanish completely
       
       // Calculate immersion level based on capped orb size - start very early for all kasinas
@@ -1212,7 +1212,13 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       if (meshRef.current) {
         // For basic kasinas, also apply scale and opacity
-        const cappedScale = immersionLevel > 0 ? Math.min(scale, 3) : scale;
+        const cappedScale = immersionLevel > 0 ? Math.min(scale, 6) : scale;
+        
+        // Debug logging for color kasinas
+        if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
+          console.log(`🔴 Color kasina ${selectedKasina} - orbSize: ${orbSize}px, baseScale: ${baseScale}, scale: ${scale}, cappedScale: ${cappedScale}`);
+        }
+        
         meshRef.current.scale.setScalar(cappedScale);
         
         // Optimize material updates - only update when opacity changes significantly
