@@ -1175,9 +1175,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         return Math.sin(t * Math.PI * 0.5);
       };
       
-      // Apply natural breathing easing
-      const normalizedScale = Math.max(0, Math.min(1, baseScale / 6));
-      const easedScale = naturalBreathingEase(normalizedScale) * 6;
+      // Apply natural breathing easing with consistent scaling for all kasina types
+      const normalizedScale = Math.max(0, Math.min(1, baseScale / 3)); // Reduced divisor for more reasonable scaling
+      const easedScale = naturalBreathingEase(normalizedScale) * 3; // Reduced multiplier to match
       const scale = Math.max(0.001, easedScale); // Allow orb to nearly vanish completely
       
       // Calculate immersion level based on capped orb size - start very early for all kasinas
