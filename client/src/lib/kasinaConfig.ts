@@ -249,12 +249,10 @@ export function calculateKasinaScale(
   // Baseline: 150px = 1.0 scale
   const baseScale = orbSize / 150;
   
-  // Apply kasina-specific scaling with proper normalization
-  const normalizedScale = Math.max(0, Math.min(1, baseScale / scaling.expansionRate));
+  // Simplified direct scaling approach
+  const normalizedScale = Math.max(0, Math.min(1, baseScale / 18)); // Normalize against 18x expansion
   const easedScale = naturalBreathingEase(normalizedScale);
-  // Use consistent scaling factor for all kasina types
-  const scaleFactor = scaling.baseScale / scaling.expansionRate;
-  const scale = Math.max(scaling.minScale, easedScale * scaleFactor);
+  const scale = Math.max(scaling.minScale, easedScale * 18); // Direct 18x scaling for dramatic effect
   
   // Calculate immersion level
   const cappedOrbSize = Math.min(orbSize, scaling.maxImmersion);
@@ -300,15 +298,12 @@ export function updateScalingPreset(category: keyof typeof SCALING_PRESETS, upda
 export function logKasinaScaling(kasina: string, orbSize: number, scale: number, cappedScale: number) {
   const config = getKasinaConfig(kasina);
   const baseScale = orbSize / 150;
-  const normalizedScale = Math.max(0, Math.min(1, baseScale / config.scaling.expansionRate));
-  const scaleFactor = config.scaling.baseScale / config.scaling.expansionRate;
+  const normalizedScale = Math.max(0, Math.min(1, baseScale / 18));
   
   console.log(`🎯 ${config.name} (${config.type}) SCALING:
     orbSize: ${orbSize}px
     baseScale: ${baseScale.toFixed(3)}
     normalizedScale: ${normalizedScale.toFixed(3)}
-    scaleFactor: ${scaleFactor.toFixed(3)}
     final scale: ${scale.toFixed(3)}
-    cappedScale: ${cappedScale.toFixed(3)}
-    maxScale: ${config.scaling.maxScale}`);
+    cappedScale: ${cappedScale.toFixed(3)}`);
 }
