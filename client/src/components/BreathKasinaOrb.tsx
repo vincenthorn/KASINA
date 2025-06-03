@@ -1075,10 +1075,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Dramatic breathing size range - barely visible to larger than screen
     const baseMinSize = 5; // Barely visible minimum (5px)
-    const baseMaxSize = 2000; // Larger than screen maximum (2000px)
+    const baseMaxSize = 6000; // Much larger maximum (6000px) for dramatic expansion
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale * sizeMultiplier);
-    const maxSize = Math.min(calculatedMaxSize, 3000); // Cap at very large size
+    const maxSize = Math.min(calculatedMaxSize, 9000); // Cap at very large size
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
@@ -1176,8 +1176,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       };
       
       // Apply natural breathing easing with consistent scaling for all kasina types
-      const normalizedScale = Math.max(0, Math.min(1, baseScale / 6)); // Restored to 6 for proper large scaling
-      const easedScale = naturalBreathingEase(normalizedScale) * 6; // Restored to 6 to match
+      const normalizedScale = Math.max(0, Math.min(1, baseScale / 18)); // Increased to 18 for 3x larger expansion
+      const easedScale = naturalBreathingEase(normalizedScale) * 18; // Increased to 18 to match
       const scale = Math.max(0.001, easedScale); // Allow orb to nearly vanish completely
       
       // Calculate immersion level based on capped orb size - start very early for all kasinas
@@ -1187,7 +1187,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       if (groupRef.current) {
         // Scale the main orb, but cap it to prevent it from getting too large
-        const cappedScale = immersionLevel > 0 ? Math.min(scale, 6) : scale;
+        const cappedScale = immersionLevel > 0 ? Math.min(scale, 18) : scale;
         
         // Debug logging for color kasinas
         if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
@@ -1218,7 +1218,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       if (meshRef.current) {
         // For basic kasinas, also apply scale and opacity
-        const cappedScale = immersionLevel > 0 ? Math.min(scale, 6) : scale;
+        const cappedScale = immersionLevel > 0 ? Math.min(scale, 18) : scale;
         
         // Debug logging for color kasinas
         if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
