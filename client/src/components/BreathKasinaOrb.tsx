@@ -1219,7 +1219,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
         }
         
-        meshRef.current.scale.setScalar(finalScale);
+        // Force scale application with explicit vector setting
+        meshRef.current.scale.set(finalScale, finalScale, finalScale);
+        
+        // Also ensure the scale is immediately updated
+        meshRef.current.updateMatrix();
         
         // Optimize material updates - only update when opacity changes significantly
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
@@ -1507,24 +1511,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         kasinaColor = getKasinaColor(selectedKasina);
       }
         
-      // Apply color kasina scaling fix directly to geometry
-      const kasConfig = getKasinaConfig(selectedKasina);
-      const baseRadius = kasConfig.type === 'color' ? 0.01 : 1; // Much smaller radius for color kasinas
-      
-      if (kasConfig.type === 'color') {
-        console.log(`🎯 Color kasina ${selectedKasina} using radius: ${baseRadius}`);
-      }
-      
       return (
         <>
           {/* Main orb */}
           <mesh ref={meshRef}>
-            <sphereGeometry args={[baseRadius, 64, 64]} />
+            <sphereGeometry args={[1, 64, 64]} />
             <meshBasicMaterial color={kasinaColor} />
           </mesh>
           {/* Immersion background - inside-out sphere */}
           <mesh ref={immersionBackgroundRef}>
-            <sphereGeometry args={[baseRadius, 64, 64]} />
+            <sphereGeometry args={[1, 64, 64]} />
             <meshBasicMaterial 
               color={kasinaColor} 
               transparent={true}
