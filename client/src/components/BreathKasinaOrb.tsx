@@ -1212,7 +1212,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       if (meshRef.current) {
         // For basic kasinas, also apply scale and opacity
-        const cappedScale = immersionLevel > 0 ? Math.min(scale, 6) : scale;
+        const cappedScale = immersionLevel > 0 ? Math.min(scale, 3) : scale;
         meshRef.current.scale.setScalar(cappedScale);
         
         // Optimize material updates - only update when opacity changes significantly
