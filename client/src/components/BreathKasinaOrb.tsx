@@ -1501,7 +1501,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       }
         
       return (
-        <>
+        <group ref={groupRef}>
           {/* Main orb */}
           <mesh ref={meshRef}>
             <sphereGeometry args={[1, 64, 64]} />
@@ -1516,7 +1516,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
               side={THREE.BackSide}
             />
           </mesh>
-        </>
+        </group>
       );
     }
   };
