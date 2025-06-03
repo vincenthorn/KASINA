@@ -1174,14 +1174,23 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         const { scale, cappedScale, immersionLevel, config } = scalingResult;
       
       if (groupRef.current) {
-        // Apply the calculated scale
+        // Apply the calculated scale with color kasina fix at group level
         
         // Debug logging using unified system
         if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
           logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
         }
         
-        groupRef.current.scale.setScalar(cappedScale);
+        // Apply targeted scaling fix for color kasinas at group level
+        const kasConfig = getKasinaConfig(selectedKasina);
+        let finalGroupScale = cappedScale;
+        
+        if (kasConfig.type === 'color') {
+          finalGroupScale = cappedScale * 0.01; // Much smaller scale for color kasinas
+          console.log(`🎯 Group color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalGroupScale.toFixed(3)}`);
+        }
+        
+        groupRef.current.scale.setScalar(finalGroupScale);
         
         // Optimize opacity updates - only update when there's a meaningful change
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
@@ -1204,27 +1213,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       }
       
       if (meshRef.current) {
-        // For basic kasinas, also apply scale and opacity
-        // Debug logging using unified system
-        if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-          logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
-        }
-        
-        // Apply targeted scaling fix for color kasinas
-        const kasConfig = getKasinaConfig(selectedKasina);
-        let finalScale = cappedScale;
-        
-        if (kasConfig.type === 'color') {
-          finalScale = cappedScale * 0.01; // Much smaller scale for color kasinas
-          console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
-        }
-        
-        // Force scale application with explicit vector setting
-        meshRef.current.scale.set(finalScale, finalScale, finalScale);
-        
-        // Also ensure the scale is immediately updated
-        meshRef.current.updateMatrix();
-        
+        // For basic kasinas, apply opacity updates
         // Optimize material updates - only update when opacity changes significantly
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
         const lastMeshOpacity = meshRef.current.userData.lastOpacity || 1;
