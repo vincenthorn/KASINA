@@ -1189,11 +1189,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         // Scale the main orb, but cap it to prevent it from getting too large
         const cappedScale = immersionLevel > 0 ? Math.min(scale, 18) : scale;
         
-        // Debug logging for color kasinas
-        if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-          console.log(`🔴 Color kasina ${selectedKasina} - orbSize: ${orbSize}px, baseScale: ${baseScale}, scale: ${scale}, cappedScale: ${cappedScale}`);
-        }
-        
         groupRef.current.scale.setScalar(cappedScale);
         
         // Optimize opacity updates - only update when there's a meaningful change
@@ -1219,11 +1214,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       if (meshRef.current) {
         // For basic kasinas, also apply scale and opacity
         const cappedScale = immersionLevel > 0 ? Math.min(scale, 18) : scale;
-        
-        // Debug logging for color kasinas
-        if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-          console.log(`🔴 Color kasina ${selectedKasina} - orbSize: ${orbSize}px, baseScale: ${baseScale}, scale: ${scale}, cappedScale: ${cappedScale}`);
-        }
         
         meshRef.current.scale.setScalar(cappedScale);
         
