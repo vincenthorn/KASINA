@@ -24,10 +24,10 @@ export interface KasinaConfig {
 // Using elemental/vajrayana scaling as the foundation for immersive experience
 const SCALING_PRESETS: Record<string, KasinaScaleConfig> = {
   color: {
-    baseScale: 8,         // More conservative scaling for color kasinas
-    maxScale: 8,          // Prevent oversizing
+    baseScale: 18,        // Match vajrayana/elemental dramatic scaling
+    maxScale: 18,         // Allow full expansion like other types
     minScale: 0.001,
-    expansionRate: 8,     // Less dramatic expansion
+    expansionRate: 18,    // Match vajrayana/elemental expansion
     immersionThreshold: 300,
     maxImmersion: 3000    // Keep immersion range consistent
   },
@@ -252,8 +252,8 @@ export function calculateKasinaScale(
   // Apply kasina-specific scaling with proper normalization
   const normalizedScale = Math.max(0, Math.min(1, baseScale / scaling.expansionRate));
   const easedScale = naturalBreathingEase(normalizedScale);
-  // Scale by a reasonable factor based on kasina type
-  const scaleFactor = config.type === 'color' ? 1.5 : scaling.baseScale / scaling.expansionRate;
+  // Use consistent scaling factor for all kasina types
+  const scaleFactor = scaling.baseScale / scaling.expansionRate;
   const scale = Math.max(scaling.minScale, easedScale * scaleFactor);
   
   // Calculate immersion level
@@ -301,13 +301,13 @@ export function logKasinaScaling(kasina: string, orbSize: number, scale: number,
   const config = getKasinaConfig(kasina);
   const baseScale = orbSize / 150;
   const normalizedScale = Math.max(0, Math.min(1, baseScale / config.scaling.expansionRate));
-  const scaleFactor = config.type === 'color' ? 1.5 : config.scaling.baseScale / config.scaling.expansionRate;
+  const scaleFactor = config.scaling.baseScale / config.scaling.expansionRate;
   
-  console.log(`🔴 ${config.name} (${config.type}) DETAILED:
+  console.log(`🎯 ${config.name} (${config.type}) SCALING:
     orbSize: ${orbSize}px
-    baseScale: ${baseScale.toFixed(3)} (${orbSize}/150)
-    normalizedScale: ${normalizedScale.toFixed(3)} (baseScale/${config.scaling.expansionRate})
-    scaleFactor: ${scaleFactor.toFixed(3)} (type: ${config.type})
+    baseScale: ${baseScale.toFixed(3)}
+    normalizedScale: ${normalizedScale.toFixed(3)}
+    scaleFactor: ${scaleFactor.toFixed(3)}
     final scale: ${scale.toFixed(3)}
     cappedScale: ${cappedScale.toFixed(3)}
     maxScale: ${config.scaling.maxScale}`);
