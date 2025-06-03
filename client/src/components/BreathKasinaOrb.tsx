@@ -1210,7 +1210,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
         }
         
-        meshRef.current.scale.setScalar(cappedScale);
+        // Apply targeted scaling fix for color kasinas
+        const kasConfig = getKasinaConfig(selectedKasina);
+        let finalScale = cappedScale;
+        
+        if (kasConfig.type === 'color') {
+          finalScale = cappedScale * 0.01; // Much smaller scale for color kasinas
+          console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
+        }
+        
+        meshRef.current.scale.setScalar(finalScale);
         
         // Optimize material updates - only update when opacity changes significantly
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
