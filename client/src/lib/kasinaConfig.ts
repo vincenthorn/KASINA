@@ -44,7 +44,7 @@ const SCALING_PRESETS: Record<string, KasinaScaleConfig> = {
     maxScale: 18,         // Full dramatic expansion
     minScale: 0.001,
     expansionRate: 18,    // Match elemental expansion
-    immersionThreshold: 250,  // Slightly earlier immersion
+    immersionThreshold: 300,  // Consistent with other kasina types
     maxImmersion: 3000    // Match elemental range
   },
   special: {
