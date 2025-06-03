@@ -1191,9 +1191,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         
         // Debug logging for color kasinas
         if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-          const bgColor = KASINA_BACKGROUNDS[selectedKasina] || '#000000';
-          const kasinaColor = getKasinaColor(selectedKasina);
-          console.log(`🔴 Color kasina ${selectedKasina} - orbSize: ${orbSize}px, baseScale: ${baseScale}, scale: ${scale}, cappedScale: ${cappedScale}, bgColor: ${bgColor}, kasinaColor: ${kasinaColor}`);
+          console.log(`🔴 Color kasina ${selectedKasina} - orbSize: ${orbSize}px, baseScale: ${baseScale}, scale: ${scale}, cappedScale: ${cappedScale}`);
         }
         
         groupRef.current.scale.setScalar(cappedScale);
