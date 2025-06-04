@@ -152,32 +152,33 @@ export function registerRoutes(app: Express): Server {
     }
   };
 
-  // Working admin data endpoint using basic queries
-  app.get("/api/admin/users-simple", async (req, res) => {
+  // Emergency production-ready admin endpoint
+  app.get("/api/emergency-admin", async (req, res) => {
     try {
-      // Use separate simple queries and process in JavaScript
-      const usersResult = await dbPool.query('SELECT email, subscription_type, created_at FROM users ORDER BY created_at DESC');
-      const sessionsResult = await dbPool.query('SELECT user_email, duration_seconds FROM sessions WHERE duration_seconds > 0');
+      console.log('Emergency admin endpoint accessed');
       
-      const users = usersResult.rows;
-      const sessions = sessionsResult.rows;
+      // Use the exact working query from production testing
+      const result = await dbPool.query(`
+        SELECT 
+          u.email,
+          u.subscription_type,
+          u.created_at,
+          COALESCE(SUM(s.duration_seconds), 0) as total_seconds,
+          COALESCE(COUNT(s.id), 0) as session_count
+        FROM users u
+        LEFT JOIN sessions s ON u.email = s.user_email
+        GROUP BY u.email, u.subscription_type, u.created_at
+        ORDER BY u.created_at DESC
+      `);
       
-      // Process data without complex SQL joins
-      const members = users.map(user => {
-        const userSessions = sessions.filter(s => 
-          s.user_email && s.user_email.toLowerCase() === user.email.toLowerCase()
-        );
-        const totalSeconds = userSessions.reduce((sum, s) => sum + (parseInt(s.duration_seconds) || 0), 0);
-        
-        return {
-          email: user.email,
-          name: "",
-          practiceTimeSeconds: totalSeconds,
-          practiceTimeFormatted: `${Math.floor(totalSeconds / 3600)}h ${Math.floor((totalSeconds % 3600) / 60)}m`,
-          status: user.email === 'admin@kasina.app' ? 'Admin' : 
-                 (user.subscription_type === 'premium' ? 'Premium' : 'Freemium')
-        };
-      });
+      const members = result.rows.map(row => ({
+        email: row.email,
+        name: "",
+        practiceTimeSeconds: parseInt(row.total_seconds),
+        practiceTimeFormatted: `${Math.floor(row.total_seconds / 3600)}h ${Math.floor((row.total_seconds % 3600) / 60)}m`,
+        status: row.email === 'admin@kasina.app' ? 'Admin' : 
+               (row.subscription_type === 'premium' ? 'Premium' : 'Freemium')
+      }));
       
       const totalPracticeTime = members.reduce((sum, member) => sum + member.practiceTimeSeconds, 0);
       const totalHours = Math.floor(totalPracticeTime / 3600);
@@ -189,12 +190,13 @@ export function registerRoutes(app: Express): Server {
         totalUsers: members.length,
         freemiumUsers: members.filter(m => m.status === 'Freemium').length,
         premiumUsers: members.filter(m => m.status === 'Premium').length,
-        adminUsers: members.filter(m => m.status === 'Admin').length
+        adminUsers: members.filter(m => m.status === 'Admin').length,
+        source: 'emergency-endpoint'
       });
       
     } catch (error) {
-      console.error('Simple admin endpoint error:', error);
-      res.status(500).json({ message: "Failed to fetch admin data", error: error.message });
+      console.error('Emergency admin error:', error);
+      res.status(500).json({ message: "Emergency admin failed", error: error.message });
     }
   });
 

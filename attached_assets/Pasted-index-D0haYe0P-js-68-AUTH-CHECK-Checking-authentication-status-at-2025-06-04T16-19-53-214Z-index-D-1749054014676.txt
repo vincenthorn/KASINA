@@ -1,0 +1,63 @@
+index-D0haYe0P.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T16:19:53.214Z
+index-D0haYe0P.js:68 Setting auth state with user: {email: 'admin@kasina.app', subscriptionType: undefined, subscription: 'free'}
+index-D0haYe0P.js:233 === COMPLETE DIAGNOSTIC REPORT ===
+index-D0haYe0P.js:233 === END DIAGNOSTIC REPORT ===
+index-D0haYe0P.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T16:19:53.328Z
+index-D0haYe0P.js:68 Setting auth state with user: {email: 'admin@kasina.app', subscriptionType: undefined, subscription: 'free'}
+index-D0haYe0P.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T16:19:55.158Z
+index-D0haYe0P.js:68 Setting auth state with user: {email: 'admin@kasina.app', subscriptionType: undefined, subscription: 'free'}
+index-D0haYe0P.js:4930 
+            
+            
+           GET https://start.kasina.app/api/admin/users-simple 500 (Internal Server Error)
+X @ index-D0haYe0P.js:4930
+(anonymous) @ index-D0haYe0P.js:4930
+y1 @ index-D0haYe0P.js:40
+Wd @ index-D0haYe0P.js:40
+EX @ index-D0haYe0P.js:40
+iu @ index-D0haYe0P.js:40
+M3 @ index-D0haYe0P.js:40
+bc @ index-D0haYe0P.js:38
+(anonymous) @ index-D0haYe0P.js:40
+index-D0haYe0P.js:4930 
+            
+            
+           GET https://start.kasina.app/api/admin/whitelist 500 (Internal Server Error)
+X @ index-D0haYe0P.js:4930
+await in X
+(anonymous) @ index-D0haYe0P.js:4930
+y1 @ index-D0haYe0P.js:40
+Wd @ index-D0haYe0P.js:40
+EX @ index-D0haYe0P.js:40
+iu @ index-D0haYe0P.js:40
+M3 @ index-D0haYe0P.js:40
+bc @ index-D0haYe0P.js:38
+(anonymous) @ index-D0haYe0P.js:40
+index-D0haYe0P.js:4930 Authentication failed, trying direct database access...
+index-D0haYe0P.js:4930 
+            
+            
+           GET https://start.kasina.app/api/admin/whitelist-direct 500 (Internal Server Error)
+X @ index-D0haYe0P.js:4930
+await in X
+(anonymous) @ index-D0haYe0P.js:4930
+y1 @ index-D0haYe0P.js:40
+Wd @ index-D0haYe0P.js:40
+EX @ index-D0haYe0P.js:40
+iu @ index-D0haYe0P.js:40
+M3 @ index-D0haYe0P.js:40
+bc @ index-D0haYe0P.js:38
+(anonymous) @ index-D0haYe0P.js:40
+index-D0haYe0P.js:4109 Error fetching whitelist data: Error: Failed to fetch whitelist data
+    at X (index-D0haYe0P.js:4930:47531)
+console.error @ index-D0haYe0P.js:4109
+X @ index-D0haYe0P.js:4930
+await in X
+(anonymous) @ index-D0haYe0P.js:4930
+y1 @ index-D0haYe0P.js:40
+Wd @ index-D0haYe0P.js:40
+EX @ index-D0haYe0P.js:40
+iu @ index-D0haYe0P.js:40
+M3 @ index-D0haYe0P.js:40
+bc @ index-D0haYe0P.js:38
+(anonymous) @ index-D0haYe0P.js:40

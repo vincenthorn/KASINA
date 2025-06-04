@@ -89,18 +89,29 @@ const AdminPage: React.FC = () => {
   const fetchWhitelistData = async () => {
     setLoading(true);
     try {
-      // Try the simple working endpoint first
-      let response = await fetch("/api/admin/users-simple");
+      // Try emergency endpoint first (uses working production query)
+      let response = await fetch("/api/emergency-admin");
       
       if (response.ok) {
         const data = await response.json();
         setMembers(data.members);
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
-        console.log("Successfully loaded", data.totalUsers, "users");
+        console.log("Emergency endpoint: loaded", data.totalUsers, "users");
         return;
       }
       
-      // Fallback to authenticated endpoint
+      // Fallback to simple endpoint
+      response = await fetch("/api/admin/users-simple");
+      
+      if (response.ok) {
+        const data = await response.json();
+        setMembers(data.members);
+        setTotalPracticeTime(data.totalPracticeTimeFormatted);
+        console.log("Simple endpoint: loaded", data.totalUsers, "users");
+        return;
+      }
+      
+      // Final fallback to authenticated endpoint
       response = await fetch("/api/admin/whitelist");
       
       // If authentication fails, fall back to direct database access
