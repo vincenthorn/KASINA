@@ -480,8 +480,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const transitionDurationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   
   // Background sync state
-  const [backgroundIntensity, setBackgroundIntensity] = useState(0.1);
-  const [currentBackgroundColor, setCurrentBackgroundColor] = useState('#1a1a1a');
+  const [backgroundIntensity, setBackgroundIntensity] = useState(0.4);
+  const [currentBackgroundColor, setCurrentBackgroundColor] = useState('#2a2a2a');
   
   // Better breath detection using recent amplitude history
   const breathHistoryRef = useRef<number[]>([]);
@@ -968,19 +968,20 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const calculateBackgroundColor = (kasinaColor: string, intensity: number): string => {
     // Parse the kasina color
     const result = kasinaColor.slice(1).match(/.{2}/g);
-    if (!result) return '#1a1a1a';
+    if (!result) return '#2a2a2a';
     
     const [r, g, b] = result.map(c => parseInt(c, 16));
     
-    // Create a subtle background version of the kasina color
-    // Higher base intensity so the kasina color is more visible in background
-    const baseIntensity = 0.15; // More visible base color
-    const breathIntensity = intensity * 0.1; // Subtle breathing effect
+    // Create a much more visible background version of the kasina color
+    const baseIntensity = 0.3; // Much more visible base color
+    const breathIntensity = intensity * 0.2; // More noticeable breathing effect
     const totalIntensity = baseIntensity + breathIntensity;
     
     const newR = Math.round(r * totalIntensity);
     const newG = Math.round(g * totalIntensity);
     const newB = Math.round(b * totalIntensity);
+    
+    console.log(`🎨 Background color: ${kasinaColor} -> rgb(${newR}, ${newG}, ${newB}) intensity: ${totalIntensity.toFixed(2)}`);
     
     return `rgb(${newR}, ${newG}, ${newB})`;
   };
@@ -1089,7 +1090,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
   }, [activeBreathAmplitude, activeIsListening, selectedKasina, currentColorIndex, nextColorIndex, isTransitioning, rainbowColors]);
 
-  // Update background color whenever kasina changes
+  // Initialize and update background color whenever kasina changes
   useEffect(() => {
     let currentKasinaColor: string;
     if (selectedKasina === 'custom') {
@@ -1106,9 +1107,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       currentKasinaColor = getKasinaColor(selectedKasina);
     }
     
+    console.log(`🔄 Updating background for kasina: ${selectedKasina}, color: ${currentKasinaColor}`);
     const newBackgroundColor = calculateBackgroundColor(currentKasinaColor, backgroundIntensity);
     setCurrentBackgroundColor(newBackgroundColor);
   }, [selectedKasina, currentColorIndex, nextColorIndex, isTransitioning, transitionProgress, backgroundIntensity, rainbowColors]);
+
+  // Initialize background color on component mount
+  useEffect(() => {
+    const initialKasinaColor = getKasinaColor(selectedKasina);
+    const initialBackgroundColor = calculateBackgroundColor(initialKasinaColor, backgroundIntensity);
+    setCurrentBackgroundColor(initialBackgroundColor);
+    console.log(`🚀 Initial background color set: ${initialBackgroundColor} for kasina: ${selectedKasina}`);
+  }, []);
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
