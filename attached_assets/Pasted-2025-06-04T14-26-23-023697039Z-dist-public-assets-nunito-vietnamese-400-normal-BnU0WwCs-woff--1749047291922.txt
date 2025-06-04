@@ -1,0 +1,50 @@
+2025-06-04T14:26:23.023697039Z ../dist/public/assets/nunito-vietnamese-400-normal-BnU0WwCs.woff         8.43 kB
+2025-06-04T14:26:23.02370854Z ../dist/public/assets/nunito-cyrillic-700-normal-C2ZPAHu5.woff2          8.44 kB
+2025-06-04T14:26:23.0237128Z ../dist/public/assets/inter-greek-400-normal-BZzXV7-1.woff               9.96 kB
+2025-06-04T14:26:23.023754372Z ../dist/public/assets/inter-cyrillic-400-normal-ZzOtrSSW.woff           10.14 kB
+2025-06-04T14:26:23.02387604Z ../dist/public/assets/inter-cyrillic-ext-400-normal-Dc4VJyIJ.woff2      10.22 kB
+2025-06-04T14:26:23.02388232Z ../dist/public/assets/nunito-cyrillic-700-normal-CY6xiUxZ.woff          10.44 kB
+2025-06-04T14:26:23.02388459Z ../dist/public/assets/nunito-cyrillic-400-normal-hvcJLrVW.woff          10.50 kB
+2025-06-04T14:26:23.023899931Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-Cgrooa9T.woff2     10.88 kB
+2025-06-04T14:26:23.023902341Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CiC2fk4J.woff2     11.05 kB
+2025-06-04T14:26:23.023926293Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-D-e9fzlR.woff      14.12 kB
+2025-06-04T14:26:23.023928973Z ../dist/public/assets/inter-cyrillic-ext-400-normal-BPnxn4xp.woff       14.19 kB
+2025-06-04T14:26:23.023931113Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CUrc3HHF.woff      14.36 kB
+2025-06-04T14:26:23.023965005Z ../dist/public/assets/nunito-latin-ext-700-normal-DwQwRZln.woff2        15.39 kB
+2025-06-04T14:26:23.023968225Z ../dist/public/assets/nunito-latin-ext-400-normal-Z5e_fnxp.woff2        15.45 kB
+2025-06-04T14:26:23.023970425Z ../dist/public/assets/nunito-latin-400-normal-CA33qtOw.woff2            16.29 kB
+2025-06-04T14:26:23.023975366Z ../dist/public/assets/nunito-latin-700-normal-CGDVIs8t.woff2            16.31 kB
+2025-06-04T14:26:23.023977566Z ../dist/public/assets/nunito-latin-700-normal-C5gyHyFo.woff             20.19 kB
+2025-06-04T14:26:23.023982336Z ../dist/public/assets/nunito-latin-400-normal-nExtXIcZ.woff             20.52 kB
+2025-06-04T14:26:23.023986706Z ../dist/public/assets/nunito-latin-ext-700-normal-G8lcDK0M.woff         20.82 kB
+2025-06-04T14:26:23.024011878Z ../dist/public/assets/nunito-latin-ext-400-normal-DZILPSLY.woff         21.07 kB
+2025-06-04T14:26:23.024014558Z ../dist/public/assets/inter-latin-400-normal-BOOGhInR.woff2             23.69 kB
+2025-06-04T14:26:23.024016738Z ../dist/public/assets/inter-latin-ext-400-normal-hnt3BR84.woff2         30.68 kB
+2025-06-04T14:26:23.024089952Z ../dist/public/assets/inter-latin-400-normal-gitzw0hO.woff              31.20 kB
+2025-06-04T14:26:23.024106064Z ../dist/public/assets/inter-latin-ext-400-normal-C1t-h-pH.woff          42.88 kB
+2025-06-04T14:26:23.024144326Z ../dist/public/assets/index-CvPP1z8n.css                               107.80 kB │ gzip:  17.85 kB
+2025-06-04T14:26:23.024178638Z ../dist/public/assets/godirect.min.esm-D_z86mMB.js                      12.66 kB │ gzip:   4.19 kB
+2025-06-04T14:26:23.024199579Z ../dist/public/assets/index-D8PQqqzk.js                              1,852.12 kB │ gzip: 513.35 kB
+2025-06-04T14:26:23.024241082Z 
+2025-06-04T14:26:23.024245482Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-06-04T14:26:23.024248302Z - Using dynamic import() to code-split the application
+2025-06-04T14:26:23.024250842Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-06-04T14:26:23.024252802Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-06-04T14:26:23.024518968Z ✓ built in 11.33s
+2025-06-04T14:26:23.147819415Z 
+2025-06-04T14:26:23.147841266Z   dist/index.js  34.0kb
+2025-06-04T14:26:23.147843927Z 
+2025-06-04T14:26:23.147846367Z ⚡ Done in 5ms
+2025-06-04T14:26:24.255622745Z ==> Uploading build...
+2025-06-04T14:27:06.668010065Z ==> Uploaded in 37.0s. Compression took 5.4s
+2025-06-04T14:27:06.886676848Z ==> Build successful 🎉
+2025-06-04T14:27:09.165857883Z ==> Deploying...
+2025-06-04T14:27:45.64957674Z ==> Running 'npm run start'
+2025-06-04T14:27:45.877565368Z 
+2025-06-04T14:27:45.877585549Z > rest-express@1.0.0 start
+2025-06-04T14:27:45.877590139Z > NODE_ENV=production node dist/index.js
+2025-06-04T14:27:45.877592619Z 
+2025-06-04T14:27:46.66314949Z 2:27:46 PM [express] Using PostgreSQL session store for production
+2025-06-04T14:27:46.671235249Z 2:27:46 PM [express] KASINA meditation app serving on port 10000
+2025-06-04T14:27:46.819350158Z 📥 INCOMING REQUEST: HEAD /
+2025-06-04T14:27:50.013458522Z ==> Your service is live 🎉
