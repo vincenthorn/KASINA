@@ -111,34 +111,47 @@ const AdminPage: React.FC = () => {
         return;
       }
       
-      // Final fallback to authenticated endpoint
+      // Fallback to authenticated endpoint
       response = await fetch("/api/admin/whitelist");
       
-      // If authentication fails, fall back to direct database access
-      if (!response.ok) {
-        console.log("Authentication failed, trying direct database access...");
-        response = await fetch("/api/admin/whitelist-direct");
-      }
-      
-      if (!response.ok) {
-        throw new Error("Failed to fetch whitelist data");
-      }
-      
-      const data = await response.json();
-      setMembers(data.members);
-      
-      // Save the total practice time
-      if (data.totalPracticeTimeFormatted) {
+      if (response.ok) {
+        const data = await response.json();
+        setMembers(data.members);
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
+        console.log("Authenticated endpoint: loaded", data.members?.length || 0, "users");
+        return;
       }
       
-      // Show debug info if using direct access
-      if (data.debug) {
-        console.log("Using direct database access:", data.debug);
+      // Try direct database access
+      console.log("API endpoints failed, trying direct database access...");
+      response = await fetch("/api/admin/whitelist-direct");
+      
+      if (response.ok) {
+        const data = await response.json();
+        setMembers(data.members);
+        setTotalPracticeTime(data.totalPracticeTimeFormatted);
+        console.log("Direct access: loaded", data.members?.length || 0, "users");
+        return;
       }
+      
+      // Final fallback: Load static admin data file
+      console.log("All API endpoints failed, loading static admin data...");
+      response = await fetch("/admin-data.json");
+      
+      if (response.ok) {
+        const data = await response.json();
+        setMembers(data.members);
+        setTotalPracticeTime(data.totalPracticeTimeFormatted);
+        console.log("Static data: loaded", data.totalUsers, "users");
+        toast.success("Admin data loaded from backup");
+        return;
+      }
+      
+      throw new Error("All data sources failed");
+      
     } catch (error) {
       console.error("Error fetching whitelist data:", error);
-      toast.error("Failed to load whitelist data");
+      toast.error("Failed to load whitelist data from all sources");
     } finally {
       setLoading(false);
     }
