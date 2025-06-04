@@ -58,9 +58,13 @@ export function registerRoutes(app: Express): Server {
     next();
   };
 
-  // Basic authentication routes
+  // Enhanced authentication routes with session debugging
   app.post("/api/auth/login", async (req, res) => {
     const { email } = req.body;
+    
+    console.log(`🔐 LOGIN ATTEMPT: ${email}`);
+    console.log(`🔐 Pre-login session ID: ${req.sessionID}`);
+    console.log(`🔐 Pre-login session data:`, req.session);
     
     if (!email) {
       return res.status(400).json({ message: "Email is required" });
@@ -70,34 +74,52 @@ export function registerRoutes(app: Express): Server {
       // Check if user exists in database
       const user = await getUserByEmail(email);
       if (!user) {
+        console.log(`🔐 LOGIN FAILED: User ${email} not found in database`);
         return res.status(401).json({ message: "User not found" });
       }
       
-      // Store user in session
+      console.log(`🔐 LOGIN SUCCESS: User ${email} found with subscription: ${user.subscription_type}`);
+      
+      // Store user in session with enhanced debugging
       req.session.user = { email: user.email };
+      console.log(`🔐 Setting session user data:`, req.session.user);
+      console.log(`🔐 Session ID after user assignment: ${req.sessionID}`);
+      console.log(`🔐 Full session object:`, req.session);
       
-      console.log("Login - Setting session data:", req.session.user);
-      console.log("Login - Session ID:", req.sessionID);
-      
-      // Save session explicitly to ensure it persists
-      req.session.save((err) => {
-        if (err) {
-          console.error("Session save error:", err);
-          return res.status(500).json({ message: "Session save failed" });
+      // Force session regeneration to ensure clean state
+      req.session.regenerate((regenErr) => {
+        if (regenErr) {
+          console.error("🔐 Session regeneration error:", regenErr);
+          return res.status(500).json({ message: "Session regeneration failed" });
         }
         
-        console.log("Login - Session saved successfully");
+        // Set user data in new session
+        req.session.user = { email: user.email };
+        console.log(`🔐 New session ID after regeneration: ${req.sessionID}`);
+        console.log(`🔐 User data in new session:`, req.session.user);
         
-        res.json({ 
-          message: "Login successful",
-          user: { 
-            email: user.email,
-            subscriptionType: user.subscription_type 
+        // Save session explicitly
+        req.session.save((saveErr) => {
+          if (saveErr) {
+            console.error("🔐 Session save error:", saveErr);
+            return res.status(500).json({ message: "Session save failed" });
           }
+          
+          console.log(`🔐 Session saved successfully for ${email}`);
+          console.log(`🔐 Final session ID: ${req.sessionID}`);
+          
+          res.json({ 
+            message: "Login successful",
+            user: { 
+              email: user.email,
+              subscriptionType: user.subscription_type 
+            },
+            sessionId: req.sessionID // Include for debugging
+          });
         });
       });
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("🔐 Login error:", error);
       res.status(500).json({ message: "Login failed" });
     }
   });
@@ -128,6 +150,23 @@ export function registerRoutes(app: Express): Server {
       console.error("Auth check error:", error);
       res.status(500).json({ message: "Authentication check failed" });
     }
+  });
+
+  // Session test endpoint for debugging
+  app.get("/api/test-session", (req, res) => {
+    console.log(`🧪 SESSION TEST - ID: ${req.sessionID}`);
+    console.log(`🧪 SESSION TEST - Data:`, req.session);
+    console.log(`🧪 SESSION TEST - User:`, req.session?.user);
+    console.log(`🧪 SESSION TEST - Cookies:`, req.headers.cookie);
+    
+    res.json({
+      sessionId: req.sessionID,
+      hasSession: !!req.session,
+      hasUser: !!req.session?.user,
+      user: req.session?.user || null,
+      timestamp: new Date().toISOString(),
+      cookies: req.headers.cookie || null
+    });
   });
 
   // Admin middleware with enhanced debugging

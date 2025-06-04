@@ -6,6 +6,7 @@ import memoryStore from "memorystore";
 import connectPgSimple from "connect-pg-simple";
 import { Pool } from "pg";
 import { config } from "dotenv";
+import crypto from "crypto";
 
 // Load environment variables
 config();
@@ -67,26 +68,44 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Setup session middleware
+// Setup session middleware with enhanced debugging and production fixes
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "kasina-meditation-secret",
+    secret: process.env.SESSION_SECRET || "kasina-meditation-secret-fallback",
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === 'production', // Enable secure cookies in production
+      secure: false, // Temporarily disable for debugging - should be true in production with HTTPS
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
-      sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'lax', // Changed from 'strict' to 'lax' for better compatibility
+      sameSite: 'lax', // Use lax for better cross-origin compatibility
+      domain: undefined, // Let browser set domain automatically
     },
     store: sessionStore,
-    // Add session debugging
-    ...(process.env.NODE_ENV === 'production' ? {
-      name: 'kasina-session',
-      proxy: true, // Trust proxy in production
-    } : {})
+    name: 'kasina-session',
+    proxy: process.env.NODE_ENV === 'production', // Trust proxy only in production
+    // Enhanced session debugging
+    genid: () => {
+      const id = crypto.randomBytes(16).toString('hex');
+      console.log(`🔑 Generated new session ID: ${id}`);
+      return id;
+    }
   })
 );
+
+// Enhanced session debugging middleware
+app.use((req, res, next) => {
+  if (req.path.includes('/api/auth') || req.path.includes('/admin')) {
+    console.log(`🔍 SESSION DEBUG - ${req.method} ${req.path}:`);
+    console.log(`  Session ID: ${req.sessionID}`);
+    console.log(`  Session exists: ${!!req.session}`);
+    console.log(`  User in session: ${!!req.session?.user}`);
+    console.log(`  User email: ${req.session?.user?.email}`);
+    console.log(`  Cookies: ${req.headers.cookie}`);
+    console.log(`  User-Agent: ${req.headers['user-agent']}`);
+  }
+  next();
+});
 
 app.use((req, res, next) => {
   const start = Date.now();
