@@ -3,13 +3,35 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import session from "express-session";
 import memoryStore from "memorystore";
+import connectPgSimple from "connect-pg-simple";
+import { Pool } from "pg";
 import { config } from "dotenv";
 
 // Load environment variables
 config();
 
-// Create memory store for sessions
-const MemoryStore = memoryStore(session);
+// Create session store - use PostgreSQL in production, memory in development
+let sessionStore;
+if (process.env.NODE_ENV === 'production' && process.env.DATABASE_URL) {
+  const PgSession = connectPgSimple(session);
+  const pgPool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  });
+  
+  sessionStore = new PgSession({
+    pool: pgPool,
+    tableName: 'session',
+    createTableIfMissing: true,
+  });
+  
+  log("Using PostgreSQL session store for production");
+} else {
+  const MemoryStore = memoryStore(session);
+  sessionStore = new MemoryStore({
+    checkPeriod: 86400000, // prune expired entries every 24h
+  });
+  log("Using memory session store for development");
+}
 
 const app = express();
 
