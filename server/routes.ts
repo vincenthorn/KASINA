@@ -210,7 +210,7 @@ export function registerRoutes(app: Express): Server {
       console.error('🚨 Emergency Admin: Database error:', error);
       res.status(500).json({ 
         message: "Emergency admin failed", 
-        error: error.message,
+        error: error instanceof Error ? error.message : "Unknown error",
         timestamp: new Date().toISOString(),
         source: 'emergency-simplified-queries'
       });
@@ -295,7 +295,7 @@ export function registerRoutes(app: Express): Server {
       
     } catch (error) {
       console.error("❌ Direct Admin Query Error:", error);
-      res.status(500).json({ message: "Database query failed", error: error.message });
+      res.status(500).json({ message: "Database query failed", error: error instanceof Error ? error.message : "Unknown error" });
     }
   });
 
@@ -400,6 +400,31 @@ export function registerRoutes(app: Express): Server {
         message: "Failed to fetch whitelist data",
         error: errorMessage,
         details: "Check server logs for more information"
+      });
+    }
+  });
+
+  // Simple users endpoint for admin dashboard
+  app.get("/api/admin/users-simple", checkAdmin, async (req, res) => {
+    try {
+      console.log('🔍 Admin Dashboard: Fetching simple user list...');
+      
+      const users = await getAllUsers();
+      console.log(`📊 Retrieved ${users.length} users for simple list`);
+      
+      const simpleUsers = users.map(user => ({
+        id: user.id,
+        email: user.email,
+        subscription_type: user.subscription_type,
+        created_at: user.created_at
+      }));
+      
+      res.json(simpleUsers);
+    } catch (error) {
+      console.error("❌ Error fetching simple user list:", error);
+      res.status(500).json({ 
+        message: "Failed to fetch user list",
+        error: error instanceof Error ? error.message : "Unknown error"
       });
     }
   });
