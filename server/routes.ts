@@ -145,8 +145,31 @@ export function registerRoutes(app: Express): Server {
   // Get whitelist with member data from PostgreSQL database
   app.get("/api/admin/whitelist", checkAdmin, async (req, res) => {
     try {
+      console.log('🔍 Admin Dashboard: Starting user data fetch...');
+      console.log('🔍 Admin Dashboard: getAllUsersWithStats function type:', typeof getAllUsersWithStats);
+      
+      // Test if function is available
+      if (typeof getAllUsersWithStats !== 'function') {
+        console.error('❌ Admin Dashboard: getAllUsersWithStats is not a function!');
+        return res.status(500).json({ 
+          message: "Database function not available",
+          error: "getAllUsersWithStats is not exported properly"
+        });
+      }
+      
       // Get all users with their practice stats from PostgreSQL database
+      console.log('🔍 Admin Dashboard: Calling getAllUsersWithStats...');
       const usersWithStats = await getAllUsersWithStats();
+      console.log(`📊 Admin Dashboard: Retrieved ${usersWithStats.length} users from database`);
+      
+      if (usersWithStats.length === 0) {
+        console.log('⚠️ Admin Dashboard: No users returned from getAllUsersWithStats');
+        
+        // Fallback: Try direct database query
+        console.log('🔄 Admin Dashboard: Attempting direct database query...');
+        const directResult = await dbPool.query('SELECT COUNT(*) FROM users');
+        console.log('📊 Admin Dashboard: Direct user count:', directResult.rows[0].count);
+      }
       
       // Calculate total practice time across all users
       const totalPracticeTimeSeconds = usersWithStats.reduce((total, user) => {
@@ -180,6 +203,8 @@ export function registerRoutes(app: Express): Server {
         };
       });
       
+      console.log(`✅ Admin Dashboard: Returning ${members.length} members to frontend`);
+      
       res.json({
         members,
         totalPracticeTimeFormatted,
@@ -189,8 +214,13 @@ export function registerRoutes(app: Express): Server {
         adminUsers: members.filter(m => m.status === "Admin").length
       });
     } catch (error) {
-      console.error("Error fetching whitelist data:", error);
-      res.status(500).json({ message: "Failed to fetch whitelist data" });
+      console.error("❌ Admin Dashboard: Error fetching whitelist data:", error);
+      console.error("❌ Admin Dashboard: Error stack:", error.stack);
+      res.status(500).json({ 
+        message: "Failed to fetch whitelist data",
+        error: error.message,
+        details: "Check server logs for more information"
+      });
     }
   });
 
