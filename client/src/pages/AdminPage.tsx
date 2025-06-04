@@ -89,8 +89,19 @@ const AdminPage: React.FC = () => {
   const fetchWhitelistData = async () => {
     setLoading(true);
     try {
-      // Try the authenticated endpoint first
-      let response = await fetch("/api/admin/whitelist");
+      // Try the simple working endpoint first
+      let response = await fetch("/api/admin/users-simple");
+      
+      if (response.ok) {
+        const data = await response.json();
+        setMembers(data.members);
+        setTotalPracticeTime(data.totalPracticeTimeFormatted);
+        console.log("Successfully loaded", data.totalUsers, "users");
+        return;
+      }
+      
+      // Fallback to authenticated endpoint
+      response = await fetch("/api/admin/whitelist");
       
       // If authentication fails, fall back to direct database access
       if (!response.ok) {

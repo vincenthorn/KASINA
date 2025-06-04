@@ -152,22 +152,49 @@ export function registerRoutes(app: Express): Server {
     }
   };
 
-  // Simple working endpoints for basic admin data
-  app.get("/api/simple-users", async (req, res) => {
+  // Working admin data endpoint using basic queries
+  app.get("/api/admin/users-simple", async (req, res) => {
     try {
-      const result = await dbPool.query('SELECT email, subscription_type, created_at FROM users ORDER BY created_at DESC');
-      res.json(result.rows);
+      // Use separate simple queries and process in JavaScript
+      const usersResult = await dbPool.query('SELECT email, subscription_type, created_at FROM users ORDER BY created_at DESC');
+      const sessionsResult = await dbPool.query('SELECT user_email, duration_seconds FROM sessions WHERE duration_seconds > 0');
+      
+      const users = usersResult.rows;
+      const sessions = sessionsResult.rows;
+      
+      // Process data without complex SQL joins
+      const members = users.map(user => {
+        const userSessions = sessions.filter(s => 
+          s.user_email && s.user_email.toLowerCase() === user.email.toLowerCase()
+        );
+        const totalSeconds = userSessions.reduce((sum, s) => sum + (parseInt(s.duration_seconds) || 0), 0);
+        
+        return {
+          email: user.email,
+          name: "",
+          practiceTimeSeconds: totalSeconds,
+          practiceTimeFormatted: `${Math.floor(totalSeconds / 3600)}h ${Math.floor((totalSeconds % 3600) / 60)}m`,
+          status: user.email === 'admin@kasina.app' ? 'Admin' : 
+                 (user.subscription_type === 'premium' ? 'Premium' : 'Freemium')
+        };
+      });
+      
+      const totalPracticeTime = members.reduce((sum, member) => sum + member.practiceTimeSeconds, 0);
+      const totalHours = Math.floor(totalPracticeTime / 3600);
+      const totalMinutes = Math.floor((totalPracticeTime % 3600) / 60);
+      
+      res.json({
+        members,
+        totalPracticeTimeFormatted: `${totalHours}h ${totalMinutes}m`,
+        totalUsers: members.length,
+        freemiumUsers: members.filter(m => m.status === 'Freemium').length,
+        premiumUsers: members.filter(m => m.status === 'Premium').length,
+        adminUsers: members.filter(m => m.status === 'Admin').length
+      });
+      
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch users", error: error.message });
-    }
-  });
-
-  app.get("/api/simple-sessions", async (req, res) => {
-    try {
-      const result = await dbPool.query('SELECT user_email, duration_seconds FROM sessions WHERE duration_seconds > 0');
-      res.json(result.rows);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch sessions", error: error.message });
+      console.error('Simple admin endpoint error:', error);
+      res.status(500).json({ message: "Failed to fetch admin data", error: error.message });
     }
   });
 
