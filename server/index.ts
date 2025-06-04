@@ -77,9 +77,14 @@ app.use(
       secure: process.env.NODE_ENV === 'production', // Enable secure cookies in production
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
-      sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax', // Prevent CSRF attacks
+      sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'lax', // Changed from 'strict' to 'lax' for better compatibility
     },
     store: sessionStore,
+    // Add session debugging
+    ...(process.env.NODE_ENV === 'production' ? {
+      name: 'kasina-session',
+      proxy: true, // Trust proxy in production
+    } : {})
   })
 );
 

@@ -76,12 +76,20 @@ export function registerRoutes(app: Express): Server {
       // Store user in session
       req.session.user = { email: user.email };
       
-      res.json({ 
-        message: "Login successful",
-        user: { 
-          email: user.email,
-          subscriptionType: user.subscription_type 
+      // Save session explicitly to ensure it persists
+      req.session.save((err) => {
+        if (err) {
+          console.error("Session save error:", err);
+          return res.status(500).json({ message: "Session save failed" });
         }
+        
+        res.json({ 
+          message: "Login successful",
+          user: { 
+            email: user.email,
+            subscriptionType: user.subscription_type 
+          }
+        });
       });
     } catch (error) {
       console.error("Login error:", error);
@@ -90,7 +98,13 @@ export function registerRoutes(app: Express): Server {
   });
 
   app.get("/api/auth/me", async (req, res) => {
+    // Debug session information
+    console.log("Auth check - Session ID:", req.sessionID);
+    console.log("Auth check - Session data:", req.session);
+    console.log("Auth check - Cookie headers:", req.headers.cookie);
+    
     if (!req.session?.user?.email) {
+      console.log("Auth check failed - No session user data");
       return res.status(401).json({ message: "Not authenticated" });
     }
     
