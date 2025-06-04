@@ -1573,11 +1573,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     <div 
       className="fixed inset-0 flex items-center justify-center"
       style={{
-        backgroundColor: KASINA_BACKGROUNDS[selectedKasina] || '#000000',
+        backgroundColor: currentBackgroundColor,
         width: '100vw',
         height: '100vh',
         zIndex: 10,
-        cursor: showCursor ? 'default' : 'none'
+        cursor: showCursor ? 'default' : 'none',
+        transition: 'background-color 0.1s ease-out' // Smooth color transitions
       }}
     >
       {/* Three.js Canvas with modern kasina components */}
