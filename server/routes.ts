@@ -130,14 +130,24 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Admin middleware
+  // Admin middleware with enhanced debugging
   const checkAdmin = (req: Request, res: Response, next: NextFunction) => {
     const userEmail = req.session?.user?.email;
     const adminEmails = ["admin@kasina.app"];
     
+    console.log('🔐 Admin Auth Check:', {
+      sessionExists: !!req.session,
+      userInSession: !!req.session?.user,
+      userEmail: userEmail,
+      sessionId: req.sessionID,
+      isAdmin: userEmail && adminEmails.includes(userEmail)
+    });
+    
     if (userEmail && adminEmails.includes(userEmail)) {
+      console.log('✅ Admin access granted for:', userEmail);
       next();
     } else {
+      console.log('❌ Admin access denied. User email:', userEmail);
       res.status(403).json({ message: "Unauthorized: Admin access required" });
     }
   };
@@ -215,10 +225,12 @@ export function registerRoutes(app: Express): Server {
       });
     } catch (error) {
       console.error("❌ Admin Dashboard: Error fetching whitelist data:", error);
-      console.error("❌ Admin Dashboard: Error stack:", error.stack);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorStack = error instanceof Error ? error.stack : undefined;
+      console.error("❌ Admin Dashboard: Error stack:", errorStack);
       res.status(500).json({ 
         message: "Failed to fetch whitelist data",
-        error: error.message,
+        error: errorMessage,
         details: "Check server logs for more information"
       });
     }
