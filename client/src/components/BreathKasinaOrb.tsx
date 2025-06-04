@@ -479,6 +479,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const rainbowColors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#8b00ff'];
   const transitionDurationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   
+  // Background sync state
+  const [backgroundIntensity, setBackgroundIntensity] = useState(0.1);
+  const [currentBackgroundColor, setCurrentBackgroundColor] = useState('#1a1a1a');
+  
   // Better breath detection using recent amplitude history
   const breathHistoryRef = useRef<number[]>([]);
   const peakBreathTimeRef = useRef({ duration: 0, transitionStartTime: null as number | null });
@@ -960,6 +964,27 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return KASINA_COLORS[kasina] || KASINA_COLORS[KASINA_TYPES.BLUE];
   };
 
+  // Calculate background color that syncs with orb breathing
+  const calculateBackgroundColor = (kasinaColor: string, intensity: number): string => {
+    // Parse the kasina color
+    const result = kasinaColor.slice(1).match(/.{2}/g);
+    if (!result) return '#1a1a1a';
+    
+    const [r, g, b] = result.map(c => parseInt(c, 16));
+    
+    // Create a dark version of the kasina color that pulses with breathing
+    // Base darkness with subtle color tint
+    const baseIntensity = 0.05; // Very dark base
+    const breathIntensity = intensity * 0.15; // Breathing adds subtle color
+    const totalIntensity = baseIntensity + breathIntensity;
+    
+    const newR = Math.round(r * totalIntensity);
+    const newG = Math.round(g * totalIntensity);
+    const newB = Math.round(b * totalIntensity);
+    
+    return `rgb(${newR}, ${newG}, ${newB})`;
+  };
+
   // Get additional styles for kasina
   const getKasinaStyles = (kasina: string) => {
     if (kasina === KASINA_TYPES.RAINBOW_KASINA) {
@@ -1143,6 +1168,29 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     } catch (error) {
       console.error('Error updating orb DOM styles:', error);
     }
+    
+    // Update background intensity sync with breathing
+    const breathIntensity = scaledAmplitude * 0.8; // Scale breathing amplitude for background sync
+    setBackgroundIntensity(0.1 + breathIntensity * 0.3); // Base 0.1 + breathing adds up to 0.4
+    
+    // Calculate and update background color based on current kasina
+    let currentKasinaColor: string;
+    if (selectedKasina === 'custom') {
+      if (isTransitioning) {
+        currentKasinaColor = blendColors(
+          rainbowColors[currentColorIndex], 
+          rainbowColors[nextColorIndex], 
+          transitionProgress
+        );
+      } else {
+        currentKasinaColor = rainbowColors[currentColorIndex];
+      }
+    } else {
+      currentKasinaColor = getKasinaColor(selectedKasina);
+    }
+    
+    const newBackgroundColor = calculateBackgroundColor(currentKasinaColor, backgroundIntensity);
+    setCurrentBackgroundColor(newBackgroundColor);
     
     // Log the size and rate data for debugging
     console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, range: ${minSize}-${maxSize}px, current: ${newSize}px`);
