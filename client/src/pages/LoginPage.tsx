@@ -13,8 +13,8 @@ const LoginPage: React.FC = () => {
   return (
     <div style={{
       minHeight: "100vh",
-      backgroundColor: "#f8fafc",
-      backgroundImage: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+      backgroundColor: "#1a1a1a",
+      backgroundImage: "linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%)",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
