@@ -157,15 +157,19 @@ export function registerRoutes(app: Express): Server {
     try {
       console.log('🔍 Direct Admin Access: Bypassing authentication for debugging...');
       
-      // Direct database query without authentication check
+      // Direct database query without authentication check (production compatible)
       const result = await dbPool.query(`
         SELECT 
-           u.*,
+           u.id,
+           u.email,
+           u.subscription_type,
+           u.created_at,
+           u.updated_at,
            COALESCE(SUM(s.duration_seconds), 0) as total_practice_seconds,
            COALESCE(COUNT(s.id), 0) as total_sessions
          FROM users u
          LEFT JOIN sessions s ON LOWER(u.email) = LOWER(s.user_email)
-         GROUP BY u.id, u.email, u.name, u.subscription_type, u.created_at, u.updated_at
+         GROUP BY u.id, u.email, u.subscription_type, u.created_at, u.updated_at
          ORDER BY u.created_at DESC
       `);
       
@@ -174,7 +178,7 @@ export function registerRoutes(app: Express): Server {
       const usersWithStats = result.rows.map(row => ({
         id: row.id,
         email: row.email,
-        name: row.name || "", // Handle missing name column
+        name: "", // Production schema doesn't include name field
         subscription_type: row.subscription_type,
         created_at: row.created_at,
         updated_at: row.updated_at,
@@ -244,15 +248,19 @@ export function registerRoutes(app: Express): Server {
         console.log('🔧 Admin Dashboard: No valid session, using direct database access...');
       }
       
-      // Use direct database query (works regardless of authentication)
+      // Use direct database query (production compatible)
       const result = await dbPool.query(`
         SELECT 
-           u.*,
+           u.id,
+           u.email,
+           u.subscription_type,
+           u.created_at,
+           u.updated_at,
            COALESCE(SUM(s.duration_seconds), 0) as total_practice_seconds,
            COALESCE(COUNT(s.id), 0) as total_sessions
          FROM users u
          LEFT JOIN sessions s ON LOWER(u.email) = LOWER(s.user_email)
-         GROUP BY u.id, u.email, u.name, u.subscription_type, u.created_at, u.updated_at
+         GROUP BY u.id, u.email, u.subscription_type, u.created_at, u.updated_at
          ORDER BY u.created_at DESC
       `);
       
@@ -261,7 +269,7 @@ export function registerRoutes(app: Express): Server {
       const usersWithStats = result.rows.map(row => ({
         id: row.id,
         email: row.email,
-        name: row.name || "",
+        name: "", // Production schema compatibility
         subscription_type: row.subscription_type,
         created_at: row.created_at,
         updated_at: row.updated_at,
