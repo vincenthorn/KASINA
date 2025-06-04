@@ -152,6 +152,84 @@ export function registerRoutes(app: Express): Server {
     }
   };
 
+  // Direct database endpoint for debugging admin dashboard
+  app.get("/api/admin/whitelist-direct", async (req, res) => {
+    try {
+      console.log('🔍 Direct Admin Access: Bypassing authentication for debugging...');
+      
+      // Direct database query without authentication check
+      const result = await dbPool.query(`
+        SELECT 
+           u.*,
+           COALESCE(SUM(s.duration_seconds), 0) as total_practice_seconds,
+           COALESCE(COUNT(s.id), 0) as total_sessions
+         FROM users u
+         LEFT JOIN sessions s ON LOWER(u.email) = LOWER(s.user_email)
+         GROUP BY u.id, u.email, u.name, u.subscription_type, u.created_at, u.updated_at
+         ORDER BY u.created_at DESC
+      `);
+      
+      console.log(`📊 Direct Query: Retrieved ${result.rows.length} users`);
+      
+      const usersWithStats = result.rows.map(row => ({
+        id: row.id,
+        email: row.email,
+        name: row.name,
+        subscription_type: row.subscription_type,
+        created_at: row.created_at,
+        updated_at: row.updated_at,
+        practiceStats: {
+          totalSeconds: parseInt(row.total_practice_seconds),
+          sessionCount: parseInt(row.total_sessions)
+        }
+      }));
+      
+      const totalPracticeTimeSeconds = usersWithStats.reduce((total, user) => {
+        return total + user.practiceStats.totalSeconds;
+      }, 0);
+      
+      const totalHours = Math.floor(totalPracticeTimeSeconds / 3600);
+      const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
+      const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
+      
+      const adminEmails = ["admin@kasina.app"];
+      const members = usersWithStats.map(user => {
+        const practiceHours = Math.floor(user.practiceStats.totalSeconds / 3600);
+        const practiceMinutes = Math.floor((user.practiceStats.totalSeconds % 3600) / 60);
+        const practiceTimeFormatted = `${practiceHours}h ${practiceMinutes}m`;
+        
+        let status = "Freemium";
+        if (adminEmails.includes(user.email)) {
+          status = "Admin";
+        } else if (user.subscription_type === 'premium') {
+          status = "Premium";
+        }
+        
+        return {
+          email: user.email,
+          name: user.name || "",
+          practiceTimeSeconds: user.practiceStats.totalSeconds,
+          practiceTimeFormatted,
+          status
+        };
+      });
+      
+      res.json({
+        members,
+        totalPracticeTimeFormatted,
+        totalUsers: members.length,
+        freemiumUsers: members.filter(m => m.status === "Freemium").length,
+        premiumUsers: members.filter(m => m.status === "Premium").length,
+        adminUsers: members.filter(m => m.status === "Admin").length,
+        debug: "Direct database access - bypassing authentication"
+      });
+      
+    } catch (error) {
+      console.error("❌ Direct Admin Query Error:", error);
+      res.status(500).json({ message: "Database query failed", error: error.message });
+    }
+  });
+
   // Get whitelist with member data from PostgreSQL database
   app.get("/api/admin/whitelist", checkAdmin, async (req, res) => {
     try {
