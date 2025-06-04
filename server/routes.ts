@@ -157,8 +157,8 @@ export function registerRoutes(app: Express): Server {
     try {
       console.log('🚨 Emergency Admin: Starting simplified database access...');
       
-      // Use separate simple queries to avoid JOIN issues in production
-      const usersQuery = 'SELECT email, subscription_type, created_at FROM users ORDER BY created_at DESC';
+      // Use separate simple queries with only guaranteed columns
+      const usersQuery = 'SELECT email, created_at FROM users ORDER BY created_at DESC';
       const sessionsQuery = 'SELECT user_email, duration_seconds FROM sessions WHERE duration_seconds > 0';
       
       const [usersResult, sessionsResult] = await Promise.all([
@@ -183,8 +183,7 @@ export function registerRoutes(app: Express): Server {
           name: "",
           practiceTimeSeconds: totalSeconds,
           practiceTimeFormatted: `${Math.floor(totalSeconds / 3600)}h ${Math.floor((totalSeconds % 3600) / 60)}m`,
-          status: user.email === 'admin@kasina.app' ? 'Admin' : 
-                 (user.subscription_type === 'premium' ? 'Premium' : 'Freemium')
+          status: user.email === 'admin@kasina.app' ? 'Admin' : 'Freemium'
         };
       });
       
