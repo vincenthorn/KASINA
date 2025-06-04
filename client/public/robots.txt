@@ -3,4 +3,4 @@ Allow: /
 
 # Kasina Meditation Platform
 # A legitimate meditation and mindfulness application
-Sitemap: https://start.kasina.app/sitemap.xml
+Sitemap: https://www.kasina.app/sitemap.xml
