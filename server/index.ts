@@ -68,28 +68,21 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Setup session middleware with enhanced debugging and production fixes
+// Setup session middleware with fixed configuration
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "kasina-meditation-secret-fallback",
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false, // Temporarily disable for debugging - should be true in production with HTTPS
+      secure: false, // Disable for development, enable for production HTTPS
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
-      sameSite: 'lax', // Use lax for better cross-origin compatibility
-      domain: undefined, // Let browser set domain automatically
+      sameSite: 'lax',
     },
     store: sessionStore,
-    name: 'kasina-session',
-    proxy: process.env.NODE_ENV === 'production', // Trust proxy only in production
-    // Enhanced session debugging
-    genid: () => {
-      const id = crypto.randomBytes(16).toString('hex');
-      console.log(`🔑 Generated new session ID: ${id}`);
-      return id;
-    }
+    name: 'connect.sid', // Use default session name for compatibility
+    proxy: process.env.NODE_ENV === 'production',
   })
 );
 
