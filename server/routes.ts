@@ -76,12 +76,17 @@ export function registerRoutes(app: Express): Server {
       // Store user in session
       req.session.user = { email: user.email };
       
+      console.log("Login - Setting session data:", req.session.user);
+      console.log("Login - Session ID:", req.sessionID);
+      
       // Save session explicitly to ensure it persists
       req.session.save((err) => {
         if (err) {
           console.error("Session save error:", err);
           return res.status(500).json({ message: "Session save failed" });
         }
+        
+        console.log("Login - Session saved successfully");
         
         res.json({ 
           message: "Login successful",
