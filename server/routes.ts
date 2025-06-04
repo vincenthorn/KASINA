@@ -152,51 +152,69 @@ export function registerRoutes(app: Express): Server {
     }
   };
 
-  // Emergency production-ready admin endpoint
+  // Emergency production-ready admin endpoint with simplified queries
   app.get("/api/emergency-admin", async (req, res) => {
     try {
-      console.log('Emergency admin endpoint accessed');
+      console.log('🚨 Emergency Admin: Starting simplified database access...');
       
-      // Use the exact working query from production testing
-      const result = await dbPool.query(`
-        SELECT 
-          u.email,
-          u.subscription_type,
-          u.created_at,
-          COALESCE(SUM(s.duration_seconds), 0) as total_seconds,
-          COALESCE(COUNT(s.id), 0) as session_count
-        FROM users u
-        LEFT JOIN sessions s ON u.email = s.user_email
-        GROUP BY u.email, u.subscription_type, u.created_at
-        ORDER BY u.created_at DESC
-      `);
+      // Use separate simple queries to avoid JOIN issues in production
+      const usersQuery = 'SELECT email, subscription_type, created_at FROM users ORDER BY created_at DESC';
+      const sessionsQuery = 'SELECT user_email, duration_seconds FROM sessions WHERE duration_seconds > 0';
       
-      const members = result.rows.map(row => ({
-        email: row.email,
-        name: "",
-        practiceTimeSeconds: parseInt(row.total_seconds),
-        practiceTimeFormatted: `${Math.floor(row.total_seconds / 3600)}h ${Math.floor((row.total_seconds % 3600) / 60)}m`,
-        status: row.email === 'admin@kasina.app' ? 'Admin' : 
-               (row.subscription_type === 'premium' ? 'Premium' : 'Freemium')
-      }));
+      const [usersResult, sessionsResult] = await Promise.all([
+        dbPool.query(usersQuery),
+        dbPool.query(sessionsQuery)
+      ]);
+      
+      console.log(`🚨 Emergency Admin: Retrieved ${usersResult.rows.length} users and ${sessionsResult.rows.length} sessions`);
+      
+      // Process data in JavaScript to ensure production compatibility
+      const users = usersResult.rows;
+      const sessions = sessionsResult.rows;
+      
+      const members = users.map(user => {
+        const userSessions = sessions.filter(s => 
+          s.user_email && s.user_email.toLowerCase() === user.email.toLowerCase()
+        );
+        const totalSeconds = userSessions.reduce((sum, s) => sum + (parseInt(s.duration_seconds) || 0), 0);
+        
+        return {
+          email: user.email,
+          name: "",
+          practiceTimeSeconds: totalSeconds,
+          practiceTimeFormatted: `${Math.floor(totalSeconds / 3600)}h ${Math.floor((totalSeconds % 3600) / 60)}m`,
+          status: user.email === 'admin@kasina.app' ? 'Admin' : 
+                 (user.subscription_type === 'premium' ? 'Premium' : 'Freemium')
+        };
+      });
       
       const totalPracticeTime = members.reduce((sum, member) => sum + member.practiceTimeSeconds, 0);
       const totalHours = Math.floor(totalPracticeTime / 3600);
       const totalMinutes = Math.floor((totalPracticeTime % 3600) / 60);
       
-      res.json({
+      const responseData = {
         members,
         totalPracticeTimeFormatted: `${totalHours}h ${totalMinutes}m`,
         totalUsers: members.length,
         freemiumUsers: members.filter(m => m.status === 'Freemium').length,
         premiumUsers: members.filter(m => m.status === 'Premium').length,
         adminUsers: members.filter(m => m.status === 'Admin').length,
-        source: 'emergency-endpoint'
-      });
+        timestamp: new Date().toISOString(),
+        source: 'emergency-simplified-queries'
+      };
+      
+      console.log(`🚨 Emergency Admin: Successfully processed ${responseData.totalUsers} users`);
+      console.log(`🚨 Breakdown: ${responseData.freemiumUsers} freemium, ${responseData.premiumUsers} premium, ${responseData.adminUsers} admin`);
+      res.json(responseData);
       
     } catch (error) {
-      console.error('Emergency admin error:', error);
-      res.status(500).json({ message: "Emergency admin failed", error: error.message });
+      console.error('🚨 Emergency Admin: Database error:', error);
+      res.status(500).json({ 
+        message: "Emergency admin failed", 
+        error: error.message,
+        timestamp: new Date().toISOString(),
+        source: 'emergency-simplified-queries'
+      });
     }
   });
 
@@ -287,45 +305,40 @@ export function registerRoutes(app: Express): Server {
     try {
       console.log('🔍 Admin Dashboard: Starting user data fetch...');
       
-      // Try authentication check first
-      const userEmail = req.session?.user?.email;
-      const adminEmails = ["admin@kasina.app"];
-      const isAuthenticated = userEmail && adminEmails.includes(userEmail);
+      // Use simple separate queries to avoid complex JOIN issues
+      const usersQuery = 'SELECT email, subscription_type, created_at FROM users ORDER BY created_at DESC';
+      const sessionsQuery = 'SELECT user_email, duration_seconds FROM sessions WHERE duration_seconds > 0';
       
-      if (!isAuthenticated) {
-        console.log('🔧 Admin Dashboard: No valid session, using direct database access...');
-      }
+      const [usersResult, sessionsResult] = await Promise.all([
+        dbPool.query(usersQuery),
+        dbPool.query(sessionsQuery)
+      ]);
       
-      // Use direct database query (production compatible)
-      const result = await dbPool.query(`
-        SELECT 
-           u.id,
-           u.email,
-           u.subscription_type,
-           u.created_at,
-           u.updated_at,
-           COALESCE(SUM(s.duration_seconds), 0) as total_practice_seconds,
-           COALESCE(COUNT(s.id), 0) as total_sessions
-         FROM users u
-         LEFT JOIN sessions s ON LOWER(u.email) = LOWER(s.user_email)
-         GROUP BY u.id, u.email, u.subscription_type, u.created_at, u.updated_at
-         ORDER BY u.created_at DESC
-      `);
+      console.log(`📊 Retrieved ${usersResult.rows.length} users and ${sessionsResult.rows.length} sessions`);
       
-      console.log(`📊 Admin Dashboard: Retrieved ${result.rows.length} users`);
+      // Process data in JavaScript to avoid SQL JOIN complexities
+      const users = usersResult.rows;
+      const sessions = sessionsResult.rows;
       
-      const usersWithStats = result.rows.map(row => ({
-        id: row.id,
-        email: row.email,
-        name: "", // Production schema compatibility
-        subscription_type: row.subscription_type,
-        created_at: row.created_at,
-        updated_at: row.updated_at,
-        practiceStats: {
-          totalSeconds: parseInt(row.total_practice_seconds),
-          sessionCount: parseInt(row.total_sessions)
-        }
-      }));
+      const usersWithStats = users.map(user => {
+        const userSessions = sessions.filter(s => 
+          s.user_email && s.user_email.toLowerCase() === user.email.toLowerCase()
+        );
+        const totalSeconds = userSessions.reduce((sum, s) => sum + (parseInt(s.duration_seconds) || 0), 0);
+        
+        return {
+          id: Math.random(), // Generate ID for compatibility
+          email: user.email,
+          name: "",
+          subscription_type: user.subscription_type,
+          created_at: user.created_at,
+          updated_at: user.created_at,
+          practiceStats: {
+            totalSeconds: totalSeconds,
+            sessionCount: userSessions.length
+          }
+        };
+      });
       console.log(`📊 Admin Dashboard: Retrieved ${usersWithStats.length} users from database`);
       
       if (usersWithStats.length === 0) {

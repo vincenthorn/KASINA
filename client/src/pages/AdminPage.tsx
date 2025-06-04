@@ -134,20 +134,7 @@ const AdminPage: React.FC = () => {
         return;
       }
       
-      // Final fallback: Load static admin data file
-      console.log("All API endpoints failed, loading static admin data...");
-      response = await fetch("/admin-data.json");
-      
-      if (response.ok) {
-        const data = await response.json();
-        setMembers(data.members);
-        setTotalPracticeTime(data.totalPracticeTimeFormatted);
-        console.log("Static data: loaded", data.totalUsers, "users");
-        toast.success("Admin data loaded from backup");
-        return;
-      }
-      
-      throw new Error("All data sources failed");
+      throw new Error("All dynamic data sources failed");
       
     } catch (error) {
       console.error("Error fetching whitelist data:", error);
