@@ -977,17 +977,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const breathIntensity = intensity * 0.2; // More noticeable breathing effect
     const totalIntensity = baseIntensity + breathIntensity;
     
-    let newR = Math.round(r * totalIntensity);
-    let newG = Math.round(g * totalIntensity);
-    let newB = Math.round(b * totalIntensity);
-    
-    // Apply 50% black overlay for Fire Kasina to improve contrast
-    if (selectedKasina === 'fire') {
-      newR = Math.round(newR * 0.5);
-      newG = Math.round(newG * 0.5);
-      newB = Math.round(newB * 0.5);
-      console.log(`🔥 Fire Kasina: Applied 50% black overlay for better contrast`);
-    }
+    const newR = Math.round(r * totalIntensity);
+    const newG = Math.round(g * totalIntensity);
+    const newB = Math.round(b * totalIntensity);
     
     console.log(`🎨 Background color: ${kasinaColor} -> rgb(${newR}, ${newG}, ${newB}) intensity: ${totalIntensity.toFixed(2)}`);
     
