@@ -152,6 +152,25 @@ export function registerRoutes(app: Express): Server {
     }
   };
 
+  // Simple working endpoints for basic admin data
+  app.get("/api/simple-users", async (req, res) => {
+    try {
+      const result = await dbPool.query('SELECT email, subscription_type, created_at FROM users ORDER BY created_at DESC');
+      res.json(result.rows);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch users", error: error.message });
+    }
+  });
+
+  app.get("/api/simple-sessions", async (req, res) => {
+    try {
+      const result = await dbPool.query('SELECT user_email, duration_seconds FROM sessions WHERE duration_seconds > 0');
+      res.json(result.rows);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch sessions", error: error.message });
+    }
+  });
+
   // Direct database endpoint for debugging admin dashboard
   app.get("/api/admin/whitelist-direct", async (req, res) => {
     try {

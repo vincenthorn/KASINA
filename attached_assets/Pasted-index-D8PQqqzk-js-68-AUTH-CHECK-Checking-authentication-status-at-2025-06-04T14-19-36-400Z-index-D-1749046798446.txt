@@ -1,0 +1,49 @@
+index-D8PQqqzk.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T14:19:36.400Z
+index-D8PQqqzk.js:68 Setting auth state with user: {email: 'admin@kasina.app', subscriptionType: undefined, subscription: 'free'}
+index-D8PQqqzk.js:233 === COMPLETE DIAGNOSTIC REPORT ===
+index-D8PQqqzk.js:233 === END DIAGNOSTIC REPORT ===
+index-D8PQqqzk.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T14:19:36.501Z
+index-D8PQqqzk.js:68 Setting auth state with user: {email: 'admin@kasina.app', subscriptionType: undefined, subscription: 'free'}
+index-D8PQqqzk.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T14:19:41.470Z
+index-D8PQqqzk.js:68 Setting auth state with user: {email: 'admin@kasina.app', subscriptionType: undefined, subscription: 'free'}
+index-D8PQqqzk.js:4930 
+            
+            
+           GET https://start.kasina.app/api/admin/whitelist 500 (Internal Server Error)
+X @ index-D8PQqqzk.js:4930
+(anonymous) @ index-D8PQqqzk.js:4930
+y1 @ index-D8PQqqzk.js:40
+Wd @ index-D8PQqqzk.js:40
+EX @ index-D8PQqqzk.js:40
+iu @ index-D8PQqqzk.js:40
+M3 @ index-D8PQqqzk.js:40
+bc @ index-D8PQqqzk.js:38
+(anonymous) @ index-D8PQqqzk.js:40
+index-D8PQqqzk.js:4930 Authentication failed, trying direct database access...
+index-D8PQqqzk.js:4930 
+            
+            
+           GET https://start.kasina.app/api/admin/whitelist-direct 500 (Internal Server Error)
+X @ index-D8PQqqzk.js:4930
+await in X
+(anonymous) @ index-D8PQqqzk.js:4930
+y1 @ index-D8PQqqzk.js:40
+Wd @ index-D8PQqqzk.js:40
+EX @ index-D8PQqqzk.js:40
+iu @ index-D8PQqqzk.js:40
+M3 @ index-D8PQqqzk.js:40
+bc @ index-D8PQqqzk.js:38
+(anonymous) @ index-D8PQqqzk.js:40
+index-D8PQqqzk.js:4109 Error fetching whitelist data: Error: Failed to fetch whitelist data
+    at X (index-D8PQqqzk.js:4930:47350)
+console.error @ index-D8PQqqzk.js:4109
+X @ index-D8PQqqzk.js:4930
+await in X
+(anonymous) @ index-D8PQqqzk.js:4930
+y1 @ index-D8PQqqzk.js:40
+Wd @ index-D8PQqqzk.js:40
+EX @ index-D8PQqqzk.js:40
+iu @ index-D8PQqqzk.js:40
+M3 @ index-D8PQqqzk.js:40
+bc @ index-D8PQqqzk.js:38
+(anonymous) @ index-D8PQqqzk.js:40
