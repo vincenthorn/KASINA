@@ -240,6 +240,8 @@ export async function deleteUserSession(userEmail: string, sessionId: number): P
 // Get all users with their practice stats
 export async function getAllUsersWithStats(): Promise<Array<User & {practiceStats: {totalSeconds: number, sessionCount: number}}>> {
   try {
+    console.log('🔍 Admin Dashboard: Querying for all users with stats...');
+    
     const result = await pool.query(
       `SELECT 
          u.*,
@@ -250,6 +252,29 @@ export async function getAllUsersWithStats(): Promise<Array<User & {practiceStat
        GROUP BY u.id, u.email, u.name, u.subscription_type, u.created_at, u.updated_at
        ORDER BY u.created_at DESC`
     );
+    
+    console.log(`📊 Admin Dashboard: Found ${result.rows.length} users in database`);
+    
+    if (result.rows.length > 0) {
+      console.log('👤 Sample user data:', {
+        email: result.rows[0].email,
+        subscription_type: result.rows[0].subscription_type,
+        total_practice_seconds: result.rows[0].total_practice_seconds
+      });
+    } else {
+      console.log('⚠️ Admin Dashboard: No users found in database - checking table existence...');
+      
+      // Check if users table exists
+      const tableCheck = await pool.query(
+        "SELECT EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'users')"
+      );
+      console.log('📋 Users table exists:', tableCheck.rows[0].exists);
+      
+      if (tableCheck.rows[0].exists) {
+        const userCount = await pool.query('SELECT COUNT(*) FROM users');
+        console.log('👥 Total users in table:', userCount.rows[0].count);
+      }
+    }
     
     return result.rows.map(row => ({
       id: row.id,
@@ -264,7 +289,7 @@ export async function getAllUsersWithStats(): Promise<Array<User & {practiceStat
       }
     }));
   } catch (error) {
-    console.error('Error getting users with stats:', error);
+    console.error('❌ Admin Dashboard: Error getting users with stats:', error);
     return [];
   }
 }

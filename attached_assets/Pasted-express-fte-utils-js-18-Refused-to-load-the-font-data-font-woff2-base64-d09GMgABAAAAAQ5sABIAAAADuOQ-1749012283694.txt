@@ -1,0 +1,23 @@
+express-fte-utils.js:18 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+addFontToDocument @ express-fte-utils.js:18
+index-r3ujbZrP.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T04:34:14.956Z
+api/auth/me:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+index-r3ujbZrP.js:68 [AUTH_CHECK] Authentication failed - status: 401 at 2025-06-04T04:34:15.020Z
+index-r3ujbZrP.js:233 === COMPLETE DIAGNOSTIC REPORT ===
+index-r3ujbZrP.js:233 === END DIAGNOSTIC REPORT ===
+index-r3ujbZrP.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T04:34:19.388Z
+api/auth/me:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+index-r3ujbZrP.js:68 [AUTH_CHECK] Authentication failed - status: 401 at 2025-06-04T04:34:19.539Z
+index-r3ujbZrP.js:233 === COMPLETE DIAGNOSTIC REPORT ===
+index-r3ujbZrP.js:233 === END DIAGNOSTIC REPORT ===
+index-r3ujbZrP.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T04:43:47.889Z
+index-r3ujbZrP.js:68 Setting auth state with user: Object
+index-r3ujbZrP.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-04T04:43:50.074Z
+index-r3ujbZrP.js:68 Setting auth state with user: Object
