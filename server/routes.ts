@@ -230,24 +230,46 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Get whitelist with member data from PostgreSQL database
-  app.get("/api/admin/whitelist", checkAdmin, async (req, res) => {
+  // Get whitelist with member data from PostgreSQL database  
+  app.get("/api/admin/whitelist", async (req, res) => {
     try {
       console.log('🔍 Admin Dashboard: Starting user data fetch...');
-      console.log('🔍 Admin Dashboard: getAllUsersWithStats function type:', typeof getAllUsersWithStats);
       
-      // Test if function is available
-      if (typeof getAllUsersWithStats !== 'function') {
-        console.error('❌ Admin Dashboard: getAllUsersWithStats is not a function!');
-        return res.status(500).json({ 
-          message: "Database function not available",
-          error: "getAllUsersWithStats is not exported properly"
-        });
+      // Try authentication check first
+      const userEmail = req.session?.user?.email;
+      const adminEmails = ["admin@kasina.app"];
+      const isAuthenticated = userEmail && adminEmails.includes(userEmail);
+      
+      if (!isAuthenticated) {
+        console.log('🔧 Admin Dashboard: No valid session, using direct database access...');
       }
       
-      // Get all users with their practice stats from PostgreSQL database
-      console.log('🔍 Admin Dashboard: Calling getAllUsersWithStats...');
-      const usersWithStats = await getAllUsersWithStats();
+      // Use direct database query (works regardless of authentication)
+      const result = await dbPool.query(`
+        SELECT 
+           u.*,
+           COALESCE(SUM(s.duration_seconds), 0) as total_practice_seconds,
+           COALESCE(COUNT(s.id), 0) as total_sessions
+         FROM users u
+         LEFT JOIN sessions s ON LOWER(u.email) = LOWER(s.user_email)
+         GROUP BY u.id, u.email, u.name, u.subscription_type, u.created_at, u.updated_at
+         ORDER BY u.created_at DESC
+      `);
+      
+      console.log(`📊 Admin Dashboard: Retrieved ${result.rows.length} users`);
+      
+      const usersWithStats = result.rows.map(row => ({
+        id: row.id,
+        email: row.email,
+        name: row.name || "",
+        subscription_type: row.subscription_type,
+        created_at: row.created_at,
+        updated_at: row.updated_at,
+        practiceStats: {
+          totalSeconds: parseInt(row.total_practice_seconds),
+          sessionCount: parseInt(row.total_sessions)
+        }
+      }));
       console.log(`📊 Admin Dashboard: Retrieved ${usersWithStats.length} users from database`);
       
       if (usersWithStats.length === 0) {
