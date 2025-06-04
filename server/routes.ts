@@ -449,16 +449,53 @@ export function registerRoutes(app: Express): Server {
       console.log('🔍 Admin Dashboard: Fetching simple user list...');
       
       const users = await getAllUsers();
-      console.log(`📊 Retrieved ${users.length} users for simple list`);
+      const sessions = await getAllSessions();
+      console.log(`📊 Retrieved ${users.length} users and ${sessions.length} sessions`);
       
-      const simpleUsers = users.map(user => ({
-        id: user.id,
-        email: user.email,
-        subscription_type: user.subscription_type,
-        created_at: user.created_at
-      }));
+      // Calculate total practice time across all users
+      const totalPracticeTimeSeconds = sessions.reduce((total, session) => {
+        return total + session.duration_seconds;
+      }, 0);
       
-      res.json(simpleUsers);
+      const totalHours = Math.floor(totalPracticeTimeSeconds / 3600);
+      const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
+      const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
+      
+      // Transform users to match expected admin page format
+      const adminEmails = ["admin@kasina.app"];
+      const members = users.map(user => {
+        const userSessions = sessions.filter(s => 
+          s.user_email && s.user_email.toLowerCase() === user.email.toLowerCase()
+        );
+        const practiceSeconds = userSessions.reduce((sum, s) => sum + s.duration_seconds, 0);
+        const practiceHours = Math.floor(practiceSeconds / 3600);
+        const practiceMinutes = Math.floor((practiceSeconds % 3600) / 60);
+        const practiceTimeFormatted = `${practiceHours}h ${practiceMinutes}m`;
+        
+        let status = "Freemium";
+        if (adminEmails.includes(user.email)) {
+          status = "Admin";
+        } else if (user.subscription_type === 'premium') {
+          status = "Premium";
+        }
+        
+        return {
+          email: user.email,
+          name: user.name || "",
+          practiceTimeSeconds: practiceSeconds,
+          practiceTimeFormatted,
+          status
+        };
+      });
+      
+      res.json({
+        members,
+        totalPracticeTimeFormatted,
+        totalUsers: members.length,
+        freemiumUsers: members.filter(m => m.status === "Freemium").length,
+        premiumUsers: members.filter(m => m.status === "Premium").length,
+        adminUsers: members.filter(m => m.status === "Admin").length
+      });
     } catch (error) {
       console.error("❌ Error fetching simple user list:", error);
       res.status(500).json({ 

@@ -1,0 +1,92 @@
+2025-06-04T19:57:14.743595276Z ==> Cloning from https://github.com/vincenthorn/KASINA
+2025-06-04T19:57:30.504804859Z ==> Checking out commit d0a63373d674f7de13f995a71e981a308be8f626 in branch main
+2025-06-04T19:57:32.075053854Z ==> Downloading cache...
+2025-06-04T19:57:49.935312286Z ==> Transferred 324MB in 8s. Extraction took 8s.
+2025-06-04T19:58:02.533037842Z ==> Using Node.js version 22.14.0 (default)
+2025-06-04T19:58:02.578031939Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+2025-06-04T19:58:02.790537251Z ==> Using Bun version 1.1.0 (default)
+2025-06-04T19:58:02.790561292Z ==> Docs on specifying a bun version: https://render.com/docs/bun-version
+2025-06-04T19:58:02.871056837Z ==> Running build command 'npm install --production=false && npm run build'...
+2025-06-04T19:58:05.197383858Z 
+2025-06-04T19:58:05.197401098Z up to date, audited 638 packages in 2s
+2025-06-04T19:58:05.19746283Z 
+2025-06-04T19:58:05.197501311Z 87 packages are looking for funding
+2025-06-04T19:58:05.197506031Z   run `npm fund` for details
+2025-06-04T19:58:05.250087957Z 
+2025-06-04T19:58:05.250119467Z 11 moderate severity vulnerabilities
+2025-06-04T19:58:05.250122817Z 
+2025-06-04T19:58:05.250126397Z To address issues that do not require attention, run:
+2025-06-04T19:58:05.250129067Z   npm audit fix
+2025-06-04T19:58:05.250131438Z 
+2025-06-04T19:58:05.250133907Z To address all issues (including breaking changes), run:
+2025-06-04T19:58:05.250137118Z   npm audit fix --force
+2025-06-04T19:58:05.250139628Z 
+2025-06-04T19:58:05.250142428Z Run `npm audit` for details.
+2025-06-04T19:58:05.48701485Z 
+2025-06-04T19:58:05.487040611Z > rest-express@1.0.0 build
+2025-06-04T19:58:05.487044031Z > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-06-04T19:58:05.487047391Z 
+2025-06-04T19:58:05.807507486Z vite v5.4.14 building for production...
+2025-06-04T19:58:05.892082181Z transforming...
+2025-06-04T19:58:06.293831139Z Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+2025-06-04T19:58:06.29385479Z   npx update-browserslist-db@latest
+2025-06-04T19:58:06.29385926Z   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-06-04T19:58:16.308566667Z node_modules/three-stdlib/libs/lottie.js (13062:32): Use of eval in "node_modules/three-stdlib/libs/lottie.js" is strongly discouraged as it poses security risks and may cause issues with minification.
+2025-06-04T19:58:21.322388869Z ✓ 3435 modules transformed.
+2025-06-04T19:58:21.875886602Z rendering chunks...
+2025-06-04T19:58:22.464813Z [plugin:vite:reporter] [plugin vite:reporter] 
+2025-06-04T19:58:22.464860151Z (!) /opt/render/project/src/client/src/lib/stores/useSimpleTimer.tsx is dynamically imported by /opt/render/project/src/client/src/components/VisualKasinaOrb.tsx but also statically imported by /opt/render/project/src/client/src/components/AhKasina.tsx, /opt/render/project/src/client/src/components/FocusMode.tsx, /opt/render/project/src/client/src/components/HumKasina.tsx, /opt/render/project/src/client/src/components/OmKasina.tsx, /opt/render/project/src/client/src/components/RainbowKasina.tsx, /opt/render/project/src/client/src/components/WhiteAKasina.tsx, /opt/render/project/src/client/src/components/WhiteAThigle.tsx, dynamic import will not move module into another chunk.
+2025-06-04T19:58:22.464868091Z 
+2025-06-04T19:58:22.513330576Z computing gzip size...
+2025-06-04T19:58:22.601075122Z ../dist/public/index.html                                                2.86 kB │ gzip:   1.00 kB
+2025-06-04T19:58:22.601135923Z ../dist/public/assets/inter-vietnamese-400-normal-DMkecbls.woff2         4.97 kB
+2025-06-04T19:58:22.601182464Z ../dist/public/assets/inter-greek-ext-400-normal-Bput3-QP.woff2          5.23 kB
+2025-06-04T19:58:22.601310207Z ../dist/public/assets/nunito-vietnamese-700-normal-C-RkuVXY.woff2        5.97 kB
+2025-06-04T19:58:22.601348628Z ../dist/public/assets/nunito-vietnamese-400-normal-BowtMkz5.woff2        6.12 kB
+2025-06-04T19:58:22.601394469Z ../dist/public/assets/inter-vietnamese-400-normal-BUNmGMP1.woff          6.68 kB
+2025-06-04T19:58:22.601412969Z ../dist/public/assets/inter-greek-ext-400-normal-DCpCPQOf.woff           7.14 kB
+2025-06-04T19:58:22.60144857Z ../dist/public/assets/inter-cyrillic-400-normal-BLGc9T1a.woff2           7.71 kB
+2025-06-04T19:58:22.601474551Z ../dist/public/assets/inter-greek-400-normal-DxZsaF_h.woff2              7.84 kB
+2025-06-04T19:58:22.601500051Z ../dist/public/assets/nunito-vietnamese-700-normal-ZI5H6tdD.woff         8.27 kB
+2025-06-04T19:58:22.601537932Z ../dist/public/assets/nunito-cyrillic-400-normal-CMsAdKHI.woff2          8.32 kB
+2025-06-04T19:58:22.601554752Z ../dist/public/assets/nunito-vietnamese-400-normal-BnU0WwCs.woff         8.43 kB
+2025-06-04T19:58:22.601591093Z ../dist/public/assets/nunito-cyrillic-700-normal-C2ZPAHu5.woff2          8.44 kB
+2025-06-04T19:58:22.601607994Z ../dist/public/assets/inter-greek-400-normal-BZzXV7-1.woff               9.96 kB
+2025-06-04T19:58:22.601643294Z ../dist/public/assets/inter-cyrillic-400-normal-ZzOtrSSW.woff           10.14 kB
+2025-06-04T19:58:22.601817898Z ../dist/public/assets/inter-cyrillic-ext-400-normal-Dc4VJyIJ.woff2      10.22 kB
+2025-06-04T19:58:22.601923701Z ../dist/public/assets/nunito-cyrillic-700-normal-CY6xiUxZ.woff          10.44 kB
+2025-06-04T19:58:22.601940051Z ../dist/public/assets/nunito-cyrillic-400-normal-hvcJLrVW.woff          10.50 kB
+2025-06-04T19:58:22.601950421Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-Cgrooa9T.woff2     10.88 kB
+2025-06-04T19:58:22.601954161Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CiC2fk4J.woff2     11.05 kB
+2025-06-04T19:58:22.601958771Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-D-e9fzlR.woff      14.12 kB
+2025-06-04T19:58:22.601964721Z ../dist/public/assets/inter-cyrillic-ext-400-normal-BPnxn4xp.woff       14.19 kB
+2025-06-04T19:58:22.601997522Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CUrc3HHF.woff      14.36 kB
+2025-06-04T19:58:22.602011612Z ../dist/public/assets/nunito-latin-ext-700-normal-DwQwRZln.woff2        15.39 kB
+2025-06-04T19:58:22.602018083Z ../dist/public/assets/nunito-latin-ext-400-normal-Z5e_fnxp.woff2        15.45 kB
+2025-06-04T19:58:22.602023673Z ../dist/public/assets/nunito-latin-400-normal-CA33qtOw.woff2            16.29 kB
+2025-06-04T19:58:22.602061313Z ../dist/public/assets/nunito-latin-700-normal-CGDVIs8t.woff2            16.31 kB
+2025-06-04T19:58:22.602066034Z ../dist/public/assets/nunito-latin-700-normal-C5gyHyFo.woff             20.19 kB
+2025-06-04T19:58:22.602099664Z ../dist/public/assets/nunito-latin-400-normal-nExtXIcZ.woff             20.52 kB
+2025-06-04T19:58:22.602102214Z ../dist/public/assets/nunito-latin-ext-700-normal-G8lcDK0M.woff         20.82 kB
+2025-06-04T19:58:22.602106085Z ../dist/public/assets/nunito-latin-ext-400-normal-DZILPSLY.woff         21.07 kB
+2025-06-04T19:58:22.602109705Z ../dist/public/assets/inter-latin-400-normal-BOOGhInR.woff2             23.69 kB
+2025-06-04T19:58:22.602142785Z ../dist/public/assets/inter-latin-ext-400-normal-hnt3BR84.woff2         30.68 kB
+2025-06-04T19:58:22.602153595Z ../dist/public/assets/inter-latin-400-normal-gitzw0hO.woff              31.20 kB
+2025-06-04T19:58:22.602198376Z ../dist/public/assets/inter-latin-ext-400-normal-C1t-h-pH.woff          42.88 kB
+2025-06-04T19:58:22.602236048Z ../dist/public/assets/index-n-YRCv62.css                               107.82 kB │ gzip:  17.86 kB
+2025-06-04T19:58:22.602285318Z ../dist/public/assets/godirect.min.esm-D_z86mMB.js                      12.66 kB │ gzip:   4.19 kB
+2025-06-04T19:58:22.602287978Z ../dist/public/assets/index-C2VRrzda.js                              1,852.70 kB │ gzip: 513.45 kB
+2025-06-04T19:58:22.60233495Z 
+2025-06-04T19:58:22.60233837Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-06-04T19:58:22.60234092Z - Using dynamic import() to code-split the application
+2025-06-04T19:58:22.60234323Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-06-04T19:58:22.60234506Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-06-04T19:58:22.602639437Z ✓ built in 16.77s
+2025-06-04T19:58:22.806127078Z 
+2025-06-04T19:58:22.806152499Z   dist/index.js  39.9kb
+2025-06-04T19:58:22.806155249Z 
+2025-06-04T19:58:22.806157769Z ⚡ Done in 6ms
+2025-06-04T19:58:23.674751309Z ==> Uploading build...
+2025-06-04T19:59:20.814446658Z ==> Deploying...
+2025-06-04T19:59:17.255039959Z ==> Uploaded in 40.2s. Compression took 13.4s
+2025-06-04T19:59:17.593645457Z ==> Build successful 🎉
