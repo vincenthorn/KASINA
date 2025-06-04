@@ -300,7 +300,7 @@ export function registerRoutes(app: Express): Server {
   });
 
   // Get whitelist with member data from PostgreSQL database  
-  app.get("/api/admin/whitelist", async (req, res) => {
+  app.get("/api/admin/whitelist", checkAdmin, async (req, res) => {
     try {
       console.log('🔍 Admin Dashboard: Starting user data fetch...');
       
