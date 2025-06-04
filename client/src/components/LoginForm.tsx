@@ -42,8 +42,8 @@ const LoginForm: React.FC = () => {
     <div className="w-full flex justify-center">
       <Card className="w-full max-w-lg border-gray-300 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transform-gpu hover:translate-y-[-5px] transition-all duration-300"
         style={{
-          background: "linear-gradient(135deg, #0A0052 0%, #2a1570 100%)",
-          boxShadow: "0 15px 35px rgba(66, 27, 158, 0.45), 0 5px 15px rgba(0, 0, 0, 0.1)",
+          background: "linear-gradient(135deg, #6b46c1 0%, #9333ea 100%)",
+          boxShadow: "0 15px 35px rgba(139, 92, 246, 0.45), 0 5px 15px rgba(0, 0, 0, 0.1)",
           borderRadius: "1rem",
         }}>
         <CardHeader className="flex flex-col items-center pt-20 pb-6">
