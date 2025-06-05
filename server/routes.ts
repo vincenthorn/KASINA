@@ -443,6 +443,68 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Emergency admin endpoint without authentication for immediate access
+  app.get("/api/emergency-admin", async (req, res) => {
+    try {
+      console.log('🆘 Emergency Admin: Fetching all user data without authentication...');
+      
+      const users = await getAllUsers();
+      const sessions = await getAllSessions();
+      console.log(`📊 Emergency Access: Retrieved ${users.length} users and ${sessions.length} sessions`);
+      
+      // Calculate total practice time across all users
+      const totalPracticeTimeSeconds = sessions.reduce((total, session) => {
+        return total + session.duration_seconds;
+      }, 0);
+      
+      const totalHours = Math.floor(totalPracticeTimeSeconds / 3600);
+      const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
+      const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
+      
+      // Transform users to match expected admin page format
+      const adminEmails = ["admin@kasina.app"];
+      const members = users.map(user => {
+        const userSessions = sessions.filter(s => 
+          s.user_email && s.user_email.toLowerCase() === user.email.toLowerCase()
+        );
+        const practiceSeconds = userSessions.reduce((sum, s) => sum + s.duration_seconds, 0);
+        const practiceHours = Math.floor(practiceSeconds / 3600);
+        const practiceMinutes = Math.floor((practiceSeconds % 3600) / 60);
+        const practiceTimeFormatted = `${practiceHours}h ${practiceMinutes}m`;
+        
+        let status = "Freemium";
+        if (adminEmails.includes(user.email)) {
+          status = "Admin";
+        } else if (user.subscription_type === 'premium') {
+          status = "Premium";
+        }
+        
+        return {
+          email: user.email,
+          name: user.name || "",
+          practiceTimeSeconds: practiceSeconds,
+          practiceTimeFormatted,
+          status
+        };
+      });
+      
+      res.json({
+        members,
+        totalPracticeTimeFormatted,
+        totalUsers: members.length,
+        freemiumUsers: members.filter(m => m.status === "Freemium").length,
+        premiumUsers: members.filter(m => m.status === "Premium").length,
+        adminUsers: members.filter(m => m.status === "Admin").length
+      });
+    } catch (error) {
+      console.error("❌ Emergency admin endpoint error:", error);
+      res.status(500).json({ 
+        message: "Emergency admin access failed",
+        error: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
   // Simple users endpoint for admin dashboard
   app.get("/api/admin/users-simple", checkAdmin, async (req, res) => {
     try {
