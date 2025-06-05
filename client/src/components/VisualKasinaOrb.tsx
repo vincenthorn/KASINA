@@ -1235,10 +1235,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           const vFOV = (camera as any).fov * Math.PI / 180; // Vertical field of view in radians
           const screenHeight = 2 * Math.tan(vFOV / 2) * distance; // Visible height at orb distance
           
-          // Scale factor to make the orb fill the screen at 100%
-          const fullScreenScale = screenHeight / 2; // Divide by 2 because sphere radius is 1
+          // Scale factor to make the orb fill half the screen at 100%
+          const fullScreenScale = screenHeight / 4; // Divide by 4 to make max size half of full screen
           
-          // Apply the size multiplier (0.01 to 1.0) to the full screen scale
+          // Apply the size multiplier (0.01 to 1.0) to the half-screen scale
           const targetScale = sizeMultiplier * fullScreenScale;
           
           meshRef.current.scale.setScalar(targetScale);
@@ -1261,7 +1261,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         const distance = camera.position.z;
         const vFOV = (camera as any).fov * Math.PI / 180;
         const screenHeight = 2 * Math.tan(vFOV / 2) * distance;
-        const fullScreenScale = screenHeight / 2;
+        const fullScreenScale = screenHeight / 4; // Same half-screen scaling as other kasinas
         
         // Text kasinas may need slightly different scaling factor
         const targetScale = sizeMultiplier * fullScreenScale * 1.2; // Slightly larger for text readability
