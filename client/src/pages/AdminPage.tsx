@@ -855,6 +855,28 @@ const AdminPage: React.FC = () => {
               </div>
             ) : (
               <div className="space-y-4">
+                {/* Refresh Data Button at Top */}
+                <div className="flex justify-end">
+                  <Button 
+                    variant="outline"
+                    className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-indigo-500/30"
+                    onClick={refreshData}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                        Refreshing...
+                      </>
+                    ) : (
+                      <>
+                        <Clock className="h-4 w-4 mr-2" />
+                        Refresh Data
+                      </>
+                    )}
+                  </Button>
+                </div>
+                
                 <div className="overflow-x-auto rounded-lg border border-indigo-900/20">
                   <table className="min-w-full text-sm text-white">
                     <thead>
@@ -1031,27 +1053,6 @@ const AdminPage: React.FC = () => {
                   ) : (
                     <>Showing {Math.min(displayCount, filteredMemberCount)} of {members.length} members</>
                   )}
-                </div>
-                
-                <div className="flex justify-end mt-4">
-                  <Button 
-                    variant="outline"
-                    className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-indigo-500/30"
-                    onClick={refreshData}
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                        Refreshing...
-                      </>
-                    ) : (
-                      <>
-                        <Clock className="h-4 w-4 mr-2" />
-                        Refresh Data
-                      </>
-                    )}
-                  </Button>
                 </div>
               </div>
             )}
