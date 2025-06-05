@@ -763,6 +763,40 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Delete user endpoint
+  app.delete("/api/admin/delete-user", checkAdmin, async (req, res) => {
+    try {
+      const { email } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ message: "Email is required" });
+      }
+      
+      console.log(`🗑️ Admin deletion request for: ${email}`);
+      
+      // Check if user exists
+      const user = await getUserByEmail(email);
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      
+      // Delete user from database
+      const deleted = await removeUser(email);
+      
+      if (deleted) {
+        console.log(`✅ Successfully deleted user: ${email}`);
+        res.json({ message: `User ${email} deleted successfully` });
+      } else {
+        console.log(`❌ Failed to delete user: ${email}`);
+        res.status(500).json({ message: "Failed to delete user" });
+      }
+      
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      res.status(500).json({ message: "Failed to delete user" });
+    }
+  });
+
   // Sessions routes - protected by authentication
   app.get("/api/sessions", async (req, res) => {
     if (!req.session?.user?.email) {

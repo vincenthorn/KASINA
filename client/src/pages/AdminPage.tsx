@@ -539,14 +539,14 @@ const AdminPage: React.FC = () => {
         </div>
         
         {/* Friend Users Card */}
-        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-900 to-green-800 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-green-800 to-lime-700 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1">
-              <Users className="h-5 w-5 text-emerald-300" />
+              <Users className="h-5 w-5 text-green-300" />
               <h2 className="text-lg font-bold text-white">Friends</h2>
             </div>
             <div className="flex items-center gap-2">
-              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-200 to-green-200">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-lime-200">
                 {userCounts.friend}
               </div>
             </div>
