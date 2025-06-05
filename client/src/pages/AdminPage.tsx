@@ -121,6 +121,7 @@ const AdminPage: React.FC = () => {
         setApiCounts({
           freemiumUsers: data.freemiumUsers || 0,
           premiumUsers: data.premiumUsers || 0,
+          friendUsers: data.friendUsers || 0,
           adminUsers: data.adminUsers || 0,
           totalUsers: data.totalUsers || 0
         });
@@ -274,6 +275,7 @@ const AdminPage: React.FC = () => {
   const userCounts = {
     freemium: apiCounts.freemiumUsers,
     premium: apiCounts.premiumUsers,
+    friend: apiCounts.friendUsers,
     admin: apiCounts.adminUsers,
     totalPremium: apiCounts.premiumUsers
   };
@@ -393,10 +395,11 @@ const AdminPage: React.FC = () => {
       
       // Status sorting
       if (sortField === 'status') {
-        // Custom order: Admin (highest), Premium, Freemium (lowest)
+        // Custom order: Admin (highest), Premium, Friend, Freemium (lowest)
         const getStatusValue = (status: string) => {
-          if (status === 'Admin') return 3;
-          if (status === 'Premium') return 2;
+          if (status === 'Admin') return 4;
+          if (status === 'Premium') return 3;
+          if (status === 'Friend') return 2;
           return 1; // Freemium
         };
         
@@ -533,6 +536,24 @@ const AdminPage: React.FC = () => {
             </div>
             <div className="text-xs text-amber-200/70 mt-1">
               (excludes permanent members)
+            </div>
+          </div>
+        </div>
+        
+        {/* Friend Users Card */}
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-900 to-green-800 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-2 mb-1">
+              <Users className="h-5 w-5 text-emerald-300" />
+              <h2 className="text-lg font-bold text-white">Friend Users</h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-200 to-green-200">
+                {userCounts.friend}
+              </div>
+            </div>
+            <div className="text-xs text-emerald-200/70 mt-1">
+              (free premium access)
             </div>
           </div>
         </div>
