@@ -1225,15 +1225,21 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             meshRef.current.rotation.y = time * 0.15 * chapterSpeed;
           }
           
-          // Apply consistent scaling for all kasina types
-          const kasConfig = getKasinaConfig(selectedKasina);
-          let targetScale = sizeMultiplier;
+          // Apply proper scaling for all kasina types
+          // At 100% (sizeMultiplier = 1.0), the kasina should fill the entire screen
+          // At 1% (sizeMultiplier = 0.01), the kasina should have ~1 pixel radius
           
-          // Color kasinas get reduced scaling to match other types
-          if (kasConfig.type === 'color') {
-            targetScale = sizeMultiplier * 0.1; // Much smaller scale for color kasinas
-            console.log(`🎯 Color kasina ${selectedKasina} scaled to: ${targetScale.toFixed(3)}x`);
-          }
+          // Calculate viewport dimensions to determine full-screen scale
+          const camera = state.camera;
+          const distance = camera.position.z; // Distance from camera to orb
+          const vFOV = (camera as any).fov * Math.PI / 180; // Vertical field of view in radians
+          const screenHeight = 2 * Math.tan(vFOV / 2) * distance; // Visible height at orb distance
+          
+          // Scale factor to make the orb fill the screen at 100%
+          const fullScreenScale = screenHeight / 2; // Divide by 2 because sphere radius is 1
+          
+          // Apply the size multiplier (0.01 to 1.0) to the full screen scale
+          const targetScale = sizeMultiplier * fullScreenScale;
           
           meshRef.current.scale.setScalar(targetScale);
         }
@@ -1250,9 +1256,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
         selectedKasina === KASINA_TYPES.AH_KASINA ||
         selectedKasina === KASINA_TYPES.HUM_KASINA
       )) {
-        // Apply consistent scaling for text-based kasinas
-        const normalizedScale = sizeMultiplier * 1.4; // Text kasinas need slightly larger scale
-        groupRef.current.scale.setScalar(normalizedScale);
+        // Apply proper scaling for text-based kasinas using same viewport calculation
+        const camera = state.camera;
+        const distance = camera.position.z;
+        const vFOV = (camera as any).fov * Math.PI / 180;
+        const screenHeight = 2 * Math.tan(vFOV / 2) * distance;
+        const fullScreenScale = screenHeight / 2;
+        
+        // Text kasinas may need slightly different scaling factor
+        const targetScale = sizeMultiplier * fullScreenScale * 1.2; // Slightly larger for text readability
+        groupRef.current.scale.setScalar(targetScale);
       }
 
       // Throttle shader time updates - only update every few frames to reduce computational load
