@@ -944,6 +944,7 @@ const AdminPage: React.FC = () => {
                         // Set status badge colors based on the status
                         const isAdmin = status === "Admin";
                         const isPremium = status === "Premium";
+                        const isFriend = status === "Friend";
                         const isFreemium = status === "Freemium";
                         
                         // Set status badge colors
@@ -951,7 +952,9 @@ const AdminPage: React.FC = () => {
                           ? "bg-purple-900/50 text-purple-200 border-purple-700/40" 
                           : isPremium 
                             ? "bg-amber-900/40 text-amber-200 border-amber-700/40"
-                            : "bg-blue-900/40 text-blue-200 border-blue-700/40";
+                            : isFriend
+                              ? "bg-green-900/40 text-green-200 border-green-700/40"
+                              : "bg-blue-900/40 text-blue-200 border-blue-700/40";
 
                         return (
                           <tr key={member.email} className="border-b border-indigo-900/20 hover:bg-indigo-900/10 transition-colors">
