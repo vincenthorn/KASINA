@@ -9,7 +9,7 @@ export interface User {
   id: number;
   email: string;
   name?: string;
-  subscription_type: 'admin' | 'premium' | 'freemium';
+  subscription_type: 'admin' | 'premium' | 'freemium' | 'friend';
   created_at: Date;
   updated_at: Date;
 }
@@ -48,7 +48,7 @@ export async function getAllUsers(subscriptionType?: string): Promise<User[]> {
 }
 
 // Add or update user
-export async function upsertUser(email: string, name?: string, subscriptionType: 'admin' | 'premium' | 'freemium' = 'freemium'): Promise<User | null> {
+export async function upsertUser(email: string, name?: string, subscriptionType: 'admin' | 'premium' | 'freemium' | 'friend' = 'freemium'): Promise<User | null> {
   try {
     const result = await pool.query(
       `INSERT INTO users (email, name, subscription_type) 
@@ -68,7 +68,7 @@ export async function upsertUser(email: string, name?: string, subscriptionType:
 }
 
 // Add multiple users from CSV data
-export async function bulkUpsertUsers(users: Array<{email: string, name?: string, subscriptionType: 'admin' | 'premium' | 'freemium'}>): Promise<number> {
+export async function bulkUpsertUsers(users: Array<{email: string, name?: string, subscriptionType: 'admin' | 'premium' | 'freemium' | 'friend'}>): Promise<number> {
   try {
     let insertedCount = 0;
     
@@ -91,7 +91,7 @@ export async function isUserWhitelisted(email: string): Promise<boolean> {
 }
 
 // Get user subscription type
-export async function getUserSubscriptionType(email: string): Promise<'admin' | 'premium' | 'freemium' | null> {
+export async function getUserSubscriptionType(email: string): Promise<'admin' | 'premium' | 'freemium' | 'friend' | null> {
   const user = await getUserByEmail(email);
   return user?.subscription_type || null;
 }
