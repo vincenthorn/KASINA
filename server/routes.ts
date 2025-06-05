@@ -446,11 +446,18 @@ export function registerRoutes(app: Express): Server {
   // Emergency admin endpoint without authentication for immediate access
   app.get("/api/emergency-admin", async (req, res) => {
     try {
-      console.log('🆘 Emergency Admin: Fetching all user data without authentication...');
+      console.log('🆘 Emergency Admin: Starting database query...');
+      
+      // Add direct database connection test
+      const testQuery = await pool.query('SELECT COUNT(*) as count FROM users');
+      console.log(`🔍 Direct DB test: ${testQuery.rows[0].count} users found`);
       
       const users = await getAllUsers();
       const sessions = await getAllSessions();
-      console.log(`📊 Emergency Access: Retrieved ${users.length} users and ${sessions.length} sessions`);
+      console.log(`📊 Retrieved ${users.length} users and ${sessions.length} sessions`);
+      
+      // Log first few users for debugging
+      console.log(`🔍 First 3 users: ${users.slice(0, 3).map(u => u.email).join(', ')}`);
       
       // Calculate total practice time across all users
       const totalPracticeTimeSeconds = sessions.reduce((total, session) => {
@@ -488,14 +495,19 @@ export function registerRoutes(app: Express): Server {
         };
       });
       
-      res.json({
+      console.log(`✅ Processed ${members.length} members for response`);
+      
+      const response = {
         members,
         totalPracticeTimeFormatted,
         totalUsers: members.length,
         freemiumUsers: members.filter(m => m.status === "Freemium").length,
         premiumUsers: members.filter(m => m.status === "Premium").length,
         adminUsers: members.filter(m => m.status === "Admin").length
-      });
+      };
+      
+      console.log(`🚀 Sending response with ${response.totalUsers} users`);
+      res.json(response);
     } catch (error) {
       console.error("❌ Emergency admin endpoint error:", error);
       res.status(500).json({ 
