@@ -1,0 +1,441 @@
+2025-06-05T01:13:15.699434063Z ../dist/public/assets/nunito-vietnamese-400-normal-BnU0WwCs.woff         8.43 kB
+2025-06-05T01:13:15.699437803Z ../dist/public/assets/nunito-cyrillic-700-normal-C2ZPAHu5.woff2          8.44 kB
+2025-06-05T01:13:15.699441443Z ../dist/public/assets/inter-greek-400-normal-BZzXV7-1.woff               9.96 kB
+2025-06-05T01:13:15.699467584Z ../dist/public/assets/inter-cyrillic-400-normal-ZzOtrSSW.woff           10.14 kB
+2025-06-05T01:13:15.699590077Z ../dist/public/assets/inter-cyrillic-ext-400-normal-Dc4VJyIJ.woff2      10.22 kB
+2025-06-05T01:13:15.699612427Z ../dist/public/assets/nunito-cyrillic-700-normal-CY6xiUxZ.woff          10.44 kB
+2025-06-05T01:13:15.699616537Z ../dist/public/assets/nunito-cyrillic-400-normal-hvcJLrVW.woff          10.50 kB
+2025-06-05T01:13:15.699640388Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-Cgrooa9T.woff2     10.88 kB
+2025-06-05T01:13:15.699642508Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CiC2fk4J.woff2     11.05 kB
+2025-06-05T01:13:15.699676948Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-D-e9fzlR.woff      14.12 kB
+2025-06-05T01:13:15.699679868Z ../dist/public/assets/inter-cyrillic-ext-400-normal-BPnxn4xp.woff       14.19 kB
+2025-06-05T01:13:15.699681699Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CUrc3HHF.woff      14.36 kB
+2025-06-05T01:13:15.699689469Z ../dist/public/assets/nunito-latin-ext-700-normal-DwQwRZln.woff2        15.39 kB
+2025-06-05T01:13:15.699693289Z ../dist/public/assets/nunito-latin-ext-400-normal-Z5e_fnxp.woff2        15.45 kB
+2025-06-05T01:13:15.699695129Z ../dist/public/assets/nunito-latin-400-normal-CA33qtOw.woff2            16.29 kB
+2025-06-05T01:13:15.699712549Z ../dist/public/assets/nunito-latin-700-normal-CGDVIs8t.woff2            16.31 kB
+2025-06-05T01:13:15.699718129Z ../dist/public/assets/nunito-latin-700-normal-C5gyHyFo.woff             20.19 kB
+2025-06-05T01:13:15.69972312Z ../dist/public/assets/nunito-latin-400-normal-nExtXIcZ.woff             20.52 kB
+2025-06-05T01:13:15.69972715Z ../dist/public/assets/nunito-latin-ext-700-normal-G8lcDK0M.woff         20.82 kB
+2025-06-05T01:13:15.69975377Z ../dist/public/assets/nunito-latin-ext-400-normal-DZILPSLY.woff         21.07 kB
+2025-06-05T01:13:15.69975595Z ../dist/public/assets/inter-latin-400-normal-BOOGhInR.woff2             23.69 kB
+2025-06-05T01:13:15.69976821Z ../dist/public/assets/inter-latin-ext-400-normal-hnt3BR84.woff2         30.68 kB
+2025-06-05T01:13:15.699781801Z ../dist/public/assets/inter-latin-400-normal-gitzw0hO.woff              31.20 kB
+2025-06-05T01:13:15.699787121Z ../dist/public/assets/inter-latin-ext-400-normal-C1t-h-pH.woff          42.88 kB
+2025-06-05T01:13:15.699809442Z ../dist/public/assets/index-n-YRCv62.css                               107.82 kB │ gzip:  17.86 kB
+2025-06-05T01:13:15.699833002Z ../dist/public/assets/godirect.min.esm-D_z86mMB.js                      12.66 kB │ gzip:   4.19 kB
+2025-06-05T01:13:15.699859143Z ../dist/public/assets/index-CoYS7sGi.js                              1,852.45 kB │ gzip: 513.42 kB
+2025-06-05T01:13:15.699885003Z 
+2025-06-05T01:13:15.699888063Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-06-05T01:13:15.699890363Z - Using dynamic import() to code-split the application
+2025-06-05T01:13:15.699892523Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-06-05T01:13:15.699894363Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-06-05T01:13:15.70020553Z ✓ built in 17.31s
+2025-06-05T01:13:15.881343834Z 
+2025-06-05T01:13:15.881367034Z   dist/index.js  44.3kb
+2025-06-05T01:13:15.881369564Z 
+2025-06-05T01:13:15.881371454Z ⚡ Done in 7ms
+2025-06-05T01:13:17.329735826Z ==> Uploading build...
+2025-06-05T01:14:27.013542107Z ==> Uploaded in 38.7s. Compression took 31.0s
+2025-06-05T01:14:27.328095106Z ==> Build successful 🎉
+2025-06-05T01:14:29.660052199Z ==> Deploying...
+2025-06-05T01:15:17.022760803Z ==> Running 'npm run start'
+2025-06-05T01:15:17.256367015Z 
+2025-06-05T01:15:17.257717046Z > rest-express@1.0.0 start
+2025-06-05T01:15:17.257729567Z > NODE_ENV=production node dist/index.js
+2025-06-05T01:15:17.257733867Z 
+2025-06-05T01:15:18.138752604Z 1:15:18 AM [express] Using PostgreSQL session store for production
+2025-06-05T01:15:18.147384124Z 1:15:18 AM [express] KASINA meditation app serving on port 10000
+2025-06-05T01:15:18.368481292Z 📥 INCOMING REQUEST: HEAD /
+2025-06-05T01:15:21.044515979Z ==> Your service is live 🎉
+2025-06-05T01:16:13.627401487Z 📥 INCOMING REQUEST: GET /
+2025-06-05T01:16:13.692350102Z 📥 INCOMING REQUEST: GET /assets/index-n-YRCv62.css
+2025-06-05T01:16:13.717615685Z 📥 INCOMING REQUEST: GET /assets/index-CoYS7sGi.js
+2025-06-05T01:16:14.016735457Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:14.031641436Z 📥 INCOMING REQUEST: GET /assets/nunito-latin-700-normal-CGDVIs8t.woff2
+2025-06-05T01:16:14.04100625Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:14.041018621Z   Session ID: naxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0
+2025-06-05T01:16:14.041026962Z   Session exists: true
+2025-06-05T01:16:14.041030692Z   User in session: true
+2025-06-05T01:16:14.041076374Z   User email: admin@kasina.app
+2025-06-05T01:16:14.041082485Z   Cookies: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3AnaxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0.0EjCvnExgbUp4wuW8ojR8Ib7VVtXRQJf3x%2FMn9JBGZw
+2025-06-05T01:16:14.041088265Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:14.041091846Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:14.041483649Z Auth check - Session ID: naxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0
+2025-06-05T01:16:14.041810239Z Auth check - Session data: Session {
+2025-06-05T01:16:14.041818429Z   cookie: {
+2025-06-05T01:16:14.041822239Z     path: '/',
+2025-06-05T01:16:14.04182577Z     _expires: 2025-06-06T00:54:22.318Z,
+2025-06-05T01:16:14.04182985Z     originalMaxAge: 86400000,
+2025-06-05T01:16:14.04183427Z     httpOnly: true,
+2025-06-05T01:16:14.04183858Z     secure: false,
+2025-06-05T01:16:14.041842081Z     sameSite: 'lax'
+2025-06-05T01:16:14.041845521Z   },
+2025-06-05T01:16:14.041851711Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:14.041855441Z }
+2025-06-05T01:16:14.041860082Z Auth check - Cookie headers: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3AnaxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0.0EjCvnExgbUp4wuW8ojR8Ib7VVtXRQJf3x%2FMn9JBGZw
+2025-06-05T01:16:14.052433429Z 1:16:14 AM [express] GET /api/auth/me 304 in 11ms :: {"email":"admin@kasina.app","createdAt":"2025-0…
+2025-06-05T01:16:14.068516379Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:14.113473139Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:14.11348871Z   Session ID: naxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0
+2025-06-05T01:16:14.113505071Z   Session exists: true
+2025-06-05T01:16:14.113518241Z   User in session: true
+2025-06-05T01:16:14.113522892Z   User email: admin@kasina.app
+2025-06-05T01:16:14.113541873Z   Cookies: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3AnaxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0.0EjCvnExgbUp4wuW8ojR8Ib7VVtXRQJf3x%2FMn9JBGZw
+2025-06-05T01:16:14.113556784Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:14.113595866Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:14.113643429Z Auth check - Session ID: naxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0
+2025-06-05T01:16:14.113947678Z Auth check - Session data: Session {
+2025-06-05T01:16:14.113951058Z   cookie: {
+2025-06-05T01:16:14.113953368Z     path: '/',
+2025-06-05T01:16:14.113955628Z     _expires: 2025-06-06T00:54:22.318Z,
+2025-06-05T01:16:14.113957968Z     originalMaxAge: 86400000,
+2025-06-05T01:16:14.113960428Z     httpOnly: true,
+2025-06-05T01:16:14.113962548Z     secure: false,
+2025-06-05T01:16:14.113964808Z     sameSite: 'lax'
+2025-06-05T01:16:14.113966929Z   },
+2025-06-05T01:16:14.113969139Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:14.113971359Z }
+2025-06-05T01:16:14.113974149Z Auth check - Cookie headers: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3AnaxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0.0EjCvnExgbUp4wuW8ojR8Ib7VVtXRQJf3x%2FMn9JBGZw
+2025-06-05T01:16:14.117293089Z 1:16:14 AM [express] GET /api/auth/me 304 in 3ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:14.121995812Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:15.638349355Z 📥 INCOMING REQUEST: GET /api/emergency-admin
+2025-06-05T01:16:15.638642002Z 🚨 Emergency Admin: Starting simplified database access...
+2025-06-05T01:16:15.640824194Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:15.640835725Z   Session ID: naxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0
+2025-06-05T01:16:15.640840825Z   Session exists: true
+2025-06-05T01:16:15.640845315Z   User in session: true
+2025-06-05T01:16:15.640854746Z   User email: admin@kasina.app
+2025-06-05T01:16:15.640859756Z   Cookies: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3AnaxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0.0EjCvnExgbUp4wuW8ojR8Ib7VVtXRQJf3x%2FMn9JBGZw
+2025-06-05T01:16:15.640864627Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:15.640873467Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:15.64093166Z Auth check - Session ID: naxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0
+2025-06-05T01:16:15.641291152Z Auth check - Session data: Session {
+2025-06-05T01:16:15.641301443Z   cookie: {
+2025-06-05T01:16:15.641306303Z     path: '/',
+2025-06-05T01:16:15.641310653Z     _expires: 2025-06-06T00:54:22.318Z,
+2025-06-05T01:16:15.641315874Z     originalMaxAge: 86400000,
+2025-06-05T01:16:15.641320504Z     httpOnly: true,
+2025-06-05T01:16:15.641324714Z     secure: false,
+2025-06-05T01:16:15.641328804Z     sameSite: 'lax'
+2025-06-05T01:16:15.641333035Z   },
+2025-06-05T01:16:15.641337405Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:15.641341435Z }
+2025-06-05T01:16:15.641346476Z Auth check - Cookie headers: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3AnaxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0.0EjCvnExgbUp4wuW8ojR8Ib7VVtXRQJf3x%2FMn9JBGZw
+2025-06-05T01:16:15.644370618Z 1:16:15 AM [express] GET /api/auth/me 304 in 4ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:15.646756442Z 🚨 Emergency Admin: Retrieved 2 users and 7 sessions
+2025-06-05T01:16:15.646926992Z 🚨 Emergency Admin: Successfully processed 2 users
+2025-06-05T01:16:15.646931182Z 🚨 Breakdown: 1 freemium, 0 premium, 1 admin
+2025-06-05T01:16:15.648790054Z 1:16:15 AM [express] GET /api/emergency-admin 200 in 10ms :: {"members":[{"email":"admin@kasina.app"…
+2025-06-05T01:16:15.655287496Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:17.584988306Z 🔍 SESSION DEBUG - POST /api/auth/logout:
+2025-06-05T01:16:17.585006407Z   Session ID: naxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0
+2025-06-05T01:16:17.585023888Z   Session exists: true
+2025-06-05T01:16:17.585031949Z   User in session: true
+2025-06-05T01:16:17.585036619Z   User email: admin@kasina.app
+2025-06-05T01:16:17.58504653Z   Cookies: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3AnaxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0.0EjCvnExgbUp4wuW8ojR8Ib7VVtXRQJf3x%2FMn9JBGZw
+2025-06-05T01:16:17.58505098Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:17.585098743Z 📥 INCOMING REQUEST: POST /api/auth/logout
+2025-06-05T01:16:17.587398441Z 1:16:17 AM [express] POST /api/auth/logout 200 in 2ms :: {"message":"Logout successful"}
+2025-06-05T01:16:17.65091457Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:18.584873004Z 📥 INCOMING REQUEST: GET /login
+2025-06-05T01:16:18.642324438Z 📥 INCOMING REQUEST: GET /assets/index-n-YRCv62.css
+2025-06-05T01:16:18.650797749Z 📥 INCOMING REQUEST: GET /assets/index-CoYS7sGi.js
+2025-06-05T01:16:18.889161488Z 📥 INCOMING REQUEST: GET /assets/nunito-latin-700-normal-CGDVIs8t.woff2
+2025-06-05T01:16:18.891082884Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:21.641556845Z 🔍 SESSION DEBUG - POST /api/auth/login:
+2025-06-05T01:16:21.641590647Z   Session ID: IUMPSrELrOt8dUp5BHLgwpCM3DU3lluw
+2025-06-05T01:16:21.641599587Z   Session exists: true
+2025-06-05T01:16:21.641606648Z   User in session: false
+2025-06-05T01:16:21.641629289Z   User email: undefined
+2025-06-05T01:16:21.641710414Z   Cookies: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3AnaxYeXxEj6mnFpK8AqVL7RmT_6kMDqk0.0EjCvnExgbUp4wuW8ojR8Ib7VVtXRQJf3x%2FMn9JBGZw
+2025-06-05T01:16:21.641733126Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:21.641742116Z 📥 INCOMING REQUEST: POST /api/auth/login
+2025-06-05T01:16:21.64214244Z 🔐 LOGIN ATTEMPT: admin@kasina.app
+2025-06-05T01:16:21.642149941Z 🔐 Pre-login session ID: IUMPSrELrOt8dUp5BHLgwpCM3DU3lluw
+2025-06-05T01:16:21.64230142Z 🔐 Pre-login session data: Session {
+2025-06-05T01:16:21.64230798Z   cookie: {
+2025-06-05T01:16:21.642311721Z     path: '/',
+2025-06-05T01:16:21.642315491Z     _expires: 2025-06-06T01:16:21.641Z,
+2025-06-05T01:16:21.642319701Z     originalMaxAge: 86400000,
+2025-06-05T01:16:21.642323731Z     httpOnly: true,
+2025-06-05T01:16:21.642327341Z     secure: false,
+2025-06-05T01:16:21.642330842Z     sameSite: 'lax'
+2025-06-05T01:16:21.642334392Z   }
+2025-06-05T01:16:21.642338082Z }
+2025-06-05T01:16:21.643343693Z 🔐 LOGIN SUCCESS: User admin@kasina.app found with subscription: undefined
+2025-06-05T01:16:21.643395616Z 🔐 Setting session user data: { email: 'admin@kasina.app' }
+2025-06-05T01:16:21.643401396Z 🔐 Session ID after user assignment: IUMPSrELrOt8dUp5BHLgwpCM3DU3lluw
+2025-06-05T01:16:21.643573447Z 🔐 Full session object: Session {
+2025-06-05T01:16:21.643578457Z   cookie: {
+2025-06-05T01:16:21.643581387Z     path: '/',
+2025-06-05T01:16:21.643594578Z     _expires: 2025-06-06T01:16:21.641Z,
+2025-06-05T01:16:21.643596538Z     originalMaxAge: 86400000,
+2025-06-05T01:16:21.643598308Z     httpOnly: true,
+2025-06-05T01:16:21.643599968Z     secure: false,
+2025-06-05T01:16:21.643601578Z     sameSite: 'lax'
+2025-06-05T01:16:21.643603218Z   },
+2025-06-05T01:16:21.643605148Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:21.643606879Z }
+2025-06-05T01:16:21.644677463Z 🔐 New session ID after regeneration: _d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5
+2025-06-05T01:16:21.644727816Z 🔐 User data in new session: { email: 'admin@kasina.app' }
+2025-06-05T01:16:21.646467791Z 🔐 Session saved successfully for admin@kasina.app
+2025-06-05T01:16:21.646475052Z 🔐 Final session ID: _d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5
+2025-06-05T01:16:21.648658193Z 1:16:21 AM [express] POST /api/auth/login 200 in 7ms :: {"message":"Login successful","user":{"email…
+2025-06-05T01:16:21.703587315Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:21.703597845Z   Session ID: _d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5
+2025-06-05T01:16:21.703600615Z   Session exists: true
+2025-06-05T01:16:21.703617756Z   User in session: true
+2025-06-05T01:16:21.703624047Z   User email: admin@kasina.app
+2025-06-05T01:16:21.703638527Z   Cookies: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3A_d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5.YinMEODV4R57CigDAPrwXDK5VgGUe6z84gVu8LyQKI4
+2025-06-05T01:16:21.703646688Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:21.70367837Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:21.703739514Z Auth check - Session ID: _d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5
+2025-06-05T01:16:21.70384661Z Auth check - Session data: Session {
+2025-06-05T01:16:21.70384991Z   cookie: {
+2025-06-05T01:16:21.7038521Z     path: '/',
+2025-06-05T01:16:21.703854331Z     _expires: 2025-06-06T01:16:21.646Z,
+2025-06-05T01:16:21.703857211Z     originalMaxAge: 86400000,
+2025-06-05T01:16:21.703860491Z     httpOnly: true,
+2025-06-05T01:16:21.703863151Z     secure: false,
+2025-06-05T01:16:21.703865271Z     sameSite: 'lax'
+2025-06-05T01:16:21.703875892Z   },
+2025-06-05T01:16:21.703878212Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:21.703880352Z }
+2025-06-05T01:16:21.703883322Z Auth check - Cookie headers: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3A_d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5.YinMEODV4R57CigDAPrwXDK5VgGUe6z84gVu8LyQKI4
+2025-06-05T01:16:21.706905395Z 1:16:21 AM [express] GET /api/auth/me 304 in 3ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:21.708673591Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:22.844450061Z 📥 INCOMING REQUEST: GET /api/emergency-admin
+2025-06-05T01:16:22.844478183Z 🚨 Emergency Admin: Starting simplified database access...
+2025-06-05T01:16:22.844781431Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:22.844785691Z   Session ID: _d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5
+2025-06-05T01:16:22.844792282Z   Session exists: true
+2025-06-05T01:16:22.844794702Z   User in session: true
+2025-06-05T01:16:22.844797362Z   User email: admin@kasina.app
+2025-06-05T01:16:22.844803122Z   Cookies: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3A_d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5.YinMEODV4R57CigDAPrwXDK5VgGUe6z84gVu8LyQKI4
+2025-06-05T01:16:22.844808493Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:22.844825534Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:22.844892778Z Auth check - Session ID: _d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5
+2025-06-05T01:16:22.844979793Z Auth check - Session data: Session {
+2025-06-05T01:16:22.844982993Z   cookie: {
+2025-06-05T01:16:22.844985453Z     path: '/',
+2025-06-05T01:16:22.844987713Z     _expires: 2025-06-06T01:16:21.646Z,
+2025-06-05T01:16:22.844989884Z     originalMaxAge: 86400000,
+2025-06-05T01:16:22.844992014Z     httpOnly: true,
+2025-06-05T01:16:22.844994064Z     secure: false,
+2025-06-05T01:16:22.844998134Z     sameSite: 'lax'
+2025-06-05T01:16:22.845000314Z   },
+2025-06-05T01:16:22.845002484Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:22.845004674Z }
+2025-06-05T01:16:22.845007815Z Auth check - Cookie headers: kasina-session=s%3ASgG0H4omxTtOBANYOdbeXKSyfi7PgFth.Fz%2BQGZpTCSZc0Q8H2PECMrQyFs4CUHn0OXLarLdalTA; connect.sid=s%3A_d-5N93UAH5scfaUwM9ZJHw8AUVC7vD5.YinMEODV4R57CigDAPrwXDK5VgGUe6z84gVu8LyQKI4
+2025-06-05T01:16:22.845981583Z 🚨 Emergency Admin: Retrieved 2 users and 7 sessions
+2025-06-05T01:16:22.846035307Z 🚨 Emergency Admin: Successfully processed 2 users
+2025-06-05T01:16:22.846038027Z 🚨 Breakdown: 1 freemium, 0 premium, 1 admin
+2025-06-05T01:16:22.848179996Z 1:16:22 AM [express] GET /api/emergency-admin 200 in 3ms :: {"members":[{"email":"admin@kasina.app",…
+2025-06-05T01:16:22.848617732Z 1:16:22 AM [express] GET /api/auth/me 304 in 4ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:22.855602593Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:27.290572175Z 📥 INCOMING REQUEST: GET /assets/index-n-YRCv62.css
+2025-06-05T01:16:36.09192948Z 📥 INCOMING REQUEST: GET /
+2025-06-05T01:16:36.27008429Z 📥 INCOMING REQUEST: GET /assets/index-CoYS7sGi.js
+2025-06-05T01:16:36.276582992Z 📥 INCOMING REQUEST: GET /assets/index-n-YRCv62.css
+2025-06-05T01:16:36.492279356Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:36.495702782Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:36.495723663Z   Session ID: EAULx6ssVh6BSwsTHrNE3BYcfPAvt41E
+2025-06-05T01:16:36.495742294Z   Session exists: true
+2025-06-05T01:16:36.495748795Z   User in session: false
+2025-06-05T01:16:36.495752925Z   User email: undefined
+2025-06-05T01:16:36.495757425Z   Cookies: undefined
+2025-06-05T01:16:36.495766866Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:36.495775076Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:36.495859721Z Auth check - Session ID: EAULx6ssVh6BSwsTHrNE3BYcfPAvt41E
+2025-06-05T01:16:36.495979789Z Auth check - Session data: Session {
+2025-06-05T01:16:36.49599472Z   cookie: {
+2025-06-05T01:16:36.4959998Z     path: '/',
+2025-06-05T01:16:36.49600446Z     _expires: 2025-06-06T01:16:36.495Z,
+2025-06-05T01:16:36.49600937Z     originalMaxAge: 86400000,
+2025-06-05T01:16:36.496013041Z     httpOnly: true,
+2025-06-05T01:16:36.496015811Z     secure: false,
+2025-06-05T01:16:36.496018551Z     sameSite: 'lax'
+2025-06-05T01:16:36.496021411Z   }
+2025-06-05T01:16:36.496024291Z }
+2025-06-05T01:16:36.496027202Z Auth check - Cookie headers: undefined
+2025-06-05T01:16:36.496030082Z Auth check failed - No session user data
+2025-06-05T01:16:36.496885873Z 1:16:36 AM [express] GET /api/auth/me 401 in 1ms :: {"message":"Not authenticated"}
+2025-06-05T01:16:36.50478912Z 📥 INCOMING REQUEST: GET /assets/nunito-latin-700-normal-CGDVIs8t.woff2
+2025-06-05T01:16:36.696069231Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:37.792367673Z 📥 INCOMING REQUEST: GET /assets/inter-latin-400-normal-BOOGhInR.woff2
+2025-06-05T01:16:40.021946706Z 🔍 SESSION DEBUG - POST /api/auth/login:
+2025-06-05T01:16:40.021972907Z   Session ID: 2trjusSL4tFuvbP1qSCOPzMHbVbXTttV
+2025-06-05T01:16:40.021978057Z   Session exists: true
+2025-06-05T01:16:40.021981818Z   User in session: false
+2025-06-05T01:16:40.021985308Z   User email: undefined
+2025-06-05T01:16:40.021988858Z   Cookies: undefined
+2025-06-05T01:16:40.021992888Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:40.022006619Z 📥 INCOMING REQUEST: POST /api/auth/login
+2025-06-05T01:16:40.022013339Z 🔐 LOGIN ATTEMPT: admin@kasina.app
+2025-06-05T01:16:40.02201758Z 🔐 Pre-login session ID: 2trjusSL4tFuvbP1qSCOPzMHbVbXTttV
+2025-06-05T01:16:40.022110985Z 🔐 Pre-login session data: Session {
+2025-06-05T01:16:40.022142837Z   cookie: {
+2025-06-05T01:16:40.022150248Z     path: '/',
+2025-06-05T01:16:40.022154048Z     _expires: 2025-06-06T01:16:40.021Z,
+2025-06-05T01:16:40.022158068Z     originalMaxAge: 86400000,
+2025-06-05T01:16:40.022161968Z     httpOnly: true,
+2025-06-05T01:16:40.022165529Z     secure: false,
+2025-06-05T01:16:40.022169049Z     sameSite: 'lax'
+2025-06-05T01:16:40.022172639Z   }
+2025-06-05T01:16:40.022176249Z }
+2025-06-05T01:16:40.032393505Z 🔐 LOGIN SUCCESS: User admin@kasina.app found with subscription: undefined
+2025-06-05T01:16:40.032412986Z 🔐 Setting session user data: { email: 'admin@kasina.app' }
+2025-06-05T01:16:40.032419677Z 🔐 Session ID after user assignment: 2trjusSL4tFuvbP1qSCOPzMHbVbXTttV
+2025-06-05T01:16:40.032524573Z 🔐 Full session object: Session {
+2025-06-05T01:16:40.032531844Z   cookie: {
+2025-06-05T01:16:40.032535914Z     path: '/',
+2025-06-05T01:16:40.032539444Z     _expires: 2025-06-06T01:16:40.021Z,
+2025-06-05T01:16:40.032542984Z     originalMaxAge: 86400000,
+2025-06-05T01:16:40.032546565Z     httpOnly: true,
+2025-06-05T01:16:40.032550025Z     secure: false,
+2025-06-05T01:16:40.032553705Z     sameSite: 'lax'
+2025-06-05T01:16:40.032557255Z   },
+2025-06-05T01:16:40.032560826Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:40.032564326Z }
+2025-06-05T01:16:40.039906678Z 🔐 New session ID after regeneration: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:40.039922079Z 🔐 User data in new session: { email: 'admin@kasina.app' }
+2025-06-05T01:16:40.041490244Z 🔐 Session saved successfully for admin@kasina.app
+2025-06-05T01:16:40.041499174Z 🔐 Final session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:40.043833065Z 1:16:40 AM [express] POST /api/auth/login 200 in 22ms :: {"message":"Login successful","user":{"emai…
+2025-06-05T01:16:40.131202292Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:40.131222003Z   Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:40.131228143Z   Session exists: true
+2025-06-05T01:16:40.131233734Z   User in session: true
+2025-06-05T01:16:40.131240024Z   User email: admin@kasina.app
+2025-06-05T01:16:40.131255895Z   Cookies: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:40.131261076Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:40.131272136Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:40.1313353Z Auth check - Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:40.131575604Z Auth check - Session data: Session {
+2025-06-05T01:16:40.131580835Z   cookie: {
+2025-06-05T01:16:40.131584975Z     path: '/',
+2025-06-05T01:16:40.131598196Z     _expires: 2025-06-06T01:16:40.041Z,
+2025-06-05T01:16:40.131601976Z     originalMaxAge: 86400000,
+2025-06-05T01:16:40.131605926Z     httpOnly: true,
+2025-06-05T01:16:40.131609286Z     secure: false,
+2025-06-05T01:16:40.131612747Z     sameSite: 'lax'
+2025-06-05T01:16:40.131616067Z   },
+2025-06-05T01:16:40.131619737Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:40.131623027Z }
+2025-06-05T01:16:40.131629247Z Auth check - Cookie headers: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:40.135012551Z 1:16:40 AM [express] GET /api/auth/me 200 in 3ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:41.811006981Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:41.811024122Z   Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:41.811027462Z   Session exists: true
+2025-06-05T01:16:41.811029722Z   User in session: true
+2025-06-05T01:16:41.811032402Z   User email: admin@kasina.app
+2025-06-05T01:16:41.811035523Z   Cookies: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:41.811050163Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:41.811057844Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:41.81115934Z Auth check - Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:41.811263256Z Auth check - Session data: Session {
+2025-06-05T01:16:41.811266646Z   cookie: {
+2025-06-05T01:16:41.811268997Z     path: '/',
+2025-06-05T01:16:41.811271127Z     _expires: 2025-06-06T01:16:40.041Z,
+2025-06-05T01:16:41.811273357Z     originalMaxAge: 86400000,
+2025-06-05T01:16:41.811278037Z     httpOnly: true,
+2025-06-05T01:16:41.811280287Z     secure: false,
+2025-06-05T01:16:41.811282327Z     sameSite: 'lax'
+2025-06-05T01:16:41.811284378Z   },
+2025-06-05T01:16:41.811286627Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:41.811288858Z }
+2025-06-05T01:16:41.811291598Z Auth check - Cookie headers: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:41.814459179Z 1:16:41 AM [express] GET /api/auth/me 304 in 4ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:41.8189571Z 📥 INCOMING REQUEST: GET /api/emergency-admin
+2025-06-05T01:16:41.819018134Z 🚨 Emergency Admin: Starting simplified database access...
+2025-06-05T01:16:41.856389957Z 🚨 Emergency Admin: Retrieved 2 users and 7 sessions
+2025-06-05T01:16:41.856411028Z 🚨 Emergency Admin: Successfully processed 2 users
+2025-06-05T01:16:41.856414328Z 🚨 Breakdown: 1 freemium, 0 premium, 1 admin
+2025-06-05T01:16:41.858688045Z 1:16:41 AM [express] GET /api/emergency-admin 200 in 40ms :: {"members":[{"email":"admin@kasina.app"…
+2025-06-05T01:16:43.421378904Z 🔍 SESSION DEBUG - GET /admin:
+2025-06-05T01:16:43.421404946Z   Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:43.421414916Z   Session exists: true
+2025-06-05T01:16:43.421419546Z   User in session: true
+2025-06-05T01:16:43.421422407Z   User email: admin@kasina.app
+2025-06-05T01:16:43.421436367Z   Cookies: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:43.421440108Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:43.421449608Z 📥 INCOMING REQUEST: GET /admin
+2025-06-05T01:16:43.539083249Z 📥 INCOMING REQUEST: GET /assets/index-CoYS7sGi.js
+2025-06-05T01:16:43.539355656Z 📥 INCOMING REQUEST: GET /assets/index-n-YRCv62.css
+2025-06-05T01:16:43.640641342Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:43.652165747Z 📥 INCOMING REQUEST: GET /assets/nunito-latin-700-normal-CGDVIs8t.woff2
+2025-06-05T01:16:43.655519349Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:43.65553385Z   Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:43.65554389Z   Session exists: true
+2025-06-05T01:16:43.655546261Z   User in session: true
+2025-06-05T01:16:43.655551981Z   User email: admin@kasina.app
+2025-06-05T01:16:43.655589233Z   Cookies: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:43.655595964Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:43.655605954Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:43.65569516Z Auth check - Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:43.655805856Z Auth check - Session data: Session {
+2025-06-05T01:16:43.655809077Z   cookie: {
+2025-06-05T01:16:43.655811297Z     path: '/',
+2025-06-05T01:16:43.655813447Z     _expires: 2025-06-06T01:16:40.041Z,
+2025-06-05T01:16:43.655817977Z     originalMaxAge: 86400000,
+2025-06-05T01:16:43.655820767Z     httpOnly: true,
+2025-06-05T01:16:43.655823007Z     secure: false,
+2025-06-05T01:16:43.655825067Z     sameSite: 'lax'
+2025-06-05T01:16:43.655827127Z   },
+2025-06-05T01:16:43.655829368Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:43.655831538Z }
+2025-06-05T01:16:43.655839278Z Auth check - Cookie headers: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:43.658980058Z 1:16:43 AM [express] GET /api/auth/me 304 in 3ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:43.726778635Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:43.729046102Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:43.729054912Z   Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:43.729057722Z   Session exists: true
+2025-06-05T01:16:43.729059793Z   User in session: true
+2025-06-05T01:16:43.729062203Z   User email: admin@kasina.app
+2025-06-05T01:16:43.729068703Z   Cookies: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:43.729070923Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:43.729072633Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:43.729138297Z Auth check - Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:43.729303647Z Auth check - Session data: Session {
+2025-06-05T01:16:43.729307948Z   cookie: {
+2025-06-05T01:16:43.729310588Z     path: '/',
+2025-06-05T01:16:43.729313418Z     _expires: 2025-06-06T01:16:40.041Z,
+2025-06-05T01:16:43.729317308Z     originalMaxAge: 86400000,
+2025-06-05T01:16:43.729320878Z     httpOnly: true,
+2025-06-05T01:16:43.729323448Z     secure: false,
+2025-06-05T01:16:43.729325098Z     sameSite: 'lax'
+2025-06-05T01:16:43.729326869Z   },
+2025-06-05T01:16:43.729328699Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:43.729330419Z }
+2025-06-05T01:16:43.729332859Z Auth check - Cookie headers: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:43.732324549Z 1:16:43 AM [express] GET /api/auth/me 304 in 2ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:43.783486334Z 📥 INCOMING REQUEST: GET /logo.svg
+2025-06-05T01:16:45.360154676Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2025-06-05T01:16:45.360180448Z   Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:45.360183868Z   Session exists: true
+2025-06-05T01:16:45.360185598Z   User in session: true
+2025-06-05T01:16:45.360188038Z   User email: admin@kasina.app
+2025-06-05T01:16:45.360203229Z   Cookies: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:45.36021243Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-06-05T01:16:45.36021965Z 📥 INCOMING REQUEST: GET /api/auth/me
+2025-06-05T01:16:45.360272443Z Auth check - Session ID: gqSTag7MbbMuLVif-Pr_nlURrOqZnA2d
+2025-06-05T01:16:45.360367499Z Auth check - Session data: Session {
+2025-06-05T01:16:45.360370369Z   cookie: {
+2025-06-05T01:16:45.360372209Z     path: '/',
+2025-06-05T01:16:45.360373949Z     _expires: 2025-06-06T01:16:40.041Z,
+2025-06-05T01:16:45.36037626Z     originalMaxAge: 86400000,
+2025-06-05T01:16:45.360378529Z     httpOnly: true,
+2025-06-05T01:16:45.36038029Z     secure: false,
+2025-06-05T01:16:45.36038194Z     sameSite: 'lax'
+2025-06-05T01:16:45.36038366Z   },
+2025-06-05T01:16:45.36038539Z   user: { email: 'admin@kasina.app' }
+2025-06-05T01:16:45.36038727Z }
+2025-06-05T01:16:45.36038953Z Auth check - Cookie headers: connect.sid=s%3AgqSTag7MbbMuLVif-Pr_nlURrOqZnA2d.UmVXNdgUrCtl%2BMXVHYNyWYLs6UZHXk1eyi9LSz22ZUE
+2025-06-05T01:16:45.360643556Z 📥 INCOMING REQUEST: GET /api/emergency-admin
+2025-06-05T01:16:45.360682768Z 🚨 Emergency Admin: Starting simplified database access...
+2025-06-05T01:16:45.361853938Z 🚨 Emergency Admin: Retrieved 2 users and 7 sessions
+2025-06-05T01:16:45.361896441Z 🚨 Emergency Admin: Successfully processed 2 users
+2025-06-05T01:16:45.361899731Z 🚨 Breakdown: 1 freemium, 0 premium, 1 admin
+2025-06-05T01:16:45.363304766Z 1:16:45 AM [express] GET /api/auth/me 304 in 2ms :: {"email":"admin@kasina.app","createdAt":"2025-06…
+2025-06-05T01:16:45.363673588Z 1:16:45 AM [express] GET /api/emergency-admin 200 in 3ms :: {"members":[{"email":"admin@kasina.app",…

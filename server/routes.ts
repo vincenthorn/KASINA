@@ -452,6 +452,11 @@ export function registerRoutes(app: Express): Server {
       const testQuery = await pool.query('SELECT COUNT(*) as count FROM users');
       console.log(`🔍 Direct DB test: ${testQuery.rows[0].count} users found`);
       
+      // Test direct query without helper function
+      const directUsersQuery = await pool.query('SELECT * FROM users ORDER BY created_at DESC LIMIT 5');
+      console.log(`🔍 Direct query test: ${directUsersQuery.rows.length} users returned`);
+      console.log(`🔍 Sample emails: ${directUsersQuery.rows.map(u => u.email).join(', ')}`);
+      
       const users = await getAllUsers();
       const sessions = await getAllSessions();
       console.log(`📊 Retrieved ${users.length} users and ${sessions.length} sessions`);
