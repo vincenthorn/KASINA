@@ -97,10 +97,14 @@ const AdminPage: React.FC = () => {
       
       if (response.ok) {
         const data = await response.json();
+        console.log("Emergency endpoint response:", data);
+        console.log("Premium users from response:", data.premiumUsers);
         setMembers(data.members);
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
         console.log("Emergency endpoint: loaded", data.totalUsers, "users");
         return;
+      } else {
+        console.error("Emergency endpoint failed:", response.status, response.statusText);
       }
       
       // Fallback to authenticated admin endpoint with credentials
