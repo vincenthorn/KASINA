@@ -820,27 +820,48 @@ const AdminPage: React.FC = () => {
                 </CardDescription>
               </div>
               
-              {/* Search Input */}
-              <div className="relative w-full md:w-64">
-                <Input
-                  type="text"
-                  placeholder="Search members..."
-                  className="bg-gray-800/60 border-gray-700 text-white placeholder-gray-500 pr-8"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                {searchQuery ? (
-                  <button 
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                ) : (
-                  <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
-                    <Search className="h-4 w-4" />
-                  </span>
-                )}
+              {/* Refresh Button and Search Input */}
+              <div className="flex items-center gap-3">
+                <Button 
+                  variant="outline"
+                  className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-indigo-500/30 h-10"
+                  onClick={refreshData}
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                      Refreshing...
+                    </>
+                  ) : (
+                    <>
+                      <Clock className="h-4 w-4 mr-2" />
+                      Refresh Data
+                    </>
+                  )}
+                </Button>
+                
+                <div className="relative w-full md:w-64">
+                  <Input
+                    type="text"
+                    placeholder="Search members..."
+                    className="bg-gray-800/60 border-gray-700 text-white placeholder-gray-500 pr-8 h-10"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                  {searchQuery ? (
+                    <button 
+                      onClick={() => setSearchQuery('')}
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  ) : (
+                    <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                      <Search className="h-4 w-4" />
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </CardHeader>
@@ -855,28 +876,6 @@ const AdminPage: React.FC = () => {
               </div>
             ) : (
               <div className="space-y-4">
-                {/* Refresh Data Button at Top */}
-                <div className="flex justify-end">
-                  <Button 
-                    variant="outline"
-                    className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-indigo-500/30"
-                    onClick={refreshData}
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                        Refreshing...
-                      </>
-                    ) : (
-                      <>
-                        <Clock className="h-4 w-4 mr-2" />
-                        Refresh Data
-                      </>
-                    )}
-                  </Button>
-                </div>
-                
                 <div className="overflow-x-auto rounded-lg border border-indigo-900/20">
                   <table className="min-w-full text-sm text-white">
                     <thead>
