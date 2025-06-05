@@ -477,7 +477,7 @@ const AdminPage: React.FC = () => {
             <div className="flex items-center gap-2 mt-2 text-indigo-200">
               <Clock className="h-4 w-4" />
               <p className="text-center">
-                Combined practice time of all community members
+                Combined practice time of all members
               </p>
             </div>
           </div>
@@ -527,16 +527,14 @@ const AdminPage: React.FC = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1">
               <Users className="h-5 w-5 text-amber-300" />
-              <h2 className="text-lg font-bold text-white">Premium Subscribers</h2>
+              <h2 className="text-lg font-bold text-white">Premium Users</h2>
             </div>
             <div className="flex items-center gap-2">
               <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-yellow-200">
                 {userCounts.premium}
               </div>
             </div>
-            <div className="text-xs text-amber-200/70 mt-1">
-              (excludes permanent members)
-            </div>
+
           </div>
         </div>
         
@@ -545,7 +543,7 @@ const AdminPage: React.FC = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1">
               <Users className="h-5 w-5 text-emerald-300" />
-              <h2 className="text-lg font-bold text-white">Friend Users</h2>
+              <h2 className="text-lg font-bold text-white">Friends</h2>
             </div>
             <div className="flex items-center gap-2">
               <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-200 to-green-200">
