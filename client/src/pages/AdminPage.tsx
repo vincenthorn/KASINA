@@ -250,10 +250,7 @@ const AdminPage: React.FC = () => {
   // Get counts for each user type
   const userCounts = {
     freemium: members.filter(member => member.status.toLowerCase() === 'freemium').length,
-    premium: members.filter(member => 
-      member.status.toLowerCase() === 'premium' && 
-      !permanentPremiumUsers.includes(member.email.toLowerCase())
-    ).length,
+    premium: members.filter(member => member.status.toLowerCase() === 'premium').length,
     admin: members.filter(member => member.status.toLowerCase() === 'admin').length,
     totalPremium: members.filter(member => member.status.toLowerCase() === 'premium').length // For reference
   };
