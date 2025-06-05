@@ -820,27 +820,8 @@ const AdminPage: React.FC = () => {
                 </CardDescription>
               </div>
               
-              {/* Refresh Button and Search Input */}
+              {/* Search Input and Refresh Button */}
               <div className="flex items-center gap-3">
-                <Button 
-                  variant="outline"
-                  className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-indigo-500/30 h-10"
-                  onClick={refreshData}
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                      Refreshing...
-                    </>
-                  ) : (
-                    <>
-                      <Clock className="h-4 w-4 mr-2" />
-                      Refresh Data
-                    </>
-                  )}
-                </Button>
-                
                 <div className="relative w-full md:w-64">
                   <Input
                     type="text"
@@ -862,6 +843,25 @@ const AdminPage: React.FC = () => {
                     </span>
                   )}
                 </div>
+                
+                <Button 
+                  variant="outline"
+                  className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-indigo-500/30 h-10"
+                  onClick={refreshData}
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                      Refreshing...
+                    </>
+                  ) : (
+                    <>
+                      <Clock className="h-4 w-4 mr-2" />
+                      Refresh Data
+                    </>
+                  )}
+                </Button>
               </div>
             </div>
           </CardHeader>
