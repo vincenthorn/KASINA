@@ -248,6 +248,7 @@ export function registerRoutes(app: Express): Server {
         totalUsers: members.length,
         freemiumUsers: members.filter(m => m.status === 'Freemium').length,
         premiumUsers: members.filter(m => m.status === 'Premium').length,
+        friendUsers: members.filter(m => m.status === 'Friend').length,
         adminUsers: members.filter(m => m.status === 'Admin').length,
         timestamp: new Date().toISOString(),
         source: 'emergency-simplified-queries'
