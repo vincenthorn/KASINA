@@ -90,7 +90,10 @@ const AdminPage: React.FC = () => {
     setLoading(true);
     try {
       // Try emergency endpoint first (bypasses authentication to show all 1,437 users)
-      let response = await fetch("/api/emergency-admin");
+      let response = await fetch(`/api/emergency-admin?t=${Date.now()}`, {
+        cache: 'no-cache',
+        headers: { 'Cache-Control': 'no-cache' }
+      });
       
       if (response.ok) {
         const data = await response.json();
