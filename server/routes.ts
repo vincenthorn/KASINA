@@ -225,7 +225,6 @@ export function registerRoutes(app: Express): Server {
           status = "Premium";
         } else if (user.subscription_type === 'friend') {
           status = "Friend";
-          status = "Premium";
         } else if (user.subscription_type === 'friend') {
           status = "Friend";
         }
@@ -328,7 +327,6 @@ export function registerRoutes(app: Express): Server {
           status = "Premium";
         } else if (user.subscription_type === 'friend') {
           status = "Friend";
-          status = "Premium";
         }
         
         return {
@@ -430,7 +428,6 @@ export function registerRoutes(app: Express): Server {
           status = "Premium";
         } else if (user.subscription_type === 'friend') {
           status = "Friend";
-          status = "Premium";
         }
         
         return {
@@ -514,7 +511,6 @@ export function registerRoutes(app: Express): Server {
           status = "Premium";
         } else if (user.subscription_type === 'friend') {
           status = "Friend";
-          status = "Premium";
         }
         
         return {
@@ -637,7 +633,6 @@ export function registerRoutes(app: Express): Server {
           status = "Premium";
         } else if (user.subscription_type === 'friend') {
           status = "Friend";
-          status = "Premium";
         }
         
         return {
