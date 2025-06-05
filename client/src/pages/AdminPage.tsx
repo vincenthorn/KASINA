@@ -90,9 +90,14 @@ const AdminPage: React.FC = () => {
     setLoading(true);
     try {
       // Try emergency endpoint first (bypasses authentication to show all 1,437 users)
-      let response = await fetch(`/api/emergency-admin?t=${Date.now()}`, {
+      const timestamp = Date.now();
+      console.log("ADMIN FETCH ATTEMPT:", timestamp);
+      let response = await fetch(`/api/emergency-admin?t=${timestamp}&v=2`, {
         cache: 'no-cache',
-        headers: { 'Cache-Control': 'no-cache' }
+        headers: { 
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
       });
       
       if (response.ok) {
