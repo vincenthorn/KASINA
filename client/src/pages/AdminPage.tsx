@@ -97,8 +97,12 @@ const AdminPage: React.FC = () => {
       
       if (response.ok) {
         const data = await response.json();
-        console.log("Emergency endpoint response:", data);
-        console.log("Premium users from response:", data.premiumUsers);
+        console.log("=== EMERGENCY ENDPOINT FULL RESPONSE ===");
+        console.log("Full data object:", data);
+        console.log("Premium users count:", data.premiumUsers);
+        console.log("Members array length:", data.members?.length);
+        console.log("Sample members:", data.members?.slice(0, 3));
+        console.log("=== END RESPONSE DEBUG ===");
         setMembers(data.members);
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
         console.log("Emergency endpoint: loaded", data.totalUsers, "users");
