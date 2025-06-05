@@ -89,19 +89,23 @@ const AdminPage: React.FC = () => {
   const fetchWhitelistData = async () => {
     setLoading(true);
     try {
-      // Try emergency endpoint first (uses working production query)
-      let response = await fetch("/api/emergency-admin");
+      // Try authenticated admin endpoint with credentials
+      let response = await fetch("/api/admin/whitelist", {
+        credentials: 'include'
+      });
       
       if (response.ok) {
         const data = await response.json();
         setMembers(data.members);
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
-        console.log("Emergency endpoint: loaded", data.totalUsers, "users");
+        console.log("Admin whitelist: loaded", data.members?.length || 0, "users");
         return;
       }
       
-      // Fallback to simple endpoint
-      response = await fetch("/api/admin/users-simple");
+      // Fallback to simple endpoint with credentials
+      response = await fetch("/api/admin/users-simple", {
+        credentials: 'include'
+      });
       
       if (response.ok) {
         const data = await response.json();
@@ -111,20 +115,11 @@ const AdminPage: React.FC = () => {
         return;
       }
       
-      // Fallback to authenticated endpoint
-      response = await fetch("/api/admin/whitelist");
-      
-      if (response.ok) {
-        const data = await response.json();
-        setMembers(data.members);
-        setTotalPracticeTime(data.totalPracticeTimeFormatted);
-        console.log("Authenticated endpoint: loaded", data.members?.length || 0, "users");
-        return;
-      }
-      
-      // Try direct database access
-      console.log("API endpoints failed, trying direct database access...");
-      response = await fetch("/api/admin/whitelist-direct");
+      // Try direct database access with credentials
+      console.log("Authenticated endpoints failed, trying direct database access...");
+      response = await fetch("/api/admin/whitelist-direct", {
+        credentials: 'include'
+      });
       
       if (response.ok) {
         const data = await response.json();
