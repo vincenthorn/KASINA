@@ -531,7 +531,7 @@ const AdminPage: React.FC = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-yellow-200">
-                {userCounts.premium}
+                {Math.max(0, userCounts.premium - 1)}
               </div>
             </div>
 
