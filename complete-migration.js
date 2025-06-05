@@ -1,106 +1,132 @@
 import pkg from 'pg';
-import fs from 'fs';
 const { Pool } = pkg;
 
+const NEON_DB_URL = "postgresql://neondb_owner:npg_YIuwM7vF6DVl@ep-empty-tooth-a65iyovg.us-west-2.aws.neon.tech/neondb";
 const RENDER_DB_URL = "postgresql://kasina_db_user:RM46kdotjS4evLWxJTkyE7HgxRyi6TUI@dpg-d0urk9be5dus73a7dc5g-a.virginia-postgres.render.com/kasina_db";
 
 async function importToRender() {
+  const neonPool = new Pool({
+    connectionString: NEON_DB_URL,
+    ssl: { rejectUnauthorized: false }
+  });
+  
   const renderPool = new Pool({
     connectionString: RENDER_DB_URL,
     ssl: { rejectUnauthorized: false }
   });
-  
+
   try {
-    console.log('Starting migration to Render database...');
+    // Check current status
+    const renderCount = await renderPool.query('SELECT COUNT(*) as count FROM users');
+    const neonCount = await neonPool.query('SELECT COUNT(*) as count FROM users');
     
-    // Check current state
-    const currentUsers = await renderPool.query('SELECT COUNT(*) as count FROM users');
-    const currentSessions = await renderPool.query('SELECT COUNT(*) as count FROM sessions');
-    console.log(`Current Render database: ${currentUsers.rows[0].count} users, ${currentSessions.rows[0].count} sessions`);
+    console.log(`Current: ${renderCount.rows[0].count} users in Render, ${neonCount.rows[0].count} users in Neon`);
     
-    // Export fresh data from Neon
-    const neonPool = new Pool({
-      connectionString: process.env.DATABASE_URL,
-      ssl: { rejectUnauthorized: false }
-    });
+    // Get users that haven't been migrated yet
+    const existingEmails = await renderPool.query('SELECT email FROM users');
+    const existingEmailSet = new Set(existingEmails.rows.map(row => row.email));
     
-    console.log('Fetching data from Neon...');
-    const usersResult = await neonPool.query('SELECT * FROM users ORDER BY created_at');
-    const sessionsResult = await neonPool.query('SELECT * FROM sessions ORDER BY session_date');
-    await neonPool.end();
+    // Get remaining users from Neon in batches
+    let offset = 0;
+    const batchSize = 100;
+    let totalMigrated = 0;
     
-    console.log(`Migrating ${usersResult.rows.length} users and ${sessionsResult.rows.length} sessions...`);
-    
-    // Import users
-    let userCount = 0;
-    let userDuplicates = 0;
-    
-    for (const user of usersResult.rows) {
-      try {
-        const result = await renderPool.query(
-          `INSERT INTO users (email, name, subscription_type, created_at, updated_at) 
-           VALUES ($1, $2, $3, $4, $5) 
-           ON CONFLICT (email) DO NOTHING
-           RETURNING id`,
-          [user.email, user.name, user.subscription_type, user.created_at, user.updated_at]
-        );
-        
-        if (result.rows.length > 0) {
-          userCount++;
-        } else {
-          userDuplicates++;
+    while (true) {
+      const users = await neonPool.query(`
+        SELECT email, name, subscription_type, created_at, updated_at 
+        FROM users 
+        ORDER BY created_at 
+        LIMIT $1 OFFSET $2
+      `, [batchSize, offset]);
+      
+      if (users.rows.length === 0) break;
+      
+      // Filter out already migrated users
+      const newUsers = users.rows.filter(user => !existingEmailSet.has(user.email));
+      
+      if (newUsers.length > 0) {
+        // Insert new users
+        for (const user of newUsers) {
+          try {
+            await renderPool.query(`
+              INSERT INTO users (email, name, subscription_type, created_at, updated_at)
+              VALUES ($1, $2, $3, $4, $5)
+              ON CONFLICT (email) DO NOTHING
+            `, [
+              user.email,
+              user.name,
+              user.subscription_type,
+              user.created_at,
+              user.updated_at
+            ]);
+            totalMigrated++;
+            existingEmailSet.add(user.email);
+          } catch (insertError) {
+            console.error(`Error inserting user ${user.email}:`, insertError.message);
+          }
         }
-      } catch (error) {
-        console.error(`Error importing user ${user.email}:`, error.message);
+        
+        console.log(`Migrated batch: ${newUsers.length} users (Total: ${totalMigrated})`);
+      }
+      
+      offset += batchSize;
+      
+      // Small delay to avoid overwhelming the database
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    
+    // Now migrate sessions
+    console.log('Starting session migration...');
+    const sessions = await neonPool.query('SELECT * FROM sessions');
+    
+    for (const session of sessions.rows) {
+      try {
+        await renderPool.query(`
+          INSERT INTO sessions (
+            user_email, kasina_type, duration_minutes, notes, 
+            created_at, updated_at, user_id
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+          ON CONFLICT DO NOTHING
+        `, [
+          session.user_email,
+          session.kasina_type,
+          session.duration_minutes,
+          session.notes,
+          session.created_at,
+          session.updated_at,
+          session.user_id
+        ]);
+      } catch (sessionError) {
+        console.error(`Error inserting session:`, sessionError.message);
       }
     }
     
-    console.log(`Users: ${userCount} imported, ${userDuplicates} duplicates`);
-    
-    // Import sessions
-    let sessionCount = 0;
-    let sessionDuplicates = 0;
-    
-    for (const session of sessionsResult.rows) {
-      try {
-        const result = await renderPool.query(
-          `INSERT INTO sessions (user_email, kasina_type, duration_seconds, session_date, notes) 
-           VALUES ($1, $2, $3, $4, $5) 
-           ON CONFLICT (user_email, session_date) DO NOTHING
-           RETURNING id`,
-          [session.user_email, session.kasina_type, session.duration_seconds, session.session_date, session.notes]
-        );
-        
-        if (result.rows.length > 0) {
-          sessionCount++;
-        } else {
-          sessionDuplicates++;
-        }
-      } catch (error) {
-        console.error(`Error importing session:`, error.message);
-      }
-    }
-    
-    console.log(`Sessions: ${sessionCount} imported, ${sessionDuplicates} duplicates`);
-    
-    // Final verification
-    const finalUsers = await renderPool.query('SELECT COUNT(*) as count FROM users');
+    // Final count
+    const finalCount = await renderPool.query('SELECT COUNT(*) as count FROM users');
     const finalSessions = await renderPool.query('SELECT COUNT(*) as count FROM sessions');
     
-    console.log('\n=== MIGRATION COMPLETE ===');
-    console.log(`Final Render database: ${finalUsers.rows[0].count} users, ${finalSessions.rows[0].count} sessions`);
+    console.log(`\nMigration Complete!`);
+    console.log(`Total users in Render: ${finalCount.rows[0].count}`);
+    console.log(`Total sessions in Render: ${finalSessions.rows[0].count}`);
     
-    // Show sample data
-    const sampleUsers = await renderPool.query('SELECT email, subscription_type FROM users ORDER BY created_at DESC LIMIT 5');
-    console.log('\nSample users in Render database:');
-    sampleUsers.rows.forEach(user => {
-      console.log(`  ${user.email} (${user.subscription_type})`);
+    // Show subscription breakdown
+    const breakdown = await renderPool.query(`
+      SELECT subscription_type, COUNT(*) as count 
+      FROM users 
+      WHERE subscription_type IS NOT NULL
+      GROUP BY subscription_type 
+      ORDER BY count DESC
+    `);
+    
+    console.log('\nUser breakdown:');
+    breakdown.rows.forEach(row => {
+      console.log(`  ${row.subscription_type}: ${row.count} users`);
     });
     
   } catch (error) {
     console.error('Migration failed:', error);
-    throw error;
   } finally {
+    await neonPool.end();
     await renderPool.end();
   }
 }
