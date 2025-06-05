@@ -57,13 +57,13 @@ export const useAuth = create<AuthState>((set) => ({
       const isAdmin = userEmail === 'admin@kasina.app';
       
       // Use the subscription type from the database instead of hardcoded list
-      const isPremium = subscriptionType === 'premium' || subscriptionType === 'admin';
+      const isPremium = subscriptionType === 'premium' || subscriptionType === 'admin' || subscriptionType === 'friend';
       
       // Create user object with subscription info
       const user = {
         email: userEmail,
         subscriptionType: subscriptionType,
-        subscription: isPremium ? 'premium' : 'free'
+        subscription: isPremium ? 'premium' as const : 'free' as const
       };
       
       // Store authenticated state with subscription type
@@ -175,7 +175,7 @@ export const useAuth = create<AuthState>((set) => ({
         const user = {
           email: userEmail,
           subscriptionType: serverSubscriptionType,
-          subscription: (serverSubscriptionType === 'premium' || serverSubscriptionType === 'admin') ? 'premium' as const : 'free' as const
+          subscription: (serverSubscriptionType === 'premium' || serverSubscriptionType === 'admin' || serverSubscriptionType === 'friend') ? 'premium' as const : 'free' as const
         };
         
         console.log("Setting auth state with user:", user);

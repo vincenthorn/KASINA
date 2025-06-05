@@ -21,7 +21,7 @@ interface Member {
   name: string;
   practiceTimeSeconds: number;
   practiceTimeFormatted: string;
-  status: string; // "Admin", "Premium", or "Freemium"
+  status: string; // "Admin", "Premium", "Friend", or "Freemium"
 }
 
 // Sorting type definitions
@@ -36,11 +36,12 @@ const AdminPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [displayCount, setDisplayCount] = useState(100); // Initially show 100 members
   const [totalPracticeTime, setTotalPracticeTime] = useState<string>('0h 0m');
-  const [selectedUserType, setSelectedUserType] = useState<'freemium'|'premium'|'admin'>('freemium');
+  const [selectedUserType, setSelectedUserType] = useState<'freemium'|'premium'|'friend'|'admin'>('freemium');
   // Store API response counts
   const [apiCounts, setApiCounts] = useState({
     freemiumUsers: 0,
     premiumUsers: 0,
+    friendUsers: 0,
     adminUsers: 0,
     totalUsers: 0
   });

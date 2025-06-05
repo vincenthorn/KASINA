@@ -923,6 +923,51 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  app.post("/api/zapier/webhook/friend", checkZapierAuth, async (req, res) => {
+    try {
+      const { email } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ message: "Email is required" });
+      }
+
+      // Check if user already exists
+      const existingUser = await getUserByEmail(email);
+      if (existingUser) {
+        if (existingUser.subscription_type === 'friend') {
+          console.log(`Zapier friend: User ${email} already has friend access`);
+          return res.json({ 
+            message: "User already has friend access",
+            email: email,
+            status: "unchanged"
+          });
+        } else {
+          // Update existing user to friend (upgrade from freemium, or change from premium)
+          await upsertUser(email, undefined, 'friend');
+          console.log(`Zapier friend: Updated ${email} to friend`);
+          return res.json({ 
+            message: "User updated to friend",
+            email: email,
+            status: "updated"
+          });
+        }
+      }
+
+      // Create new friend user
+      await upsertUser(email, undefined, 'friend');
+
+      console.log(`Zapier friend: Created new user ${email}`);
+      res.json({ 
+        message: "Friend user created successfully",
+        email: email,
+        status: "created"
+      });
+    } catch (error) {
+      console.error("Zapier friend webhook error:", error);
+      res.status(500).json({ message: "Failed to process friend user" });
+    }
+  });
+
   // Session creation endpoint - NOW USING POSTGRESQL DATABASE
   app.post("/api/sessions", async (req, res) => {
     if (!req.session?.user?.email) {
