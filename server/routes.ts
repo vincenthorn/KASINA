@@ -197,7 +197,7 @@ export function registerRoutes(app: Express): Server {
       console.log('🚨 Emergency Admin: Starting simplified database access...');
       
       // Use separate simple queries with only guaranteed columns
-      const usersQuery = 'SELECT email, created_at FROM users ORDER BY created_at DESC';
+      const usersQuery = 'SELECT email, subscription_type, created_at FROM users ORDER BY created_at DESC';
       const sessionsQuery = 'SELECT user_email, duration_seconds FROM sessions WHERE duration_seconds > 0';
       
       const [usersResult, sessionsResult] = await Promise.all([
@@ -217,12 +217,20 @@ export function registerRoutes(app: Express): Server {
         );
         const totalSeconds = userSessions.reduce((sum, s) => sum + (parseInt(s.duration_seconds) || 0), 0);
         
+        // Properly determine status based on subscription_type
+        let status = "Freemium";
+        if (user.email === 'admin@kasina.app') {
+          status = "Admin";
+        } else if (user.subscription_type === 'premium') {
+          status = "Premium";
+        }
+        
         return {
           email: user.email,
           name: "",
           practiceTimeSeconds: totalSeconds,
           practiceTimeFormatted: `${Math.floor(totalSeconds / 3600)}h ${Math.floor((totalSeconds % 3600) / 60)}m`,
-          status: user.email === 'admin@kasina.app' ? 'Admin' : 'Freemium'
+          status
         };
       });
       
