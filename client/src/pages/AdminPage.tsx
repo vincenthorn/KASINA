@@ -550,9 +550,7 @@ const AdminPage: React.FC = () => {
                 {userCounts.friend}
               </div>
             </div>
-            <div className="text-xs text-emerald-200/70 mt-1">
-              (free premium access)
-            </div>
+
           </div>
         </div>
         
@@ -561,7 +559,7 @@ const AdminPage: React.FC = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1">
               <Users className="h-5 w-5 text-purple-300" />
-              <h2 className="text-lg font-bold text-white">Admin Users</h2>
+              <h2 className="text-lg font-bold text-white">Administrators</h2>
             </div>
             <div className="flex items-center gap-2">
               <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-fuchsia-200">
