@@ -251,6 +251,8 @@ export function registerRoutes(app: Express): Server {
       
       console.log(`🚨 Emergency Admin: Successfully processed ${responseData.totalUsers} users`);
       console.log(`🚨 Breakdown: ${responseData.freemiumUsers} freemium, ${responseData.premiumUsers} premium, ${responseData.adminUsers} admin`);
+      console.log(`🚨 Sample premium users:`, members.filter(m => m.status === 'Premium').slice(0, 3).map(m => `${m.email}(${m.status})`));
+      console.log(`🚨 Response being sent:`, JSON.stringify(responseData, null, 2));
       res.json(responseData);
       
     } catch (error) {
