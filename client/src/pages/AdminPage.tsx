@@ -37,6 +37,13 @@ const AdminPage: React.FC = () => {
   const [displayCount, setDisplayCount] = useState(100); // Initially show 100 members
   const [totalPracticeTime, setTotalPracticeTime] = useState<string>('0h 0m');
   const [selectedUserType, setSelectedUserType] = useState<'freemium'|'premium'|'admin'>('freemium');
+  // Store API response counts
+  const [apiCounts, setApiCounts] = useState({
+    freemiumUsers: 0,
+    premiumUsers: 0,
+    adminUsers: 0,
+    totalUsers: 0
+  });
   const [sortField, setSortField] = useState<SortField>('email');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [editingEmail, setEditingEmail] = useState<string | null>(null);
@@ -110,6 +117,12 @@ const AdminPage: React.FC = () => {
         console.log("=== END RESPONSE DEBUG ===");
         setMembers(data.members);
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
+        setApiCounts({
+          freemiumUsers: data.freemiumUsers || 0,
+          premiumUsers: data.premiumUsers || 0,
+          adminUsers: data.adminUsers || 0,
+          totalUsers: data.totalUsers || 0
+        });
         console.log("Emergency endpoint: loaded", data.totalUsers, "users");
         return;
       } else {
@@ -256,12 +269,12 @@ const AdminPage: React.FC = () => {
     "ksowocki@gmail.com"
   ];
   
-  // Get counts for each user type
+  // Get counts for each user type from API response
   const userCounts = {
-    freemium: members.filter(member => member.status.toLowerCase() === 'freemium').length,
-    premium: members.filter(member => member.status.toLowerCase() === 'premium').length,
-    admin: members.filter(member => member.status.toLowerCase() === 'admin').length,
-    totalPremium: members.filter(member => member.status.toLowerCase() === 'premium').length // For reference
+    freemium: apiCounts.freemiumUsers,
+    premium: apiCounts.premiumUsers,
+    admin: apiCounts.adminUsers,
+    totalPremium: apiCounts.premiumUsers
   };
   
   // Refresh the whitelist data
@@ -475,7 +488,7 @@ const AdminPage: React.FC = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-teal-200">
-                {members.length}
+                {apiCounts.totalUsers}
               </div>
             </div>
             <div className="flex items-center gap-2 mt-2 text-teal-200">
