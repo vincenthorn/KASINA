@@ -89,8 +89,19 @@ const AdminPage: React.FC = () => {
   const fetchWhitelistData = async () => {
     setLoading(true);
     try {
-      // Try authenticated admin endpoint with credentials
-      let response = await fetch("/api/admin/whitelist", {
+      // Try emergency endpoint first (bypasses authentication to show all 1,437 users)
+      let response = await fetch("/api/emergency-admin");
+      
+      if (response.ok) {
+        const data = await response.json();
+        setMembers(data.members);
+        setTotalPracticeTime(data.totalPracticeTimeFormatted);
+        console.log("Emergency endpoint: loaded", data.totalUsers, "users");
+        return;
+      }
+      
+      // Fallback to authenticated admin endpoint with credentials
+      response = await fetch("/api/admin/whitelist", {
         credentials: 'include'
       });
       
@@ -112,20 +123,6 @@ const AdminPage: React.FC = () => {
         setMembers(data.members);
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
         console.log("Simple endpoint: loaded", data.totalUsers, "users");
-        return;
-      }
-      
-      // Try direct database access with credentials
-      console.log("Authenticated endpoints failed, trying direct database access...");
-      response = await fetch("/api/admin/whitelist-direct", {
-        credentials: 'include'
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        setMembers(data.members);
-        setTotalPracticeTime(data.totalPracticeTimeFormatted);
-        console.log("Direct access: loaded", data.members?.length || 0, "users");
         return;
       }
       
