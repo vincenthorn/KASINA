@@ -449,13 +449,13 @@ export function registerRoutes(app: Express): Server {
       console.log('🆘 Emergency Admin: Starting database query...');
       
       // Add direct database connection test
-      const testQuery = await pool.query('SELECT COUNT(*) as count FROM users');
+      const testQuery = await dbPool.query('SELECT COUNT(*) as count FROM users');
       console.log(`🔍 Direct DB test: ${testQuery.rows[0].count} users found`);
       
       // Test direct query without helper function
-      const directUsersQuery = await pool.query('SELECT * FROM users ORDER BY created_at DESC LIMIT 5');
+      const directUsersQuery = await dbPool.query('SELECT * FROM users ORDER BY created_at DESC LIMIT 5');
       console.log(`🔍 Direct query test: ${directUsersQuery.rows.length} users returned`);
-      console.log(`🔍 Sample emails: ${directUsersQuery.rows.map(u => u.email).join(', ')}`);
+      console.log(`🔍 Sample emails: ${directUsersQuery.rows.map((u: any) => u.email).join(', ')}`);
       
       const users = await getAllUsers();
       const sessions = await getAllSessions();
@@ -517,6 +517,58 @@ export function registerRoutes(app: Express): Server {
       console.error("❌ Emergency admin endpoint error:", error);
       res.status(500).json({ 
         message: "Emergency admin access failed",
+        error: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
+  // Batch import endpoint for production database population
+  app.post("/api/admin/batch-import-users", async (req, res) => {
+    try {
+      const { users } = req.body;
+      
+      if (!users || !Array.isArray(users)) {
+        return res.status(400).json({ message: "Invalid users data" });
+      }
+      
+      console.log(`🚀 Batch import: Processing ${users.length} users`);
+      
+      let insertedCount = 0;
+      let duplicateCount = 0;
+      
+      for (const user of users) {
+        try {
+          const result = await dbPool.query(
+            `INSERT INTO users (email, subscription_type, name, created_at) 
+             VALUES ($1, $2, $3, $4) 
+             ON CONFLICT (email) DO NOTHING 
+             RETURNING id`,
+            [user.email, user.subscription_type, user.name || '', new Date(user.created_at)]
+          );
+          
+          if (result.rows.length > 0) {
+            insertedCount++;
+          } else {
+            duplicateCount++;
+          }
+        } catch (error) {
+          console.error(`Error inserting user ${user.email}:`, error instanceof Error ? error.message : String(error));
+        }
+      }
+      
+      console.log(`✅ Batch complete: ${insertedCount} inserted, ${duplicateCount} duplicates`);
+      
+      res.json({
+        success: true,
+        inserted: insertedCount,
+        duplicates: duplicateCount,
+        total: users.length
+      });
+      
+    } catch (error) {
+      console.error("❌ Batch import error:", error);
+      res.status(500).json({ 
+        message: "Batch import failed",
         error: error instanceof Error ? error.message : "Unknown error"
       });
     }
