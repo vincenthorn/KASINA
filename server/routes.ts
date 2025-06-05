@@ -223,6 +223,11 @@ export function registerRoutes(app: Express): Server {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
+        } else if (user.subscription_type === 'friend') {
+          status = "Friend";
+          status = "Premium";
+        } else if (user.subscription_type === 'friend') {
+          status = "Friend";
         }
         
         return {
@@ -321,6 +326,9 @@ export function registerRoutes(app: Express): Server {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
+        } else if (user.subscription_type === 'friend') {
+          status = "Friend";
+          status = "Premium";
         }
         
         return {
@@ -338,6 +346,7 @@ export function registerRoutes(app: Express): Server {
         totalUsers: members.length,
         freemiumUsers: members.filter(m => m.status === "Freemium").length,
         premiumUsers: members.filter(m => m.status === "Premium").length,
+        friendUsers: members.filter(m => m.status === "Friend").length,
         adminUsers: members.filter(m => m.status === "Admin").length,
         debug: "Direct database access - bypassing authentication"
       });
@@ -419,6 +428,9 @@ export function registerRoutes(app: Express): Server {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
+        } else if (user.subscription_type === 'friend') {
+          status = "Friend";
+          status = "Premium";
         }
         
         return {
@@ -438,6 +450,7 @@ export function registerRoutes(app: Express): Server {
         totalUsers: members.length,
         freemiumUsers: members.filter(m => m.status === "Freemium").length,
         premiumUsers: members.filter(m => m.status === "Premium").length,
+        friendUsers: members.filter(m => m.status === "Friend").length,
         adminUsers: members.filter(m => m.status === "Admin").length
       });
     } catch (error) {
@@ -499,6 +512,9 @@ export function registerRoutes(app: Express): Server {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
+        } else if (user.subscription_type === 'friend') {
+          status = "Friend";
+          status = "Premium";
         }
         
         return {
@@ -518,6 +534,7 @@ export function registerRoutes(app: Express): Server {
         totalUsers: members.length,
         freemiumUsers: members.filter(m => m.status === "Freemium").length,
         premiumUsers: members.filter(m => m.status === "Premium").length,
+        friendUsers: members.filter(m => m.status === "Friend").length,
         adminUsers: members.filter(m => m.status === "Admin").length
       };
       
@@ -618,6 +635,9 @@ export function registerRoutes(app: Express): Server {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
+        } else if (user.subscription_type === 'friend') {
+          status = "Friend";
+          status = "Premium";
         }
         
         return {
@@ -635,6 +655,7 @@ export function registerRoutes(app: Express): Server {
         totalUsers: members.length,
         freemiumUsers: members.filter(m => m.status === "Freemium").length,
         premiumUsers: members.filter(m => m.status === "Premium").length,
+        friendUsers: members.filter(m => m.status === "Friend").length,
         adminUsers: members.filter(m => m.status === "Admin").length
       });
     } catch (error) {
