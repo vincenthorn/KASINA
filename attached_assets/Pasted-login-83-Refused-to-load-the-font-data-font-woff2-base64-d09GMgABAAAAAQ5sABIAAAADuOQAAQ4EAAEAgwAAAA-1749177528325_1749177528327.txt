@@ -1,0 +1,1930 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🎨 Background color: #F87171 -> rgb(82, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(82, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 78px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(82, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.817 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.817 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.817 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.817 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.817 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.817 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.70318603515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(82, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(82, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 82px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.817 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.774726867675781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 91px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.953 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.953 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.953 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.953 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.953 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.953 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.953 to 0.008
+ Official Vernier data - Sensor: Force, Value: 5.8692626953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.87N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 103px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ Official Vernier data - Sensor: Force, Value: 5.968910217285156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.97N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 116px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.214 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.214 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.214 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.214 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.214 to 0.010
+ Official Vernier data - Sensor: Force, Value: 6.078773498535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.08N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 129px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.214 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+ Official Vernier data - Sensor: Force, Value: 6.175865173339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 142px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.485 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.485 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.485 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.485 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.485 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.485 to 0.012
+ Official Vernier data - Sensor: Force, Value: 6.265289306640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 153px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.600 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.600 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.600 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.600 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.600 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.600 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 6.3470458984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.35N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 163px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.704 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.704 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.704 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.704 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.704 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.704 to 0.014
+ Official Vernier data - Sensor: Force, Value: 6.4262542724609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.43N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 179px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.871 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.871 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.871 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.871 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.871 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.871 to 0.015
+ Official Vernier data - Sensor: Force, Value: 6.4799041748046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.48N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 189px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.871 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.975 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 1.975 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 1.975 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 1.975 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 1.975 to 0.016
+ Official Vernier data - Sensor: Force, Value: 6.510566711425781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 193px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.017 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.017 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.017 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.017 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.017 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.017 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.017 to 0.016
+ Official Vernier data - Sensor: Force, Value: 6.5540008544921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 200px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ Official Vernier data - Sensor: Force, Value: 6.5999908447265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.60N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 208px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+ Official Vernier data - Sensor: Force, Value: 6.651092529296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.65N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 218px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.277 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.277 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.277 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.277 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.277 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.277 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.277 to 0.018
+ Official Vernier data - Sensor: Force, Value: 6.6843109130859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.68N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 224px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.339 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.339 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.339 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.339 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.339 to 0.019
+ Official Vernier data - Sensor: Force, Value: 6.704750061035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 226px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ Official Vernier data - Sensor: Force, Value: 6.712409973144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 228px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.381 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.381 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.381 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.381 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.381 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.381 to 0.019
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 6.704750061035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 226px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+ Official Vernier data - Sensor: Force, Value: 6.689414978027344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 225px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.349 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.349 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.349 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.349 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.349 to 0.019
+ Official Vernier data - Sensor: Force, Value: 6.6638641357421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 222px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.318 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.318 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.318 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.318 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.318 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.318 to 0.019
+ 🎯 Group color kasina ah_kasina scaled from 2.318 to 0.019
+ Official Vernier data - Sensor: Force, Value: 6.630653381347656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.63N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 217px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.266 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.266 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.266 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.266 to 0.018
+ 🎯 Group color kasina ah_kasina scaled from 2.266 to 0.018
+ Official Vernier data - Sensor: Force, Value: 6.5718841552734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.57N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 209px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.183 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.183 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.183 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.183 to 0.017
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.183 to 0.017
+ Official Vernier data - Sensor: Force, Value: 6.515678405761719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.52N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 2.183 to 0.017
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 200px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ 🎯 Group color kasina ah_kasina scaled from 2.090 to 0.017
+ Official Vernier data - Sensor: Force, Value: 6.4722442626953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.47N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 194px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 2.027 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.027 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.027 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.027 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.027 to 0.016
+ Official Vernier data - Sensor: Force, Value: 6.410919189453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 2.027 to 0.016
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 185px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.934 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.934 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.934 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.934 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.934 to 0.015
+ 🎯 Group color kasina ah_kasina scaled from 1.934 to 0.015
+ Official Vernier data - Sensor: Force, Value: 6.3240509033203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.32N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 172px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.798 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.798 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.798 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.798 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.798 to 0.014
+ 🎯 Group color kasina ah_kasina scaled from 1.798 to 0.014
+ Official Vernier data - Sensor: Force, Value: 6.239738464355469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.24N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 160px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.673 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.673 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.673 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.673 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.673 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.673 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 6.1860809326171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 152px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.673 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.590 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.590 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.590 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.590 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.590 to 0.013
+ Official Vernier data - Sensor: Force, Value: 6.1324310302734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.13N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 145px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.517 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.517 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.517 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.517 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.517 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.517 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.517 to 0.012
+ Official Vernier data - Sensor: Force, Value: 6.068550109863281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 135px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.412 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.412 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.412 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.412 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.412 to 0.011
+ Official Vernier data - Sensor: Force, Value: 6.007232666015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 126px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.318 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.318 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.318 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.318 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.318 to 0.011
+ Official Vernier data - Sensor: Force, Value: 5.951019287109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.95N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 118px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.235 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.235 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.235 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.235 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.235 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.235 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.235 to 0.010
+ Official Vernier data - Sensor: Force, Value: 5.897369384765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 110px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.151 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.151 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.151 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.151 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.151 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.151 to 0.009
+ Official Vernier data - Sensor: Force, Value: 5.8641510009765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.86N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 105px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.099 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.099 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.099 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.099 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.099 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.099 to 0.009
+ Official Vernier data - Sensor: Force, Value: 5.838600158691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.84N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 102px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.068 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.068 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.068 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.068 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.068 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.068 to 0.009
+ Official Vernier data - Sensor: Force, Value: 5.825828552246094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.83N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 100px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ Official Vernier data - Sensor: Force, Value: 5.8283843994140625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.83N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 100px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 5.83349609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.83N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 100px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.047 to 0.008
+ Official Vernier data - Sensor: Force, Value: 5.823272705078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 98px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.026 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.026 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.026 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.026 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.026 to 0.008
+ Official Vernier data - Sensor: Force, Value: 5.8181610107421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 96px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.005 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.005 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.005 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.005 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 1.005 to 0.008
+ Official Vernier data - Sensor: Force, Value: 5.807945251464844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 92px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.963 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.963 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.963 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.963 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.963 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.963 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.963 to 0.008
+ Official Vernier data - Sensor: Force, Value: 5.7900543212890625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.79N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 87px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.787506103515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.79N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.795166015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 87px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.807945251464844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 89px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.807945251464844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.784950256347656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.774726867675781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 84px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.7900543212890625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.79N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 87px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.843711853027344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.84N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 95px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 0.994 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.994 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.994 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.994 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.994 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.994 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.994 to 0.008
+ Official Vernier data - Sensor: Force, Value: 5.922920227050781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 107px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.120 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.120 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.120 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.120 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.120 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.120 to 0.009
+ Official Vernier data - Sensor: Force, Value: 6.009788513183594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 121px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎯 Group color kasina ah_kasina scaled from 1.120 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.266 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.266 to 0.010
+ Official Vernier data - Sensor: Force, Value: 6.101768493652344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 1.266 to 0.010
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 135px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 6.175865173339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.247406005859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.25N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.326606750488281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.33N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.3981475830078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.40N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.467132568359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.47N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 1.266 to 0.010
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 196px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 2.048 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.048 to 0.016
+ 🎯 Group color kasina ah_kasina scaled from 2.048 to 0.016
+ Official Vernier data - Sensor: Force, Value: 6.54888916015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 212px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 2.214 to 0.018
+ Official Vernier data - Sensor: Force, Value: 6.635765075683594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 2.214 to 0.018
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 226px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 6.67919921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.68N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 233px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 2.433 to 0.019
+ Official Vernier data - Sensor: Force, Value: 6.694526672363281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 2.433 to 0.019
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 235px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.740516662597656, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.74N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.433 to 0.019
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 240px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.7762908935546875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.78N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.453 to 0.020
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.786506652832031, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.79N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.7890625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.79N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.7839508056640625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.78N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.7558441162109375, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.76N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: 12.137558937072754, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 235px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.505 to 0.020
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.7098541259765625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.71N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.453 to 0.020
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(89, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 226px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.453 to 0.020
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.643424987792969, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.64N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.360 to 0.019
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.36
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 216px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.256 to 0.018
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.256 to 0.018
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.256 to 0.018
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.256 to 0.018
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.589775085449219, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.59N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 208px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.173 to 0.017
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.5540008544921875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.55N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(88, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 202px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.110 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.110 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.110 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.110 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.110 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.110 to 0.017
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.110 to 0.017
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.505455017089844, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.51N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 195px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.038 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.038 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.038 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.038 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 2.038 to 0.016
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.459465026855469, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.46N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 188px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.965 to 0.016
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.410919189453125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.41N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 40, 40) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 181px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.892 to 0.015
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.892 to 0.015
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.892 to 0.015
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.892 to 0.015
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.892 to 0.015
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.357269287109375, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.36N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(87, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 173px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.809 to 0.014
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.809 to 0.014
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.809 to 0.014
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.809 to 0.014
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.809 to 0.014
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.283172607421875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.28N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 161px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.809 to 0.014
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.684 to 0.013
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.684 to 0.013
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.684 to 0.013
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.684 to 0.013
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.684 to 0.013
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.684 to 0.013
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.201416015625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.20N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 149px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.558 to 0.012
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.1400909423828125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.14N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 140px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.464 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.464 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.464 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.464 to 0.012
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.464 to 0.012
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.464 to 0.012
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.07110595703125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.07N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 129px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.350 to 0.011
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.009788513183594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.01N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.256 to 0.010
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.256 to 0.010
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.256 to 0.010
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.256 to 0.010
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.256 to 0.010
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.256 to 0.010
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.256 to 0.010
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.951019287109375, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.95N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 111px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.162 to 0.009
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.162 to 0.009
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.162 to 0.009
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.162 to 0.009
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.88714599609375, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 101px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.057 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.057 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.057 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.057 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.057 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.057 to 0.008
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.838600158691406, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.84N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 94px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 1.057 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.805389404296875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.81N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 89px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.787506103515625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.79N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.779838562011719, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 85px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.779838562011719, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: ah_kasina, color: #F87171
+BreathKasinaOrb.tsx:984 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+BreathKasinaOrb.tsx:1260 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.779838562011719, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.756843566894531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.76N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 84px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.7364044189453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.74N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 82px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.858 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.746620178222656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 84px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.769615173339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.774726867675781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 85px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.784950256347656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.900 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.802833557128906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 88px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.921 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.921 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.921 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.921 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.921 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.921 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.921 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.792610168457031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.79N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 87px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.911 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.77728271484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 84px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.879 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.769615173339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 83px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.767059326171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 83px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.7721710205078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 83px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.869 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.784950256347656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 85px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.890 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.8105010986328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 89px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ 🎯 Group color kasina ah_kasina scaled from 0.932 to 0.007
+ Official Vernier data - Sensor: Force, Value: 5.8462677001953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.33
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 94px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+ 🎯 Group color kasina ah_kasina scaled from 0.984 to 0.008
+ Official Vernier data - Sensor: Force, Value: 5.899925231933594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 103px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ Official Vernier data - Sensor: Force, Value: 5.981681823730469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(83, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 115px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 1.078 to 0.009
+ 🎯 Group color kasina ah_kasina scaled from 1.203 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.203 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.203 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.203 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.203 to 0.010
+ 🎯 Group color kasina ah_kasina scaled from 1.203 to 0.010
+ Official Vernier data - Sensor: Force, Value: 6.0659942626953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 128px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 1.339 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.339 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.339 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.339 to 0.011
+ 🎯 Group color kasina ah_kasina scaled from 1.339 to 0.011
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 1.339 to 0.011
+ Official Vernier data - Sensor: Force, Value: 6.1681976318359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(84, 38, 38) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 143px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 1.496 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.496 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.496 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.496 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.496 to 0.012
+ 🎯 Group color kasina ah_kasina scaled from 1.496 to 0.012
+ Official Vernier data - Sensor: Force, Value: 6.27294921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ 🎨 Background color: #F87171 -> rgb(85, 39, 39) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 159px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: ah_kasina, color: #F87171
+ 🎨 Background color: #F87171 -> rgb(86, 39, 39) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎯 Group color kasina ah_kasina scaled from 1.663 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.663 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.663 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.663 to 0.013
+ 🎯 Group color kasina ah_kasina scaled from 1.663 to 0.013
