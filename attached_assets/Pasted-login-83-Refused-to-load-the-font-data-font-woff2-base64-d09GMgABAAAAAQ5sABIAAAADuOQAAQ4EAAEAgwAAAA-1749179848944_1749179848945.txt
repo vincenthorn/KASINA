@@ -1,0 +1,1658 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ Official Vernier data - Sensor: Force, Value: 6.988349914550781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 224px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 224px
+ 🔥 Elemental kasina fire scaled to 0.747 (orbSize: 224px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 224px
+ 🔥 Elemental kasina fire scaled to 0.747 (orbSize: 224px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 224px
+ 🔥 Elemental kasina fire scaled to 0.747 (orbSize: 224px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 224px
+ 🔥 Elemental kasina fire scaled to 0.747 (orbSize: 224px)
+ Official Vernier data - Sensor: Force, Value: 6.89892578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 215px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 224px
+ 🔥 Elemental kasina fire scaled to 0.747 (orbSize: 224px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ Official Vernier data - Sensor: Force, Value: 6.9219207763671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 217px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 217px
+ 🔥 Elemental kasina fire scaled to 0.723 (orbSize: 217px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 217px
+ 🔥 Elemental kasina fire scaled to 0.723 (orbSize: 217px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 217px
+ 🔥 Elemental kasina fire scaled to 0.723 (orbSize: 217px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 217px
+ 🔥 Elemental kasina fire scaled to 0.723 (orbSize: 217px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 217px
+ 🔥 Elemental kasina fire scaled to 0.723 (orbSize: 217px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 217px
+ 🔥 Elemental kasina fire scaled to 0.723 (orbSize: 217px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 217px
+ 🔥 Elemental kasina fire scaled to 0.723 (orbSize: 217px)
+ Official Vernier data - Sensor: Force, Value: 7.080329895019531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.08N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 232px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 232px
+ 🔥 Elemental kasina fire scaled to 0.773 (orbSize: 232px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 232px
+ 🔥 Elemental kasina fire scaled to 0.773 (orbSize: 232px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 232px
+ 🔥 Elemental kasina fire scaled to 0.773 (orbSize: 232px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 232px
+ 🔥 Elemental kasina fire scaled to 0.773 (orbSize: 232px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 232px
+ 🔥 Elemental kasina fire scaled to 0.773 (orbSize: 232px)
+ Official Vernier data - Sensor: Force, Value: 7.1518707275390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 238px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
+ Official Vernier data - Sensor: Force, Value: 7.036895751953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.04N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 227px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 227px
+ 🔥 Elemental kasina fire scaled to 0.757 (orbSize: 227px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 227px
+ 🔥 Elemental kasina fire scaled to 0.757 (orbSize: 227px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 227px
+ 🔥 Elemental kasina fire scaled to 0.757 (orbSize: 227px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 227px
+ 🔥 Elemental kasina fire scaled to 0.757 (orbSize: 227px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 227px
+ 🔥 Elemental kasina fire scaled to 0.757 (orbSize: 227px)
+ Official Vernier data - Sensor: Force, Value: 6.855491638183594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.86N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 209px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ Official Vernier data - Sensor: Force, Value: 6.77117919921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 201px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 201px
+ 🔥 Elemental kasina fire scaled to 0.670 (orbSize: 201px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 201px
+ 🔥 Elemental kasina fire scaled to 0.670 (orbSize: 201px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 201px
+ 🔥 Elemental kasina fire scaled to 0.670 (orbSize: 201px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 201px
+ 🔥 Elemental kasina fire scaled to 0.670 (orbSize: 201px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 201px
+ 🔥 Elemental kasina fire scaled to 0.670 (orbSize: 201px)
+ Official Vernier data - Sensor: Force, Value: 6.814613342285156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 205px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 205px
+ 🔥 Elemental kasina fire scaled to 0.683 (orbSize: 205px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 205px
+ 🔥 Elemental kasina fire scaled to 0.683 (orbSize: 205px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 205px
+ 🔥 Elemental kasina fire scaled to 0.683 (orbSize: 205px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 205px
+ 🔥 Elemental kasina fire scaled to 0.683 (orbSize: 205px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 205px
+ 🔥 Elemental kasina fire scaled to 0.683 (orbSize: 205px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 205px
+ 🔥 Elemental kasina fire scaled to 0.683 (orbSize: 205px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 205px
+ 🔥 Elemental kasina fire scaled to 0.683 (orbSize: 205px)
+ Official Vernier data - Sensor: Force, Value: 6.832496643066406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.83N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 207px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 207px
+ 🔥 Elemental kasina fire scaled to 0.690 (orbSize: 207px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 207px
+ 🔥 Elemental kasina fire scaled to 0.690 (orbSize: 207px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 207px
+ 🔥 Elemental kasina fire scaled to 0.690 (orbSize: 207px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 207px
+ 🔥 Elemental kasina fire scaled to 0.690 (orbSize: 207px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 207px
+ 🔥 Elemental kasina fire scaled to 0.690 (orbSize: 207px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 207px
+ 🔥 Elemental kasina fire scaled to 0.690 (orbSize: 207px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 207px
+ 🔥 Elemental kasina fire scaled to 0.690 (orbSize: 207px)
+ Official Vernier data - Sensor: Force, Value: 6.804389953613281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 204px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 204px
+ 🔥 Elemental kasina fire scaled to 0.680 (orbSize: 204px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 204px
+ 🔥 Elemental kasina fire scaled to 0.680 (orbSize: 204px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 204px
+ 🔥 Elemental kasina fire scaled to 0.680 (orbSize: 204px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 204px
+ 🔥 Elemental kasina fire scaled to 0.680 (orbSize: 204px)
+ Official Vernier data - Sensor: Force, Value: 6.827384948730469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.83N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 206px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 206px
+ 🔥 Elemental kasina fire scaled to 0.687 (orbSize: 206px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 206px
+ 🔥 Elemental kasina fire scaled to 0.687 (orbSize: 206px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 206px
+ 🔥 Elemental kasina fire scaled to 0.687 (orbSize: 206px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 206px
+ 🔥 Elemental kasina fire scaled to 0.687 (orbSize: 206px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 206px
+ 🔥 Elemental kasina fire scaled to 0.687 (orbSize: 206px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 206px
+ 🔥 Elemental kasina fire scaled to 0.687 (orbSize: 206px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 206px
+ 🔥 Elemental kasina fire scaled to 0.687 (orbSize: 206px)
+ Official Vernier data - Sensor: Force, Value: 6.8759307861328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 211px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 211px
+ 🔥 Elemental kasina fire scaled to 0.703 (orbSize: 211px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 211px
+ 🔥 Elemental kasina fire scaled to 0.703 (orbSize: 211px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 211px
+ 🔥 Elemental kasina fire scaled to 0.703 (orbSize: 211px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 211px
+ 🔥 Elemental kasina fire scaled to 0.703 (orbSize: 211px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 211px
+ 🔥 Elemental kasina fire scaled to 0.703 (orbSize: 211px)
+ Official Vernier data - Sensor: Force, Value: 6.888710021972656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 212px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 212px
+ 🔥 Elemental kasina fire scaled to 0.707 (orbSize: 212px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 212px
+ 🔥 Elemental kasina fire scaled to 0.707 (orbSize: 212px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 212px
+ 🔥 Elemental kasina fire scaled to 0.707 (orbSize: 212px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 212px
+ 🔥 Elemental kasina fire scaled to 0.707 (orbSize: 212px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 212px
+ 🔥 Elemental kasina fire scaled to 0.707 (orbSize: 212px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 212px
+ 🔥 Elemental kasina fire scaled to 0.707 (orbSize: 212px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 212px
+ 🔥 Elemental kasina fire scaled to 0.707 (orbSize: 212px)
+ Official Vernier data - Sensor: Force, Value: 6.8478240966796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 208px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 208px
+ 🔥 Elemental kasina fire scaled to 0.693 (orbSize: 208px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 208px
+ 🔥 Elemental kasina fire scaled to 0.693 (orbSize: 208px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 208px
+ 🔥 Elemental kasina fire scaled to 0.693 (orbSize: 208px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 208px
+ 🔥 Elemental kasina fire scaled to 0.693 (orbSize: 208px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 208px
+ 🔥 Elemental kasina fire scaled to 0.693 (orbSize: 208px)
+ Official Vernier data - Sensor: Force, Value: 6.725189208984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.73N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 196px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 196px
+ 🔥 Elemental kasina fire scaled to 0.653 (orbSize: 196px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 196px
+ 🔥 Elemental kasina fire scaled to 0.653 (orbSize: 196px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 196px
+ 🔥 Elemental kasina fire scaled to 0.653 (orbSize: 196px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 196px
+ 🔥 Elemental kasina fire scaled to 0.653 (orbSize: 196px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 196px
+ 🔥 Elemental kasina fire scaled to 0.653 (orbSize: 196px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 196px
+ 🔥 Elemental kasina fire scaled to 0.653 (orbSize: 196px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 196px
+ 🔥 Elemental kasina fire scaled to 0.653 (orbSize: 196px)
+ Official Vernier data - Sensor: Force, Value: 6.54888916015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 179px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 179px
+ 🔥 Elemental kasina fire scaled to 0.597 (orbSize: 179px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 179px
+ 🔥 Elemental kasina fire scaled to 0.597 (orbSize: 179px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 179px
+ 🔥 Elemental kasina fire scaled to 0.597 (orbSize: 179px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 179px
+ 🔥 Elemental kasina fire scaled to 0.597 (orbSize: 179px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 179px
+ 🔥 Elemental kasina fire scaled to 0.597 (orbSize: 179px)
+ Official Vernier data - Sensor: Force, Value: 6.357269287109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.36N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 159px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(87, 50, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(87, 50, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 159px
+ 🔥 Elemental kasina fire scaled to 0.530 (orbSize: 159px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 159px
+ 🔥 Elemental kasina fire scaled to 0.530 (orbSize: 159px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 159px
+ 🔥 Elemental kasina fire scaled to 0.530 (orbSize: 159px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 159px
+ 🔥 Elemental kasina fire scaled to 0.530 (orbSize: 159px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 159px
+ 🔥 Elemental kasina fire scaled to 0.530 (orbSize: 159px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 159px
+ 🔥 Elemental kasina fire scaled to 0.530 (orbSize: 159px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 159px
+ 🔥 Elemental kasina fire scaled to 0.530 (orbSize: 159px)
+ Official Vernier data - Sensor: Force, Value: 6.1860809326171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(87, 50, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(87, 50, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 142px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 142px
+ 🔥 Elemental kasina fire scaled to 0.473 (orbSize: 142px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 142px
+ 🔥 Elemental kasina fire scaled to 0.473 (orbSize: 142px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 142px
+ 🔥 Elemental kasina fire scaled to 0.473 (orbSize: 142px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 142px
+ 🔥 Elemental kasina fire scaled to 0.473 (orbSize: 142px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 142px
+ 🔥 Elemental kasina fire scaled to 0.473 (orbSize: 142px)
+ Official Vernier data - Sensor: Force, Value: 6.101768493652344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 133px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(86, 50, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(86, 50, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 142px
+ 🔥 Elemental kasina fire scaled to 0.473 (orbSize: 142px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 133px
+ 🔥 Elemental kasina fire scaled to 0.443 (orbSize: 133px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 133px
+ 🔥 Elemental kasina fire scaled to 0.443 (orbSize: 133px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 133px
+ 🔥 Elemental kasina fire scaled to 0.443 (orbSize: 133px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 133px
+ 🔥 Elemental kasina fire scaled to 0.443 (orbSize: 133px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 133px
+ 🔥 Elemental kasina fire scaled to 0.443 (orbSize: 133px)
+ Official Vernier data - Sensor: Force, Value: 6.078773498535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.08N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(86, 50, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(86, 50, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 130px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(86, 50, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 130px
+ 🔥 Elemental kasina fire scaled to 0.433 (orbSize: 130px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 130px
+ 🔥 Elemental kasina fire scaled to 0.433 (orbSize: 130px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 130px
+ 🔥 Elemental kasina fire scaled to 0.433 (orbSize: 130px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 130px
+ 🔥 Elemental kasina fire scaled to 0.433 (orbSize: 130px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 130px
+ 🔥 Elemental kasina fire scaled to 0.433 (orbSize: 130px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 130px
+ 🔥 Elemental kasina fire scaled to 0.433 (orbSize: 130px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 130px
+ 🔥 Elemental kasina fire scaled to 0.433 (orbSize: 130px)
+ Official Vernier data - Sensor: Force, Value: 6.045555114746094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.05N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(86, 50, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(86, 50, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 127px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 127px
+ 🔥 Elemental kasina fire scaled to 0.423 (orbSize: 127px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 127px
+ 🔥 Elemental kasina fire scaled to 0.423 (orbSize: 127px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 127px
+ 🔥 Elemental kasina fire scaled to 0.423 (orbSize: 127px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 127px
+ 🔥 Elemental kasina fire scaled to 0.423 (orbSize: 127px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 127px
+ 🔥 Elemental kasina fire scaled to 0.423 (orbSize: 127px)
+ Official Vernier data - Sensor: Force, Value: 6.0021209716796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 121px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 121px
+ 🔥 Elemental kasina fire scaled to 0.403 (orbSize: 121px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 121px
+ 🔥 Elemental kasina fire scaled to 0.403 (orbSize: 121px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 121px
+ 🔥 Elemental kasina fire scaled to 0.403 (orbSize: 121px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 121px
+ 🔥 Elemental kasina fire scaled to 0.403 (orbSize: 121px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 121px
+ 🔥 Elemental kasina fire scaled to 0.403 (orbSize: 121px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 121px
+ 🔥 Elemental kasina fire scaled to 0.403 (orbSize: 121px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 121px
+ 🔥 Elemental kasina fire scaled to 0.403 (orbSize: 121px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 121px
+ 🔥 Elemental kasina fire scaled to 0.403 (orbSize: 121px)
+ Official Vernier data - Sensor: Force, Value: 5.963798522949219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.96N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 117px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 117px
+ 🔥 Elemental kasina fire scaled to 0.390 (orbSize: 117px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 117px
+ 🔥 Elemental kasina fire scaled to 0.390 (orbSize: 117px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 117px
+ 🔥 Elemental kasina fire scaled to 0.390 (orbSize: 117px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 117px
+ 🔥 Elemental kasina fire scaled to 0.390 (orbSize: 117px)
+ Official Vernier data - Sensor: Force, Value: 5.935691833496094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.94N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 114px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ Official Vernier data - Sensor: Force, Value: 5.899925231933594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 110px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ Official Vernier data - Sensor: Force, Value: 5.884590148925781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 109px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ Official Vernier data - Sensor: Force, Value: 5.899925231933594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 110px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ Official Vernier data - Sensor: Force, Value: 5.915252685546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 112px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina fire scaled to 0.373 (orbSize: 112px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina fire scaled to 0.373 (orbSize: 112px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina fire scaled to 0.373 (orbSize: 112px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina fire scaled to 0.373 (orbSize: 112px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina fire scaled to 0.373 (orbSize: 112px)
+ Official Vernier data - Sensor: Force, Value: 5.930580139160156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 114px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ Official Vernier data - Sensor: Force, Value: 5.945915222167969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.95N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 115px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ Official Vernier data - Sensor: Force, Value: 5.9484710693359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.95N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 115px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ Official Vernier data - Sensor: Force, Value: 5.9484710693359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.95N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ Official Vernier data - Sensor: Force, Value: 5.940803527832031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.94N
+ Official Vernier data - Sensor: Respiration Rate, Value: 8.869179725646973, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 115px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ Official Vernier data - Sensor: Force, Value: 5.9382476806640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.94N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 114px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ Official Vernier data - Sensor: Force, Value: 5.943359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.94N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 115px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ Official Vernier data - Sensor: Force, Value: 5.9382476806640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.94N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 114px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 115px
+ 🔥 Elemental kasina fire scaled to 0.383 (orbSize: 115px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ Official Vernier data - Sensor: Force, Value: 5.935691833496094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.94N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 114px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ Official Vernier data - Sensor: Force, Value: 5.930580139160156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 114px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina fire scaled to 0.380 (orbSize: 114px)
+ Official Vernier data - Sensor: Force, Value: 5.9101409912109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 111px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 111px
+ 🔥 Elemental kasina fire scaled to 0.370 (orbSize: 111px)
+ Official Vernier data - Sensor: Force, Value: 5.897369384765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 110px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 111px
+ 🔥 Elemental kasina fire scaled to 0.370 (orbSize: 111px)
+ Official Vernier data - Sensor: Force, Value: 5.879486083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.8564910888671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.86N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.8641510009765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.86N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.8820343017578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.879486083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 109px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 110px
+ 🔥 Elemental kasina fire scaled to 0.367 (orbSize: 110px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ Official Vernier data - Sensor: Force, Value: 5.871818542480469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.87N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 108px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina fire scaled to 0.360 (orbSize: 108px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina fire scaled to 0.360 (orbSize: 108px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina fire scaled to 0.360 (orbSize: 108px)
+ Official Vernier data - Sensor: Force, Value: 5.859039306640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.86N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina fire scaled to 0.360 (orbSize: 108px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 5.8181610107421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina fire scaled to 0.360 (orbSize: 108px)
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 107px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 102px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.784950256347656, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 108px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.360 (orbSize: 108px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.7823944091796875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 102px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.340 (orbSize: 102px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 99px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.330 (orbSize: 99px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.7823944091796875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.78N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 99px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.330 (orbSize: 99px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.8105010986328125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.81N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 102px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 102px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.340 (orbSize: 102px)
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 102px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.340 (orbSize: 102px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.879486083984375, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 102px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.340 (orbSize: 102px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(84, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 109px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 5.9561309814453125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.96N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 102px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.340 (orbSize: 102px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 117px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.05322265625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.05N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 109px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.363 (orbSize: 109px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 49, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 127px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.14520263671875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.15N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 127px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.423 (orbSize: 127px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(85, 50, 20) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 137px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 137px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.457 (orbSize: 137px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.216743469238281, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.22N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 144px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 144px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.480 (orbSize: 144px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.313835144042969, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.31N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(86, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 154px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 154px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.513 (orbSize: 154px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.413475036621094, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.41N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 154px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.513 (orbSize: 154px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 50, 21) intensity: 0.34
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 165px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 154px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.513 (orbSize: 154px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.4901275634765625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.49N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 165px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.550 (orbSize: 165px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 173px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.559112548828125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.56N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1251 🔍 Kasina: fire, Type: elemental, orbSize: 165px
+BreathKasinaOrb.tsx:1259 🔥 Elemental kasina fire scaled to 0.550 (orbSize: 165px)
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(87, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:1218 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 180px
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1110 🔄 Updating background for kasina: fire, color: #FB923C
+BreathKasinaOrb.tsx:984 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+BreathKasinaOrb.tsx:422 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 6.6178741455078125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.62N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 173px
+ 🔥 Elemental kasina fire scaled to 0.577 (orbSize: 173px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 186px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 180px
+ 🔥 Elemental kasina fire scaled to 0.600 (orbSize: 180px)
+ Official Vernier data - Sensor: Force, Value: 6.651092529296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.65N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 186px
+ 🔥 Elemental kasina fire scaled to 0.620 (orbSize: 186px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 190px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 6.6919708251953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 190px
+ 🔥 Elemental kasina fire scaled to 0.633 (orbSize: 190px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 191px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 6.7481842041015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 190px
+ 🔥 Elemental kasina fire scaled to 0.633 (orbSize: 190px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 197px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 191px
+ 🔥 Elemental kasina fire scaled to 0.637 (orbSize: 191px)
+ Official Vernier data - Sensor: Force, Value: 6.7941741943359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.79N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 197px
+ 🔥 Elemental kasina fire scaled to 0.657 (orbSize: 197px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 202px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 197px
+ 🔥 Elemental kasina fire scaled to 0.657 (orbSize: 197px)
+ Official Vernier data - Sensor: Force, Value: 6.852935791015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(88, 51, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 209px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 202px
+ 🔥 Elemental kasina fire scaled to 0.673 (orbSize: 202px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 209px
+ 🔥 Elemental kasina fire scaled to 0.697 (orbSize: 209px)
+ Official Vernier data - Sensor: Force, Value: 6.909149169921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 215px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 215px
+ 🔥 Elemental kasina fire scaled to 0.717 (orbSize: 215px)
+ Official Vernier data - Sensor: Force, Value: 6.9500274658203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.95N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 220px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 220px
+ 🔥 Elemental kasina fire scaled to 0.733 (orbSize: 220px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 220px
+ 🔥 Elemental kasina fire scaled to 0.733 (orbSize: 220px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 220px
+ 🔥 Elemental kasina fire scaled to 0.733 (orbSize: 220px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 220px
+ 🔥 Elemental kasina fire scaled to 0.733 (orbSize: 220px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 220px
+ 🔥 Elemental kasina fire scaled to 0.733 (orbSize: 220px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 220px
+ 🔥 Elemental kasina fire scaled to 0.733 (orbSize: 220px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 220px
+ 🔥 Elemental kasina fire scaled to 0.733 (orbSize: 220px)
+ Official Vernier data - Sensor: Force, Value: 6.998573303222656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 225px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 225px
+ 🔥 Elemental kasina fire scaled to 0.750 (orbSize: 225px)
+ Official Vernier data - Sensor: Force, Value: 7.036895751953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.04N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(89, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 230px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 230px
+ 🔥 Elemental kasina fire scaled to 0.767 (orbSize: 230px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 230px
+ 🔥 Elemental kasina fire scaled to 0.767 (orbSize: 230px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 230px
+ 🔥 Elemental kasina fire scaled to 0.767 (orbSize: 230px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 230px
+ 🔥 Elemental kasina fire scaled to 0.767 (orbSize: 230px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 230px
+ 🔥 Elemental kasina fire scaled to 0.767 (orbSize: 230px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 230px
+ 🔥 Elemental kasina fire scaled to 0.767 (orbSize: 230px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 230px
+ 🔥 Elemental kasina fire scaled to 0.767 (orbSize: 230px)
+ Official Vernier data - Sensor: Force, Value: 7.0522308349609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.05N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 231px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 231px
+ 🔥 Elemental kasina fire scaled to 0.770 (orbSize: 231px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 231px
+ 🔥 Elemental kasina fire scaled to 0.770 (orbSize: 231px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 231px
+ 🔥 Elemental kasina fire scaled to 0.770 (orbSize: 231px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 231px
+ 🔥 Elemental kasina fire scaled to 0.770 (orbSize: 231px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 231px
+ 🔥 Elemental kasina fire scaled to 0.770 (orbSize: 231px)
+ Official Vernier data - Sensor: Force, Value: 7.080329895019531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.08N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 234px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 231px
+ 🔥 Elemental kasina fire scaled to 0.770 (orbSize: 231px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 234px
+ 🔥 Elemental kasina fire scaled to 0.780 (orbSize: 234px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 234px
+ 🔥 Elemental kasina fire scaled to 0.780 (orbSize: 234px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 234px
+ 🔥 Elemental kasina fire scaled to 0.780 (orbSize: 234px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 234px
+ 🔥 Elemental kasina fire scaled to 0.780 (orbSize: 234px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 234px
+ 🔥 Elemental kasina fire scaled to 0.780 (orbSize: 234px)
+ Official Vernier data - Sensor: Force, Value: 7.1161041259765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 237px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 237px
+ 🔥 Elemental kasina fire scaled to 0.790 (orbSize: 237px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 237px
+ 🔥 Elemental kasina fire scaled to 0.790 (orbSize: 237px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 237px
+ 🔥 Elemental kasina fire scaled to 0.790 (orbSize: 237px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 237px
+ 🔥 Elemental kasina fire scaled to 0.790 (orbSize: 237px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 237px
+ 🔥 Elemental kasina fire scaled to 0.790 (orbSize: 237px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 237px
+ 🔥 Elemental kasina fire scaled to 0.790 (orbSize: 237px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 237px
+ 🔥 Elemental kasina fire scaled to 0.790 (orbSize: 237px)
+ Official Vernier data - Sensor: Force, Value: 7.141654968261719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.14N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 240px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 22) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 22) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 22) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ Official Vernier data - Sensor: Force, Value: 7.156982421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 22) intensity: 0.36
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ Official Vernier data - Sensor: Force, Value: 7.164649963378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 22) intensity: 0.36
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 240px
+ 🔥 Elemental kasina fire scaled to 0.800 (orbSize: 240px)
+ Official Vernier data - Sensor: Force, Value: 7.13909912109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.14N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 22) intensity: 0.36
+ 🎨 Background color: #FB923C -> rgb(90, 52, 22) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 238px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: fire, color: #FB923C
+ 🎨 Background color: #FB923C -> rgb(90, 52, 21) intensity: 0.36
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 238px
+ 🔥 Elemental kasina fire scaled to 0.793 (orbSize: 238px)
