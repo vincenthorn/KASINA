@@ -1133,13 +1133,34 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Get kasina-specific scaling configuration for consistent behavior
     const config = getKasinaConfig(selectedKasina);
     
-    // Standardized breathing size range - consistent across all kasina types
-    // Base size similar to color kasinas for uniform scaling experience
-    const baseMinSize = 25; // Visible minimum (25px) - matches color kasina baseline
-    const baseMaxSize = 400; // Reasonable maximum (400px) - matches color kasina range
+    // Use kasina-type specific scaling for proper behavior
+    let baseMinSize, baseMaxSize, sizeCap;
+    
+    if (config.type === 'color') {
+      // Original working values for color kasinas
+      baseMinSize = 5;
+      baseMaxSize = 6000;
+      sizeCap = 1200;
+    } else if (config.type === 'elemental') {
+      // Reduced scaling for elemental kasinas to match color kasina visual scale
+      baseMinSize = 5;
+      baseMaxSize = 1200; // Much smaller than original 6000px
+      sizeCap = 600;
+    } else if (config.type === 'vajrayana') {
+      // Increased scaling for vajrayana kasinas to match color kasina visual scale
+      baseMinSize = 5;
+      baseMaxSize = 3000; // Larger than original to make them more visible
+      sizeCap = 800;
+    } else {
+      // Default fallback
+      baseMinSize = 5;
+      baseMaxSize = 2000;
+      sizeCap = 600;
+    }
+    
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale * sizeMultiplier);
-    const maxSize = Math.min(calculatedMaxSize, 600); // Reasonable cap for all kasina types
+    const maxSize = Math.min(calculatedMaxSize, sizeCap * sizeMultiplier);
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
@@ -1187,8 +1208,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     const clampedAmplitude = Math.max(0, Math.min(1, scaledAmplitude));
     const calculatedSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
-    // Cap at consistent immersion level for all kasina types
-    const newSize = Math.min(calculatedSize, maxSize);
+    // Apply kasina-type specific size cap
+    const newSize = Math.min(calculatedSize, sizeCap);
     
     // Update state to trigger re-render
     setOrbSize(newSize);
