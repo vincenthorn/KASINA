@@ -1251,16 +1251,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
         }
         
-        // Apply unified scaling for all kasina types using breath amplitude
+        // Apply targeted scaling fix for color kasinas at group level
         const kasConfig = getKasinaConfig(selectedKasina);
+        let finalGroupScale = cappedScale;
         
-        // Convert orbSize back to breath amplitude for consistent scaling
-        const breathAmplitude = Math.max(0, Math.min(1, (orbSize - 50) / (1200 - 50)));
-        
-        // Use the same scaling logic for all kasina types
-        const baseScale = 0.005; // Base scale for all kasinas
-        const maxScale = 0.02;    // Maximum scale for all kasinas
-        const finalGroupScale = baseScale + (breathAmplitude * (maxScale - baseScale));
+        if (kasConfig.type === 'color') {
+          finalGroupScale = cappedScale * 0.008; // Even smaller scale for color kasinas
+          console.log(`🎯 Group color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalGroupScale.toFixed(3)}`);
+        }
         
         groupRef.current.scale.setScalar(finalGroupScale);
         
