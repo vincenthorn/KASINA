@@ -1243,35 +1243,34 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         const scalingResult = calculateKasinaScale(selectedKasina, orbSize, 0, naturalBreathingEase);
         const { scale, cappedScale, immersionLevel, config } = scalingResult;
       
+      // Apply breath-responsive scaling based on kasina type
+      const kasConfig = getKasinaConfig(selectedKasina);
+      let finalScale = cappedScale;
+      
+      // Debug kasina type detection
+      console.log(`🔍 Kasina: ${selectedKasina}, Type: ${kasConfig.type}, orbSize: ${orbSize}px`);
+      
+      if (kasConfig.type === 'color') {
+        finalScale = cappedScale * 0.008; // Scale for color kasinas
+        console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
+      } else if (kasConfig.type === 'elemental') {
+        // Elemental kasinas need breath-responsive scaling based on orbSize
+        finalScale = (orbSize / 150) * 0.5; // Convert orbSize to appropriate scale
+        console.log(`🔥 Elemental kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
+      } else {
+        // Default scaling for other types
+        finalScale = cappedScale * 0.008;
+        console.log(`⚙️ Default kasina ${selectedKasina} (type: ${kasConfig.type}) scaled to ${finalScale.toFixed(3)}`);
+      }
+
+      // Apply scaling to group or mesh depending on kasina type
       if (groupRef.current) {
-        // Apply the calculated scale with color kasina fix at group level
-        
-        // Debug logging using unified system
+        // Debug logging using unified system for color kasinas
         if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
           logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
         }
         
-        // Apply breath-responsive scaling based on kasina type
-        const kasConfig = getKasinaConfig(selectedKasina);
-        let finalGroupScale = cappedScale;
-        
-        // Debug kasina type detection
-        console.log(`🔍 Kasina: ${selectedKasina}, Type: ${kasConfig.type}, Config:`, kasConfig);
-        
-        if (kasConfig.type === 'color') {
-          finalGroupScale = cappedScale * 0.008; // Scale for color kasinas
-          console.log(`🎯 Group color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalGroupScale.toFixed(3)}`);
-        } else if (kasConfig.type === 'elemental') {
-          // Elemental kasinas need breath-responsive scaling based on orbSize
-          finalGroupScale = (orbSize / 150) * 0.5; // Convert orbSize to appropriate scale
-          console.log(`🔥 Elemental kasina ${selectedKasina} scaled to ${finalGroupScale.toFixed(3)} (orbSize: ${orbSize}px)`);
-        } else {
-          // Default scaling for other types
-          finalGroupScale = cappedScale * 0.008;
-          console.log(`⚙️ Default kasina ${selectedKasina} (type: ${kasConfig.type}) scaled to ${finalGroupScale.toFixed(3)}`);
-        }
-        
-        groupRef.current.scale.setScalar(finalGroupScale);
+        groupRef.current.scale.setScalar(finalScale);
         
         // Optimize opacity updates - only update when there's a meaningful change
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
@@ -1291,10 +1290,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
             }
           });
         }
-      }
-      
-      if (meshRef.current) {
-        // For basic kasinas, apply opacity updates
+      } else if (meshRef.current) {
+        // For Elemental kasinas and other mesh-based kasinas, apply scaling and opacity
+        meshRef.current.scale.setScalar(finalScale);
+        
         // Optimize material updates - only update when opacity changes significantly
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
         const lastMeshOpacity = meshRef.current.userData.lastOpacity || 1;
