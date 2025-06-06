@@ -20,7 +20,7 @@ import HumKasina from './HumKasina';
 import RainbowKasina from './RainbowKasina';
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
-import { calculateKasinaScale, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
+import { calculateKasinaScale, calculateBreathKasinaSize, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
 
 // Shader materials for the elemental kasinas (copied from main KasinaOrb component)
 const waterShader = {
@@ -1130,39 +1130,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       return;
     }
     
-    // Get kasina-specific scaling configuration for consistent behavior
-    const config = getKasinaConfig(selectedKasina);
-    
-    // Use kasina-type specific scaling for proper behavior
-    let baseMinSize, baseMaxSize, sizeCap;
-    
-    if (config.type === 'color') {
-      // Original working values for color kasinas
-      baseMinSize = 5;
-      baseMaxSize = 6000;
-      sizeCap = 1200;
-    } else if (config.type === 'elemental') {
-      // Reduced scaling for elemental kasinas to match color kasina visual scale
-      baseMinSize = 5;
-      baseMaxSize = 1200; // Much smaller than original 6000px
-      sizeCap = 600;
-    } else if (config.type === 'vajrayana') {
-      // Increased scaling for vajrayana kasinas to match color kasina visual scale
-      baseMinSize = 5;
-      baseMaxSize = 3000; // Larger than original to make them more visible
-      sizeCap = 800;
-    } else {
-      // Default fallback
-      baseMinSize = 5;
-      baseMaxSize = 2000;
-      sizeCap = 600;
-    }
-    
-    const minSize = Math.floor(baseMinSize * sizeScale);
-    const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale * sizeMultiplier);
-    const maxSize = Math.min(calculatedMaxSize, sizeCap * sizeMultiplier);
-    const sizeRange = maxSize - minSize;
-    
     // Detect if amplitude has changed significantly (not holding breath)
     const amplitudeChanged = Math.abs(activeBreathAmplitude - lastAmplitudeRef.current) > 0.01;
     
@@ -1206,10 +1173,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Apply breathing rate intensity scaling
     scaledAmplitude = scaledAmplitude * intensityMultiplier;
     
-    const clampedAmplitude = Math.max(0, Math.min(1, scaledAmplitude));
-    const calculatedSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
-    // Apply kasina-type specific size cap
-    const newSize = Math.min(calculatedSize, sizeCap);
+    // Use unified breath kasina sizing system for consistent behavior across all types
+    const breathSizing = calculateBreathKasinaSize(selectedKasina, scaledAmplitude, sizeScale, sizeMultiplier);
+    const { size: newSize, minSize, maxSize, immersionLevel } = breathSizing;
     
     // Update state to trigger re-render
     setOrbSize(newSize);

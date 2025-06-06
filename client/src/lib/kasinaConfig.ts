@@ -20,41 +20,23 @@ export interface KasinaConfig {
   backgroundEnabled: boolean;
 }
 
-// Default scaling configurations for different kasina categories
-// Using elemental/vajrayana scaling as the foundation for immersive experience
+// Universal breath kasina scaling configuration
+// All kasina types use the same scaling parameters for consistent behavior
+const UNIVERSAL_BREATH_SCALING: KasinaScaleConfig = {
+  baseScale: 1.0,           // Base scaling multiplier (1.0 = normal size)
+  maxScale: 2.0,            // Maximum scale cap (2x original size)
+  minScale: 0.02,           // Minimum scale floor (2% of original size)
+  expansionRate: 1.8,       // How dramatically kasina expands with breath
+  immersionThreshold: 400,  // When background immersion starts (px)
+  maxImmersion: 1200        // When full immersion is reached (px)
+};
+
+// Apply universal scaling to all kasina categories
 const SCALING_PRESETS: Record<string, KasinaScaleConfig> = {
-  color: {
-    baseScale: 18,        // Match vajrayana/elemental dramatic scaling
-    maxScale: 18,         // Allow full expansion like other types
-    minScale: 0.001,
-    expansionRate: 18,    // Match vajrayana/elemental expansion
-    immersionThreshold: 300,
-    maxImmersion: 3000    // Keep immersion range consistent
-  },
-  elemental: {
-    baseScale: 18,
-    maxScale: 18,
-    minScale: 0.001,
-    expansionRate: 18,
-    immersionThreshold: 300,
-    maxImmersion: 3000
-  },
-  vajrayana: {
-    baseScale: 18,        // Upgrade to match elemental scaling
-    maxScale: 18,         // Full dramatic expansion
-    minScale: 0.001,
-    expansionRate: 18,    // Match elemental expansion
-    immersionThreshold: 300,  // Consistent with other kasina types
-    maxImmersion: 3000    // Match elemental range
-  },
-  special: {
-    baseScale: 18,        // Match elemental scaling
-    maxScale: 18,         // Full expansion capability
-    minScale: 0.001,
-    expansionRate: 18,    // Consistent expansion rate
-    immersionThreshold: 300,
-    maxImmersion: 3000    // Consistent immersion range
-  }
+  color: UNIVERSAL_BREATH_SCALING,
+  elemental: UNIVERSAL_BREATH_SCALING,
+  vajrayana: UNIVERSAL_BREATH_SCALING,
+  special: UNIVERSAL_BREATH_SCALING
 };
 
 // Complete kasina configuration map
@@ -230,7 +212,55 @@ export const KASINA_CONFIGS: Record<string, KasinaConfig> = {
 };
 
 /**
- * Calculate unified scaling for any kasina type
+ * Calculate unified breath kasina sizing for consistent behavior across all types
+ */
+export function calculateBreathKasinaSize(
+  kasina: string,
+  breathAmplitude: number,
+  sizeScale: number = 0.05,
+  sizeMultiplier: number = 0.3
+): {
+  size: number;
+  minSize: number;
+  maxSize: number;
+  immersionLevel: number;
+  config: KasinaConfig;
+} {
+  const config = KASINA_CONFIGS[kasina] || KASINA_CONFIGS.blue;
+  const { scaling } = config;
+  
+  // Universal base size ranges for all kasina types
+  const BASE_MIN_SIZE = 25;  // Minimum visible size (25px)
+  const BASE_MAX_SIZE = 600; // Maximum expansion size (600px)
+  
+  // Calculate size range based on scaling and multipliers
+  const minSize = Math.floor(BASE_MIN_SIZE * sizeScale);
+  const maxSize = Math.floor(BASE_MAX_SIZE * sizeScale * sizeMultiplier);
+  const sizeRange = maxSize - minSize;
+  
+  // Apply breath amplitude to size calculation
+  const clampedAmplitude = Math.max(0, Math.min(1, breathAmplitude));
+  const calculatedSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
+  
+  // Cap size at immersion threshold to prevent overwhelming experience
+  const finalSize = Math.min(calculatedSize, scaling.maxImmersion);
+  
+  // Calculate immersion level for background effects
+  const immersionLevel = Math.max(0, Math.min(1, 
+    (finalSize - scaling.immersionThreshold) / (scaling.maxImmersion - scaling.immersionThreshold)
+  ));
+  
+  return {
+    size: finalSize,
+    minSize,
+    maxSize,
+    immersionLevel,
+    config
+  };
+}
+
+/**
+ * Calculate unified scaling for any kasina type (legacy function for Three.js components)
  */
 export function calculateKasinaScale(
   kasina: string,
@@ -246,13 +276,11 @@ export function calculateKasinaScale(
   const config = KASINA_CONFIGS[kasina] || KASINA_CONFIGS.blue;
   const { scaling } = config;
   
-  // Baseline: 150px = 1.0 scale
+  // Use universal scaling approach
   const baseScale = orbSize / 150;
-  
-  // Simplified direct scaling approach
-  const normalizedScale = Math.max(0, Math.min(1, baseScale / 18)); // Normalize against 18x expansion
+  const normalizedScale = Math.max(0, Math.min(1, baseScale / scaling.expansionRate));
   const easedScale = naturalBreathingEase(normalizedScale);
-  const scale = Math.max(scaling.minScale, easedScale * 18); // Direct 18x scaling for dramatic effect
+  const scale = Math.max(scaling.minScale, easedScale * scaling.expansionRate);
   
   // Calculate immersion level
   const cappedOrbSize = Math.min(orbSize, scaling.maxImmersion);
