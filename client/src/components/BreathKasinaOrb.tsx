@@ -1193,7 +1193,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Update background intensity sync with breathing
     const breathIntensity = scaledAmplitude * 0.8; // Scale breathing amplitude for background sync
-    setBackgroundIntensity(0.1 + breathIntensity * 0.3); // Base 0.1 + breathing adds up to 0.4
+    
+    // Special handling for Water kasina - much darker background for better contrast
+    let finalBackgroundIntensity;
+    if (selectedKasina === 'water') {
+      finalBackgroundIntensity = 0.02 + breathIntensity * 0.08; // Much darker: base 0.02 + breathing adds up to 0.1
+    } else {
+      finalBackgroundIntensity = 0.1 + breathIntensity * 0.3; // Normal: base 0.1 + breathing adds up to 0.4
+    }
+    
+    setBackgroundIntensity(finalBackgroundIntensity);
     
     // Calculate and update background color based on current kasina
     let currentKasinaColor: string;
@@ -1211,7 +1220,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       currentKasinaColor = getKasinaColor(selectedKasina);
     }
     
-    const newBackgroundColor = calculateBackgroundColor(currentKasinaColor, backgroundIntensity);
+    const newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
     setCurrentBackgroundColor(newBackgroundColor);
     
     // Log the size and rate data for debugging
