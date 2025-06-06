@@ -1130,12 +1130,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       return;
     }
     
-    // Dramatic breathing size range - barely visible to larger than screen
-    const baseMinSize = 5; // Barely visible minimum (5px)
-    const baseMaxSize = 6000; // Much larger maximum (6000px) for dramatic expansion
+    // Get kasina-specific scaling configuration for consistent behavior
+    const config = getKasinaConfig(selectedKasina);
+    
+    // Standardized breathing size range - consistent across all kasina types
+    // Base size similar to color kasinas for uniform scaling experience
+    const baseMinSize = 25; // Visible minimum (25px) - matches color kasina baseline
+    const baseMaxSize = 400; // Reasonable maximum (400px) - matches color kasina range
     const minSize = Math.floor(baseMinSize * sizeScale);
     const calculatedMaxSize = Math.floor(baseMaxSize * sizeScale * sizeMultiplier);
-    const maxSize = Math.min(calculatedMaxSize, 9000); // Cap at very large size
+    const maxSize = Math.min(calculatedMaxSize, 600); // Reasonable cap for all kasina types
     const sizeRange = maxSize - minSize;
     
     // Detect if amplitude has changed significantly (not holding breath)
@@ -1183,8 +1187,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     const clampedAmplitude = Math.max(0, Math.min(1, scaledAmplitude));
     const calculatedSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
-    // Cap at the perfect immersion moment to prevent black screens
-    const newSize = Math.min(calculatedSize, 1200);
+    // Cap at consistent immersion level for all kasina types
+    const newSize = Math.min(calculatedSize, maxSize);
     
     // Update state to trigger re-render
     setOrbSize(newSize);
