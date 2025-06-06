@@ -21,14 +21,14 @@ export interface KasinaConfig {
 }
 
 // Universal breath kasina scaling configuration
-// All kasina types use the same scaling parameters for consistent behavior
+// Based on the original working color kasina parameters for consistency
 const UNIVERSAL_BREATH_SCALING: KasinaScaleConfig = {
-  baseScale: 1.0,           // Base scaling multiplier (1.0 = normal size)
-  maxScale: 2.0,            // Maximum scale cap (2x original size)
-  minScale: 0.02,           // Minimum scale floor (2% of original size)
-  expansionRate: 1.8,       // How dramatically kasina expands with breath
-  immersionThreshold: 400,  // When background immersion starts (px)
-  maxImmersion: 1200        // When full immersion is reached (px)
+  baseScale: 18,            // Match original color kasina scaling
+  maxScale: 18,             // Match original color kasina maximum
+  minScale: 0.001,          // Match original color kasina minimum
+  expansionRate: 18,        // Match original color kasina expansion
+  immersionThreshold: 300,  // Match original color kasina immersion start
+  maxImmersion: 3000        // Match original color kasina immersion max
 };
 
 // Apply universal scaling to all kasina categories
@@ -212,7 +212,7 @@ export const KASINA_CONFIGS: Record<string, KasinaConfig> = {
 };
 
 /**
- * Calculate unified breath kasina sizing for consistent behavior across all types
+ * Calculate unified breath kasina sizing based on original color kasina parameters
  */
 export function calculateBreathKasinaSize(
   kasina: string,
@@ -229,11 +229,11 @@ export function calculateBreathKasinaSize(
   const config = KASINA_CONFIGS[kasina] || KASINA_CONFIGS.blue;
   const { scaling } = config;
   
-  // Universal base size ranges for all kasina types
-  const BASE_MIN_SIZE = 25;  // Minimum visible size (25px)
-  const BASE_MAX_SIZE = 600; // Maximum expansion size (600px)
+  // Use original color kasina size ranges for all kasina types
+  const BASE_MIN_SIZE = 5;    // Original color kasina minimum (5px)
+  const BASE_MAX_SIZE = 6000; // Original color kasina maximum (6000px)
   
-  // Calculate size range based on scaling and multipliers
+  // Calculate size range based on original color kasina scaling and multipliers
   const minSize = Math.floor(BASE_MIN_SIZE * sizeScale);
   const maxSize = Math.floor(BASE_MAX_SIZE * sizeScale * sizeMultiplier);
   const sizeRange = maxSize - minSize;
@@ -242,10 +242,10 @@ export function calculateBreathKasinaSize(
   const clampedAmplitude = Math.max(0, Math.min(1, breathAmplitude));
   const calculatedSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
   
-  // Cap size at immersion threshold to prevent overwhelming experience
-  const finalSize = Math.min(calculatedSize, scaling.maxImmersion);
+  // Cap at original color kasina immersion level (1200px)
+  const finalSize = Math.min(calculatedSize, 1200);
   
-  // Calculate immersion level for background effects
+  // Calculate immersion level for background effects using original thresholds
   const immersionLevel = Math.max(0, Math.min(1, 
     (finalSize - scaling.immersionThreshold) / (scaling.maxImmersion - scaling.immersionThreshold)
   ));
