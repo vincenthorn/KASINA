@@ -22,36 +22,7 @@ import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 import { calculateKasinaScale, calculateBreathKasinaSize, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
 
-// Browser detection utility
-function isChromeBasedBrowser(): boolean {
-  const userAgent = navigator.userAgent.toLowerCase();
-  console.log('Browser detection - User Agent:', userAgent);
-  
-  // Check for Safari specifically (it contains 'safari' but not 'chrome')
-  if (userAgent.includes('safari') && !userAgent.includes('chrome')) {
-    console.log('Detected Safari browser - not Chrome-based');
-    return false;
-  }
-  
-  // Check for Firefox
-  if (userAgent.includes('firefox')) {
-    console.log('Detected Firefox browser - not Chrome-based');
-    return false;
-  }
-  
-  // Check for Chrome-based browsers
-  const isChromeBased = (
-    userAgent.includes('chrome') ||
-    userAgent.includes('chromium') ||
-    userAgent.includes('edge') ||
-    userAgent.includes('brave') ||
-    userAgent.includes('opera') ||
-    userAgent.includes('vivaldi')
-  );
-  
-  console.log('Browser detection result:', isChromeBased ? 'Chrome-based' : 'Not Chrome-based');
-  return isChromeBased;
-}
+
 
 // Shader materials for the elemental kasinas (copied from main KasinaOrb component)
 const waterShader = {
@@ -514,24 +485,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [backgroundIntensity, setBackgroundIntensity] = useState(0.4);
   const [currentBackgroundColor, setCurrentBackgroundColor] = useState('#2a2a2a');
   
-  // Browser compatibility state - force detection immediately
-  const [showBrowserWarning, setShowBrowserWarning] = useState(false);
-  const [isChromeBased] = useState(() => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    console.log('🔍 BROWSER DETECTION - User Agent:', userAgent);
-    
-    // Simple Safari detection
-    const isSafari = userAgent.includes('safari') && !userAgent.includes('chrome');
-    const isFirefox = userAgent.includes('firefox');
-    const isChrome = userAgent.includes('chrome') && !userAgent.includes('edge');
-    const isEdge = userAgent.includes('edge');
-    
-    console.log('🔍 BROWSER FLAGS:', { isSafari, isFirefox, isChrome, isEdge });
-    
-    const result = !isSafari && !isFirefox;
-    console.log('🔍 FINAL DETECTION RESULT:', result ? 'Chrome-based' : 'Not Chrome-based');
-    return result;
-  });
+
   
   // Better breath detection using recent amplitude history
   const breathHistoryRef = useRef<number[]>([]);
@@ -605,24 +559,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return () => document.removeEventListener('wheel', handleWheel);
   }, []);
 
-  // Check browser compatibility and show warning on non-Chrome browsers
-  useEffect(() => {
-    console.log('🚨 BROWSER WARNING CHECK:', { useVernier, isChromeBased, pathname: window.location.pathname });
-    
-    // Always show warning on non-Chrome browsers in Breath mode
-    if (!isChromeBased) {
-      console.log('🚨 SHOWING BROWSER WARNING - Safari/Firefox detected');
-      setShowBrowserWarning(true);
-    } else {
-      console.log('✅ Chrome-based browser - no warning needed');
-      setShowBrowserWarning(false);
-    }
-  }, [useVernier, isChromeBased]);
-  
-  // Debug effect to track state changes
-  useEffect(() => {
-    console.log('🔄 STATE UPDATE:', { showBrowserWarning, isChromeBased });
-  }, [showBrowserWarning, isChromeBased]);
+
 
   // Handle calibration period when breathing starts
   useEffect(() => {
@@ -1332,9 +1269,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         finalScale = cappedScale * 0.008; // Scale for color kasinas
         console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
       } else if (kasConfig.type === 'elemental') {
-        // Elemental kasinas need breath-responsive scaling based on orbSize
-        finalScale = (orbSize / 150) * 1.5; // Increased multiplier to match Color kasina scale
-        console.log(`🔥 Elemental kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
+        // Elemental kasinas use breath-responsive scaling like Color kasinas, with 1.5x multiplier
+        finalScale = cappedScale * 0.008 * 1.5; // Same responsive scaling as Color kasinas but 1.5x larger
+        console.log(`🔥 Elemental kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)} (breath-responsive)`);
       } else {
         // Default scaling for other types
         finalScale = cappedScale * 0.008;
@@ -1717,59 +1654,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         />
       )}
 
-      {/* Debug info - remove later */}
-      <div className="fixed top-2 right-2 z-[200] bg-black text-white p-2 text-xs rounded">
-        Debug: isChrome={isChromeBased.toString()}, warning={showBrowserWarning.toString()}, useVernier={useVernier.toString()}
-      </div>
 
-      {/* Browser Compatibility Warning - Force show for testing */}
-      {(!isChromeBased || showBrowserWarning) && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50"
-          style={{ backdropFilter: 'blur(4px)' }}
-        >
-          <div 
-            className="bg-red-600 text-white p-8 rounded-lg shadow-2xl max-w-lg mx-4 animate-pulse"
-            style={{
-              backgroundColor: 'rgba(220, 38, 38, 0.98)',
-              border: '3px solid rgba(239, 68, 68, 1)',
-              boxShadow: '0 0 30px rgba(220, 38, 38, 0.5)'
-            }}
-          >
-            <div className="flex items-start space-x-4">
-              <div className="text-4xl" style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))' }}>⚠️</div>
-              <div className="flex-1">
-                <h3 className="font-bold text-xl mb-3">Browser Not Compatible</h3>
-                <p className="text-base mb-4">
-                  Breath Mode with Vernier sensors requires a Chrome-based browser for Bluetooth connectivity.
-                </p>
-                <p className="text-base mb-4">
-                  <strong>Supported browsers:</strong><br />
-                  • Google Chrome<br />
-                  • Microsoft Edge<br />
-                  • Brave Browser<br />
-                  • Opera<br />
-                  • Vivaldi
-                </p>
-                <div className="flex space-x-3">
-                  <button
-                    onClick={() => setShowBrowserWarning(false)}
-                    className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
-                  >
-                    Continue Anyway
-                  </button>
-                  <button
-                    onClick={() => window.open('https://www.google.com/chrome/', '_blank')}
-                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-                  >
-                    Download Chrome
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Kasina Selection Overlay */}
       {showKasinaSelection && (
