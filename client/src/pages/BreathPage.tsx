@@ -8,11 +8,50 @@ import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
 import Layout from '../components/Layout';
 
+// Browser detection utility
+function isChromeBasedBrowser(): boolean {
+  const userAgent = navigator.userAgent.toLowerCase();
+  console.log('🔍 BREATH PAGE - Browser detection - User Agent:', userAgent);
+  
+  // Check for Safari specifically (it contains 'safari' but not 'chrome')
+  if (userAgent.includes('safari') && !userAgent.includes('chrome')) {
+    console.log('🔍 BREATH PAGE - Detected Safari browser - not Chrome-based');
+    return false;
+  }
+  
+  // Check for Firefox
+  if (userAgent.includes('firefox')) {
+    console.log('🔍 BREATH PAGE - Detected Firefox browser - not Chrome-based');
+    return false;
+  }
+  
+  // Check for Chrome-based browsers
+  const isChromeBased = (
+    userAgent.includes('chrome') ||
+    userAgent.includes('chromium') ||
+    userAgent.includes('edge') ||
+    userAgent.includes('brave') ||
+    userAgent.includes('opera') ||
+    userAgent.includes('vivaldi')
+  );
+  
+  console.log('🔍 BREATH PAGE - Browser detection result:', isChromeBased ? 'Chrome-based' : 'Not Chrome-based');
+  return isChromeBased;
+}
+
 const BreathPage: React.FC = () => {
   const navigate = useNavigate();
   const { user, isAdmin } = useAuth();
   const [showMeditation, setShowMeditation] = React.useState(false);
   const [forceStayOnPage, setForceStayOnPage] = React.useState(false);
+  
+  // Browser compatibility state
+  const [showBrowserWarning, setShowBrowserWarning] = React.useState(false);
+  const [isChromeBased] = React.useState(() => {
+    const result = isChromeBasedBrowser();
+    console.log('🔍 BREATH PAGE - Initial browser detection on page load:', result);
+    return result;
+  });
   
   // Vernier breath data hook
   const {
@@ -34,6 +73,15 @@ const BreathPage: React.FC = () => {
   
   // Check if user has premium access
   const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;
+
+  // Show browser warning on non-Chrome browsers
+  React.useEffect(() => {
+    console.log('🚨 BREATH PAGE - Browser warning check:', { isChromeBased });
+    if (!isChromeBased) {
+      console.log('🚨 BREATH PAGE - Showing browser warning for Safari/Firefox');
+      setShowBrowserWarning(true);
+    }
+  }, [isChromeBased]);
 
   // Handle starting a session - connect and meditate (no calibration step)
   const handleStartSession = async () => {
@@ -86,6 +134,60 @@ const BreathPage: React.FC = () => {
 
   return (
     <Layout>
+      {/* Browser Compatibility Warning */}
+      {showBrowserWarning && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50"
+          style={{ backdropFilter: 'blur(4px)' }}
+        >
+          <div 
+            className="bg-red-600 text-white p-8 rounded-lg shadow-2xl max-w-lg mx-4 animate-pulse"
+            style={{
+              backgroundColor: 'rgba(220, 38, 38, 0.98)',
+              border: '3px solid rgba(239, 68, 68, 1)',
+              boxShadow: '0 0 30px rgba(220, 38, 38, 0.5)'
+            }}
+          >
+            <div className="flex items-start space-x-4">
+              <div className="text-4xl" style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))' }}>⚠️</div>
+              <div className="flex-1">
+                <h3 className="font-bold text-xl mb-3">Browser Not Compatible</h3>
+                <p className="text-base mb-4">
+                  Breath Mode with Vernier sensors requires a Chrome-based browser for Bluetooth connectivity.
+                </p>
+                <p className="text-base mb-4">
+                  <strong>Supported browsers:</strong><br />
+                  • Google Chrome<br />
+                  • Microsoft Edge<br />
+                  • Brave Browser<br />
+                  • Opera<br />
+                  • Vivaldi
+                </p>
+                <div className="flex space-x-3">
+                  <button
+                    onClick={() => setShowBrowserWarning(false)}
+                    className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                  >
+                    Continue Anyway
+                  </button>
+                  <button
+                    onClick={() => window.open('https://www.google.com/chrome/', '_blank')}
+                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+                  >
+                    Download Chrome
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Debug info - remove later */}
+      <div className="fixed top-2 right-2 z-[200] bg-black text-white p-2 text-xs rounded">
+        Debug: isChrome={isChromeBased.toString()}, warning={showBrowserWarning.toString()}
+      </div>
+
       <div className="container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-6 text-white">Breath Kasina</h1>
         
