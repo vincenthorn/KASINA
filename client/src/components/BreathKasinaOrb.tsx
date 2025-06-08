@@ -514,11 +514,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [backgroundIntensity, setBackgroundIntensity] = useState(0.4);
   const [currentBackgroundColor, setCurrentBackgroundColor] = useState('#2a2a2a');
   
-  // Browser compatibility state
+  // Browser compatibility state - force detection immediately
   const [showBrowserWarning, setShowBrowserWarning] = useState(false);
   const [isChromeBased] = useState(() => {
-    const result = isChromeBasedBrowser();
-    console.log('Initial browser detection on component mount:', result);
+    const userAgent = navigator.userAgent.toLowerCase();
+    console.log('🔍 BROWSER DETECTION - User Agent:', userAgent);
+    
+    // Simple Safari detection
+    const isSafari = userAgent.includes('safari') && !userAgent.includes('chrome');
+    const isFirefox = userAgent.includes('firefox');
+    const isChrome = userAgent.includes('chrome') && !userAgent.includes('edge');
+    const isEdge = userAgent.includes('edge');
+    
+    console.log('🔍 BROWSER FLAGS:', { isSafari, isFirefox, isChrome, isEdge });
+    
+    const result = !isSafari && !isFirefox;
+    console.log('🔍 FINAL DETECTION RESULT:', result ? 'Chrome-based' : 'Not Chrome-based');
     return result;
   });
   
@@ -594,20 +605,24 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return () => document.removeEventListener('wheel', handleWheel);
   }, []);
 
-  // Check browser compatibility when using Vernier sensors or when on non-Chrome browser
+  // Check browser compatibility and show warning on non-Chrome browsers
   useEffect(() => {
-    console.log('Browser compatibility check:', { useVernier, isChromeBased, showBrowserWarning });
+    console.log('🚨 BROWSER WARNING CHECK:', { useVernier, isChromeBased, pathname: window.location.pathname });
     
-    // Show warning if using Vernier sensors on non-Chrome browser
-    // OR if user is on Breath page in non-Chrome browser (proactive warning)
-    if (!isChromeBased && (useVernier || window.location.pathname.includes('/breath'))) {
-      console.log('Setting browser warning to true - non-Chrome browser detected');
+    // Always show warning on non-Chrome browsers in Breath mode
+    if (!isChromeBased) {
+      console.log('🚨 SHOWING BROWSER WARNING - Safari/Firefox detected');
       setShowBrowserWarning(true);
     } else {
-      console.log('Setting browser warning to false');
+      console.log('✅ Chrome-based browser - no warning needed');
       setShowBrowserWarning(false);
     }
   }, [useVernier, isChromeBased]);
+  
+  // Debug effect to track state changes
+  useEffect(() => {
+    console.log('🔄 STATE UPDATE:', { showBrowserWarning, isChromeBased });
+  }, [showBrowserWarning, isChromeBased]);
 
   // Handle calibration period when breathing starts
   useEffect(() => {
@@ -1707,8 +1722,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         Debug: isChrome={isChromeBased.toString()}, warning={showBrowserWarning.toString()}, useVernier={useVernier.toString()}
       </div>
 
-      {/* Browser Compatibility Warning */}
-      {(showBrowserWarning || !isChromeBased) && (
+      {/* Browser Compatibility Warning - Force show for testing */}
+      {(!isChromeBased || showBrowserWarning) && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50"
           style={{ backdropFilter: 'blur(4px)' }}
