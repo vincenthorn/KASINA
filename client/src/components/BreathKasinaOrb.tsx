@@ -25,14 +25,32 @@ import { calculateKasinaScale, calculateBreathKasinaSize, logKasinaScaling, getK
 // Browser detection utility
 function isChromeBasedBrowser(): boolean {
   const userAgent = navigator.userAgent.toLowerCase();
-  return (
+  console.log('Browser detection - User Agent:', userAgent);
+  
+  // Check for Safari specifically (it contains 'safari' but not 'chrome')
+  if (userAgent.includes('safari') && !userAgent.includes('chrome')) {
+    console.log('Detected Safari browser - not Chrome-based');
+    return false;
+  }
+  
+  // Check for Firefox
+  if (userAgent.includes('firefox')) {
+    console.log('Detected Firefox browser - not Chrome-based');
+    return false;
+  }
+  
+  // Check for Chrome-based browsers
+  const isChromeBased = (
     userAgent.includes('chrome') ||
     userAgent.includes('chromium') ||
     userAgent.includes('edge') ||
     userAgent.includes('brave') ||
     userAgent.includes('opera') ||
     userAgent.includes('vivaldi')
-  ) && !userAgent.includes('firefox');
+  );
+  
+  console.log('Browser detection result:', isChromeBased ? 'Chrome-based' : 'Not Chrome-based');
+  return isChromeBased;
 }
 
 // Shader materials for the elemental kasinas (copied from main KasinaOrb component)
@@ -498,7 +516,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   
   // Browser compatibility state
   const [showBrowserWarning, setShowBrowserWarning] = useState(false);
-  const [isChromeBased] = useState(isChromeBasedBrowser());
+  const [isChromeBased] = useState(() => {
+    const result = isChromeBasedBrowser();
+    console.log('Initial browser detection on component mount:', result);
+    return result;
+  });
   
   // Better breath detection using recent amplitude history
   const breathHistoryRef = useRef<number[]>([]);
@@ -572,11 +594,17 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return () => document.removeEventListener('wheel', handleWheel);
   }, []);
 
-  // Check browser compatibility when using Vernier sensors
+  // Check browser compatibility when using Vernier sensors or when on non-Chrome browser
   useEffect(() => {
-    if (useVernier && !isChromeBased) {
+    console.log('Browser compatibility check:', { useVernier, isChromeBased, showBrowserWarning });
+    
+    // Show warning if using Vernier sensors on non-Chrome browser
+    // OR if user is on Breath page in non-Chrome browser (proactive warning)
+    if (!isChromeBased && (useVernier || window.location.pathname.includes('/breath'))) {
+      console.log('Setting browser warning to true - non-Chrome browser detected');
       setShowBrowserWarning(true);
     } else {
+      console.log('Setting browser warning to false');
       setShowBrowserWarning(false);
     }
   }, [useVernier, isChromeBased]);
@@ -1674,36 +1702,54 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         />
       )}
 
+      {/* Debug info - remove later */}
+      <div className="fixed top-2 right-2 z-[200] bg-black text-white p-2 text-xs rounded">
+        Debug: isChrome={isChromeBased.toString()}, warning={showBrowserWarning.toString()}, useVernier={useVernier.toString()}
+      </div>
+
       {/* Browser Compatibility Warning */}
-      {showBrowserWarning && (
+      {(showBrowserWarning || !isChromeBased) && (
         <div 
-          className="absolute top-4 left-4 right-4 z-50 flex items-center justify-center"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50"
+          style={{ backdropFilter: 'blur(4px)' }}
         >
           <div 
-            className="bg-red-600 text-white p-6 rounded-lg shadow-lg max-w-md mx-auto"
+            className="bg-red-600 text-white p-8 rounded-lg shadow-2xl max-w-lg mx-4 animate-pulse"
             style={{
-              backgroundColor: 'rgba(220, 38, 38, 0.95)',
-              backdropFilter: 'blur(8px)',
-              border: '2px solid rgba(239, 68, 68, 0.8)'
+              backgroundColor: 'rgba(220, 38, 38, 0.98)',
+              border: '3px solid rgba(239, 68, 68, 1)',
+              boxShadow: '0 0 30px rgba(220, 38, 38, 0.5)'
             }}
           >
-            <div className="flex items-start space-x-3">
-              <div className="text-2xl">⚠️</div>
-              <div>
-                <h3 className="font-bold text-lg mb-2">Browser Not Supported</h3>
-                <p className="text-sm mb-3">
+            <div className="flex items-start space-x-4">
+              <div className="text-4xl" style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))' }}>⚠️</div>
+              <div className="flex-1">
+                <h3 className="font-bold text-xl mb-3">Browser Not Compatible</h3>
+                <p className="text-base mb-4">
                   Breath Mode with Vernier sensors requires a Chrome-based browser for Bluetooth connectivity.
                 </p>
-                <p className="text-sm mb-3">
+                <p className="text-base mb-4">
                   <strong>Supported browsers:</strong><br />
-                  Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi
+                  • Google Chrome<br />
+                  • Microsoft Edge<br />
+                  • Brave Browser<br />
+                  • Opera<br />
+                  • Vivaldi
                 </p>
-                <button
-                  onClick={() => setShowBrowserWarning(false)}
-                  className="bg-white text-red-600 px-4 py-2 rounded font-medium hover:bg-gray-100 transition-colors"
-                >
-                  Continue Anyway
-                </button>
+                <div className="flex space-x-3">
+                  <button
+                    onClick={() => setShowBrowserWarning(false)}
+                    className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                  >
+                    Continue Anyway
+                  </button>
+                  <button
+                    onClick={() => window.open('https://www.google.com/chrome/', '_blank')}
+                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+                  >
+                    Download Chrome
+                  </button>
+                </div>
               </div>
             </div>
           </div>
