@@ -22,6 +22,19 @@ import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 import { calculateKasinaScale, calculateBreathKasinaSize, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
 
+// Browser detection utility
+function isChromeBasedBrowser(): boolean {
+  const userAgent = navigator.userAgent.toLowerCase();
+  return (
+    userAgent.includes('chrome') ||
+    userAgent.includes('chromium') ||
+    userAgent.includes('edge') ||
+    userAgent.includes('brave') ||
+    userAgent.includes('opera') ||
+    userAgent.includes('vivaldi')
+  ) && !userAgent.includes('firefox');
+}
+
 // Shader materials for the elemental kasinas (copied from main KasinaOrb component)
 const waterShader = {
   uniforms: {
@@ -483,6 +496,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [backgroundIntensity, setBackgroundIntensity] = useState(0.4);
   const [currentBackgroundColor, setCurrentBackgroundColor] = useState('#2a2a2a');
   
+  // Browser compatibility state
+  const [showBrowserWarning, setShowBrowserWarning] = useState(false);
+  const [isChromeBased] = useState(isChromeBasedBrowser());
+  
   // Better breath detection using recent amplitude history
   const breathHistoryRef = useRef<number[]>([]);
   const peakBreathTimeRef = useRef({ duration: 0, transitionStartTime: null as number | null });
@@ -554,6 +571,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     document.addEventListener('wheel', handleWheel, { passive: false });
     return () => document.removeEventListener('wheel', handleWheel);
   }, []);
+
+  // Check browser compatibility when using Vernier sensors
+  useEffect(() => {
+    if (useVernier && !isChromeBased) {
+      setShowBrowserWarning(true);
+    } else {
+      setShowBrowserWarning(false);
+    }
+  }, [useVernier, isChromeBased]);
 
   // Handle calibration period when breathing starts
   useEffect(() => {
@@ -1646,6 +1672,42 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           mode="breath"
           breathingRate={activeBreathingRate}
         />
+      )}
+
+      {/* Browser Compatibility Warning */}
+      {showBrowserWarning && (
+        <div 
+          className="absolute top-4 left-4 right-4 z-50 flex items-center justify-center"
+        >
+          <div 
+            className="bg-red-600 text-white p-6 rounded-lg shadow-lg max-w-md mx-auto"
+            style={{
+              backgroundColor: 'rgba(220, 38, 38, 0.95)',
+              backdropFilter: 'blur(8px)',
+              border: '2px solid rgba(239, 68, 68, 0.8)'
+            }}
+          >
+            <div className="flex items-start space-x-3">
+              <div className="text-2xl">⚠️</div>
+              <div>
+                <h3 className="font-bold text-lg mb-2">Browser Not Supported</h3>
+                <p className="text-sm mb-3">
+                  Breath Mode with Vernier sensors requires a Chrome-based browser for Bluetooth connectivity.
+                </p>
+                <p className="text-sm mb-3">
+                  <strong>Supported browsers:</strong><br />
+                  Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi
+                </p>
+                <button
+                  onClick={() => setShowBrowserWarning(false)}
+                  className="bg-white text-red-600 px-4 py-2 rounded font-medium hover:bg-gray-100 transition-colors"
+                >
+                  Continue Anyway
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Kasina Selection Overlay */}
