@@ -1028,9 +1028,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
   };
 
-  // Get color for selected kasina - use the official KASINA_COLORS
+  // Get color for selected kasina - use the store's getKasinaColor for proper custom color support
   const getKasinaColor = (kasina: string) => {
-    return KASINA_COLORS[kasina] || KASINA_COLORS[KASINA_TYPES.BLUE];
+    return globalGetKasinaColor(kasina);
   };
 
   // Calculate background color that syncs with orb kasina color
@@ -1323,8 +1323,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         let immersionLevel;
         
         if (kasConfig.type === 'color') {
-          // Use unified scaling for all color kasinas including custom
-          const scalingResult = calculateKasinaScale(selectedKasina, orbSize, 0, naturalBreathingEase);
+          // Use breath-responsive scaling for all color kasinas including custom
+          // Convert breath amplitude to a size value that matches other color kasinas
+          const breathResponsiveSize = 50 + (activeBreathAmplitude * 400); // Scale from 50px to 450px based on breath
+          const scalingResult = calculateKasinaScale(selectedKasina, breathResponsiveSize, 0, naturalBreathingEase);
           finalScale = scalingResult.cappedScale * 0.008;
           immersionLevel = scalingResult.immersionLevel;
         } else if (kasConfig.type === 'elemental') {
