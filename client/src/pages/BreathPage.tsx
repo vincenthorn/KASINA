@@ -64,11 +64,7 @@ const BreathPage: React.FC = () => {
     disconnectDevice,
     error,
     isCalibrating,
-    calibrationProgress,
-    startCalibration,
-    calibrationComplete,
-    currentForce,
-    calibrationProfile
+    startCalibration
   } = useVernierBreathOfficial();
   
   // Check if user has premium access
@@ -240,7 +236,7 @@ const BreathPage: React.FC = () => {
                   
                   {isConnected && (
                     <p className="text-sm text-gray-300">
-                      Current Force: <span className="font-mono text-blue-400">{currentForce.toFixed(2)} N</span>
+                      Status: <span className="font-mono text-green-400">Active</span>
                     </p>
                   )}
                 </div>
