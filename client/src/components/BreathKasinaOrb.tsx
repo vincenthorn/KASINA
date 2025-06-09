@@ -1332,7 +1332,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           naturalBreathingEase
         );
         
-        const { scale, immersionLevel } = unifiedScaling;
+        const { scale, cappedScale, immersionLevel } = unifiedScaling;
         
         // Get kasina-specific rendering properties
         const renderingProps = getKasinaRenderingProps(selectedKasina);
@@ -1345,12 +1345,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           finalScale = finalScale * 3; // Make Vajrayana kasinas larger to be visible
         }
 
-      // Apply scaling to group or mesh depending on kasina type
-      if (groupRef.current) {
-        // Debug logging using unified system for color kasinas
-        if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-          logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
-        }
+        // Apply scaling to group or mesh depending on kasina type
+        if (groupRef.current) {
+          // Debug logging using unified system for color kasinas
+          if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
+            logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
+          }
         
         groupRef.current.scale.setScalar(finalScale);
         
