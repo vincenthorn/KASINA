@@ -1,0 +1,67 @@
+login:80 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+ ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=0a6bad1d:4394
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Performance Snapshots: Array(20)
+ === PERFORMANCE ANALYSIS ===
+ Last 3 snapshots before crash:
+ Snapshot 18: Object
+HomePage.tsx:116 Snapshot 19: Object
+HomePage.tsx:116 Snapshot 20: Object
+HomePage.tsx:126 Memory trend in final snapshots: -8MB
+HomePage.tsx:128 === END PERFORMANCE ANALYSIS ===
+HomePage.tsx:135 Crash History: Array(10)
+HomePage.tsx:137 Crash #1: Object
+HomePage.tsx:137 Crash #2: Object
+HomePage.tsx:137 Crash #3: Object
+HomePage.tsx:137 Crash #4: Object
+HomePage.tsx:137 Crash #5: Object
+HomePage.tsx:137 Crash #6: Object
+HomePage.tsx:137 Crash #7: Object
+HomePage.tsx:137 Crash #8: Object
+HomePage.tsx:137 Crash #9: Object
+HomePage.tsx:137 Crash #10: Object
+HomePage.tsx:144 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-09T03:56:09.075Z
+useAuth.tsx:181 Setting auth state with user: Object
+BreathPage.tsx:14 🔍 BREATH PAGE - Browser detection - User Agent: mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/537.36 (khtml, like gecko) chrome/136.0.0.0 safari/537.36
+BreathPage.tsx:38 🔍 BREATH PAGE - Browser detection result: Chrome-based
+BreathPage.tsx:52 🔍 BREATH PAGE - Initial browser detection on page load: true
+BreathPage.tsx:75 🚨 BREATH PAGE - Browser warning check: Object
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-09T03:56:10.585Z
+useAuth.tsx:181 Setting auth state with user: Object
+useVernierBreathFixed.ts:41 Connecting to Vernier device using official GoDirect library...
+useVernierBreathFixed.ts:43 GoDirect library loaded successfully
+useVernierBreathFixed.ts:50 Starting device selection...
+chunk-EMXP5JYR.js?v=0a6bad1d:18167 Error connecting to Vernier device: TypeError: godirect.selectDevice is not a function
+    at useVernierBreathFixed.ts:56:18
+    at handleStartSession (BreathPage.tsx:87:13)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=0a6bad1d:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=0a6bad1d:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=0a6bad1d:3733:39)
+    at invokeGuardedCallbackAndCatchFirstError (chunk-RPCDYKBN.js?v=0a6bad1d:3736:33)
+    at executeDispatch (chunk-RPCDYKBN.js?v=0a6bad1d:7014:11)
+    at processDispatchQueueItemsInOrder (chunk-RPCDYKBN.js?v=0a6bad1d:7034:15)
+    at processDispatchQueue (chunk-RPCDYKBN.js?v=0a6bad1d:7043:13)
+    at dispatchEventsForPlugins (chunk-RPCDYKBN.js?v=0a6bad1d:7051:11)
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167
+useVernierBreathFixed.ts:41 Connecting to Vernier device using official GoDirect library...
+useVernierBreathFixed.ts:43 GoDirect library loaded successfully
+useVernierBreathFixed.ts:50 Starting device selection...
+chunk-EMXP5JYR.js?v=0a6bad1d:18167 Error connecting to Vernier device: TypeError: godirect.selectDevice is not a function
+    at useVernierBreathFixed.ts:56:18
+    at handleStartSession (BreathPage.tsx:87:13)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=0a6bad1d:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=0a6bad1d:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=0a6bad1d:3733:39)
+    at invokeGuardedCallbackAndCatchFirstError (chunk-RPCDYKBN.js?v=0a6bad1d:3736:33)
+    at executeDispatch (chunk-RPCDYKBN.js?v=0a6bad1d:7014:11)
+    at processDispatchQueueItemsInOrder (chunk-RPCDYKBN.js?v=0a6bad1d:7034:15)
+    at processDispatchQueue (chunk-RPCDYKBN.js?v=0a6bad1d:7043:13)
+    at dispatchEventsForPlugins (chunk-RPCDYKBN.js?v=0a6bad1d:7051:11)
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167

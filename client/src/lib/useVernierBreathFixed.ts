@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import * as godirect from '@vernier/godirect';
+import godirect from '@vernier/godirect';
 
 declare global {
   interface Window {
@@ -53,7 +53,7 @@ export const useVernierBreathOfficial = () => {
       const connectionTimeout = 30000; // 30 second timeout
       
       const gdxDevice = await Promise.race([
-        godirect.selectDevice(true).catch((err: any) => {
+        (godirect as any).selectDevice(true).catch((err: any) => {
           console.log('selectDevice error:', err);
           if (err.message?.includes('cancelled') || err.message?.includes('cancel')) {
             throw new Error('cancelled');
