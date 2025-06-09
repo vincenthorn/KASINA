@@ -211,6 +211,20 @@ const BreathPage: React.FC = () => {
                 </Alert>
               )}
 
+              {isConnecting && (
+                <Alert className="border-blue-500 bg-blue-900/20">
+                  <AlertDescription className="text-blue-200">
+                    <div className="flex items-center space-x-2">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-400"></div>
+                      <span>Connecting to Vernier belt... Please select your device from the Bluetooth dialog.</span>
+                    </div>
+                    <p className="text-xs mt-2 text-blue-300">
+                      If the connection dialog doesn't appear, try clicking Cancel and ensure your belt is powered on.
+                    </p>
+                  </AlertDescription>
+                </Alert>
+              )}
+
               <p className="text-gray-300">
                 {getInstructions()}
               </p>
@@ -267,13 +281,13 @@ const BreathPage: React.FC = () => {
                 {getButtonText()}
               </Button>
               
-              {isConnected && (
+              {(isConnected || isConnecting) && (
                 <Button 
                   variant="outline" 
-                  onClick={disconnectDevice}
+                  onClick={isConnecting ? () => window.location.reload() : disconnectDevice}
                   className="border-gray-600 text-gray-300 hover:bg-gray-700"
                 >
-                  Disconnect
+                  {isConnecting ? 'Cancel' : 'Disconnect'}
                 </Button>
               )}
             </CardFooter>
