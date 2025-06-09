@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
+import * as godirect from '@vernier/godirect';
 
 declare global {
   interface Window {
@@ -39,20 +40,6 @@ export const useVernierBreathOfficial = () => {
       
       console.log('Connecting to Vernier device using official GoDirect library...');
       
-      // Check if the official library is loaded with retry logic
-      if (!window.godirect) {
-        let retries = 3;
-        while (retries > 0 && !window.godirect) {
-          console.log(`Waiting for GoDirect library... (${retries} retries left)`);
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          retries--;
-        }
-        
-        if (!window.godirect) {
-          throw new Error('Failed to load Vernier GoDirect library. Please refresh the page and try again.');
-        }
-      }
-      
       console.log('GoDirect library loaded successfully');
 
       // Check if browser supports Bluetooth
@@ -66,7 +53,7 @@ export const useVernierBreathOfficial = () => {
       const connectionTimeout = 30000; // 30 second timeout
       
       const gdxDevice = await Promise.race([
-        window.godirect.selectDevice(true).catch((err: any) => {
+        godirect.selectDevice(true).catch((err: any) => {
           console.log('selectDevice error:', err);
           if (err.message?.includes('cancelled') || err.message?.includes('cancel')) {
             throw new Error('cancelled');
