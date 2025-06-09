@@ -183,10 +183,7 @@ const BreathPage: React.FC = () => {
         </div>
       )}
 
-      {/* Debug info - remove later */}
-      <div className="fixed top-2 right-2 z-[200] bg-black text-white p-2 text-xs rounded">
-        Debug: isChrome={isChromeBased.toString()}, warning={showBrowserWarning.toString()}
-      </div>
+
 
       <div className="container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-6 text-white">Breath Kasina</h1>
