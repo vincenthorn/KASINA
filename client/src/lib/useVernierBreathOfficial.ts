@@ -106,8 +106,19 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       
       console.log('GoDirect library loaded successfully');
 
-      // Connect using official Vernier method
-      const gdxDevice = await window.godirect.selectDevice(true); // true = Bluetooth
+      // Connect using official Vernier method with timeout
+      const connectionTimeout = 15000; // 15 second timeout
+      const gdxDevice = await Promise.race([
+        window.godirect.selectDevice(true), // true = Bluetooth
+        new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Connection timeout - device selection took too long')), connectionTimeout)
+        )
+      ]);
+      
+      if (!gdxDevice) {
+        throw new Error('No device selected or connection cancelled');
+      }
+      
       deviceRef.current = gdxDevice;
       
       console.log('Connected to:', gdxDevice.name);
@@ -244,7 +255,26 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       
     } catch (err) {
       console.error('Error connecting to Vernier device:', err);
-      setError(`Connection failed: ${err}`);
+      
+      // Provide more specific error messages
+      let errorMessage = 'Connection failed';
+      if (err instanceof Error) {
+        if (err.message.includes('timeout')) {
+          errorMessage = 'Connection timeout - device selection took too long. Please try again.';
+        } else if (err.message.includes('No device selected')) {
+          errorMessage = 'No device selected. Please select your Vernier belt from the device list.';
+        } else if (err.message.includes('cancelled')) {
+          errorMessage = 'Connection cancelled by user.';
+        } else if (err.message.includes('not found')) {
+          errorMessage = 'No compatible Vernier devices found. Make sure your belt is powered on and in pairing mode.';
+        } else if (err.message.includes('permission')) {
+          errorMessage = 'Bluetooth permission denied. Please allow Bluetooth access and try again.';
+        } else {
+          errorMessage = `Connection failed: ${err.message}`;
+        }
+      }
+      
+      setError(errorMessage);
       setIsConnecting(false);
       setIsConnected(false);
     }
