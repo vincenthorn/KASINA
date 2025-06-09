@@ -1102,9 +1102,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     };
   }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
-  // Special logic for Change kasina - slow, gradual color transitions during sustained peak breathing
+  // Special logic for Rainbow kasina - slow, gradual color transitions during sustained peak breathing
   useEffect(() => {
-    if (!activeIsListening || selectedKasina !== 'custom') return;
+    if (!activeIsListening || selectedKasina !== KASINA_TYPES.RAINBOW_KASINA) return;
     
     const peakThreshold = 0.85; // Consider 85%+ as peak breathing
     const timeAtPeak = peakBreathTimeRef.current;
@@ -1643,7 +1643,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Basic color kasinas and Changing Color kasina
       let kasinaColor: string;
       
-      if (selectedKasina === 'custom') {
+      if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
         if (isTransitioning) {
           // Blend current and next colors during transition
           kasinaColor = blendColors(

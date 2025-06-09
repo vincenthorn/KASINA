@@ -1,0 +1,2164 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🎨 Background color: #00db24 -> rgb(0, 83, 14) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 18.0% (450ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00d629
+ 🎨 Background color: #00d629 -> rgb(0, 81, 16) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 20.0% (500ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00d12e
+ 🎨 Background color: #00d12e -> rgb(0, 79, 17) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 22.0% (550ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00cc33
+ 🎨 Background color: #00cc33 -> rgb(0, 78, 19) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 24.0% (600ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00c738
+ 🎨 Background color: #00c738 -> rgb(0, 76, 21) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 26.0% (650ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00c23d
+ 🎨 Background color: #00c23d -> rgb(0, 74, 23) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 28.0% (700ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00bd42
+ 🎨 Background color: #00bd42 -> rgb(0, 72, 25) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 30.0% (750ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00b847
+ 🎨 Background color: #00b847 -> rgb(0, 70, 27) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 32.0% (800ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00b34d
+ 🎨 Background color: #00b34d -> rgb(0, 68, 29) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 34.0% (850ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00ad52
+ 🎨 Background color: #00ad52 -> rgb(0, 66, 31) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 36.0% (900ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00a857
+ 🎨 Background color: #00a857 -> rgb(0, 64, 33) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 38.0% (950ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00a35c
+ 🎨 Background color: #00a35c -> rgb(0, 62, 35) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 40.0% (1000ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #009e61
+ 🎨 Background color: #009e61 -> rgb(0, 60, 37) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 42.0% (1050ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #009966
+ 🎨 Background color: #009966 -> rgb(0, 58, 39) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 44.0% (1100ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00946b
+ 🎨 Background color: #00946b -> rgb(0, 56, 41) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 46.0% (1150ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #008f70
+ 🎨 Background color: #008f70 -> rgb(0, 54, 43) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 48.0% (1200ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #008a75
+ 🎨 Background color: #008a75 -> rgb(0, 52, 44) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 50.0% (1250ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00857a
+ 🎨 Background color: #00857a -> rgb(0, 51, 46) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 52.0% (1300ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #008080
+ 🎨 Background color: #008080 -> rgb(0, 49, 49) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 54.0% (1350ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #007a85
+ 🎨 Background color: #007a85 -> rgb(0, 46, 51) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🌈 Slow chakra transition: 56.0% (1400ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00758a
+ 🎨 Background color: #00758a -> rgb(0, 44, 52) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 58.0% (1450ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00708f
+ 🎨 Background color: #00708f -> rgb(0, 43, 54) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 60.0% (1500ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #006b94
+ 🎨 Background color: #006b94 -> rgb(0, 41, 56) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 62.0% (1550ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #006699
+ 🎨 Background color: #006699 -> rgb(0, 39, 58) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 64.0% (1600ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #00619e
+ 🎨 Background color: #00619e -> rgb(0, 37, 60) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 66.0% (1650ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #005ca3
+ 🎨 Background color: #005ca3 -> rgb(0, 35, 62) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 68.0% (1700ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0057a8
+ 🎨 Background color: #0057a8 -> rgb(0, 33, 64) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 70.0% (1750ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0052ad
+ 🎨 Background color: #0052ad -> rgb(0, 31, 66) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 72.0% (1800ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #004db3
+ 🎨 Background color: #004db3 -> rgb(0, 29, 68) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 74.0% (1850ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0047b8
+ 🎨 Background color: #0047b8 -> rgb(0, 27, 70) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 76.0% (1900ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0042bd
+ 🎨 Background color: #0042bd -> rgb(0, 25, 72) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 78.0% (1950ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #003dc2
+ 🎨 Background color: #003dc2 -> rgb(0, 23, 74) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 80.0% (2000ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0038c7
+ 🎨 Background color: #0038c7 -> rgb(0, 21, 76) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 82.0% (2050ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0033cc
+ 🎨 Background color: #0033cc -> rgb(0, 19, 78) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 84.0% (2100ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #002ed1
+ 🎨 Background color: #002ed1 -> rgb(0, 17, 79) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 86.0% (2150ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0029d6
+ 🎨 Background color: #0029d6 -> rgb(0, 16, 81) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 88.0% (2200ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0024db
+ 🎨 Background color: #0024db -> rgb(0, 14, 83) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 90.0% (2250ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #001fe0
+ 🎨 Background color: #001fe0 -> rgb(0, 12, 85) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 92.0% (2300ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #001ae6
+ 🎨 Background color: #001ae6 -> rgb(0, 10, 87) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 94.0% (2350ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0014eb
+ 🎨 Background color: #0014eb -> rgb(0, 8, 89) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 96.0% (2400ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #000ff0
+ 🎨 Background color: #000ff0 -> rgb(0, 6, 91) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 98.0% (2450ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #000af5
+ 🎨 Background color: #000af5 -> rgb(0, 4, 93) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 100.0% (2500ms of 2500ms)
+ 🎨 Completing gradual chakra transition after 2500ms
+ 🔄 Updating background for kasina: custom, color: #0005fa
+ 🎨 Background color: #0005fa -> rgb(0, 2, 95) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Change kasina: Starting gradual chakra transition from #0000ff to #4b0082 after sustained peak breathing
+ 🔄 Updating background for kasina: custom, color: #0000ff
+ 🎨 Background color: #0000ff -> rgb(0, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 2.0% (50ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0000ff
+ 🎨 Background color: #0000ff -> rgb(0, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 4.0% (100ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0200fd
+ 🎨 Background color: #0200fd -> rgb(1, 0, 96) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 6.0% (150ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0300fa
+ 🎨 Background color: #0300fa -> rgb(1, 0, 95) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 8.0% (200ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0500f8
+ 🎨 Background color: #0500f8 -> rgb(2, 0, 94) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 10.0% (250ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0600f5
+ 🎨 Background color: #0600f5 -> rgb(2, 0, 93) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 12.0% (300ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0800f3
+ 🎨 Background color: #0800f3 -> rgb(3, 0, 92) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 14.0% (350ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0900f0
+ 🎨 Background color: #0900f0 -> rgb(3, 0, 91) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 16.0% (400ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0b00ee
+ 🎨 Background color: #0b00ee -> rgb(4, 0, 90) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Warning: Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+    at BreathKasinaOrb (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/BreathKasinaOrb.tsx:420:3)
+    at div
+    at div
+    at _c9 (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ui/card.tsx:103:12)
+    at div
+    at _c (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ui/card.tsx:20:11)
+    at div
+    at div
+    at main
+    at div
+    at div
+    at Layout (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/Layout.tsx:24:19)
+    at BreathPage (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/pages/BreathPage.tsx:44:20)
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ErrorBoundary.tsx:8:5)
+    at AdminOnlyRoute (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/App.tsx?v=4m7FyXakFaasO1L8C6g3k:66:27)
+    at RenderedRoute (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=0a6bad1d:4089:5)
+    at Routes (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=0a6bad1d:4559:5)
+    at Router (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=0a6bad1d:4502:15)
+    at BrowserRouter (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=0a6bad1d:5248:5)
+    at ColorProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/lib/contexts/ColorContext.tsx:40:33)
+    at QueryClientProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=0a6bad1d:2805:3)
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ErrorBoundary.tsx:8:5)
+    at App
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167
+ 🌈 Slow chakra transition: 18.0% (450ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0c00eb
+ 🎨 Background color: #0c00eb -> rgb(5, 0, 89) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 20.0% (500ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0e00e9
+ 🎨 Background color: #0e00e9 -> rgb(5, 0, 89) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 22.0% (550ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #0f00e6
+ 🎨 Background color: #0f00e6 -> rgb(6, 0, 87) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 24.0% (600ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1100e4
+ 🎨 Background color: #1100e4 -> rgb(6, 0, 87) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 26.0% (650ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1200e1
+ 🎨 Background color: #1200e1 -> rgb(7, 0, 86) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 28.0% (700ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1400df
+ 🎨 Background color: #1400df -> rgb(8, 0, 85) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 30.0% (750ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1500dc
+ 🎨 Background color: #1500dc -> rgb(8, 0, 84) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 32.0% (800ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1700da
+ 🎨 Background color: #1700da -> rgb(9, 0, 83) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 34.0% (850ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1800d7
+ 🎨 Background color: #1800d7 -> rgb(9, 0, 82) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 36.0% (900ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1a00d5
+ 🎨 Background color: #1a00d5 -> rgb(10, 0, 81) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 38.0% (950ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1b00d2
+ 🎨 Background color: #1b00d2 -> rgb(10, 0, 80) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 40.0% (1000ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1d00d0
+ 🎨 Background color: #1d00d0 -> rgb(11, 0, 79) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 42.0% (1050ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #1e00cd
+ 🎨 Background color: #1e00cd -> rgb(11, 0, 78) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 44.0% (1100ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2000cb
+ 🎨 Background color: #2000cb -> rgb(12, 0, 77) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 46.0% (1150ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2100c8
+ 🎨 Background color: #2100c8 -> rgb(13, 0, 76) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 48.0% (1200ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2300c6
+ 🎨 Background color: #2300c6 -> rgb(13, 0, 75) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 50.0% (1250ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2400c3
+ 🎨 Background color: #2400c3 -> rgb(14, 0, 74) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 52.0% (1300ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2600c1
+ 🎨 Background color: #2600c1 -> rgb(14, 0, 73) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🌈 Slow chakra transition: 54.0% (1350ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2700be
+ 🎨 Background color: #2700be -> rgb(15, 0, 72) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 56.0% (1400ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2900bc
+ 🎨 Background color: #2900bc -> rgb(16, 0, 71) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 58.0% (1450ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2a00b9
+ 🎨 Background color: #2a00b9 -> rgb(16, 0, 70) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 60.0% (1500ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2c00b7
+ 🎨 Background color: #2c00b7 -> rgb(17, 0, 70) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 62.0% (1550ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2d00b4
+ 🎨 Background color: #2d00b4 -> rgb(17, 0, 68) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 64.0% (1600ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #2f00b2
+ 🎨 Background color: #2f00b2 -> rgb(18, 0, 68) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 66.0% (1650ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3000af
+ 🎨 Background color: #3000af -> rgb(18, 0, 67) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 68.0% (1700ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3200ad
+ 🎨 Background color: #3200ad -> rgb(19, 0, 66) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 70.0% (1750ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3300aa
+ 🎨 Background color: #3300aa -> rgb(19, 0, 65) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 72.0% (1800ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3500a8
+ 🎨 Background color: #3500a8 -> rgb(20, 0, 64) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 74.0% (1850ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3600a5
+ 🎨 Background color: #3600a5 -> rgb(21, 0, 63) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 76.0% (1900ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3800a3
+ 🎨 Background color: #3800a3 -> rgb(21, 0, 62) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 78.0% (1950ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3900a0
+ 🎨 Background color: #3900a0 -> rgb(22, 0, 61) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 80.0% (2000ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3b009e
+ 🎨 Background color: #3b009e -> rgb(22, 0, 60) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 82.0% (2050ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3c009b
+ 🎨 Background color: #3c009b -> rgb(23, 0, 59) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 84.0% (2100ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3d0099
+ 🎨 Background color: #3d0099 -> rgb(23, 0, 58) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 86.0% (2150ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #3f0096
+ 🎨 Background color: #3f0096 -> rgb(24, 0, 57) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 88.0% (2200ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #410094
+ 🎨 Background color: #410094 -> rgb(25, 0, 56) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 90.0% (2250ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #420091
+ 🎨 Background color: #420091 -> rgb(25, 0, 55) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 92.0% (2300ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #44008f
+ 🎨 Background color: #44008f -> rgb(26, 0, 54) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 94.0% (2350ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #45008c
+ 🎨 Background color: #45008c -> rgb(26, 0, 53) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 96.0% (2400ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #47008a
+ 🎨 Background color: #47008a -> rgb(27, 0, 52) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 98.0% (2450ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #480087
+ 🎨 Background color: #480087 -> rgb(27, 0, 51) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 100.0% (2500ms of 2500ms)
+ 🎨 Completing gradual chakra transition after 2500ms
+ 🔄 Updating background for kasina: custom, color: #4a0085
+ 🎨 Background color: #4a0085 -> rgb(28, 0, 51) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Change kasina: Starting gradual chakra transition from #4b0082 to #8b00ff after sustained peak breathing
+ 🔄 Updating background for kasina: custom, color: #4b0082
+ 🎨 Background color: #4b0082 -> rgb(29, 0, 49) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 2.0% (50ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #4b0082
+ 🎨 Background color: #4b0082 -> rgb(29, 0, 49) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 4.0% (100ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #4c0085
+ 🎨 Background color: #4c0085 -> rgb(29, 0, 51) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 6.0% (150ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #4e0087
+ 🎨 Background color: #4e0087 -> rgb(30, 0, 51) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 8.0% (200ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #4f008a
+ 🎨 Background color: #4f008a -> rgb(30, 0, 52) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 10.0% (250ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #50008c
+ 🎨 Background color: #50008c -> rgb(30, 0, 53) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 12.0% (300ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #51008f
+ 🎨 Background color: #51008f -> rgb(31, 0, 54) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 14.0% (350ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #530091
+ 🎨 Background color: #530091 -> rgb(32, 0, 55) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 16.0% (400ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #540094
+ 🎨 Background color: #540094 -> rgb(32, 0, 56) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 18.0% (450ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #550096
+ 🎨 Background color: #550096 -> rgb(32, 0, 57) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Warning: Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+    at BreathKasinaOrb (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/BreathKasinaOrb.tsx:420:3)
+    at div
+    at div
+    at _c9 (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ui/card.tsx:103:12)
+    at div
+    at _c (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ui/card.tsx:20:11)
+    at div
+    at div
+    at main
+    at div
+    at div
+    at Layout (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/Layout.tsx:24:19)
+    at BreathPage (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/pages/BreathPage.tsx:44:20)
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ErrorBoundary.tsx:8:5)
+    at AdminOnlyRoute (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/App.tsx?v=4m7FyXakFaasO1L8C6g3k:66:27)
+    at RenderedRoute (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=0a6bad1d:4089:5)
+    at Routes (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=0a6bad1d:4559:5)
+    at Router (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=0a6bad1d:4502:15)
+    at BrowserRouter (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=0a6bad1d:5248:5)
+    at ColorProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/lib/contexts/ColorContext.tsx:40:33)
+    at QueryClientProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=0a6bad1d:2805:3)
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ErrorBoundary.tsx:8:5)
+    at App
+console.error @ chunk-EMXP5JYR.js?v=0a6bad1d:18167
+ 🌈 Slow chakra transition: 20.0% (500ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #570099
+ 🎨 Background color: #570099 -> rgb(33, 0, 58) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 22.0% (550ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #58009b
+ 🎨 Background color: #58009b -> rgb(33, 0, 59) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 24.0% (600ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #59009e
+ 🎨 Background color: #59009e -> rgb(34, 0, 60) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 26.0% (650ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #5a00a0
+ 🎨 Background color: #5a00a0 -> rgb(34, 0, 61) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 28.0% (700ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #5c00a3
+ 🎨 Background color: #5c00a3 -> rgb(35, 0, 62) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 30.0% (750ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #5d00a5
+ 🎨 Background color: #5d00a5 -> rgb(35, 0, 63) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 32.0% (800ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #5e00a8
+ 🎨 Background color: #5e00a8 -> rgb(36, 0, 64) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 34.0% (850ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #5f00aa
+ 🎨 Background color: #5f00aa -> rgb(36, 0, 65) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 36.0% (900ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6100ad
+ 🎨 Background color: #6100ad -> rgb(37, 0, 66) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 38.0% (950ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6200af
+ 🎨 Background color: #6200af -> rgb(37, 0, 67) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 40.0% (1000ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6300b2
+ 🎨 Background color: #6300b2 -> rgb(38, 0, 68) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 42.0% (1050ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6500b4
+ 🎨 Background color: #6500b4 -> rgb(38, 0, 68) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 44.0% (1100ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6600b7
+ 🎨 Background color: #6600b7 -> rgb(39, 0, 70) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 46.0% (1150ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6700b9
+ 🎨 Background color: #6700b9 -> rgb(39, 0, 70) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 48.0% (1200ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6800bc
+ 🎨 Background color: #6800bc -> rgb(40, 0, 71) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 50.0% (1250ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6a00be
+ 🎨 Background color: #6a00be -> rgb(40, 0, 72) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌈 Slow chakra transition: 52.0% (1300ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6b00c1
+ 🎨 Background color: #6b00c1 -> rgb(41, 0, 73) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 18.506290435791016, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 18.506290435791016, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 18.506290435791016, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🌈 Slow chakra transition: 54.0% (1350ms of 2500ms)
+ 🔄 Updating background for kasina: custom, color: #6c00c3
+ 🎨 Background color: #6c00c3 -> rgb(41, 0, 74) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Completing chakra transition as breath drops below peak
+ 🔄 Updating background for kasina: custom, color: #6e00c6
+ 🎨 Background color: #6e00c6 -> rgb(42, 0, 75) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 18.07449722290039, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 18.07449722290039, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 18.07449722290039, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 18.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 17.760231018066406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.76N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 17.760231018066406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.76N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 17.760231018066406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.76N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 17.399978637695312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.40N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 17.399978637695312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.40N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 17.399978637695312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.40N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 17.126590728759766, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.13N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 17.126590728759766, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.13N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 17.126590728759766, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 17.13N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 16.848098754882812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 16.848098754882812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 16.848098754882812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 16.526168823242188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.53N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 16.526168823242188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.53N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 16.526168823242188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.53N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 16.217010498046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 16.217010498046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 16.217010498046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 16.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 15.928298950195312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.928298950195312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.928298950195312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 15.63702392578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.63702392578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.63702392578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 15.391746520996094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.391746520996094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.391746520996094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 15.1771240234375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.1771240234375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 15.1771240234375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 15.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 14.931846618652344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.931846618652344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.931846618652344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 14.696784973144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.696784973144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.696784973144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 14.752998352050781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.752998352050781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.752998352050781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 14.8475341796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.8475341796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.8475341796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 14.60736083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.60736083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.60736083984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 14.259880065917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.259880065917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 14.259880065917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 14.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.920066833496094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.920066833496094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.920066833496094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.68756103515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.68756103515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.68756103515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.539375305175781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.54N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.539375305175781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.54N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.539375305175781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.54N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.437171936035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.437171936035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.437171936035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.414176940917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.414176940917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.414176940917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.373298645019531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.37N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.373298645019531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.37N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.373298645019531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.37N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1179 🔄 Updating background for kasina: custom, color: #8b00ff
+BreathKasinaOrb.tsx:1053 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.286430358886719, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.29N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.286430358886719, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.29N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.286430358886719, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.29N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1179 🔄 Updating background for kasina: custom, color: #8b00ff
+BreathKasinaOrb.tsx:1053 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.230216979980469, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.230216979980469, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.230216979980469, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1179 🔄 Updating background for kasina: custom, color: #8b00ff
+BreathKasinaOrb.tsx:1053 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.20977783203125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.21N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.20977783203125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.21N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.20977783203125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.21N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1179 🔄 Updating background for kasina: custom, color: #8b00ff
+BreathKasinaOrb.tsx:1053 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.202110290527344, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.20N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.202110290527344, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.20N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.202110290527344, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.20N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1179 🔄 Updating background for kasina: custom, color: #8b00ff
+BreathKasinaOrb.tsx:1053 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.212333679199219, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.21N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.212333679199219, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.21N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.212333679199219, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.21N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1179 🔄 Updating background for kasina: custom, color: #8b00ff
+BreathKasinaOrb.tsx:1053 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.253211975097656, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.25N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.253211975097656, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.25N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 13.253211975097656, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.25N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1179 🔄 Updating background for kasina: custom, color: #8b00ff
+BreathKasinaOrb.tsx:1053 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1179 🔄 Updating background for kasina: custom, color: #8b00ff
+BreathKasinaOrb.tsx:1053 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+BreathKasinaOrb.tsx:1329 🔍 Kasina: custom, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1333 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.258323669433594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.258323669433594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.258323669433594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.196998596191406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.196998596191406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.196998596191406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.151008605957031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.151008605957031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.151008605957031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.163787841796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.163787841796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.163787841796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.219993591308594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.219993591308594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.219993591308594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.265983581542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.265983581542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.265983581542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.288978576660156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.29N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.288978576660156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.29N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.288978576660156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.29N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.265983581542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.265983581542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.265983581542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.230216979980469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.230216979980469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.230216979980469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.225105285644531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.225105285644531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.225105285644531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.217445373535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.217445373535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.217445373535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.219993591308594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.219993591308594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.219993591308594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.19189453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.19189453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.19189453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.122909545898438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.122909545898438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.122909545898438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.087135314941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.087135314941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.087135314941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ Official Vernier data - Sensor: Force, Value: 13.09991455078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: 0, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.09991455078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: 0, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 13.09991455078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 13.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: 0, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Updating background for kasina: custom, color: #8b00ff
+ 🎨 Background color: #8b00ff -> rgb(53, 0, 97) intensity: 0.38
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
+ 🔍 Kasina: custom, Type: color, orbSize: 150px
+ 🎯 Color kasina custom scaled from 1.569 to 0.013
