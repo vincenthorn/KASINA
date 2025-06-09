@@ -446,7 +446,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const vernierData = useVernierBreathOfficial();
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
-  const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina } = useKasina();
+  const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, getKasinaColor: globalGetKasinaColor } = useKasina();
   const { enableWakeLock, disableWakeLock } = useWakeLock();
   
   // Log Vernier data for debugging
@@ -1028,10 +1028,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
   };
 
-  // Get color for selected kasina - use the store's getKasinaColor for proper custom color support
-  const getKasinaColor = (kasina: string) => {
-    return globalGetKasinaColor(kasina);
-  };
+  // Get color for selected kasina - directly use the store's getKasinaColor for proper custom color support
+  const getKasinaColor = globalGetKasinaColor;
 
   // Calculate background color that syncs with orb kasina color
   const calculateBackgroundColor = (kasinaColor: string, intensity: number): string => {
