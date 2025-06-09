@@ -1323,11 +1323,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         let immersionLevel;
         
         if (kasConfig.type === 'color') {
-          // Use breath-responsive scaling for color kasinas including custom
-          const breathScale = 0.5 + (activeBreathAmplitude * 1.5); // Scale from 0.5 to 2.0 based on breath
-          finalScale = breathScale;
-          // Simple immersion level for color kasinas
-          immersionLevel = Math.max(0, Math.min(1, (breathScale - 0.5) / 1.5));
+          // Use unified scaling for all color kasinas including custom
+          const scalingResult = calculateKasinaScale(selectedKasina, orbSize, 0, naturalBreathingEase);
+          finalScale = scalingResult.cappedScale * 0.008;
+          immersionLevel = scalingResult.immersionLevel;
         } else if (kasConfig.type === 'elemental') {
           // Elemental kasinas use orbSize-based scaling
           finalScale = (orbSize / 150) * 1.5;
