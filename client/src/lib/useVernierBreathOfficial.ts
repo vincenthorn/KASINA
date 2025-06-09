@@ -83,8 +83,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
    * Connect to Vernier GDX respiration belt using official library
    */
   const connectDevice = useCallback(async () => {
-    let timeoutId: NodeJS.Timeout | null = null;
-    
     try {
       setIsConnecting(true);
       setError(null);
@@ -108,47 +106,10 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       
       console.log('GoDirect library loaded successfully');
 
-      // Check if browser supports Bluetooth
-      if (!('bluetooth' in navigator)) {
-        throw new Error('Bluetooth is not supported in this browser. Please use Chrome, Edge, or another Chromium-based browser.');
-      }
-
-      console.log('Starting device selection...');
-      
-      // Connect using official Vernier method with proper timeout handling
-      const connectionTimeout = 30000; // 30 second timeout for better user experience
-      
-      const gdxDevice = await Promise.race([
-        window.godirect.selectDevice(true).catch((err: any) => {
-          console.log('selectDevice error:', err);
-          // Handle specific errors from selectDevice
-          if (err.message?.includes('cancelled') || err.message?.includes('cancel')) {
-            throw new Error('cancelled');
-          } else if (err.message?.includes('not found') || err.message?.includes('No device')) {
-            throw new Error('not found');
-          } else if (err.message?.includes('permission')) {
-            throw new Error('permission');
-          }
-          throw err;
-        }),
-        new Promise<never>((_, reject) => {
-          timeoutId = setTimeout(() => {
-            reject(new Error('timeout'));
-          }, connectionTimeout);
-        })
-      ]);
-      
-      // Clear timeout if connection succeeded
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-        timeoutId = null;
-      }
-      
-      if (!gdxDevice) {
-        throw new Error('No device selected or connection cancelled');
-      }
-      
+      // Connect using official Vernier method
+      const gdxDevice = await window.godirect.selectDevice(true); // true = Bluetooth
       deviceRef.current = gdxDevice;
+      
       console.log('Connected to:', gdxDevice.name);
       
       // Set up device event handlers
@@ -282,32 +243,8 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       console.log('Successfully connected to Vernier respiration belt via official library');
       
     } catch (err) {
-      // Clear timeout if error occurred
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      
       console.error('Error connecting to Vernier device:', err);
-      
-      // Provide more specific error messages
-      let errorMessage = 'Connection failed';
-      if (err instanceof Error) {
-        if (err.message.includes('timeout')) {
-          errorMessage = 'Connection timeout - device selection took too long. Please try again.';
-        } else if (err.message.includes('No device selected')) {
-          errorMessage = 'No device selected. Please select your Vernier belt from the device list.';
-        } else if (err.message.includes('cancelled')) {
-          errorMessage = 'Connection cancelled by user.';
-        } else if (err.message.includes('not found')) {
-          errorMessage = 'No compatible Vernier devices found. Make sure your belt is powered on and in pairing mode.';
-        } else if (err.message.includes('permission')) {
-          errorMessage = 'Bluetooth permission denied. Please allow Bluetooth access and try again.';
-        } else {
-          errorMessage = `Connection failed: ${err.message}`;
-        }
-      }
-      
-      setError(errorMessage);
+      setError(`Connection failed: ${err}`);
       setIsConnecting(false);
       setIsConnected(false);
     }

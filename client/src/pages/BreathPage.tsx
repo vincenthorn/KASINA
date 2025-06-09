@@ -4,7 +4,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Alert, AlertDescription } from '../components/ui/alert';
 import { useAuth } from '../lib/stores/useAuth';
-import { useVernierBreathOfficial } from '../lib/useVernierBreathFixed';
+import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
 import Layout from '../components/Layout';
 
@@ -64,7 +64,11 @@ const BreathPage: React.FC = () => {
     disconnectDevice,
     error,
     isCalibrating,
-    startCalibration
+    calibrationProgress,
+    startCalibration,
+    calibrationComplete,
+    currentForce,
+    calibrationProfile
   } = useVernierBreathOfficial();
   
   // Check if user has premium access
@@ -179,7 +183,10 @@ const BreathPage: React.FC = () => {
         </div>
       )}
 
-
+      {/* Debug info - remove later */}
+      <div className="fixed top-2 right-2 z-[200] bg-black text-white p-2 text-xs rounded">
+        Debug: isChrome={isChromeBased.toString()}, warning={showBrowserWarning.toString()}
+      </div>
 
       <div className="container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-6 text-white">Breath Kasina</h1>
@@ -207,20 +214,6 @@ const BreathPage: React.FC = () => {
                 </Alert>
               )}
 
-              {isConnecting && (
-                <Alert className="border-blue-500 bg-blue-900/20">
-                  <AlertDescription className="text-blue-200">
-                    <div className="flex items-center space-x-2">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-400"></div>
-                      <span>Connecting to Vernier belt... Please select your device from the Bluetooth dialog.</span>
-                    </div>
-                    <p className="text-xs mt-2 text-blue-300">
-                      If the connection dialog doesn't appear, try clicking Cancel and ensure your belt is powered on.
-                    </p>
-                  </AlertDescription>
-                </Alert>
-              )}
-
               <p className="text-gray-300">
                 {getInstructions()}
               </p>
@@ -236,7 +229,7 @@ const BreathPage: React.FC = () => {
                   
                   {isConnected && (
                     <p className="text-sm text-gray-300">
-                      Status: <span className="font-mono text-green-400">Active</span>
+                      Current Force: <span className="font-mono text-blue-400">{currentForce.toFixed(2)} N</span>
                     </p>
                   )}
                 </div>
@@ -277,13 +270,13 @@ const BreathPage: React.FC = () => {
                 {getButtonText()}
               </Button>
               
-              {(isConnected || isConnecting) && (
+              {isConnected && (
                 <Button 
                   variant="outline" 
-                  onClick={isConnecting ? () => window.location.reload() : disconnectDevice}
+                  onClick={disconnectDevice}
                   className="border-gray-600 text-gray-300 hover:bg-gray-700"
                 >
-                  {isConnecting ? 'Cancel' : 'Disconnect'}
+                  Disconnect
                 </Button>
               )}
             </CardFooter>
