@@ -97,25 +97,27 @@ export function calculateUnifiedKasinaScale(
  * This allows different visual styles while maintaining consistent scaling
  */
 export function getKasinaRenderingProps(kasinaType: string) {
+  const normalizedType = kasinaType.toLowerCase();
+  
   // Elemental kasinas need shader materials
-  const elementalKasinas = ['FIRE', 'WATER', 'EARTH', 'AIR', 'SPACE', 'LIGHT'];
+  const elementalKasinas = ['fire', 'water', 'earth', 'air', 'space', 'light'];
   
   // Vajrayana kasinas use special components
   const vajrayanaKasinas = [
-    'WHITE_A_KASINA', 'WHITE_A_THIGLE', 'OM_KASINA', 
-    'AH_KASINA', 'HUM_KASINA', 'RAINBOW_KASINA'
+    'whiteakasina', 'whiteatthigle', 'omkasina', 
+    'ahkasina', 'humkasina', 'rainbowkasina'
   ];
   
   // Color kasinas (including custom) use simple materials
-  const colorKasinas = ['RED', 'BLUE', 'WHITE', 'YELLOW', 'CUSTOM'];
+  const colorKasinas = ['red', 'blue', 'white', 'yellow', 'custom'];
   
   return {
-    isElemental: elementalKasinas.includes(kasinaType),
-    isVajrayana: vajrayanaKasinas.includes(kasinaType),
-    isColor: colorKasinas.includes(kasinaType),
-    requiresShader: elementalKasinas.includes(kasinaType),
-    requiresSpecialComponent: vajrayanaKasinas.includes(kasinaType),
-    usesSimpleMaterial: colorKasinas.includes(kasinaType)
+    isElemental: elementalKasinas.includes(normalizedType),
+    isVajrayana: vajrayanaKasinas.includes(normalizedType),
+    isColor: colorKasinas.includes(normalizedType),
+    requiresShader: elementalKasinas.includes(normalizedType),
+    requiresSpecialComponent: vajrayanaKasinas.includes(normalizedType),
+    usesSimpleMaterial: colorKasinas.includes(normalizedType)
   };
 }
 
