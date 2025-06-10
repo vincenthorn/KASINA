@@ -328,34 +328,22 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   }, []);
 
   /**
-   * Process breathing data using calibration profile with enhanced sensitivity
+   * Process breathing data using calibration profile
    */
   const processBreathingData = useCallback((force: number) => {
     if (!calibrationProfile) return;
 
-    // Enhanced normalization with increased sensitivity for gentle breathing
-    // Expand the effective range by using a smaller portion of the calibrated range
-    const effectiveRange = calibrationProfile.forceRange * 0.6; // Use 60% of calibrated range
-    const adjustedMin = calibrationProfile.baselineForce - (effectiveRange / 2);
-    
+    // Normalize force to 0-1 based on calibration
     const normalized = Math.max(0, Math.min(1, 
-      (force - adjustedMin) / effectiveRange
+      (force - calibrationProfile.minForce) / calibrationProfile.forceRange
     ));
     
-    // Apply gentle curve to make small changes more visible
-    const enhancedAmplitude = Math.pow(normalized, 0.7); // Gentle power curve
-    
-    // Log the amplitude enhancement for debugging
-    if (Math.abs(enhancedAmplitude - normalized) > 0.05) {
-      console.log(`🌬️ Amplitude enhanced: ${normalized.toFixed(3)} → ${enhancedAmplitude.toFixed(3)} (force: ${force.toFixed(2)}N)`);
-    }
-    
-    setBreathAmplitude(enhancedAmplitude);
+    setBreathAmplitude(normalized);
 
-    // More sensitive breathing phase detection
-    if (enhancedAmplitude > 0.55) {
+    // Determine breathing phase
+    if (normalized > 0.7) {
       setBreathPhase('inhale');
-    } else if (enhancedAmplitude < 0.45) {
+    } else if (normalized < 0.3) {
       setBreathPhase('exhale');
     } else {
       setBreathPhase('pause');
