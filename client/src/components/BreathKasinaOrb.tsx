@@ -21,11 +21,6 @@ import RainbowKasina from './RainbowKasina';
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 import { calculateKasinaScale, calculateBreathKasinaSize, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
-import { 
-  calculateUnifiedKasinaScale, 
-  getKasinaRenderingProps, 
-  calculateUnifiedBackgroundColor 
-} from '../lib/unifiedKasinaScaling';
 
 // Browser detection utility
 function isChromeBasedBrowser(): boolean {
@@ -451,7 +446,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const vernierData = useVernierBreathOfficial();
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
-  const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina } = useKasina();
+  const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, getKasinaColor: globalGetKasinaColor } = useKasina();
   const { enableWakeLock, disableWakeLock } = useWakeLock();
   
   // Log Vernier data for debugging
@@ -542,9 +537,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const breathHistoryRef = useRef<number[]>([]);
   const peakBreathTimeRef = useRef({ duration: 0, transitionStartTime: null as number | null });
   const [breathDirection, setBreathDirection] = useState<'rising' | 'falling' | 'stable'>('stable');
-  
-  // Background intensity smoothing to prevent jerky transitions
-  const lastBackgroundIntensityRef = useRef<number>(0.4);
   
   // Helper function to blend two hex colors
   const blendColors = (color1: string, color2: string, ratio: number): string => {
@@ -1036,10 +1028,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
   };
 
-  // Get color for selected kasina - use the official KASINA_COLORS
-  const getKasinaColor = (kasina: string) => {
-    return KASINA_COLORS[kasina] || KASINA_COLORS[KASINA_TYPES.BLUE];
-  };
+  // Get color for selected kasina - directly use the store's getKasinaColor for proper custom color support
+  const getKasinaColor = globalGetKasinaColor;
 
   // Calculate background color that syncs with orb kasina color
   const calculateBackgroundColor = (kasinaColor: string, intensity: number): string => {
@@ -1110,9 +1100,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     };
   }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
-  // Special logic for Change kasina - slow, gradual color transitions during sustained peak breathing
+  // Special logic for Rainbow kasina - slow, gradual color transitions during sustained peak breathing
   useEffect(() => {
-    if (!activeIsListening || selectedKasina !== 'custom') return;
+    if (!activeIsListening || selectedKasina !== KASINA_TYPES.RAINBOW_KASINA) return;
     
     const peakThreshold = 0.85; // Consider 85%+ as peak breathing
     const timeAtPeak = peakBreathTimeRef.current;
@@ -1243,50 +1233,23 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     let scaledAmplitude = finalAmplitude;
     
     // Add slight smoothing to reduce jerkiness while maintaining responsiveness
-    const amplitudeSmoothingFactor = 0.85; // Light smoothing
+    const smoothingFactor = 0.85; // Light smoothing
     const lastSmoothedAmplitude = lastAmplitudeRef.current || finalAmplitude;
-    scaledAmplitude = (lastSmoothedAmplitude * amplitudeSmoothingFactor) + (finalAmplitude * (1 - amplitudeSmoothingFactor));
+    scaledAmplitude = (lastSmoothedAmplitude * smoothingFactor) + (finalAmplitude * (1 - smoothingFactor));
     
     // Apply breathing rate intensity scaling
     scaledAmplitude = scaledAmplitude * intensityMultiplier;
     
-    // Use unified scaling system that preserves working Color kasina behavior
-    const naturalBreathingEase = (t: number) => Math.sin(t * Math.PI * 0.5);
-    
-    // Debug breath amplitude conversion
-    console.log(`🔧 BREATH DEBUG: activeBreathAmplitude=${activeBreathAmplitude.toFixed(3)}, finalAmplitude=${finalAmplitude.toFixed(3)}, scaledAmplitude=${scaledAmplitude.toFixed(3)}, intensityMultiplier=${intensityMultiplier.toFixed(2)}`);
-    
-    // Convert breath amplitude to proper scale for unified system
-    // Use activeBreathAmplitude directly for more responsive scaling
-    const baseOrbSize = 150; // Base size in pixels
-    const breathRange = 100; // Variation range in pixels
-    
-    // Apply smoothing to prevent jerky movements
-    const targetSize = baseOrbSize + (activeBreathAmplitude * breathRange);
-    const currentSize = orbSize;
-    const sizeSmoothingFactor = 0.15; // Lower = smoother but slower response
-    const newSize = currentSize + (targetSize - currentSize) * sizeSmoothingFactor;
-    
-    console.log(`🔧 SMOOTH SCALING: amplitude=${activeBreathAmplitude.toFixed(3)} -> target=${targetSize.toFixed(1)}px -> smooth=${newSize.toFixed(1)}px`);
-    
-    // Still calculate unified scaling for background effects
-    const breathToPixelScale = scaledAmplitude * 1000;
-    const unifiedScaling = calculateUnifiedKasinaScale(
-      selectedKasina, 
-      breathToPixelScale, 
-      sizeMultiplier, 
-      naturalBreathingEase,
-      activeBreathAmplitude
-    );
-    const immersionLevel = unifiedScaling.immersionLevel;
+    // Use unified breath kasina sizing system for consistent behavior across all types
+    const breathSizing = calculateBreathKasinaSize(selectedKasina, scaledAmplitude, sizeScale, sizeMultiplier);
+    const { size: newSize, minSize, maxSize, immersionLevel } = breathSizing;
     
     // Update state to trigger re-render
     setOrbSize(newSize);
     
-    // Apply smooth CSS transitions for DOM updates
+    // Also directly modify the DOM for immediate visual feedback
     try {
       if (orbRef.current) {
-        orbRef.current.style.transition = 'width 0.1s ease-out, height 0.1s ease-out';
         orbRef.current.style.width = `${newSize}px`;
         orbRef.current.style.height = `${newSize}px`;
         orbRef.current.style.boxShadow = 'none'; // Remove all glow effects
@@ -1295,18 +1258,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       console.error('Error updating orb DOM styles:', error);
     }
     
-    // Apply smoothing to background intensity to prevent jerky transitions
-    const targetBackgroundIntensity = unifiedScaling.backgroundIntensity;
-    const backgroundSmoothingFactor = 0.25; // Lower = smoother but slower response
-    const smoothedBackgroundIntensity = lastBackgroundIntensityRef.current + 
-      (targetBackgroundIntensity - lastBackgroundIntensityRef.current) * backgroundSmoothingFactor;
+    // Update background intensity sync with breathing
+    const breathIntensity = scaledAmplitude * 0.8; // Scale breathing amplitude for background sync
     
-    lastBackgroundIntensityRef.current = smoothedBackgroundIntensity;
-    setBackgroundIntensity(smoothedBackgroundIntensity);
+    // Special handling for Water kasina - much darker background for better contrast
+    let finalBackgroundIntensity;
+    if (selectedKasina === 'water') {
+      finalBackgroundIntensity = 0.02 + breathIntensity * 0.08; // Much darker: base 0.02 + breathing adds up to 0.1
+    } else {
+      finalBackgroundIntensity = 0.1 + breathIntensity * 0.3; // Normal: base 0.1 + breathing adds up to 0.4
+    }
     
-    // Calculate current kasina color (handles custom/changing color kasina)
+    setBackgroundIntensity(finalBackgroundIntensity);
+    
+    // Calculate and update background color based on current kasina
     let currentKasinaColor: string;
-    if (selectedKasina === 'custom') {
+    if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
       if (isTransitioning) {
         currentKasinaColor = blendColors(
           rainbowColors[currentColorIndex], 
@@ -1320,17 +1287,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       currentKasinaColor = getKasinaColor(selectedKasina);
     }
     
-    // Use unified background color calculation
-    const newBackgroundColor = calculateUnifiedBackgroundColor(
-      currentKasinaColor, 
-      unifiedScaling.backgroundIntensity, 
-      selectedKasina
-    );
+    const newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
     setCurrentBackgroundColor(newBackgroundColor);
     
     // Log the size and rate data for debugging
-    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${orbSize.toFixed(1)}px`);
-  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, orbSize]);
+    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale]);
 
   // Modern kasina breathing orb component using Three.js
   const BreathingKasinaOrb = () => {
@@ -1349,61 +1311,36 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       try {
         // Apply natural breathing easing that follows actual breathing rhythm
         const naturalBreathingEase = (t: number) => {
+          // Use a sine-wave based easing that feels more like natural breathing
           return Math.sin(t * Math.PI * 0.5);
         };
         
-        // Calculate intensity multiplier based on breathing rate (same as main calculation)
-        const normalizedRate = Math.max(4, Math.min(20, activeBreathingRate));
-        const breathingIntensity = normalizedRate <= 4 ? 0.3 : 
-                                   normalizedRate <= 12 ? 0.3 + ((normalizedRate - 4) / 8) * 0.5 :
-                                   0.8 + ((normalizedRate - 12) / 8) * 0.2;
+        // Apply breath-responsive scaling based on kasina type
+        const kasConfig = getKasinaConfig(selectedKasina);
+        let finalScale;
+        let immersionLevel;
         
-        // Use unified scaling system that preserves Color kasina behavior for all types
-        // Use the same breath-to-pixel conversion as the main scaling calculation
-        const breathToPixelScale = activeBreathAmplitude * breathingIntensity * 1000;
-        const unifiedScaling = calculateUnifiedKasinaScale(
-          selectedKasina, 
-          breathToPixelScale, 
-          sizeMultiplier, 
-          naturalBreathingEase,
-          activeBreathAmplitude
-        );
-        
-        const { scale, cappedScale, immersionLevel } = unifiedScaling;
-        
-        // Get kasina-specific rendering properties
-        const renderingProps = getKasinaRenderingProps(selectedKasina);
-        
-        // Calculate final scale using kasina-specific conversion factors
-        let finalScale = scale;
-        
-        // Apply kasina-type specific scaling conversion to Three.js coordinates
-        if (renderingProps.isColor) {
-          // Color kasinas use the proven 0.008 conversion factor
-          finalScale = scale * 0.008;
-        } else if (renderingProps.isElemental) {
-          // Elemental kasinas need larger conversion factor since they were too big
-          finalScale = scale * 0.003;
-        } else if (renderingProps.isVajrayana) {
-          // Vajrayana kasinas need much larger conversion factor to be visible
-          finalScale = scale * 0.025;
+        if (kasConfig.type === 'color') {
+          // Use breath-responsive scaling for all color kasinas including custom
+          // Convert breath amplitude to a size value that matches other color kasinas
+          const breathResponsiveSize = 50 + (activeBreathAmplitude * 400); // Scale from 50px to 450px based on breath
+          const scalingResult = calculateKasinaScale(selectedKasina, breathResponsiveSize, 0, naturalBreathingEase);
+          finalScale = scalingResult.cappedScale * 0.008;
+          immersionLevel = scalingResult.immersionLevel;
+        } else if (kasConfig.type === 'elemental') {
+          // Elemental kasinas use orbSize-based scaling
+          finalScale = (orbSize / 150) * 1.5;
+          immersionLevel = 0; // No immersion for elemental kasinas in this context
         } else {
-          // Default scaling for other types
-          finalScale = scale * 0.008;
+          // Use unified scaling for other types
+          const scalingResult = calculateKasinaScale(selectedKasina, orbSize, 0, naturalBreathingEase);
+          finalScale = scalingResult.cappedScale * 0.008;
+          immersionLevel = scalingResult.immersionLevel;
         }
 
-        // Apply scaling to group or mesh depending on kasina type
-        if (groupRef.current) {
-          // Use direct breath-responsive scaling for color kasinas
-          if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-            // Convert pixel size to Three.js scale (base size ~200px = scale 1.0)
-            const breathScale = orbSize / 200.0;
-            groupRef.current.scale.setScalar(breathScale);
-            console.log(`🎯 ${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} orb breath scaling: ${orbSize.toFixed(1)}px -> ${breathScale.toFixed(3)}x scale`);
-          } else {
-            // Use unified scaling for other kasina types
-            groupRef.current.scale.setScalar(finalScale);
-          }
+      // Apply scaling to group or mesh depending on kasina type
+      if (groupRef.current) {
+        groupRef.current.scale.setScalar(finalScale);
         
         // Optimize opacity updates - only update when there's a meaningful change
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
@@ -1698,7 +1635,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Basic color kasinas and Changing Color kasina
       let kasinaColor: string;
       
-      if (selectedKasina === 'custom') {
+      if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
         if (isTransitioning) {
           // Blend current and next colors during transition
           kasinaColor = blendColors(
