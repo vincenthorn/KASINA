@@ -501,14 +501,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     performanceChecks: Array<{time: number, fps: number}>;
   } | null>(null);
   
-  // State for Changing Color kasina - cycles through rainbow colors with breath
-  const [currentColorIndex, setCurrentColorIndex] = useState(0);
-  const [nextColorIndex, setNextColorIndex] = useState(1);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [transitionProgress, setTransitionProgress] = useState(0);
-  const [lastBreathState, setLastBreathState] = useState<'peak' | 'valley' | 'middle'>('middle');
-  const rainbowColors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#8b00ff'];
-  const transitionDurationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Custom color kasina now uses user's selected color and behaves like other color kasinas
   
   // Background sync state
   const [backgroundIntensity, setBackgroundIntensity] = useState(0.4);
@@ -773,9 +766,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       if (meditationIntervalRef.current) {
         clearInterval(meditationIntervalRef.current);
       }
-      if (transitionDurationRef.current) {
-        clearTimeout(transitionDurationRef.current);
-      }
+      // Cleanup removed - transitionDurationRef no longer used
       
       // Log diagnostics on cleanup if session was active
       if (diagnosticsRef.current && meditationStartRef.current) {
@@ -1571,20 +1562,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         </>
       );
     } else {
-      // Basic color kasinas and Changing Color kasina
+      // Basic color kasinas and custom color kasina
       let kasinaColor: string;
       
       if (selectedKasina === 'custom') {
-        if (isTransitioning) {
-          // Blend current and next colors during transition
-          kasinaColor = blendColors(
-            rainbowColors[currentColorIndex], 
-            rainbowColors[nextColorIndex], 
-            transitionProgress
-          );
-        } else {
-          kasinaColor = rainbowColors[currentColorIndex];
-        }
+        kasinaColor = customColor; // Use user's selected custom color
       } else {
         kasinaColor = getKasinaColor(selectedKasina);
       }
