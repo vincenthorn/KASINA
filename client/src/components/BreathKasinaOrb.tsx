@@ -1320,7 +1320,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     setCurrentBackgroundColor(newBackgroundColor);
     
     // Log the size and rate data for debugging
-    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize.toFixed(1)}px`);
+    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${orbSize.toFixed(1)}px`);
   }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, orbSize]);
 
   // Modern kasina breathing orb component using Three.js
@@ -1385,12 +1385,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
         // Apply scaling to group or mesh depending on kasina type
         if (groupRef.current) {
-          // Debug logging using unified system for color kasinas
+          // Use direct breath-responsive scaling for color kasinas
           if (selectedKasina === 'blue' || selectedKasina === 'red' || selectedKasina === 'white' || selectedKasina === 'yellow') {
-            logKasinaScaling(selectedKasina, orbSize, scale, cappedScale);
+            // Convert pixel size to Three.js scale (base size ~200px = scale 1.0)
+            const breathScale = orbSize / 200.0;
+            groupRef.current.scale.setScalar(breathScale);
+            console.log(`🎯 ${selectedKasina.charAt(0).toUpperCase() + selectedKasina.slice(1)} orb breath scaling: ${orbSize.toFixed(1)}px -> ${breathScale.toFixed(3)}x scale`);
+          } else {
+            // Use unified scaling for other kasina types
+            groupRef.current.scale.setScalar(finalScale);
           }
-        
-        groupRef.current.scale.setScalar(finalScale);
         
         // Optimize opacity updates - only update when there's a meaningful change
         const orbOpacity = Math.max(0.3, 1 - immersionLevel * 0.7);
