@@ -217,8 +217,8 @@ export const KASINA_CONFIGS: Record<string, KasinaConfig> = {
 export function calculateBreathKasinaSize(
   kasina: string,
   breathAmplitude: number,
-  sizeScale: number = 0.2,
-  sizeMultiplier: number = 1.5
+  sizeScale: number = 0.05,
+  sizeMultiplier: number = 0.3
 ): {
   size: number;
   minSize: number;
@@ -233,7 +233,7 @@ export function calculateBreathKasinaSize(
   const BASE_MIN_SIZE = 5;    // Original color kasina minimum (5px)
   const BASE_MAX_SIZE = 6000; // Original color kasina maximum (6000px)
   
-  // Calculate size range based on enhanced scaling and multipliers
+  // Calculate size range based on original color kasina scaling and multipliers
   const minSize = Math.floor(BASE_MIN_SIZE * sizeScale);
   const maxSize = Math.floor(BASE_MAX_SIZE * sizeScale * sizeMultiplier);
   const sizeRange = maxSize - minSize;

@@ -161,8 +161,6 @@ export default function KasinaSelectionInterface({
               <div>Color Kasinas</div>
             </button>
             
-            {/* TEMPORARILY DISABLED FOR PREMIUM RELEASE - EASILY RE-ENABLE BY UNCOMMENTING */}
-            {/* 
             <button
               onClick={() => onSeriesSelection('ELEMENTAL')}
               style={{
@@ -218,7 +216,6 @@ export default function KasinaSelectionInterface({
               <div style={{ fontSize: '32px', marginBottom: '8px' }}>🔮</div>
               <div>Vajrayana Kasinas</div>
             </button>
-            */}
           </div>
           
           <button

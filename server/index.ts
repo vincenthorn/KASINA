@@ -73,18 +73,16 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET || "kasina-meditation-secret-fallback",
     resave: false,
-    saveUninitialized: true, // Changed to true to ensure session creation
+    saveUninitialized: false,
     cookie: {
       secure: false, // Disable for development, enable for production HTTPS
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
       sameSite: 'lax',
-      domain: undefined, // Allow for localhost
     },
     store: sessionStore,
     name: 'connect.sid', // Use default session name for compatibility
     proxy: process.env.NODE_ENV === 'production',
-    rolling: true, // Refresh session on each request
   })
 );
 
@@ -162,7 +160,11 @@ app.use((req, res, next) => {
 
   // Use PORT environment variable for deployment platforms (Render, etc.)
   const port = parseInt(process.env.PORT || "5000");
-  server.listen(port, "0.0.0.0", () => {
+  server.listen({
+    port,
+    host: "0.0.0.0",
+    reusePort: true,
+  }, () => {
     log(`KASINA meditation app serving on port ${port}`);
   });
 })();
