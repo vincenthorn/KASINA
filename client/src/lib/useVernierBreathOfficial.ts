@@ -76,6 +76,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const calibrationStartTimeRef = useRef<number>(0);
   const lastForceValueRef = useRef<number>(0);
   const lastForceUpdateRef = useRef<number>(0);
+  const lastAmplitudeRef = useRef<number>(0);
   const breathCyclesRef = useRef<number[]>([]); // Track breath cycle timestamps
   const lastRateUpdateRef = useRef<number>(0);
 
@@ -172,25 +173,29 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                   forceDataRef.current = forceDataRef.current.slice(-recentSamples);
                 }
                 
-                // Use a simpler, more responsive range calculation
+                // Use stable baseline calculation with proper smoothing
                 const forces = forceDataRef.current.map(d => d.force);
-                const minForce = Math.min(...forces);
-                const maxForce = Math.max(...forces);
-                const currentRange = maxForce - minForce;
                 
-                // Ensure minimum viable range for responsiveness
-                const minViableRange = 0.5; // At least 0.5N range for visual feedback
-                const effectiveRange = Math.max(currentRange, minViableRange);
+                // Use longer-term stable baseline (30-second window)
+                const baselineWindow = Math.min(forces.length, 150); // 30 seconds at 5Hz
+                const recentForces = forces.slice(-baselineWindow);
                 
-                // Calculate dynamic range with moderate expansion for better visuals
-                const expandedMin = minForce - (effectiveRange * 0.2);
-                const expandedMax = maxForce + (effectiveRange * 0.2);
+                // Calculate stable range using median values to avoid outliers
+                const sortedForces = [...recentForces].sort((a, b) => a - b);
+                const baseline = sortedForces[Math.floor(sortedForces.length * 0.5)]; // Median as baseline
                 
-                // Calculate amplitude with direct mapping for better responsiveness
-                let normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - expandedMin) / (expandedMax - expandedMin)));
+                // Fixed range based on typical breath sensor variation
+                const breathRange = 1.2; // Typical 1.2N range for natural breathing
+                const minThreshold = baseline - (breathRange * 0.6); // Exhale threshold
+                const maxThreshold = baseline + (breathRange * 0.6); // Inhale threshold
                 
-                // Apply moderate sensitivity curve for smooth transitions
-                normalizedAmplitude = Math.pow(normalizedAmplitude, 0.8);
+                // Calculate smooth amplitude with proper normalization
+                let normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - minThreshold) / (maxThreshold - minThreshold)));
+                
+                // Apply gentle smoothing to prevent jarky movements
+                const lastAmplitude = lastAmplitudeRef.current;
+                normalizedAmplitude = (lastAmplitude * 0.7) + (normalizedAmplitude * 0.3);
+                lastAmplitudeRef.current = normalizedAmplitude;
                 setBreathAmplitude(normalizedAmplitude);
               }
               
