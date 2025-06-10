@@ -1262,7 +1262,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       selectedKasina, 
       breathToPixelScale, 
       sizeMultiplier, 
-      naturalBreathingEase
+      naturalBreathingEase,
+      activeBreathAmplitude
     );
     
     const newSize = unifiedScaling.scale * 100; // Convert back to pixel size
@@ -1346,7 +1347,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           selectedKasina, 
           breathToPixelScale, 
           sizeMultiplier, 
-          naturalBreathingEase
+          naturalBreathingEase,
+          activeBreathAmplitude
         );
         
         const { scale, cappedScale, immersionLevel } = unifiedScaling;

@@ -29,13 +29,13 @@ const KASINA_CONFIGS: Record<string, any> = {
   'yellow': { baseScale: 1.8, maxScale: 3.2, minScale: 0.8, expansionRate: 1.8, immersionThreshold: 300, maxImmersion: 450 },
   'custom': { baseScale: 1.8, maxScale: 3.2, minScale: 0.8, expansionRate: 1.8, immersionThreshold: 300, maxImmersion: 450 },
   
-  // Elemental kasinas - significantly reduce to prevent overwhelming size
-  'fire': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
-  'water': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
-  'earth': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
-  'air': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
-  'space': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
-  'light': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
+  // Elemental kasinas - reduced to more appropriate sizes
+  'fire': { baseScale: 0.5, maxScale: 1.2, minScale: 0.3, expansionRate: 0.7, immersionThreshold: 150, maxImmersion: 220 },
+  'water': { baseScale: 0.5, maxScale: 1.2, minScale: 0.3, expansionRate: 0.7, immersionThreshold: 150, maxImmersion: 220 },
+  'earth': { baseScale: 0.5, maxScale: 1.2, minScale: 0.3, expansionRate: 0.7, immersionThreshold: 150, maxImmersion: 220 },
+  'air': { baseScale: 0.5, maxScale: 1.2, minScale: 0.3, expansionRate: 0.7, immersionThreshold: 150, maxImmersion: 220 },
+  'space': { baseScale: 0.5, maxScale: 1.2, minScale: 0.3, expansionRate: 0.7, immersionThreshold: 150, maxImmersion: 220 },
+  'light': { baseScale: 0.5, maxScale: 1.2, minScale: 0.3, expansionRate: 0.7, immersionThreshold: 150, maxImmersion: 220 },
   
   // Vajrayana kasinas - increase significantly to be visible and responsive
   'whiteAKasina': { baseScale: 2.8, maxScale: 6.5, minScale: 1.2, expansionRate: 2.8, immersionThreshold: 350, maxImmersion: 550 },
@@ -59,7 +59,8 @@ export function calculateUnifiedKasinaScale(
   kasinaType: string,
   orbSize: number,
   sizeMultiplier: number,
-  easingFunction: (t: number) => number
+  easingFunction: (t: number) => number,
+  breathAmplitude?: number
 ): UnifiedScaleResult {
   
   // Get kasina-specific configuration
@@ -80,8 +81,17 @@ export function calculateUnifiedKasinaScale(
     (scaledSize - config.immersionThreshold) / (config.maxImmersion - config.immersionThreshold)
   ));
   
-  // Background intensity follows the same pattern
-  const backgroundIntensity = Math.max(0.1, Math.min(1, easedSize * 0.8 + 0.2));
+  // Background intensity uses breath amplitude when available for proper synchronization
+  let backgroundIntensity: number;
+  if (breathAmplitude !== undefined) {
+    // Use breath amplitude directly for background intensity (0.0 to 1.0 range)
+    backgroundIntensity = Math.max(0.1, Math.min(1.0, breathAmplitude));
+    console.log(`🎨 Background intensity synced with breath: ${backgroundIntensity.toFixed(3)} (amplitude: ${breathAmplitude.toFixed(3)})`);
+  } else {
+    // Fallback to orb size-based calculation
+    backgroundIntensity = Math.max(0.1, Math.min(1, easedSize * 0.8 + 0.2));
+    console.log(`🎨 Background intensity from orb size: ${backgroundIntensity.toFixed(3)}`);
+  }
   
   return {
     scale: cappedScale,
