@@ -543,6 +543,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const peakBreathTimeRef = useRef({ duration: 0, transitionStartTime: null as number | null });
   const [breathDirection, setBreathDirection] = useState<'rising' | 'falling' | 'stable'>('stable');
   
+  // Background intensity smoothing to prevent jerky transitions
+  const lastBackgroundIntensityRef = useRef<number>(0.4);
+  
   // Helper function to blend two hex colors
   const blendColors = (color1: string, color2: string, ratio: number): string => {
     const hex = (color: string) => parseInt(color.slice(1), 16);
@@ -1292,8 +1295,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       console.error('Error updating orb DOM styles:', error);
     }
     
-    // Use unified background calculation
-    setBackgroundIntensity(unifiedScaling.backgroundIntensity);
+    // Apply smoothing to background intensity to prevent jerky transitions
+    const targetBackgroundIntensity = unifiedScaling.backgroundIntensity;
+    const backgroundSmoothingFactor = 0.25; // Lower = smoother but slower response
+    const smoothedBackgroundIntensity = lastBackgroundIntensityRef.current + 
+      (targetBackgroundIntensity - lastBackgroundIntensityRef.current) * backgroundSmoothingFactor;
+    
+    lastBackgroundIntensityRef.current = smoothedBackgroundIntensity;
+    setBackgroundIntensity(smoothedBackgroundIntensity);
     
     // Calculate current kasina color (handles custom/changing color kasina)
     let currentKasinaColor: string;
