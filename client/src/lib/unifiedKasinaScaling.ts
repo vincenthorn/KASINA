@@ -180,9 +180,9 @@ export function calculateUnifiedBackgroundColor(
       breathMultiplier = 0.45;
       break;
     default:
-      // Standard color kasinas get moderate enhancement
-      baseIntensity = 0.15;
-      breathMultiplier = 0.4;
+      // Standard color kasinas get enhanced breath responsiveness
+      baseIntensity = 0.1;
+      breathMultiplier = 0.8;
   }
   
   // Apply breath-synchronized scaling with kasina-specific adjustments
@@ -192,6 +192,8 @@ export function calculateUnifiedBackgroundColor(
   const newR = Math.round(r * totalIntensity);
   const newG = Math.round(g * totalIntensity);
   const newB = Math.round(b * totalIntensity);
+  
+  console.log(`🎨 Background color: ${kasinaColor} -> rgb(${newR}, ${newG}, ${newB}) intensity: ${totalIntensity.toFixed(2)}`);
   
   return `rgb(${newR}, ${newG}, ${newB})`;
 }
