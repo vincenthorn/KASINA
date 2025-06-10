@@ -1337,12 +1337,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         // Get kasina-specific rendering properties
         const renderingProps = getKasinaRenderingProps(selectedKasina);
         
-        // Calculate final scale - all kasina types now use the same scaling logic
-        let finalScale = scale * 0.008; // Consistent scaling factor that works for Color kasinas
+        // Calculate final scale using kasina-specific conversion factors
+        let finalScale = scale;
         
-        // Special handling for Vajrayana kasinas that need larger base size
-        if (renderingProps.isVajrayana) {
-          finalScale = finalScale * 3; // Make Vajrayana kasinas larger to be visible
+        // Apply kasina-type specific scaling conversion to Three.js coordinates
+        if (renderingProps.isColor) {
+          // Color kasinas use the proven 0.008 conversion factor
+          finalScale = scale * 0.008;
+        } else if (renderingProps.isElemental) {
+          // Elemental kasinas need larger conversion factor since they were too big
+          finalScale = scale * 0.003;
+        } else if (renderingProps.isVajrayana) {
+          // Vajrayana kasinas need much larger conversion factor to be visible
+          finalScale = scale * 0.025;
+        } else {
+          // Default scaling for other types
+          finalScale = scale * 0.008;
         }
 
         // Apply scaling to group or mesh depending on kasina type

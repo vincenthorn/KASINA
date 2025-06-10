@@ -20,14 +20,35 @@ export interface UnifiedScaleResult {
   };
 }
 
-// Base configuration that matches the working Color kasinas
-const BASE_BREATH_CONFIG = {
-  baseScale: 18,            // Proven working value for Color kasinas
-  maxScale: 18,             // Maximum expansion
-  minScale: 0.001,          // Minimum contraction
-  expansionRate: 18,        // Rate of expansion with breath
-  immersionThreshold: 300,  // When background effect starts
-  maxImmersion: 3000        // Full background immersion
+// Kasina-specific configurations for balanced scaling
+const KASINA_CONFIGS: Record<string, any> = {
+  // Color kasinas - reduce max scale to prevent being too large
+  'red': { baseScale: 1.8, maxScale: 3.2, minScale: 0.8, expansionRate: 1.8, immersionThreshold: 300, maxImmersion: 450 },
+  'blue': { baseScale: 1.8, maxScale: 3.2, minScale: 0.8, expansionRate: 1.8, immersionThreshold: 300, maxImmersion: 450 },
+  'white': { baseScale: 1.8, maxScale: 3.2, minScale: 0.8, expansionRate: 1.8, immersionThreshold: 300, maxImmersion: 450 },
+  'yellow': { baseScale: 1.8, maxScale: 3.2, minScale: 0.8, expansionRate: 1.8, immersionThreshold: 300, maxImmersion: 450 },
+  'custom': { baseScale: 1.8, maxScale: 3.2, minScale: 0.8, expansionRate: 1.8, immersionThreshold: 300, maxImmersion: 450 },
+  
+  // Elemental kasinas - significantly reduce to prevent overwhelming size
+  'fire': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
+  'water': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
+  'earth': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
+  'air': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
+  'space': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
+  'light': { baseScale: 0.8, maxScale: 1.8, minScale: 0.4, expansionRate: 1.0, immersionThreshold: 180, maxImmersion: 280 },
+  
+  // Vajrayana kasinas - increase significantly to be visible and responsive
+  'whiteAKasina': { baseScale: 2.8, maxScale: 6.5, minScale: 1.2, expansionRate: 2.8, immersionThreshold: 350, maxImmersion: 550 },
+  'whiteAThigle': { baseScale: 2.8, maxScale: 6.5, minScale: 1.2, expansionRate: 2.8, immersionThreshold: 350, maxImmersion: 550 },
+  'omKasina': { baseScale: 2.8, maxScale: 6.5, minScale: 1.2, expansionRate: 2.8, immersionThreshold: 350, maxImmersion: 550 },
+  'ahKasina': { baseScale: 2.8, maxScale: 6.5, minScale: 1.2, expansionRate: 2.8, immersionThreshold: 350, maxImmersion: 550 },
+  'humKasina': { baseScale: 2.8, maxScale: 6.5, minScale: 1.2, expansionRate: 2.8, immersionThreshold: 350, maxImmersion: 550 },
+  'rainbowKasina': { baseScale: 2.8, maxScale: 6.5, minScale: 1.2, expansionRate: 2.8, immersionThreshold: 350, maxImmersion: 550 }
+};
+
+// Default configuration for unknown kasina types
+const DEFAULT_CONFIG = {
+  baseScale: 1.8, maxScale: 3.2, minScale: 0.8, expansionRate: 1.8, immersionThreshold: 300, maxImmersion: 450
 };
 
 /**
@@ -41,8 +62,9 @@ export function calculateUnifiedKasinaScale(
   easingFunction: (t: number) => number
 ): UnifiedScaleResult {
   
-  // Use the proven configuration for all kasina types
-  const config = BASE_BREATH_CONFIG;
+  // Get kasina-specific configuration
+  const configKey = kasinaType.toLowerCase();
+  const config = (KASINA_CONFIGS as any)[configKey] || DEFAULT_CONFIG;
   
   // Calculate scale using the same logic as working Color kasinas
   const normalizedOrbSize = Math.max(0, Math.min(1, orbSize / 300));
@@ -99,6 +121,7 @@ export function getKasinaRenderingProps(kasinaType: string) {
 
 /**
  * Get background color calculation that works for all kasina types
+ * Enhanced breath synchronization for immersive experience
  */
 export function calculateUnifiedBackgroundColor(
   kasinaColor: string, 
@@ -111,9 +134,47 @@ export function calculateUnifiedBackgroundColor(
   
   const [r, g, b] = result.map(c => parseInt(c, 16));
   
-  // Use the same background calculation as working Color kasinas
-  const baseIntensity = 0.3;
-  const breathIntensity = backgroundIntensity * 0.2;
+  // Enhanced breath-synchronized intensity scaling
+  const breathSyncIntensity = Math.max(0.1, Math.min(0.8, backgroundIntensity));
+  
+  // Kasina-specific background adjustments
+  let baseIntensity = 0.15;
+  let breathMultiplier = 0.4;
+  
+  switch (kasinaType.toLowerCase()) {
+    case 'water':
+      // Water kasina needs darker background for better contrast
+      baseIntensity = 0.05;
+      breathMultiplier = 0.2;
+      break;
+    case 'fire':
+      // Fire kasina benefits from warmer, more intense background
+      baseIntensity = 0.2;
+      breathMultiplier = 0.5;
+      break;
+    case 'whiteakasina':
+    case 'whiteatthigle':
+    case 'omkasina':
+    case 'ahkasina':
+    case 'humkasina':
+    case 'rainbowkasina':
+      // Vajrayana kasinas get enhanced breath-synchronized backgrounds
+      baseIntensity = 0.25;
+      breathMultiplier = 0.6;
+      break;
+    case 'custom':
+      // Custom/changing color kasina gets dynamic background
+      baseIntensity = 0.18;
+      breathMultiplier = 0.45;
+      break;
+    default:
+      // Standard color kasinas get moderate enhancement
+      baseIntensity = 0.15;
+      breathMultiplier = 0.4;
+  }
+  
+  // Apply breath-synchronized scaling with kasina-specific adjustments
+  const breathIntensity = breathSyncIntensity * breathMultiplier;
   const totalIntensity = baseIntensity + breathIntensity;
   
   const newR = Math.round(r * totalIntensity);
