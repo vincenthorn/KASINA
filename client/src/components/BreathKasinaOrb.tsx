@@ -1321,6 +1321,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         let immersionLevel;
         
         if (kasConfig.type === 'color') {
+          // WORKING COLOR KASINAS - DO NOT MODIFY THIS BRANCH
           // Use breath-responsive scaling for all color kasinas including custom
           // Convert breath amplitude to a size value that matches other color kasinas
           const breathResponsiveSize = 50 + (activeBreathAmplitude * 400); // Scale from 50px to 450px based on breath
@@ -1328,12 +1329,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           finalScale = scalingResult.cappedScale * 0.008;
           immersionLevel = scalingResult.immersionLevel;
         } else if (kasConfig.type === 'elemental') {
-          // Elemental kasinas use orbSize-based scaling
-          finalScale = (orbSize / 150) * 1.5;
-          immersionLevel = 0; // No immersion for elemental kasinas in this context
+          // FIXED ELEMENTAL KASINAS - Use same working approach as color kasinas
+          const breathResponsiveSize = 50 + (activeBreathAmplitude * 400);
+          const scalingResult = calculateKasinaScale(selectedKasina, breathResponsiveSize, 0, naturalBreathingEase);
+          finalScale = scalingResult.cappedScale * 0.008;
+          immersionLevel = scalingResult.immersionLevel;
         } else {
-          // Use unified scaling for other types
-          const scalingResult = calculateKasinaScale(selectedKasina, orbSize, 0, naturalBreathingEase);
+          // FIXED VAJRAYANA/OTHER KASINAS - Use same working approach as color kasinas
+          const breathResponsiveSize = 50 + (activeBreathAmplitude * 400);
+          const scalingResult = calculateKasinaScale(selectedKasina, breathResponsiveSize, 0, naturalBreathingEase);
           finalScale = scalingResult.cappedScale * 0.008;
           immersionLevel = scalingResult.immersionLevel;
         }
