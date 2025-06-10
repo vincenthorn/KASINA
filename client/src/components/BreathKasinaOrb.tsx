@@ -446,7 +446,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const vernierData = useVernierBreathOfficial();
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
-  const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina } = useKasina();
+  const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, customColor } = useKasina();
   const { enableWakeLock, disableWakeLock } = useWakeLock();
   
   // Log Vernier data for debugging
@@ -1102,76 +1102,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     };
   }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
-  // Special logic for Change kasina - slow, gradual color transitions during sustained peak breathing
-  useEffect(() => {
-    if (!activeIsListening || selectedKasina !== 'custom') return;
-    
-    const peakThreshold = 0.85; // Consider 85%+ as peak breathing
-    const timeAtPeak = peakBreathTimeRef.current;
-    
-    if (activeBreathAmplitude >= peakThreshold) {
-      // Track how long we've been at peak breathing
-      timeAtPeak.duration += 50; // Add ~50ms per update (20Hz = 50ms intervals)
-      
-      // Only start transition after being at peak for at least 500ms (sustained deep breath)
-      if (timeAtPeak.duration >= 500 && !isTransitioning) {
-        const nextIndex = (currentColorIndex + 1) % rainbowColors.length;
-        setNextColorIndex(nextIndex);
-        setIsTransitioning(true);
-        setTransitionProgress(0);
-        timeAtPeak.transitionStartTime = timeAtPeak.duration;
-        
-        console.log(`🎨 Change kasina: Starting gradual chakra transition from ${rainbowColors[currentColorIndex]} to ${rainbowColors[nextIndex]} after sustained peak breathing`);
-      }
-      
-      // If we're transitioning, progress very slowly over 2-3 seconds
-      if (isTransitioning && timeAtPeak.transitionStartTime !== null) {
-        const transitionDuration = 2500; // 2.5 seconds for full transition
-        const timeInTransition = timeAtPeak.duration - timeAtPeak.transitionStartTime;
-        const progress = Math.min(1, timeInTransition / transitionDuration);
-        
-        setTransitionProgress(progress);
-        
-        console.log(`🌈 Slow chakra transition: ${(progress * 100).toFixed(1)}% (${timeInTransition}ms of ${transitionDuration}ms)`);
-        
-        // Complete transition after full duration
-        if (progress >= 1.0) {
-          console.log(`🎨 Completing gradual chakra transition after ${transitionDuration}ms`);
-          setCurrentColorIndex(nextColorIndex);
-          setIsTransitioning(false);
-          setTransitionProgress(0);
-          timeAtPeak.transitionStartTime = null;
-        }
-      }
-      
-    } else {
-      // Reset peak time when not at peak
-      timeAtPeak.duration = 0;
-      timeAtPeak.transitionStartTime = null;
-      
-      // Complete any active transition when dropping below peak
-      if (isTransitioning) {
-        console.log(`🎨 Completing chakra transition as breath drops below peak`);
-        setCurrentColorIndex(nextColorIndex);
-        setIsTransitioning(false);
-        setTransitionProgress(0);
-      }
-    }
-  }, [activeBreathAmplitude, activeIsListening, selectedKasina, currentColorIndex, nextColorIndex, isTransitioning, rainbowColors]);
+  // Removed complex color-changing logic for custom kasina
+  // Custom kasina now uses user's selected color like other color kasinas
 
   // Initialize and update background color whenever kasina changes
   useEffect(() => {
     let currentKasinaColor: string;
     if (selectedKasina === 'custom') {
-      if (isTransitioning) {
-        currentKasinaColor = blendColors(
-          rainbowColors[currentColorIndex], 
-          rainbowColors[nextColorIndex], 
-          transitionProgress
-        );
-      } else {
-        currentKasinaColor = rainbowColors[currentColorIndex];
-      }
+      currentKasinaColor = customColor; // Use user's selected custom color
     } else {
       currentKasinaColor = getKasinaColor(selectedKasina);
     }
@@ -1179,25 +1117,26 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     console.log(`🔄 Updating background for kasina: ${selectedKasina}, color: ${currentKasinaColor}`);
     const newBackgroundColor = calculateBackgroundColor(currentKasinaColor, backgroundIntensity);
     setCurrentBackgroundColor(newBackgroundColor);
-  }, [selectedKasina, currentColorIndex, nextColorIndex, isTransitioning, transitionProgress, backgroundIntensity, rainbowColors]);
+  }, [selectedKasina, customColor, backgroundIntensity]);
 
   // Initialize background color on component mount
   useEffect(() => {
-    const initialKasinaColor = getKasinaColor(selectedKasina);
+    let initialKasinaColor: string;
+    if (selectedKasina === 'custom') {
+      initialKasinaColor = customColor;
+    } else {
+      initialKasinaColor = getKasinaColor(selectedKasina);
+    }
     const initialBackgroundColor = calculateBackgroundColor(initialKasinaColor, backgroundIntensity);
     setCurrentBackgroundColor(initialBackgroundColor);
     console.log(`🚀 Initial background color set: ${initialBackgroundColor} for kasina: ${selectedKasina}`);
-  }, []);
+  }, [selectedKasina, customColor]);
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
     if (!activeIsListening) return;
     
-    // Special handling for Changing Color kasina - maintain constant size
-    if (selectedKasina === 'custom') {
-      // For Changing Color kasina, keep size constant (controlled by scroll wheel only)
-      return;
-    }
+    // Custom kasina now breathes like other color kasinas
     
     // Detect if amplitude has changed significantly (not holding breath)
     const amplitudeChanged = Math.abs(activeBreathAmplitude - lastAmplitudeRef.current) > 0.01;
@@ -1276,15 +1215,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Calculate and update background color based on current kasina
     let currentKasinaColor: string;
     if (selectedKasina === 'custom') {
-      if (isTransitioning) {
-        currentKasinaColor = blendColors(
-          rainbowColors[currentColorIndex], 
-          rainbowColors[nextColorIndex], 
-          transitionProgress
-        );
-      } else {
-        currentKasinaColor = rainbowColors[currentColorIndex];
-      }
+      currentKasinaColor = customColor; // Use user's selected custom color
     } else {
       currentKasinaColor = getKasinaColor(selectedKasina);
     }
