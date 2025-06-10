@@ -1250,9 +1250,13 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Use unified scaling system that preserves working Color kasina behavior
     const naturalBreathingEase = (t: number) => Math.sin(t * Math.PI * 0.5);
     
+    // Debug breath amplitude conversion
+    console.log(`🔧 BREATH DEBUG: activeBreathAmplitude=${activeBreathAmplitude.toFixed(3)}, finalAmplitude=${finalAmplitude.toFixed(3)}, scaledAmplitude=${scaledAmplitude.toFixed(3)}, intensityMultiplier=${intensityMultiplier.toFixed(2)}`);
+    
     // Convert breath amplitude to proper scale for unified system
     // scaledAmplitude ranges from ~0.05 to ~0.8, we need to map this to pixel-like values
     const breathToPixelScale = scaledAmplitude * 1000; // Convert to 50-800 range
+    console.log(`🔧 BREATH TO PIXEL: breathToPixelScale=${breathToPixelScale.toFixed(1)}`);
     
     const unifiedScaling = calculateUnifiedKasinaScale(
       selectedKasina, 
