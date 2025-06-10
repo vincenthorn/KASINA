@@ -161,12 +161,8 @@ app.use((req, res, next) => {
   }
 
   // Use PORT environment variable for deployment platforms (Render, etc.)
-  const port = parseInt(process.env.PORT || "3000");
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
+  const port = parseInt(process.env.PORT || "5000");
+  server.listen(port, "0.0.0.0", () => {
     log(`KASINA meditation app serving on port ${port}`);
   });
 })();
