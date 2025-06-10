@@ -172,26 +172,25 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                   forceDataRef.current = forceDataRef.current.slice(-recentSamples);
                 }
                 
-                // Calculate range from longer-term patterns (not just recent peaks)
+                // Use a simpler, more responsive range calculation
                 const forces = forceDataRef.current.map(d => d.force);
+                const minForce = Math.min(...forces);
+                const maxForce = Math.max(...forces);
+                const currentRange = maxForce - minForce;
                 
-                // Use percentiles instead of min/max to avoid outliers affecting sync
-                const sortedForces = [...forces].sort((a, b) => a - b);
-                const percentile10 = sortedForces[Math.floor(sortedForces.length * 0.1)]; // 10th percentile as baseline min
-                const percentile90 = sortedForces[Math.floor(sortedForces.length * 0.9)]; // 90th percentile as baseline max
+                // Ensure minimum viable range for responsiveness
+                const minViableRange = 0.5; // At least 0.5N range for visual feedback
+                const effectiveRange = Math.max(currentRange, minViableRange);
                 
-                const range = percentile90 - percentile10;
+                // Calculate dynamic range with moderate expansion for better visuals
+                const expandedMin = minForce - (effectiveRange * 0.2);
+                const expandedMax = maxForce + (effectiveRange * 0.2);
                 
-                // Add breathing space for better visual range
-                const bufferAmount = range * 0.3; // Reduced buffer for tighter range
-                const dynamicMin = percentile10 - bufferAmount;
-                const dynamicMax = percentile90 + bufferAmount; // Symmetric buffer for better scaling
+                // Calculate amplitude with direct mapping for better responsiveness
+                let normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - expandedMin) / (expandedMax - expandedMin)));
                 
-                // Calculate amplitude with enhanced sensitivity
-                let normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
-                
-                // Apply sensitivity enhancement for better visual response
-                normalizedAmplitude = Math.pow(normalizedAmplitude, 0.7); // Slight curve to enhance mid-range sensitivity
+                // Apply moderate sensitivity curve for smooth transitions
+                normalizedAmplitude = Math.pow(normalizedAmplitude, 0.8);
                 setBreathAmplitude(normalizedAmplitude);
               }
               
