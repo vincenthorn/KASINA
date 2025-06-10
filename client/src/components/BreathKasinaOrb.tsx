@@ -1240,9 +1240,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     let scaledAmplitude = finalAmplitude;
     
     // Add slight smoothing to reduce jerkiness while maintaining responsiveness
-    const smoothingFactor = 0.85; // Light smoothing
+    const amplitudeSmoothingFactor = 0.85; // Light smoothing
     const lastSmoothedAmplitude = lastAmplitudeRef.current || finalAmplitude;
-    scaledAmplitude = (lastSmoothedAmplitude * smoothingFactor) + (finalAmplitude * (1 - smoothingFactor));
+    scaledAmplitude = (lastSmoothedAmplitude * amplitudeSmoothingFactor) + (finalAmplitude * (1 - amplitudeSmoothingFactor));
     
     // Apply breathing rate intensity scaling
     scaledAmplitude = scaledAmplitude * intensityMultiplier;
@@ -1254,10 +1254,20 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     console.log(`🔧 BREATH DEBUG: activeBreathAmplitude=${activeBreathAmplitude.toFixed(3)}, finalAmplitude=${finalAmplitude.toFixed(3)}, scaledAmplitude=${scaledAmplitude.toFixed(3)}, intensityMultiplier=${intensityMultiplier.toFixed(2)}`);
     
     // Convert breath amplitude to proper scale for unified system
-    // scaledAmplitude ranges from ~0.05 to ~0.8, we need to map this to pixel-like values
-    const breathToPixelScale = scaledAmplitude * 1000; // Convert to 50-800 range
-    console.log(`🔧 BREATH TO PIXEL: breathToPixelScale=${breathToPixelScale.toFixed(1)}`);
+    // Use activeBreathAmplitude directly for more responsive scaling
+    const baseOrbSize = 150; // Base size in pixels
+    const breathRange = 100; // Variation range in pixels
     
+    // Apply smoothing to prevent jerky movements
+    const targetSize = baseOrbSize + (activeBreathAmplitude * breathRange);
+    const currentSize = orbSize;
+    const sizeSmoothingFactor = 0.15; // Lower = smoother but slower response
+    const newSize = currentSize + (targetSize - currentSize) * sizeSmoothingFactor;
+    
+    console.log(`🔧 SMOOTH SCALING: amplitude=${activeBreathAmplitude.toFixed(3)} -> target=${targetSize.toFixed(1)}px -> smooth=${newSize.toFixed(1)}px`);
+    
+    // Still calculate unified scaling for background effects
+    const breathToPixelScale = scaledAmplitude * 1000;
     const unifiedScaling = calculateUnifiedKasinaScale(
       selectedKasina, 
       breathToPixelScale, 
@@ -1265,16 +1275,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       naturalBreathingEase,
       activeBreathAmplitude
     );
-    
-    const newSize = unifiedScaling.scale * 100; // Convert back to pixel size
     const immersionLevel = unifiedScaling.immersionLevel;
     
     // Update state to trigger re-render
     setOrbSize(newSize);
     
-    // Also directly modify the DOM for immediate visual feedback
+    // Apply smooth CSS transitions for DOM updates
     try {
       if (orbRef.current) {
+        orbRef.current.style.transition = 'width 0.1s ease-out, height 0.1s ease-out';
         orbRef.current.style.width = `${newSize}px`;
         orbRef.current.style.height = `${newSize}px`;
         orbRef.current.style.boxShadow = 'none'; // Remove all glow effects
@@ -1311,8 +1320,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     setCurrentBackgroundColor(newBackgroundColor);
     
     // Log the size and rate data for debugging
-    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
-  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale]);
+    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize.toFixed(1)}px`);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, orbSize]);
 
   // Modern kasina breathing orb component using Three.js
   const BreathingKasinaOrb = () => {
