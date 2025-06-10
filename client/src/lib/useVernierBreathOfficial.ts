@@ -182,13 +182,16 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                 
                 const range = percentile90 - percentile10;
                 
-                // Add breathing space only below for deeper exhales
-                const bufferAmount = range * 0.6; // Increased buffer to capture full exhale capacity
+                // Add breathing space for better visual range
+                const bufferAmount = range * 0.3; // Reduced buffer for tighter range
                 const dynamicMin = percentile10 - bufferAmount;
-                const dynamicMax = percentile90 + (range * 0.1); // Small buffer above for occasional deep inhales
+                const dynamicMax = percentile90 + bufferAmount; // Symmetric buffer for better scaling
                 
-                // Calculate amplitude with stable range
-                const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
+                // Calculate amplitude with enhanced sensitivity
+                let normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
+                
+                // Apply sensitivity enhancement for better visual response
+                normalizedAmplitude = Math.pow(normalizedAmplitude, 0.7); // Slight curve to enhance mid-range sensitivity
                 setBreathAmplitude(normalizedAmplitude);
               }
               
