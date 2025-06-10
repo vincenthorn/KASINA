@@ -173,29 +173,23 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                   forceDataRef.current = forceDataRef.current.slice(-recentSamples);
                 }
                 
-                // Use stable baseline calculation with proper smoothing
+                // Calculate range from longer-term patterns (not just recent peaks)
                 const forces = forceDataRef.current.map(d => d.force);
                 
-                // Use longer-term stable baseline (30-second window)
-                const baselineWindow = Math.min(forces.length, 150); // 30 seconds at 5Hz
-                const recentForces = forces.slice(-baselineWindow);
+                // Use percentiles instead of min/max to avoid outliers affecting sync
+                const sortedForces = [...forces].sort((a, b) => a - b);
+                const percentile10 = sortedForces[Math.floor(sortedForces.length * 0.1)]; // 10th percentile as baseline min
+                const percentile90 = sortedForces[Math.floor(sortedForces.length * 0.9)]; // 90th percentile as baseline max
                 
-                // Calculate stable range using median values to avoid outliers
-                const sortedForces = [...recentForces].sort((a, b) => a - b);
-                const baseline = sortedForces[Math.floor(sortedForces.length * 0.5)]; // Median as baseline
+                const range = percentile90 - percentile10;
                 
-                // Fixed range based on typical breath sensor variation
-                const breathRange = 1.2; // Typical 1.2N range for natural breathing
-                const minThreshold = baseline - (breathRange * 0.6); // Exhale threshold
-                const maxThreshold = baseline + (breathRange * 0.6); // Inhale threshold
+                // Add breathing space only below for deeper exhales
+                const bufferAmount = range * 0.6; // Increased buffer to capture full exhale capacity
+                const dynamicMin = percentile10 - bufferAmount;
+                const dynamicMax = percentile90 + (range * 0.1); // Small buffer above for occasional deep inhales
                 
-                // Calculate smooth amplitude with proper normalization
-                let normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - minThreshold) / (maxThreshold - minThreshold)));
-                
-                // Apply gentle smoothing to prevent jarky movements
-                const lastAmplitude = lastAmplitudeRef.current;
-                normalizedAmplitude = (lastAmplitude * 0.7) + (normalizedAmplitude * 0.3);
-                lastAmplitudeRef.current = normalizedAmplitude;
+                // Calculate amplitude with stable range
+                const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
                 setBreathAmplitude(normalizedAmplitude);
               }
               
