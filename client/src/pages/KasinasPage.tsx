@@ -54,6 +54,7 @@ const KasinasPage: React.FC = () => {
         onKasinaSelection={handleKasinaSelection}
         onBackToSeries={handleBackToSeries}
         onCancel={handleCancel}
+        mode="visual"
       />
     </div>
   );

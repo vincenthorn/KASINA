@@ -1534,6 +1534,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             onKasinaSelection={handleKasinaSelection}
             onBackToSeries={() => setKasinaSelectionStep('series')}
             onCancel={() => setShowKasinaSelection(false)}
+            mode="visual"
           />
         </div>
       )}
