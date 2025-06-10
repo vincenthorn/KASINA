@@ -1785,6 +1785,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
             onKasinaSelection={handleKasinaSelection}
             onBackToSeries={() => setKasinaSelectionStep('series')}
             onCancel={() => setShowKasinaSelection(false)}
+            mode="breath"
           />
         </div>
       )}

@@ -11,6 +11,7 @@ interface KasinaSelectionInterfaceProps {
   onKasinaSelection: (kasina: string) => void;
   onBackToSeries: () => void;
   onCancel: () => void;
+  mode?: 'visual' | 'breath'; // Add mode prop to restrict available kasinas
 }
 
 export default function KasinaSelectionInterface({
@@ -20,7 +21,8 @@ export default function KasinaSelectionInterface({
   onSeriesSelection,
   onKasinaSelection,
   onBackToSeries,
-  onCancel
+  onCancel,
+  mode = 'visual' // Default to visual mode for backwards compatibility
 }: KasinaSelectionInterfaceProps) {
   const { customColor, setCustomColor } = useKasina();
   const [isColorDialogOpen, setIsColorDialogOpen] = useState(false);
@@ -161,61 +163,66 @@ export default function KasinaSelectionInterface({
               <div>Color Kasinas</div>
             </button>
             
-            <button
-              onClick={() => onSeriesSelection('ELEMENTAL')}
-              style={{
-                backgroundColor: '#059669',
-                color: 'white',
-                border: 'none',
-                padding: '24px 32px',
-                borderRadius: '16px',
-                fontSize: '18px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                width: '180px',
-                textAlign: 'center',
-                transition: 'all 0.2s ease-out'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
-                e.currentTarget.style.backgroundColor = '#047857';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.backgroundColor = '#059669';
-              }}
-            >
-              <div style={{ fontSize: '32px', marginBottom: '8px' }}>🌊</div>
-              <div>Elemental Kasinas</div>
-            </button>
-            
-            <button
-              onClick={() => onSeriesSelection('VAJRAYANA')}
-              style={{
-                backgroundColor: '#DC2626',
-                color: 'white',
-                border: 'none',
-                padding: '24px 32px',
-                borderRadius: '16px',
-                fontSize: '18px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                width: '180px',
-                textAlign: 'center',
-                transition: 'all 0.2s ease-out'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
-                e.currentTarget.style.backgroundColor = '#B91C1C';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.backgroundColor = '#DC2626';
-              }}
-            >
-              <div style={{ fontSize: '32px', marginBottom: '8px' }}>🔮</div>
-              <div>Vajrayana Kasinas</div>
-            </button>
+{/* Hide Elemental and Vajrayana kasinas in Breath mode for now - easy to restore later */}
+            {mode === 'visual' && (
+              <>
+                <button
+                  onClick={() => onSeriesSelection('ELEMENTAL')}
+                  style={{
+                    backgroundColor: '#059669',
+                    color: 'white',
+                    border: 'none',
+                    padding: '24px 32px',
+                    borderRadius: '16px',
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    width: '180px',
+                    textAlign: 'center',
+                    transition: 'all 0.2s ease-out'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                    e.currentTarget.style.backgroundColor = '#047857';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.backgroundColor = '#059669';
+                  }}
+                >
+                  <div style={{ fontSize: '32px', marginBottom: '8px' }}>🌊</div>
+                  <div>Elemental Kasinas</div>
+                </button>
+                
+                <button
+                  onClick={() => onSeriesSelection('VAJRAYANA')}
+                  style={{
+                    backgroundColor: '#DC2626',
+                    color: 'white',
+                    border: 'none',
+                    padding: '24px 32px',
+                    borderRadius: '16px',
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    width: '180px',
+                    textAlign: 'center',
+                    transition: 'all 0.2s ease-out'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                    e.currentTarget.style.backgroundColor = '#B91C1C';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.backgroundColor = '#DC2626';
+                  }}
+                >
+                  <div style={{ fontSize: '32px', marginBottom: '8px' }}>🔮</div>
+                  <div>Vajrayana Kasinas</div>
+                </button>
+              </>
+            )}
           </div>
           
           <button
