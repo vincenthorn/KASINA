@@ -1098,27 +1098,32 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Initialize and update background color whenever kasina changes
   useEffect(() => {
-    let currentKasinaColor: string;
+    let newBackgroundColor: string;
+    
     if (selectedKasina === 'custom') {
-      currentKasinaColor = customColor; // Use user's selected custom color
+      // Custom kasina always has black background
+      newBackgroundColor = '#000000';
     } else {
-      currentKasinaColor = getKasinaColor(selectedKasina);
+      const currentKasinaColor = getKasinaColor(selectedKasina);
+      newBackgroundColor = calculateBackgroundColor(currentKasinaColor, backgroundIntensity);
     }
     
-    console.log(`🔄 Updating background for kasina: ${selectedKasina}, color: ${currentKasinaColor}`);
-    const newBackgroundColor = calculateBackgroundColor(currentKasinaColor, backgroundIntensity);
+    console.log(`🔄 Updating background for kasina: ${selectedKasina}, color: ${newBackgroundColor}`);
     setCurrentBackgroundColor(newBackgroundColor);
   }, [selectedKasina, customColor, backgroundIntensity]);
 
   // Initialize background color on component mount
   useEffect(() => {
-    let initialKasinaColor: string;
+    let initialBackgroundColor: string;
+    
     if (selectedKasina === 'custom') {
-      initialKasinaColor = customColor;
+      // Custom kasina always has black background
+      initialBackgroundColor = '#000000';
     } else {
-      initialKasinaColor = getKasinaColor(selectedKasina);
+      const initialKasinaColor = getKasinaColor(selectedKasina);
+      initialBackgroundColor = calculateBackgroundColor(initialKasinaColor, backgroundIntensity);
     }
-    const initialBackgroundColor = calculateBackgroundColor(initialKasinaColor, backgroundIntensity);
+    
     setCurrentBackgroundColor(initialBackgroundColor);
     console.log(`🚀 Initial background color set: ${initialBackgroundColor} for kasina: ${selectedKasina}`);
   }, [selectedKasina, customColor]);
@@ -1204,14 +1209,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     setBackgroundIntensity(finalBackgroundIntensity);
     
     // Calculate and update background color based on current kasina
-    let currentKasinaColor: string;
+    let newBackgroundColor: string;
     if (selectedKasina === 'custom') {
-      currentKasinaColor = customColor; // Use user's selected custom color
+      // Custom kasina always has black background
+      newBackgroundColor = '#000000';
     } else {
-      currentKasinaColor = getKasinaColor(selectedKasina);
+      const currentKasinaColor = getKasinaColor(selectedKasina);
+      newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
     }
     
-    const newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
     setCurrentBackgroundColor(newBackgroundColor);
     
     // Log the size and rate data for debugging
