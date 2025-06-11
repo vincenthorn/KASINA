@@ -550,12 +550,27 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     const g = parseInt(hex.substr(2, 2), 16);
     const b = parseInt(hex.substr(4, 2), 16);
     
-    // Create a very light version by mixing with white (95% white, 5% original color)
-    const lightR = Math.round(255 * 0.95 + r * 0.05);
-    const lightG = Math.round(255 * 0.95 + g * 0.05);
-    const lightB = Math.round(255 * 0.95 + b * 0.05);
+    // Create a light version by mixing with white (90% white, 10% original color)
+    const lightR = Math.round(255 * 0.9 + r * 0.1);
+    const lightG = Math.round(255 * 0.9 + g * 0.1);
+    const lightB = Math.round(255 * 0.9 + b * 0.1);
     
     return `rgb(${lightR}, ${lightG}, ${lightB})`;
+  };
+
+  // Helper function to create a dark background version of a color
+  const createDarkBackground = (hexColor: string): string => {
+    const hex = hexColor.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    // Create a dark version by mixing with black (90% black, 10% original color)
+    const darkR = Math.round(0 * 0.9 + r * 0.1);
+    const darkG = Math.round(0 * 0.9 + g * 0.1);
+    const darkB = Math.round(0 * 0.9 + b * 0.1);
+    
+    return `rgb(${darkR}, ${darkG}, ${darkB})`;
   };
 
   // Track kasina usage when switching kasinas
@@ -1111,11 +1126,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     let newBackgroundColor: string;
     
     if (selectedKasina === 'custom') {
-      // Smart background for custom colors: black for light colors, light tint for dark colors
+      // Smart background for custom colors: dark tint for light colors, light tint for dark colors
       if (isColorDark(customColor)) {
         newBackgroundColor = createLightBackground(customColor);
       } else {
-        newBackgroundColor = '#000000';
+        newBackgroundColor = createDarkBackground(customColor);
       }
     } else {
       const currentKasinaColor = getKasinaColor(selectedKasina);
@@ -1131,11 +1146,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     let initialBackgroundColor: string;
     
     if (selectedKasina === 'custom') {
-      // Smart background for custom colors: black for light colors, light tint for dark colors
+      // Smart background for custom colors: dark tint for light colors, light tint for dark colors
       if (isColorDark(customColor)) {
         initialBackgroundColor = createLightBackground(customColor);
       } else {
-        initialBackgroundColor = '#000000';
+        initialBackgroundColor = createDarkBackground(customColor);
       }
     } else {
       const initialKasinaColor = getKasinaColor(selectedKasina);
@@ -1229,11 +1244,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Calculate and update background color based on current kasina
     let newBackgroundColor: string;
     if (selectedKasina === 'custom') {
-      // Smart background for custom colors: black for light colors, light tint for dark colors
+      // Smart background for custom colors: dark tint for light colors, light tint for dark colors
       if (isColorDark(customColor)) {
         newBackgroundColor = createLightBackground(customColor);
       } else {
-        newBackgroundColor = '#000000';
+        newBackgroundColor = createDarkBackground(customColor);
       }
     } else {
       const currentKasinaColor = getKasinaColor(selectedKasina);
