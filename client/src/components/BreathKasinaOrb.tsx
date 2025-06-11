@@ -1237,22 +1237,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     let finalBackgroundIntensity;
     
     if (selectedKasina === 'custom') {
-      // Custom kasina: check if background is dark or light
-      if (isColorDark(customColor)) {
-        // Dark background: lighten on inhale, darken on exhale (same as standard)
-        finalBackgroundIntensity = 0.1 + breathIntensity * 0.8;
-      } else {
-        // Light background: darken on inhale, lighten on exhale (opposite effect)
-        const baseIntensity = 0.8; // Start with lighter base for light backgrounds
-        finalBackgroundIntensity = baseIntensity - breathIntensity * 0.8; // Subtract breath intensity
-        finalBackgroundIntensity = Math.max(0.1, Math.min(0.9, finalBackgroundIntensity)); // Clamp to reasonable range
-      }
+      // Custom kasina: static background intensity (no breathing effect)
+      finalBackgroundIntensity = 0.3; // Fixed intensity for custom colors
     } else {
       // Standard color kasinas: lighten on inhale, darken on exhale
       if (selectedKasina === 'water') {
-        finalBackgroundIntensity = 0.02 + breathIntensity * 0.12; // Much darker: base 0.02 + breathing adds up to 0.14
+        finalBackgroundIntensity = 0.02 + breathIntensity * 0.15; // Much darker: base 0.02 + breathing adds up to 0.17
       } else {
-        finalBackgroundIntensity = 0.1 + breathIntensity * 0.8; // Normal: base 0.1 + breathing adds up to 0.9
+        finalBackgroundIntensity = 0.1 + breathIntensity * 1.0; // Maximum effect: base 0.1 + breathing adds up to 1.1
       }
     }
     
@@ -1261,28 +1253,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Calculate and update background color based on current kasina
     let newBackgroundColor: string;
     if (selectedKasina === 'custom') {
-      // For custom kasinas, create breathing-modulated backgrounds
-      const hex = customColor.replace('#', '');
-      const r = parseInt(hex.substr(0, 2), 16);
-      const g = parseInt(hex.substr(2, 2), 16);
-      const b = parseInt(hex.substr(4, 2), 16);
-      
+      // For custom kasinas, use static backgrounds with color tint (no breathing effect)
       if (isColorDark(customColor)) {
-        // Dark custom color gets light background, modulated by breathing intensity
-        const whiteMix = 0.6 + (finalBackgroundIntensity * 0.35); // Strong breathing effect
-        const colorMix = 1 - whiteMix;
-        const lightR = Math.round(255 * whiteMix + r * colorMix);
-        const lightG = Math.round(255 * whiteMix + g * colorMix);
-        const lightB = Math.round(255 * whiteMix + b * colorMix);
-        newBackgroundColor = `rgb(${lightR}, ${lightG}, ${lightB})`;
+        newBackgroundColor = createLightBackground(customColor);
       } else {
-        // Light custom color gets dark background, modulated by breathing intensity
-        const blackMix = 0.6 + (finalBackgroundIntensity * 0.35); // Strong breathing effect
-        const colorMix = 1 - blackMix;
-        const darkR = Math.round(0 * blackMix + r * colorMix);
-        const darkG = Math.round(0 * blackMix + g * colorMix);
-        const darkB = Math.round(0 * blackMix + b * colorMix);
-        newBackgroundColor = `rgb(${darkR}, ${darkG}, ${darkB})`;
+        newBackgroundColor = createDarkBackground(customColor);
       }
     } else {
       const currentKasinaColor = getKasinaColor(selectedKasina);
