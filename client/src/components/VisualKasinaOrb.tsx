@@ -395,6 +395,39 @@ const lightShader = {
 interface VisualKasinaOrbProps {}
 
 export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
+  // Helper functions for smart background colors (copied from BreathKasinaOrb.tsx)
+  const isColorDark = (hexColor: string): boolean => {
+    const hex = hexColor.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    // Calculate perceived brightness using standard formula
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness < 128; // Dark if brightness is less than 50%
+  };
+
+  // Helper function to create a light background version of a color
+  const createLightBackground = (hexColor: string): string => {
+    const hex = hexColor.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    // Create a light version by mixing with white (90% white, 10% original color)
+    const lightR = Math.round(255 * 0.9 + r * 0.1);
+    const lightG = Math.round(255 * 0.9 + g * 0.1);
+    const lightB = Math.round(255 * 0.9 + b * 0.1);
+    
+    return `rgb(${lightR}, ${lightG}, ${lightB})`;
+  };
+
+  // Helper function to create a dark background version of a color
+  const createDarkBackground = (hexColor: string): string => {
+    // For bright colors in Custom Color Visual mode, use pure black background
+    return '#000000';
+  };
+
   // Use ref to ensure initialization only happens once
   const componentInitialized = useRef(false);
   
@@ -1097,10 +1130,18 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     return () => document.removeEventListener('wheel', handleWheel);
   }, []);
 
-  // Use unified background color function with memoization
+  // Use unified background color function with memoization and smart custom color logic
   const backgroundColor = useMemo(() => {
+    if (selectedKasina === 'custom') {
+      // Smart background for custom colors: light tint for dark colors, pure black for bright colors
+      if (isColorDark(customColor)) {
+        return createLightBackground(customColor);
+      } else {
+        return createDarkBackground(customColor);
+      }
+    }
     return getKasinaBackgroundColor(selectedKasina);
-  }, [selectedKasina]);
+  }, [selectedKasina, customColor]);
 
   // Handle series selection
   const handleSeriesSelection = (series: string) => {
