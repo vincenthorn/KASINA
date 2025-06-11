@@ -160,11 +160,37 @@ app.use((req, res, next) => {
 
   // Use PORT environment variable for deployment platforms (Render, etc.)
   const port = parseInt(process.env.PORT || "5000");
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`KASINA meditation app serving on port ${port}`);
-  });
+  
+  // Function to find an available port
+  const findAvailablePort = (startPort: number): Promise<number> => {
+    return new Promise((resolve, reject) => {
+      const testServer = server.listen(startPort, "0.0.0.0", () => {
+        const actualPort = (testServer.address() as any)?.port || startPort;
+        testServer.close(() => resolve(actualPort));
+      });
+      
+      testServer.on('error', (err: any) => {
+        if (err.code === 'EADDRINUSE') {
+          // Try next port
+          findAvailablePort(startPort + 1).then(resolve).catch(reject);
+        } else {
+          reject(err);
+        }
+      });
+    });
+  };
+
+  // Start server with port fallback
+  try {
+    const availablePort = await findAvailablePort(port);
+    server.listen({
+      port: availablePort,
+      host: "0.0.0.0",
+    }, () => {
+      log(`KASINA meditation app serving on port ${availablePort}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
 })();
