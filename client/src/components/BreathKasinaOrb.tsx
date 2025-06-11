@@ -573,43 +573,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return `rgb(${darkR}, ${darkG}, ${darkB})`;
   };
 
-  // Helper function to create breathing light background with intensity modulation
-  const createBreathingLightBackground = (hexColor: string, intensity: number): string => {
-    const hex = hexColor.replace('#', '');
-    const r = parseInt(hex.substr(0, 2), 16);
-    const g = parseInt(hex.substr(2, 2), 16);
-    const b = parseInt(hex.substr(4, 2), 16);
-    
-    // Mix with white, modulated by breathing intensity
-    // Higher intensity = more white (lighter), lower intensity = more original color (darker)
-    const whiteMix = 0.7 + (intensity * 0.2); // Range from 70% to 90% white
-    const colorMix = 1 - whiteMix;
-    
-    const lightR = Math.round(255 * whiteMix + r * colorMix);
-    const lightG = Math.round(255 * whiteMix + g * colorMix);
-    const lightB = Math.round(255 * whiteMix + b * colorMix);
-    
-    return `rgb(${lightR}, ${lightG}, ${lightB})`;
-  };
 
-  // Helper function to create breathing dark background with intensity modulation
-  const createBreathingDarkBackground = (hexColor: string, intensity: number): string => {
-    const hex = hexColor.replace('#', '');
-    const r = parseInt(hex.substr(0, 2), 16);
-    const g = parseInt(hex.substr(2, 2), 16);
-    const b = parseInt(hex.substr(4, 2), 16);
-    
-    // Mix with black, modulated by breathing intensity
-    // For light backgrounds, intensity works opposite: higher intensity = darker, lower = lighter
-    const blackMix = 0.7 + (intensity * 0.2); // Range from 70% to 90% black
-    const colorMix = 1 - blackMix;
-    
-    const darkR = Math.round(0 * blackMix + r * colorMix);
-    const darkG = Math.round(0 * blackMix + g * colorMix);
-    const darkB = Math.round(0 * blackMix + b * colorMix);
-    
-    return `rgb(${darkR}, ${darkG}, ${darkB})`;
-  };
 
   // Track kasina usage when switching kasinas
   const trackKasinaUsage = (newKasina: string) => {
@@ -1329,7 +1293,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Log the size and rate data for debugging
     console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
-  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, createBreathingLightBackground, createBreathingDarkBackground, getKasinaColor, calculateBackgroundColor]);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, getKasinaColor, calculateBackgroundColor]);
 
   // Modern kasina breathing orb component using Three.js
   const BreathingKasinaOrb = () => {
