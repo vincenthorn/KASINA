@@ -573,6 +573,44 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return `rgb(${darkR}, ${darkG}, ${darkB})`;
   };
 
+  // Helper function to create breathing light background with intensity modulation
+  const createBreathingLightBackground = (hexColor: string, intensity: number): string => {
+    const hex = hexColor.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    // Mix with white, modulated by breathing intensity
+    // Higher intensity = more white (lighter), lower intensity = more original color (darker)
+    const whiteMix = 0.7 + (intensity * 0.2); // Range from 70% to 90% white
+    const colorMix = 1 - whiteMix;
+    
+    const lightR = Math.round(255 * whiteMix + r * colorMix);
+    const lightG = Math.round(255 * whiteMix + g * colorMix);
+    const lightB = Math.round(255 * whiteMix + b * colorMix);
+    
+    return `rgb(${lightR}, ${lightG}, ${lightB})`;
+  };
+
+  // Helper function to create breathing dark background with intensity modulation
+  const createBreathingDarkBackground = (hexColor: string, intensity: number): string => {
+    const hex = hexColor.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    // Mix with black, modulated by breathing intensity
+    // For light backgrounds, intensity works opposite: higher intensity = darker, lower = lighter
+    const blackMix = 0.7 + (intensity * 0.2); // Range from 70% to 90% black
+    const colorMix = 1 - blackMix;
+    
+    const darkR = Math.round(0 * blackMix + r * colorMix);
+    const darkG = Math.round(0 * blackMix + g * colorMix);
+    const darkB = Math.round(0 * blackMix + b * colorMix);
+    
+    return `rgb(${darkR}, ${darkG}, ${darkB})`;
+  };
+
   // Track kasina usage when switching kasinas
   const trackKasinaUsage = (newKasina: string) => {
     const now = Date.now();
@@ -1229,14 +1267,29 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     // Update background intensity sync with breathing
-    const breathIntensity = scaledAmplitude * 0.8; // Scale breathing amplitude for background sync
+    // scaledAmplitude represents breath state: higher = inhale (larger orb), lower = exhale (smaller orb)
+    const breathIntensity = scaledAmplitude * 0.8;
     
-    // Special handling for Water kasina - much darker background for better contrast
     let finalBackgroundIntensity;
-    if (selectedKasina === 'water') {
-      finalBackgroundIntensity = 0.02 + breathIntensity * 0.08; // Much darker: base 0.02 + breathing adds up to 0.1
+    
+    if (selectedKasina === 'custom') {
+      // Custom kasina: check if background is dark or light
+      if (isColorDark(customColor)) {
+        // Dark background: lighten on inhale, darken on exhale (same as standard)
+        finalBackgroundIntensity = 0.1 + breathIntensity * 0.3;
+      } else {
+        // Light background: darken on inhale, lighten on exhale (opposite effect)
+        const baseIntensity = 0.8; // Start with lighter base for light backgrounds
+        finalBackgroundIntensity = baseIntensity - breathIntensity * 0.3; // Subtract breath intensity
+        finalBackgroundIntensity = Math.max(0.3, Math.min(0.9, finalBackgroundIntensity)); // Clamp to reasonable range
+      }
     } else {
-      finalBackgroundIntensity = 0.1 + breathIntensity * 0.3; // Normal: base 0.1 + breathing adds up to 0.4
+      // Standard color kasinas: lighten on inhale, darken on exhale
+      if (selectedKasina === 'water') {
+        finalBackgroundIntensity = 0.02 + breathIntensity * 0.08; // Much darker: base 0.02 + breathing adds up to 0.1
+      } else {
+        finalBackgroundIntensity = 0.1 + breathIntensity * 0.3; // Normal: base 0.1 + breathing adds up to 0.4
+      }
     }
     
     setBackgroundIntensity(finalBackgroundIntensity);
@@ -1244,11 +1297,28 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Calculate and update background color based on current kasina
     let newBackgroundColor: string;
     if (selectedKasina === 'custom') {
-      // Smart background for custom colors: dark tint for light colors, light tint for dark colors
+      // For custom kasinas, create breathing-modulated backgrounds
+      const hex = customColor.replace('#', '');
+      const r = parseInt(hex.substr(0, 2), 16);
+      const g = parseInt(hex.substr(2, 2), 16);
+      const b = parseInt(hex.substr(4, 2), 16);
+      
       if (isColorDark(customColor)) {
-        newBackgroundColor = createLightBackground(customColor);
+        // Dark custom color gets light background, modulated by breathing intensity
+        const whiteMix = 0.7 + (finalBackgroundIntensity * 0.2);
+        const colorMix = 1 - whiteMix;
+        const lightR = Math.round(255 * whiteMix + r * colorMix);
+        const lightG = Math.round(255 * whiteMix + g * colorMix);
+        const lightB = Math.round(255 * whiteMix + b * colorMix);
+        newBackgroundColor = `rgb(${lightR}, ${lightG}, ${lightB})`;
       } else {
-        newBackgroundColor = createDarkBackground(customColor);
+        // Light custom color gets dark background, modulated by breathing intensity
+        const blackMix = 0.7 + (finalBackgroundIntensity * 0.2);
+        const colorMix = 1 - blackMix;
+        const darkR = Math.round(0 * blackMix + r * colorMix);
+        const darkG = Math.round(0 * blackMix + g * colorMix);
+        const darkB = Math.round(0 * blackMix + b * colorMix);
+        newBackgroundColor = `rgb(${darkR}, ${darkG}, ${darkB})`;
       }
     } else {
       const currentKasinaColor = getKasinaColor(selectedKasina);
@@ -1259,7 +1329,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Log the size and rate data for debugging
     console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
-  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale]);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, createBreathingLightBackground, createBreathingDarkBackground, getKasinaColor, calculateBackgroundColor]);
 
   // Modern kasina breathing orb component using Three.js
   const BreathingKasinaOrb = () => {
