@@ -531,21 +531,31 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const peakBreathTimeRef = useRef({ duration: 0, transitionStartTime: null as number | null });
   const [breathDirection, setBreathDirection] = useState<'rising' | 'falling' | 'stable'>('stable');
   
-  // Helper function to blend two hex colors
-  const blendColors = (color1: string, color2: string, ratio: number): string => {
-    const hex = (color: string) => parseInt(color.slice(1), 16);
-    const r1 = (hex(color1) >> 16) & 255;
-    const g1 = (hex(color1) >> 8) & 255;
-    const b1 = hex(color1) & 255;
-    const r2 = (hex(color2) >> 16) & 255;
-    const g2 = (hex(color2) >> 8) & 255;
-    const b2 = hex(color2) & 255;
+  // Helper function to detect if a color is dark
+  const isColorDark = (hexColor: string): boolean => {
+    const hex = hexColor.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
     
-    const r = Math.round(r1 + (r2 - r1) * ratio);
-    const g = Math.round(g1 + (g2 - g1) * ratio);
-    const b = Math.round(b1 + (b2 - b1) * ratio);
+    // Calculate perceived brightness using standard formula
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness < 128; // Dark if brightness is less than 50%
+  };
+
+  // Helper function to create a light background version of a color
+  const createLightBackground = (hexColor: string): string => {
+    const hex = hexColor.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
     
-    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    // Create a very light version by mixing with white (95% white, 5% original color)
+    const lightR = Math.round(255 * 0.95 + r * 0.05);
+    const lightG = Math.round(255 * 0.95 + g * 0.05);
+    const lightB = Math.round(255 * 0.95 + b * 0.05);
+    
+    return `rgb(${lightR}, ${lightG}, ${lightB})`;
   };
 
   // Track kasina usage when switching kasinas
@@ -1101,8 +1111,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     let newBackgroundColor: string;
     
     if (selectedKasina === 'custom') {
-      // Custom kasina always has black background
-      newBackgroundColor = '#000000';
+      // Smart background for custom colors: black for light colors, light tint for dark colors
+      if (isColorDark(customColor)) {
+        newBackgroundColor = createLightBackground(customColor);
+      } else {
+        newBackgroundColor = '#000000';
+      }
     } else {
       const currentKasinaColor = getKasinaColor(selectedKasina);
       newBackgroundColor = calculateBackgroundColor(currentKasinaColor, backgroundIntensity);
@@ -1117,8 +1131,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     let initialBackgroundColor: string;
     
     if (selectedKasina === 'custom') {
-      // Custom kasina always has black background
-      initialBackgroundColor = '#000000';
+      // Smart background for custom colors: black for light colors, light tint for dark colors
+      if (isColorDark(customColor)) {
+        initialBackgroundColor = createLightBackground(customColor);
+      } else {
+        initialBackgroundColor = '#000000';
+      }
     } else {
       const initialKasinaColor = getKasinaColor(selectedKasina);
       initialBackgroundColor = calculateBackgroundColor(initialKasinaColor, backgroundIntensity);
@@ -1211,8 +1229,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Calculate and update background color based on current kasina
     let newBackgroundColor: string;
     if (selectedKasina === 'custom') {
-      // Custom kasina always has black background
-      newBackgroundColor = '#000000';
+      // Smart background for custom colors: black for light colors, light tint for dark colors
+      if (isColorDark(customColor)) {
+        newBackgroundColor = createLightBackground(customColor);
+      } else {
+        newBackgroundColor = '#000000';
+      }
     } else {
       const currentKasinaColor = getKasinaColor(selectedKasina);
       newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
