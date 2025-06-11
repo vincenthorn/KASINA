@@ -560,17 +560,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Helper function to create a dark background version of a color
   const createDarkBackground = (hexColor: string): string => {
-    const hex = hexColor.replace('#', '');
-    const r = parseInt(hex.substr(0, 2), 16);
-    const g = parseInt(hex.substr(2, 2), 16);
-    const b = parseInt(hex.substr(4, 2), 16);
-    
-    // Create a dark version by mixing with black (90% black, 10% original color)
-    const darkR = Math.round(0 * 0.9 + r * 0.1);
-    const darkG = Math.round(0 * 0.9 + g * 0.1);
-    const darkB = Math.round(0 * 0.9 + b * 0.1);
-    
-    return `rgb(${darkR}, ${darkG}, ${darkB})`;
+    // For bright colors in Custom Color Breath Kasina mode, use pure black background
+    return '#000000';
   };
 
 
