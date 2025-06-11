@@ -1240,19 +1240,19 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       // Custom kasina: check if background is dark or light
       if (isColorDark(customColor)) {
         // Dark background: lighten on inhale, darken on exhale (same as standard)
-        finalBackgroundIntensity = 0.1 + breathIntensity * 0.5;
+        finalBackgroundIntensity = 0.1 + breathIntensity * 0.8;
       } else {
         // Light background: darken on inhale, lighten on exhale (opposite effect)
         const baseIntensity = 0.8; // Start with lighter base for light backgrounds
-        finalBackgroundIntensity = baseIntensity - breathIntensity * 0.5; // Subtract breath intensity
-        finalBackgroundIntensity = Math.max(0.2, Math.min(0.9, finalBackgroundIntensity)); // Clamp to reasonable range
+        finalBackgroundIntensity = baseIntensity - breathIntensity * 0.8; // Subtract breath intensity
+        finalBackgroundIntensity = Math.max(0.1, Math.min(0.9, finalBackgroundIntensity)); // Clamp to reasonable range
       }
     } else {
       // Standard color kasinas: lighten on inhale, darken on exhale
       if (selectedKasina === 'water') {
-        finalBackgroundIntensity = 0.02 + breathIntensity * 0.08; // Much darker: base 0.02 + breathing adds up to 0.1
+        finalBackgroundIntensity = 0.02 + breathIntensity * 0.12; // Much darker: base 0.02 + breathing adds up to 0.14
       } else {
-        finalBackgroundIntensity = 0.1 + breathIntensity * 0.5; // Normal: base 0.1 + breathing adds up to 0.6
+        finalBackgroundIntensity = 0.1 + breathIntensity * 0.8; // Normal: base 0.1 + breathing adds up to 0.9
       }
     }
     
@@ -1269,7 +1269,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       
       if (isColorDark(customColor)) {
         // Dark custom color gets light background, modulated by breathing intensity
-        const whiteMix = 0.7 + (finalBackgroundIntensity * 0.25); // Moderate breathing effect
+        const whiteMix = 0.6 + (finalBackgroundIntensity * 0.35); // Strong breathing effect
         const colorMix = 1 - whiteMix;
         const lightR = Math.round(255 * whiteMix + r * colorMix);
         const lightG = Math.round(255 * whiteMix + g * colorMix);
@@ -1277,7 +1277,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         newBackgroundColor = `rgb(${lightR}, ${lightG}, ${lightB})`;
       } else {
         // Light custom color gets dark background, modulated by breathing intensity
-        const blackMix = 0.7 + (finalBackgroundIntensity * 0.25); // Moderate breathing effect
+        const blackMix = 0.6 + (finalBackgroundIntensity * 0.35); // Strong breathing effect
         const colorMix = 1 - blackMix;
         const darkR = Math.round(0 * blackMix + r * colorMix);
         const darkG = Math.round(0 * blackMix + g * colorMix);
