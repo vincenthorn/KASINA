@@ -1242,9 +1242,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     } else {
       // Standard color kasinas: lighten on inhale, darken on exhale
       if (selectedKasina === 'water') {
-        finalBackgroundIntensity = 0.02 + breathIntensity * 0.15; // Much darker: base 0.02 + breathing adds up to 0.17
+        finalBackgroundIntensity = 0.02 + breathIntensity * 0.10; // Much darker: base 0.02 + breathing adds up to 0.12
       } else {
-        finalBackgroundIntensity = 0.1 + breathIntensity * 1.0; // Maximum effect: base 0.1 + breathing adds up to 1.1
+        finalBackgroundIntensity = 0.1 + breathIntensity * 0.6; // Balanced effect: base 0.1 + breathing adds up to 0.7
       }
     }
     
