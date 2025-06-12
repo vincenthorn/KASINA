@@ -622,7 +622,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     };
   }, []);
   
-  const { selectedKasina, setSelectedKasina } = useKasina();
+  const { selectedKasina, setSelectedKasina, customColor } = useKasina();
   const { currentColor } = useColor();
   const navigate = useNavigate();
   const { logSession } = useSessionLogger();
@@ -1132,7 +1132,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
 
   // Use unified background color function with memoization and smart custom color logic
   const backgroundColor = useMemo(() => {
-    if (selectedKasina === 'custom') {
+    if (selectedKasina === 'custom' && customColor) {
       // Smart background for custom colors: light tint for dark colors, pure black for bright colors
       if (isColorDark(customColor)) {
         return createLightBackground(customColor);
