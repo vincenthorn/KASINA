@@ -221,7 +221,7 @@ const HomePage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="text-center mb-12">
+      <div className="text-left mb-12">
         <h1 className="text-3xl font-bold mb-2">Choose your Path</h1>
       </div>
       
