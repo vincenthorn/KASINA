@@ -29,7 +29,6 @@ const MusicalKasinaPage: React.FC = () => {
     player,
     deviceId,
     playlists,
-    connecting,
     connectSpotify,
     playTrack,
     pauseTrack,
@@ -37,6 +36,17 @@ const MusicalKasinaPage: React.FC = () => {
     previousTrack,
     playPlaylist
   } = useSpotify();
+
+  const [connecting, setConnecting] = useState(false);
+
+  const handleConnectSpotify = async () => {
+    setConnecting(true);
+    try {
+      await connectSpotify();
+    } finally {
+      setConnecting(false);
+    }
+  };
 
   // Check admin access
   if (!isAdmin) {
@@ -47,9 +57,10 @@ const MusicalKasinaPage: React.FC = () => {
   if (!isConnected) {
     return (
       <Layout>
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-          <div className="p-6">
-            <h1 className="text-4xl font-bold text-white mb-8">Musical Kasina</h1>
+        <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+          <div className="relative h-full overflow-auto">
+            <div className="p-6 ml-48">
+              <h1 className="text-4xl font-bold text-white mb-8">Musical Kasina</h1>
             
             <div className="grid gap-6 max-w-4xl">
               {/* Main Feature Card */}
@@ -85,7 +96,7 @@ const MusicalKasinaPage: React.FC = () => {
 
                 <div className="text-center">
                   <button
-                    onClick={connectSpotify}
+                    onClick={handleConnectSpotify}
                     disabled={connecting}
                     className="bg-green-600 hover:bg-green-700 disabled:bg-green-800 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mx-auto"
                   >
@@ -98,6 +109,7 @@ const MusicalKasinaPage: React.FC = () => {
                   </p>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
