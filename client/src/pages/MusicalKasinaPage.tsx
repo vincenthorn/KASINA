@@ -59,7 +59,7 @@ const MusicalKasinaPage: React.FC = () => {
       <Layout>
         <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
           <div className="relative h-full overflow-auto">
-            <div className="p-6 ml-48">
+            <div className="p-6 ml-48 mr-6">
               <h1 className="text-4xl font-bold text-white mb-8">Musical Kasina</h1>
             
             <div className="grid gap-6 max-w-4xl">
@@ -238,9 +238,8 @@ const MusicalKasinaPage: React.FC = () => {
                 <CardContent className="p-8">
                   <div className="relative h-96 flex items-center justify-center">
                     <MusicalKasinaOrb
-                      useVernier={false}
-                      vernierData={{}}
-                      breathMode={isBreathMode}
+                      isBreathMode={isBreathMode}
+                      isPlaying={isPlaying}
                       currentTrack={currentTrack}
                       audioFeatures={audioFeatures}
                       audioAnalysis={audioAnalysis}
