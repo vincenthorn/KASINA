@@ -292,137 +292,128 @@ const MusicalKasinaPage: React.FC = () => {
     return (
       <Layout>
         <div className="min-h-screen bg-black text-white relative overflow-hidden">
-        {/* Header Controls */}
-        <div className="absolute top-6 left-6 z-50">
-          <Card className="bg-gray-900/80 border-gray-700 backdrop-blur-sm">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-4">
-                {/* Breath Mode Toggle */}
-                <div className="flex items-center space-x-2">
-                  <Switch
-                    id="breath-mode"
-                    checked={isBreathMode}
-                    onCheckedChange={setIsBreathMode}
-                  />
-                  <Label htmlFor="breath-mode" className="text-sm font-medium">
-                    Breath Mode
-                  </Label>
-                </div>
-                
-                {/* Spotify Connection */}
-                {!isConnected ? (
-                  <Button 
-                    onClick={connectSpotify}
-                    className="bg-green-600 hover:bg-green-700"
-                  >
-                    <Music className="w-4 h-4 mr-2" />
-                    Connect Spotify
-                  </Button>
-                ) : (
-                  <div className="flex items-center space-x-2">
-                    <span className="text-green-400 text-sm">Connected</span>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={disconnectSpotify}
-                    >
-                      Disconnect
-                    </Button>
-                  </div>
-                )}
-
-                {/* Playlist Selection (PRD requirement) */}
-                {isConnected && playlists.length > 0 && (
-                  <div className="flex items-center space-x-2">
-                    <List className="w-4 h-4 text-purple-400" />
-                    <Select value={selectedPlaylist} onValueChange={handlePlaylistSelect}>
-                      <SelectTrigger className="w-48 bg-gray-800/80 border-gray-600">
-                        <SelectValue placeholder="Select playlist..." />
-                      </SelectTrigger>
-                      <SelectContent className="bg-gray-900 border-gray-600">
-                        {playlists.map((playlist) => (
-                          <SelectItem key={playlist.id} value={playlist.id}>
-                            {playlist.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    {loadingPlaylist && (
-                      <Loader2 className="w-4 h-4 animate-spin text-purple-400" />
-                    )}
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Music Controls */}
-        {isConnected && currentTrack && (
-          <div className="absolute top-6 right-6 z-50">
+          {/* Header Controls */}
+          <div className="absolute top-6 left-6 z-50">
             <Card className="bg-gray-900/80 border-gray-700 backdrop-blur-sm">
               <CardContent className="p-4">
-                <div className="flex flex-col space-y-3">
-                  {/* Track Info */}
-                  <div className="text-center max-w-xs">
-                    <div className="text-sm font-medium truncate">
-                      {currentTrack.name}
-                    </div>
-                    <div className="text-xs text-gray-400 truncate">
-                      {currentTrack.artists?.map((a: any) => a.name).join(', ')}
-                    </div>
+                <div className="flex items-center space-x-4">
+                  {/* Breath Mode Toggle */}
+                  <div className="flex items-center space-x-2">
+                    <Switch
+                      id="breath-mode"
+                      checked={isBreathMode}
+                      onCheckedChange={setIsBreathMode}
+                    />
+                    <Label htmlFor="breath-mode" className="text-sm font-medium">
+                      Breath Mode
+                    </Label>
                   </div>
                   
-                  {/* Playback Controls */}
-                  <div className="flex items-center justify-center space-x-2">
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      onClick={handlePrevious}
-                    >
-                      <SkipBack className="w-4 h-4" />
-                    </Button>
-                    <Button 
-                      onClick={handlePlayPause}
-                      className="bg-green-600 hover:bg-green-700"
-                    >
-                      {isPlaying ? (
-                        <Pause className="w-4 h-4" />
-                      ) : (
-                        <Play className="w-4 h-4" />
+                  {/* Back to Mode Selection */}
+                  <Button 
+                    onClick={() => {
+                      setShowMeditation(false);
+                      setShowModeSelection(true);
+                    }}
+                    variant="outline"
+                    size="sm"
+                    className="border-gray-600 text-gray-300 hover:bg-gray-800"
+                  >
+                    Change Mode
+                  </Button>
+
+                  {/* Playlist Selection (PRD requirement) */}
+                  {isConnected && playlists.length > 0 && (
+                    <div className="flex items-center space-x-2">
+                      <List className="w-4 h-4 text-purple-400" />
+                      <Select value={selectedPlaylist} onValueChange={handlePlaylistSelect}>
+                        <SelectTrigger className="w-48 bg-gray-800/80 border-gray-600">
+                          <SelectValue placeholder="Select playlist..." />
+                        </SelectTrigger>
+                        <SelectContent className="bg-gray-900 border-gray-600">
+                          {playlists.map((playlist) => (
+                            <SelectItem key={playlist.id} value={playlist.id}>
+                              {playlist.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      {loadingPlaylist && (
+                        <Loader2 className="w-4 h-4 animate-spin text-purple-400" />
                       )}
-                    </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      onClick={handleNext}
-                    >
-                      <SkipForward className="w-4 h-4" />
-                    </Button>
-                  </div>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
           </div>
-        )}
 
-        {/* Main Kasina Display */}
-        <div className="flex items-center justify-center min-h-screen">
-          <MusicalKasinaOrb
-            isBreathMode={isBreathMode}
-            isPlaying={isPlaying}
-            currentTrack={currentTrack}
-            audioFeatures={audioFeatures}
-            audioAnalysis={audioAnalysis}
-          />
-        </div>
+          {/* Music Controls */}
+          {isConnected && currentTrack && (
+            <div className="absolute top-6 right-6 z-50">
+              <Card className="bg-gray-900/80 border-gray-700 backdrop-blur-sm">
+                <CardContent className="p-4">
+                  <div className="flex flex-col space-y-3">
+                    {/* Track Info */}
+                    <div className="text-center max-w-xs">
+                      <div className="text-sm font-medium truncate">
+                        {currentTrack.name}
+                      </div>
+                      <div className="text-xs text-gray-400 truncate">
+                        {currentTrack.artists?.map((a: any) => a.name).join(', ')}
+                      </div>
+                    </div>
+                    
+                    {/* Playback Controls */}
+                    <div className="flex items-center justify-center space-x-2">
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={handlePrevious}
+                      >
+                        <SkipBack className="w-4 h-4" />
+                      </Button>
+                      <Button 
+                        onClick={handlePlayPause}
+                        className="bg-green-600 hover:bg-green-700"
+                      >
+                        {isPlaying ? (
+                          <Pause className="w-4 h-4" />
+                        ) : (
+                          <Play className="w-4 h-4" />
+                        )}
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={handleNext}
+                      >
+                        <SkipForward className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
 
-        {/* Tagline */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-          <div className="text-center text-gray-400 text-sm">
-            "Breathe with the music—or let the music alone color your awareness."
+          {/* Main Kasina Display */}
+          <div className="flex items-center justify-center min-h-screen">
+            <MusicalKasinaOrb
+              isBreathMode={isBreathMode}
+              isPlaying={isPlaying}
+              currentTrack={currentTrack}
+              audioFeatures={audioFeatures}
+              audioAnalysis={audioAnalysis}
+            />
           </div>
-        </div>
+
+          {/* Tagline */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+            <div className="text-center text-gray-400 text-sm">
+              "Breathe with the music—or let the music alone color your awareness."
+            </div>
+          </div>
         </div>
       </Layout>
     );
