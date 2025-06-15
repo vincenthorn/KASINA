@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>KASINA - A Dynamic Meditation Object</title>
     <meta name="description" content="KASINA is a modern meditation app featuring interactive kasina practice with vibrant orbs, session tracking, and analytics." />
+    <!-- CSP for Spotify SDK and Vernier -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.scdn.co https://unpkg.com https://*.unpkg.com; connect-src 'self' https://api.spotify.com https://accounts.spotify.com https://unpkg.com https://*.unpkg.com; frame-src 'self' https://sdk.scdn.co; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;" />
     
-    <!-- Content Security Policy to allow Vernier GoDirect library and Spotify SDK -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://*.unpkg.com https://sdk.scdn.co; connect-src 'self' https://unpkg.com https://*.unpkg.com https://api.spotify.com https://accounts.spotify.com; script-src-elem 'self' 'unsafe-inline' https://unpkg.com https://*.unpkg.com https://sdk.scdn.co; frame-src 'self' https://sdk.scdn.co;" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />

@@ -43,17 +43,7 @@ app.use((req, res, next) => {
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   
-  // Content Security Policy - allow Three.js, WebGL, and Spotify SDK
-  res.setHeader('Content-Security-Policy', 
-    "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.scdn.co https://unpkg.com https://*.unpkg.com; " +
-    "script-src-elem 'self' 'unsafe-inline' https://sdk.scdn.co https://unpkg.com https://*.unpkg.com; " +
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
-    "font-src 'self' https://fonts.gstatic.com; " +
-    "img-src 'self' data: blob: https://*.scdn.co; " +
-    "connect-src 'self' ws: wss: https://api.spotify.com https://accounts.spotify.com; " +
-    "worker-src 'self' blob:;"
-  );
+  // CSP is now handled in client/index.html meta tag to avoid conflicts
   
   // Referrer policy
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
