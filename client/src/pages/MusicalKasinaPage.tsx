@@ -159,8 +159,8 @@ const MusicalKasinaPage: React.FC = () => {
   if (!isConnected) {
     return (
       <Layout>
-        <div className="fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
-          {/* Extended gradient overlay covering everything */}
+        <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+          {/* Extended gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-purple-700/40 via-blue-700/40 to-indigo-700/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent" />
           
