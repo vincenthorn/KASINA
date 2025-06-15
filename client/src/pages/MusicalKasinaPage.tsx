@@ -159,21 +159,19 @@ const MusicalKasinaPage: React.FC = () => {
   if (!isConnected) {
     return (
       <Layout>
-        <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
-          {/* Extended gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-700/40 via-blue-700/40 to-indigo-700/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent" />
+        <div className="min-h-screen w-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+          {/* Multiple gradient layers for full coverage */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-800/50 via-blue-800/50 to-indigo-800/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 via-transparent to-blue-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-indigo-900/20" />
           
           {/* Full screen content */}
           <div className="relative z-10 min-h-screen flex flex-col">
             {/* Header Section - Expanded */}
             <div className="flex-[2] flex flex-col items-center justify-center text-center px-8 pt-16">
-              <h1 className="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Musical Kasina
               </h1>
-              <p className="text-lg md:text-xl text-gray-300 italic mb-6">
-                "Let music guide your awareness into deeper states of meditation"
-              </p>
               <p className="text-xl md:text-2xl text-gray-200 max-w-4xl leading-relaxed">
                 Synchronize your meditation with music through real-time audio analysis and immersive visual feedback
               </p>
