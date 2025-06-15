@@ -37,8 +37,13 @@ export const useSpotify = () => {
   const [deviceId, setDeviceId] = useState<string | null>(null);
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [currentTrack, setCurrentTrack] = useState<SpotifyTrack | null>(null);
+  const [playlists, setPlaylists] = useState<any[]>([]);
   const playerRef = useRef<any>(null);
   const spotifyApiRef = useRef<any>(null);
+  
+  // Audio analysis cache to minimize API calls (PRD requirement)
+  const audioFeaturesCache = useRef<Map<string, SpotifyAudioFeatures>>(new Map());
+  const audioAnalysisCache = useRef<Map<string, SpotifyAudioAnalysis>>(new Map());
 
   // Initialize Spotify Web Playback SDK
   useEffect(() => {
@@ -195,7 +200,15 @@ export const useSpotify = () => {
 
   const getAudioFeatures = useCallback(async (trackId: string): Promise<SpotifyAudioFeatures | null> => {
     try {
+      // Check cache first (PRD requirement for rate limiting)
+      if (audioFeaturesCache.current.has(trackId)) {
+        return audioFeaturesCache.current.get(trackId)!;
+      }
+      
       const data = await spotifyApiCall(`/audio-features/${trackId}`);
+      if (data) {
+        audioFeaturesCache.current.set(trackId, data);
+      }
       return data;
     } catch (error) {
       console.error('Error getting audio features:', error);
@@ -205,17 +218,54 @@ export const useSpotify = () => {
 
   const getAudioAnalysis = useCallback(async (trackId: string): Promise<SpotifyAudioAnalysis | null> => {
     try {
+      // Check cache first (PRD requirement for rate limiting)
+      if (audioAnalysisCache.current.has(trackId)) {
+        return audioAnalysisCache.current.get(trackId)!;
+      }
+      
       const data = await spotifyApiCall(`/audio-analysis/${trackId}`);
-      return {
+      const analysis = {
         beats: data.beats || [],
         sections: data.sections || [],
         segments: data.segments || []
       };
+      
+      if (analysis) {
+        audioAnalysisCache.current.set(trackId, analysis);
+      }
+      return analysis;
     } catch (error) {
       console.error('Error getting audio analysis:', error);
       return null;
     }
   }, [spotifyApiCall]);
+
+  const getUserPlaylists = useCallback(async () => {
+    try {
+      const data = await spotifyApiCall('/me/playlists?limit=50');
+      setPlaylists(data.items || []);
+      return data.items || [];
+    } catch (error) {
+      console.error('Error getting playlists:', error);
+      return [];
+    }
+  }, [spotifyApiCall]);
+
+  const playPlaylist = useCallback(async (playlistId: string) => {
+    try {
+      await spotifyApiCall(`/me/player/play?device_id=${deviceId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          context_uri: `spotify:playlist:${playlistId}`
+        })
+      });
+    } catch (error) {
+      console.error('Error playing playlist:', error);
+    }
+  }, [spotifyApiCall, deviceId]);
 
   const playTrack = useCallback(async () => {
     if (playerRef.current) {
@@ -247,11 +297,14 @@ export const useSpotify = () => {
     deviceId,
     accessToken,
     currentTrack,
+    playlists,
     connectSpotify,
     disconnectSpotify,
     getCurrentTrack,
     getAudioFeatures,
     getAudioAnalysis,
+    getUserPlaylists,
+    playPlaylist,
     playTrack,
     pauseTrack,
     nextTrack,

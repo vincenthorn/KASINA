@@ -206,10 +206,30 @@ const MusicOrb = ({
   );
 };
 
-// Dynamic background component
-const MusicBackground = ({ audioFeatures, isPlaying }: { audioFeatures: any; isPlaying: boolean }) => {
+// Enhanced background component with section changes
+const MusicBackground = ({ 
+  audioFeatures, 
+  audioAnalysis, 
+  isPlaying, 
+  currentSection 
+}: { 
+  audioFeatures: any; 
+  audioAnalysis: any; 
+  isPlaying: boolean; 
+  currentSection: any; 
+}) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<any>(null);
+  const [sectionTransition, setSectionTransition] = useState(0);
+
+  // Handle section changes with smooth transitions
+  useEffect(() => {
+    if (currentSection) {
+      setSectionTransition(1);
+      const timeout = setTimeout(() => setSectionTransition(0), 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentSection]);
 
   useFrame((state) => {
     if (materialRef.current && audioFeatures) {
@@ -217,6 +237,13 @@ const MusicBackground = ({ audioFeatures, isPlaying }: { audioFeatures: any; isP
       materialRef.current.uniforms.energy.value = audioFeatures.energy || 0.5;
       materialRef.current.uniforms.valence.value = audioFeatures.valence || 0.5;
       materialRef.current.uniforms.isPlaying.value = isPlaying ? 1.0 : 0.0;
+      materialRef.current.uniforms.sectionTransition.value = sectionTransition;
+      
+      // Section-based color shifts
+      if (currentSection) {
+        materialRef.current.uniforms.sectionKey.value = (currentSection.key || 0) / 12.0;
+        materialRef.current.uniforms.sectionMode.value = currentSection.mode || 0.5;
+      }
     }
   });
 
@@ -229,7 +256,10 @@ const MusicBackground = ({ audioFeatures, isPlaying }: { audioFeatures: any; isP
           time: { value: 0 },
           energy: { value: 0.5 },
           valence: { value: 0.5 },
-          isPlaying: { value: 0.0 }
+          isPlaying: { value: 0.0 },
+          sectionTransition: { value: 0.0 },
+          sectionKey: { value: 0.0 },
+          sectionMode: { value: 0.5 }
         }}
         vertexShader={`
           varying vec2 vUv;
@@ -243,25 +273,48 @@ const MusicBackground = ({ audioFeatures, isPlaying }: { audioFeatures: any; isP
           uniform float energy;
           uniform float valence;
           uniform float isPlaying;
+          uniform float sectionTransition;
+          uniform float sectionKey;
+          uniform float sectionMode;
           varying vec2 vUv;
           
           void main() {
             vec2 uv = vUv - 0.5;
             
-            // Base color influenced by valence
-            vec3 lowValenceColor = vec3(0.1, 0.1, 0.3);  // Blue/violet
-            vec3 highValenceColor = vec3(0.4, 0.3, 0.1); // Peach/gold
-            vec3 baseColor = mix(lowValenceColor, highValenceColor, valence);
+            // Enhanced color mapping based on valence (PRD requirement)
+            vec3 lowValenceColor = vec3(0.05, 0.05, 0.25);  // Deep blue/violet for low mood
+            vec3 midValenceColor = vec3(0.15, 0.1, 0.2);    // Purple for neutral
+            vec3 highValenceColor = vec3(0.3, 0.2, 0.05);   // Warm peach/gold for high mood
             
-            // Energy influences saturation and brightness
-            float brightness = 0.3 + energy * 0.4;
-            vec3 finalColor = baseColor * brightness;
+            vec3 baseColor;
+            if (valence < 0.5) {
+              baseColor = mix(lowValenceColor, midValenceColor, valence * 2.0);
+            } else {
+              baseColor = mix(midValenceColor, highValenceColor, (valence - 0.5) * 2.0);
+            }
+            
+            // Section-based color variations
+            vec3 sectionColorShift = vec3(
+              sin(sectionKey * 6.28) * 0.1,
+              cos(sectionKey * 6.28) * 0.1,
+              sin(sectionKey * 3.14) * 0.1
+            );
+            baseColor += sectionColorShift * sectionMode;
+            
+            // Energy affects brightness and saturation (PRD requirement)
+            float brightness = 0.2 + energy * 0.5;
+            float saturation = 0.8 + energy * 0.2;
+            vec3 energizedColor = baseColor * brightness * saturation;
+            
+            // Section transition effect
+            float transitionEffect = sectionTransition * sin(length(uv) * 10.0 - time * 5.0) * 0.1;
+            energizedColor += transitionEffect;
             
             // Subtle movement when playing
-            float wave = sin(length(uv) * 3.0 - time * 0.5) * 0.1 * isPlaying;
-            finalColor += wave;
+            float wave = sin(length(uv) * 3.0 - time * 0.3) * 0.05 * isPlaying;
+            energizedColor += wave;
             
-            gl_FragColor = vec4(finalColor, 1.0);
+            gl_FragColor = vec4(energizedColor, 1.0);
           }
         `}
       />
@@ -287,8 +340,10 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
   const [beatTrigger, setBeatTrigger] = useState(0);
   const [breathAmplitude, setBreathAmplitude] = useState(0.5);
   const [orbScale, setOrbScale] = useState(1.0);
+  const [currentSection, setCurrentSection] = useState<any>(null);
   const lastBeatTimeRef = useRef(0);
   const currentPositionRef = useRef(0);
+  const lastSectionRef = useRef<any>(null);
 
   // Breath detection hooks
   const microphoneBreath = useMicrophoneBreath();
@@ -305,14 +360,16 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
     }
   }, [isBreathMode, vernierBreath.breathAmplitude, vernierBreath.isConnected, microphoneBreath.breathAmplitude, microphoneBreath.isListening]);
 
-  // Beat detection with graceful fallback
+  // Beat detection and section change monitoring
   useEffect(() => {
     if (!isPlaying) return;
 
     if (audioAnalysis && audioAnalysis.beats && audioAnalysis.beats.length > 0) {
-      // Real Spotify beat detection
+      // Real Spotify beat detection with section monitoring
       const detectBeats = () => {
         const currentTime = currentPositionRef.current;
+        
+        // Beat detection
         const currentBeat = audioAnalysis.beats.find((beat: any) => 
           Math.abs(beat.start - currentTime) < 0.1 && 
           beat.start > lastBeatTimeRef.current
@@ -321,6 +378,18 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
         if (currentBeat) {
           setBeatTrigger(prev => prev + 1);
           lastBeatTimeRef.current = currentBeat.start;
+        }
+        
+        // Section change detection
+        if (audioAnalysis.sections) {
+          const currentSectionData = audioAnalysis.sections.find((section: any) =>
+            currentTime >= section.start && currentTime < (section.start + section.duration)
+          );
+          
+          if (currentSectionData && currentSectionData !== lastSectionRef.current) {
+            setCurrentSection(currentSectionData);
+            lastSectionRef.current = currentSectionData;
+          }
         }
       };
 
@@ -362,7 +431,12 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
         <pointLight position={[10, 10, 10]} intensity={0.6} />
         
         {/* Dynamic background */}
-        <MusicBackground audioFeatures={audioFeatures} isPlaying={isPlaying} />
+        <MusicBackground 
+          audioFeatures={audioFeatures} 
+          audioAnalysis={audioAnalysis}
+          isPlaying={isPlaying} 
+          currentSection={currentSection}
+        />
         
         {/* Beat ripples */}
         <BeatRipple trigger={beatTrigger} audioFeatures={audioFeatures} />
