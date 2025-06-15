@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { extend } from '@react-three/fiber';
 import { useMicrophoneBreath } from '../lib/useMicrophoneBreath';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
-import { getKasinaColor } from '../lib/kasinaConfig';
+// Remove problematic import for now
 
 // Musical Kasina Orb Shader Material - Based on color kasina design
 const MusicalOrbMaterial = shaderMaterial(

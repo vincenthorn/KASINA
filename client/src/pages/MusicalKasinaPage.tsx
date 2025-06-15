@@ -8,7 +8,8 @@ import { Label } from '../components/ui/label';
 import { Play, Pause, SkipBack, SkipForward, Music } from 'lucide-react';
 import { useAuth } from '../lib/stores/useAuth';
 import MusicalKasinaOrb from '../components/MusicalKasinaOrb';
-import { useSpotify } from '../lib/hooks/useSpotify';
+// Temporarily comment out Spotify hook until credentials are configured
+// import { useSpotify } from '../lib/hooks/useSpotify';
 
 const MusicalKasinaPage: React.FC = () => {
   const navigate = useNavigate();
@@ -19,20 +20,16 @@ const MusicalKasinaPage: React.FC = () => {
   const [audioFeatures, setAudioFeatures] = useState<any>(null);
   const [audioAnalysis, setAudioAnalysis] = useState<any>(null);
   
-  const {
-    isConnected,
-    player,
-    deviceId,
-    connectSpotify,
-    disconnectSpotify,
-    getCurrentTrack,
-    getAudioFeatures,
-    getAudioAnalysis,
-    playTrack,
-    pauseTrack,
-    nextTrack,
-    previousTrack
-  } = useSpotify();
+  // Temporary demo state until Spotify is configured
+  const [demoMode, setDemoMode] = useState(true);
+  const [simulatedBeats, setSimulatedBeats] = useState(0);
+  
+  // Temporary demo functions
+  const connectSpotify = () => {
+    alert('Please configure Spotify credentials first. For now, using demo mode with simulated music data.');
+  };
+  
+  const isConnected = false;
 
   // Redirect non-admin users
   useEffect(() => {
