@@ -190,7 +190,7 @@ const HomePage: React.FC = () => {
     {
       icon: <Music className="h-10 w-10 text-purple-500" />,
       title: "Musical",
-      description: "Breathe with the music—or let the music alone color your awareness",
+      description: "Let the music color your awareness",
       path: "/musical",
       color: "from-purple-600 to-purple-800",
     },
