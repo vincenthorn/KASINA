@@ -30,10 +30,21 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Key Components
 
 ### Meditation System
-- Multiple kasina types: Earth, Water, Fire, Air, Space, Light, and color variations
+- **Visual Kasinas**: Earth, Water, Fire, Air, Space, Light, and custom color variations
+- **Musical Kasina**: Admin-only Spotify-integrated music-synchronized meditation
 - 3D rendering with custom shaders for immersive visual experiences
 - Session timer with configurable durations
 - Session persistence and analytics
+
+### Musical Kasina Features
+- Breath Mode toggle: orb expands/contracts with breath or remains steady
+- Real-time Spotify integration with Web Playbook SDK
+- Audio analysis with beat detection and section change monitoring
+- Music-driven background visuals responding to valence and energy
+- Enhanced color transitions based on musical sections
+- Audio analysis caching for rate limiting optimization
+- Playlist selection interface for seamless music control
+- Session management with automatic ending when music stops
 
 ### User Management
 - Email-based user identification

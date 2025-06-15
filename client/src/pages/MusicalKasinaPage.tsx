@@ -179,6 +179,28 @@ const MusicalKasinaPage: React.FC = () => {
                     </Button>
                   </div>
                 )}
+
+                {/* Playlist Selection (PRD requirement) */}
+                {isConnected && playlists.length > 0 && (
+                  <div className="flex items-center space-x-2">
+                    <List className="w-4 h-4 text-purple-400" />
+                    <Select value={selectedPlaylist} onValueChange={handlePlaylistSelect}>
+                      <SelectTrigger className="w-48 bg-gray-800/80 border-gray-600">
+                        <SelectValue placeholder="Select playlist..." />
+                      </SelectTrigger>
+                      <SelectContent className="bg-gray-900 border-gray-600">
+                        {playlists.map((playlist) => (
+                          <SelectItem key={playlist.id} value={playlist.id}>
+                            {playlist.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {loadingPlaylist && (
+                      <Loader2 className="w-4 h-4 animate-spin text-purple-400" />
+                    )}
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>
