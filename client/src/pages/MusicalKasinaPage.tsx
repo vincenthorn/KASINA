@@ -235,7 +235,7 @@ const MusicalKasinaPage: React.FC = () => {
           <div className="flex-[0.5] flex items-end justify-center pb-8">
             <div className="text-center text-gray-400">
               <p className="text-sm">
-                Admin-only feature • Requires active Spotify Premium subscription
+                Premium-only feature • Requires active Spotify Premium subscription
               </p>
             </div>
           </div>
