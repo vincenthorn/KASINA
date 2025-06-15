@@ -253,19 +253,24 @@ export const useSpotify = () => {
 
   const playPlaylist = useCallback(async (playlistId: string) => {
     try {
-      await spotifyApiCall(`/me/player/play?device_id=${deviceId}`, {
+      const response = await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
         method: 'PUT',
         headers: {
+          'Authorization': `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           context_uri: `spotify:playlist:${playlistId}`
         })
       });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
     } catch (error) {
       console.error('Error playing playlist:', error);
     }
-  }, [spotifyApiCall, deviceId]);
+  }, [accessToken, deviceId]);
 
   const playTrack = useCallback(async () => {
     if (playerRef.current) {

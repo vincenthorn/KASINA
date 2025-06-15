@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { Card, CardContent } from '../components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Switch } from '../components/ui/switch';
 import { Label } from '../components/ui/label';
-import { Play, Pause, SkipBack, SkipForward, Music } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { Play, Pause, SkipBack, SkipForward, Music, List, Loader2 } from 'lucide-react';
 import { useAuth } from '../lib/stores/useAuth';
 import MusicalKasinaOrb from '../components/MusicalKasinaOrb';
 import { useSpotify } from '../lib/hooks/useSpotify';
@@ -18,16 +19,21 @@ const MusicalKasinaPage: React.FC = () => {
   const [currentTrack, setCurrentTrack] = useState<any>(null);
   const [audioFeatures, setAudioFeatures] = useState<any>(null);
   const [audioAnalysis, setAudioAnalysis] = useState<any>(null);
+  const [selectedPlaylist, setSelectedPlaylist] = useState<string>('');
+  const [loadingPlaylist, setLoadingPlaylist] = useState(false);
   
   const {
     isConnected,
     player,
     deviceId,
+    playlists,
     connectSpotify,
     disconnectSpotify,
     getCurrentTrack,
     getAudioFeatures,
     getAudioAnalysis,
+    getUserPlaylists,
+    playPlaylist,
     playTrack,
     pauseTrack,
     nextTrack,
@@ -74,6 +80,30 @@ const MusicalKasinaPage: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [isConnected, player, getCurrentTrack, getAudioFeatures, getAudioAnalysis, audioFeatures]);
+
+  // Load playlists when connected (PRD requirement)
+  useEffect(() => {
+    if (isConnected) {
+      getUserPlaylists();
+    }
+  }, [isConnected, getUserPlaylists]);
+
+  // Handle playlist selection (PRD requirement)
+  const handlePlaylistSelect = async (playlistId: string) => {
+    if (!playlistId) return;
+    
+    setLoadingPlaylist(true);
+    setSelectedPlaylist(playlistId);
+    
+    try {
+      await playPlaylist(playlistId);
+      setIsPlaying(true);
+    } catch (error) {
+      console.error('Error playing playlist:', error);
+    } finally {
+      setLoadingPlaylist(false);
+    }
+  };
 
   const handlePlayPause = async () => {
     try {
