@@ -165,8 +165,8 @@ const MusicalKasinaPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 via-transparent to-blue-900/20" />
           <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-indigo-900/20" />
           
-          {/* Content container */}
-          <div className="relative z-10 min-h-screen flex flex-col">
+          {/* Content container with padding restored */}
+          <div className="relative z-10 min-h-screen flex flex-col p-6 md:p-8">
             {/* Header Section - Expanded */}
             <div className="flex-[2] flex flex-col items-center justify-center text-center px-8 pt-16">
             <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
