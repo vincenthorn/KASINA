@@ -286,6 +286,7 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
 }) => {
   const [beatTrigger, setBeatTrigger] = useState(0);
   const [breathAmplitude, setBreathAmplitude] = useState(0.5);
+  const [orbScale, setOrbScale] = useState(1.0);
   const lastBeatTimeRef = useRef(0);
   const currentPositionRef = useRef(0);
 
@@ -304,15 +305,14 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
     }
   }, [isBreathMode, vernierBreath.breathAmplitude, vernierBreath.isConnected, microphoneBreath.breathAmplitude, microphoneBreath.isListening]);
 
-  // Beat detection from Spotify audio analysis
+  // Beat detection - simulated for demo mode, real for Spotify
   useEffect(() => {
-    if (!audioAnalysis || !isPlaying) return;
+    if (!isPlaying) return;
 
-    const detectBeats = () => {
-      // Get current playback position (would need to be passed from Spotify player)
-      const currentTime = currentPositionRef.current;
-      
-      if (audioAnalysis.beats) {
+    if (audioAnalysis && audioAnalysis.beats) {
+      // Real Spotify beat detection
+      const detectBeats = () => {
+        const currentTime = currentPositionRef.current;
         const currentBeat = audioAnalysis.beats.find((beat: any) => 
           Math.abs(beat.start - currentTime) < 0.1 && 
           beat.start > lastBeatTimeRef.current
@@ -322,12 +322,34 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
           setBeatTrigger(prev => prev + 1);
           lastBeatTimeRef.current = currentBeat.start;
         }
-      }
+      };
+
+      const interval = setInterval(detectBeats, 50);
+      return () => clearInterval(interval);
+    } else {
+      // Demo mode: simulate beats based on tempo
+      const tempo = audioFeatures?.tempo || 120;
+      const beatInterval = (60 / tempo) * 1000; // Convert BPM to milliseconds
+      
+      const interval = setInterval(() => {
+        setBeatTrigger(prev => prev + 1);
+      }, beatInterval);
+      
+      return () => clearInterval(interval);
+    }
+  }, [audioAnalysis, audioFeatures, isPlaying]);
+
+  // Mouse wheel scaling
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const scaleFactor = e.deltaY > 0 ? 0.95 : 1.05;
+      setOrbScale(prev => Math.max(0.1, Math.min(5, prev * scaleFactor)));
     };
 
-    const interval = setInterval(detectBeats, 50); // Check every 50ms
-    return () => clearInterval(interval);
-  }, [audioAnalysis, isPlaying]);
+    document.addEventListener('wheel', handleWheel, { passive: false });
+    return () => document.removeEventListener('wheel', handleWheel);
+  }, []);
 
   return (
     <div className="w-full h-full">
@@ -346,12 +368,14 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
         <BeatRipple trigger={beatTrigger} audioFeatures={audioFeatures} />
         
         {/* Main orb */}
-        <MusicOrb 
-          isBreathMode={isBreathMode}
-          breathAmplitude={breathAmplitude}
-          audioFeatures={audioFeatures}
-          beatTrigger={beatTrigger}
-        />
+        <group scale={[orbScale, orbScale, orbScale]}>
+          <MusicOrb 
+            isBreathMode={isBreathMode}
+            breathAmplitude={breathAmplitude}
+            audioFeatures={audioFeatures}
+            beatTrigger={beatTrigger}
+          />
+        </group>
       </Canvas>
     </div>
   );

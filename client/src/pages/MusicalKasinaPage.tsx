@@ -39,65 +39,51 @@ const MusicalKasinaPage: React.FC = () => {
     }
   }, [isAdmin, navigate]);
 
-  // Track current playing state
+  // Demo mode simulation
   useEffect(() => {
-    if (!isConnected || !player) return;
+    if (demoMode) {
+      // Simulate demo audio features
+      setAudioFeatures({
+        energy: 0.7,
+        valence: 0.6,
+        tempo: 120,
+        key: 5,
+        mode: 1
+      });
+      
+      // Simulate demo track
+      setCurrentTrack({
+        name: "Demo Track - Musical Kasina",
+        artists: [{ name: "KASINA" }],
+        id: "demo"
+      });
+      
+      // Simulate beats for demo
+      const beatInterval = setInterval(() => {
+        setSimulatedBeats(prev => prev + 1);
+      }, 500); // Beat every 500ms
+      
+      return () => clearInterval(beatInterval);
+    }
+  }, [demoMode]);
 
-    const updateCurrentTrack = async () => {
-      try {
-        const track = await getCurrentTrack();
-        if (track) {
-          setCurrentTrack(track);
-          setIsPlaying(!track.paused);
-          
-          // Fetch audio features and analysis for new tracks
-          if (!audioFeatures || audioFeatures.id !== track.id) {
-            const features = await getAudioFeatures(track.id);
-            const analysis = await getAudioAnalysis(track.id);
-            setAudioFeatures(features);
-            setAudioAnalysis(analysis);
-          }
-        }
-      } catch (error) {
-        console.error('Error updating current track:', error);
-      }
-    };
-
-    // Update immediately
-    updateCurrentTrack();
-
-    // Set up interval to check for track changes
-    const interval = setInterval(updateCurrentTrack, 1000);
-
-    return () => clearInterval(interval);
-  }, [isConnected, player, getCurrentTrack, getAudioFeatures, getAudioAnalysis, audioFeatures]);
-
-  const handlePlayPause = async () => {
-    try {
-      if (isPlaying) {
-        await pauseTrack();
-      } else {
-        await playTrack();
-      }
+  const handlePlayPause = () => {
+    if (isConnected) {
+      // Will be implemented when Spotify is connected
+    } else {
       setIsPlaying(!isPlaying);
-    } catch (error) {
-      console.error('Error toggling playback:', error);
     }
   };
 
-  const handleNext = async () => {
-    try {
-      await nextTrack();
-    } catch (error) {
-      console.error('Error skipping to next track:', error);
+  const handleNext = () => {
+    if (isConnected) {
+      // Will be implemented when Spotify is connected
     }
   };
 
-  const handlePrevious = async () => {
-    try {
-      await previousTrack();
-    } catch (error) {
-      console.error('Error skipping to previous track:', error);
+  const handlePrevious = () => {
+    if (isConnected) {
+      // Will be implemented when Spotify is connected
     }
   };
 
@@ -140,7 +126,7 @@ const MusicalKasinaPage: React.FC = () => {
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={disconnectSpotify}
+                      onClick={() => {}}
                     >
                       Disconnect
                     </Button>

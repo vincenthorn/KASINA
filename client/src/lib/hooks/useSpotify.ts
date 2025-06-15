@@ -71,7 +71,7 @@ export const useSpotify = () => {
         throw new Error('Spotify Client ID not configured');
       }
 
-      const redirectUri = `${window.location.origin}/spotify-callback`;
+      const redirectUri = `${window.location.origin}/musical`;
       const scopes = [
         'streaming',
         'user-read-email',
