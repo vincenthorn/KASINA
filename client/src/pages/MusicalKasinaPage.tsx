@@ -166,7 +166,6 @@ const MusicalKasinaPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-indigo-900/20" />
         </div>
         <div className="relative z-10 min-h-screen text-white">
-          {/* Content container with padding restored */}
           <div className="min-h-screen flex flex-col p-6 md:p-8">
             {/* Header Section - Expanded */}
             <div className="flex-[2] flex flex-col items-center justify-center text-center px-8 pt-16">
@@ -239,7 +238,6 @@ const MusicalKasinaPage: React.FC = () => {
                 Admin-only feature • Requires active Spotify Premium subscription
               </p>
             </div>
-          </div>
           </div>
         </div>
       </Layout>
@@ -325,6 +323,7 @@ const MusicalKasinaPage: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </Layout>
     );
