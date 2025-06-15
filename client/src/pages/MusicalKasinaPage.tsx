@@ -182,7 +182,7 @@ const MusicalKasinaPage: React.FC = () => {
           {/* Connection Section - Much Smaller */}
           <div className="flex-1 flex items-start justify-center px-8 pt-8">
             <div className="w-full max-w-2xl">
-                <Card className="bg-gray-900/95 border-gray-600/50 backdrop-blur-lg shadow-xl mx-auto">
+              <Card className="bg-gray-900/95 border-gray-600/50 backdrop-blur-lg shadow-xl mx-auto">
                   <CardHeader className="text-center pb-4">
                     <CardTitle className="text-xl text-white flex items-center justify-center space-x-2">
                       <Music className="w-6 h-6 text-purple-400" />
