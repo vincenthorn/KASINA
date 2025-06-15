@@ -158,28 +158,30 @@ const MusicalKasinaPage: React.FC = () => {
   // Show Spotify connection landing page
   if (!isConnected) {
     return (
-      <Layout>
-        <div className="min-h-screen w-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+      <Layout fullWidth={true}>
+        {/* Break out of container with fixed positioning */}
+        <div className="fixed inset-0 z-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
           {/* Multiple gradient layers for full coverage */}
           <div className="absolute inset-0 bg-gradient-to-br from-purple-800/50 via-blue-800/50 to-indigo-800/50" />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 via-transparent to-blue-900/20" />
           <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-indigo-900/20" />
-          
-          {/* Full screen content */}
-          <div className="relative z-10 min-h-screen flex flex-col">
-            {/* Header Section - Expanded */}
-            <div className="flex-[2] flex flex-col items-center justify-center text-center px-8 pt-16">
-              <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Musical Kasina
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 max-w-4xl leading-relaxed">
-                Synchronize your meditation with music through real-time audio analysis and immersive visual feedback
-              </p>
-            </div>
+        </div>
+        
+        {/* Content container */}
+        <div className="relative z-10 min-h-screen flex flex-col text-white">
+          {/* Header Section - Expanded */}
+          <div className="flex-[2] flex flex-col items-center justify-center text-center px-8 pt-16">
+            <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Musical Kasina
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 max-w-4xl leading-relaxed">
+              Synchronize your meditation with music through real-time audio analysis and immersive visual feedback
+            </p>
+          </div>
 
-            {/* Connection Section - Much Smaller */}
-            <div className="flex-1 flex items-start justify-center px-8 pt-8">
-              <div className="w-full max-w-2xl">
+          {/* Connection Section - Much Smaller */}
+          <div className="flex-1 flex items-start justify-center px-8 pt-8">
+            <div className="w-full max-w-2xl">
                 <Card className="bg-gray-900/95 border-gray-600/50 backdrop-blur-lg shadow-xl mx-auto">
                   <CardHeader className="text-center pb-4">
                     <CardTitle className="text-xl text-white flex items-center justify-center space-x-2">
@@ -231,13 +233,12 @@ const MusicalKasinaPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Footer Section - Compact */}
-            <div className="flex-[0.5] flex items-end justify-center pb-8">
-              <div className="text-center text-gray-400">
-                <p className="text-sm">
-                  Admin-only feature • Requires active Spotify Premium subscription
-                </p>
-              </div>
+          {/* Footer Section - Compact */}
+          <div className="flex-[0.5] flex items-end justify-center pb-8">
+            <div className="text-center text-gray-400">
+              <p className="text-sm">
+                Admin-only feature • Requires active Spotify Premium subscription
+              </p>
             </div>
           </div>
         </div>
