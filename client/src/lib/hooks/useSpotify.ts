@@ -76,7 +76,14 @@ export const useSpotify = () => {
         throw new Error('Spotify Client ID not configured');
       }
 
-      const redirectUri = `${window.location.origin}/musical-kasina`;
+      // Try exact redirect URI match with your Spotify app configuration
+      const redirectUri = 'https://workspace.vjhorn.repl.co/musical-kasina';
+      console.log('🎵 Spotify Auth Debug:', {
+        origin: window.location.origin,
+        redirectUri,
+        clientId
+      });
+      
       const scopes = [
         'streaming',
         'user-read-email',
@@ -94,6 +101,7 @@ export const useSpotify = () => {
         `redirect_uri=${encodeURIComponent(redirectUri)}&` +
         `scope=${encodeURIComponent(scopes)}`;
 
+      console.log('🎵 Complete Spotify Auth URL:', authUrl);
       window.location.href = authUrl;
     } catch (error) {
       console.error('Error connecting to Spotify:', error);
