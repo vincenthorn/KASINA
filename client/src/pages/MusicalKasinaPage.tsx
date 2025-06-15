@@ -14,6 +14,8 @@ import { useSpotify } from '../lib/hooks/useSpotify';
 const MusicalKasinaPage: React.FC = () => {
   const navigate = useNavigate();
   const { isAdmin } = useAuth();
+  const [showModeSelection, setShowModeSelection] = useState(false);
+  const [showMeditation, setShowMeditation] = useState(false);
   const [isBreathMode, setIsBreathMode] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<any>(null);
@@ -81,12 +83,13 @@ const MusicalKasinaPage: React.FC = () => {
     return () => clearInterval(interval);
   }, [isConnected, player, getCurrentTrack, getAudioFeatures, getAudioAnalysis, audioFeatures]);
 
-  // Load playlists when connected (PRD requirement)
+  // Show mode selection when connected (PRD requirement)
   useEffect(() => {
-    if (isConnected) {
+    if (isConnected && !showModeSelection && !showMeditation) {
+      setShowModeSelection(true);
       getUserPlaylists();
     }
-  }, [isConnected, getUserPlaylists]);
+  }, [isConnected, showModeSelection, showMeditation, getUserPlaylists]);
 
   // Handle playlist selection (PRD requirement)
   const handlePlaylistSelect = async (playlistId: string) => {
@@ -134,13 +137,161 @@ const MusicalKasinaPage: React.FC = () => {
     }
   };
 
+  const handleConnectSpotify = async () => {
+    try {
+      await connectSpotify();
+    } catch (error) {
+      console.error('Error connecting to Spotify:', error);
+    }
+  };
+
+  const handleModeSelect = (mode: 'visual' | 'breath') => {
+    setIsBreathMode(mode === 'breath');
+    setShowModeSelection(false);
+    setShowMeditation(true);
+  };
+
   if (!isAdmin) {
     return null; // Component will redirect, but prevent flash
   }
 
-  return (
-    <Layout>
-      <div className="min-h-screen bg-black text-white relative overflow-hidden">
+  // Show Spotify connection landing page
+  if (!isConnected) {
+    return (
+      <Layout>
+        <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/20" />
+          
+          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
+            <div className="max-w-md mx-auto text-center">
+              {/* Header */}
+              <div className="mb-8">
+                <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Musical Kasina
+                </h1>
+                <p className="text-lg text-gray-300 mb-6">
+                  Synchronize your meditation with music through real-time audio analysis and visual feedback.
+                </p>
+              </div>
+
+              {/* Connection Card */}
+              <Card className="bg-gray-900/80 border-gray-700 backdrop-blur-sm">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center justify-center space-x-2">
+                    <Music className="w-6 h-6 text-purple-400" />
+                    <span>Spotify Premium Required</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-gray-300 text-sm">
+                    Connect your Spotify Premium account to access music-synchronized meditation with:
+                  </p>
+                  
+                  <ul className="text-gray-300 text-sm space-y-2 text-left">
+                    <li>• Real-time audio analysis</li>
+                    <li>• Beat-synchronized visuals</li>
+                    <li>• Playlist selection</li>
+                    <li>• Breath mode integration</li>
+                  </ul>
+
+                  <Button 
+                    onClick={handleConnectSpotify}
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3"
+                    size="lg"
+                  >
+                    <Music className="w-5 h-5 mr-2" />
+                    Connect Spotify Premium
+                  </Button>
+                  
+                  <p className="text-xs text-gray-400">
+                    This feature requires Spotify Premium for playback control.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  // Show mode selection after connection
+  if (showModeSelection) {
+    return (
+      <Layout>
+        <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/20" />
+          
+          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
+            <div className="max-w-2xl mx-auto text-center">
+              {/* Header */}
+              <div className="mb-8">
+                <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Choose Your Mode
+                </h1>
+                <p className="text-lg text-gray-300 mb-6">
+                  Select how you'd like to experience music-synchronized meditation.
+                </p>
+              </div>
+
+              {/* Mode Selection Cards */}
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <Card 
+                  className="bg-gray-900/80 border-gray-700 backdrop-blur-sm cursor-pointer hover:border-purple-500 transition-colors"
+                  onClick={() => handleModeSelect('visual')}
+                >
+                  <CardContent className="p-6 text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                      <Music className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-white">Visual Mode</h3>
+                    <p className="text-gray-300 text-sm mb-4">
+                      Music-synchronized visual meditation with color changes responding to audio analysis.
+                    </p>
+                    <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                      Start Visual Mode
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card 
+                  className="bg-gray-900/80 border-gray-700 backdrop-blur-sm cursor-pointer hover:border-blue-500 transition-colors"
+                  onClick={() => handleModeSelect('breath')}
+                >
+                  <CardContent className="p-6 text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+                      <div className="w-6 h-6 border-2 border-white rounded-full animate-pulse" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-white">Breath Mode</h3>
+                    <p className="text-gray-300 text-sm mb-4">
+                      Combine breath meditation with music - orb expands and contracts with your breathing.
+                    </p>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                      Start Breath Mode
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <Button 
+                onClick={() => setShowModeSelection(false)}
+                variant="outline"
+                className="border-gray-600 text-gray-300 hover:bg-gray-800"
+              >
+                Back to Connection
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  // Show meditation interface
+  if (showMeditation) {
+    return (
+      <Layout>
+        <div className="min-h-screen bg-black text-white relative overflow-hidden">
         {/* Header Controls */}
         <div className="absolute top-6 left-6 z-50">
           <Card className="bg-gray-900/80 border-gray-700 backdrop-blur-sm">
@@ -272,9 +423,13 @@ const MusicalKasinaPage: React.FC = () => {
             "Breathe with the music—or let the music alone color your awareness."
           </div>
         </div>
-      </div>
-    </Layout>
-  );
+        </div>
+      </Layout>
+    );
+  }
+
+  // Fallback return (should not reach here)
+  return null;
 };
 
 export default MusicalKasinaPage;
