@@ -3,9 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Sphere, shaderMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { extend } from '@react-three/fiber';
-import { useMicrophoneBreath } from '../lib/useMicrophoneBreath';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
-// Remove problematic import for now
 
 // Musical Kasina Orb Shader Material - Based on color kasina design
 const MusicalOrbMaterial = shaderMaterial(
@@ -345,20 +343,17 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
   const currentPositionRef = useRef(0);
   const lastSectionRef = useRef<any>(null);
 
-  // Breath detection hooks
-  const microphoneBreath = useMicrophoneBreath();
+  // Breath detection hooks (Vernier only for Musical Kasina)
   const vernierBreath = useVernierBreathOfficial();
 
-  // Use appropriate breath data
+  // Use Vernier breath data only (no microphone for Musical Kasina)
   useEffect(() => {
-    if (isBreathMode) {
-      if (vernierBreath.isConnected) {
-        setBreathAmplitude(vernierBreath.breathAmplitude);
-      } else if (microphoneBreath.isListening) {
-        setBreathAmplitude(microphoneBreath.breathAmplitude);
-      }
+    if (isBreathMode && vernierBreath.isConnected) {
+      setBreathAmplitude(vernierBreath.breathAmplitude);
+    } else if (!isBreathMode) {
+      setBreathAmplitude(0.5); // Static amplitude for Visual Mode
     }
-  }, [isBreathMode, vernierBreath.breathAmplitude, vernierBreath.isConnected, microphoneBreath.breathAmplitude, microphoneBreath.isListening]);
+  }, [isBreathMode, vernierBreath.breathAmplitude, vernierBreath.isConnected]);
 
   // Beat detection and section change monitoring
   useEffect(() => {
