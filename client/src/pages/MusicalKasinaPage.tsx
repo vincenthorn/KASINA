@@ -159,14 +159,14 @@ const MusicalKasinaPage: React.FC = () => {
   if (!isConnected) {
     return (
       <Layout>
-        <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden -m-6 md:-m-8">
+        <div className="fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
           {/* Multiple gradient layers for full coverage */}
           <div className="absolute inset-0 bg-gradient-to-br from-purple-800/50 via-blue-800/50 to-indigo-800/50" />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 via-transparent to-blue-900/20" />
           <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-indigo-900/20" />
           
           {/* Content container with padding restored */}
-          <div className="relative z-10 min-h-screen flex flex-col p-6 md:p-8">
+          <div className="relative z-10 min-h-screen flex flex-col p-6 md:p-8 ml-48">
             {/* Header Section - Expanded */}
             <div className="flex-[2] flex flex-col items-center justify-center text-center px-8 pt-16">
             <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
