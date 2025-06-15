@@ -159,9 +159,10 @@ const MusicalKasinaPage: React.FC = () => {
   if (!isConnected) {
     return (
       <Layout>
-        <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
-          {/* Extended gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-800/30 via-blue-800/30 to-indigo-800/30" />
+        <div className="fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
+          {/* Extended gradient overlay covering everything */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-700/40 via-blue-700/40 to-indigo-700/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent" />
           
           {/* Full screen content */}
           <div className="relative z-10 min-h-screen flex flex-col">
@@ -178,53 +179,53 @@ const MusicalKasinaPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Connection Section - Compact */}
-            <div className="flex-1 flex items-center justify-center px-8">
-              <div className="w-full max-w-4xl">
-                <Card className="bg-gray-900/95 border-gray-600/50 backdrop-blur-lg shadow-2xl mx-auto">
-                  <CardHeader className="text-center pb-6">
-                    <CardTitle className="text-2xl text-white flex items-center justify-center space-x-3">
-                      <Music className="w-8 h-8 text-purple-400" />
+            {/* Connection Section - Much Smaller */}
+            <div className="flex-1 flex items-start justify-center px-8 pt-8">
+              <div className="w-full max-w-2xl">
+                <Card className="bg-gray-900/95 border-gray-600/50 backdrop-blur-lg shadow-xl mx-auto">
+                  <CardHeader className="text-center pb-4">
+                    <CardTitle className="text-xl text-white flex items-center justify-center space-x-2">
+                      <Music className="w-6 h-6 text-purple-400" />
                       <span>Spotify Premium Required</span>
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-6 px-8 pb-8">
-                    <p className="text-lg text-gray-300 text-center max-w-3xl mx-auto">
+                  <CardContent className="space-y-4 px-6 pb-6">
+                    <p className="text-base text-gray-300 text-center">
                       Connect your Spotify Premium account to unlock music-synchronized meditation with advanced audio analysis
                     </p>
                     
-                    {/* Features Grid - Compact */}
-                    <div className="grid grid-cols-4 gap-4 my-6">
-                      <div className="flex flex-col items-center text-center space-y-2">
-                        <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-                        <span className="text-gray-300 text-sm">Real-time audio analysis</span>
+                    {/* Features Grid - Horizontal */}
+                    <div className="flex justify-center space-x-6 my-4">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        <span className="text-gray-300 text-xs">Real-time audio analysis</span>
                       </div>
-                      <div className="flex flex-col items-center text-center space-y-2">
-                        <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                        <span className="text-gray-300 text-sm">Beat-synchronized visuals</span>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                        <span className="text-gray-300 text-xs">Beat-synchronized visuals</span>
                       </div>
-                      <div className="flex flex-col items-center text-center space-y-2">
-                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                        <span className="text-gray-300 text-sm">Playlist selection</span>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <span className="text-gray-300 text-xs">Playlist selection</span>
                       </div>
-                      <div className="flex flex-col items-center text-center space-y-2">
-                        <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
-                        <span className="text-gray-300 text-sm">Breath mode integration</span>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                        <span className="text-gray-300 text-xs">Breath mode integration</span>
                       </div>
                     </div>
 
-                    <div className="max-w-sm mx-auto">
+                    <div className="max-w-xs mx-auto">
                       <Button 
                         onClick={handleConnectSpotify}
-                        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 text-lg"
-                        size="lg"
+                        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 text-base"
+                        size="default"
                       >
-                        <Music className="w-6 h-6 mr-3" />
+                        <Music className="w-5 h-5 mr-2" />
                         Connect Spotify Premium
                       </Button>
                     </div>
                     
-                    <p className="text-sm text-gray-400 text-center">
+                    <p className="text-xs text-gray-400 text-center">
                       Spotify Premium is required for playback control and audio analysis features
                     </p>
                   </CardContent>
