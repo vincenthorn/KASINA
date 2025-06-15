@@ -8,8 +8,7 @@ import { Label } from '../components/ui/label';
 import { Play, Pause, SkipBack, SkipForward, Music } from 'lucide-react';
 import { useAuth } from '../lib/stores/useAuth';
 import MusicalKasinaOrb from '../components/MusicalKasinaOrb';
-// Temporarily comment out Spotify hook until credentials are configured
-// import { useSpotify } from '../lib/hooks/useSpotify';
+import { useSpotify } from '../lib/hooks/useSpotify';
 
 const MusicalKasinaPage: React.FC = () => {
   const navigate = useNavigate();
@@ -20,16 +19,20 @@ const MusicalKasinaPage: React.FC = () => {
   const [audioFeatures, setAudioFeatures] = useState<any>(null);
   const [audioAnalysis, setAudioAnalysis] = useState<any>(null);
   
-  // Temporary demo state until Spotify is configured
-  const [demoMode, setDemoMode] = useState(true);
-  const [simulatedBeats, setSimulatedBeats] = useState(0);
-  
-  // Temporary demo functions
-  const connectSpotify = () => {
-    alert('Please configure Spotify credentials first. For now, using demo mode with simulated music data.');
-  };
-  
-  const isConnected = false;
+  const {
+    isConnected,
+    player,
+    deviceId,
+    connectSpotify,
+    disconnectSpotify,
+    getCurrentTrack,
+    getAudioFeatures,
+    getAudioAnalysis,
+    playTrack,
+    pauseTrack,
+    nextTrack,
+    previousTrack
+  } = useSpotify();
 
   // Redirect non-admin users
   useEffect(() => {
@@ -39,51 +42,65 @@ const MusicalKasinaPage: React.FC = () => {
     }
   }, [isAdmin, navigate]);
 
-  // Demo mode simulation
+  // Track current playing state
   useEffect(() => {
-    if (demoMode) {
-      // Simulate demo audio features
-      setAudioFeatures({
-        energy: 0.7,
-        valence: 0.6,
-        tempo: 120,
-        key: 5,
-        mode: 1
-      });
-      
-      // Simulate demo track
-      setCurrentTrack({
-        name: "Demo Track - Musical Kasina",
-        artists: [{ name: "KASINA" }],
-        id: "demo"
-      });
-      
-      // Simulate beats for demo
-      const beatInterval = setInterval(() => {
-        setSimulatedBeats(prev => prev + 1);
-      }, 500); // Beat every 500ms
-      
-      return () => clearInterval(beatInterval);
-    }
-  }, [demoMode]);
+    if (!isConnected || !player) return;
 
-  const handlePlayPause = () => {
-    if (isConnected) {
-      // Will be implemented when Spotify is connected
-    } else {
+    const updateCurrentTrack = async () => {
+      try {
+        const track = await getCurrentTrack();
+        if (track) {
+          setCurrentTrack(track);
+          setIsPlaying(!track.paused);
+          
+          // Fetch audio features and analysis for new tracks
+          if (!audioFeatures || audioFeatures.id !== track.id) {
+            const features = await getAudioFeatures(track.id);
+            const analysis = await getAudioAnalysis(track.id);
+            setAudioFeatures(features);
+            setAudioAnalysis(analysis);
+          }
+        }
+      } catch (error) {
+        console.error('Error updating current track:', error);
+      }
+    };
+
+    // Update immediately
+    updateCurrentTrack();
+
+    // Set up interval to check for track changes
+    const interval = setInterval(updateCurrentTrack, 1000);
+
+    return () => clearInterval(interval);
+  }, [isConnected, player, getCurrentTrack, getAudioFeatures, getAudioAnalysis, audioFeatures]);
+
+  const handlePlayPause = async () => {
+    try {
+      if (isPlaying) {
+        await pauseTrack();
+      } else {
+        await playTrack();
+      }
       setIsPlaying(!isPlaying);
+    } catch (error) {
+      console.error('Error toggling playback:', error);
     }
   };
 
-  const handleNext = () => {
-    if (isConnected) {
-      // Will be implemented when Spotify is connected
+  const handleNext = async () => {
+    try {
+      await nextTrack();
+    } catch (error) {
+      console.error('Error skipping to next track:', error);
     }
   };
 
-  const handlePrevious = () => {
-    if (isConnected) {
-      // Will be implemented when Spotify is connected
+  const handlePrevious = async () => {
+    try {
+      await previousTrack();
+    } catch (error) {
+      console.error('Error skipping to previous track:', error);
     }
   };
 
@@ -126,7 +143,7 @@ const MusicalKasinaPage: React.FC = () => {
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={() => {}}
+                      onClick={disconnectSpotify}
                     >
                       Disconnect
                     </Button>

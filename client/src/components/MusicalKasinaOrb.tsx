@@ -305,11 +305,11 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
     }
   }, [isBreathMode, vernierBreath.breathAmplitude, vernierBreath.isConnected, microphoneBreath.breathAmplitude, microphoneBreath.isListening]);
 
-  // Beat detection - simulated for demo mode, real for Spotify
+  // Beat detection with graceful fallback
   useEffect(() => {
     if (!isPlaying) return;
 
-    if (audioAnalysis && audioAnalysis.beats) {
+    if (audioAnalysis && audioAnalysis.beats && audioAnalysis.beats.length > 0) {
       // Real Spotify beat detection
       const detectBeats = () => {
         const currentTime = currentPositionRef.current;
@@ -326,8 +326,8 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
 
       const interval = setInterval(detectBeats, 50);
       return () => clearInterval(interval);
-    } else {
-      // Demo mode: simulate beats based on tempo
+    } else if (audioFeatures || currentTrack) {
+      // Fallback: simulate beats based on tempo for tracks without analysis
       const tempo = audioFeatures?.tempo || 120;
       const beatInterval = (60 / tempo) * 1000; // Convert BPM to milliseconds
       
@@ -337,7 +337,7 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
       
       return () => clearInterval(interval);
     }
-  }, [audioAnalysis, audioFeatures, isPlaying]);
+  }, [audioAnalysis, audioFeatures, currentTrack, isPlaying]);
 
   // Mouse wheel scaling
   useEffect(() => {
