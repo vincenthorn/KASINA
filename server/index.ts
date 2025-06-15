@@ -46,7 +46,8 @@ app.use((req, res, next) => {
   // Content Security Policy - allow Three.js, WebGL, and Spotify SDK
   res.setHeader('Content-Security-Policy', 
     "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.scdn.co; " +
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.scdn.co https://unpkg.com https://*.unpkg.com; " +
+    "script-src-elem 'self' 'unsafe-inline' https://sdk.scdn.co https://unpkg.com https://*.unpkg.com; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
     "font-src 'self' https://fonts.gstatic.com; " +
     "img-src 'self' data: blob: https://*.scdn.co; " +
