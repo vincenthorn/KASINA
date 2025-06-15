@@ -76,10 +76,7 @@ export const useSpotify = () => {
         throw new Error('Spotify Client ID not configured');
       }
 
-      // Use production redirect URI for Spotify OAuth
-      const redirectUri = window.location.hostname.includes('repl.co') 
-        ? `${window.location.origin}/musical-kasina`
-        : 'https://kasina.app/musical-kasina';
+      const redirectUri = `${window.location.origin}/musical-kasina`;
       const scopes = [
         'streaming',
         'user-read-email',
