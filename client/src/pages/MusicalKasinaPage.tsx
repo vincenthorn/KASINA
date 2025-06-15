@@ -88,102 +88,82 @@ const MusicalKasinaPage: React.FC = () => {
     );
   }
 
-  // Show meditation interface
+  // Show meditation interface - full screen experience
   if (showMeditation) {
     return (
-      <Layout>
-        <div className="space-y-6">
-          <div className="flex justify-between items-center">
-            <h1 className="text-4xl font-bold text-white">
-              {isBreathMode ? 'Breath Mode' : 'Visual Mode'}
-            </h1>
-            <Button
-              onClick={() => {
-                setShowMeditation(false);
-                setShowModeSelection(true);
-              }}
-              variant="outline"
-              className="border-slate-600 text-slate-300 hover:bg-slate-800"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Mode Selection
-            </Button>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-6">
-            <Card className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 border border-slate-600">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-4">Music Control</h3>
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-sm text-gray-400">Status</p>
-                    <p className="text-white font-medium">Ready for Spotify Premium connection</p>
-                    <p className="text-gray-300 text-sm">Connect Spotify to begin</p>
-                  </div>
-                  <div className="text-center pt-4">
-                    <button className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
-                      <Music className="w-4 h-4 inline mr-2" />
-                      Connect Spotify
-                    </button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 border border-slate-600 lg:col-span-2">
-              <CardContent className="p-8">
-                <div className="relative h-96 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-purple-500/30">
-                      <Music className="w-16 h-16 text-purple-400" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Musical Kasina</h3>
-                    <p className="text-gray-300 mb-4">
-                      {isBreathMode ? 'Breath-synchronized' : 'Visual'} meditation orb
-                    </p>
-                    <p className="text-sm text-gray-400">
-                      Connect Spotify Premium to begin your musical meditation session
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 border border-slate-600 lg:col-span-3">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-4">Session Information</h3>
-                <div className="grid md:grid-cols-3 gap-4 text-center">
-                  <div>
-                    <p className="text-2xl font-bold text-white">{isBreathMode ? 'Breath + Music' : 'Visual + Music'}</p>
-                    <p className="text-gray-400">Mode</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-white">Ready</p>
-                    <p className="text-gray-400">Status</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-white">Musical</p>
-                    <p className="text-gray-400">Kasina Type</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 flex flex-col">
+        {/* Header Controls */}
+        <div className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center">
+          <Button
+            onClick={() => {
+              setShowMeditation(false);
+              setShowModeSelection(true);
+            }}
+            variant="outline"
+            className="border-slate-600 bg-slate-800/80 backdrop-blur-sm text-slate-300 hover:bg-slate-700/80"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back
+          </Button>
+          
           <div className="text-center">
-            <Button
-              onClick={() => {
-                setShowMeditation(false);
-                setShowModeSelection(false);
-              }}
-              variant="destructive"
-              className="bg-red-600 hover:bg-red-700"
-            >
-              End Session
-            </Button>
+            <h1 className="text-2xl font-bold text-white">
+              Musical Kasina - {isBreathMode ? 'Breath Mode' : 'Visual Mode'}
+            </h1>
+          </div>
+
+          <Button
+            onClick={() => {
+              setShowMeditation(false);
+              setShowModeSelection(false);
+            }}
+            variant="destructive"
+            className="bg-red-600/80 backdrop-blur-sm hover:bg-red-700/80"
+          >
+            End Session
+          </Button>
+        </div>
+
+        {/* Main Meditation Area */}
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-64 h-64 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-8 border border-purple-500/30 shadow-lg shadow-purple-500/20">
+              <Music className="w-32 h-32 text-purple-400 animate-pulse" />
+            </div>
+            <h2 className="text-4xl font-bold text-white mb-4">Musical Kasina</h2>
+            <p className="text-xl text-gray-300 mb-6">
+              {isBreathMode ? 'Breath-synchronized meditation with music' : 'Visual meditation synchronized with music'}
+            </p>
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-600 rounded-lg p-6 max-w-md mx-auto">
+              <p className="text-gray-300 mb-4">Connect Spotify Premium to begin</p>
+              <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                <Music className="w-5 h-5 inline mr-2" />
+                Connect Spotify Premium
+              </button>
+            </div>
           </div>
         </div>
-      </Layout>
+
+        {/* Bottom Status Bar */}
+        <div className="absolute bottom-4 left-4 right-4 z-10">
+          <div className="bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-lg p-4">
+            <div className="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <p className="text-sm text-gray-400">Mode</p>
+                <p className="text-white font-medium">{isBreathMode ? 'Breath + Music' : 'Visual + Music'}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">Status</p>
+                <p className="text-white font-medium">Ready</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">Type</p>
+                <p className="text-white font-medium">Musical Kasina</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 

@@ -111,6 +111,7 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Changelog
 
 Changelog:
+- June 15, 2025: Implemented full-screen meditation interface for Musical Kasina Visual and Breath modes with immersive UI
 - June 15, 2025: Enhanced Musical Kasina with full-screen immersive landing page and mode selection interface
 - June 15, 2025: Restructured Musical Kasina UX flow to match Breath Kasina pattern (landing → connection → mode selection → meditation)
 - June 15, 2025: Initial setup
