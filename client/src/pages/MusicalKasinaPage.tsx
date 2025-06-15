@@ -165,60 +165,65 @@ const MusicalKasinaPage: React.FC = () => {
           {/* Full screen content */}
           <div className="relative z-10 min-h-screen flex flex-col">
             {/* Header Section - Top 1/3 */}
-            <div className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-20">
-              <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-8 pt-20">
+              <h1 className="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Musical Kasina
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-400 italic mb-6">
+                "Let music guide your awareness into deeper states of meditation"
+              </p>
+              <p className="text-xl md:text-2xl text-gray-300 max-w-4xl leading-relaxed">
                 Synchronize your meditation with music through real-time audio analysis and immersive visual feedback
               </p>
             </div>
 
             {/* Connection Section - Middle 1/3 */}
-            <div className="flex-1 flex items-center justify-center px-6">
-              <div className="w-full max-w-2xl">
-                <Card className="bg-gray-900/90 border-gray-600 backdrop-blur-md shadow-2xl">
-                  <CardHeader className="text-center pb-6">
-                    <CardTitle className="text-2xl text-white flex items-center justify-center space-x-3">
-                      <Music className="w-8 h-8 text-purple-400" />
+            <div className="flex-1 flex items-center justify-center px-4">
+              <div className="w-full max-w-7xl">
+                <Card className="bg-gray-900/90 border-gray-600 backdrop-blur-md shadow-2xl mx-auto">
+                  <CardHeader className="text-center pb-8">
+                    <CardTitle className="text-3xl text-white flex items-center justify-center space-x-4">
+                      <Music className="w-10 h-10 text-purple-400" />
                       <span>Spotify Premium Required</span>
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-6 px-8 pb-8">
-                    <p className="text-lg text-gray-300 text-center">
-                      Connect your Spotify Premium account to unlock music-synchronized meditation
+                  <CardContent className="space-y-8 px-12 pb-10">
+                    <p className="text-xl text-gray-300 text-center max-w-4xl mx-auto">
+                      Connect your Spotify Premium account to unlock music-synchronized meditation with advanced audio analysis
                     </p>
                     
                     {/* Features Grid */}
-                    <div className="grid md:grid-cols-2 gap-4 my-6">
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                        <span>Real-time audio analysis</span>
+                    <div className="grid md:grid-cols-4 gap-6 my-8">
+                      <div className="flex flex-col items-center text-center space-y-3">
+                        <div className="w-4 h-4 bg-purple-400 rounded-full"></div>
+                        <span className="text-gray-300 text-lg">Real-time audio analysis</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                        <span>Beat-synchronized visuals</span>
+                      <div className="flex flex-col items-center text-center space-y-3">
+                        <div className="w-4 h-4 bg-blue-400 rounded-full"></div>
+                        <span className="text-gray-300 text-lg">Beat-synchronized visuals</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                        <span>Playlist selection</span>
+                      <div className="flex flex-col items-center text-center space-y-3">
+                        <div className="w-4 h-4 bg-green-400 rounded-full"></div>
+                        <span className="text-gray-300 text-lg">Playlist selection</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                        <span>Breath mode integration</span>
+                      <div className="flex flex-col items-center text-center space-y-3">
+                        <div className="w-4 h-4 bg-pink-400 rounded-full"></div>
+                        <span className="text-gray-300 text-lg">Breath mode integration</span>
                       </div>
                     </div>
 
-                    <Button 
-                      onClick={handleConnectSpotify}
-                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 text-lg"
-                      size="lg"
-                    >
-                      <Music className="w-6 h-6 mr-3" />
-                      Connect Spotify Premium
-                    </Button>
+                    <div className="max-w-md mx-auto">
+                      <Button 
+                        onClick={handleConnectSpotify}
+                        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-5 text-xl"
+                        size="lg"
+                      >
+                        <Music className="w-7 h-7 mr-4" />
+                        Connect Spotify Premium
+                      </Button>
+                    </div>
                     
-                    <p className="text-sm text-gray-400 text-center">
+                    <p className="text-base text-gray-400 text-center">
                       Spotify Premium is required for playback control and audio analysis features
                     </p>
                   </CardContent>
@@ -228,9 +233,9 @@ const MusicalKasinaPage: React.FC = () => {
 
             {/* Footer Section - Bottom 1/3 */}
             <div className="flex-1 flex items-end justify-center pb-12">
-              <div className="text-center text-gray-400">
-                <p className="text-lg italic">
-                  "Let music guide your awareness into deeper states of meditation"
+              <div className="text-center text-gray-500">
+                <p className="text-sm">
+                  Admin-only feature • Requires active Spotify Premium subscription
                 </p>
               </div>
             </div>
