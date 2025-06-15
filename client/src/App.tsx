@@ -21,6 +21,7 @@ import MicBreathPage from "./pages/MicBreathPage";
 import VernierBreathPage from "./pages/VernierBreathPage";
 import VernierOfficialBreathPage from "./pages/VernierOfficialBreathPage";
 import VernierTestPage from "./pages/VernierTestPage";
+import MusicalKasinaPage from "./pages/MusicalKasinaPage";
 import VisualKasinaOrb from "./components/VisualKasinaOrb";
 
 import NotFound from "./pages/not-found";
@@ -142,6 +143,17 @@ function App() {
                   <AdminOnlyRoute>
                     <ErrorBoundary>
                       <BreathPage />
+                    </ErrorBoundary>
+                  </AdminOnlyRoute>
+                }
+              />
+              
+              <Route
+                path="/musical"
+                element={
+                  <AdminOnlyRoute>
+                    <ErrorBoundary>
+                      <MusicalKasinaPage />
                     </ErrorBoundary>
                   </AdminOnlyRoute>
                 }

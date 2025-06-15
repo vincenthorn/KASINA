@@ -66,7 +66,7 @@ export const useSpotify = () => {
       }
 
       // Redirect to Spotify authorization
-      const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+      const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
       if (!clientId) {
         throw new Error('Spotify Client ID not configured');
       }

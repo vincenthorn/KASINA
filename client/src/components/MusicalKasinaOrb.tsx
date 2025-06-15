@@ -5,16 +5,18 @@ import * as THREE from 'three';
 import { extend } from '@react-three/fiber';
 import { useMicrophoneBreath } from '../lib/useMicrophoneBreath';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
+import { getKasinaColor } from '../lib/kasinaConfig';
 
-// Musical Kasina Orb Shader Material
+// Musical Kasina Orb Shader Material - Based on color kasina design
 const MusicalOrbMaterial = shaderMaterial(
   {
     time: 0,
-    color: new THREE.Color(0.5, 0.3, 1.0),
+    color: new THREE.Color(0.6, 0.3, 0.9), // Purple as base musical color
     intensity: 1.0,
     breathScale: 1.0,
     musicEnergy: 0.5,
     musicValence: 0.5,
+    beatPulse: 0.0,
   },
   // Vertex shader
   `
@@ -40,6 +42,7 @@ const MusicalOrbMaterial = shaderMaterial(
     uniform float intensity;
     uniform float musicEnergy;
     uniform float musicValence;
+    uniform float beatPulse;
     varying vec3 vNormal;
     varying vec3 vPosition;
     
@@ -47,17 +50,31 @@ const MusicalOrbMaterial = shaderMaterial(
       // Calculate distance from center for spherical gradient
       float d = length(vPosition);
       
-      // Music-influenced color mixing
+      // Base color with subtle music influence
       vec3 baseColor = color;
-      vec3 energyColor = mix(baseColor, vec3(1.0, 0.8, 0.2), musicEnergy * 0.3);
-      vec3 finalColor = mix(energyColor, vec3(1.0, 0.6, 0.8), musicValence * 0.2);
       
-      // Gentle spherical lighting
-      float brightness = 1.0 - smoothstep(0.4, 0.5, d);
+      // Energy affects brightness subtly
+      float energyBoost = musicEnergy * 0.2;
+      
+      // Valence affects color temperature
+      vec3 warmColor = vec3(0.9, 0.6, 0.4); // Warm for high valence
+      vec3 coolColor = vec3(0.4, 0.6, 0.9); // Cool for low valence
+      vec3 valenceTint = mix(coolColor, warmColor, musicValence);
+      
+      // Mix base color with valence tint (very subtle)
+      vec3 musicalColor = mix(baseColor, valenceTint, 0.15);
+      
+      // Gentle spherical gradient like color kasinas
+      float brightness = 1.0 - smoothstep(0.45, 0.5, d);
+      
+      // Beat pulse effect (very subtle)
+      float pulse = 1.0 + beatPulse * 0.1;
+      
+      // Lighting
       vec3 lightDir = vec3(0.0, 0.0, 1.0);
-      float lightFactor = max(0.8, dot(vNormal, lightDir));
+      float lightFactor = max(0.85, dot(vNormal, lightDir));
       
-      vec3 result = finalColor * brightness * lightFactor * intensity;
+      vec3 result = musicalColor * (brightness + energyBoost) * lightFactor * intensity * pulse;
       gl_FragColor = vec4(result, 1.0);
     }
   `
