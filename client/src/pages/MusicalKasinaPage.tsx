@@ -162,52 +162,77 @@ const MusicalKasinaPage: React.FC = () => {
         <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/20" />
           
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
-            <div className="max-w-md mx-auto text-center">
-              {/* Header */}
-              <div className="mb-8">
-                <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Musical Kasina
-                </h1>
-                <p className="text-lg text-gray-300 mb-6">
-                  Synchronize your meditation with music through real-time audio analysis and visual feedback.
+          {/* Full screen content */}
+          <div className="relative z-10 min-h-screen flex flex-col">
+            {/* Header Section - Top 1/3 */}
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-20">
+              <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Musical Kasina
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl leading-relaxed">
+                Synchronize your meditation with music through real-time audio analysis and immersive visual feedback
+              </p>
+            </div>
+
+            {/* Connection Section - Middle 1/3 */}
+            <div className="flex-1 flex items-center justify-center px-6">
+              <div className="w-full max-w-2xl">
+                <Card className="bg-gray-900/90 border-gray-600 backdrop-blur-md shadow-2xl">
+                  <CardHeader className="text-center pb-6">
+                    <CardTitle className="text-2xl text-white flex items-center justify-center space-x-3">
+                      <Music className="w-8 h-8 text-purple-400" />
+                      <span>Spotify Premium Required</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6 px-8 pb-8">
+                    <p className="text-lg text-gray-300 text-center">
+                      Connect your Spotify Premium account to unlock music-synchronized meditation
+                    </p>
+                    
+                    {/* Features Grid */}
+                    <div className="grid md:grid-cols-2 gap-4 my-6">
+                      <div className="flex items-center space-x-3 text-gray-300">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        <span>Real-time audio analysis</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-gray-300">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                        <span>Beat-synchronized visuals</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-gray-300">
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <span>Playlist selection</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-gray-300">
+                        <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                        <span>Breath mode integration</span>
+                      </div>
+                    </div>
+
+                    <Button 
+                      onClick={handleConnectSpotify}
+                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 text-lg"
+                      size="lg"
+                    >
+                      <Music className="w-6 h-6 mr-3" />
+                      Connect Spotify Premium
+                    </Button>
+                    
+                    <p className="text-sm text-gray-400 text-center">
+                      Spotify Premium is required for playback control and audio analysis features
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            {/* Footer Section - Bottom 1/3 */}
+            <div className="flex-1 flex items-end justify-center pb-12">
+              <div className="text-center text-gray-400">
+                <p className="text-lg italic">
+                  "Let music guide your awareness into deeper states of meditation"
                 </p>
               </div>
-
-              {/* Connection Card */}
-              <Card className="bg-gray-900/80 border-gray-700 backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center justify-center space-x-2">
-                    <Music className="w-6 h-6 text-purple-400" />
-                    <span>Spotify Premium Required</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-gray-300 text-sm">
-                    Connect your Spotify Premium account to access music-synchronized meditation with:
-                  </p>
-                  
-                  <ul className="text-gray-300 text-sm space-y-2 text-left">
-                    <li>• Real-time audio analysis</li>
-                    <li>• Beat-synchronized visuals</li>
-                    <li>• Playlist selection</li>
-                    <li>• Breath mode integration</li>
-                  </ul>
-
-                  <Button 
-                    onClick={handleConnectSpotify}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3"
-                    size="lg"
-                  >
-                    <Music className="w-5 h-5 mr-2" />
-                    Connect Spotify Premium
-                  </Button>
-                  
-                  <p className="text-xs text-gray-400">
-                    This feature requires Spotify Premium for playback control.
-                  </p>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
@@ -222,64 +247,76 @@ const MusicalKasinaPage: React.FC = () => {
         <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/20" />
           
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
-            <div className="max-w-2xl mx-auto text-center">
-              {/* Header */}
-              <div className="mb-8">
-                <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Choose Your Mode
-                </h1>
-                <p className="text-lg text-gray-300 mb-6">
-                  Select how you'd like to experience music-synchronized meditation.
+          {/* Full screen mode selection */}
+          <div className="relative z-10 min-h-screen flex flex-col">
+            {/* Header Section */}
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-20">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Choose Your Mode
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-8">
+                Select how you'd like to experience music-synchronized meditation
+              </p>
+            </div>
+
+            {/* Mode Selection Section */}
+            <div className="flex-1 flex items-center justify-center px-6">
+              <div className="w-full max-w-4xl">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <Card 
+                    className="bg-gray-900/90 border-gray-600 backdrop-blur-md cursor-pointer hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 transform hover:scale-105"
+                    onClick={() => handleModeSelect('visual')}
+                  >
+                    <CardContent className="p-8 text-center">
+                      <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
+                        <Music className="w-10 h-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-semibold mb-4 text-white">Visual Mode</h3>
+                      <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                        Music-synchronized visual meditation with color changes responding to audio analysis and beat detection.
+                      </p>
+                      <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 text-lg">
+                        Start Visual Mode
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card 
+                    className="bg-gray-900/90 border-gray-600 backdrop-blur-md cursor-pointer hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:scale-105"
+                    onClick={() => handleModeSelect('breath')}
+                  >
+                    <CardContent className="p-8 text-center">
+                      <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
+                        <div className="w-8 h-8 border-3 border-white rounded-full animate-pulse" />
+                      </div>
+                      <h3 className="text-2xl font-semibold mb-4 text-white">Breath Mode</h3>
+                      <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                        Combine breath meditation with music - orb expands and contracts with your breathing rhythm.
+                      </p>
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 text-lg">
+                        Start Breath Mode
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer Section */}
+            <div className="flex-1 flex items-end justify-center pb-12">
+              <div className="text-center">
+                <Button 
+                  onClick={() => setShowModeSelection(false)}
+                  variant="outline"
+                  className="border-gray-500 text-gray-300 hover:bg-gray-800 px-8 py-3"
+                  size="lg"
+                >
+                  Back to Connection
+                </Button>
+                <p className="text-gray-400 mt-4 italic">
+                  "Choose the path that resonates with your practice"
                 </p>
               </div>
-
-              {/* Mode Selection Cards */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <Card 
-                  className="bg-gray-900/80 border-gray-700 backdrop-blur-sm cursor-pointer hover:border-purple-500 transition-colors"
-                  onClick={() => handleModeSelect('visual')}
-                >
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                      <Music className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white">Visual Mode</h3>
-                    <p className="text-gray-300 text-sm mb-4">
-                      Music-synchronized visual meditation with color changes responding to audio analysis.
-                    </p>
-                    <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                      Start Visual Mode
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                <Card 
-                  className="bg-gray-900/80 border-gray-700 backdrop-blur-sm cursor-pointer hover:border-blue-500 transition-colors"
-                  onClick={() => handleModeSelect('breath')}
-                >
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                      <div className="w-6 h-6 border-2 border-white rounded-full animate-pulse" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white">Breath Mode</h3>
-                    <p className="text-gray-300 text-sm mb-4">
-                      Combine breath meditation with music - orb expands and contracts with your breathing.
-                    </p>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Start Breath Mode
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <Button 
-                onClick={() => setShowModeSelection(false)}
-                variant="outline"
-                className="border-gray-600 text-gray-300 hover:bg-gray-800"
-              >
-                Back to Connection
-              </Button>
             </div>
           </div>
         </div>
