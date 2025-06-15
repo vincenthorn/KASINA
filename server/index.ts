@@ -43,14 +43,14 @@ app.use((req, res, next) => {
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   
-  // Content Security Policy - allow Three.js and WebGL
+  // Content Security Policy - allow Three.js, WebGL, and Spotify SDK
   res.setHeader('Content-Security-Policy', 
     "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.scdn.co; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
     "font-src 'self' https://fonts.gstatic.com; " +
-    "img-src 'self' data: blob:; " +
-    "connect-src 'self' ws: wss:; " +
+    "img-src 'self' data: blob: https://*.scdn.co; " +
+    "connect-src 'self' ws: wss: https://api.spotify.com https://accounts.spotify.com; " +
     "worker-src 'self' blob:;"
   );
   
