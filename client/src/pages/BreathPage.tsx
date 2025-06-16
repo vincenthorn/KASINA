@@ -185,99 +185,155 @@ const BreathPage: React.FC = () => {
 
 
 
-      <div className="container mx-auto py-8 px-4">
-        <h1 className="text-3xl font-bold mb-6 text-white">Breath Kasina</h1>
+      <div className="space-y-6">
+        <h1 className="text-4xl font-bold text-white">Breath Kasina</h1>
         
-        <div className="max-w-2xl mx-auto">
-          {/* Unified Vernier Respiration Belt Interface */}
-          <Card className="bg-gray-800 border-gray-700">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-white">
-                🌀 Vernier Respiration Belt
-                <span className="text-sm bg-blue-600 text-white px-2 py-1 rounded-full">
-                  Premium
-                </span>
-                <span className="text-xs bg-green-600 text-white px-2 py-1 rounded-full">
-                  Official
-                </span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {error && (
-                <Alert className="border-red-500 bg-red-900/20">
-                  <AlertDescription className="text-red-200">
-                    {error}
-                  </AlertDescription>
-                </Alert>
-              )}
-
-              <p className="text-gray-300">
-                {getInstructions()}
-              </p>
-
-              {/* Connection Status */}
-              {hasPremiumAccess && (
-                <div className="space-y-2">
-                  <p className="text-sm font-medium text-gray-300">
-                    Status: <span className={isConnected ? 'text-green-400' : 'text-gray-500'}>
-                      {isConnected ? 'Connected' : 'Disconnected'}
-                    </span>
-                  </p>
-                  
-                  {isConnected && (
-                    <p className="text-sm text-gray-300">
-                      Current Force: <span className="font-mono text-blue-400">{currentForce.toFixed(2)} N</span>
-                    </p>
-                  )}
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="w-full max-w-2xl">
+            <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-xl p-8 text-center">
+              <div className="mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
+                  <svg className="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                    <circle cx="12" cy="12" r="4" strokeWidth={2} />
+                  </svg>
                 </div>
-              )}
+                <h2 className="text-2xl font-bold text-white mb-4">🌀 Vernier Respiration Belt</h2>
+                <div className="flex gap-2 justify-center mb-4">
+                  <span className="text-sm bg-blue-600 text-white px-3 py-1 rounded-full">Premium</span>
+                  <span className="text-xs bg-green-600 text-white px-3 py-1 rounded-full">Official</span>
+                </div>
+                <p className="text-gray-300 mb-6">
+                  {getInstructions()}
+                </p>
+              </div>
 
-              {/* Live Breathing Preview */}
-              {isConnected && (
-                <div className="relative h-48 bg-black rounded-lg overflow-hidden">
-                  <BreathKasinaOrb 
-                    useVernier={false}
-                    breathAmplitude={breathAmplitude}
-                    breathPhase={breathPhase}
-                    isListening={true}
-                  />
-                  <div className="absolute bottom-2 left-2 right-2 grid grid-cols-3 gap-2 text-center text-xs">
-                    <div>
-                      <p className="text-gray-400">Amplitude</p>
-                      <p className="font-mono text-blue-400">{(breathAmplitude * 100).toFixed(0)}%</p>
+              <div className="space-y-4 text-left">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-blue-400 text-xl">📱</span>
                     </div>
-                    <div>
-                      <p className="text-gray-400">Phase</p>
-                      <p className="font-medium capitalize text-green-400">{breathPhase}</p>
+                    <p className="text-sm text-gray-400">Bluetooth connection</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-purple-400 text-xl">⚙️</span>
                     </div>
-                    <div>
-                      <p className="text-gray-400">Rate</p>
-                      <p className="font-mono text-purple-400">{breathingRate}/min</p>
+                    <p className="text-sm text-gray-400">Auto-calibration</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-green-400 text-xl">🫁</span>
                     </div>
+                    <p className="text-sm text-gray-400">Force detection</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-orange-400 text-xl">🔮</span>
+                    </div>
+                    <p className="text-sm text-gray-400">Visual meditation</p>
                   </div>
                 </div>
-              )}
-            </CardContent>
-            <CardFooter className="flex gap-2">
-              <Button 
-                onClick={handleStartSession}
-                disabled={isConnecting || !hasPremiumAccess}
-                className={`flex-1 text-lg font-bold py-4 ${isConnected ? 'bg-green-600 hover:bg-green-700 animate-pulse border-4 border-green-400' : 'bg-blue-600 hover:bg-blue-700'}`}
-              >
-                {getButtonText()}
-              </Button>
-              
-              {isConnected && (
+
+                <div className="bg-slate-700/30 border border-slate-600/50 rounded-lg p-4 mb-6">
+                  <div className="flex items-center mb-2">
+                    <span className="text-blue-400 mr-2">🔬</span>
+                    <h3 className="font-semibold text-white">Professional Grade Accuracy</h3>
+                  </div>
+                  <p className="text-sm text-gray-300">
+                    Uses actual respiratory force measurements (Newtons) for unprecedented precision in breath tracking.
+                  </p>
+                </div>
+
+                {error && (
+                  <div className="bg-red-900/20 border border-red-500/30 p-4 rounded-lg mb-4">
+                    <h3 className="font-semibold text-red-300 mb-2">Connection Error</h3>
+                    <p className="text-red-400 text-sm">{error}</p>
+                  </div>
+                )}
+
+                {/* Connection Status */}
+                {hasPremiumAccess && (
+                  <div className="space-y-4">
+                    {isConnecting ? (
+                      <div className="bg-yellow-500/10 border border-yellow-500/30 p-4 rounded-lg">
+                        <p className="text-yellow-300 font-medium">🔍 Connecting to Vernier device...</p>
+                      </div>
+                    ) : isConnected ? (
+                      <div className="bg-green-500/10 border border-green-500/30 p-4 rounded-lg">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <p className="text-green-300 font-semibold">✅ Connected to Vernier Belt</p>
+                            <p className="text-green-400 text-sm mt-1">
+                              Current Force: {currentForce.toFixed(2)} N
+                            </p>
+                          </div>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            onClick={disconnectDevice}
+                            className="border-green-500/30 text-green-300 hover:bg-green-500/10"
+                          >
+                            Disconnect
+                          </Button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="bg-slate-700/30 border border-slate-600/50 p-4 rounded-lg">
+                        <p className="text-gray-300">📱 Ready to connect to your Vernier GDX device</p>
+                      </div>
+                    )}
+
+                    {/* Live Breathing Preview */}
+                    {isConnected && (
+                      <div className="bg-slate-700/30 border border-slate-600/50 p-4 rounded-lg">
+                        <h4 className="text-white font-medium mb-3">Live Breath Preview:</h4>
+                        <div className="relative h-32 bg-black rounded-lg overflow-hidden mb-3">
+                          <BreathKasinaOrb 
+                            useVernier={false}
+                            breathAmplitude={breathAmplitude}
+                            breathPhase={breathPhase}
+                            isListening={true}
+                          />
+                        </div>
+                        <div className="grid grid-cols-3 gap-4 text-center">
+                          <div>
+                            <div className="text-lg font-bold text-blue-400">
+                              {(breathAmplitude * 100).toFixed(0)}%
+                            </div>
+                            <div className="text-xs text-gray-400">Amplitude</div>
+                          </div>
+                          <div>
+                            <div className="text-lg font-bold text-green-400 capitalize">
+                              {breathPhase}
+                            </div>
+                            <div className="text-xs text-gray-400">Phase</div>
+                          </div>
+                          <div>
+                            <div className="text-lg font-bold text-purple-400">
+                              {breathingRate}
+                            </div>
+                            <div className="text-xs text-gray-400">Rate/min</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <div className="flex gap-4 mt-6">
                 <Button 
-                  variant="outline" 
-                  onClick={disconnectDevice}
-                  className="border-gray-600 text-gray-300 hover:bg-gray-700"
+                  onClick={handleStartSession}
+                  disabled={isConnecting || !hasPremiumAccess}
+                  className={`flex-1 text-white font-semibold ${isConnected ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-600 hover:bg-blue-700'}`}
                 >
-                  Disconnect
+                  {getButtonText()}
                 </Button>
-              )}
-            </CardFooter>
-          </Card>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>
