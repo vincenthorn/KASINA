@@ -76,8 +76,8 @@ export const useSpotify = () => {
         throw new Error('Spotify Client ID not configured');
       }
 
-      // Use current domain for redirect URI (with trailing slash to match Spotify app settings)
-      const redirectUri = `${window.location.origin}/musical-kasina/`;
+      // Use current domain for redirect URI
+      const redirectUri = `${window.location.origin}/musical-kasina`;
       console.log('🎵 Spotify Auth Debug:', {
         origin: window.location.origin,
         redirectUri,

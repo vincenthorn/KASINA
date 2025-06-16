@@ -159,6 +159,29 @@ function App() {
                 }
               />
               
+              {/* Spotify callback route - redirects to /musical with auth code */}
+              <Route
+                path="/musical-kasina"
+                element={
+                  <AdminOnlyRoute>
+                    <ErrorBoundary>
+                      <MusicalKasinaPage />
+                    </ErrorBoundary>
+                  </AdminOnlyRoute>
+                }
+              />
+              
+              <Route
+                path="/musical-kasina/"
+                element={
+                  <AdminOnlyRoute>
+                    <ErrorBoundary>
+                      <MusicalKasinaPage />
+                    </ErrorBoundary>
+                  </AdminOnlyRoute>
+                }
+              />
+              
               <Route
                 path="/breath/microphone"
                 element={
