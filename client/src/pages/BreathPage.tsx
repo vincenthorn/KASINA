@@ -185,12 +185,12 @@ const BreathPage: React.FC = () => {
 
 
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         <h1 className="text-4xl font-bold text-white">Breath Kasina</h1>
         
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="w-full max-w-2xl">
-            <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-xl p-8 text-center">
+            <div className="bg-gradient-to-br from-purple-800/50 to-blue-800/50 backdrop-blur-sm border border-purple-600 rounded-xl p-8 text-center">
               <div className="mb-6">
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
                   <svg className="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -211,25 +211,25 @@ const BreathPage: React.FC = () => {
               <div className="space-y-4 text-left">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <span className="text-blue-400 text-xl">📱</span>
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span className="text-blue-400 text-xl">💻</span>
                     </div>
                     <p className="text-sm text-gray-400">Bluetooth connection</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
                       <span className="text-purple-400 text-xl">⚙️</span>
                     </div>
                     <p className="text-sm text-gray-400">Auto-calibration</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <div className="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
                       <span className="text-green-400 text-xl">🫁</span>
                     </div>
                     <p className="text-sm text-gray-400">Force detection</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <div className="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
                       <span className="text-orange-400 text-xl">🔮</span>
                     </div>
                     <p className="text-sm text-gray-400">Visual meditation</p>
@@ -281,7 +281,7 @@ const BreathPage: React.FC = () => {
                       </div>
                     ) : (
                       <div className="bg-slate-700/30 border border-slate-600/50 p-4 rounded-lg">
-                        <p className="text-gray-300">📱 Ready to connect to your Vernier GDX device</p>
+                        <p className="text-gray-300">💻 Ready to connect to your Vernier GDX device</p>
                       </div>
                     )}
 

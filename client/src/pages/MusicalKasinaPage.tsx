@@ -173,58 +173,60 @@ const MusicalKasinaPage: React.FC = () => {
       <div className="space-y-6">
         <h1 className="text-4xl font-bold text-white">Musical Kasina</h1>
         
-        <div className="max-w-4xl">
-          <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-purple-500/30 rounded-xl p-8">
-            <div className="text-center mb-8">
-              <div className="flex items-center justify-center mb-4">
-                <Music className="w-8 h-8 text-green-500 mr-3" />
-                <h2 className="text-2xl font-bold text-white">Spotify Premium Required</h2>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="w-full max-w-2xl">
+            <div className="bg-gradient-to-br from-purple-800/50 to-blue-800/50 backdrop-blur-sm border border-purple-600 rounded-xl p-8 text-center">
+              <div className="mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
+                  <span className="text-4xl">🎶</span>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-4">🎵 Spotify Premium Required</h2>
+                <p className="text-gray-300 mb-6">
+                  Synchronize your meditation with music through real-time audio analysis and immersive visual feedback
+                </p>
               </div>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Synchronize your meditation with music through real-time audio analysis and immersive visual feedback
-              </p>
-            </div>
 
-            <div className="grid md:grid-cols-4 gap-6 mb-8">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Music className="w-6 h-6 text-green-500" />
+              <div className="grid md:grid-cols-4 gap-6 mb-8">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Music className="w-6 h-6 text-green-500" />
+                  </div>
+                  <h4 className="text-white font-medium mb-2">Real-time audio analysis</h4>
                 </div>
-                <h4 className="text-white font-medium mb-2">Real-time audio analysis</h4>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Music className="w-6 h-6 text-blue-500" />
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Music className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <h4 className="text-white font-medium mb-2">Beat-synchronized visuals</h4>
                 </div>
-                <h4 className="text-white font-medium mb-2">Beat-synchronized visuals</h4>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Music className="w-6 h-6 text-purple-500" />
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Music className="w-6 h-6 text-purple-500" />
+                  </div>
+                  <h4 className="text-white font-medium mb-2">Playlist selection</h4>
                 </div>
-                <h4 className="text-white font-medium mb-2">Playlist selection</h4>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Music className="w-6 h-6 text-pink-500" />
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Music className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <h4 className="text-white font-medium mb-2">Breath mode integration</h4>
                 </div>
-                <h4 className="text-white font-medium mb-2">Breath mode integration</h4>
               </div>
-            </div>
 
-            <div className="text-center">
-              <button
-                onClick={handleConnectSpotify}
-                disabled={connecting}
-                className="bg-green-600 hover:bg-green-700 disabled:bg-green-800 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mx-auto"
-              >
-                <Music className="w-5 h-5" />
-                {connecting ? "Connecting..." : "Connect Spotify Premium"}
-              </button>
-              
-              <p className="text-xs text-gray-400 mt-4">
-                Premium-only feature • Requires active Spotify Premium subscription
-              </p>
+              <div className="text-center">
+                <button
+                  onClick={handleConnectSpotify}
+                  disabled={connecting}
+                  className="bg-green-600 hover:bg-green-700 disabled:bg-green-800 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mx-auto"
+                >
+                  <Music className="w-5 h-5" />
+                  {connecting ? "Connecting..." : "Connect Spotify Premium"}
+                </button>
+                
+                <p className="text-xs text-gray-400 mt-4">
+                  Premium-only feature • Requires active Spotify Premium subscription
+                </p>
+              </div>
             </div>
           </div>
         </div>
