@@ -178,7 +178,7 @@ const MusicalKasinaPage: React.FC = () => {
             <div className="bg-gradient-to-br from-purple-800/50 to-blue-800/50 backdrop-blur-sm border border-purple-600 rounded-xl p-8 text-center">
               <div className="mb-6">
                 <div className="w-20 h-20 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
-                  <span className="text-4xl">🎶</span>
+                  <span className="text-4xl">🎹</span>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-4">🎵 Spotify Premium Required</h2>
                 <p className="text-gray-300 mb-6">
