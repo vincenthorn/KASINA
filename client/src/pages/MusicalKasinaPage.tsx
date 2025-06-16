@@ -173,7 +173,7 @@ const MusicalKasinaPage: React.FC = () => {
       <div className="space-y-4">
         <h1 className="text-4xl font-bold text-white">Musical Kasina</h1>
         
-        <div className="flex items-center justify-center min-h-[60vh]">
+        <div className="flex items-start justify-center pt-8">
           <div className="w-full max-w-2xl">
             <div className="bg-gradient-to-br from-purple-800/50 to-blue-800/50 backdrop-blur-sm border border-purple-600 rounded-xl p-8 text-center">
               <div className="mb-6">
