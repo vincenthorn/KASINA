@@ -170,7 +170,7 @@ const MusicalKasinaPage: React.FC = () => {
   // Show Spotify connection landing page
   return (
     <Layout>
-      <div className="space-y-6">
+      <div className="space-y-4">
         <h1 className="text-4xl font-bold text-white">Musical Kasina</h1>
         
         <div className="flex items-center justify-center min-h-[60vh]">
