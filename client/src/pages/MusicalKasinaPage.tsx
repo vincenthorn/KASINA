@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { useAuth } from '../lib/stores/useAuth';
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
-import { Music, ArrowLeft } from 'lucide-react';
+import { Music, ArrowLeft, Play, Pause, SkipForward, SkipBack, List } from 'lucide-react';
 import MusicalKasinaOrb from '../components/MusicalKasinaOrb';
+import { useSpotify } from '../lib/hooks/useSpotify';
 
 const MusicalKasinaPage: React.FC = () => {
   const { user, isAdmin } = useAuth();
@@ -13,19 +14,62 @@ const MusicalKasinaPage: React.FC = () => {
   const [showMeditation, setShowMeditation] = useState(false);
   const [isBreathMode, setIsBreathMode] = useState(false);
   const [connecting, setConnecting] = useState(false);
+  const [showPlaylistSelection, setShowPlaylistSelection] = useState(false);
+  const [selectedPlaylist, setSelectedPlaylist] = useState<string>('');
+  const [audioFeatures, setAudioFeatures] = useState<any>(null);
+  const [audioAnalysis, setAudioAnalysis] = useState<any>(null);
+
+  const {
+    isConnected,
+    player,
+    currentTrack,
+    playlists,
+    connectSpotify,
+    getUserPlaylists,
+    playPlaylist,
+    playTrack,
+    pauseTrack,
+    nextTrack,
+    previousTrack,
+    getAudioFeatures,
+    getAudioAnalysis
+  } = useSpotify();
 
   // Redirect non-admin users
   if (!user || !isAdmin) {
     return <Navigate to="/login" replace />;
   }
 
+  // Load playlists when Spotify connects
+  useEffect(() => {
+    if (isConnected) {
+      getUserPlaylists();
+      setShowModeSelection(true);
+    }
+  }, [isConnected, getUserPlaylists]);
+
+  // Update audio analysis when track changes
+  useEffect(() => {
+    if (currentTrack?.id) {
+      const loadAudioData = async () => {
+        const features = await getAudioFeatures(currentTrack.id);
+        const analysis = await getAudioAnalysis(currentTrack.id);
+        setAudioFeatures(features);
+        setAudioAnalysis(analysis);
+      };
+      loadAudioData();
+    }
+  }, [currentTrack, getAudioFeatures, getAudioAnalysis]);
+
   const handleConnectSpotify = async () => {
     setConnecting(true);
-    // Simulate connection process
-    setTimeout(() => {
+    try {
+      await connectSpotify();
+    } catch (error) {
+      console.error('Failed to connect to Spotify:', error);
+    } finally {
       setConnecting(false);
-      setShowModeSelection(true);
-    }, 2000);
+    }
   };
 
   // Show mode selection after connection
@@ -50,7 +94,7 @@ const MusicalKasinaPage: React.FC = () => {
               className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-purple-500/30 rounded-xl cursor-pointer hover:border-purple-400 transition-all duration-300"
               onClick={() => {
                 setIsBreathMode(false);
-                setShowMeditation(true);
+                setShowPlaylistSelection(true);
                 setShowModeSelection(false);
               }}
             >
@@ -69,7 +113,7 @@ const MusicalKasinaPage: React.FC = () => {
               className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-sm border border-blue-500/30 rounded-xl cursor-pointer hover:border-blue-400 transition-all duration-300"
               onClick={() => {
                 setIsBreathMode(true);
-                setShowMeditation(true);
+                setShowPlaylistSelection(true);
                 setShowModeSelection(false);
               }}
             >
@@ -83,6 +127,94 @@ const MusicalKasinaPage: React.FC = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  // Show playlist selection
+  if (showPlaylistSelection) {
+    return (
+      <Layout>
+        <div className="space-y-6">
+          <div className="flex justify-between items-center">
+            <h1 className="text-4xl font-bold text-white">Choose Your Music</h1>
+            <Button
+              onClick={() => {
+                setShowPlaylistSelection(false);
+                setShowModeSelection(true);
+              }}
+              variant="outline"
+              className="border-slate-600 text-slate-300 hover:bg-slate-800"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back
+            </Button>
+          </div>
+          
+          <div className="max-w-4xl">
+            <p className="text-gray-300 mb-6">
+              Select a playlist to synchronize with your {isBreathMode ? 'breath meditation' : 'visual meditation'}
+            </p>
+            
+            <div className="grid gap-4 max-h-96 overflow-y-auto">
+              {playlists.map((playlist) => (
+                <Card 
+                  key={playlist.id}
+                  className={`bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border cursor-pointer transition-all duration-300 ${
+                    selectedPlaylist === playlist.id 
+                      ? 'border-green-500 bg-gradient-to-br from-green-600/20 to-green-700/20' 
+                      : 'border-slate-600 hover:border-slate-500'
+                  }`}
+                  onClick={() => setSelectedPlaylist(playlist.id)}
+                >
+                  <CardContent className="p-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-16 h-16 bg-slate-600 rounded-lg overflow-hidden">
+                        {playlist.images?.[0]?.url ? (
+                          <img 
+                            src={playlist.images[0].url} 
+                            alt={playlist.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <Music className="w-6 h-6 text-slate-400" />
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-white font-semibold">{playlist.name}</h3>
+                        <p className="text-gray-400 text-sm">{playlist.tracks.total} tracks</p>
+                        <p className="text-gray-500 text-xs">{playlist.description}</p>
+                      </div>
+                      {selectedPlaylist === playlist.id && (
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            {selectedPlaylist && (
+              <div className="mt-6 flex justify-center">
+                <Button
+                  onClick={async () => {
+                    await playPlaylist(selectedPlaylist);
+                    setShowMeditation(true);
+                    setShowPlaylistSelection(false);
+                  }}
+                  className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8"
+                >
+                  <Play className="w-5 h-5 mr-2" />
+                  Start Meditation
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </Layout>
@@ -130,31 +262,79 @@ const MusicalKasinaPage: React.FC = () => {
           <div className="w-full h-full">
             <MusicalKasinaOrb 
               isBreathMode={isBreathMode}
-              isPlaying={true}
-              currentTrack={null}
-              audioFeatures={null}
-              audioAnalysis={null}
+              isPlaying={currentTrack && !currentTrack.paused}
+              currentTrack={currentTrack}
+              audioFeatures={audioFeatures}
+              audioAnalysis={audioAnalysis}
             />
           </div>
         </div>
 
-        {/* Bottom Status Bar */}
+        {/* Bottom Status Bar with Music Controls */}
         <div className="absolute bottom-4 left-4 right-4 z-10">
           <div className="bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-lg p-4">
-            <div className="grid grid-cols-3 gap-4 text-center">
-              <div>
-                <p className="text-sm text-gray-400">Mode</p>
-                <p className="text-white font-medium">{isBreathMode ? 'Breath + Music' : 'Visual + Music'}</p>
+            {currentTrack ? (
+              <div className="flex items-center justify-between">
+                {/* Track Info */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-medium truncate">{currentTrack.name}</p>
+                  <p className="text-gray-400 text-sm truncate">
+                    {currentTrack.artists.map(artist => artist.name).join(', ')}
+                  </p>
+                </div>
+                
+                {/* Music Controls */}
+                <div className="flex items-center space-x-4 mx-6">
+                  <Button
+                    onClick={previousTrack}
+                    variant="ghost"
+                    size="sm"
+                    className="text-gray-400 hover:text-white"
+                  >
+                    <SkipBack className="w-4 h-4" />
+                  </Button>
+                  
+                  <Button
+                    onClick={currentTrack.paused ? playTrack : pauseTrack}
+                    variant="ghost"
+                    size="sm"
+                    className="text-gray-400 hover:text-white"
+                  >
+                    {currentTrack.paused ? <Play className="w-5 h-5" /> : <Pause className="w-5 h-5" />}
+                  </Button>
+                  
+                  <Button
+                    onClick={nextTrack}
+                    variant="ghost"
+                    size="sm"
+                    className="text-gray-400 hover:text-white"
+                  >
+                    <SkipForward className="w-4 h-4" />
+                  </Button>
+                </div>
+                
+                {/* Mode Info */}
+                <div className="text-right">
+                  <p className="text-sm text-gray-400">Mode</p>
+                  <p className="text-white font-medium">{isBreathMode ? 'Breath + Music' : 'Visual + Music'}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-400">Status</p>
-                <p className="text-white font-medium">Ready</p>
+            ) : (
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <p className="text-sm text-gray-400">Mode</p>
+                  <p className="text-white font-medium">{isBreathMode ? 'Breath + Music' : 'Visual + Music'}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Status</p>
+                  <p className="text-white font-medium">Loading...</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Type</p>
+                  <p className="text-white font-medium">Musical Kasina</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-400">Type</p>
-                <p className="text-white font-medium">Musical Kasina</p>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
