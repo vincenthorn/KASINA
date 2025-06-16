@@ -262,7 +262,7 @@ const MusicalKasinaPage: React.FC = () => {
           <div className="w-full h-full">
             <MusicalKasinaOrb 
               isBreathMode={isBreathMode}
-              isPlaying={currentTrack && !currentTrack.paused}
+              isPlaying={Boolean(currentTrack && !currentTrack.paused)}
               currentTrack={currentTrack}
               audioFeatures={audioFeatures}
               audioAnalysis={audioAnalysis}
