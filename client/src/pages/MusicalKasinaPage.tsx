@@ -5,6 +5,7 @@ import { useAuth } from '../lib/stores/useAuth';
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Music, ArrowLeft } from 'lucide-react';
+import MusicalKasinaOrb from '../components/MusicalKasinaOrb';
 
 const MusicalKasinaPage: React.FC = () => {
   const { user, isAdmin } = useAuth();
@@ -126,21 +127,14 @@ const MusicalKasinaPage: React.FC = () => {
 
         {/* Main Meditation Area */}
         <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-64 h-64 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-8 border border-purple-500/30 shadow-lg shadow-purple-500/20">
-              <Music className="w-32 h-32 text-purple-400 animate-pulse" />
-            </div>
-            <h2 className="text-4xl font-bold text-white mb-4">Musical Kasina</h2>
-            <p className="text-xl text-gray-300 mb-6">
-              {isBreathMode ? 'Breath-synchronized meditation with music' : 'Visual meditation synchronized with music'}
-            </p>
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-600 rounded-lg p-6 max-w-md mx-auto">
-              <p className="text-gray-300 mb-4">Connect Spotify Premium to begin</p>
-              <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
-                <Music className="w-5 h-5 inline mr-2" />
-                Connect Spotify Premium
-              </button>
-            </div>
+          <div className="w-full h-full">
+            <MusicalKasinaOrb 
+              isBreathMode={isBreathMode}
+              isPlaying={true}
+              currentTrack={null}
+              audioFeatures={null}
+              audioAnalysis={null}
+            />
           </div>
         </div>
 
