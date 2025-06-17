@@ -37,20 +37,20 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 - Session persistence and analytics
 
 ### Musical Kasina Features
+- **Client-side MP3 Upload System**: Users upload their own MP3 files for personalized meditation
+- **Web Audio API Integration**: Real-time audio analysis without external dependencies
 - Breath Mode toggle: orb expands/contracts with breath or remains steady
-- Real-time Spotify integration with Web Playbook SDK
 - **Enhanced Visual Synchronization**:
-  - Beat-responsive ripple effects radiating from orb center on each detected beat
-  - Dynamic background colors shifting based on track valence (blue/violet for low mood, peach/gold for high mood)
-  - Energy-driven brightness and saturation changes throughout the meditation
+  - Real-time frequency analysis with bass, mid, and treble energy visualization
+  - Volume-responsive orb scaling and glow effects
+  - Dominant frequency-based color mapping using HSV color space
+  - Beat detection through bass energy analysis with ripple effects
   - Musical key-based orb coloring with 12-tone color mapping
-  - Major/minor mode visual differentiation (warmer for major, cooler for minor)
-  - Section change transitions with visual motifs when musical sections shift
-  - Dramatic beat pulse effects on the central orb with energy-responsive intensity
-- Audio analysis with beat detection and section change monitoring
-- Audio analysis caching for rate limiting optimization
-- Playlist selection interface for seamless music control
-- Session management with automatic ending when music stops
+  - Energy and valence-driven background color transitions
+  - Musical mode visual differentiation (major/minor affects brightness)
+- **Audio Feature Analysis**: Client-side tempo detection, energy calculation, and valence estimation
+- Drag-and-drop file upload interface with validation
+- Session management with real-time playback controls
 
 ### User Management
 - Email-based user identification
@@ -117,6 +117,7 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Changelog
 
 Changelog:
+- June 17, 2025: **MAJOR ARCHITECTURE CHANGE**: Completely replaced Spotify API integration with client-side MP3 upload system using Web Audio API for real-time audio analysis and visualization. This eliminates external API dependencies and provides user control over music selection while maintaining all visual synchronization features.
 - June 17, 2025: Fixed Spotify API 403 errors by forcing re-authentication with proper scopes for audio analysis access
 - June 17, 2025: Fixed Musical Kasina redirect loop completely - removed Navigate redirect in component that was triggering after OAuth callback processing
 - June 17, 2025: Fixed Spotify authentication redirect loop - Musical Kasina now properly handles OAuth callbacks without redirecting to home page

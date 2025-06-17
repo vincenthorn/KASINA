@@ -5,16 +5,45 @@ import * as THREE from 'three';
 import { extend } from '@react-three/fiber';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 
-// Musical Kasina Orb Shader Material - Based on color kasina design
+interface AudioAnalysisData {
+  frequencyData: Uint8Array;
+  timeData: Uint8Array;
+  volume: number;
+  dominantFrequency: number;
+  bassEnergy: number;
+  midEnergy: number;
+  trebleEnergy: number;
+}
+
+interface MusicalKasinaOrbProps {
+  audioFeatures?: {
+    energy: number;
+    valence: number;
+    tempo: number;
+    key: number;
+    mode: number;
+    danceability: number;
+  } | null;
+  getAnalysisData?: () => AudioAnalysisData | null;
+  isPlaying?: boolean;
+  currentTime?: number;
+  useBreathMode?: boolean;
+}
+
+// Musical Kasina Orb Shader Material
 const MusicalOrbMaterial = shaderMaterial(
   {
     time: 0,
-    color: new THREE.Color(0.6, 0.3, 0.9), // Purple as base musical color
+    color: new THREE.Color(0.6, 0.3, 0.9),
     intensity: 1.0,
     breathScale: 1.0,
+    volume: 0.0,
+    bassEnergy: 0.0,
+    midEnergy: 0.0,
+    trebleEnergy: 0.0,
+    dominantFreq: 0.0,
     musicEnergy: 0.5,
     musicValence: 0.5,
-    beatPulse: 0.0,
   },
   // Vertex shader
   `
@@ -22,13 +51,15 @@ const MusicalOrbMaterial = shaderMaterial(
     varying vec3 vPosition;
     uniform float time;
     uniform float breathScale;
+    uniform float volume;
     
     void main() {
       vNormal = normalize(normalMatrix * normal);
       vPosition = position;
       
-      // Apply breath scaling if in breath mode
-      vec3 scaledPosition = position * breathScale;
+      // Apply breath scaling and volume-based scaling
+      float dynamicScale = breathScale * (1.0 + volume * 0.3);
+      vec3 scaledPosition = position * dynamicScale;
       
       gl_Position = projectionMatrix * modelViewMatrix * vec4(scaledPosition, 1.0);
     }
@@ -38,64 +69,70 @@ const MusicalOrbMaterial = shaderMaterial(
     uniform float time;
     uniform vec3 color;
     uniform float intensity;
+    uniform float volume;
+    uniform float bassEnergy;
+    uniform float midEnergy;
+    uniform float trebleEnergy;
+    uniform float dominantFreq;
     uniform float musicEnergy;
     uniform float musicValence;
-    uniform float beatPulse;
     varying vec3 vNormal;
     varying vec3 vPosition;
     
+    // HSV to RGB conversion
+    vec3 hsv2rgb(vec3 c) {
+      vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+      vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+      return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+    }
+    
     void main() {
-      // Calculate distance from center for spherical gradient
       float d = length(vPosition);
+      vec3 normal = normalize(vNormal);
       
-      // Base color (now set dynamically from musical key)
-      vec3 baseColor = color;
+      // Base color influenced by dominant frequency
+      float hue = mod(dominantFreq / 1000.0, 1.0); // Map frequency to hue
       
-      // Energy affects brightness dramatically
-      float energyBoost = musicEnergy * 0.8; // Much more pronounced
+      // Valence affects saturation and brightness
+      float saturation = 0.7 + musicValence * 0.3;
+      float brightness = 0.6 + musicEnergy * 0.4;
       
-      // Valence affects color temperature more dramatically
-      vec3 warmColor = vec3(1.0, 0.7, 0.4); // Warmer for high valence
-      vec3 coolColor = vec3(0.3, 0.5, 1.0); // Cooler for low valence
-      vec3 valenceTint = mix(coolColor, warmColor, musicValence);
+      // Create base color from musical properties
+      vec3 baseColor = hsv2rgb(vec3(hue, saturation, brightness));
       
-      // Mix base color with valence tint (more pronounced)
-      vec3 musicalColor = mix(baseColor, valenceTint, 0.4 * musicEnergy);
+      // Mix with original color for stability
+      baseColor = mix(color, baseColor, 0.6);
       
-      // Enhanced spherical gradient with energy response
-      float coreRadius = 0.3 + musicEnergy * 0.2; // Energy affects core size
-      float brightness = 1.0 - smoothstep(coreRadius, coreRadius + 0.2, d);
-      brightness = brightness * (0.8 + musicEnergy * 0.4); // Energy brightens core
+      // Frequency band visualization
+      float bassRing = smoothstep(0.8, 1.0, d) * bassEnergy;
+      float midRing = smoothstep(0.5, 0.7, d) * smoothstep(0.9, 0.7, d) * midEnergy;
+      float trebleCore = smoothstep(0.0, 0.4, d) * smoothstep(0.6, 0.4, d) * trebleEnergy;
       
-      // Dramatic beat pulse effect
-      float pulseIntensity = 1.0 + beatPulse * (0.3 + musicEnergy * 0.5);
-      float pulseGlow = beatPulse * musicEnergy * 0.4; // Additional glow on beats
+      // Add frequency band colors
+      vec3 finalColor = baseColor;
+      finalColor += vec3(1.0, 0.2, 0.2) * bassRing * 0.5; // Red for bass
+      finalColor += vec3(0.2, 1.0, 0.2) * midRing * 0.5;  // Green for mids
+      finalColor += vec3(0.2, 0.2, 1.0) * trebleCore * 0.5; // Blue for treble
       
-      // Energy-based rim lighting
-      float rimLight = pow(1.0 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
-      rimLight *= musicEnergy * 0.3;
+      // Volume-based glow
+      float glow = 1.0 - smoothstep(0.0, 1.5, d);
+      finalColor += glow * volume * 0.3;
       
-      // Enhanced lighting with energy response
-      vec3 lightDir = vec3(0.0, 0.0, 1.0);
-      float lightFactor = max(0.7, dot(vNormal, lightDir));
-      lightFactor += musicEnergy * 0.2; // Energy makes it brighter
+      // Pulsing effect based on overall volume
+      float pulse = 1.0 + sin(time * 10.0) * volume * 0.2;
+      finalColor *= pulse;
       
-      // Combine all effects
-      vec3 result = musicalColor * (brightness + energyBoost + pulseGlow + rimLight) * lightFactor * intensity * pulseIntensity;
+      // Inner energy glow
+      float innerGlow = 1.0 - smoothstep(0.0, 0.8, d);
+      finalColor += innerGlow * musicEnergy * 0.4;
       
-      // High energy tracks get extra glow
-      if (musicEnergy > 0.7) {
-        result += baseColor * (musicEnergy - 0.7) * 0.8 * beatPulse;
-      }
-      
-      gl_FragColor = vec4(result, 1.0);
+      gl_FragColor = vec4(finalColor * intensity, 1.0);
     }
   `
 );
 
 extend({ MusicalOrbMaterial });
 
-// Type declaration for the custom material
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -104,48 +141,40 @@ declare global {
   }
 }
 
-// Enhanced beat ripple effect for more prominent visual feedback
-const BeatRipple = ({ trigger, audioFeatures }: { trigger: number; audioFeatures: any }) => {
+// Background component
+const MusicBackground: React.FC<{
+  audioFeatures: any;
+  analysisData: AudioAnalysisData | null;
+}> = ({ audioFeatures, analysisData }) => {
   const meshRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<any>(null);
-  const [rippleTime, setRippleTime] = useState(0);
-  const [isActive, setIsActive] = useState(false);
 
-  useEffect(() => {
-    if (trigger > 0) {
-      setRippleTime(0);
-      setIsActive(true);
-    }
-  }, [trigger]);
+  useFrame((state) => {
+    if (!meshRef.current) return;
 
-  useFrame((state, delta) => {
-    if (materialRef.current && isActive) {
-      setRippleTime(prev => prev + delta * 1.5); // Faster ripple animation
+    const material = meshRef.current.material as any;
+    if (material.uniforms) {
+      material.uniforms.time.value = state.clock.elapsedTime;
       
-      if (rippleTime >= 1.5) {
-        setIsActive(false);
-        setRippleTime(0);
-      } else {
-        const progress = rippleTime / 1.5;
-        materialRef.current.opacity = Math.max(0, (1.0 - progress) * 0.8); // More visible
-        materialRef.current.uniforms.time.value = rippleTime;
-        materialRef.current.uniforms.progress.value = progress;
+      if (analysisData) {
+        material.uniforms.volume.value = analysisData.volume;
+        material.uniforms.energy.value = analysisData.bassEnergy + analysisData.midEnergy + analysisData.trebleEnergy;
+      }
+      
+      if (audioFeatures) {
+        material.uniforms.valence.value = audioFeatures.valence;
       }
     }
   });
 
   return (
-    <mesh ref={meshRef} position={[0, 0, -1]} scale={[1.5, 1.5, 1]}>
-      <planeGeometry args={[30, 30]} />
+    <mesh ref={meshRef} scale={[20, 20, 1]} position={[0, 0, -10]}>
+      <planeGeometry args={[1, 1]} />
       <shaderMaterial
-        ref={materialRef}
-        transparent
         uniforms={{
           time: { value: 0 },
-          progress: { value: 0 },
-          center: { value: new THREE.Vector2(0, 0) },
-          intensity: { value: audioFeatures?.energy || 0.5 },
-          valence: { value: audioFeatures?.valence || 0.5 }
+          volume: { value: 0 },
+          energy: { value: 0 },
+          valence: { value: 0.5 }
         }}
         vertexShader={`
           varying vec2 vUv;
@@ -156,31 +185,136 @@ const BeatRipple = ({ trigger, audioFeatures }: { trigger: number; audioFeatures
         `}
         fragmentShader={`
           uniform float time;
-          uniform float progress;
-          uniform vec2 center;
-          uniform float intensity;
+          uniform float volume;
+          uniform float energy;
           uniform float valence;
           varying vec2 vUv;
           
           void main() {
-            vec2 uv = vUv - 0.5;
-            float dist = length(uv);
+            vec2 center = vec2(0.5);
+            float dist = distance(vUv, center);
             
-            // Multiple ripple waves for richer effect
-            float wave1 = sin(dist * 15.0 - time * 8.0) * exp(-dist * 2.0);
-            float wave2 = sin(dist * 25.0 - time * 12.0) * exp(-dist * 3.5);
-            float wave3 = cos(dist * 10.0 - time * 6.0) * exp(-dist * 1.5);
+            // Valence-based color palette
+            vec3 lowValence = vec3(0.2, 0.1, 0.4);  // Dark blue
+            vec3 midValence = vec3(0.4, 0.2, 0.6);  // Purple
+            vec3 highValence = vec3(0.6, 0.4, 0.2); // Warm orange
             
-            float combinedWave = (wave1 + wave2 * 0.5 + wave3 * 0.3) * intensity;
+            vec3 baseColor;
+            if (valence < 0.3) {
+              baseColor = lowValence;
+            } else if (valence < 0.7) {
+              baseColor = mix(lowValence, midValence, (valence - 0.3) / 0.4);
+            } else {
+              baseColor = mix(midValence, highValence, (valence - 0.7) / 0.3);
+            }
             
-            // Color based on valence (mood-responsive ripples)
-            vec3 lowMoodColor = vec3(0.2, 0.3, 0.8);   // Blue for low valence
-            vec3 highMoodColor = vec3(0.9, 0.6, 0.2);  // Orange/gold for high valence
-            vec3 rippleColor = mix(lowMoodColor, highMoodColor, valence);
+            // Energy-based intensity
+            float intensity = 0.3 + energy * 0.7;
             
-            float alpha = abs(combinedWave) * (1.0 - progress) * 0.6;
+            // Volume-based movement
+            float movement = sin(dist * 10.0 - time * 2.0) * volume * 0.1;
             
-            gl_FragColor = vec4(rippleColor, alpha);
+            // Radial gradient
+            float gradient = 1.0 - smoothstep(0.0, 1.0, dist);
+            
+            vec3 finalColor = baseColor * intensity * gradient;
+            finalColor += movement;
+            
+            gl_FragColor = vec4(finalColor, 1.0);
+          }
+        `}
+      />
+    </mesh>
+  );
+};
+
+// Beat ripple effect
+const BeatRipple: React.FC<{
+  volume: number;
+  bassEnergy: number;
+}> = ({ volume, bassEnergy }) => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const [ripples, setRipples] = useState<Array<{ id: number; startTime: number; intensity: number }>>([]);
+  const lastBeatRef = useRef(0);
+
+  useFrame((state) => {
+    const time = state.clock.elapsedTime;
+    
+    // Detect beats based on bass energy
+    if (bassEnergy > 0.3 && time - lastBeatRef.current > 0.2) {
+      setRipples(prev => [
+        ...prev.slice(-2), // Keep only last 3 ripples
+        { id: Date.now(), startTime: time, intensity: bassEnergy }
+      ]);
+      lastBeatRef.current = time;
+    }
+    
+    // Remove old ripples
+    setRipples(prev => prev.filter(ripple => time - ripple.startTime < 2));
+    
+    if (meshRef.current) {
+      const material = meshRef.current.material as any;
+      if (material.uniforms) {
+        material.uniforms.time.value = time;
+        material.uniforms.ripples.value = ripples.map(ripple => [
+          time - ripple.startTime,
+          ripple.intensity,
+          0,
+          0
+        ]).flat();
+        material.uniforms.rippleCount.value = ripples.length;
+      }
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} scale={[10, 10, 1]} position={[0, 0, -1]}>
+      <planeGeometry args={[1, 1]} />
+      <shaderMaterial
+        transparent
+        uniforms={{
+          time: { value: 0 },
+          ripples: { value: new Array(12).fill(0) }, // Max 3 ripples * 4 components
+          rippleCount: { value: 0 }
+        }}
+        vertexShader={`
+          varying vec2 vUv;
+          void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `}
+        fragmentShader={`
+          uniform float time;
+          uniform float ripples[12];
+          uniform int rippleCount;
+          varying vec2 vUv;
+          
+          void main() {
+            vec2 center = vec2(0.5);
+            float dist = distance(vUv, center);
+            
+            vec3 color = vec3(0.0);
+            float alpha = 0.0;
+            
+            for (int i = 0; i < 3; i++) {
+              if (i >= rippleCount) break;
+              
+              float rippleTime = ripples[i * 4];
+              float intensity = ripples[i * 4 + 1];
+              
+              float rippleRadius = rippleTime * 0.5;
+              float rippleWidth = 0.05;
+              
+              float rippleAlpha = smoothstep(rippleRadius - rippleWidth, rippleRadius, dist) * 
+                                 smoothstep(rippleRadius + rippleWidth, rippleRadius, dist) *
+                                 (1.0 - rippleTime / 2.0) * intensity;
+              
+              color += vec3(0.8, 0.4, 1.0) * rippleAlpha;
+              alpha += rippleAlpha;
+            }
+            
+            gl_FragColor = vec4(color, min(alpha, 1.0));
           }
         `}
       />
@@ -189,339 +323,110 @@ const BeatRipple = ({ trigger, audioFeatures }: { trigger: number; audioFeatures
 };
 
 // Main orb component
-const MusicOrb = ({ 
-  isBreathMode, 
-  breathAmplitude, 
-  audioFeatures, 
-  beatTrigger,
-  size = 1.0
-}: { 
-  isBreathMode: boolean; 
-  breathAmplitude: number; 
-  audioFeatures: any; 
-  beatTrigger: number;
-  size?: number;
-}) => {
+const MusicOrb: React.FC<{
+  breathAmplitude: number;
+  audioFeatures: any;
+  analysisData: AudioAnalysisData | null;
+  useBreathMode: boolean;
+}> = ({ breathAmplitude, audioFeatures, analysisData, useBreathMode }) => {
   const meshRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<any>(null);
 
   useFrame((state) => {
-    if (materialRef.current) {
-      materialRef.current.time = state.clock.elapsedTime;
+    if (!meshRef.current) return;
+
+    const material = meshRef.current.material as any;
+    if (material.uniforms) {
+      material.uniforms.time.value = state.clock.elapsedTime;
       
-      // Apply breath scaling in breath mode
-      if (isBreathMode) {
-        const scale = 1.0 + (breathAmplitude - 0.5) * 0.3;
-        materialRef.current.breathScale = Math.max(0.7, Math.min(1.3, scale));
+      // Breath scaling
+      if (useBreathMode) {
+        material.uniforms.breathScale.value = 0.8 + breathAmplitude * 0.4;
       } else {
-        materialRef.current.breathScale = 1.0;
+        material.uniforms.breathScale.value = 1.0;
       }
       
-      // Apply music features with more dramatic response
+      // Audio analysis data
+      if (analysisData) {
+        material.uniforms.volume.value = analysisData.volume;
+        material.uniforms.bassEnergy.value = analysisData.bassEnergy;
+        material.uniforms.midEnergy.value = analysisData.midEnergy;
+        material.uniforms.trebleEnergy.value = analysisData.trebleEnergy;
+        material.uniforms.dominantFreq.value = analysisData.dominantFrequency;
+      }
+      
+      // Audio features
       if (audioFeatures) {
-        materialRef.current.musicEnergy = audioFeatures.energy || 0.5;
-        materialRef.current.musicValence = audioFeatures.valence || 0.5;
+        material.uniforms.musicEnergy.value = audioFeatures.energy;
+        material.uniforms.musicValence.value = audioFeatures.valence;
         
-        // Enhanced color mapping based on musical key and mode
-        const key = audioFeatures.key || 0;
-        const mode = audioFeatures.mode || 0; // 0 = minor, 1 = major
-        const valence = audioFeatures.valence || 0.5;
-        
-        // Map musical keys to colors more expressively
+        // Musical key-based color
         const keyColors = [
-          [0.8, 0.4, 0.9],  // C - Purple
-          [0.9, 0.5, 0.4],  // C# - Orange-red
-          [0.4, 0.8, 0.9],  // D - Light blue
-          [0.6, 0.9, 0.4],  // D# - Green
-          [0.9, 0.8, 0.4],  // E - Yellow
-          [0.9, 0.4, 0.6],  // F - Pink
-          [0.5, 0.4, 0.9],  // F# - Blue-purple
-          [0.9, 0.6, 0.4],  // G - Orange
-          [0.4, 0.9, 0.7],  // G# - Cyan-green
-          [0.7, 0.4, 0.9],  // A - Violet
-          [0.9, 0.4, 0.4],  // A# - Red
-          [0.4, 0.6, 0.9]   // B - Blue
+          [1.0, 0.2, 0.2], // C - Red
+          [1.0, 0.5, 0.2], // C# - Orange
+          [1.0, 1.0, 0.2], // D - Yellow
+          [0.5, 1.0, 0.2], // D# - Yellow-green
+          [0.2, 1.0, 0.2], // E - Green
+          [0.2, 1.0, 0.5], // F - Green-cyan
+          [0.2, 1.0, 1.0], // F# - Cyan
+          [0.2, 0.5, 1.0], // G - Light blue
+          [0.2, 0.2, 1.0], // G# - Blue
+          [0.5, 0.2, 1.0], // A - Blue-purple
+          [1.0, 0.2, 1.0], // A# - Purple
+          [1.0, 0.2, 0.5]  // B - Pink
         ];
         
-        const baseColor = keyColors[key] || [0.6, 0.3, 0.9];
+        const keyColor = keyColors[audioFeatures.key % 12];
+        material.uniforms.color.value.setRGB(keyColor[0], keyColor[1], keyColor[2]);
         
-        // Adjust for major/minor mode
-        let finalColor = [...baseColor];
-        if (mode === 0) { // Minor key - darker, more blue
-          finalColor[0] *= 0.7; // Reduce red
-          finalColor[2] *= 1.3; // Increase blue
-        } else { // Major key - brighter, warmer
-          finalColor[0] *= 1.2; // Increase warmth
-          finalColor[1] *= 1.1; // Slight green boost
-        }
-        
-        // Valence affects overall brightness
-        const brightnessFactor = 0.7 + valence * 0.5;
-        finalColor = finalColor.map(c => Math.min(1.0, c * brightnessFactor));
-        
-        materialRef.current.color.setRGB(finalColor[0], finalColor[1], finalColor[2]);
-      }
-      
-      // Apply beat pulse effect
-      if (beatTrigger > 0) {
-        const timeSinceLastBeat = state.clock.elapsedTime - (beatTrigger * 0.1); // Rough timing
-        const pulseDecay = Math.max(0, 1.0 - timeSinceLastBeat * 3.0);
-        materialRef.current.beatPulse = pulseDecay * (audioFeatures?.energy || 0.5);
-      } else {
-        materialRef.current.beatPulse = 0.0;
+        // Mode affects brightness (major = brighter, minor = darker)
+        material.uniforms.intensity.value = audioFeatures.mode === 1 ? 1.2 : 0.8;
       }
     }
   });
 
   return (
-    <Sphere ref={meshRef} args={[size, 64, 64]} scale={[1, 1, 1]}>
-      <musicalOrbMaterial
-        ref={materialRef}
-        color={new THREE.Color(0.5, 0.3, 1.0)}
-        intensity={1.0}
-        breathScale={1.0}
-        musicEnergy={0.5}
-        musicValence={0.5}
-      />
-    </Sphere>
-  );
-};
-
-// Enhanced background component with section changes
-const MusicBackground = ({ 
-  audioFeatures, 
-  audioAnalysis, 
-  isPlaying, 
-  currentSection 
-}: { 
-  audioFeatures: any; 
-  audioAnalysis: any; 
-  isPlaying: boolean; 
-  currentSection: any; 
-}) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<any>(null);
-  const [sectionTransition, setSectionTransition] = useState(0);
-
-  // Handle section changes with smooth transitions
-  useEffect(() => {
-    if (currentSection) {
-      setSectionTransition(1);
-      const timeout = setTimeout(() => setSectionTransition(0), 2000);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentSection]);
-
-  useFrame((state) => {
-    if (materialRef.current && audioFeatures) {
-      materialRef.current.uniforms.time.value = state.clock.elapsedTime;
-      materialRef.current.uniforms.energy.value = audioFeatures.energy || 0.5;
-      materialRef.current.uniforms.valence.value = audioFeatures.valence || 0.5;
-      materialRef.current.uniforms.isPlaying.value = isPlaying ? 1.0 : 0.0;
-      materialRef.current.uniforms.sectionTransition.value = sectionTransition;
-      
-      // Section-based color shifts
-      if (currentSection) {
-        materialRef.current.uniforms.sectionKey.value = (currentSection.key || 0) / 12.0;
-        materialRef.current.uniforms.sectionMode.value = currentSection.mode || 0.5;
-      }
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={[0, 0, -5]}>
-      <planeGeometry args={[50, 50]} />
-      <shaderMaterial
-        ref={materialRef}
-        uniforms={{
-          time: { value: 0 },
-          energy: { value: 0.5 },
-          valence: { value: 0.5 },
-          isPlaying: { value: 0.0 },
-          sectionTransition: { value: 0.0 },
-          sectionKey: { value: 0.0 },
-          sectionMode: { value: 0.5 }
-        }}
-        vertexShader={`
-          varying vec2 vUv;
-          void main() {
-            vUv = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `}
-        fragmentShader={`
-          uniform float time;
-          uniform float energy;
-          uniform float valence;
-          uniform float isPlaying;
-          uniform float sectionTransition;
-          uniform float sectionKey;
-          uniform float sectionMode;
-          varying vec2 vUv;
-          
-          void main() {
-            vec2 uv = vUv - 0.5;
-            float dist = length(uv);
-            
-            // Enhanced color mapping based on valence with more dramatic shifts
-            vec3 lowValenceColor = vec3(0.02, 0.08, 0.35);   // Deep blue/violet for low mood
-            vec3 midValenceColor = vec3(0.12, 0.05, 0.25);   // Rich purple for neutral
-            vec3 highValenceColor = vec3(0.45, 0.25, 0.08);  // Warm gold/peach for high mood
-            
-            vec3 baseColor;
-            if (valence < 0.3) {
-              // Very sad/dark music - deep blues
-              baseColor = mix(vec3(0.01, 0.05, 0.4), lowValenceColor, valence / 0.3);
-            } else if (valence < 0.7) {
-              // Neutral range - purples and magentas
-              baseColor = mix(lowValenceColor, midValenceColor, (valence - 0.3) / 0.4);
-            } else {
-              // Happy/energetic music - warm colors
-              baseColor = mix(midValenceColor, highValenceColor, (valence - 0.7) / 0.3);
-            }
-            
-            // Energy creates more dramatic visual changes
-            float energyMultiplier = 0.3 + energy * 1.2; // Much more dramatic range
-            float brightness = energyMultiplier;
-            
-            // Section-based color variations - more pronounced
-            vec3 sectionColorShift = vec3(
-              sin(sectionKey * 6.28 + time * 0.5) * 0.2,
-              cos(sectionKey * 6.28 + time * 0.3) * 0.2,
-              sin(sectionKey * 3.14 + time * 0.7) * 0.15
-            );
-            baseColor += sectionColorShift * sectionMode * energy;
-            
-            // Apply energy-based brightness and saturation
-            vec3 energizedColor = baseColor * brightness;
-            
-            // Section transition effect - more visible
-            float transitionPulse = sectionTransition * sin(dist * 8.0 - time * 6.0) * 0.3;
-            energizedColor += transitionPulse * vec3(1.0, 0.8, 0.6);
-            
-            // Dynamic movement when playing - responds to energy
-            float wave1 = sin(dist * 4.0 - time * (0.5 + energy * 1.5)) * energy * 0.1;
-            float wave2 = cos(dist * 6.0 + time * (0.3 + energy * 1.0)) * energy * 0.08;
-            float movementEffect = (wave1 + wave2) * isPlaying;
-            energizedColor += movementEffect;
-            
-            // Radial gradient for depth
-            float radialGradient = 1.0 - smoothstep(0.0, 1.5, dist);
-            energizedColor *= radialGradient * (0.7 + energy * 0.3);
-            
-            // Final color intensity boost for high energy tracks
-            if (energy > 0.7) {
-              energizedColor += vec3(0.1, 0.05, 0.0) * (energy - 0.7) * 3.0;
-            }
-            
-            gl_FragColor = vec4(energizedColor, 1.0);
-          }
-        `}
-      />
+    <mesh ref={meshRef}>
+      <sphereGeometry args={[1, 64, 64]} />
+      <primitive object={new MusicalOrbMaterial()} attach="material" />
     </mesh>
   );
 };
 
-interface MusicalKasinaOrbProps {
-  isBreathMode: boolean;
-  isPlaying: boolean;
-  currentTrack: any;
-  audioFeatures: any;
-  audioAnalysis: any;
-  size?: number; // Size multiplier from 0.05 to 5.0, matching Visual Kasina
-}
-
 const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
-  isBreathMode,
-  isPlaying,
-  currentTrack,
-  audioFeatures,
-  audioAnalysis,
-  size = 0.3 // Default size matching Visual Kasina
+  audioFeatures = null,
+  getAnalysisData,
+  isPlaying = false,
+  currentTime = 0,
+  useBreathMode = false
 }) => {
-  const [beatTrigger, setBeatTrigger] = useState(0);
   const [breathAmplitude, setBreathAmplitude] = useState(0.5);
+  const [analysisData, setAnalysisData] = useState<AudioAnalysisData | null>(null);
   const [orbScale, setOrbScale] = useState(1.0);
-  const [currentSection, setCurrentSection] = useState<any>(null);
-  const lastBeatTimeRef = useRef(0);
-  const currentPositionRef = useRef(0);
-  const lastSectionRef = useRef<any>(null);
 
-  // Breath detection hooks (Vernier only for Musical Kasina)
+  // Breath detection hooks
   const vernierBreath = useVernierBreathOfficial();
 
-  // Use Vernier breath data only (no microphone for Musical Kasina)
+  // Use Vernier breath data when in breath mode
   useEffect(() => {
-    if (isBreathMode && vernierBreath.isConnected) {
+    if (useBreathMode && vernierBreath.isConnected) {
       setBreathAmplitude(vernierBreath.breathAmplitude);
-    } else if (!isBreathMode) {
-      setBreathAmplitude(0.5); // Static amplitude for Visual Mode
+    } else if (!useBreathMode) {
+      setBreathAmplitude(0.5);
     }
-  }, [isBreathMode, vernierBreath.breathAmplitude, vernierBreath.isConnected]);
+  }, [useBreathMode, vernierBreath.breathAmplitude, vernierBreath.isConnected]);
 
-  // Track position updates from Spotify player
+  // Real-time audio analysis
   useEffect(() => {
-    if (!isPlaying || !currentTrack) return;
+    if (!isPlaying || !getAnalysisData) return;
 
-    const updatePosition = () => {
-      currentPositionRef.current = currentTrack.position / 1000; // Convert to seconds
+    const updateAnalysis = () => {
+      const data = getAnalysisData();
+      setAnalysisData(data);
     };
 
-    const interval = setInterval(updatePosition, 100); // Update every 100ms for smooth tracking
+    const interval = setInterval(updateAnalysis, 16); // ~60fps
     return () => clearInterval(interval);
-  }, [isPlaying, currentTrack]);
-
-  // Beat detection and section change monitoring
-  useEffect(() => {
-    if (!isPlaying) return;
-
-    if (audioAnalysis && audioAnalysis.beats && audioAnalysis.beats.length > 0) {
-      // Real Spotify beat detection with section monitoring
-      const detectBeats = () => {
-        const currentTime = currentPositionRef.current;
-        
-        // Beat detection - look for beats within 100ms window
-        const currentBeat = audioAnalysis.beats.find((beat: any) => 
-          Math.abs(beat.start - currentTime) < 0.1 && 
-          beat.start > lastBeatTimeRef.current
-        );
-        
-        if (currentBeat) {
-          console.log('🥁 Beat detected at:', currentBeat.start, 'current time:', currentTime);
-          setBeatTrigger(prev => prev + 1);
-          lastBeatTimeRef.current = currentBeat.start;
-        }
-        
-        // Section change detection
-        if (audioAnalysis.sections) {
-          const currentSectionData = audioAnalysis.sections.find((section: any) =>
-            currentTime >= section.start && currentTime < (section.start + section.duration)
-          );
-          
-          if (currentSectionData && currentSectionData !== lastSectionRef.current) {
-            console.log('🎵 Section change detected:', currentSectionData);
-            setCurrentSection(currentSectionData);
-            lastSectionRef.current = currentSectionData;
-          }
-        }
-      };
-
-      const interval = setInterval(detectBeats, 50);
-      return () => clearInterval(interval);
-    } else if (currentTrack) {
-      // Fallback: basic beat detection when API access is unavailable
-      const tempo = 120; // Default tempo
-      const beatInterval = (60 / tempo) * 1000;
-      
-      console.log('🥁 Using basic fallback beat detection, tempo:', tempo, 'interval:', beatInterval);
-      
-      const interval = setInterval(() => {
-        setBeatTrigger(prev => prev + 1);
-      }, beatInterval);
-      
-      return () => clearInterval(interval);
-    }
-  }, [audioAnalysis, audioFeatures, currentTrack, isPlaying]);
+  }, [isPlaying, getAnalysisData]);
 
   // Mouse wheel scaling
   useEffect(() => {
@@ -541,29 +446,30 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
         camera={{ position: [0, 0, 5], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
       >
-        {/* Lighting */}
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={0.6} />
         
         {/* Dynamic background */}
         <MusicBackground 
           audioFeatures={audioFeatures} 
-          audioAnalysis={audioAnalysis}
-          isPlaying={isPlaying} 
-          currentSection={currentSection}
+          analysisData={analysisData}
         />
         
         {/* Beat ripples */}
-        <BeatRipple trigger={beatTrigger} audioFeatures={audioFeatures} />
+        {analysisData && (
+          <BeatRipple 
+            volume={analysisData.volume}
+            bassEnergy={analysisData.bassEnergy}
+          />
+        )}
         
         {/* Main orb */}
         <group scale={[orbScale, orbScale, orbScale]}>
           <MusicOrb 
-            isBreathMode={isBreathMode}
             breathAmplitude={breathAmplitude}
             audioFeatures={audioFeatures}
-            beatTrigger={beatTrigger}
-            size={size}
+            analysisData={analysisData}
+            useBreathMode={useBreathMode}
           />
         </group>
       </Canvas>
