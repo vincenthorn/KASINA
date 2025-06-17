@@ -29,6 +29,7 @@ export default function MusicalKasinaPage() {
   const [orbSize, setOrbSize] = useState(1.0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [sessionStartTime] = useState(Date.now());
+  const [lastActivity, setLastActivity] = useState(Date.now());
   
   const fileInputRef = useRef<HTMLInputElement>(null);
   
@@ -73,6 +74,34 @@ export default function MusicalKasinaPage() {
     }
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   }, []);
+
+  // Auto-hide controls after 3 seconds of inactivity
+  useEffect(() => {
+    if (viewState !== 'meditation') return;
+
+    const handleActivity = () => {
+      setLastActivity(Date.now());
+      setShowControls(true);
+    };
+
+    const hideTimer = setInterval(() => {
+      if (Date.now() - lastActivity > 3000) {
+        setShowControls(false);
+      }
+    }, 500);
+
+    // Listen for mouse movement to show controls
+    document.addEventListener('mousemove', handleActivity);
+    document.addEventListener('click', handleActivity);
+    document.addEventListener('keydown', handleActivity);
+
+    return () => {
+      clearInterval(hideTimer);
+      document.removeEventListener('mousemove', handleActivity);
+      document.removeEventListener('click', handleActivity);
+      document.removeEventListener('keydown', handleActivity);
+    };
+  }, [viewState, lastActivity]);
 
   // Check if user has access
   useEffect(() => {
@@ -480,118 +509,112 @@ export default function MusicalKasinaPage() {
           />
         </div>
 
-        {/* Controls Toggle */}
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setShowControls(!showControls)}
-          className="absolute top-4 right-4 z-20 text-white/60 hover:text-white hover:bg-white/10"
-        >
-          {showControls ? 'Hide Controls' : 'Show Controls'}
-        </Button>
-
-        {/* Controls Overlay */}
+        {/* Top Left: Session Timer and End Button */}
         {showControls && (
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-            <Card className="bg-black/70 backdrop-blur-sm border-white/20">
-              <CardContent className="p-6 space-y-4">
+          <div className="absolute top-4 left-4 z-20 flex items-center space-x-3">
+            <div className="bg-black/60 backdrop-blur-sm rounded px-3 py-1 text-white font-mono text-lg">
+              {formatSessionTime(getSessionDuration())}
+            </div>
+            <Button
+              onClick={() => {
+                stopAudio();
+                setViewState('mode-selection');
+              }}
+              className="bg-red-600/80 hover:bg-red-700 text-white px-4 py-1 text-sm"
+            >
+              End
+            </Button>
+          </div>
+        )}
+
+        {/* Top Center: Size Slider */}
+        {showControls && (
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center space-x-4 bg-black/60 backdrop-blur-sm rounded px-6 py-2">
+            <span className="text-white/80 text-sm">Size</span>
+            <input
+              type="range"
+              min="0.5"
+              max="2.0"
+              step="0.1"
+              value={orbSize}
+              onChange={(e) => setOrbSize(parseFloat(e.target.value))}
+              className="w-32 h-2 bg-white/30 rounded-lg appearance-none slider"
+              style={{
+                background: `linear-gradient(to right, rgb(59, 130, 246) 0%, rgb(59, 130, 246) ${(orbSize - 0.5) / 1.5 * 100}%, rgba(255,255,255,0.3) ${(orbSize - 0.5) / 1.5 * 100}%, rgba(255,255,255,0.3) 100%)`
+              }}
+            />
+            <span className="text-white font-mono text-sm min-w-[3rem]">
+              {Math.round((orbSize - 0.5) / 1.5 * 100)}%
+            </span>
+          </div>
+        )}
+
+        {/* Top Right: Fullscreen Button */}
+        {showControls && (
+          <div className="absolute top-4 right-4 z-20">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleFullscreen}
+              className="text-white hover:bg-white/10 p-2"
+            >
+              {isFullscreen ? (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 9V4.5M9 9H4.5M9 9L3.5 3.5m11 5.5V4.5M15 9h4.5M15 9l5.5-5.5M9 15v4.5M9 15H4.5M9 15l-5.5 5.5m11-5.5v4.5m0-4.5h4.5m0 0l5.5 5.5" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5.5 5.5M20 8V4m0 0h-4m4 0l-5.5 5.5M4 16v4m0 0h4m-4 0l5.5-5.5M20 16v4m0 0h-4m4 0l-5.5-5.5" />
+                </svg>
+              )}
+            </Button>
+          </div>
+        )}
+
+        {/* Bottom Center: Media Controls */}
+        {showControls && (
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+            <div className="bg-black/60 backdrop-blur-sm rounded-lg px-6 py-4">
+              {/* Media Controls */}
+              <div className="flex items-center justify-center space-x-6 mb-3">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-white hover:bg-white/10 p-2"
+                  disabled
+                >
+                  <SkipBack className="w-5 h-5" />
+                </Button>
                 
-                {/* Session Info */}
-                <div className="text-center space-y-2">
-                  <div className="text-white text-lg font-medium">{uploadedFile?.name}</div>
-                  <div className="flex justify-center space-x-6 text-sm text-white/80">
-                    <div>
-                      <span className="text-white/60">Track: </span>
-                      {formatTime(currentTime)} / {formatTime(duration)}
-                    </div>
-                    <div>
-                      <span className="text-white/60">Session: </span>
-                      {formatSessionTime(getSessionDuration())}
-                    </div>
-                  </div>
+                <Button
+                  variant="ghost"
+                  size="lg"
+                  onClick={isPlaying ? pauseAudio : playAudio}
+                  className="text-white hover:bg-white/10 p-3"
+                >
+                  {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+                </Button>
+                
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-white hover:bg-white/10 p-2"
+                  disabled
+                >
+                  <SkipForward className="w-5 h-5" />
+                </Button>
+              </div>
+
+              {/* Mode Text */}
+              <div className="text-center">
+                <div className="text-white font-medium">
+                  {selectedMode === 'breath' && breathMode ? 'Breath Synchronization' : 'Visual Mode'}
                 </div>
-
-                <Separator className="bg-white/20" />
-
-                {/* Playback Controls */}
-                <div className="flex items-center justify-center space-x-4">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={isPlaying ? pauseAudio : playAudio}
-                    className="text-white hover:bg-white/10"
-                  >
-                    {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-                  </Button>
-                  
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={stopAudio}
-                    className="text-white hover:bg-white/10"
-                  >
-                    Stop
-                  </Button>
-
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={toggleFullscreen}
-                    className="text-white hover:bg-white/10"
-                  >
-                    {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
-                  </Button>
+                <div className="text-white/60 text-sm">
+                  {uploadedFile?.name || 'Automatic'}
                 </div>
-
-                <Separator className="bg-white/20" />
-
-                {/* Orb Size Control */}
-                <div className="space-y-2">
-                  <label className="text-white/80 text-sm">Kasina Size</label>
-                  <div className="flex items-center space-x-4">
-                    <span className="text-white/60 text-xs">Small</span>
-                    <input
-                      type="range"
-                      min="0.5"
-                      max="2.0"
-                      step="0.1"
-                      value={orbSize}
-                      onChange={(e) => setOrbSize(parseFloat(e.target.value))}
-                      className="flex-1 h-2 bg-white/20 rounded-lg appearance-none slider"
-                      style={{
-                        background: `linear-gradient(to right, rgb(147, 51, 234) 0%, rgb(147, 51, 234) ${(orbSize - 0.5) / 1.5 * 100}%, rgba(255,255,255,0.2) ${(orbSize - 0.5) / 1.5 * 100}%, rgba(255,255,255,0.2) 100%)`
-                      }}
-                    />
-                    <span className="text-white/60 text-xs">Large</span>
-                  </div>
-                </div>
-
-                <Separator className="bg-white/20" />
-
-                {/* Mode Indicator */}
-                <div className="text-center">
-                  <Badge variant="outline" className="border-white/30 text-white">
-                    {selectedMode === 'breath' && breathMode ? 'Breath Mode' : 'Visual Mode'}
-                  </Badge>
-                </div>
-
-                <Separator className="bg-white/20" />
-
-                {/* Exit Button */}
-                <div className="text-center">
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      stopAudio();
-                      setViewState('mode-selection');
-                    }}
-                    className="border-white/30 text-white hover:bg-white/10"
-                  >
-                    End Session
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         )}
 
