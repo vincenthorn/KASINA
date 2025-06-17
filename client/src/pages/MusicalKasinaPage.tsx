@@ -10,6 +10,7 @@ import MusicalKasinaOrb from '@/components/MusicalKasinaOrb';
 import { useAudioAnalysis } from '@/lib/hooks/useAudioAnalysis';
 import { useAuth } from '@/lib/stores/useAuth';
 import { cn } from '@/lib/utils';
+import Layout from '@/components/Layout';
 
 type ViewState = 'landing' | 'upload' | 'mode-selection' | 'meditation';
 type MeditationMode = 'visual' | 'breath';
@@ -133,9 +134,10 @@ export default function MusicalKasinaPage() {
   // Landing page
   if (viewState === 'landing') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col items-center justify-center min-h-[80vh] text-center space-y-8">
+      <Layout>
+        <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+          <div className="container mx-auto px-4 py-8">
+            <div className="flex flex-col items-center justify-center min-h-[80vh] text-center space-y-8">
             
             {/* Header */}
             <div className="space-y-4">
@@ -204,16 +206,18 @@ export default function MusicalKasinaPage() {
             <div className="text-sm text-white/60 max-w-md">
               <p>Musical Kasina is currently available for admin users only.</p>
             </div>
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 
   // Upload page
   if (viewState === 'upload') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      <Layout>
+        <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8">
             
@@ -279,14 +283,15 @@ export default function MusicalKasinaPage() {
             </Card>
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 
   // Mode Selection
   if (viewState === 'mode-selection' && uploadedFile && audioFeatures) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      <Layout>
+        <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8">
             
@@ -412,7 +417,7 @@ export default function MusicalKasinaPage() {
             </Card>
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 
