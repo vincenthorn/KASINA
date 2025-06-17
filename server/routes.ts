@@ -36,6 +36,13 @@ export function registerRoutes(app: Express): Server {
     try {
       const { code, redirectUri } = req.body;
       
+      console.log('🎵 Token exchange request:', {
+        hasCode: !!code,
+        codePreview: code ? code.substring(0, 20) + '...' : null,
+        redirectUri,
+        timestamp: new Date().toISOString()
+      });
+      
       if (!code) {
         return res.status(400).json({ error: "Authorization code is required" });
       }
@@ -44,34 +51,49 @@ export function registerRoutes(app: Express): Server {
       const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 
       if (!clientId || !clientSecret) {
+        console.error('🎵 Missing Spotify credentials');
         return res.status(500).json({ error: "Spotify credentials not configured" });
       }
 
       // Exchange authorization code for access token
+      const tokenParams = new URLSearchParams({
+        grant_type: "authorization_code",
+        code: code,
+        redirect_uri: redirectUri
+      });
+
+      console.log('🎵 Making token request to Spotify:', {
+        clientId: clientId.substring(0, 8) + '...',
+        redirectUri,
+        grantType: 'authorization_code'
+      });
+
       const tokenResponse = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
           "Authorization": `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`
         },
-        body: new URLSearchParams({
-          grant_type: "authorization_code",
-          code: code,
-          redirect_uri: redirectUri
-        })
+        body: tokenParams
       });
 
+      const responseText = await tokenResponse.text();
+      
       if (!tokenResponse.ok) {
-        const error = await tokenResponse.text();
-        console.error("Spotify token exchange failed:", error);
-        return res.status(400).json({ error: "Token exchange failed" });
+        console.error('🎵 Spotify token exchange failed:', {
+          status: tokenResponse.status,
+          statusText: tokenResponse.statusText,
+          response: responseText
+        });
+        return res.status(400).json({ error: "Token exchange failed", details: responseText });
       }
 
-      const tokenData = await tokenResponse.json();
+      const tokenData = JSON.parse(responseText);
+      console.log('🎵 Token exchange successful');
       res.json({ access_token: tokenData.access_token });
 
     } catch (error) {
-      console.error("Error exchanging Spotify token:", error);
+      console.error("🎵 Error exchanging Spotify token:", error);
       res.status(500).json({ error: "Internal server error" });
     }
   });

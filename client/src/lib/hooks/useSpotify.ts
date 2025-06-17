@@ -159,7 +159,8 @@ export const useSpotify = () => {
       console.log('🎵 Processing Spotify callback:', {
         hasCode: !!code,
         hasError: !!error,
-        search: window.location.search
+        search: window.location.search,
+        codePreview: code ? code.substring(0, 20) + '...' : null
       });
       
       if (error) {
@@ -168,8 +169,16 @@ export const useSpotify = () => {
       }
       
       if (code) {
+        // Check if we already processed this code
+        const lastProcessedCode = sessionStorage.getItem('spotify_last_code');
+        if (lastProcessedCode === code) {
+          console.log('🎵 Code already processed, skipping');
+          return;
+        }
+        
         try {
           console.log('🎵 Authorization code found, exchanging for token');
+          sessionStorage.setItem('spotify_last_code', code);
           
           // Exchange code for access token via our server
           const response = await fetch('/api/spotify/token', {
@@ -183,11 +192,14 @@ export const useSpotify = () => {
             }),
           });
           
+          const responseData = await response.json();
+          
           if (!response.ok) {
-            throw new Error(`Token exchange failed: ${response.status}`);
+            console.error('🎵 Token exchange failed:', responseData);
+            throw new Error(`Token exchange failed: ${response.status} - ${JSON.stringify(responseData)}`);
           }
           
-          const { access_token } = await response.json();
+          const { access_token } = responseData;
           
           if (access_token) {
             console.log('🎵 Access token received, storing and initializing player');
@@ -200,6 +212,7 @@ export const useSpotify = () => {
           }
         } catch (error) {
           console.error('🎵 Error exchanging code for token:', error);
+          sessionStorage.removeItem('spotify_last_code'); // Allow retry
         }
       }
     };
