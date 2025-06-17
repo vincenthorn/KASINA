@@ -147,6 +147,46 @@ const MusicalKasinaPage: React.FC = () => {
     }
   };
 
+  // Fetch audio features and analysis when track changes
+  useEffect(() => {
+    const fetchAudioData = async () => {
+      if (currentTrack && currentTrack.id && isConnected) {
+        try {
+          console.log('🎵 Fetching audio data for track:', currentTrack.name, currentTrack.id);
+          
+          // Fetch audio features (valence, energy, tempo, key, mode)
+          const features = await getAudioFeatures(currentTrack.id);
+          if (features) {
+            console.log('🎵 Audio features:', {
+              energy: features.energy,
+              valence: features.valence,
+              tempo: features.tempo,
+              key: features.key,
+              mode: features.mode === 1 ? 'major' : 'minor',
+              danceability: features.danceability
+            });
+            setAudioFeatures(features);
+          }
+          
+          // Fetch audio analysis (beats, sections, segments)
+          const analysis = await getAudioAnalysis(currentTrack.id);
+          if (analysis) {
+            console.log('🎵 Audio analysis:', {
+              beats: analysis.beats?.length || 0,
+              sections: analysis.sections?.length || 0,
+              segments: analysis.segments?.length || 0
+            });
+            setAudioAnalysis(analysis);
+          }
+        } catch (error) {
+          console.error('🎵 Failed to fetch audio data:', error);
+        }
+      }
+    };
+
+    fetchAudioData();
+  }, [currentTrack?.id, isConnected, getAudioFeatures, getAudioAnalysis]);
+
   // Listen for fullscreen changes
   useEffect(() => {
     const handleFullscreenChange = () => {
