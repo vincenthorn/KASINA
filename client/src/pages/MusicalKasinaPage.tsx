@@ -184,7 +184,7 @@ const MusicalKasinaPage: React.FC = () => {
               <div>
                 <h1 className="text-5xl font-bold text-white mb-2">Choose Your Music</h1>
                 <p className="text-xl text-slate-300">
-                  Select a playlist to synchronize with your {isBreathMode ? 'breath meditation' : 'visual meditation'}
+                  Click any playlist to start your {isBreathMode ? 'breath meditation' : 'visual meditation'}
                 </p>
               </div>
               <Button
@@ -211,9 +211,22 @@ const MusicalKasinaPage: React.FC = () => {
                       ? 'ring-4 ring-green-500/70 bg-gradient-to-br from-green-600/30 via-slate-800/90 to-green-700/30 border-green-400/70 shadow-green-500/25' 
                       : 'bg-gradient-to-br from-slate-800/60 via-slate-700/40 to-slate-800/60 border-slate-600/50 hover:border-slate-500/70'
                   } backdrop-blur-lg`}
-                  onClick={() => {
-                    console.log('🎵 Playlist selected:', playlist.name, playlist.id);
-                    setSelectedPlaylist(playlist.id);
+                  onClick={async () => {
+                    try {
+                      console.log('🎵 Playlist clicked, starting immediately:', playlist.name, playlist.id);
+                      setSelectedPlaylist(playlist.id);
+                      setStartingPlaylist(true);
+                      
+                      await playPlaylist(playlist.id);
+                      console.log('🎵 Playlist started, transitioning to meditation view');
+                      setShowMeditation(true);
+                      setShowPlaylistSelection(false);
+                    } catch (error: any) {
+                      console.error('🎵 Failed to start playlist:', error);
+                      alert(`Failed to start playlist: ${error?.message || 'Unknown error'}`);
+                    } finally {
+                      setStartingPlaylist(false);
+                    }
                   }}
                 >
                   <CardContent className="p-0">
@@ -292,52 +305,13 @@ const MusicalKasinaPage: React.FC = () => {
               ))}
             </div>
             
-            {/* Start Button */}
-            {selectedPlaylist && (
+            {/* Loading Indicator */}
+            {startingPlaylist && (
               <div className="mt-12 flex justify-center">
-                <Button
-                  onClick={async (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    console.log('🎵 Button click detected! Starting playlist...', {
-                      selectedPlaylist,
-                      startingPlaylist,
-                      isConnected,
-                      hasAccessToken: !!accessToken,
-                      deviceId
-                    });
-                    
-                    try {
-                      setStartingPlaylist(true);
-                      console.log('🎵 User clicked Start Musical Meditation');
-                      await playPlaylist(selectedPlaylist);
-                      console.log('🎵 Playlist started, transitioning to meditation view');
-                      setShowMeditation(true);
-                      setShowPlaylistSelection(false);
-                    } catch (error: any) {
-                      console.error('🎵 Failed to start playlist:', error);
-                      alert(`Failed to start playlist: ${error?.message || 'Unknown error'}`);
-                    } finally {
-                      setStartingPlaylist(false);
-                    }
-                  }}
-                  disabled={startingPlaylist}
-                  size="lg"
-                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-4 px-12 text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {startingPlaylist ? (
-                    <>
-                      <div className="w-6 h-6 mr-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      Starting Playlist...
-                    </>
-                  ) : (
-                    <>
-                      <Play className="w-6 h-6 mr-3" />
-                      Start Musical Meditation
-                    </>
-                  )}
-                </Button>
+                <div className="bg-gradient-to-r from-green-600 to-green-700 text-white font-bold py-4 px-12 text-lg rounded-lg shadow-2xl flex items-center">
+                  <div className="w-6 h-6 mr-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Starting Playlist...
+                </div>
               </div>
             )}
           </div>
