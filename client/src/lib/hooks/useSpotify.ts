@@ -69,10 +69,29 @@ export const useSpotify = () => {
       console.log('🎵 Checking stored token:', !!storedToken);
       
       if (storedToken) {
-        console.log('🎵 Found stored token, using it');
-        setAccessToken(storedToken);
-        await initializePlayer(storedToken);
-        return;
+        console.log('🎵 Found stored token, testing validity...');
+        
+        // Test if the stored token is still valid
+        try {
+          const testResponse = await fetch('https://api.spotify.com/v1/me', {
+            headers: { 'Authorization': `Bearer ${storedToken}` }
+          });
+          
+          if (testResponse.ok) {
+            console.log('🎵 Stored token is valid, using it');
+            setAccessToken(storedToken);
+            await initializePlayer(storedToken);
+            return;
+          } else {
+            console.log('🎵 Stored token is expired, clearing and starting fresh OAuth');
+            localStorage.removeItem('spotify_access_token');
+            sessionStorage.removeItem('spotify_last_code');
+          }
+        } catch (error) {
+          console.log('🎵 Error testing stored token, clearing and starting fresh OAuth');
+          localStorage.removeItem('spotify_access_token');
+          sessionStorage.removeItem('spotify_last_code');
+        }
       }
 
       console.log('🎵 No stored token, checking environment');
