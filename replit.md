@@ -117,6 +117,7 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Changelog
 
 Changelog:
+- June 17, 2025: Fixed Spotify API 403 errors by forcing re-authentication with proper scopes for audio analysis access
 - June 17, 2025: Fixed Musical Kasina redirect loop completely - removed Navigate redirect in component that was triggering after OAuth callback processing
 - June 17, 2025: Fixed Spotify authentication redirect loop - Musical Kasina now properly handles OAuth callbacks without redirecting to home page
 - June 17, 2025: Enhanced Musical Kasina visual effects with dramatic music synchronization including beat-responsive ripples, valence-based background colors, energy-driven brightness, musical key-based orb coloring, and section change transitions

@@ -73,29 +73,12 @@ export const useSpotify = () => {
         
         // Test if the stored token is still valid
         try {
-          // Test if the token has audio features permissions
-          const testResponse = await fetch('https://api.spotify.com/v1/audio-features/4uLU6hMCjMI75M1A2tKUQC', {
-            headers: { 'Authorization': `Bearer ${storedToken}` }
-          });
-          
-          if (testResponse.ok) {
-            console.log('🎵 Stored token has full permissions, using it');
-            setAccessToken(storedToken);
-            await initializePlayer(storedToken);
-            return;
-          } else if (testResponse.status === 403) {
-            console.log('🎵 Stored token lacks audio features permissions, clearing and starting fresh OAuth');
-            localStorage.removeItem('spotify_access_token');
-            sessionStorage.removeItem('spotify_last_code');
-          } else {
-            console.log('🎵 Stored token is expired, clearing and starting fresh OAuth');
-            localStorage.removeItem('spotify_access_token');
-            sessionStorage.removeItem('spotify_last_code');
-          }
-        } catch (error) {
-          console.log('🎵 Error testing stored token, clearing and starting fresh OAuth');
+          // Always clear stored token to force re-auth with updated scopes
+          console.log('🎵 Clearing stored token to force re-authentication with updated scopes');
           localStorage.removeItem('spotify_access_token');
           sessionStorage.removeItem('spotify_last_code');
+        } catch (error) {
+          console.log('🎵 Error clearing stored token');
         }
       }
 
@@ -135,7 +118,8 @@ export const useSpotify = () => {
         'playlist-read-private',
         'playlist-read-collaborative',
         'user-library-read',
-        'user-top-read'
+        'user-top-read',
+        'user-read-recently-played'
       ].join(' ');
 
       const authUrl = `https://accounts.spotify.com/authorize?` +
