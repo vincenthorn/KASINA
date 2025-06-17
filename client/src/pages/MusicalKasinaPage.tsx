@@ -18,6 +18,7 @@ const MusicalKasinaPage: React.FC = () => {
   const [selectedPlaylist, setSelectedPlaylist] = useState<string>('');
   const [audioFeatures, setAudioFeatures] = useState<any>(null);
   const [audioAnalysis, setAudioAnalysis] = useState<any>(null);
+  const [startingPlaylist, setStartingPlaylist] = useState(false);
 
   const {
     isConnected,
@@ -32,7 +33,9 @@ const MusicalKasinaPage: React.FC = () => {
     nextTrack,
     previousTrack,
     getAudioFeatures,
-    getAudioAnalysis
+    getAudioAnalysis,
+    accessToken,
+    deviceId
   } = useSpotify();
 
   // Check for Spotify callback before authentication redirect
@@ -287,24 +290,49 @@ const MusicalKasinaPage: React.FC = () => {
             {/* Start Button */}
             {selectedPlaylist && (
               <div className="mt-12 flex justify-center">
+                {console.log('🎵 Rendering start button for playlist:', selectedPlaylist)}
                 <Button
-                  onClick={async () => {
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('🎵 Button click detected! Starting playlist...', {
+                      selectedPlaylist,
+                      startingPlaylist,
+                      isConnected,
+                      hasAccessToken: !!accessToken,
+                      deviceId
+                    });
+                    
                     try {
+                      setStartingPlaylist(true);
                       console.log('🎵 User clicked Start Musical Meditation');
                       await playPlaylist(selectedPlaylist);
                       console.log('🎵 Playlist started, transitioning to meditation view');
                       setShowMeditation(true);
                       setShowPlaylistSelection(false);
-                    } catch (error) {
+                    } catch (error: any) {
                       console.error('🎵 Failed to start playlist:', error);
-                      alert(`Failed to start playlist: ${error.message}`);
+                      alert(`Failed to start playlist: ${error?.message || 'Unknown error'}`);
+                    } finally {
+                      setStartingPlaylist(false);
                     }
                   }}
+                  disabled={startingPlaylist}
                   size="lg"
-                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-4 px-12 text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-300"
+                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-4 px-12 text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Play className="w-6 h-6 mr-3" />
-                  Start Musical Meditation
+                  {startingPlaylist ? (
+                    <>
+                      <div className="w-6 h-6 mr-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      Starting Playlist...
+                    </>
+                  ) : (
+                    <>
+                      <Play className="w-6 h-6 mr-3" />
+                      Start Musical Meditation
+                    </>
+                  )}
                 </Button>
               </div>
             )}
