@@ -10,9 +10,10 @@ interface LayoutProps {
   children: ReactNode;
   fullWidth?: boolean;
   isFocusMode?: boolean;
+  noPadding?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMode = false }) => {
+const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMode = false, noPadding = false }) => {
   const location = useLocation();
   const { logout, email, subscriptionType } = useAuth();
   const { showCursor, showControls } = useAutoHide({ 
