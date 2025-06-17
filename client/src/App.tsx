@@ -81,11 +81,21 @@ function MusicalKasinaRoute({ children }: { children: React.ReactNode }) {
     if (hasSpotifyCallback) {
       console.log('🎵 Spotify callback detected, allowing Musical Kasina to process');
       setSpotifyCallbackProcessed(true);
+      // Store that we processed a callback so we don't redirect after cleanup
+      sessionStorage.setItem('spotify_callback_processed', 'true');
     }
   }, [hasSpotifyCallback]);
   
+  // Check if we recently processed a Spotify callback
+  const recentlyProcessedCallback = sessionStorage.getItem('spotify_callback_processed') === 'true';
+  
   // Always allow Spotify callback to process, regardless of auth state
   if (hasSpotifyCallback) {
+    return <>{children}</>;
+  }
+
+  // Also allow access if we recently processed a callback (prevents redirect after URL cleanup)
+  if (recentlyProcessedCallback) {
     return <>{children}</>;
   }
 
