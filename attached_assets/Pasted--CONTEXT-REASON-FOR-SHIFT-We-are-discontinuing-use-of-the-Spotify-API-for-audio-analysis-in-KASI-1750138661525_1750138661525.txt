@@ -1,0 +1,73 @@
+🧠 CONTEXT & REASON FOR SHIFT
+We are discontinuing use of the Spotify API for audio analysis in KASINA due to a hard limitation:
+
+Spotify deprecated access to the Audio Features and Audio Analysis APIs for all apps that did not receive extended quota access prior to November 27, 2024.
+Attempts to access these endpoints from newer client IDs now result in 403 Forbidden errors, and Spotify is no longer approving quota extensions for individual developers.
+
+As a result, we are pivoting to a fully client-side, user-uploaded .mp3 file system with in-browser audio analysis using the Web Audio API, which:
+
+Enables audio-reactive visualizations for the kasina orb
+
+Requires no API keys or rate-limited services
+
+Keeps all audio processing local and privacy-respecting
+
+Works fully within Replit’s hosting capabilities
+
+✅ NEW DIRECTION: MP3 Upload + Web Audio API
+Your task is to implement a working upload-and-visualize flow based on user-provided .mp3 files, using the Web Audio API for analysis.
+
+👇 Key Features to Build
+MP3 Upload UI
+
+HTML <input type="file" accept="audio/mpeg">
+
+Client-side validation to restrict to .mp3
+
+AudioContext Setup
+
+Decode uploaded MP3 using AudioContext.decodeAudioData
+
+Create AudioBufferSourceNode for playback
+
+Audio Analysis Nodes
+
+Create and connect an AnalyserNode
+
+Use .getByteFrequencyData() and/or .getByteTimeDomainData()
+
+Visualizer Hook
+
+Create an animation loop that:
+
+Retrieves amplitude / frequency data in real time
+
+Sends it to a provided updateOrbVisual(volume) function
+
+Bonus: compute and display session stats (e.g., avg volume)
+
+Orb Visual Sync
+
+Link amplitude/frequency data to orb parameters (glow, size, hue, etc.)
+
+Ensure smooth transitions and frame-rate-friendly updates
+
+Fallback Track (Optional)
+
+Provide a default demo .mp3 for users who don’t upload one
+
+This can be hosted locally or via CDN
+
+🧩 Tech Stack Constraints
+Must work client-side only (Replit frontend)
+
+Do not rely on Spotify, YouTube, or third-party APIs
+
+Optimize for low-latency, real-time responsiveness
+
+📦 Optional Enhancements
+Looping playback
+
+Toggle waveform vs frequency visualization
+
+Downloadable session summary with analysis stats
