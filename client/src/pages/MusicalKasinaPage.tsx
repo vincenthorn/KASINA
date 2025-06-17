@@ -203,9 +203,9 @@ const MusicalKasinaPage: React.FC = () => {
       console.log('🎵 Calling connectSpotify...');
       await connectSpotify();
       console.log('🎵 connectSpotify completed successfully');
-    } catch (error) {
+    } catch (error: any) {
       console.error('🎵 Failed to connect to Spotify:', error);
-      alert(`Failed to connect to Spotify: ${error.message}`);
+      alert(`Failed to connect to Spotify: ${error?.message || 'Unknown error'}`);
     } finally {
       setConnecting(false);
     }
@@ -529,7 +529,6 @@ const MusicalKasinaPage: React.FC = () => {
             currentTrack={currentTrack}
             audioFeatures={audioFeatures}
             audioAnalysis={audioAnalysis}
-            size={orbSize}
           />
         </div>
 
@@ -554,10 +553,10 @@ const MusicalKasinaPage: React.FC = () => {
             </button>
             
             <button
-              onClick={isPlaying ? pauseTrack : resumeTrack}
+              onClick={currentTrack?.paused ? playTrack : pauseTrack}
               className="text-slate-300 hover:text-white transition-colors p-3 bg-slate-700/50 rounded-full hover:bg-slate-600/50"
             >
-              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+              {currentTrack?.paused ? <Play className="w-6 h-6" /> : <Pause className="w-6 h-6" />}
             </button>
             
             <button
