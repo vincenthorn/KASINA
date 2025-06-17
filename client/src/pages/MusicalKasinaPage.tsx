@@ -19,6 +19,13 @@ const MusicalKasinaPage: React.FC = () => {
   const [audioFeatures, setAudioFeatures] = useState<any>(null);
   const [audioAnalysis, setAudioAnalysis] = useState<any>(null);
   const [startingPlaylist, setStartingPlaylist] = useState(false);
+  
+  // Musical Kasina session state
+  const [meditationTime, setMeditationTime] = useState(0);
+  const [orbSize, setOrbSize] = useState(1.0);
+  const [showUIControls, setShowUIControls] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [hideTimeout, setHideTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const {
     isConnected,
@@ -51,6 +58,97 @@ const MusicalKasinaPage: React.FC = () => {
       search: window.location.search
     });
   }, [user, isAdmin, hasSpotifyCallback]);
+
+  // Timer for meditation session
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (showMeditation) {
+      interval = setInterval(() => {
+        setMeditationTime(prev => prev + 1);
+      }, 1000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [showMeditation]);
+
+  // Auto-hide UI controls
+  const resetHideTimeout = () => {
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+    }
+    setShowUIControls(true);
+    const newTimeout = setTimeout(() => {
+      setShowUIControls(false);
+    }, 3000);
+    setHideTimeout(newTimeout);
+  };
+
+  // Initialize auto-hide when meditation starts
+  useEffect(() => {
+    if (showMeditation) {
+      resetHideTimeout();
+    }
+    return () => {
+      if (hideTimeout) {
+        clearTimeout(hideTimeout);
+      }
+    };
+  }, [showMeditation]);
+
+  // Reset auto-hide on mouse movement
+  useEffect(() => {
+    if (!showMeditation) return;
+
+    const handleMouseMove = () => {
+      resetHideTimeout();
+    };
+
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        resetHideTimeout();
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('keydown', handleKeyPress);
+    
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [showMeditation]);
+
+  // Format time display
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
+
+  // Fullscreen functionality
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
+  // Listen for fullscreen changes
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
 
   // Load playlists when Spotify connects and show mode selection
   useEffect(() => {
@@ -330,30 +428,20 @@ const MusicalKasinaPage: React.FC = () => {
   if (showMeditation) {
     return (
       <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 flex flex-col">
-        {/* Header Controls */}
-        <div className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center">
-          <Button
-            onClick={async () => {
-              console.log('🎵 Going back - pausing music');
-              try {
-                await pauseTrack();
-                console.log('🎵 Music paused successfully');
-              } catch (error) {
-                console.error('🎵 Failed to pause music:', error);
-              }
-              setShowMeditation(false);
-              setShowModeSelection(true);
-            }}
-            variant="outline"
-            className="border-slate-600 bg-slate-800/80 backdrop-blur-sm text-slate-300 hover:bg-slate-700/80"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
-          </Button>
-          
-          <div className="flex-1"></div>
-
-          <Button
+        {/* Timer and End button - Upper Left */}
+        <div 
+          className={`absolute top-4 left-4 z-30 flex items-center space-x-3 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            padding: '12px 16px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            backdropFilter: 'blur(10px)'
+          }}
+        >
+          <span className="text-white font-mono text-lg font-bold">
+            {formatTime(meditationTime)}
+          </span>
+          <button
             onClick={async () => {
               console.log('🎵 Ending session - pausing music');
               try {
@@ -363,94 +451,134 @@ const MusicalKasinaPage: React.FC = () => {
                 console.error('🎵 Failed to pause music:', error);
               }
               setShowMeditation(false);
-              setShowModeSelection(false);
+              setShowModeSelection(true);
+              setMeditationTime(0);
             }}
-            variant="destructive"
-            className="bg-red-600/80 backdrop-blur-sm hover:bg-red-700/80"
+            className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-colors"
           >
-            End Session
-          </Button>
+            End
+          </button>
         </div>
 
-        {/* Main Meditation Area */}
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-full h-full">
-            <MusicalKasinaOrb 
-              isBreathMode={isBreathMode}
-              isPlaying={Boolean(currentTrack && !currentTrack.paused)}
-              currentTrack={currentTrack}
-              audioFeatures={audioFeatures}
-              audioAnalysis={audioAnalysis}
+        {/* Size Slider - Top Center */}
+        <div 
+          className={`absolute top-4 left-1/2 transform -translate-x-1/2 z-30 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            padding: '12px 20px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '25px',
+            backdropFilter: 'blur(10px)',
+            minWidth: '200px'
+          }}
+        >
+          <div className="flex items-center space-x-3">
+            <span className="text-white text-sm font-medium">Size</span>
+            <input
+              type="range"
+              min="5"
+              max="100"
+              value={Math.round(((orbSize - 0.05) / (3.0 - 0.05)) * 100)}
+              onChange={(e) => {
+                const percentage = parseFloat(e.target.value);
+                const actualSize = 0.05 + (percentage / 100) * (3.0 - 0.05);
+                setOrbSize(actualSize);
+              }}
+              className="flex-1 h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider"
+              style={{
+                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${Math.round(((orbSize - 0.05) / (3.0 - 0.05)) * 100)}%, #475569 ${Math.round(((orbSize - 0.05) / (3.0 - 0.05)) * 100)}%, #475569 100%)`
+              }}
             />
+            <span className="text-white text-sm font-medium min-w-[3ch]">
+              {Math.round(((orbSize - 0.05) / (3.0 - 0.05)) * 100)}%
+            </span>
           </div>
         </div>
 
-        {/* Bottom Status Bar with Music Controls */}
-        <div className="absolute bottom-4 left-4 right-4 z-10">
-          <div className="bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-lg p-4">
-            {currentTrack ? (
-              <div className="flex items-center justify-between">
-                {/* Track Info */}
-                <div className="flex-1 min-w-0">
-                  <p className="text-white font-medium truncate">{currentTrack.name}</p>
-                  <p className="text-gray-400 text-sm truncate">
-                    {currentTrack.artists.map(artist => artist.name).join(', ')}
-                  </p>
-                </div>
-                
-                {/* Music Controls */}
-                <div className="flex items-center space-x-4 mx-6">
-                  <Button
-                    onClick={previousTrack}
-                    variant="ghost"
-                    size="sm"
-                    className="text-gray-400 hover:text-white"
-                  >
-                    <SkipBack className="w-4 h-4" />
-                  </Button>
-                  
-                  <Button
-                    onClick={currentTrack.paused ? playTrack : pauseTrack}
-                    variant="ghost"
-                    size="sm"
-                    className="text-gray-400 hover:text-white"
-                  >
-                    {currentTrack.paused ? <Play className="w-5 h-5" /> : <Pause className="w-5 h-5" />}
-                  </Button>
-                  
-                  <Button
-                    onClick={nextTrack}
-                    variant="ghost"
-                    size="sm"
-                    className="text-gray-400 hover:text-white"
-                  >
-                    <SkipForward className="w-4 h-4" />
-                  </Button>
-                </div>
-                
-                {/* Mode Info */}
-                <div className="text-right">
-                  <p className="text-sm text-gray-400">Mode</p>
-                  <p className="text-white font-medium">{isBreathMode ? 'Breath + Music' : 'Visual + Music'}</p>
-                </div>
-              </div>
+        {/* Fullscreen Button - Upper Right */}
+        <div 
+          className={`absolute top-4 right-4 z-30 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            padding: '12px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            backdropFilter: 'blur(10px)'
+          }}
+        >
+          <button
+            onClick={toggleFullscreen}
+            className="text-white hover:text-blue-400 transition-colors"
+            title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+          >
+            {isFullscreen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             ) : (
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="text-sm text-gray-400">Mode</p>
-                  <p className="text-white font-medium">{isBreathMode ? 'Breath + Music' : 'Visual + Music'}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-400">Status</p>
-                  <p className="text-white font-medium">Loading...</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-400">Type</p>
-                  <p className="text-white font-medium">Musical Kasina</p>
-                </div>
-              </div>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              </svg>
             )}
+          </button>
+        </div>
+
+        {/* Central Orb */}
+        <div className="flex-1 flex items-center justify-center relative">
+          <MusicalKasinaOrb
+            isBreathMode={isBreathMode}
+            isPlaying={Boolean(currentTrack && !currentTrack.paused)}
+            currentTrack={currentTrack}
+            audioFeatures={audioFeatures}
+            audioAnalysis={audioAnalysis}
+            size={orbSize}
+          />
+        </div>
+
+        {/* Music Controls - Bottom Center */}
+        <div 
+          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '12px',
+            backdropFilter: 'blur(10px)',
+            padding: '16px',
+            minWidth: '300px'
+          }}
+        >
+          <div className="flex items-center justify-center space-x-4">
+            {/* Music Controls */}
+            <button
+              onClick={previousTrack}
+              className="text-slate-300 hover:text-white transition-colors p-2"
+            >
+              <SkipBack className="w-5 h-5" />
+            </button>
+            
+            <button
+              onClick={isPlaying ? pauseTrack : resumeTrack}
+              className="text-slate-300 hover:text-white transition-colors p-3 bg-slate-700/50 rounded-full hover:bg-slate-600/50"
+            >
+              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+            </button>
+            
+            <button
+              onClick={nextTrack}
+              className="text-slate-300 hover:text-white transition-colors p-2"
+            >
+              <SkipForward className="w-5 h-5" />
+            </button>
           </div>
+          
+          {/* Current Track Info */}
+          {currentTrack && (
+            <div className="mt-3 text-center">
+              <p className="text-white font-medium text-sm truncate">
+                {currentTrack.name}
+              </p>
+              <p className="text-slate-400 text-xs truncate">
+                {currentTrack.artists?.map(artist => artist.name).join(', ')}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     );
