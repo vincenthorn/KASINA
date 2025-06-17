@@ -327,7 +327,14 @@ const MusicalKasinaPage: React.FC = () => {
         {/* Header Controls */}
         <div className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center">
           <Button
-            onClick={() => {
+            onClick={async () => {
+              console.log('🎵 Going back - pausing music');
+              try {
+                await pauseTrack();
+                console.log('🎵 Music paused successfully');
+              } catch (error) {
+                console.error('🎵 Failed to pause music:', error);
+              }
               setShowMeditation(false);
               setShowModeSelection(true);
             }}
@@ -345,7 +352,14 @@ const MusicalKasinaPage: React.FC = () => {
           </div>
 
           <Button
-            onClick={() => {
+            onClick={async () => {
+              console.log('🎵 Ending session - pausing music');
+              try {
+                await pauseTrack();
+                console.log('🎵 Music paused successfully');
+              } catch (error) {
+                console.error('🎵 Failed to pause music:', error);
+              }
               setShowMeditation(false);
               setShowModeSelection(false);
             }}
