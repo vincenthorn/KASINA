@@ -128,7 +128,9 @@ export const useSpotify = () => {
         'user-modify-playback-state',
         'user-read-currently-playing',
         'playlist-read-private',
-        'playlist-read-collaborative'
+        'playlist-read-collaborative',
+        'user-library-read',
+        'user-top-read'
       ].join(' ');
 
       const authUrl = `https://accounts.spotify.com/authorize?` +
@@ -270,12 +272,22 @@ export const useSpotify = () => {
       playerRef.current.disconnect();
     }
     localStorage.removeItem('spotify_access_token');
+    sessionStorage.removeItem('spotify_last_code');
     setIsConnected(false);
     setPlayer(null);
     setDeviceId(null);
     setAccessToken(null);
     setCurrentTrack(null);
   }, []);
+
+  const forceReauth = useCallback(() => {
+    console.log('🎵 Forcing re-authentication for expanded permissions');
+    disconnectSpotify();
+    // Small delay to ensure state is cleared
+    setTimeout(() => {
+      connectSpotify();
+    }, 100);
+  }, [disconnectSpotify, connectSpotify]);
 
   const spotifyApiCall = useCallback(async (endpoint: string) => {
     if (!accessToken) throw new Error('No access token');
@@ -441,6 +453,7 @@ export const useSpotify = () => {
     playlists,
     connectSpotify,
     disconnectSpotify,
+    forceReauth,
     getCurrentTrack,
     getAudioFeatures,
     getAudioAnalysis,

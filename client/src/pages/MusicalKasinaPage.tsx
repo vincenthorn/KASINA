@@ -41,6 +41,7 @@ const MusicalKasinaPage: React.FC = () => {
     previousTrack,
     getAudioFeatures,
     getAudioAnalysis,
+    forceReauth,
     accessToken,
     deviceId
   } = useSpotify();
@@ -178,8 +179,17 @@ const MusicalKasinaPage: React.FC = () => {
             });
             setAudioAnalysis(analysis);
           }
-        } catch (error) {
+        } catch (error: any) {
           console.error('🎵 Failed to fetch audio data:', error);
+          
+          // Check if it's a 403 error (insufficient permissions)
+          if (error?.message?.includes('403')) {
+            console.log('🎵 Insufficient permissions detected, triggering re-authentication');
+            // Show a user-friendly message and trigger re-auth
+            if (confirm('The app needs additional Spotify permissions to show visual effects synced with music. Re-authenticate now?')) {
+              forceReauth();
+            }
+          }
         }
       }
     };

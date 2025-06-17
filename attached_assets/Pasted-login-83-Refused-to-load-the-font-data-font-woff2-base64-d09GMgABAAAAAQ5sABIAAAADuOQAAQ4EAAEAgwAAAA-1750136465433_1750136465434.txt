@@ -1,0 +1,172 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=773fbb15:4394
+ ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=773fbb15:4394
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Performance Snapshots: Array(20)
+ === PERFORMANCE ANALYSIS ===
+ Last 3 snapshots before crash:
+ Snapshot 18: Object
+ Snapshot 19: Object
+ Snapshot 20: Object
+ Memory trend in final snapshots: -8MB
+ === END PERFORMANCE ANALYSIS ===
+ Crash History: Array(10)
+ Crash #1: Object
+ Crash #2: Object
+ Crash #3: Object
+ Crash #4: Object
+ Crash #5: Object
+ Crash #6: Object
+ Crash #7: Object
+ Crash #8: Object
+ Crash #9: Object
+ Crash #10: Object
+ === END DIAGNOSTIC REPORT ===
+ [AUTH_CHECK] Checking authentication status at 2025-06-17T04:59:57.264Z
+ Setting auth state with user: Object
+ 🎵 Musical Kasina Auth Debug: Object
+ [AUTH_CHECK] Checking authentication status at 2025-06-17T04:59:59.907Z
+ Spotify Web Playback SDK is ready
+ Setting auth state with user: Object
+ 🎵 Musical Kasina Auth Debug: Object
+ 🎵 Connect Spotify button clicked
+ 🎵 Current auth state: Object
+ 🎵 Calling connectSpotify...
+ 🎵 Starting connectSpotify function
+ 🎵 Checking stored token: true
+ 🎵 Found stored token, testing validity...
+ 🎵 Stored token is valid, using it
+ 🎵 connectSpotify completed successfully
+ It is recommended that a robustness level be specified. Not specifying the robustness level could result in unexpected behavior.
+t.requestMediaKeySystemAccess @ index.js:3
+ Spotify player ready with Device ID: 52deae938ffd3a734a27f4838284465ec298ebea
+ 🎵 Spotify connected, showing mode selection
+ 🎵 Musical Kasina Auth Debug: Object
+ 🎵 Spotify connected, loading playlists and showing mode selection
+ 🎵 Playlists loaded, checking image data: Array(50)
+ 🎵 Visual Mode clicked, transitioning to playlist selection
+ ✅ Image loaded successfully: ⚪️ KASINA
+ ✅ Image loaded successfully: Road trip
+ ✅ Image loaded successfully: 📼 Spring 25 Rewind
+ ✅ Image loaded successfully: V Z road trip 
+ ✅ Image loaded successfully: 🌈 Vibe Coding
+ ✅ Image loaded successfully: Zander's Chill
+ ✅ Image loaded successfully: Zander's 2025 Playlist
+ ✅ Image loaded successfully: ❤️‍🔥 Spring 2025
+ ✅ Image loaded successfully: Winter 2025
+ ✅ Image loaded successfully: 📼 Fall 24 Rewind
+ ✅ Image loaded successfully: 📼 Summer 24 Rewind
+ ✅ Image loaded successfully: 🌊  Fall 2024
+ ✅ Image loaded successfully: 🌞 Summer 2024
+ ✅ Image loaded successfully: 📼 Spring 24 Rewind
+ ✅ Image loaded successfully: 🎤 Harry Mack 24
+ ✅ Image loaded successfully: ❤️‍🔥 Spring 24
+ ✅ Image loaded successfully: 🌬️ Winter 24
+ ✅ Image loaded successfully: 🍂 Fall 2023
+ ✅ Image loaded successfully: 📼 Summer 23 Rewind
+ ✅ Image loaded successfully: 🐒 KD Kirtan
+ ✅ Image loaded successfully: 🎙️ Podcast Appearances
+ ✅ Image loaded successfully: 🌞 Summer 2023
+ ✅ Image loaded successfully: Spontaneous Movement
+ ✅ Image loaded successfully: 🐒 Hanuman Chalisa
+ ✅ Image loaded successfully: 😇 Hallelujah
+ ✅ Image loaded successfully: 🌱 Spring 2023
+ ✅ Image loaded successfully: Selected Works By Tomas Dvorak aka Floex
+ ✅ Image loaded successfully: 🐮 Zander 2023
+ ✅ Image loaded successfully: 🐒 Kirtan
+ ✅ Image loaded successfully: 🌛 Winter 2023
+ ✅ Image loaded successfully: Moving Meditation
+ ✅ Image loaded successfully: 💃🏽 Meditation (30m)
+ ✅ Image loaded successfully: 📼 Summer 22 Rewind
+ ✅ Image loaded successfully: 🛸 Fall 2022
+ ✅ Image loaded successfully: 🌦 Spring 2022
+ ✅ Image loaded successfully: 🧎🏻 Meditation (40m)
+ ✅ Image loaded successfully: ⛱ Summer 2022
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 👦🏻 Zander 2022
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 💗 Social Metta
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 🍑 Sexy Time
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 🗣 Freestyle
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 🕺 Heck Yeah Dance
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: Starred
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 🌑 Winter 2022
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 📼 Winter 2022 Rewind
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: ETHDenver
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 👦🏻 Zander 2021
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: ⛅️ Winter 2021
+MusicalKasinaPage.tsx:396 ✅ Image loaded successfully: 🌈 Hippie Flipping
+MusicalKasinaPage.tsx:371 🎵 Playlist clicked, starting immediately: ⚪️ KASINA 4liGdzX0jSfe7kMluwILwk
+useSpotify.ts:361 🎵 Starting playlist playback: Object
+useSpotify.ts:381 🎵 Making play request: Object
+useSpotify.ts:392 🎵 Spotify play response: Object
+useSpotify.ts:404 🎵 Playlist playback started successfully
+MusicalKasinaPage.tsx:376 🎵 Playlist started, transitioning to meditation view
+cpapi.spotify.com/v1/client/52deae938ffd3a734a27f4838284465ec298ebea/event/item_before_load:1 
+            
+            
+           Failed to load resource: the server responded with a status of 404 ()
+index.js:33 Uncaught (in promise) CloudPlaybackClientError: PlayLoad event failed with status 404
+    at new t (index.js:33:195877)
+    at t._handleReportEventResponse (index.js:33:32272)
+useVernierBreathOfficial.ts:404 Vernier GoDirect library loaded successfully from package
+MusicalKasinaOrb.tsx:516 🥁 Using fallback beat detection, tempo: 120 interval: 500
+MusicalKasinaPage.tsx:155 🎵 Fetching audio data for track: Compassion 5jSZYHbNB9xYZ9QD5r2mgn
+MusicalKasinaOrb.tsx:516 🥁 Using fallback beat detection, tempo: 120 interval: 500
+api.spotify.com/v1/audio-features/5jSZYHbNB9xYZ9QD5r2mgn:1 
+            
+            
+           Failed to load resource: the server responded with a status of 403 ()
+chunk-EMXP5JYR.js?v=773fbb15:18167 Error getting audio features: Error: Spotify API error: 403
+    at useSpotify.ts:290:13
+    at async useSpotify.ts:313:20
+    at async fetchAudioData (MusicalKasinaPage.tsx:158:28)
+console.error @ chunk-EMXP5JYR.js?v=773fbb15:18167
+api.spotify.com/v1/audio-features/5jSZYHbNB9xYZ9QD5r2mgn:1 
+            
+            
+           Failed to load resource: the server responded with a status of 403 ()
+chunk-EMXP5JYR.js?v=773fbb15:18167 Error getting audio features: Error: Spotify API error: 403
+    at useSpotify.ts:290:13
+    at async useSpotify.ts:313:20
+    at async loadAudioData (MusicalKasinaPage.tsx:237:26)
+console.error @ chunk-EMXP5JYR.js?v=773fbb15:18167
+api.spotify.com/v1/audio-analysis/5jSZYHbNB9xYZ9QD5r2mgn:1 
+            
+            
+           Failed to load resource: the server responded with a status of 403 ()
+chunk-EMXP5JYR.js?v=773fbb15:18167 Error getting audio analysis: Error: Spotify API error: 403
+    at useSpotify.ts:290:13
+    at async useSpotify.ts:331:20
+    at async fetchAudioData (MusicalKasinaPage.tsx:172:28)
+console.error @ chunk-EMXP5JYR.js?v=773fbb15:18167
+api.spotify.com/v1/audio-features/5jSZYHbNB9xYZ9QD5r2mgn:1 
+            
+            
+           Failed to load resource: the server responded with a status of 403 ()
+chunk-EMXP5JYR.js?v=773fbb15:18167 Error getting audio features: Error: Spotify API error: 403
+    at useSpotify.ts:290:13
+    at async useSpotify.ts:313:20
+    at async loadAudioData (MusicalKasinaPage.tsx:237:26)
+console.error @ chunk-EMXP5JYR.js?v=773fbb15:18167
+api.spotify.com/v1/audio-analysis/5jSZYHbNB9xYZ9QD5r2mgn:1 
+            
+            
+           Failed to load resource: the server responded with a status of 403 ()
+chunk-EMXP5JYR.js?v=773fbb15:18167 Error getting audio analysis: Error: Spotify API error: 403
+    at useSpotify.ts:290:13
+    at async useSpotify.ts:331:20
+    at async loadAudioData (MusicalKasinaPage.tsx:238:26)
+console.error @ chunk-EMXP5JYR.js?v=773fbb15:18167
+api.spotify.com/v1/audio-analysis/5jSZYHbNB9xYZ9QD5r2mgn:1 
+            
+            
+           Failed to load resource: the server responded with a status of 403 ()
+chunk-EMXP5JYR.js?v=773fbb15:18167 Error getting audio analysis: Error: Spotify API error: 403
+    at useSpotify.ts:290:13
+    at async useSpotify.ts:331:20
+    at async loadAudioData (MusicalKasinaPage.tsx:238:26)
+console.error @ chunk-EMXP5JYR.js?v=773fbb15:18167

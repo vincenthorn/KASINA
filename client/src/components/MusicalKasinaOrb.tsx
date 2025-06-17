@@ -508,12 +508,12 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
 
       const interval = setInterval(detectBeats, 50);
       return () => clearInterval(interval);
-    } else if (audioFeatures || currentTrack) {
-      // Fallback: simulate beats based on tempo for tracks without analysis
-      const tempo = audioFeatures?.tempo || 120;
-      const beatInterval = (60 / tempo) * 1000; // Convert BPM to milliseconds
+    } else if (currentTrack) {
+      // Fallback: basic beat detection when API access is unavailable
+      const tempo = 120; // Default tempo
+      const beatInterval = (60 / tempo) * 1000;
       
-      console.log('🥁 Using fallback beat detection, tempo:', tempo, 'interval:', beatInterval);
+      console.log('🥁 Using basic fallback beat detection, tempo:', tempo, 'interval:', beatInterval);
       
       const interval = setInterval(() => {
         setBeatTrigger(prev => prev + 1);
