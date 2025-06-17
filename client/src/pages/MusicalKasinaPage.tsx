@@ -138,74 +138,74 @@ export default function MusicalKasinaPage() {
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
           <div className="container mx-auto px-4 py-8">
             <div className="flex flex-col items-center justify-center min-h-[80vh] text-center space-y-8">
-            
-            {/* Header */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-center space-x-3 mb-6">
-                <div className="p-3 bg-white/10 rounded-full backdrop-blur-sm">
-                  <Music className="w-8 h-8 text-white" />
-                </div>
-                <h1 className="text-4xl font-bold text-white">Musical Kasina</h1>
-              </div>
               
-              <p className="text-xl text-white/80 max-w-2xl">
-                Upload your own MP3 files and experience immersive audio-reactive meditation with synchronized visual effects.
-              </p>
-            </div>
+              {/* Header */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-center space-x-3 mb-6">
+                  <div className="p-3 bg-white/10 rounded-full backdrop-blur-sm">
+                    <Music className="w-8 h-8 text-white" />
+                  </div>
+                  <h1 className="text-4xl font-bold text-white">Musical Kasina</h1>
+                </div>
+                
+                <p className="text-xl text-white/80 max-w-2xl">
+                  Upload your own MP3 files and experience immersive audio-reactive meditation with synchronized visual effects.
+                </p>
+              </div>
 
-            {/* Features Grid */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl">
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <CardHeader className="text-center">
-                  <FileAudio className="w-8 h-8 mx-auto mb-2 text-blue-300" />
-                  <CardTitle className="text-lg">Your Music</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-white/80">
-                    Upload any MP3 file from your collection for a personalized meditation experience.
-                  </p>
-                </CardContent>
-              </Card>
+              {/* Features Grid */}
+              <div className="grid md:grid-cols-3 gap-6 max-w-4xl">
+                <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+                  <CardHeader className="text-center">
+                    <FileAudio className="w-8 h-8 mx-auto mb-2 text-blue-300" />
+                    <CardTitle className="text-lg">Your Music</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-white/80">
+                      Upload any MP3 file from your collection for a personalized meditation experience.
+                    </p>
+                  </CardContent>
+                </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <CardHeader className="text-center">
-                  <Waves className="w-8 h-8 mx-auto mb-2 text-green-300" />
-                  <CardTitle className="text-lg">Real-time Analysis</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-white/80">
-                    Advanced Web Audio API analysis creates dynamic visual effects synchronized to your music.
-                  </p>
-                </CardContent>
-              </Card>
+                <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+                  <CardHeader className="text-center">
+                    <Waves className="w-8 h-8 mx-auto mb-2 text-green-300" />
+                    <CardTitle className="text-lg">Real-time Analysis</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-white/80">
+                      Advanced Web Audio API analysis creates dynamic visual effects synchronized to your music.
+                    </p>
+                  </CardContent>
+                </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <CardHeader className="text-center">
-                  <Eye className="w-8 h-8 mx-auto mb-2 text-purple-300" />
-                  <CardTitle className="text-lg">Visual Meditation</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-white/80">
-                    Choose between visual-only mode or breath-synchronized meditation with musical guidance.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+                <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+                  <CardHeader className="text-center">
+                    <Eye className="w-8 h-8 mx-auto mb-2 text-purple-300" />
+                    <CardTitle className="text-lg">Visual Meditation</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-white/80">
+                      Choose between visual-only mode or breath-synchronized meditation with musical guidance.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
 
-            {/* CTA Button */}
-            <Button 
-              onClick={() => setViewState('upload')}
-              size="lg"
-              className="bg-white text-purple-900 hover:bg-white/90 px-8 py-4 text-lg font-semibold"
-            >
-              <Upload className="w-5 h-5 mr-2" />
-              Upload Your Music
-            </Button>
+              {/* CTA Button */}
+              <Button 
+                onClick={() => setViewState('upload')}
+                size="lg"
+                className="bg-white text-purple-900 hover:bg-white/90 px-8 py-4 text-lg font-semibold"
+              >
+                <Upload className="w-5 h-5 mr-2" />
+                Upload Your Music
+              </Button>
 
-            {/* Admin Notice */}
-            <div className="text-sm text-white/60 max-w-md">
-              <p>Musical Kasina is currently available for admin users only.</p>
-            </div>
+              {/* Admin Notice */}
+              <div className="text-sm text-white/60 max-w-md">
+                <p>Musical Kasina is currently available for admin users only.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -218,69 +218,70 @@ export default function MusicalKasinaPage() {
     return (
       <Layout>
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8">
-            
-            {/* Back Button */}
-            <div className="w-full max-w-2xl">
-              <Button 
-                variant="ghost" 
-                onClick={() => setViewState('landing')}
-                className="text-white hover:bg-white/10"
-              >
-                ← Back to Musical Kasina
-              </Button>
-            </div>
-
-            {/* Upload Area */}
-            <Card className="w-full max-w-2xl bg-white/10 backdrop-blur-sm border-white/20">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl text-white">Upload Your Music</CardTitle>
-                <CardDescription className="text-white/80">
-                  Select an MP3 file to begin your musical meditation session
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                
-                {/* Drag & Drop Area */}
-                <div
-                  onDragOver={handleDragOver}
-                  onDrop={handleDrop}
-                  className="border-2 border-dashed border-white/30 rounded-lg p-12 text-center hover:border-white/50 transition-colors cursor-pointer"
-                  onClick={() => fileInputRef.current?.click()}
+          <div className="container mx-auto px-4 py-8">
+            <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8">
+              
+              {/* Back Button */}
+              <div className="w-full max-w-2xl">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => setViewState('landing')}
+                  className="text-white hover:bg-white/10"
                 >
-                  <Upload className="w-12 h-12 mx-auto mb-4 text-white/60" />
-                  <p className="text-lg text-white mb-2">Drop your MP3 file here</p>
-                  <p className="text-sm text-white/60">or click to browse</p>
-                </div>
+                  ← Back to Musical Kasina
+                </Button>
+              </div>
 
-                {/* Hidden File Input */}
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="audio/*,.mp3"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                />
+              {/* Upload Area */}
+              <Card className="w-full max-w-2xl bg-white/10 backdrop-blur-sm border-white/20">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl text-white">Upload Your Music</CardTitle>
+                  <CardDescription className="text-white/80">
+                    Select an MP3 file to begin your musical meditation session
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  
+                  {/* Drag & Drop Area */}
+                  <div
+                    onDragOver={handleDragOver}
+                    onDrop={handleDrop}
+                    className="border-2 border-dashed border-white/30 rounded-lg p-12 text-center hover:border-white/50 transition-colors cursor-pointer"
+                    onClick={() => fileInputRef.current?.click()}
+                  >
+                    <Upload className="w-12 h-12 mx-auto mb-4 text-white/60" />
+                    <p className="text-lg text-white mb-2">Drop your MP3 file here</p>
+                    <p className="text-sm text-white/60">or click to browse</p>
+                  </div>
 
-                {/* File Requirements */}
-                <div className="text-sm text-white/60 space-y-1">
-                  <p>• Supported format: MP3</p>
-                  <p>• Maximum file size: 50MB</p>
-                  <p>• Your audio stays private and is processed locally</p>
-                </div>
+                  {/* Hidden File Input */}
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="audio/*,.mp3"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
 
-                {/* Error Display */}
-                {error && (
-                  <Alert className="bg-red-500/20 border-red-500/50">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertDescription className="text-white">
-                      {error}
-                    </AlertDescription>
-                  </Alert>
-                )}
-              </CardContent>
-            </Card>
+                  {/* File Requirements */}
+                  <div className="text-sm text-white/60 space-y-1">
+                    <p>• Supported format: MP3</p>
+                    <p>• Maximum file size: 50MB</p>
+                    <p>• Your audio stays private and is processed locally</p>
+                  </div>
+
+                  {/* Error Display */}
+                  {error && (
+                    <Alert className="bg-red-500/20 border-red-500/50">
+                      <AlertCircle className="h-4 w-4" />
+                      <AlertDescription className="text-white">
+                        {error}
+                      </AlertDescription>
+                    </Alert>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </Layout>
@@ -292,129 +293,130 @@ export default function MusicalKasinaPage() {
     return (
       <Layout>
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8">
-            
-            {/* Back Button */}
-            <div className="w-full max-w-4xl">
-              <Button 
-                variant="ghost" 
-                onClick={() => setViewState('upload')}
-                className="text-white hover:bg-white/10"
-              >
-                ← Upload Different Track
-              </Button>
-            </div>
+          <div className="container mx-auto px-4 py-8">
+            <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8">
+              
+              {/* Back Button */}
+              <div className="w-full max-w-4xl">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => setViewState('upload')}
+                  className="text-white hover:bg-white/10"
+                >
+                  ← Upload Different Track
+                </Button>
+              </div>
 
-            {/* Track Info */}
-            <Card className="w-full max-w-4xl bg-white/10 backdrop-blur-sm border-white/20">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl text-white">Track Loaded</CardTitle>
-                <CardDescription className="text-white/80">
-                  {uploadedFile.name}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                
-                {/* Audio Features */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-white">{Math.round(audioFeatures.tempo)}</div>
-                    <div className="text-sm text-white/60">BPM</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-white">{formatTime(duration)}</div>
-                    <div className="text-sm text-white/60">Duration</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-white">{Math.round(audioFeatures.energy * 100)}%</div>
-                    <div className="text-sm text-white/60">Energy</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-white">{Math.round(audioFeatures.valence * 100)}%</div>
-                    <div className="text-sm text-white/60">Positivity</div>
-                  </div>
-                </div>
-
-                <Separator className="bg-white/20" />
-
-                {/* Mode Selection */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-white text-center">Choose Your Meditation Mode</h3>
+              {/* Track Info */}
+              <Card className="w-full max-w-4xl bg-white/10 backdrop-blur-sm border-white/20">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl text-white">Track Loaded</CardTitle>
+                  <CardDescription className="text-white/80">
+                    {uploadedFile.name}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
                   
-                  <div className="grid md:grid-cols-2 gap-6">
-                    
-                    {/* Visual Mode */}
-                    <Card 
-                      className={cn(
-                        "cursor-pointer transition-all hover:scale-105",
-                        selectedMode === 'visual' 
-                          ? "bg-white/20 border-white/40" 
-                          : "bg-white/10 border-white/20 hover:bg-white/15"
-                      )}
-                      onClick={() => setSelectedMode('visual')}
-                    >
-                      <CardHeader className="text-center">
-                        <Eye className="w-8 h-8 mx-auto mb-2 text-blue-300" />
-                        <CardTitle className="text-white">Visual Mode</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-white/80 text-center">
-                          Immersive visual meditation with audio-reactive effects synchronized to your music.
-                        </p>
-                      </CardContent>
-                    </Card>
-
-                    {/* Breath Mode */}
-                    <Card 
-                      className={cn(
-                        "cursor-pointer transition-all hover:scale-105",
-                        selectedMode === 'breath' 
-                          ? "bg-white/20 border-white/40" 
-                          : "bg-white/10 border-white/20 hover:bg-white/15"
-                      )}
-                      onClick={() => setSelectedMode('breath')}
-                    >
-                      <CardHeader className="text-center">
-                        <Waves className="w-8 h-8 mx-auto mb-2 text-green-300" />
-                        <CardTitle className="text-white">Breath Mode</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-white/80 text-center">
-                          Guided breathing meditation where the orb expands and contracts with your breath rhythm.
-                        </p>
-                      </CardContent>
-                    </Card>
+                  {/* Audio Features */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-white">{Math.round(audioFeatures.tempo)}</div>
+                      <div className="text-sm text-white/60">BPM</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-white">{formatTime(duration)}</div>
+                      <div className="text-sm text-white/60">Duration</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-white">{Math.round(audioFeatures.energy * 100)}%</div>
+                      <div className="text-sm text-white/60">Energy</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-white">{Math.round(audioFeatures.valence * 100)}%</div>
+                      <div className="text-sm text-white/60">Positivity</div>
+                    </div>
                   </div>
 
-                  {/* Breath Mode Toggle (when breath mode selected) */}
-                  {selectedMode === 'breath' && (
-                    <div className="flex items-center justify-center space-x-4 pt-4">
-                      <span className="text-white/80">Breath Synchronization:</span>
-                      <Button
-                        variant={breathMode ? "default" : "outline"}
-                        onClick={() => setBreathMode(!breathMode)}
-                        className={breathMode ? "bg-green-600 hover:bg-green-700" : "border-white/30 text-white hover:bg-white/10"}
+                  <Separator className="bg-white/20" />
+
+                  {/* Mode Selection */}
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold text-white text-center">Choose Your Meditation Mode</h3>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      
+                      {/* Visual Mode */}
+                      <Card 
+                        className={cn(
+                          "cursor-pointer transition-all hover:scale-105",
+                          selectedMode === 'visual' 
+                            ? "bg-white/20 border-white/40" 
+                            : "bg-white/10 border-white/20 hover:bg-white/15"
+                        )}
+                        onClick={() => setSelectedMode('visual')}
                       >
-                        {breathMode ? "ON" : "OFF"}
+                        <CardHeader className="text-center">
+                          <Eye className="w-8 h-8 mx-auto mb-2 text-blue-300" />
+                          <CardTitle className="text-white">Visual Mode</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm text-white/80 text-center">
+                            Immersive visual meditation with audio-reactive effects synchronized to your music.
+                          </p>
+                        </CardContent>
+                      </Card>
+
+                      {/* Breath Mode */}
+                      <Card 
+                        className={cn(
+                          "cursor-pointer transition-all hover:scale-105",
+                          selectedMode === 'breath' 
+                            ? "bg-white/20 border-white/40" 
+                            : "bg-white/10 border-white/20 hover:bg-white/15"
+                        )}
+                        onClick={() => setSelectedMode('breath')}
+                      >
+                        <CardHeader className="text-center">
+                          <Waves className="w-8 h-8 mx-auto mb-2 text-green-300" />
+                          <CardTitle className="text-white">Breath Mode</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm text-white/80 text-center">
+                            Guided breathing meditation where the orb expands and contracts with your breath rhythm.
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Breath Mode Toggle (when breath mode selected) */}
+                    {selectedMode === 'breath' && (
+                      <div className="flex items-center justify-center space-x-4 pt-4">
+                        <span className="text-white/80">Breath Synchronization:</span>
+                        <Button
+                          variant={breathMode ? "default" : "outline"}
+                          onClick={() => setBreathMode(!breathMode)}
+                          className={breathMode ? "bg-green-600 hover:bg-green-700" : "border-white/30 text-white hover:bg-white/10"}
+                        >
+                          {breathMode ? "ON" : "OFF"}
+                        </Button>
+                      </div>
+                    )}
+
+                    {/* Start Button */}
+                    <div className="text-center pt-4">
+                      <Button 
+                        onClick={startMeditation}
+                        size="lg"
+                        className="bg-white text-purple-900 hover:bg-white/90 px-8 py-4 text-lg font-semibold"
+                      >
+                        <Play className="w-5 h-5 mr-2" />
+                        Start Meditation
                       </Button>
                     </div>
-                  )}
-
-                  {/* Start Button */}
-                  <div className="text-center pt-4">
-                    <Button 
-                      onClick={startMeditation}
-                      size="lg"
-                      className="bg-white text-purple-900 hover:bg-white/90 px-8 py-4 text-lg font-semibold"
-                    >
-                      <Play className="w-5 h-5 mr-2" />
-                      Start Meditation
-                    </Button>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </Layout>
