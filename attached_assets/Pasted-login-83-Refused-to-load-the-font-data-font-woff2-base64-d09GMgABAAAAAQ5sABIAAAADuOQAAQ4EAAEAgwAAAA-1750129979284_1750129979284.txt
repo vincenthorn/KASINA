@@ -1,0 +1,217 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js:4394
+ ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js:4394
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Performance Snapshots: Array(20)
+ === PERFORMANCE ANALYSIS ===
+ Last 3 snapshots before crash:
+ Snapshot 18: Object
+ Snapshot 19: Object
+ Snapshot 20: Object
+ Memory trend in final snapshots: -8MB
+ === END PERFORMANCE ANALYSIS ===
+ Crash History: Array(10)
+ Crash #1: Object
+ Crash #2: Object
+ Crash #3: Object
+ Crash #4: Object
+ Crash #5: Object
+ Crash #6: Object
+ Crash #7: Object
+ Crash #8: Object
+ Crash #9: Object
+ Crash #10: Object
+HomePage.tsx:144 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-17T03:12:37.824Z
+useAuth.tsx:181 Setting auth state with user: Object
+MusicalKasinaPage.tsx:46 🎵 Musical Kasina Auth Debug: Object
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-17T03:12:40.354Z
+useSpotify.ts:58 Spotify Web Playback SDK is ready
+useAuth.tsx:181 Setting auth state with user: Object
+MusicalKasinaPage.tsx:46 🎵 Musical Kasina Auth Debug: Object
+MusicalKasinaPage.tsx:100 🎵 Connect Spotify button clicked
+MusicalKasinaPage.tsx:101 🎵 Current auth state: Object
+MusicalKasinaPage.tsx:105 🎵 Calling connectSpotify...
+MusicalKasinaPage.tsx:107 🎵 connectSpotify completed successfully
+index.js:3 It is recommended that a robustness level be specified. Not specifying the robustness level could result in unexpected behavior.
+t.requestMediaKeySystemAccess @ index.js:3
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+index.js:18 WebSocket connection to 'wss://gue1-dealer.spotify.com/?access_token=BQBjxvLhx4oAkxCGlXcpFPopVxxa55uwgIPWI61l0Aiy0iPn__ywJcEbdvfLXDiFTGUwkK6MaBGwl-WnRva_Qmt0iCw-EdgBeBpMWgxvq64jEXsA-LahANkP7HjaP26XgY-UapBRcXssvJ5t4VfD1t3bydpkMWrcOfpf25BLshvnc0MdQuWfCElON8ouCvHXvqqELT2Qow3zajll0pVUPgxN0dKtCYpdvVE0i_Vb9rmsXp_rlDbfDC1fBjh16NZovg' failed: 
+r.authenticate @ index.js:18
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+MusicalKasinaPage.tsx:100 🎵 Connect Spotify button clicked
+MusicalKasinaPage.tsx:101 🎵 Current auth state: Object
+MusicalKasinaPage.tsx:105 🎵 Calling connectSpotify...
+MusicalKasinaPage.tsx:107 🎵 connectSpotify completed successfully
+index.js:3 It is recommended that a robustness level be specified. Not specifying the robustness level could result in unexpected behavior.
+t.requestMediaKeySystemAccess @ index.js:3
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+index.js:18 WebSocket connection to 'wss://gue1-dealer.spotify.com/?access_token=BQBjxvLhx4oAkxCGlXcpFPopVxxa55uwgIPWI61l0Aiy0iPn__ywJcEbdvfLXDiFTGUwkK6MaBGwl-WnRva_Qmt0iCw-EdgBeBpMWgxvq64jEXsA-LahANkP7HjaP26XgY-UapBRcXssvJ5t4VfD1t3bydpkMWrcOfpf25BLshvnc0MdQuWfCElON8ouCvHXvqqELT2Qow3zajll0pVUPgxN0dKtCYpdvVE0i_Vb9rmsXp_rlDbfDC1fBjh16NZovg' failed: 
+r.authenticate @ index.js:18
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+index.js:18 WebSocket connection to 'wss://gue1-dealer.spotify.com/?access_token=BQBjxvLhx4oAkxCGlXcpFPopVxxa55uwgIPWI61l0Aiy0iPn__ywJcEbdvfLXDiFTGUwkK6MaBGwl-WnRva_Qmt0iCw-EdgBeBpMWgxvq64jEXsA-LahANkP7HjaP26XgY-UapBRcXssvJ5t4VfD1t3bydpkMWrcOfpf25BLshvnc0MdQuWfCElON8ouCvHXvqqELT2Qow3zajll0pVUPgxN0dKtCYpdvVE0i_Vb9rmsXp_rlDbfDC1fBjh16NZovg' failed: 
+r.authenticate @ index.js:18
+api.spotify.com/v1/melody/v1/check_scope?scope=web-playback:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+index.js:18 
+            
+            
+           GET https://api.spotify.com/v1/melody/v1/check_scope?scope=web-playback 401 (Unauthorized)
+r.request @ index.js:18
+(anonymous) @ index.js:18
+Promise.then
+(anonymous) @ index.js:18
+e._tick @ index.js:18
+e.start @ index.js:18
+t._sendRetriedRequest @ index.js:18
+(anonymous) @ index.js:18
+Promise.then
+t._sendRequest @ index.js:18
+t.request @ index.js:18
+t.request @ index.js:33
+e._verifyToken @ index.js:50
+Promise.then
+e._getToken @ index.js:50
+(anonymous) @ index.js:33
+token @ index.js:33
+(anonymous) @ index.js:18
+t._refreshToken @ index.js:18
+(anonymous) @ index.js:18
+e._tick @ index.js:18
+(anonymous) @ index.js:18
+index.js:18 
+            
+            
+           GET https://api.spotify.com/v1/melody/v1/check_scope?scope=web-playback 401 (Unauthorized)
+r.request @ index.js:18
+(anonymous) @ index.js:18
+Promise.then
+(anonymous) @ index.js:18
+e._tick @ index.js:18
+(anonymous) @ index.js:18
+setTimeout
+e._failure @ index.js:18
+(anonymous) @ index.js:18
+Promise.catch
+e._tick @ index.js:18
+e.start @ index.js:18
+t._sendRetriedRequest @ index.js:18
+(anonymous) @ index.js:18
+Promise.then
+t._sendRequest @ index.js:18
+t.request @ index.js:18
+t.request @ index.js:33
+e._verifyToken @ index.js:50
+Promise.then
+e._getToken @ index.js:50
+(anonymous) @ index.js:33
+token @ index.js:33
+(anonymous) @ index.js:18
+t._refreshToken @ index.js:18
+(anonymous) @ index.js:18
+e._tick @ index.js:18
+(anonymous) @ index.js:18
+index.js:18 
+            
+            
+           GET https://api.spotify.com/v1/melody/v1/check_scope?scope=web-playback 401 (Unauthorized)
+r.request @ index.js:18
+(anonymous) @ index.js:18
+Promise.then
+(anonymous) @ index.js:18
+e._tick @ index.js:18
+(anonymous) @ index.js:18
+setTimeout
+e._failure @ index.js:18
+(anonymous) @ index.js:18
+Promise.catch
+e._tick @ index.js:18
+(anonymous) @ index.js:18
+setTimeout
+e._failure @ index.js:18
+(anonymous) @ index.js:18
+Promise.catch
+e._tick @ index.js:18
+e.start @ index.js:18
+t._sendRetriedRequest @ index.js:18
+(anonymous) @ index.js:18
+Promise.then
+t._sendRequest @ index.js:18
+t.request @ index.js:18
+t.request @ index.js:33
+e._verifyToken @ index.js:50
+Promise.then
+e._getToken @ index.js:50
+(anonymous) @ index.js:33
+token @ index.js:33
+(anonymous) @ index.js:18
+t._refreshToken @ index.js:18
+(anonymous) @ index.js:18
+e._tick @ index.js:18
+(anonymous) @ index.js:18
+index.js:18 WebSocket connection to 'wss://gue1-dealer.spotify.com/?access_token=BQBjxvLhx4oAkxCGlXcpFPopVxxa55uwgIPWI61l0Aiy0iPn__ywJcEbdvfLXDiFTGUwkK6MaBGwl-WnRva_Qmt0iCw-EdgBeBpMWgxvq64jEXsA-LahANkP7HjaP26XgY-UapBRcXssvJ5t4VfD1t3bydpkMWrcOfpf25BLshvnc0MdQuWfCElON8ouCvHXvqqELT2Qow3zajll0pVUPgxN0dKtCYpdvVE0i_Vb9rmsXp_rlDbfDC1fBjh16NZovg' failed: 
+r.authenticate @ index.js:18
+e._onTransportAuthenticate @ index.js:18
+e._dispatchFromStore @ index.js:18
+(anonymous) @ index.js:18
+o @ index.js:18
+r @ index.js:18

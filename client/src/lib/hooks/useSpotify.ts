@@ -62,25 +62,36 @@ export const useSpotify = () => {
 
   const connectSpotify = useCallback(async () => {
     try {
+      console.log('🎵 Starting connectSpotify function');
+      
       // Check if we have stored tokens
       const storedToken = localStorage.getItem('spotify_access_token');
+      console.log('🎵 Checking stored token:', !!storedToken);
+      
       if (storedToken) {
+        console.log('🎵 Found stored token, using it');
         setAccessToken(storedToken);
         await initializePlayer(storedToken);
         return;
       }
 
+      console.log('🎵 No stored token, checking environment');
+      
       // Redirect to Spotify authorization
       const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
       console.log('🎵 Environment check:', {
         hasClientId: !!clientId,
         clientIdPreview: clientId ? clientId.substring(0, 8) + '...' : 'undefined',
-        envVars: Object.keys(import.meta.env).filter(key => key.includes('SPOTIFY'))
+        envVars: Object.keys(import.meta.env).filter(key => key.includes('SPOTIFY')),
+        allEnvKeys: Object.keys(import.meta.env)
       });
       
       if (!clientId) {
+        console.error('🎵 Missing Spotify Client ID in environment');
         throw new Error('Spotify Client ID not configured in environment variables');
       }
+      
+      console.log('🎵 Environment check passed, proceeding with OAuth');
 
       // Use current domain for redirect URI
       const redirectUri = `${window.location.origin}/musical-kasina`;
@@ -109,6 +120,12 @@ export const useSpotify = () => {
         `state=${Math.random().toString(36).substring(7)}`;
 
       console.log('🎵 Complete Spotify Auth URL:', authUrl);
+      console.log('🎵 About to redirect to Spotify...');
+      
+      // Add a small delay to ensure logging is captured
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      console.log('🎵 Executing redirect now');
       window.location.href = authUrl;
     } catch (error) {
       console.error('Error connecting to Spotify:', error);
