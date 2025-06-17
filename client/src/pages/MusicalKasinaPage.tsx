@@ -35,28 +35,41 @@ const MusicalKasinaPage: React.FC = () => {
     getAudioAnalysis
   } = useSpotify();
 
+  // Check for Spotify callback before authentication redirect
+  const hasSpotifyCallback = window.location.search.includes('code=');
+  
   // Debug authentication state
   useEffect(() => {
     console.log('🎵 Musical Kasina Auth Debug:', {
       user: !!user,
       isAdmin,
       userEmail: user?.email,
-      hasSpotifyCallback: window.location.hash.includes('access_token')
+      hasSpotifyCallback,
+      search: window.location.search
     });
-  }, [user, isAdmin]);
+  }, [user, isAdmin, hasSpotifyCallback]);
 
-  // Redirect non-admin users
-  if (!user || !isAdmin) {
+  // Allow Spotify callback to process, then redirect if not authenticated
+  if (!hasSpotifyCallback && (!user || !isAdmin)) {
     return <Navigate to="/login" replace />;
   }
 
-  // Load playlists when Spotify connects
+  // Load playlists when Spotify connects and show mode selection
   useEffect(() => {
     if (isConnected) {
+      console.log('🎵 Spotify connected, loading playlists and showing mode selection');
       getUserPlaylists();
       setShowModeSelection(true);
     }
   }, [isConnected, getUserPlaylists]);
+
+  // Auto-advance to mode selection after successful Spotify callback
+  useEffect(() => {
+    if (hasSpotifyCallback && isConnected && !showModeSelection) {
+      console.log('🎵 Spotify callback processed successfully, advancing to mode selection');
+      setShowModeSelection(true);
+    }
+  }, [hasSpotifyCallback, isConnected, showModeSelection]);
 
   // Update audio analysis when track changes
   useEffect(() => {
