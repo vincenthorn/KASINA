@@ -184,11 +184,9 @@ const MusicalKasinaPage: React.FC = () => {
           
           // Check if it's a 403 error (insufficient permissions)
           if (error?.message?.includes('403')) {
-            console.log('🎵 Insufficient permissions detected, triggering re-authentication');
-            // Show a user-friendly message and trigger re-auth
-            if (confirm('The app needs additional Spotify permissions to show visual effects synced with music. Re-authenticate now?')) {
-              forceReauth();
-            }
+            console.log('🎵 Insufficient permissions detected, automatically triggering re-authentication');
+            // Automatically force re-authentication with expanded scopes
+            forceReauth();
           }
         }
       }

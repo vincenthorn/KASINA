@@ -73,15 +73,20 @@ export const useSpotify = () => {
         
         // Test if the stored token is still valid
         try {
-          const testResponse = await fetch('https://api.spotify.com/v1/me', {
+          // Test if the token has audio features permissions
+          const testResponse = await fetch('https://api.spotify.com/v1/audio-features/4uLU6hMCjMI75M1A2tKUQC', {
             headers: { 'Authorization': `Bearer ${storedToken}` }
           });
           
           if (testResponse.ok) {
-            console.log('🎵 Stored token is valid, using it');
+            console.log('🎵 Stored token has full permissions, using it');
             setAccessToken(storedToken);
             await initializePlayer(storedToken);
             return;
+          } else if (testResponse.status === 403) {
+            console.log('🎵 Stored token lacks audio features permissions, clearing and starting fresh OAuth');
+            localStorage.removeItem('spotify_access_token');
+            sessionStorage.removeItem('spotify_last_code');
           } else {
             console.log('🎵 Stored token is expired, clearing and starting fresh OAuth');
             localStorage.removeItem('spotify_access_token');
