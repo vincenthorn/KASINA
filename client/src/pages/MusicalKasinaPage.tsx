@@ -49,11 +49,6 @@ const MusicalKasinaPage: React.FC = () => {
     });
   }, [user, isAdmin, hasSpotifyCallback]);
 
-  // Allow Spotify callback to process, then redirect if not authenticated
-  if (!hasSpotifyCallback && (!user || !isAdmin)) {
-    return <Navigate to="/login" replace />;
-  }
-
   // Load playlists when Spotify connects and show mode selection
   useEffect(() => {
     if (isConnected) {
@@ -94,6 +89,11 @@ const MusicalKasinaPage: React.FC = () => {
       setConnecting(false);
     }
   };
+
+  // Allow Spotify callback to process, then redirect if not authenticated
+  if (!hasSpotifyCallback && (!user || !isAdmin)) {
+    return <Navigate to="/login" replace />;
+  }
 
   // Show mode selection after connection
   if (showModeSelection) {

@@ -1,0 +1,69 @@
+musical-kasina?code=AQA4bbRQYMY3tAp08LSvYTeYFJkIT0gEDhXJYeZKWxqMImzck6Byf3W1hkBo5OFJC8kG9zzXWEh12FzcmwQ275aH98KkCSdj8PsTRrG-hOeD9QytCxW3g1BaBhFP57RqlbU9l9ISKvBc66sKS0JhFsWvMBeV-dDTmuvlyHQk7tDo7fYE2OB2y5PH0FnWhUD7j3eMFzutJBuF7zYz19likoQLCIvFviMSQ_-bFMt_kskkJUBl8pgFx89qYqZhNgq9cZgycFdAEYZiJIoPjp19xqTStavw64esJKJYuH2qbNQ2RuJ8_vtbr5ddOzSGxeNkSpgTAedjg6WA7Y14xOyUgkEdlZTQKq0_yabVeOrWF9ZeOSuADrbvZqs3NW3cmu7ijR2PwYNOMT9ZHM14oFQXjG-y2SGxbzz9Xh4HDHDHLoXW56unZYzHvUgDTyBlQ_QE0T1Fa_xvnE6T0IluT7aJNnJVOjHU6xDuqlqMn1n25GcssdejHII&state=78tgb:1 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+chunk-RPCDYKBN.js?v=773fbb15:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+App.tsx:79 🎵 Spotify callback detected, allowing Musical Kasina to process
+useSpotify.ts:221 🎵 Spotify authorization code callback detected
+useSpotify.ts:159 🎵 Processing Spotify callback: Object
+useSpotify.ts:180 🎵 Authorization code found, exchanging for token
+MusicalKasinaPage.tsx:43 🎵 Musical Kasina Auth Debug: Object
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-17T02:06:52.862Z
+react-router-dom.js?v=773fbb15:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=773fbb15:4394
+react-router-dom.js?v=773fbb15:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=773fbb15:4394
+useSpotify.ts:58 Spotify Web Playback SDK is ready
+useSpotify.ts:205 🎵 Access token received, storing and initializing player
+chunk-RPCDYKBN.js?v=773fbb15:11595 Uncaught Error: Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
+    at renderWithHooks (chunk-RPCDYKBN.js?v=773fbb15:11595:19)
+    at updateFunctionComponent (chunk-RPCDYKBN.js?v=773fbb15:14582:28)
+    at beginWork (chunk-RPCDYKBN.js?v=773fbb15:15924:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=773fbb15:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=773fbb15:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=773fbb15:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=773fbb15:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=773fbb15:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=773fbb15:19137:13)
+    at renderRootSync (chunk-RPCDYKBN.js?v=773fbb15:19116:15)
+chunk-RPCDYKBN.js?v=773fbb15:11595 Uncaught Error: Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
+    at renderWithHooks (chunk-RPCDYKBN.js?v=773fbb15:11595:19)
+    at updateFunctionComponent (chunk-RPCDYKBN.js?v=773fbb15:14582:28)
+    at beginWork (chunk-RPCDYKBN.js?v=773fbb15:15924:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=773fbb15:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=773fbb15:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=773fbb15:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=773fbb15:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=773fbb15:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=773fbb15:19137:13)
+    at renderRootSync (chunk-RPCDYKBN.js?v=773fbb15:19116:15)
+chunk-EMXP5JYR.js?v=773fbb15:18167 The above error occurred in the <MusicalKasinaPage> component:
+
+    at MusicalKasinaPage (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/pages/MusicalKasinaPage.tsx:29:29)
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ErrorBoundary.tsx:8:5)
+    at MusicalKasinaRoute (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/App.tsx?v=txwp-bqm4lI2Htm0WSfVl:97:31)
+    at RenderedRoute (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=773fbb15:4089:5)
+    at Routes (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=773fbb15:4559:5)
+    at Router (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=773fbb15:4502:15)
+    at BrowserRouter (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-router-dom.js?v=773fbb15:5248:5)
+    at ColorProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/lib/contexts/ColorContext.tsx:40:33)
+    at QueryClientProvider (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=773fbb15:2805:3)
+    at ErrorBoundary (https://5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/src/components/ErrorBoundary.tsx:8:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+console.error @ chunk-EMXP5JYR.js?v=773fbb15:18167
+chunk-EMXP5JYR.js?v=773fbb15:18167 ErrorBoundary caught an error: Error: Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
+    at renderWithHooks (chunk-RPCDYKBN.js?v=773fbb15:11595:19)
+    at updateFunctionComponent (chunk-RPCDYKBN.js?v=773fbb15:14582:28)
+    at beginWork (chunk-RPCDYKBN.js?v=773fbb15:15924:22)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=773fbb15:19753:22)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=773fbb15:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=773fbb15:19137:13)
+    at renderRootSync (chunk-RPCDYKBN.js?v=773fbb15:19116:15)
+    at recoverFromConcurrentError (chunk-RPCDYKBN.js?v=773fbb15:18736:28)
+    at performConcurrentWorkOnRoot (chunk-RPCDYKBN.js?v=773fbb15:18684:30)
+    at workLoop (chunk-RPCDYKBN.js?v=773fbb15:197:42) Object
+console.error @ chunk-EMXP5JYR.js?v=773fbb15:18167
+useAuth.tsx:181 Setting auth state with user: Object
+index.js:3 It is recommended that a robustness level be specified. Not specifying the robustness level could result in unexpected behavior.
+t.requestMediaKeySystemAccess @ index.js:3
+useSpotify.ts:122 Spotify player ready with Device ID: 4926f6c983a27535e80c5796456c99372942f2af
