@@ -154,11 +154,12 @@ const MusicalKasinaPage: React.FC = () => {
       if (currentTrack && currentTrack.id && isConnected) {
         try {
           console.log('🎵 Fetching audio data for track:', currentTrack.name, currentTrack.id);
+          console.log('🎵 Current access token available:', !!accessToken);
           
           // Fetch audio features (valence, energy, tempo, key, mode)
           const features = await getAudioFeatures(currentTrack.id);
           if (features) {
-            console.log('🎵 Audio features:', {
+            console.log('🎵 ✅ Audio features loaded successfully:', {
               energy: features.energy,
               valence: features.valence,
               tempo: features.tempo,
@@ -167,20 +168,29 @@ const MusicalKasinaPage: React.FC = () => {
               danceability: features.danceability
             });
             setAudioFeatures(features);
+          } else {
+            console.log('🎵 ❌ Audio features returned null/undefined');
           }
           
           // Fetch audio analysis (beats, sections, segments)
           const analysis = await getAudioAnalysis(currentTrack.id);
           if (analysis) {
-            console.log('🎵 Audio analysis:', {
+            console.log('🎵 ✅ Audio analysis loaded successfully:', {
               beats: analysis.beats?.length || 0,
               sections: analysis.sections?.length || 0,
               segments: analysis.segments?.length || 0
             });
             setAudioAnalysis(analysis);
+          } else {
+            console.log('🎵 ❌ Audio analysis returned null/undefined');
           }
         } catch (error: any) {
-          console.error('🎵 Failed to fetch audio data:', error);
+          console.error('🎵 ❌ Failed to fetch audio data:', error);
+          console.error('🎵 Error details:', {
+            message: error.message,
+            status: error.status,
+            response: error.response
+          });
           
           // Check if it's a 403 error (insufficient permissions)
           if (error?.message?.includes('403')) {
