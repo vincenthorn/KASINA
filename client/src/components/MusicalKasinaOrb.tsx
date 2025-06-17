@@ -429,13 +429,13 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={0.6} />
         
-        {/* Dynamic background - disabled for clean black background */}
-        {/* <MusicBackground 
+        {/* Dynamic background */}
+        <MusicBackground 
           audioFeatures={audioFeatures} 
           audioAnalysis={audioAnalysis}
           isPlaying={isPlaying} 
           currentSection={currentSection}
-        /> */}
+        />
         
         {/* Beat ripples */}
         <BeatRipple trigger={beatTrigger} audioFeatures={audioFeatures} />

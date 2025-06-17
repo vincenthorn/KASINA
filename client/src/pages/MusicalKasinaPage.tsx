@@ -488,19 +488,19 @@ const MusicalKasinaPage: React.FC = () => {
               type="range"
               min="5"
               max="100"
-              value={Math.round(((orbSize - 0.05) / (3.0 - 0.05)) * 100)}
+              value={Math.round(((orbSize - 0.05) / (1.5 - 0.05)) * 100)}
               onChange={(e) => {
                 const percentage = parseFloat(e.target.value);
-                const actualSize = 0.05 + (percentage / 100) * (3.0 - 0.05);
+                const actualSize = 0.05 + (percentage / 100) * (1.5 - 0.05);
                 setOrbSize(actualSize);
               }}
               className="flex-1 h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider"
               style={{
-                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${Math.round(((orbSize - 0.05) / (3.0 - 0.05)) * 100)}%, #475569 ${Math.round(((orbSize - 0.05) / (3.0 - 0.05)) * 100)}%, #475569 100%)`
+                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${Math.round(((orbSize - 0.05) / (1.5 - 0.05)) * 100)}%, #475569 ${Math.round(((orbSize - 0.05) / (1.5 - 0.05)) * 100)}%, #475569 100%)`
               }}
             />
             <span className="text-white text-sm font-medium min-w-[3ch]">
-              {Math.round(((orbSize - 0.05) / (3.0 - 0.05)) * 100)}%
+              {Math.round(((orbSize - 0.05) / (1.5 - 0.05)) * 100)}%
             </span>
           </div>
         </div>
