@@ -153,12 +153,14 @@ const MusicOrb = ({
   isBreathMode, 
   breathAmplitude, 
   audioFeatures, 
-  beatTrigger 
+  beatTrigger,
+  size = 1.0
 }: { 
   isBreathMode: boolean; 
   breathAmplitude: number; 
   audioFeatures: any; 
-  beatTrigger: number; 
+  beatTrigger: number;
+  size?: number;
 }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<any>(null);
@@ -191,7 +193,7 @@ const MusicOrb = ({
   });
 
   return (
-    <Sphere ref={meshRef} args={[1, 64, 64]}>
+    <Sphere ref={meshRef} args={[size, 64, 64]} scale={[1, 1, 1]}>
       <musicalOrbMaterial
         ref={materialRef}
         color={new THREE.Color(0.5, 0.3, 1.0)}
@@ -326,6 +328,7 @@ interface MusicalKasinaOrbProps {
   currentTrack: any;
   audioFeatures: any;
   audioAnalysis: any;
+  size?: number; // Size multiplier from 0.05 to 5.0, matching Visual Kasina
 }
 
 const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
@@ -333,7 +336,8 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
   isPlaying,
   currentTrack,
   audioFeatures,
-  audioAnalysis
+  audioAnalysis,
+  size = 0.3 // Default size matching Visual Kasina
 }) => {
   const [beatTrigger, setBeatTrigger] = useState(0);
   const [breathAmplitude, setBreathAmplitude] = useState(0.5);
