@@ -58,6 +58,20 @@ const MusicalKasinaPage: React.FC = () => {
     }
   }, [isConnected, getUserPlaylists]);
 
+  // Debug playlist data when it loads
+  useEffect(() => {
+    if (playlists.length > 0) {
+      console.log('🎵 Playlists loaded, checking image data:', 
+        playlists.map(p => ({
+          name: p.name,
+          hasImages: !!p.images?.length,
+          imageUrl: p.images?.[0]?.url,
+          imageCount: p.images?.length || 0
+        }))
+      );
+    }
+  }, [playlists]);
+
   // Auto-advance to mode selection after successful Spotify callback
   useEffect(() => {
     if (hasSpotifyCallback && isConnected && !showModeSelection) {
@@ -201,13 +215,26 @@ const MusicalKasinaPage: React.FC = () => {
                     <div className="relative w-full h-48 bg-gradient-to-br from-slate-700 to-slate-800 rounded-t-lg overflow-hidden">
                       {playlist.images?.[0]?.url ? (
                         <img 
-                          src={playlist.images[0].url} 
+                          src={`/api/spotify/image-proxy?url=${encodeURIComponent(playlist.images[0].url)}`}
                           alt={playlist.name}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          onLoad={() => {
+                            console.log('✅ Image loaded successfully:', playlist.name);
+                          }}
                           onError={(e) => {
+                            console.error('❌ Image failed to load:', {
+                              playlist: playlist.name,
+                              originalUrl: playlist.images[0].url,
+                              proxyUrl: `/api/spotify/image-proxy?url=${encodeURIComponent(playlist.images[0].url)}`,
+                              error: e
+                            });
                             const target = e.target as HTMLImageElement;
                             target.style.display = 'none';
-                            target.nextElementSibling?.classList.remove('hidden');
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.classList.remove('hidden');
+                              fallback.classList.add('flex');
+                            }
                           }}
                         />
                       ) : null}

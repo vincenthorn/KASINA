@@ -31,6 +31,43 @@ export function registerRoutes(app: Express): Server {
   // Admin routes - restricted to admin users
   const adminEmails = ["admin@kasina.app"];
 
+  // Spotify image proxy to handle CORS
+  app.get("/api/spotify/image-proxy", async (req, res) => {
+    try {
+      const { url } = req.query;
+      
+      if (!url || typeof url !== 'string') {
+        return res.status(400).json({ error: "Image URL is required" });
+      }
+
+      // Validate that it's a Spotify image URL
+      if (!url.includes('scdn.co') && !url.includes('spotify.com')) {
+        return res.status(400).json({ error: "Invalid image source" });
+      }
+
+      const imageResponse = await fetch(url);
+      
+      if (!imageResponse.ok) {
+        return res.status(404).json({ error: "Image not found" });
+      }
+
+      // Forward the image with proper headers
+      const contentType = imageResponse.headers.get('content-type') || 'image/jpeg';
+      res.set({
+        'Content-Type': contentType,
+        'Cache-Control': 'public, max-age=86400', // Cache for 1 day
+        'Access-Control-Allow-Origin': '*'
+      });
+
+      const imageBuffer = await imageResponse.arrayBuffer();
+      res.send(Buffer.from(imageBuffer));
+
+    } catch (error) {
+      console.error("Error proxying Spotify image:", error);
+      res.status(500).json({ error: "Failed to load image" });
+    }
+  });
+
   // Spotify OAuth token exchange endpoint
   app.post("/api/spotify/token", async (req, res) => {
     try {
