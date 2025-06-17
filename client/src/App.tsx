@@ -68,9 +68,10 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
 function MusicalKasinaRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, email, checkAuthStatus } = useAuth();
   const [spotifyCallbackProcessed, setSpotifyCallbackProcessed] = useState(false);
+  const [authCheckComplete, setAuthCheckComplete] = useState(false);
 
   useEffect(() => {
-    checkAuthStatus();
+    checkAuthStatus().finally(() => setAuthCheckComplete(true));
   }, [checkAuthStatus]);
 
   // Check for Spotify callback
@@ -83,9 +84,14 @@ function MusicalKasinaRoute({ children }: { children: React.ReactNode }) {
     }
   }, [hasSpotifyCallback]);
   
-  // Allow Spotify callback to process first
-  if (hasSpotifyCallback || spotifyCallbackProcessed) {
+  // Always allow Spotify callback to process, regardless of auth state
+  if (hasSpotifyCallback) {
     return <>{children}</>;
+  }
+
+  // Wait for auth check to complete before redirecting
+  if (!authCheckComplete) {
+    return <div>Loading...</div>;
   }
 
   // Normal admin authentication for non-callback access
