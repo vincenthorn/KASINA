@@ -39,9 +39,15 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ### Musical Kasina Features
 - Breath Mode toggle: orb expands/contracts with breath or remains steady
 - Real-time Spotify integration with Web Playbook SDK
+- **Enhanced Visual Synchronization**:
+  - Beat-responsive ripple effects radiating from orb center on each detected beat
+  - Dynamic background colors shifting based on track valence (blue/violet for low mood, peach/gold for high mood)
+  - Energy-driven brightness and saturation changes throughout the meditation
+  - Musical key-based orb coloring with 12-tone color mapping
+  - Major/minor mode visual differentiation (warmer for major, cooler for minor)
+  - Section change transitions with visual motifs when musical sections shift
+  - Dramatic beat pulse effects on the central orb with energy-responsive intensity
 - Audio analysis with beat detection and section change monitoring
-- Music-driven background visuals responding to valence and energy
-- Enhanced color transitions based on musical sections
 - Audio analysis caching for rate limiting optimization
 - Playlist selection interface for seamless music control
 - Session management with automatic ending when music stops
@@ -111,6 +117,7 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Changelog
 
 Changelog:
+- June 17, 2025: Enhanced Musical Kasina visual effects with dramatic music synchronization including beat-responsive ripples, valence-based background colors, energy-driven brightness, musical key-based orb coloring, and section change transitions
 - June 15, 2025: Updated Breath Kasina page design to match Musical Kasina styling with centered card layout and feature icons
 - June 15, 2025: Implemented full-screen meditation interface for Musical Kasina Visual and Breath modes with immersive UI
 - June 15, 2025: Enhanced Musical Kasina with full-screen immersive landing page and mode selection interface
