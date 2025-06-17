@@ -269,8 +269,9 @@ const MusicalKasinaPage: React.FC = () => {
   };
 
   // Allow Spotify callback to process, then redirect if not authenticated
-  // Also allow if Spotify is connected (user completed OAuth flow)
-  if (!hasSpotifyCallback && !isConnected && (!user || !isAdmin)) {
+  // Also allow if Spotify is connected (user completed OAuth flow) or has stored token
+  const hasStoredSpotifyToken = localStorage.getItem('spotify_access_token');
+  if (!hasSpotifyCallback && !isConnected && !hasStoredSpotifyToken && (!user || !isAdmin)) {
     return <Navigate to="/login" replace />;
   }
 

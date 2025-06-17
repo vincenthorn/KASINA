@@ -1,0 +1,43 @@
+/musical-kasina?code=AQAQqinOuzky1Htr_BvVdpBTi4uCbGC1bjTvcKEJniT3kZ5jzYBSDXOadnDslN0vsBxZup6Hi7jeONKT5bcH28m-0NZl91K9jzvdeXcFUUE-1sSXa-JZ1emUeQYUwaBWoNN3IdaB7FTLB8T4_HkhB5DtvK5QjwSQ0j-fMkc8zm_esITgGHULBAXCHo4iVyLE8iXKktkhuDnn-E15t1GsXBAUZRO6S6h0IZ9sgU-HYxlnItziW5ZV5sfGIjo8UGlYCzmUomwLilKNUkMnv37ZqOKbB1i185EN8kQZyzFTBzNbBdq5xDVMoAvK4WACBbipkXDTZlYw42x8s9JkGplU9k0DPB4KKciT37sP0UK_n1qPo1Bpekf-lPACtuZSRYUYm449SIIujxokeYwJXYLlf8WzvoRFOVE4_WsLiUfT4W0TDmJWtaMgf1oYhfPAMQYb79bjPz_lbPsSFkBI2hkGSCm_xlzIW4KLGbEWZOOMw4kNR8V7RQUd1czJqNADb0J-IYpI8-QtGCDL6E0Pa88s5Wu6SAnaPrK2&state=rjdowj:1 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ 🎵 Spotify authorization code callback detected
+useSpotify.ts:208 🎵 Processing Spotify callback: Object
+useSpotify.ts:229 🎵 Authorization code found, exchanging for token
+MusicalKasinaPage.tsx:62 🎵 Musical Kasina Auth Debug: Object
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-17T05:17:17.939Z
+react-router-dom.js?v=773fbb15:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=773fbb15:4394
+react-router-dom.js?v=773fbb15:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=773fbb15:4394
+useSpotify.ts:58 Spotify Web Playback SDK is ready
+useSpotify.ts:254 🎵 Access token received, storing and initializing player
+MusicalKasinaPage.tsx:62 🎵 Musical Kasina Auth Debug: Object
+useAuth.tsx:181 Setting auth state with user: Object
+HomePage.tsx:99 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:103 WebGL Capabilities: Object
+HomePage.tsx:108 Performance Snapshots: Array(20)
+HomePage.tsx:112 === PERFORMANCE ANALYSIS ===
+HomePage.tsx:113 Last 3 snapshots before crash:
+HomePage.tsx:116 Snapshot 18: Object
+HomePage.tsx:116 Snapshot 19: Object
+HomePage.tsx:116 Snapshot 20: Object
+HomePage.tsx:126 Memory trend in final snapshots: -8MB
+HomePage.tsx:128 === END PERFORMANCE ANALYSIS ===
+HomePage.tsx:135 Crash History: Array(10)
+HomePage.tsx:137 Crash #1: Object
+HomePage.tsx:137 Crash #2: Object
+HomePage.tsx:137 Crash #3: Object
+HomePage.tsx:137 Crash #4: Object
+HomePage.tsx:137 Crash #5: Object
+HomePage.tsx:137 Crash #6: Object
+HomePage.tsx:137 Crash #7: Object
+HomePage.tsx:137 Crash #8: Object
+HomePage.tsx:137 Crash #9: Object
+HomePage.tsx:137 Crash #10: Object
+HomePage.tsx:144 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-17T05:17:18.080Z
+index.js:3 It is recommended that a robustness level be specified. Not specifying the robustness level could result in unexpected behavior.
+t.requestMediaKeySystemAccess @ index.js:3
+useAuth.tsx:181 Setting auth state with user: Object
+useSpotify.ts:171 Spotify player ready with Device ID: 10df663f3aa91183c3eb50651cca8bfa259270a1
