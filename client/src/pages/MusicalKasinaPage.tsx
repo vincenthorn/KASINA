@@ -35,6 +35,16 @@ const MusicalKasinaPage: React.FC = () => {
     getAudioAnalysis
   } = useSpotify();
 
+  // Debug authentication state
+  useEffect(() => {
+    console.log('🎵 Musical Kasina Auth Debug:', {
+      user: !!user,
+      isAdmin,
+      userEmail: user?.email,
+      hasSpotifyCallback: window.location.hash.includes('access_token')
+    });
+  }, [user, isAdmin]);
+
   // Redirect non-admin users
   if (!user || !isAdmin) {
     return <Navigate to="/login" replace />;

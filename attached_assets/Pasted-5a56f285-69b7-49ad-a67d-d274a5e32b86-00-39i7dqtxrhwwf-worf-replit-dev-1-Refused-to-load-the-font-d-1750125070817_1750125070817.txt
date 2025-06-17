@@ -1,0 +1,61 @@
+5a56f285-69b7-49ad-a67d-d274a5e32b86-00-39i7dqtxrhwwf.worf.replit.dev/:1 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+chunk-RPCDYKBN.js?v=773fbb15:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-17T01:50:40.055Z
+react-router-dom.js?v=773fbb15:4394 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=773fbb15:4394
+logDeprecation @ react-router-dom.js?v=773fbb15:4397
+logV6DeprecationWarnings @ react-router-dom.js?v=773fbb15:4400
+(anonymous) @ react-router-dom.js?v=773fbb15:5272
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=773fbb15:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=773fbb15:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=773fbb15:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=773fbb15:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=773fbb15:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=773fbb15:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=773fbb15:19447
+(anonymous) @ chunk-RPCDYKBN.js?v=773fbb15:19328
+workLoop @ chunk-RPCDYKBN.js?v=773fbb15:197
+flushWork @ chunk-RPCDYKBN.js?v=773fbb15:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=773fbb15:384
+react-router-dom.js?v=773fbb15:4394 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=773fbb15:4394
+logDeprecation @ react-router-dom.js?v=773fbb15:4397
+logV6DeprecationWarnings @ react-router-dom.js?v=773fbb15:4403
+(anonymous) @ react-router-dom.js?v=773fbb15:5272
+commitHookEffectListMount @ chunk-RPCDYKBN.js?v=773fbb15:16915
+commitPassiveMountOnFiber @ chunk-RPCDYKBN.js?v=773fbb15:18156
+commitPassiveMountEffects_complete @ chunk-RPCDYKBN.js?v=773fbb15:18129
+commitPassiveMountEffects_begin @ chunk-RPCDYKBN.js?v=773fbb15:18119
+commitPassiveMountEffects @ chunk-RPCDYKBN.js?v=773fbb15:18109
+flushPassiveEffectsImpl @ chunk-RPCDYKBN.js?v=773fbb15:19490
+flushPassiveEffects @ chunk-RPCDYKBN.js?v=773fbb15:19447
+(anonymous) @ chunk-RPCDYKBN.js?v=773fbb15:19328
+workLoop @ chunk-RPCDYKBN.js?v=773fbb15:197
+flushWork @ chunk-RPCDYKBN.js?v=773fbb15:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=773fbb15:384
+useAuth.tsx:181 Setting auth state with user: {email: 'admin@kasina.app', subscriptionType: 'admin', subscription: 'premium'}
+HomePage.tsx:99 === COMPLETE DIAGNOSTIC REPORT ===
+HomePage.tsx:103 WebGL Capabilities: {timestamp: '2025-06-12T10:36:10.269Z', renderer: 'WebKit WebGL', vendor: 'WebKit', version: 'WebGL 2.0 (OpenGL ES 3.0 Chromium)', shadingLanguageVersion: 'WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)', …}
+HomePage.tsx:108 Performance Snapshots: (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+HomePage.tsx:112 === PERFORMANCE ANALYSIS ===
+HomePage.tsx:113 Last 3 snapshots before crash:
+HomePage.tsx:116 Snapshot 18: {time: '90s', memory: {…}, kasina: 'space'}
+HomePage.tsx:116 Snapshot 19: {time: '120s', memory: {…}, kasina: 'space'}
+HomePage.tsx:116 Snapshot 20: {time: '150s', memory: {…}, kasina: 'space'}
+HomePage.tsx:126 Memory trend in final snapshots: -8MB
+HomePage.tsx:128 === END PERFORMANCE ANALYSIS ===
+HomePage.tsx:135 Crash History: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+HomePage.tsx:137 Crash #1: {timestamp: '2025-06-03T03:06:14.631Z', crashType: 'webgl_context_lost', message: 'WebGL context was lost - recovery attempted', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36', meditationTime: 0}
+HomePage.tsx:137 Crash #2: {timestamp: '2025-06-03T03:06:19.004Z', crashType: 'webgl_context_lost', message: 'WebGL context was lost - recovery attempted', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36', meditationTime: 0}
+HomePage.tsx:137 Crash #3: {timestamp: '2025-06-05T03:51:36.890Z', crashType: 'webgl_context_lost', message: 'WebGL context was lost - recovery attempted', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36', meditationTime: 0}
+HomePage.tsx:137 Crash #4: {timestamp: '2025-06-09T21:14:10.612Z', crashType: 'webgl_context_lost', message: 'WebGL context was lost - recovery attempted', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', meditationTime: 0}
+HomePage.tsx:137 Crash #5: {timestamp: '2025-06-09T21:15:40.179Z', crashType: 'webgl_context_lost', message: 'WebGL context was lost - recovery attempted', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', meditationTime: 0}
+HomePage.tsx:137 Crash #6: {timestamp: '2025-06-10T15:59:24.859Z', sessionDuration: 190, crashType: 'hard_crash', message: 'Visual mode was active but did not exit cleanly', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'}
+HomePage.tsx:137 Crash #7: {timestamp: '2025-06-10T15:59:59.793Z', crashType: 'webgl_context_lost', message: 'WebGL context was lost - recovery attempted', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', meditationTime: 0}
+HomePage.tsx:137 Crash #8: {timestamp: '2025-06-12T10:31:51.249Z', crashType: 'webgl_context_lost', message: 'WebGL context was lost - recovery attempted', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', meditationTime: 0}
+HomePage.tsx:137 Crash #9: {timestamp: '2025-06-12T10:36:01.429Z', sessionDuration: 238, crashType: 'hard_crash', message: 'Visual mode was active but did not exit cleanly', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'}
+HomePage.tsx:137 Crash #10: {timestamp: '2025-06-12T10:37:37.666Z', crashType: 'webgl_context_lost', message: 'WebGL context was lost - recovery attempted', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap…KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', meditationTime: 0}
+HomePage.tsx:144 === END DIAGNOSTIC REPORT ===
+useAuth.tsx:147 [AUTH_CHECK] Checking authentication status at 2025-06-17T01:50:43.312Z
+useAuth.tsx:181 Setting auth state with user: {email: 'admin@kasina.app', subscriptionType: 'admin', subscription: 'premium'}

@@ -155,7 +155,14 @@ export const useSpotify = () => {
       const params = new URLSearchParams(hash);
       const token = params.get('access_token');
       
+      console.log('🎵 Processing Spotify callback:', {
+        hasHash: !!window.location.hash,
+        hasToken: !!token,
+        hash: window.location.hash.substring(0, 50) + '...'
+      });
+      
       if (token) {
+        console.log('🎵 Spotify token found, storing and initializing player');
         localStorage.setItem('spotify_access_token', token);
         setAccessToken(token);
         initializePlayer(token);
@@ -166,6 +173,7 @@ export const useSpotify = () => {
     };
 
     if (window.location.hash.includes('access_token')) {
+      console.log('🎵 Spotify callback detected');
       handleCallback();
     }
   }, [initializePlayer]);
