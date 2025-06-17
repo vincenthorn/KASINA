@@ -345,11 +345,7 @@ const MusicalKasinaPage: React.FC = () => {
             Back
           </Button>
           
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-white">
-              Musical Kasina - {isBreathMode ? 'Breath Mode' : 'Visual Mode'}
-            </h1>
-          </div>
+          <div className="flex-1"></div>
 
           <Button
             onClick={async () => {
