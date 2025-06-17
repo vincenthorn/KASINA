@@ -28,6 +28,7 @@ interface MusicalKasinaOrbProps {
   isPlaying?: boolean;
   currentTime?: number;
   useBreathMode?: boolean;
+  orbSize?: number;
 }
 
 // Musical Kasina Orb Shader Material
@@ -141,40 +142,63 @@ declare global {
   }
 }
 
-// Background component
+// Enhanced background component with dramatic effects
 const MusicBackground: React.FC<{
   audioFeatures: any;
   analysisData: AudioAnalysisData | null;
 }> = ({ audioFeatures, analysisData }) => {
   const meshRef = useRef<THREE.Mesh>(null);
+  const [lastBeat, setLastBeat] = useState(0);
 
   useFrame((state) => {
     if (!meshRef.current) return;
 
     const material = meshRef.current.material as any;
     if (material.uniforms) {
-      material.uniforms.time.value = state.clock.elapsedTime;
+      const time = state.clock.elapsedTime;
+      material.uniforms.time.value = time;
       
       if (analysisData) {
-        material.uniforms.volume.value = analysisData.volume;
-        material.uniforms.energy.value = analysisData.bassEnergy + analysisData.midEnergy + analysisData.trebleEnergy;
+        material.uniforms.volume.value = analysisData.volume || 0;
+        material.uniforms.bassEnergy.value = analysisData.bassEnergy || 0;
+        material.uniforms.midEnergy.value = analysisData.midEnergy || 0;
+        material.uniforms.trebleEnergy.value = analysisData.trebleEnergy || 0;
+        material.uniforms.dominantFreq.value = analysisData.dominantFrequency || 0;
+        
+        // Beat detection for background flashes
+        if (analysisData.bassEnergy > 0.4 && time - lastBeat > 0.3) {
+          setLastBeat(time);
+          material.uniforms.beatFlash.value = 1.0;
+        } else {
+          material.uniforms.beatFlash.value = Math.max(0, material.uniforms.beatFlash.value - 0.05);
+        }
       }
       
       if (audioFeatures) {
-        material.uniforms.valence.value = audioFeatures.valence;
+        material.uniforms.valence.value = audioFeatures.valence || 0.5;
+        material.uniforms.energy.value = audioFeatures.energy || 0.5;
+        material.uniforms.key.value = audioFeatures.key || 0;
+        material.uniforms.mode.value = audioFeatures.mode || 0;
       }
     }
   });
 
   return (
-    <mesh ref={meshRef} scale={[20, 20, 1]} position={[0, 0, -10]}>
+    <mesh ref={meshRef} scale={[50, 50, 1]} position={[0, 0, -15]}>
       <planeGeometry args={[1, 1]} />
       <shaderMaterial
         uniforms={{
           time: { value: 0 },
           volume: { value: 0 },
-          energy: { value: 0 },
-          valence: { value: 0.5 }
+          bassEnergy: { value: 0 },
+          midEnergy: { value: 0 },
+          trebleEnergy: { value: 0 },
+          dominantFreq: { value: 0 },
+          valence: { value: 0.5 },
+          energy: { value: 0.5 },
+          key: { value: 0 },
+          mode: { value: 0 },
+          beatFlash: { value: 0 }
         }}
         vertexShader={`
           varying vec2 vUv;
@@ -186,39 +210,80 @@ const MusicBackground: React.FC<{
         fragmentShader={`
           uniform float time;
           uniform float volume;
-          uniform float energy;
+          uniform float bassEnergy;
+          uniform float midEnergy;
+          uniform float trebleEnergy;
+          uniform float dominantFreq;
           uniform float valence;
+          uniform float energy;
+          uniform float key;
+          uniform float mode;
+          uniform float beatFlash;
           varying vec2 vUv;
+          
+          // HSV to RGB conversion
+          vec3 hsv2rgb(vec3 c) {
+            vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+            vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+            return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+          }
           
           void main() {
             vec2 center = vec2(0.5);
-            float dist = distance(vUv, center);
+            vec2 pos = vUv - center;
+            float dist = length(pos);
+            float angle = atan(pos.y, pos.x);
             
-            // Valence-based color palette
-            vec3 lowValence = vec3(0.2, 0.1, 0.4);  // Dark blue
-            vec3 midValence = vec3(0.4, 0.2, 0.6);  // Purple
-            vec3 highValence = vec3(0.6, 0.4, 0.2); // Warm orange
+            // Musical key-based hue (12-tone color wheel)
+            float baseHue = mod(key / 12.0 + time * 0.1, 1.0);
             
-            vec3 baseColor;
-            if (valence < 0.3) {
-              baseColor = lowValence;
-            } else if (valence < 0.7) {
-              baseColor = mix(lowValence, midValence, (valence - 0.3) / 0.4);
-            } else {
-              baseColor = mix(midValence, highValence, (valence - 0.7) / 0.3);
-            }
+            // Valence affects brightness and warmth
+            float brightness = 0.2 + valence * 0.6;
+            float saturation = 0.4 + energy * 0.4;
             
-            // Energy-based intensity
-            float intensity = 0.3 + energy * 0.7;
+            // Mode affects color temperature (major = warmer, minor = cooler)
+            float modeShift = mode > 0.5 ? 0.1 : -0.1;
+            baseHue = mod(baseHue + modeShift, 1.0);
             
-            // Volume-based movement
-            float movement = sin(dist * 10.0 - time * 2.0) * volume * 0.1;
+            // Base color from musical properties
+            vec3 baseColor = hsv2rgb(vec3(baseHue, saturation, brightness));
             
-            // Radial gradient
-            float gradient = 1.0 - smoothstep(0.0, 1.0, dist);
+            // Frequency-based color layers
+            float bassLayer = sin(dist * 5.0 - time * 2.0) * bassEnergy;
+            float midLayer = sin(dist * 10.0 + angle * 3.0 - time * 3.0) * midEnergy;
+            float trebleLayer = sin(dist * 20.0 + angle * 6.0 - time * 4.0) * trebleEnergy;
             
-            vec3 finalColor = baseColor * intensity * gradient;
-            finalColor += movement;
+            // Color mixing based on frequency content
+            vec3 bassColor = vec3(1.0, 0.3, 0.3) * bassLayer * 0.3;
+            vec3 midColor = vec3(0.3, 1.0, 0.3) * midLayer * 0.2;
+            vec3 trebleColor = vec3(0.3, 0.3, 1.0) * trebleLayer * 0.1;
+            
+            // Dominant frequency creates shifting patterns
+            float freqPattern = sin(angle * 8.0 + dominantFreq * 0.01 - time) * 0.1;
+            
+            // Volume-based intensity and movement
+            float volumeEffect = volume * (1.0 + sin(time * 5.0) * 0.2);
+            
+            // Energy-based radial waves
+            float energyWaves = sin(dist * 15.0 - time * energy * 3.0) * energy * 0.1;
+            
+            // Beat flash effect
+            float flashEffect = beatFlash * (1.0 - dist) * 0.3;
+            
+            // Combine all effects
+            vec3 finalColor = baseColor;
+            finalColor += bassColor + midColor + trebleColor;
+            finalColor += freqPattern;
+            finalColor *= (0.3 + volumeEffect * 0.7);
+            finalColor += energyWaves;
+            finalColor += flashEffect;
+            
+            // Fade to black at edges
+            float edgeFade = 1.0 - smoothstep(0.0, 0.8, dist);
+            finalColor *= edgeFade;
+            
+            // Ensure minimum darkness for meditation
+            finalColor = max(finalColor, vec3(0.05));
             
             gl_FragColor = vec4(finalColor, 1.0);
           }
@@ -397,7 +462,8 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
   getAnalysisData,
   isPlaying = false,
   currentTime = 0,
-  useBreathMode = false
+  useBreathMode = false,
+  orbSize = 1.0
 }) => {
   const [breathAmplitude, setBreathAmplitude] = useState(0.5);
   const [analysisData, setAnalysisData] = useState<AudioAnalysisData | null>(null);
@@ -464,7 +530,7 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
         )}
         
         {/* Main orb */}
-        <group scale={[orbScale, orbScale, orbScale]}>
+        <group scale={[orbScale * orbSize, orbScale * orbSize, orbScale * orbSize]}>
           <MusicOrb 
             breathAmplitude={breathAmplitude}
             audioFeatures={audioFeatures}
