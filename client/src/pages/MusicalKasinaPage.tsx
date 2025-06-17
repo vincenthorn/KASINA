@@ -208,10 +208,13 @@ const MusicalKasinaPage: React.FC = () => {
                   key={playlist.id}
                   className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl ${
                     selectedPlaylist === playlist.id 
-                      ? 'ring-4 ring-green-500/50 bg-gradient-to-br from-green-600/20 via-slate-800/80 to-green-700/20 border-green-500/50' 
+                      ? 'ring-4 ring-green-500/70 bg-gradient-to-br from-green-600/30 via-slate-800/90 to-green-700/30 border-green-400/70 shadow-green-500/25' 
                       : 'bg-gradient-to-br from-slate-800/60 via-slate-700/40 to-slate-800/60 border-slate-600/50 hover:border-slate-500/70'
                   } backdrop-blur-lg`}
-                  onClick={() => setSelectedPlaylist(playlist.id)}
+                  onClick={() => {
+                    console.log('🎵 Playlist selected:', playlist.name, playlist.id);
+                    setSelectedPlaylist(playlist.id);
+                  }}
                 >
                   <CardContent className="p-0">
                     {/* Album Art */}
@@ -247,8 +250,10 @@ const MusicalKasinaPage: React.FC = () => {
                       
                       {/* Selection Indicator */}
                       {selectedPlaylist === playlist.id && (
-                        <div className="absolute top-3 right-3 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
-                          <div className="w-3 h-3 bg-white rounded-full"></div>
+                        <div className="absolute top-3 right-3 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center animate-pulse shadow-lg border-2 border-white">
+                          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
                         </div>
                       )}
                       
@@ -290,7 +295,6 @@ const MusicalKasinaPage: React.FC = () => {
             {/* Start Button */}
             {selectedPlaylist && (
               <div className="mt-12 flex justify-center">
-                {console.log('🎵 Rendering start button for playlist:', selectedPlaylist)}
                 <Button
                   onClick={async (e) => {
                     e.preventDefault();
