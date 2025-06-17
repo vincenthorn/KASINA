@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import { useAuth } from "./lib/stores/useAuth";
@@ -67,16 +67,24 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
 // Special route for Musical Kasina that allows Spotify callbacks
 function MusicalKasinaRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, email, checkAuthStatus } = useAuth();
+  const [spotifyCallbackProcessed, setSpotifyCallbackProcessed] = useState(false);
 
   useEffect(() => {
     checkAuthStatus();
   }, [checkAuthStatus]);
 
-  // Allow Spotify callback to process first
+  // Check for Spotify callback
   const hasSpotifyCallback = window.location.search.includes('code=');
   
-  if (hasSpotifyCallback) {
-    console.log('🎵 Spotify callback detected, allowing Musical Kasina to process');
+  useEffect(() => {
+    if (hasSpotifyCallback) {
+      console.log('🎵 Spotify callback detected, allowing Musical Kasina to process');
+      setSpotifyCallbackProcessed(true);
+    }
+  }, [hasSpotifyCallback]);
+  
+  // Allow Spotify callback to process first
+  if (hasSpotifyCallback || spotifyCallbackProcessed) {
     return <>{children}</>;
   }
 
