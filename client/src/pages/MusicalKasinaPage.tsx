@@ -24,6 +24,12 @@ export default function MusicalKasinaPage() {
   const [error, setError] = useState<string>('');
   const [breathMode, setBreathMode] = useState(false);
   
+  // Meditation controls state (always declared)
+  const [showControls, setShowControls] = useState(true);
+  const [orbSize, setOrbSize] = useState(1.0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [sessionStartTime] = useState(Date.now());
+  
   const fileInputRef = useRef<HTMLInputElement>(null);
   
   const {
@@ -38,6 +44,35 @@ export default function MusicalKasinaPage() {
     stopAudio,
     getAnalysisData
   } = useAudioAnalysis();
+
+  // Helper functions (always declared)
+  const toggleFullscreen = useCallback(async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+        setIsFullscreen(true);
+      } else {
+        await document.exitFullscreen();
+        setIsFullscreen(false);
+      }
+    } catch (err) {
+      console.error('Fullscreen toggle failed:', err);
+    }
+  }, []);
+
+  const getSessionDuration = useCallback(() => {
+    return Math.floor((Date.now() - sessionStartTime) / 1000);
+  }, [sessionStartTime]);
+
+  const formatSessionTime = useCallback((seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    if (hours > 0) {
+      return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  }, []);
 
   // Check if user has access
   useEffect(() => {
@@ -429,38 +464,6 @@ export default function MusicalKasinaPage() {
 
   // Meditation View
   if (viewState === 'meditation') {
-    const [showControls, setShowControls] = useState(true);
-    const [orbSize, setOrbSize] = useState(1.0);
-    const [isFullscreen, setIsFullscreen] = useState(false);
-    const [sessionStartTime] = useState(Date.now());
-    
-    const toggleFullscreen = useCallback(async () => {
-      try {
-        if (!document.fullscreenElement) {
-          await document.documentElement.requestFullscreen();
-          setIsFullscreen(true);
-        } else {
-          await document.exitFullscreen();
-          setIsFullscreen(false);
-        }
-      } catch (err) {
-        console.error('Fullscreen toggle failed:', err);
-      }
-    }, []);
-
-    const getSessionDuration = () => {
-      return Math.floor((Date.now() - sessionStartTime) / 1000);
-    };
-
-    const formatSessionTime = (seconds: number) => {
-      const hours = Math.floor(seconds / 3600);
-      const mins = Math.floor((seconds % 3600) / 60);
-      const secs = seconds % 60;
-      if (hours > 0) {
-        return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-      }
-      return `${mins}:${secs.toString().padStart(2, '0')}`;
-    };
 
     return (
       <div className="fixed inset-0 bg-black overflow-hidden">
