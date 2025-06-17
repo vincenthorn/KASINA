@@ -447,6 +447,7 @@ const MusicalKasinaOrb: React.FC<MusicalKasinaOrbProps> = ({
             breathAmplitude={breathAmplitude}
             audioFeatures={audioFeatures}
             beatTrigger={beatTrigger}
+            size={size}
           />
         </group>
       </Canvas>

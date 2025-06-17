@@ -22,7 +22,7 @@ const MusicalKasinaPage: React.FC = () => {
   
   // Musical Kasina session state
   const [meditationTime, setMeditationTime] = useState(0);
-  const [orbSize, setOrbSize] = useState(1.0);
+  const [orbSize, setOrbSize] = useState(0.3); // Match Visual Kasina default size
   const [showUIControls, setShowUIControls] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [hideTimeout, setHideTimeout] = useState<NodeJS.Timeout | null>(null);
@@ -529,6 +529,7 @@ const MusicalKasinaPage: React.FC = () => {
             currentTrack={currentTrack}
             audioFeatures={audioFeatures}
             audioAnalysis={audioAnalysis}
+            size={orbSize}
           />
         </div>
 
