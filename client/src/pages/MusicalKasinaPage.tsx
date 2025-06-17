@@ -48,13 +48,13 @@ const MusicalKasinaPage: React.FC = () => {
   // Check for Spotify callback before authentication redirect
   const hasSpotifyCallback = window.location.search.includes('code=');
   
-  // Auto-show mode selection when Spotify connects successfully
+  // Auto-show mode selection when Spotify connects successfully (only once)
   useEffect(() => {
-    if (isConnected && !showModeSelection && !showMeditation) {
+    if (isConnected && !showModeSelection && !showMeditation && !showPlaylistSelection) {
       console.log('🎵 Spotify connected, showing mode selection');
       setShowModeSelection(true);
     }
-  }, [isConnected, showModeSelection, showMeditation]);
+  }, [isConnected, showModeSelection, showMeditation, showPlaylistSelection]);
   
   // Debug authentication state
   useEffect(() => {
@@ -247,6 +247,7 @@ const MusicalKasinaPage: React.FC = () => {
             <Card 
               className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-purple-500/30 rounded-xl cursor-pointer hover:border-purple-400 transition-all duration-300"
               onClick={() => {
+                console.log('🎵 Visual Mode clicked, transitioning to playlist selection');
                 setIsBreathMode(false);
                 setShowPlaylistSelection(true);
                 setShowModeSelection(false);

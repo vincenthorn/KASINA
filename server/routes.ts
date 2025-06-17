@@ -41,7 +41,7 @@ export function registerRoutes(app: Express): Server {
       }
 
       // Validate that it's a Spotify image URL
-      if (!url.includes('scdn.co') && !url.includes('spotify.com')) {
+      if (!url.includes('scdn.co') && !url.includes('spotify.com') && !url.includes('spotifycdn.com')) {
         return res.status(400).json({ error: "Invalid image source" });
       }
 
