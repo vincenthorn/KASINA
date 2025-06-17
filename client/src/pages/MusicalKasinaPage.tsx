@@ -289,9 +289,16 @@ const MusicalKasinaPage: React.FC = () => {
               <div className="mt-12 flex justify-center">
                 <Button
                   onClick={async () => {
-                    await playPlaylist(selectedPlaylist);
-                    setShowMeditation(true);
-                    setShowPlaylistSelection(false);
+                    try {
+                      console.log('🎵 User clicked Start Musical Meditation');
+                      await playPlaylist(selectedPlaylist);
+                      console.log('🎵 Playlist started, transitioning to meditation view');
+                      setShowMeditation(true);
+                      setShowPlaylistSelection(false);
+                    } catch (error) {
+                      console.error('🎵 Failed to start playlist:', error);
+                      alert(`Failed to start playlist: ${error.message}`);
+                    }
                   }}
                   size="lg"
                   className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-4 px-12 text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-300"

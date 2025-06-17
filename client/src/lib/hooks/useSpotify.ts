@@ -316,22 +316,53 @@ export const useSpotify = () => {
 
   const playPlaylist = useCallback(async (playlistId: string) => {
     try {
-      const response = await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
+      console.log('🎵 Starting playlist playback:', {
+        playlistId,
+        deviceId,
+        hasAccessToken: !!accessToken,
+        contextUri: `spotify:playlist:${playlistId}`
+      });
+
+      if (!accessToken) {
+        throw new Error('No access token available');
+      }
+
+      if (!deviceId) {
+        throw new Error('No device ID available');
+      }
+
+      const requestUrl = `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`;
+      const requestBody = {
+        context_uri: `spotify:playlist:${playlistId}`
+      };
+
+      console.log('🎵 Making play request:', { requestUrl, requestBody });
+
+      const response = await fetch(requestUrl, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          context_uri: `spotify:playlist:${playlistId}`
-        })
+        body: JSON.stringify(requestBody)
       });
       
+      console.log('🎵 Spotify play response:', {
+        status: response.status,
+        statusText: response.statusText,
+        ok: response.ok
+      });
+
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorText = await response.text();
+        console.error('🎵 Spotify play error response:', errorText);
+        throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
       }
+
+      console.log('🎵 Playlist playback started successfully');
     } catch (error) {
-      console.error('Error playing playlist:', error);
+      console.error('🎵 Error playing playlist:', error);
+      throw error; // Re-throw so the UI can handle it
     }
   }, [accessToken, deviceId]);
 
