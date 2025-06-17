@@ -30,6 +30,51 @@ declare module "express-session" {
 export function registerRoutes(app: Express): Server {
   // Admin routes - restricted to admin users
   const adminEmails = ["admin@kasina.app"];
+
+  // Spotify OAuth token exchange endpoint
+  app.post("/api/spotify/token", async (req, res) => {
+    try {
+      const { code, redirectUri } = req.body;
+      
+      if (!code) {
+        return res.status(400).json({ error: "Authorization code is required" });
+      }
+
+      const clientId = process.env.SPOTIFY_CLIENT_ID;
+      const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+
+      if (!clientId || !clientSecret) {
+        return res.status(500).json({ error: "Spotify credentials not configured" });
+      }
+
+      // Exchange authorization code for access token
+      const tokenResponse = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`
+        },
+        body: new URLSearchParams({
+          grant_type: "authorization_code",
+          code: code,
+          redirect_uri: redirectUri
+        })
+      });
+
+      if (!tokenResponse.ok) {
+        const error = await tokenResponse.text();
+        console.error("Spotify token exchange failed:", error);
+        return res.status(400).json({ error: "Token exchange failed" });
+      }
+
+      const tokenData = await tokenResponse.json();
+      res.json({ access_token: tokenData.access_token });
+
+    } catch (error) {
+      console.error("Error exchanging Spotify token:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
   
   // Middleware to check if user is admin
   const isAdmin = (req: Request, res: Response, next: NextFunction) => {

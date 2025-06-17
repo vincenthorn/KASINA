@@ -97,9 +97,10 @@ export const useSpotify = () => {
 
       const authUrl = `https://accounts.spotify.com/authorize?` +
         `client_id=${clientId}&` +
-        `response_type=token&` +
+        `response_type=code&` +
         `redirect_uri=${encodeURIComponent(redirectUri)}&` +
-        `scope=${encodeURIComponent(scopes)}`;
+        `scope=${encodeURIComponent(scopes)}&` +
+        `state=${Math.random().toString(36).substring(7)}`;
 
       console.log('🎵 Complete Spotify Auth URL:', authUrl);
       window.location.href = authUrl;
@@ -148,32 +149,63 @@ export const useSpotify = () => {
     playerRef.current = spotifyPlayer;
   }, []);
 
-  // Handle Spotify callback (extract token from URL)
+  // Handle Spotify callback (exchange authorization code for access token)
   useEffect(() => {
-    const handleCallback = () => {
-      const hash = window.location.hash.substring(1);
-      const params = new URLSearchParams(hash);
-      const token = params.get('access_token');
+    const handleCallback = async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+      const error = urlParams.get('error');
       
       console.log('🎵 Processing Spotify callback:', {
-        hasHash: !!window.location.hash,
-        hasToken: !!token,
-        hash: window.location.hash.substring(0, 50) + '...'
+        hasCode: !!code,
+        hasError: !!error,
+        search: window.location.search
       });
       
-      if (token) {
-        console.log('🎵 Spotify token found, storing and initializing player');
-        localStorage.setItem('spotify_access_token', token);
-        setAccessToken(token);
-        initializePlayer(token);
-        
-        // Clean up URL
-        window.history.replaceState({}, document.title, window.location.pathname);
+      if (error) {
+        console.error('🎵 Spotify auth error:', error);
+        return;
+      }
+      
+      if (code) {
+        try {
+          console.log('🎵 Authorization code found, exchanging for token');
+          
+          // Exchange code for access token via our server
+          const response = await fetch('/api/spotify/token', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+              code,
+              redirectUri: `${window.location.origin}/musical-kasina`
+            }),
+          });
+          
+          if (!response.ok) {
+            throw new Error(`Token exchange failed: ${response.status}`);
+          }
+          
+          const { access_token } = await response.json();
+          
+          if (access_token) {
+            console.log('🎵 Access token received, storing and initializing player');
+            localStorage.setItem('spotify_access_token', access_token);
+            setAccessToken(access_token);
+            initializePlayer(access_token);
+            
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+          }
+        } catch (error) {
+          console.error('🎵 Error exchanging code for token:', error);
+        }
       }
     };
 
-    if (window.location.hash.includes('access_token')) {
-      console.log('🎵 Spotify callback detected');
+    if (window.location.search.includes('code=')) {
+      console.log('🎵 Spotify authorization code callback detected');
       handleCallback();
     }
   }, [initializePlayer]);
