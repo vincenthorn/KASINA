@@ -438,7 +438,7 @@ const MusicalKasinaPage: React.FC = () => {
   // Show meditation interface - full screen experience
   if (showMeditation) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 flex flex-col">
+      <div className="fixed inset-0 bg-black flex flex-col">
         {/* Timer and End button - Upper Left */}
         <div 
           className={`absolute top-4 left-4 z-30 flex items-center space-x-3 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
