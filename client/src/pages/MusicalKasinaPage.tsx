@@ -97,11 +97,17 @@ const MusicalKasinaPage: React.FC = () => {
   }, [currentTrack, getAudioFeatures, getAudioAnalysis]);
 
   const handleConnectSpotify = async () => {
+    console.log('🎵 Connect Spotify button clicked');
+    console.log('🎵 Current auth state:', { isConnected, accessToken: !!accessToken, deviceId });
+    
     setConnecting(true);
     try {
+      console.log('🎵 Calling connectSpotify...');
       await connectSpotify();
+      console.log('🎵 connectSpotify completed successfully');
     } catch (error) {
-      console.error('Failed to connect to Spotify:', error);
+      console.error('🎵 Failed to connect to Spotify:', error);
+      alert(`Failed to connect to Spotify: ${error.message}`);
     } finally {
       setConnecting(false);
     }

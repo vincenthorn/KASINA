@@ -72,8 +72,14 @@ export const useSpotify = () => {
 
       // Redirect to Spotify authorization
       const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+      console.log('🎵 Environment check:', {
+        hasClientId: !!clientId,
+        clientIdPreview: clientId ? clientId.substring(0, 8) + '...' : 'undefined',
+        envVars: Object.keys(import.meta.env).filter(key => key.includes('SPOTIFY'))
+      });
+      
       if (!clientId) {
-        throw new Error('Spotify Client ID not configured');
+        throw new Error('Spotify Client ID not configured in environment variables');
       }
 
       // Use current domain for redirect URI
