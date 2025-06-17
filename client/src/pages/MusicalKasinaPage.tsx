@@ -160,62 +160,96 @@ const MusicalKasinaPage: React.FC = () => {
   if (showPlaylistSelection) {
     return (
       <Layout>
-        <div className="space-y-6">
-          <div className="flex justify-between items-center">
-            <h1 className="text-4xl font-bold text-white">Choose Your Music</h1>
-            <Button
-              onClick={() => {
-                setShowPlaylistSelection(false);
-                setShowModeSelection(true);
-              }}
-              variant="outline"
-              className="border-slate-600 text-slate-300 hover:bg-slate-800"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back
-            </Button>
-          </div>
-          
-          <div className="max-w-4xl">
-            <p className="text-gray-300 mb-6">
-              Select a playlist to synchronize with your {isBreathMode ? 'breath meditation' : 'visual meditation'}
-            </p>
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900">
+          <div className="container mx-auto px-6 py-8">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-8">
+              <div>
+                <h1 className="text-5xl font-bold text-white mb-2">Choose Your Music</h1>
+                <p className="text-xl text-slate-300">
+                  Select a playlist to synchronize with your {isBreathMode ? 'breath meditation' : 'visual meditation'}
+                </p>
+              </div>
+              <Button
+                onClick={() => {
+                  setShowPlaylistSelection(false);
+                  setShowModeSelection(true);
+                }}
+                variant="outline"
+                size="lg"
+                className="border-slate-600 bg-slate-800/50 backdrop-blur-sm text-slate-300 hover:bg-slate-700/80 hover:border-slate-500"
+              >
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                Back to Modes
+              </Button>
+            </div>
             
-            <div className="grid gap-4 max-h-96 overflow-y-auto">
+            {/* Playlists Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl">
               {playlists.map((playlist) => (
                 <Card 
                   key={playlist.id}
-                  className={`bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border cursor-pointer transition-all duration-300 ${
+                  className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl ${
                     selectedPlaylist === playlist.id 
-                      ? 'border-green-500 bg-gradient-to-br from-green-600/20 to-green-700/20' 
-                      : 'border-slate-600 hover:border-slate-500'
-                  }`}
+                      ? 'ring-4 ring-green-500/50 bg-gradient-to-br from-green-600/20 via-slate-800/80 to-green-700/20 border-green-500/50' 
+                      : 'bg-gradient-to-br from-slate-800/60 via-slate-700/40 to-slate-800/60 border-slate-600/50 hover:border-slate-500/70'
+                  } backdrop-blur-lg`}
                   onClick={() => setSelectedPlaylist(playlist.id)}
                 >
-                  <CardContent className="p-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-slate-600 rounded-lg overflow-hidden">
-                        {playlist.images?.[0]?.url ? (
-                          <img 
-                            src={playlist.images[0].url} 
-                            alt={playlist.name}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center">
-                            <Music className="w-6 h-6 text-slate-400" />
-                          </div>
-                        )}
+                  <CardContent className="p-0">
+                    {/* Album Art */}
+                    <div className="relative w-full h-48 bg-gradient-to-br from-slate-700 to-slate-800 rounded-t-lg overflow-hidden">
+                      {playlist.images?.[0]?.url ? (
+                        <img 
+                          src={playlist.images[0].url} 
+                          alt={playlist.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            target.nextElementSibling?.classList.remove('hidden');
+                          }}
+                        />
+                      ) : null}
+                      <div className={`${playlist.images?.[0]?.url ? 'hidden' : 'flex'} absolute inset-0 items-center justify-center bg-gradient-to-br from-purple-600/30 to-blue-600/30`}>
+                        <Music className="w-16 h-16 text-slate-300" />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-white font-semibold">{playlist.name}</h3>
-                        <p className="text-gray-400 text-sm">{playlist.tracks.total} tracks</p>
-                        <p className="text-gray-500 text-xs">{playlist.description}</p>
-                      </div>
+                      
+                      {/* Selection Indicator */}
                       {selectedPlaylist === playlist.id && (
-                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                        <div className="absolute top-3 right-3 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
+                          <div className="w-3 h-3 bg-white rounded-full"></div>
                         </div>
+                      )}
+                      
+                      {/* Hover Play Icon */}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Play className="w-12 h-12 text-white drop-shadow-lg" />
+                      </div>
+                    </div>
+                    
+                    {/* Playlist Info */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-300 transition-colors overflow-hidden">
+                        <span className="block truncate">
+                          {playlist.name}
+                        </span>
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-3 flex items-center">
+                        <List className="w-4 h-4 mr-1" />
+                        {playlist.tracks.total} tracks
+                      </p>
+                      {playlist.description && (
+                        <p className="text-slate-500 text-sm leading-relaxed overflow-hidden">
+                          <span className="block" style={{ 
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
+                          }}>
+                            {playlist.description}
+                          </span>
+                        </p>
                       )}
                     </div>
                   </CardContent>
@@ -223,18 +257,20 @@ const MusicalKasinaPage: React.FC = () => {
               ))}
             </div>
             
+            {/* Start Button */}
             {selectedPlaylist && (
-              <div className="mt-6 flex justify-center">
+              <div className="mt-12 flex justify-center">
                 <Button
                   onClick={async () => {
                     await playPlaylist(selectedPlaylist);
                     setShowMeditation(true);
                     setShowPlaylistSelection(false);
                   }}
-                  className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8"
+                  size="lg"
+                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-4 px-12 text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-300"
                 >
-                  <Play className="w-5 h-5 mr-2" />
-                  Start Meditation
+                  <Play className="w-6 h-6 mr-3" />
+                  Start Musical Meditation
                 </Button>
               </div>
             )}
