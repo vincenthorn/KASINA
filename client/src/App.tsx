@@ -67,35 +67,21 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
 // Special route for Musical Kasina that allows Spotify callbacks
 function MusicalKasinaRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, email, checkAuthStatus } = useAuth();
-  const [spotifyCallbackProcessed, setSpotifyCallbackProcessed] = useState(false);
   const [authCheckComplete, setAuthCheckComplete] = useState(false);
 
   useEffect(() => {
     checkAuthStatus().finally(() => setAuthCheckComplete(true));
   }, [checkAuthStatus]);
 
-  // Check for Spotify callback
+  // Check for Spotify callback or if we have a stored Spotify token
   const hasSpotifyCallback = window.location.search.includes('code=');
+  const hasStoredSpotifyToken = localStorage.getItem('spotify_access_token');
   
-  useEffect(() => {
-    if (hasSpotifyCallback) {
-      console.log('🎵 Spotify callback detected, allowing Musical Kasina to process');
-      setSpotifyCallbackProcessed(true);
-      // Store that we processed a callback so we don't redirect after cleanup
-      sessionStorage.setItem('spotify_callback_processed', 'true');
-    }
-  }, [hasSpotifyCallback]);
-  
-  // Check if we recently processed a Spotify callback
-  const recentlyProcessedCallback = sessionStorage.getItem('spotify_callback_processed') === 'true';
-  
-  // Always allow Spotify callback to process, regardless of auth state
-  if (hasSpotifyCallback) {
-    return <>{children}</>;
-  }
-
-  // Also allow access if we recently processed a callback (prevents redirect after URL cleanup)
-  if (recentlyProcessedCallback) {
+  // Always allow Musical Kasina access if:
+  // 1. There's a Spotify callback in progress
+  // 2. User has a stored Spotify token (already authenticated with Spotify)
+  // 3. User is authenticated and admin
+  if (hasSpotifyCallback || hasStoredSpotifyToken || (isAuthenticated && email === "admin@kasina.app")) {
     return <>{children}</>;
   }
 
@@ -104,16 +90,13 @@ function MusicalKasinaRoute({ children }: { children: React.ReactNode }) {
     return <div>Loading...</div>;
   }
 
-  // Normal admin authentication for non-callback access
+  // Normal authentication for non-callback access
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
   
-  if (email !== "admin@kasina.app") {
-    return <Navigate to="/" />;
-  }
-
-  return <>{children}</>;
+  // Redirect non-admin users to home
+  return <Navigate to="/" />;
 }
 
 function App() {
