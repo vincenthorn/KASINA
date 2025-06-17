@@ -292,7 +292,7 @@ const MusicalKasinaPage: React.FC = () => {
   if (showPlaylistSelection) {
     return (
       <Layout>
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900">
+        <div className="min-h-screen bg-black">
           <div className="container mx-auto px-6 py-8">
             {/* Header */}
             <div className="flex justify-between items-center mb-8">
