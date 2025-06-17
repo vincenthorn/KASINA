@@ -64,6 +64,34 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+// Special route for Musical Kasina that allows Spotify callbacks
+function MusicalKasinaRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, email, checkAuthStatus } = useAuth();
+
+  useEffect(() => {
+    checkAuthStatus();
+  }, [checkAuthStatus]);
+
+  // Allow Spotify callback to process first
+  const hasSpotifyCallback = window.location.search.includes('code=');
+  
+  if (hasSpotifyCallback) {
+    console.log('🎵 Spotify callback detected, allowing Musical Kasina to process');
+    return <>{children}</>;
+  }
+
+  // Normal admin authentication for non-callback access
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
+  
+  if (email !== "admin@kasina.app") {
+    return <Navigate to="/" />;
+  }
+
+  return <>{children}</>;
+}
+
 function App() {
   return (
     <ErrorBoundary>
@@ -151,11 +179,11 @@ function App() {
               <Route
                 path="/musical"
                 element={
-                  <AdminOnlyRoute>
+                  <MusicalKasinaRoute>
                     <ErrorBoundary>
                       <MusicalKasinaPage />
                     </ErrorBoundary>
-                  </AdminOnlyRoute>
+                  </MusicalKasinaRoute>
                 }
               />
               
@@ -163,22 +191,22 @@ function App() {
               <Route
                 path="/musical-kasina"
                 element={
-                  <AdminOnlyRoute>
+                  <MusicalKasinaRoute>
                     <ErrorBoundary>
                       <MusicalKasinaPage />
                     </ErrorBoundary>
-                  </AdminOnlyRoute>
+                  </MusicalKasinaRoute>
                 }
               />
               
               <Route
                 path="/musical-kasina/"
                 element={
-                  <AdminOnlyRoute>
+                  <MusicalKasinaRoute>
                     <ErrorBoundary>
                       <MusicalKasinaPage />
                     </ErrorBoundary>
-                  </AdminOnlyRoute>
+                  </MusicalKasinaRoute>
                 }
               />
               
