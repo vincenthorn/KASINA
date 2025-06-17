@@ -48,6 +48,14 @@ const MusicalKasinaPage: React.FC = () => {
   // Check for Spotify callback before authentication redirect
   const hasSpotifyCallback = window.location.search.includes('code=');
   
+  // Auto-show mode selection when Spotify connects successfully
+  useEffect(() => {
+    if (isConnected && !showModeSelection && !showMeditation) {
+      console.log('🎵 Spotify connected, showing mode selection');
+      setShowModeSelection(true);
+    }
+  }, [isConnected, showModeSelection, showMeditation]);
+  
   // Debug authentication state
   useEffect(() => {
     console.log('🎵 Musical Kasina Auth Debug:', {
@@ -55,9 +63,10 @@ const MusicalKasinaPage: React.FC = () => {
       isAdmin,
       userEmail: user?.email,
       hasSpotifyCallback,
+      isConnected,
       search: window.location.search
     });
-  }, [user, isAdmin, hasSpotifyCallback]);
+  }, [user, isAdmin, hasSpotifyCallback, isConnected]);
 
   // Timer for meditation session
   useEffect(() => {
@@ -212,7 +221,8 @@ const MusicalKasinaPage: React.FC = () => {
   };
 
   // Allow Spotify callback to process, then redirect if not authenticated
-  if (!hasSpotifyCallback && (!user || !isAdmin)) {
+  // Also allow if Spotify is connected (user completed OAuth flow)
+  if (!hasSpotifyCallback && !isConnected && (!user || !isAdmin)) {
     return <Navigate to="/login" replace />;
   }
 
