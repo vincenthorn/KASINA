@@ -194,9 +194,40 @@ const MusicalKasinaPage: React.FC = () => {
           
           // Check if it's a 403 error (insufficient permissions)
           if (error?.message?.includes('403')) {
-            console.log('🎵 Insufficient permissions detected, automatically triggering re-authentication');
-            // Automatically force re-authentication with expanded scopes
-            forceReauth();
+            console.log('🎵 Audio analysis APIs unavailable - implementing alternative visual system');
+            // Use track duration and basic timing for visual effects
+            const basicAudioData = {
+              energy: 0.7, // Default medium energy
+              valence: 0.6, // Default positive mood
+              tempo: 120, // Default tempo
+              key: Math.floor(Math.random() * 12), // Random key
+              mode: Math.random() > 0.5 ? 1 : 0, // Random major/minor
+              danceability: 0.6,
+              duration_ms: currentTrack.duration_ms || 180000 // Track duration or 3 min default
+            };
+            
+            console.log('🎵 Using generated audio data for visual effects:', basicAudioData);
+            setAudioFeatures(basicAudioData);
+            
+            // Create basic beat detection based on tempo
+            const beatsPerSecond = basicAudioData.tempo / 60;
+            const beatInterval = 1000 / beatsPerSecond;
+            
+            const basicAnalysis = {
+              beats: Array.from({ length: Math.floor((basicAudioData.duration_ms / 1000) * beatsPerSecond) }, (_, i) => ({
+                start: i * (beatInterval / 1000),
+                duration: 0.1,
+                confidence: 0.8
+              })),
+              sections: [
+                { start: 0, duration: basicAudioData.duration_ms / 1000 / 4, key: basicAudioData.key, mode: basicAudioData.mode },
+                { start: basicAudioData.duration_ms / 1000 / 4, duration: basicAudioData.duration_ms / 1000 / 2, key: basicAudioData.key, mode: basicAudioData.mode },
+                { start: basicAudioData.duration_ms / 1000 * 3/4, duration: basicAudioData.duration_ms / 1000 / 4, key: basicAudioData.key, mode: basicAudioData.mode }
+              ]
+            };
+            
+            console.log('🎵 Using generated beat analysis for visual effects');
+            setAudioAnalysis(basicAnalysis);
           }
         }
       }

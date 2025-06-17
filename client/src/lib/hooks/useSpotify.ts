@@ -288,7 +288,15 @@ export const useSpotify = () => {
     });
     
     if (!response.ok) {
-      throw new Error(`Spotify API error: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`🎵 Spotify API Error Details:`, {
+        status: response.status,
+        statusText: response.statusText,
+        url: endpoint,
+        headers: Object.fromEntries(response.headers.entries()),
+        body: errorText
+      });
+      throw new Error(`Spotify API error: ${response.status} - ${errorText}`);
     }
     
     return response.json();
