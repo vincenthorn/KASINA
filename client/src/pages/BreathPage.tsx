@@ -242,7 +242,7 @@ const BreathPage: React.FC = () => {
                     <h3 className="font-semibold text-white">Professional Grade Accuracy</h3>
                   </div>
                   <p className="text-sm text-gray-300">
-                    Uses actual respiratory force measurements (Newtons) for unprecedented precision in breath tracking.
+                    Uses actual respiratory force measurements (Newtons) for unprecedented precision.
                   </p>
                 </div>
 
