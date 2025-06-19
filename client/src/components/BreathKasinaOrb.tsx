@@ -1222,6 +1222,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       selectedKasina
     });
     
+    // Debug parameters being passed to sizing function
+    console.log('🔍 SIZING FUNCTION INPUT:', {
+      selectedKasina,
+      scaledAmplitude,
+      sizeScale,
+      sizeMultiplier
+    });
+    
     // Use unified breath kasina sizing system for consistent behavior across all types
     const breathSizing = calculateBreathKasinaSize(selectedKasina, scaledAmplitude, sizeScale, sizeMultiplier);
     const { size: newSize, minSize, maxSize, immersionLevel } = breathSizing;
@@ -1231,7 +1239,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       newSize,
       minSize,
       maxSize,
-      immersionLevel
+      immersionLevel,
+      currentOrbSize: orbSize
     });
     
     // Update state to trigger re-render

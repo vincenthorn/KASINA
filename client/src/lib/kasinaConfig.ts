@@ -245,6 +245,22 @@ export function calculateBreathKasinaSize(
   // ORIGINAL: Full immersion level (600px) - proper breath kasina experience
   const finalSize = Math.min(calculatedSize, 600);
   
+  // Debug the breath kasina size calculation
+  console.log('🔧 BREATH KASINA SIZE CALCULATION:', {
+    kasina,
+    breathAmplitude,
+    sizeScale,
+    sizeMultiplier,
+    BASE_MIN_SIZE,
+    BASE_MAX_SIZE,
+    minSize,
+    maxSize,
+    sizeRange,
+    clampedAmplitude,
+    calculatedSize,
+    finalSize
+  });
+  
   // Calculate immersion level for background effects using original thresholds
   const immersionLevel = Math.max(0, Math.min(1, 
     (finalSize - scaling.immersionThreshold) / (scaling.maxImmersion - scaling.immersionThreshold)
