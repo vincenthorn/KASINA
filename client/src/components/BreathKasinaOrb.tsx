@@ -1136,7 +1136,28 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
-    if (!activeIsListening) return;
+    // Debug breath processing trigger
+    console.log('🔍 BREATH PROCESSING CHECK:', {
+      activeIsListening,
+      useVernier,
+      vernierConnected: vernierData.isConnected,
+      activeBreathAmplitude,
+      currentForce: vernierData.currentForce
+    });
+    
+    // For Vernier mode, process if connected and receiving data
+    if (useVernier && !vernierData.isConnected) {
+      console.log('❌ BREATH PROCESSING BLOCKED - Vernier not connected');
+      return;
+    }
+    
+    // For microphone mode, process if actively listening
+    if (!useVernier && !isListening) {
+      console.log('❌ BREATH PROCESSING BLOCKED - Microphone not listening');
+      return;
+    }
+    
+    console.log('✅ BREATH PROCESSING ALLOWED - proceeding with amplitude calculation');
     
     // Custom kasina now breathes like other color kasinas
     
@@ -1257,7 +1278,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Log the size and rate data for debugging
     console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
-  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, getKasinaColor, calculateBackgroundColor]);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, getKasinaColor, calculateBackgroundColor, useVernier, vernierData.isConnected, vernierData.currentForce]);
 
   // Modern kasina breathing orb component using Three.js
   const BreathingKasinaOrb = () => {
