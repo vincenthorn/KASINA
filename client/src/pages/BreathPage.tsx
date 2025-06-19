@@ -6,6 +6,7 @@ import { Alert, AlertDescription } from '../components/ui/alert';
 import { useAuth } from '../lib/stores/useAuth';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
+import KasinaSelectionInterface from '../components/KasinaSelectionInterface';
 import Layout from '../components/Layout';
 
 // Browser detection utility
@@ -43,6 +44,10 @@ const BreathPage: React.FC = () => {
   const navigate = useNavigate();
   const { user, isAdmin } = useAuth();
   const [showMeditation, setShowMeditation] = React.useState(false);
+  const [showKasinaSelection, setShowKasinaSelection] = React.useState(false);
+  const [selectedKasinaSeries, setSelectedKasinaSeries] = React.useState<string | null>('COLOR');
+  const [selectedKasina, setSelectedKasina] = React.useState<string>('blue');
+  const [kasinaSelectionStep, setKasinaSelectionStep] = React.useState<'series' | 'kasina'>('series');
   const [forceStayOnPage, setForceStayOnPage] = React.useState(false);
   
   // Browser compatibility state
@@ -90,8 +95,8 @@ const BreathPage: React.FC = () => {
     if (!isConnected) {
       await connectDevice();
     } else {
-      // When connected, go to kasina selection instead of starting meditation directly
-      setShowMeditation(true);
+      // When connected, show kasina selection first
+      setShowKasinaSelection(true);
     }
   };
 
@@ -108,6 +113,40 @@ const BreathPage: React.FC = () => {
     return 'Connected! Your breathing will automatically sync during meditation.';
   };
 
+  // Handle kasina series selection
+  const handleSeriesSelection = (series: string) => {
+    setSelectedKasinaSeries(series);
+    setKasinaSelectionStep('kasina');
+  };
+
+  // Handle specific kasina selection
+  const handleKasinaSelection = (kasina: string) => {
+    setSelectedKasina(kasina);
+    setShowKasinaSelection(false);
+    setShowMeditation(true);
+  };
+
+  // If kasina selection is active, show full-screen kasina selection
+  if (showKasinaSelection) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center" style={{
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+        backdropFilter: 'blur(4px)'
+      }}>
+        <KasinaSelectionInterface
+          showKasinaSelection={showKasinaSelection}
+          kasinaSelectionStep={kasinaSelectionStep}
+          selectedKasinaSeries={selectedKasinaSeries}
+          onSeriesSelection={handleSeriesSelection}
+          onKasinaSelection={handleKasinaSelection}
+          onBackToSeries={() => setKasinaSelectionStep('series')}
+          onCancel={() => setShowKasinaSelection(false)}
+          mode="breath"
+        />
+      </div>
+    );
+  }
+
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
     return (
@@ -117,6 +156,7 @@ const BreathPage: React.FC = () => {
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
+          selectedKasina={selectedKasina}
         />
         <Button
           onClick={() => {
