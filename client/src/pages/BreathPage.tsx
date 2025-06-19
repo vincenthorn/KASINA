@@ -83,14 +83,14 @@ const BreathPage: React.FC = () => {
     }
   }, [isChromeBased]);
 
-  // Handle starting a session - connect and meditate (no calibration step)
+  // Handle starting a session - connect and show kasina selection
   const handleStartSession = async () => {
     if (!hasPremiumAccess) return;
     
     if (!isConnected) {
       await connectDevice();
     } else {
-      // Start meditation directly - breathing will auto-adjust during session
+      // When connected, go to kasina selection instead of starting meditation directly
       setShowMeditation(true);
     }
   };
