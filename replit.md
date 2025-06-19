@@ -117,6 +117,7 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Changelog
 
 Changelog:
+- June 19, 2025: **BREATH KASINA RESTORATION**: Restored original working breath kasina settings from pre-Musical Kasina development - orbSize: 150px, sizeScale: 1.0, sizeMultiplier: 1.0, BASE_MIN_SIZE: 50px, BASE_MAX_SIZE: 600px, documented proven configuration in replit.md for future reference
 - June 19, 2025: **BREATH KASINA SYNCHRONIZATION FIX**: Resolved critical issue where breath kasina remained static despite Vernier device sending changing force data - fixed Vernier connection detection logic to allow breath processing when receiving force data, added comprehensive debug logging for breath amplitude calculations, kasina now properly responds to real-time breathing patterns
 - June 19, 2025: **CRITICAL ARCHITECTURAL FIX**: Resolved breath kasina flow issue caused by Musical Kasina development - identified and disabled preview BreathKasinaOrb component in BreathPage.tsx that was automatically rendering with default white kasina, disabled MeditationPage.tsx auto-detection logic, removed internal kasina selection conflicts, disabled automatic session recovery for breath sessions
 - June 19, 2025: Implemented automatic kasina selection flow - Vernier respiration belt connection now automatically triggers kasina selection interface without requiring "Begin Meditation" button press, creating seamless device-to-meditation experience
@@ -137,3 +138,25 @@ Changelog:
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+
+## Proven Breath Kasina Configuration (Pre-Musical Kasina - Working Settings)
+
+**IMPORTANT**: These are the tested, working breath kasina settings from before Musical Kasina development. Use these if breath synchronization breaks again:
+
+### BreathKasinaOrb.tsx Settings:
+- `orbSize`: useState(150) - Proper starting size
+- `sizeScale`: useState(1.0) - Full scale factor 
+- `sizeMultiplier`: useState(1.0) - Full size multiplier range
+- Scale calculation: `(orbSize / 150) * 1.5` - Proper scale calculation
+
+### kasinaConfig.ts Settings:
+- `BASE_MIN_SIZE`: 50 - Proper minimum kasina size
+- `BASE_MAX_SIZE`: 600 - Full maximum kasina size for proper breath range
+- `finalSize` cap: 600px - Full immersion level
+- No forced minimum size overrides
+
+### Key Principles:
+- Full scale factors (1.0) provide proper breathing range
+- 150px starting size ensures visibility
+- 600px maximum allows deep breathing expansion
+- Standard size calculations without artificial constraints

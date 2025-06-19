@@ -466,10 +466,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const activeIsListening = useVernier ? vernierData.isConnected : isListening;
   const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   const orbRef = useRef<HTMLDivElement>(null);
-  const [orbSize, setOrbSize] = useState(20); // Start with much smaller initial size
+  const [orbSize, setOrbSize] = useState(150); // ORIGINAL WORKING SETTING - Proper starting size
   const [glowIntensity, setGlowIntensity] = useState(15);
   const [heldExhaleStart, setHeldExhaleStart] = useState<number | null>(null);
-  const [sizeScale, setSizeScale] = useState(0.3); // Scale factor for min-max range (increased for visibility)
+  const [sizeScale, setSizeScale] = useState(1.0); // ORIGINAL WORKING SETTING - Full scale factor 
   const [showCalibrationMessage, setShowCalibrationMessage] = useState(false);
   const [calibrationTimeRemaining, setCalibrationTimeRemaining] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
@@ -480,7 +480,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [showConnectionHelp, setShowConnectionHelp] = useState(false);
   // Use kasina from props or global state, no internal kasina selection
   const selectedKasina = propSelectedKasina || globalSelectedKasina || 'blue';
-  const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
+  const [sizeMultiplier, setSizeMultiplier] = useState(1.0); // ORIGINAL WORKING SETTING - Full size multiplier range
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1325,7 +1325,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
       } else if (kasConfig.type === 'elemental') {
         // Elemental kasinas need breath-responsive scaling based on orbSize
-        finalScale = (orbSize / 50) * 0.5; // Adjusted scale calculation for smaller breath kasinas
+        finalScale = (orbSize / 150) * 1.5; // ORIGINAL WORKING SETTING - Proper scale calculation
         console.log(`🔥 Elemental kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
       } else {
         // Default scaling for other types
