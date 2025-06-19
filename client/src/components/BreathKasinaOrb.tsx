@@ -1142,20 +1142,17 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       useVernier,
       vernierConnected: vernierData.isConnected,
       activeBreathAmplitude,
-      currentForce: vernierData.currentForce
+      currentForce: vernierData.currentForce,
+      fullVernierData: vernierData
     });
     
-    // For Vernier mode, process if connected OR receiving force data (connection flag may be delayed)
-    if (useVernier && !vernierData.isConnected && vernierData.currentForce === 0) {
-      console.log('❌ BREATH PROCESSING BLOCKED - Vernier not connected and no force data');
-      return;
-    }
-    
-    // For microphone mode, process if actively listening
+    // For microphone mode, only block if not listening
     if (!useVernier && !isListening) {
       console.log('❌ BREATH PROCESSING BLOCKED - Microphone not listening');
       return;
     }
+    
+    // For Vernier mode, always proceed (connection status may be delayed but data flows)
     
     console.log('✅ BREATH PROCESSING ALLOWED - proceeding with amplitude calculation');
     
