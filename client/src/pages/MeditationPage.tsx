@@ -13,22 +13,37 @@ const MeditationPage: React.FC = () => {
   // Get Vernier connection status for auto-detection
   const { isConnected, calibrationComplete } = useVernierBreathOfficial();
   
-  // Disable auto-detection to ensure kasina selection always happens
+  // Auto-detect if user was redirected from Vernier calibration
   useEffect(() => {
-    console.log('🔍 MEDITATION: Auto-detection disabled - kasina selection required', {
+    console.log('🔍 MEDITATION AUTO-DETECT: Checking for Vernier redirect...', {
       isConnected,
       calibrationComplete,
       hasState: !!state,
-      stateUseVernier: state?.useVernier
+      stateUseVernier: state?.useVernier,
+      previousPath: document.referrer
     });
-    // Auto-detection disabled - users must go through proper kasina selection flow
+    
+    // If user has connected Vernier device with completed calibration but no explicit state,
+    // assume they were auto-redirected from Vernier calibration
+    if (isConnected && calibrationComplete && !state?.useVernier) {
+      console.log('🎯 AUTO-DETECT SUCCESS: Detected Vernier auto-redirect, enabling breathing visualization!');
+      setAutoDetectVernier(true);
+    }
   }, [isConnected, calibrationComplete, state]);
   
-  // Disabled automatic breath kasina rendering - users must go through proper kasina selection
-  // This prevents bypassing the kasina selection interface
-  if (false) {
-    // This code path is intentionally disabled to ensure kasina selection flow
-    console.log('🚫 Direct breath kasina rendering disabled - redirect to kasina selection');
+  // If Vernier breathing data is provided via state OR auto-detected, show the breathing orb
+  if (state?.useVernier || autoDetectVernier) {
+    console.log('🌟 MEDITATION: Using Vernier breathing data', { 
+      fromState: !!state?.useVernier, 
+      autoDetected: autoDetectVernier 
+    });
+    return (
+      <Layout>
+        <div className="min-h-screen bg-black flex items-center justify-center">
+          <BreathKasinaOrb useVernier={true} />
+        </div>
+      </Layout>
+    );
   }
   
   // Otherwise show regular meditation videos

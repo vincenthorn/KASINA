@@ -1,633 +1,756 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle, Music, Headphones, Eye, Waves, Play, Pause, Upload, Volume2, Clock, SkipForward, SkipBack, FileAudio } from 'lucide-react';
-import MusicalKasinaOrb from '@/components/MusicalKasinaOrb';
-import { useAudioAnalysis } from '@/lib/hooks/useAudioAnalysis';
-import { useAuth } from '@/lib/stores/useAuth';
-import { cn } from '@/lib/utils';
-import Layout from '@/components/Layout';
+import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import Layout from '../components/Layout';
+import { useAuth } from '../lib/stores/useAuth';
+import { Card, CardContent } from '../components/ui/card';
+import { Button } from '../components/ui/button';
+import { Music, ArrowLeft, Play, Pause, SkipForward, SkipBack, List } from 'lucide-react';
+import MusicalKasinaOrb from '../components/MusicalKasinaOrb';
+import { useSpotify } from '../lib/hooks/useSpotify';
 
-type ViewState = 'landing' | 'upload' | 'mode-selection' | 'meditation';
-type MeditationMode = 'visual' | 'breath';
-
-export default function MusicalKasinaPage() {
-  const navigate = useNavigate();
-  const { user } = useAuth();
-  const [viewState, setViewState] = useState<ViewState>('landing');
-  const [selectedMode, setSelectedMode] = useState<MeditationMode>('visual');
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
-  const [error, setError] = useState<string>('');
-  const [breathMode, setBreathMode] = useState(false);
+const MusicalKasinaPage: React.FC = () => {
+  const { user, isAdmin } = useAuth();
+  const [showModeSelection, setShowModeSelection] = useState(false);
+  const [showMeditation, setShowMeditation] = useState(false);
+  const [isBreathMode, setIsBreathMode] = useState(false);
+  const [connecting, setConnecting] = useState(false);
+  const [showPlaylistSelection, setShowPlaylistSelection] = useState(false);
+  const [selectedPlaylist, setSelectedPlaylist] = useState<string>('');
+  const [audioFeatures, setAudioFeatures] = useState<any>(null);
+  const [audioAnalysis, setAudioAnalysis] = useState<any>(null);
+  const [startingPlaylist, setStartingPlaylist] = useState(false);
   
-  // Meditation controls state (always declared)
-  const [showControls, setShowControls] = useState(true);
-  const [orbSize, setOrbSize] = useState(1.0);
+  // Musical Kasina session state
+  const [meditationTime, setMeditationTime] = useState(0);
+  const [orbSize, setOrbSize] = useState(0.3); // Match Visual Kasina default size
+  const [showUIControls, setShowUIControls] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [sessionStartTime] = useState(Date.now());
-  const [lastActivity, setLastActivity] = useState(Date.now());
-  
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  
+  const [hideTimeout, setHideTimeout] = useState<NodeJS.Timeout | null>(null);
+
   const {
-    isPlaying,
-    audioBuffer,
-    audioFeatures,
-    currentTime,
-    duration,
-    loadAudioFile,
-    playAudio,
-    pauseAudio,
-    stopAudio,
-    getAnalysisData
-  } = useAudioAnalysis();
+    isConnected,
+    player,
+    currentTrack,
+    playlists,
+    connectSpotify,
+    getUserPlaylists,
+    playPlaylist,
+    playTrack,
+    pauseTrack,
+    nextTrack,
+    previousTrack,
+    getAudioFeatures,
+    getAudioAnalysis,
+    forceReauth,
+    accessToken,
+    deviceId
+  } = useSpotify();
 
-  // Helper functions (always declared)
-  const toggleFullscreen = useCallback(async () => {
-    try {
-      if (!document.fullscreenElement) {
-        await document.documentElement.requestFullscreen();
-        setIsFullscreen(true);
-      } else {
-        await document.exitFullscreen();
-        setIsFullscreen(false);
-      }
-    } catch (err) {
-      console.error('Fullscreen toggle failed:', err);
-    }
-  }, []);
-
-  const getSessionDuration = useCallback(() => {
-    return Math.floor((Date.now() - sessionStartTime) / 1000);
-  }, [sessionStartTime]);
-
-  const formatSessionTime = useCallback((seconds: number) => {
-    const hours = Math.floor(seconds / 3600);
-    const mins = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-    if (hours > 0) {
-      return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  }, []);
-
-  // Auto-hide controls after 3 seconds of inactivity
+  // Check for Spotify callback before authentication redirect
+  const hasSpotifyCallback = window.location.search.includes('code=');
+  
+  // Auto-show mode selection when Spotify connects successfully (only once)
   useEffect(() => {
-    if (viewState !== 'meditation') return;
+    if (isConnected && !showModeSelection && !showMeditation && !showPlaylistSelection) {
+      console.log('🎵 Spotify connected, showing mode selection');
+      setShowModeSelection(true);
+    }
+  }, [isConnected, showModeSelection, showMeditation, showPlaylistSelection]);
+  
+  // Debug authentication state
+  useEffect(() => {
+    console.log('🎵 Musical Kasina Auth Debug:', {
+      user: !!user,
+      isAdmin,
+      userEmail: user?.email,
+      hasSpotifyCallback,
+      isConnected,
+      search: window.location.search
+    });
+  }, [user, isAdmin, hasSpotifyCallback, isConnected]);
 
-    const handleActivity = () => {
-      setLastActivity(Date.now());
-      setShowControls(true);
-    };
-
-    const hideTimer = setInterval(() => {
-      if (Date.now() - lastActivity > 3000) {
-        setShowControls(false);
-      }
-    }, 500);
-
-    // Listen for mouse movement to show controls
-    document.addEventListener('mousemove', handleActivity);
-    document.addEventListener('click', handleActivity);
-    document.addEventListener('keydown', handleActivity);
-
+  // Timer for meditation session
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (showMeditation) {
+      interval = setInterval(() => {
+        setMeditationTime(prev => prev + 1);
+      }, 1000);
+    }
     return () => {
-      clearInterval(hideTimer);
-      document.removeEventListener('mousemove', handleActivity);
-      document.removeEventListener('click', handleActivity);
-      document.removeEventListener('keydown', handleActivity);
+      if (interval) clearInterval(interval);
     };
-  }, [viewState, lastActivity]);
+  }, [showMeditation]);
 
-  // Check if user has access
+  // Auto-hide UI controls
+  const resetHideTimeout = () => {
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+    }
+    setShowUIControls(true);
+    const newTimeout = setTimeout(() => {
+      setShowUIControls(false);
+    }, 3000);
+    setHideTimeout(newTimeout);
+  };
+
+  // Initialize auto-hide when meditation starts
   useEffect(() => {
-    if (!user) {
-      navigate('/login');
-      return;
+    if (showMeditation) {
+      resetHideTimeout();
     }
+    return () => {
+      if (hideTimeout) {
+        clearTimeout(hideTimeout);
+      }
+    };
+  }, [showMeditation]);
+
+  // Reset auto-hide on mouse movement
+  useEffect(() => {
+    if (!showMeditation) return;
+
+    const handleMouseMove = () => {
+      resetHideTimeout();
+    };
+
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        resetHideTimeout();
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('keydown', handleKeyPress);
     
-    if (user.subscriptionType !== 'admin') {
-      navigate('/');
-      return;
-    }
-  }, [user, navigate]);
-
-  // Handle file upload
-  const handleFileUpload = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    // Validate file type
-    if (!file.type.includes('audio/') && !file.name.toLowerCase().endsWith('.mp3')) {
-      setError('Please select a valid MP3 audio file.');
-      return;
-    }
-
-    // Validate file size (50MB limit)
-    if (file.size > 50 * 1024 * 1024) {
-      setError('File size must be less than 50MB.');
-      return;
-    }
-
-    try {
-      setError('');
-      console.log('🎵 Loading uploaded file:', file.name);
-      
-      await loadAudioFile(file);
-      setUploadedFile(file);
-      setViewState('mode-selection');
-      
-      console.log('🎵 File loaded successfully, showing mode selection');
-    } catch (err) {
-      console.error('🎵 Error loading file:', err);
-      setError(err instanceof Error ? err.message : 'Failed to load audio file');
-    }
-  }, [loadAudioFile]);
-
-  // Handle drag and drop
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
-
-  const handleDrop = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const files = Array.from(e.dataTransfer.files);
-    const audioFile = files.find(file => 
-      file.type.includes('audio/') || file.name.toLowerCase().endsWith('.mp3')
-    );
-    
-    if (audioFile && fileInputRef.current) {
-      const dt = new DataTransfer();
-      dt.items.add(audioFile);
-      fileInputRef.current.files = dt.files;
-      
-      // Trigger the change event
-      const event = new Event('change', { bubbles: true });
-      fileInputRef.current.dispatchEvent(event);
-    }
-  }, []);
-
-  // Start meditation
-  const startMeditation = useCallback(async () => {
-    if (!audioBuffer) return;
-    
-    try {
-      setViewState('meditation');
-      await playAudio();
-      console.log('🎵 Meditation started with uploaded track');
-    } catch (err) {
-      console.error('🎵 Error starting meditation:', err);
-      setError('Failed to start audio playback');
-    }
-  }, [audioBuffer, playAudio]);
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [showMeditation]);
 
   // Format time display
   const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
-  // Landing page
-  if (viewState === 'landing') {
+  // Fullscreen functionality
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
+  // Fetch audio features and analysis when track changes
+  useEffect(() => {
+    const fetchAudioData = async () => {
+      if (currentTrack && currentTrack.id && isConnected) {
+        try {
+          console.log('🎵 Fetching audio data for track:', currentTrack.name, currentTrack.id);
+          console.log('🎵 Current access token available:', !!accessToken);
+          
+          // Fetch audio features (valence, energy, tempo, key, mode)
+          const features = await getAudioFeatures(currentTrack.id);
+          if (features) {
+            console.log('🎵 ✅ Audio features loaded successfully:', {
+              energy: features.energy,
+              valence: features.valence,
+              tempo: features.tempo,
+              key: features.key,
+              mode: features.mode === 1 ? 'major' : 'minor',
+              danceability: features.danceability
+            });
+            setAudioFeatures(features);
+          } else {
+            console.log('🎵 ❌ Audio features returned null/undefined');
+          }
+          
+          // Fetch audio analysis (beats, sections, segments)
+          const analysis = await getAudioAnalysis(currentTrack.id);
+          if (analysis) {
+            console.log('🎵 ✅ Audio analysis loaded successfully:', {
+              beats: analysis.beats?.length || 0,
+              sections: analysis.sections?.length || 0,
+              segments: analysis.segments?.length || 0
+            });
+            setAudioAnalysis(analysis);
+          } else {
+            console.log('🎵 ❌ Audio analysis returned null/undefined');
+          }
+        } catch (error: any) {
+          console.error('🎵 ❌ Failed to fetch audio data:', error);
+          console.error('🎵 Error details:', {
+            message: error.message,
+            status: error.status,
+            response: error.response
+          });
+          
+          // Check if it's a 403 error (insufficient permissions)
+          if (error?.message?.includes('403')) {
+            console.log('🎵 Audio analysis APIs unavailable - implementing alternative visual system');
+            // Use track duration and basic timing for visual effects
+            const basicAudioData = {
+              energy: 0.7, // Default medium energy
+              valence: 0.6, // Default positive mood
+              tempo: 120, // Default tempo
+              key: Math.floor(Math.random() * 12), // Random key
+              mode: Math.random() > 0.5 ? 1 : 0, // Random major/minor
+              danceability: 0.6,
+              duration_ms: currentTrack.duration_ms || 180000 // Track duration or 3 min default
+            };
+            
+            console.log('🎵 Using generated audio data for visual effects:', basicAudioData);
+            setAudioFeatures(basicAudioData);
+            
+            // Create basic beat detection based on tempo
+            const beatsPerSecond = basicAudioData.tempo / 60;
+            const beatInterval = 1000 / beatsPerSecond;
+            
+            const basicAnalysis = {
+              beats: Array.from({ length: Math.floor((basicAudioData.duration_ms / 1000) * beatsPerSecond) }, (_, i) => ({
+                start: i * (beatInterval / 1000),
+                duration: 0.1,
+                confidence: 0.8
+              })),
+              sections: [
+                { start: 0, duration: basicAudioData.duration_ms / 1000 / 4, key: basicAudioData.key, mode: basicAudioData.mode },
+                { start: basicAudioData.duration_ms / 1000 / 4, duration: basicAudioData.duration_ms / 1000 / 2, key: basicAudioData.key, mode: basicAudioData.mode },
+                { start: basicAudioData.duration_ms / 1000 * 3/4, duration: basicAudioData.duration_ms / 1000 / 4, key: basicAudioData.key, mode: basicAudioData.mode }
+              ]
+            };
+            
+            console.log('🎵 Using generated beat analysis for visual effects');
+            setAudioAnalysis(basicAnalysis);
+          }
+        }
+      }
+    };
+
+    fetchAudioData();
+  }, [currentTrack?.id, isConnected, getAudioFeatures, getAudioAnalysis]);
+
+  // Listen for fullscreen changes
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+
+  // Load playlists when Spotify connects and show mode selection
+  useEffect(() => {
+    if (isConnected) {
+      console.log('🎵 Spotify connected, loading playlists and showing mode selection');
+      getUserPlaylists();
+      setShowModeSelection(true);
+    }
+  }, [isConnected, getUserPlaylists]);
+
+  // Debug playlist data when it loads
+  useEffect(() => {
+    if (playlists.length > 0) {
+      console.log('🎵 Playlists loaded, checking image data:', 
+        playlists.map(p => ({
+          name: p.name,
+          hasImages: !!p.images?.length,
+          imageUrl: p.images?.[0]?.url,
+          imageCount: p.images?.length || 0
+        }))
+      );
+    }
+  }, [playlists]);
+
+  // Auto-advance to mode selection after successful Spotify callback
+  useEffect(() => {
+    if (hasSpotifyCallback && isConnected && !showModeSelection) {
+      console.log('🎵 Spotify callback processed successfully, advancing to mode selection');
+      setShowModeSelection(true);
+    }
+  }, [hasSpotifyCallback, isConnected, showModeSelection]);
+
+  // Update audio analysis when track changes
+  useEffect(() => {
+    if (currentTrack?.id) {
+      const loadAudioData = async () => {
+        const features = await getAudioFeatures(currentTrack.id);
+        const analysis = await getAudioAnalysis(currentTrack.id);
+        setAudioFeatures(features);
+        setAudioAnalysis(analysis);
+      };
+      loadAudioData();
+    }
+  }, [currentTrack, getAudioFeatures, getAudioAnalysis]);
+
+  const handleConnectSpotify = async () => {
+    console.log('🎵 Connect Spotify button clicked');
+    console.log('🎵 Current auth state:', { isConnected, accessToken: !!accessToken, deviceId });
+    
+    setConnecting(true);
+    try {
+      console.log('🎵 Calling connectSpotify...');
+      await connectSpotify();
+      console.log('🎵 connectSpotify completed successfully');
+    } catch (error: any) {
+      console.error('🎵 Failed to connect to Spotify:', error);
+      alert(`Failed to connect to Spotify: ${error?.message || 'Unknown error'}`);
+    } finally {
+      setConnecting(false);
+    }
+  };
+
+  // Allow Spotify callback to process, then redirect if not authenticated
+  // Also allow if Spotify is connected (user completed OAuth flow) or has stored token
+  const hasStoredSpotifyToken = localStorage.getItem('spotify_access_token');
+  if (!hasSpotifyCallback && !isConnected && !hasStoredSpotifyToken && (!user || !isAdmin)) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // Show mode selection after connection
+  if (showModeSelection) {
+    return (
+      <Layout>
+        <div className="space-y-6">
+          <div className="flex justify-between items-center">
+            <h1 className="text-4xl font-bold text-white">Choose Your Mode</h1>
+            <Button
+              onClick={() => setShowModeSelection(false)}
+              variant="outline"
+              className="border-slate-600 text-slate-300 hover:bg-slate-800"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back
+            </Button>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
+            <Card 
+              className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-purple-500/30 rounded-xl cursor-pointer hover:border-purple-400 transition-all duration-300"
+              onClick={() => {
+                console.log('🎵 Visual Mode clicked, transitioning to playlist selection');
+                setIsBreathMode(false);
+                setShowPlaylistSelection(true);
+                setShowModeSelection(false);
+              }}
+            >
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Music className="w-8 h-8 text-purple-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Visual Mode</h3>
+                <p className="text-gray-300">
+                  Music-synchronized visual meditation that responds to audio features and beat detection
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card 
+              className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-sm border border-blue-500/30 rounded-xl cursor-pointer hover:border-blue-400 transition-all duration-300"
+              onClick={() => {
+                setIsBreathMode(true);
+                setShowPlaylistSelection(true);
+                setShowModeSelection(false);
+              }}
+            >
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Music className="w-8 h-8 text-blue-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Breath Mode</h3>
+                <p className="text-gray-300">
+                  Combine breath awareness with musical meditation for synchronized breathing and listening
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  // Show playlist selection
+  if (showPlaylistSelection) {
     return (
       <Layout>
         <div className="min-h-screen bg-black">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col items-center justify-center min-h-[80vh] text-center space-y-12">
-              
-              {/* Header */}
-              <div className="space-y-6">
-                <div className="flex items-center justify-center space-x-4 mb-8">
-                  <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full">
-                    <Music className="w-10 h-10 text-white" />
-                  </div>
-                  <h1 className="text-5xl font-bold text-white tracking-tight">Musical Kasina</h1>
-                </div>
-                
-                <p className="text-2xl text-gray-300 max-w-3xl leading-relaxed">
-                  Upload your own MP3 files and experience immersive audio-reactive meditation with synchronized visual effects.
+          <div className="container mx-auto px-6 py-8">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-8">
+              <div>
+                <h1 className="text-5xl font-bold text-white mb-2">Choose Your Music</h1>
+                <p className="text-xl text-slate-300">
+                  Click any playlist to start your {isBreathMode ? 'breath meditation' : 'visual meditation'}
                 </p>
               </div>
-
-              {/* Features Grid */}
-              <div className="grid md:grid-cols-3 gap-8 max-w-5xl">
-                <Card className="bg-gray-900/50 border-gray-700 text-white hover:bg-gray-900/70 transition-colors">
-                  <CardHeader className="text-center pb-4">
-                    <FileAudio className="w-12 h-12 mx-auto mb-4 text-blue-400" />
-                    <CardTitle className="text-xl">Your Music</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-300 leading-relaxed">
-                      Upload any MP3 file from your collection for a personalized meditation experience.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-gray-900/50 border-gray-700 text-white hover:bg-gray-900/70 transition-colors">
-                  <CardHeader className="text-center pb-4">
-                    <Waves className="w-12 h-12 mx-auto mb-4 text-green-400" />
-                    <CardTitle className="text-xl">Real-time Analysis</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-300 leading-relaxed">
-                      Advanced Web Audio API analysis creates dynamic visual effects synchronized to your music.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-gray-900/50 border-gray-700 text-white hover:bg-gray-900/70 transition-colors">
-                  <CardHeader className="text-center pb-4">
-                    <Eye className="w-12 h-12 mx-auto mb-4 text-purple-400" />
-                    <CardTitle className="text-xl">Visual Meditation</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-300 leading-relaxed">
-                      Choose between visual-only mode or breath-synchronized meditation with musical guidance.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* CTA Button */}
-              <Button 
-                onClick={() => setViewState('upload')}
+              <Button
+                onClick={() => {
+                  setShowPlaylistSelection(false);
+                  setShowModeSelection(true);
+                }}
+                variant="outline"
                 size="lg"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-10 py-5 text-xl font-semibold rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="border-slate-600 bg-slate-800/50 backdrop-blur-sm text-slate-300 hover:bg-slate-700/80 hover:border-slate-500"
               >
-                <Upload className="w-6 h-6 mr-3" />
-                Upload Your Music
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                Back to Modes
               </Button>
-
-              {/* Admin Notice */}
-              <div className="text-sm text-gray-500 max-w-md">
-                <p>Musical Kasina is currently available for admin users only.</p>
-              </div>
             </div>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-
-  // Upload page
-  if (viewState === 'upload') {
-    return (
-      <Layout>
-        <div className="min-h-screen bg-black">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8">
-              
-              {/* Back Button */}
-              <div className="w-full max-w-2xl">
-                <Button 
-                  variant="ghost" 
-                  onClick={() => setViewState('landing')}
-                  className="text-gray-300 hover:text-white hover:bg-gray-800"
-                >
-                  ← Back to Musical Kasina
-                </Button>
-              </div>
-
-              {/* Upload Area */}
-              <Card className="w-full max-w-2xl bg-gray-900/70 border-gray-700">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-3xl text-white">Upload Your Music</CardTitle>
-                  <CardDescription className="text-gray-300 text-lg">
-                    Select an MP3 file to begin your musical meditation session
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-8">
-                  
-                  {/* Drag & Drop Area */}
-                  <div
-                    onDragOver={handleDragOver}
-                    onDrop={handleDrop}
-                    className="border-2 border-dashed border-gray-600 rounded-xl p-16 text-center hover:border-purple-500 hover:bg-gray-800/30 transition-all cursor-pointer group"
-                    onClick={() => fileInputRef.current?.click()}
-                  >
-                    <Upload className="w-16 h-16 mx-auto mb-6 text-gray-400 group-hover:text-purple-400 transition-colors" />
-                    <p className="text-xl text-white mb-3 group-hover:text-purple-300 transition-colors">Drop your MP3 file here</p>
-                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors">or click to browse</p>
-                  </div>
-
-                  {/* Hidden File Input */}
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="audio/*,.mp3"
-                    onChange={handleFileUpload}
-                    className="hidden"
-                  />
-
-                  {/* File Requirements */}
-                  <div className="text-gray-400 space-y-2 bg-gray-800/50 p-4 rounded-lg">
-                    <p className="font-medium text-gray-300 mb-2">Requirements:</p>
-                    <p>• Supported format: MP3</p>
-                    <p>• Maximum file size: 50MB</p>
-                    <p>• Your audio stays private and is processed locally</p>
-                  </div>
-
-                  {/* Error Display */}
-                  {error && (
-                    <Alert className="bg-red-900/30 border-red-600">
-                      <AlertCircle className="h-4 w-4 text-red-400" />
-                      <AlertDescription className="text-red-300">
-                        {error}
-                      </AlertDescription>
-                    </Alert>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-
-  // Mode Selection
-  if (viewState === 'mode-selection' && uploadedFile && audioFeatures) {
-    return (
-      <Layout>
-        <div className="min-h-screen bg-black">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col items-center justify-center min-h-[80vh] space-y-8">
-              
-              {/* Back Button */}
-              <div className="w-full max-w-4xl">
-                <Button 
-                  variant="ghost" 
-                  onClick={() => setViewState('upload')}
-                  className="text-gray-300 hover:text-white hover:bg-gray-800"
-                >
-                  ← Upload Different Track
-                </Button>
-              </div>
-
-              {/* Track Info */}
-              <Card className="w-full max-w-4xl bg-gray-900/70 border-gray-700">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-3xl text-white">Track Loaded</CardTitle>
-                  <CardDescription className="text-gray-300 text-lg">
-                    {uploadedFile.name}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-8">
-                  
-                  {/* Audio Features */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div className="text-center bg-gray-800/50 rounded-lg p-4">
-                      <div className="text-3xl font-bold text-white">{Math.round(audioFeatures.tempo)}</div>
-                      <div className="text-sm text-gray-400">BPM</div>
-                    </div>
-                    <div className="text-center bg-gray-800/50 rounded-lg p-4">
-                      <div className="text-3xl font-bold text-white">{formatTime(duration)}</div>
-                      <div className="text-sm text-gray-400">Duration</div>
-                    </div>
-                    <div className="text-center bg-gray-800/50 rounded-lg p-4">
-                      <div className="text-3xl font-bold text-white">{Math.round(audioFeatures.energy * 100)}%</div>
-                      <div className="text-sm text-gray-400">Energy</div>
-                    </div>
-                    <div className="text-center bg-gray-800/50 rounded-lg p-4">
-                      <div className="text-3xl font-bold text-white">{Math.round(audioFeatures.valence * 100)}%</div>
-                      <div className="text-sm text-gray-400">Positivity</div>
-                    </div>
-                  </div>
-
-                  <Separator className="bg-gray-700" />
-
-                  {/* Mode Selection */}
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-semibold text-white text-center">Choose Your Meditation Mode</h3>
-                    
-                    <div className="grid md:grid-cols-2 gap-8">
+            
+            {/* Playlists Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl">
+              {playlists.map((playlist) => (
+                <Card 
+                  key={playlist.id}
+                  className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl ${
+                    selectedPlaylist === playlist.id 
+                      ? 'ring-4 ring-green-500/70 bg-gradient-to-br from-green-600/30 via-slate-800/90 to-green-700/30 border-green-400/70 shadow-green-500/25' 
+                      : 'bg-gradient-to-br from-slate-800/60 via-slate-700/40 to-slate-800/60 border-slate-600/50 hover:border-slate-500/70'
+                  } backdrop-blur-lg`}
+                  onClick={async () => {
+                    try {
+                      console.log('🎵 Playlist clicked, starting immediately:', playlist.name, playlist.id);
+                      setSelectedPlaylist(playlist.id);
+                      setStartingPlaylist(true);
                       
-                      {/* Visual Mode */}
-                      <Card 
-                        className={cn(
-                          "cursor-pointer transition-all hover:scale-105",
-                          selectedMode === 'visual' 
-                            ? "bg-purple-900/40 border-purple-500" 
-                            : "bg-gray-800/50 border-gray-600 hover:bg-gray-800/70"
-                        )}
-                        onClick={() => setSelectedMode('visual')}
-                      >
-                        <CardHeader className="text-center">
-                          <Eye className="w-12 h-12 mx-auto mb-4 text-blue-400" />
-                          <CardTitle className="text-white text-xl">Visual Mode</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-gray-300 text-center leading-relaxed">
-                            Immersive visual meditation with audio-reactive effects synchronized to your music.
-                          </p>
-                        </CardContent>
-                      </Card>
-
-                      {/* Breath Mode */}
-                      <Card 
-                        className={cn(
-                          "cursor-pointer transition-all hover:scale-105",
-                          selectedMode === 'breath' 
-                            ? "bg-green-900/40 border-green-500" 
-                            : "bg-gray-800/50 border-gray-600 hover:bg-gray-800/70"
-                        )}
-                        onClick={() => setSelectedMode('breath')}
-                      >
-                        <CardHeader className="text-center">
-                          <Waves className="w-12 h-12 mx-auto mb-4 text-green-400" />
-                          <CardTitle className="text-white text-xl">Breath Mode</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-gray-300 text-center leading-relaxed">
-                            Guided breathing meditation where the orb expands and contracts with your breath rhythm.
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </div>
-
-                    {/* Breath Mode Toggle (when breath mode selected) */}
-                    {selectedMode === 'breath' && (
-                      <div className="flex items-center justify-center space-x-4 pt-4 bg-gray-800/30 rounded-lg p-4">
-                        <span className="text-gray-300">Breath Synchronization:</span>
-                        <Button
-                          variant={breathMode ? "default" : "outline"}
-                          onClick={() => setBreathMode(!breathMode)}
-                          className={breathMode 
-                            ? "bg-green-600 hover:bg-green-700 text-white" 
-                            : "border-gray-600 text-gray-300 hover:bg-gray-700"
-                          }
-                        >
-                          {breathMode ? "ON" : "OFF"}
-                        </Button>
+                      await playPlaylist(playlist.id);
+                      console.log('🎵 Playlist started, transitioning to meditation view');
+                      setShowMeditation(true);
+                      setShowPlaylistSelection(false);
+                    } catch (error: any) {
+                      console.error('🎵 Failed to start playlist:', error);
+                      alert(`Failed to start playlist: ${error?.message || 'Unknown error'}`);
+                    } finally {
+                      setStartingPlaylist(false);
+                    }
+                  }}
+                >
+                  <CardContent className="p-0">
+                    {/* Album Art */}
+                    <div className="relative w-full h-48 bg-gradient-to-br from-slate-700 to-slate-800 rounded-t-lg overflow-hidden">
+                      {playlist.images?.[0]?.url ? (
+                        <img 
+                          src={`/api/spotify/image-proxy?url=${encodeURIComponent(playlist.images[0].url)}`}
+                          alt={playlist.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          onLoad={() => {
+                            console.log('✅ Image loaded successfully:', playlist.name);
+                          }}
+                          onError={(e) => {
+                            console.error('❌ Image failed to load:', {
+                              playlist: playlist.name,
+                              originalUrl: playlist.images[0].url,
+                              proxyUrl: `/api/spotify/image-proxy?url=${encodeURIComponent(playlist.images[0].url)}`,
+                              error: e
+                            });
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.classList.remove('hidden');
+                              fallback.classList.add('flex');
+                            }
+                          }}
+                        />
+                      ) : null}
+                      <div className={`${playlist.images?.[0]?.url ? 'hidden' : 'flex'} absolute inset-0 items-center justify-center bg-gradient-to-br from-purple-600/30 to-blue-600/30`}>
+                        <Music className="w-16 h-16 text-slate-300" />
                       </div>
-                    )}
-
-                    {/* Start Button */}
-                    <div className="text-center pt-6">
-                      <Button 
-                        onClick={startMeditation}
-                        size="lg"
-                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-10 py-5 text-xl font-semibold rounded-full"
-                      >
-                        <Play className="w-6 h-6 mr-3" />
-                        Start Meditation
-                      </Button>
+                      
+                      {/* Selection Indicator */}
+                      {selectedPlaylist === playlist.id && (
+                        <div className="absolute top-3 right-3 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center animate-pulse shadow-lg border-2 border-white">
+                          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                      )}
+                      
+                      {/* Hover Play Icon */}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Play className="w-12 h-12 text-white drop-shadow-lg" />
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                    
+                    {/* Playlist Info */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-300 transition-colors overflow-hidden">
+                        <span className="block truncate">
+                          {playlist.name}
+                        </span>
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-3 flex items-center">
+                        <List className="w-4 h-4 mr-1" />
+                        {playlist.tracks.total} tracks
+                      </p>
+                      {playlist.description && (
+                        <p className="text-slate-500 text-sm leading-relaxed overflow-hidden">
+                          <span className="block" style={{ 
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
+                          }}>
+                            {playlist.description}
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
+            
+            {/* Loading Indicator */}
+            {startingPlaylist && (
+              <div className="mt-12 flex justify-center">
+                <div className="bg-gradient-to-r from-green-600 to-green-700 text-white font-bold py-4 px-12 text-lg rounded-lg shadow-2xl flex items-center">
+                  <div className="w-6 h-6 mr-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Starting Playlist...
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </Layout>
     );
   }
 
-  // Meditation View
-  if (viewState === 'meditation') {
-
+  // Show meditation interface - full screen experience
+  if (showMeditation) {
     return (
-      <div className="fixed inset-0 bg-black overflow-hidden">
-        
-        {/* Musical Kasina Orb */}
-        <div className="absolute inset-0">
-          <MusicalKasinaOrb
-            audioFeatures={audioFeatures}
-            getAnalysisData={getAnalysisData}
-            isPlaying={isPlaying}
-            currentTime={currentTime}
-            useBreathMode={selectedMode === 'breath' && breathMode}
-            orbSize={orbSize}
-          />
+      <div className="fixed inset-0 bg-black flex flex-col">
+        {/* Timer and End button - Upper Left */}
+        <div 
+          className={`absolute top-4 left-4 z-30 flex items-center space-x-3 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            padding: '12px 16px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            backdropFilter: 'blur(10px)'
+          }}
+        >
+          <span className="text-white font-mono text-lg font-bold">
+            {formatTime(meditationTime)}
+          </span>
+          <button
+            onClick={async () => {
+              console.log('🎵 Ending session - pausing music');
+              try {
+                await pauseTrack();
+                console.log('🎵 Music paused successfully');
+              } catch (error) {
+                console.error('🎵 Failed to pause music:', error);
+              }
+              setShowMeditation(false);
+              setShowModeSelection(true);
+              setMeditationTime(0);
+            }}
+            className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-colors"
+          >
+            End
+          </button>
         </div>
 
-        {/* Top Left: Session Timer and End Button */}
-        {showControls && (
-          <div className="absolute top-4 left-4 z-20 flex items-center space-x-3">
-            <div className="bg-black/60 backdrop-blur-sm rounded px-3 py-1 text-white font-mono text-lg">
-              {formatSessionTime(getSessionDuration())}
-            </div>
-            <Button
-              onClick={() => {
-                stopAudio();
-                setViewState('mode-selection');
-              }}
-              className="bg-red-600/80 hover:bg-red-700 text-white px-4 py-1 text-sm"
-            >
-              End
-            </Button>
-          </div>
-        )}
-
-        {/* Top Center: Size Slider */}
-        {showControls && (
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center space-x-4 bg-black/60 backdrop-blur-sm rounded px-6 py-2">
-            <span className="text-white/80 text-sm">Size</span>
+        {/* Size Slider - Top Center */}
+        <div 
+          className={`absolute top-4 left-1/2 transform -translate-x-1/2 z-30 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            padding: '12px 20px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '25px',
+            backdropFilter: 'blur(10px)',
+            minWidth: '200px'
+          }}
+        >
+          <div className="flex items-center space-x-3">
+            <span className="text-white text-sm font-medium">Size</span>
             <input
               type="range"
-              min="0.5"
-              max="2.0"
-              step="0.1"
-              value={orbSize}
-              onChange={(e) => setOrbSize(parseFloat(e.target.value))}
-              className="w-32 h-2 bg-white/30 rounded-lg appearance-none slider"
+              min="5"
+              max="100"
+              value={Math.round(((orbSize - 0.05) / (1.5 - 0.05)) * 100)}
+              onChange={(e) => {
+                const percentage = parseFloat(e.target.value);
+                const actualSize = 0.05 + (percentage / 100) * (1.5 - 0.05);
+                setOrbSize(actualSize);
+              }}
+              className="flex-1 h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider"
               style={{
-                background: `linear-gradient(to right, rgb(59, 130, 246) 0%, rgb(59, 130, 246) ${(orbSize - 0.5) / 1.5 * 100}%, rgba(255,255,255,0.3) ${(orbSize - 0.5) / 1.5 * 100}%, rgba(255,255,255,0.3) 100%)`
+                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${Math.round(((orbSize - 0.05) / (1.5 - 0.05)) * 100)}%, #475569 ${Math.round(((orbSize - 0.05) / (1.5 - 0.05)) * 100)}%, #475569 100%)`
               }}
             />
-            <span className="text-white font-mono text-sm min-w-[3rem]">
-              {Math.round((orbSize - 0.5) / 1.5 * 100)}%
+            <span className="text-white text-sm font-medium min-w-[3ch]">
+              {Math.round(((orbSize - 0.05) / (1.5 - 0.05)) * 100)}%
             </span>
           </div>
-        )}
+        </div>
 
-        {/* Top Right: Fullscreen Button */}
-        {showControls && (
-          <div className="absolute top-4 right-4 z-20">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleFullscreen}
-              className="text-white hover:bg-white/10 p-2"
-            >
-              {isFullscreen ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 9V4.5M9 9H4.5M9 9L3.5 3.5m11 5.5V4.5M15 9h4.5M15 9l5.5-5.5M9 15v4.5M9 15H4.5M9 15l-5.5 5.5m11-5.5v4.5m0-4.5h4.5m0 0l5.5 5.5" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5.5 5.5M20 8V4m0 0h-4m4 0l-5.5 5.5M4 16v4m0 0h4m-4 0l5.5-5.5M20 16v4m0 0h-4m4 0l-5.5-5.5" />
-                </svg>
-              )}
-            </Button>
-          </div>
-        )}
+        {/* Fullscreen Button - Upper Right */}
+        <div 
+          className={`absolute top-4 right-4 z-30 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            padding: '12px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            backdropFilter: 'blur(10px)'
+          }}
+        >
+          <button
+            onClick={toggleFullscreen}
+            className="text-white hover:text-blue-400 transition-colors"
+            title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+          >
+            {isFullscreen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              </svg>
+            )}
+          </button>
+        </div>
 
-        {/* Bottom Center: Media Controls */}
-        {showControls && (
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-            <div className="bg-black/60 backdrop-blur-sm rounded-lg px-6 py-4">
-              {/* Media Controls */}
-              <div className="flex items-center justify-center space-x-6 mb-3">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-white hover:bg-white/10 p-2"
-                  disabled
-                >
-                  <SkipBack className="w-5 h-5" />
-                </Button>
-                
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  onClick={isPlaying ? pauseAudio : playAudio}
-                  className="text-white hover:bg-white/10 p-3"
-                >
-                  {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-                </Button>
-                
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-white hover:bg-white/10 p-2"
-                  disabled
-                >
-                  <SkipForward className="w-5 h-5" />
-                </Button>
-              </div>
-
-              {/* Mode Text */}
-              <div className="text-center">
-                <div className="text-white font-medium">
-                  {selectedMode === 'breath' && breathMode ? 'Breath Synchronization' : 'Visual Mode'}
-                </div>
-                <div className="text-white/60 text-sm">
-                  {uploadedFile?.name || 'Automatic'}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Progress Bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
-          <div 
-            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-100"
-            style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
+        {/* Central Orb */}
+        <div className="flex-1 flex items-center justify-center relative">
+          <MusicalKasinaOrb
+            isBreathMode={isBreathMode}
+            isPlaying={Boolean(currentTrack && !currentTrack.paused)}
+            currentTrack={currentTrack}
+            audioFeatures={audioFeatures}
+            audioAnalysis={audioAnalysis}
+            size={orbSize}
           />
+        </div>
+
+        {/* Music Controls - Bottom Center */}
+        <div 
+          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 transition-opacity duration-300 ${showUIControls ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '12px',
+            backdropFilter: 'blur(10px)',
+            padding: '16px',
+            minWidth: '300px'
+          }}
+        >
+          <div className="flex items-center justify-center space-x-4">
+            {/* Music Controls */}
+            <button
+              onClick={previousTrack}
+              className="text-slate-300 hover:text-white transition-colors p-2"
+            >
+              <SkipBack className="w-5 h-5" />
+            </button>
+            
+            <button
+              onClick={currentTrack?.paused ? playTrack : pauseTrack}
+              className="text-slate-300 hover:text-white transition-colors p-3 bg-slate-700/50 rounded-full hover:bg-slate-600/50"
+            >
+              {currentTrack?.paused ? <Play className="w-6 h-6" /> : <Pause className="w-6 h-6" />}
+            </button>
+            
+            <button
+              onClick={nextTrack}
+              className="text-slate-300 hover:text-white transition-colors p-2"
+            >
+              <SkipForward className="w-5 h-5" />
+            </button>
+          </div>
+          
+          {/* Current Track Info */}
+          {currentTrack && (
+            <div className="mt-3 text-center">
+              <p className="text-white font-medium text-sm truncate">
+                {currentTrack.name}
+              </p>
+              <p className="text-slate-400 text-xs truncate">
+                {currentTrack.artists?.map(artist => artist.name).join(', ')}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     );
   }
 
-  return null;
-}
+  // Show Spotify connection landing page
+  return (
+    <Layout>
+      <div className="space-y-4">
+        <h1 className="text-4xl font-bold text-white">Musical Kasina</h1>
+        
+        <div className="flex items-start justify-center pt-8">
+          <div className="w-full max-w-2xl">
+            <div className="bg-gradient-to-br from-purple-800/50 to-blue-800/50 backdrop-blur-sm border border-purple-600 rounded-xl p-8 text-center">
+              <div className="mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
+                  <span className="text-4xl">🎹</span>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-4">🎵 Spotify Premium Required</h2>
+                <p className="text-gray-300 mb-6">
+                  Synchronize your meditation with music through real-time audio analysis and immersive visual feedback
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-4 gap-6 mb-8">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Music className="w-6 h-6 text-green-500" />
+                  </div>
+                  <h4 className="text-white font-medium mb-2">Real-time audio analysis</h4>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Music className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <h4 className="text-white font-medium mb-2">Beat-synchronized visuals</h4>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Music className="w-6 h-6 text-purple-500" />
+                  </div>
+                  <h4 className="text-white font-medium mb-2">Playlist selection</h4>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Music className="w-6 h-6 text-pink-500" />
+                  </div>
+                  <h4 className="text-white font-medium mb-2">Breath mode integration</h4>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <button
+                  onClick={handleConnectSpotify}
+                  disabled={connecting}
+                  className="bg-green-600 hover:bg-green-700 disabled:bg-green-800 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mx-auto"
+                >
+                  <Music className="w-5 h-5" />
+                  {connecting ? "Connecting..." : "Connect Spotify Premium"}
+                </button>
+                
+                <p className="text-xs text-gray-400 mt-4">
+                  Premium-only feature • Requires active Spotify Premium subscription
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default MusicalKasinaPage;

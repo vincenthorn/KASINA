@@ -37,20 +37,20 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 - Session persistence and analytics
 
 ### Musical Kasina Features
-- **Client-side MP3 Upload System**: Users upload their own MP3 files for personalized meditation
-- **Web Audio API Integration**: Real-time audio analysis without external dependencies
 - Breath Mode toggle: orb expands/contracts with breath or remains steady
+- Real-time Spotify integration with Web Playbook SDK
 - **Enhanced Visual Synchronization**:
-  - Real-time frequency analysis with bass, mid, and treble energy visualization
-  - Volume-responsive orb scaling and glow effects
-  - Dominant frequency-based color mapping using HSV color space
-  - Beat detection through bass energy analysis with ripple effects
+  - Beat-responsive ripple effects radiating from orb center on each detected beat
+  - Dynamic background colors shifting based on track valence (blue/violet for low mood, peach/gold for high mood)
+  - Energy-driven brightness and saturation changes throughout the meditation
   - Musical key-based orb coloring with 12-tone color mapping
-  - Energy and valence-driven background color transitions
-  - Musical mode visual differentiation (major/minor affects brightness)
-- **Audio Feature Analysis**: Client-side tempo detection, energy calculation, and valence estimation
-- Drag-and-drop file upload interface with validation
-- Session management with real-time playback controls
+  - Major/minor mode visual differentiation (warmer for major, cooler for minor)
+  - Section change transitions with visual motifs when musical sections shift
+  - Dramatic beat pulse effects on the central orb with energy-responsive intensity
+- Audio analysis with beat detection and section change monitoring
+- Audio analysis caching for rate limiting optimization
+- Playlist selection interface for seamless music control
+- Session management with automatic ending when music stops
 
 ### User Management
 - Email-based user identification
@@ -117,14 +117,6 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Changelog
 
 Changelog:
-- June 19, 2025: **BREATH KASINA RESTORATION**: Restored original working breath kasina settings from pre-Musical Kasina development - orbSize: 150px, sizeScale: 1.0, sizeMultiplier: 1.0, BASE_MIN_SIZE: 50px, BASE_MAX_SIZE: 600px, documented proven configuration in replit.md for future reference
-- June 19, 2025: **BREATH KASINA SYNCHRONIZATION FIX**: Resolved critical issue where breath kasina remained static despite Vernier device sending changing force data - fixed Vernier connection detection logic to allow breath processing when receiving force data, added comprehensive debug logging for breath amplitude calculations, kasina now properly responds to real-time breathing patterns
-- June 19, 2025: **CRITICAL ARCHITECTURAL FIX**: Resolved breath kasina flow issue caused by Musical Kasina development - identified and disabled preview BreathKasinaOrb component in BreathPage.tsx that was automatically rendering with default white kasina, disabled MeditationPage.tsx auto-detection logic, removed internal kasina selection conflicts, disabled automatic session recovery for breath sessions
-- June 19, 2025: Implemented automatic kasina selection flow - Vernier respiration belt connection now automatically triggers kasina selection interface without requiring "Begin Meditation" button press, creating seamless device-to-meditation experience
-- June 19, 2025: Fixed breath kasina sizing issue - restored size multiplier range to 10%-80%, dramatically reduced BASE_MAX_SIZE to 200px and immersion cap to 100px, fixed initial orbSize from 150px to 20px, adjusted scale calculations, added breath amplitude debugging to verify synchronization
-- June 19, 2025: Completely restructured Breath Kasina flow - moved kasina selection to BreathPage level with full-screen interface, eliminated automatic white kasina default, proper prop passing to BreathKasinaOrb component
-- June 19, 2025: Updated Breath Kasina page text from "Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection" to "Connect your Respiration Belt via Bluetooth for precise breath detection" - removed brand-specific reference and improved wording
-- June 17, 2025: **MAJOR ARCHITECTURE CHANGE**: Completely replaced Spotify API integration with client-side MP3 upload system using Web Audio API for real-time audio analysis and visualization. This eliminates external API dependencies and provides user control over music selection while maintaining all visual synchronization features.
 - June 17, 2025: Fixed Spotify API 403 errors by forcing re-authentication with proper scopes for audio analysis access
 - June 17, 2025: Fixed Musical Kasina redirect loop completely - removed Navigate redirect in component that was triggering after OAuth callback processing
 - June 17, 2025: Fixed Spotify authentication redirect loop - Musical Kasina now properly handles OAuth callbacks without redirecting to home page
@@ -138,25 +130,3 @@ Changelog:
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
-
-## Proven Breath Kasina Configuration (Pre-Musical Kasina - Working Settings)
-
-**IMPORTANT**: These are the tested, working breath kasina settings from before Musical Kasina development. Use these if breath synchronization breaks again:
-
-### BreathKasinaOrb.tsx Settings:
-- `orbSize`: useState(150) - Proper starting size
-- `sizeScale`: useState(1.0) - Full scale factor 
-- `sizeMultiplier`: useState(1.0) - Full size multiplier range
-- Scale calculation: `(orbSize / 150) * 1.5` - Proper scale calculation
-
-### kasinaConfig.ts Settings:
-- `BASE_MIN_SIZE`: 50 - Proper minimum kasina size
-- `BASE_MAX_SIZE`: 600 - Full maximum kasina size for proper breath range
-- `finalSize` cap: 600px - Full immersion level
-- No forced minimum size overrides
-
-### Key Principles:
-- Full scale factors (1.0) provide proper breathing range
-- 150px starting size ensures visibility
-- 600px maximum allows deep breathing expansion
-- Standard size calculations without artificial constraints

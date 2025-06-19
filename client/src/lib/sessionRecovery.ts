@@ -139,13 +139,6 @@ export class SessionRecovery {
         const session: SessionData = JSON.parse(activeSession);
         const timeSinceUpdate = Date.now() - session.lastUpdate;
         
-        // Skip automatic recovery for breath kasina to ensure kasina selection always happens
-        if (session.kasinaType === 'breath') {
-          console.log(`🚫 Skipping automatic recovery for breath kasina to ensure kasina selection`);
-          this.clearSession();
-          return;
-        }
-        
         // If session was active within last 2 minutes, try to recover
         if (timeSinceUpdate < 120000) {
           const elapsed = Math.floor((Date.now() - session.startTime) / 1000);

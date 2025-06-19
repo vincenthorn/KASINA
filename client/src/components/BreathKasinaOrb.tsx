@@ -11,7 +11,7 @@ import { sessionRecovery } from '../lib/sessionRecovery';
 import useWakeLock from '../lib/useWakeLock';
 import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
 import UnifiedSessionInterface from './UnifiedSessionInterface';
-
+import KasinaSelectionInterface from './KasinaSelectionInterface';
 import WhiteAKasina from './WhiteAKasina';
 import WhiteAThigle from './WhiteAThigle';
 import OmKasina from './OmKasina';
@@ -430,7 +430,6 @@ interface BreathKasinaOrbProps {
   breathPhase?: 'inhale' | 'exhale' | 'pause';
   isListening?: boolean;
   useVernier?: boolean;
-  selectedKasina?: string;
 }
 
 /**
@@ -441,8 +440,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   breathAmplitude = 0.5,
   breathPhase = 'pause',
   isListening = false,
-  useVernier = false,
-  selectedKasina: propSelectedKasina
+  useVernier = false
 }) => {
   // Use Vernier breathing data if enabled
   const vernierData = useVernierBreathOfficial();
@@ -466,10 +464,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const activeIsListening = useVernier ? vernierData.isConnected : isListening;
   const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   const orbRef = useRef<HTMLDivElement>(null);
-  const [orbSize, setOrbSize] = useState(150); // ORIGINAL WORKING SETTING - Proper starting size
+  const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
   const [heldExhaleStart, setHeldExhaleStart] = useState<number | null>(null);
-  const [sizeScale, setSizeScale] = useState(1.0); // ORIGINAL WORKING SETTING - Full scale factor 
+  const [sizeScale, setSizeScale] = useState(0.05); // Scale factor for min-max range (minimal default size)
   const [showCalibrationMessage, setShowCalibrationMessage] = useState(false);
   const [calibrationTimeRemaining, setCalibrationTimeRemaining] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
@@ -478,9 +476,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [meditationTime, setMeditationTime] = useState(0); // seconds
   const [isInFocusMode, setIsInFocusMode] = useState(false);
   const [showConnectionHelp, setShowConnectionHelp] = useState(false);
-  // Use kasina from props or global state, no internal kasina selection
-  const selectedKasina = propSelectedKasina || globalSelectedKasina || 'blue';
-  const [sizeMultiplier, setSizeMultiplier] = useState(1.0); // ORIGINAL WORKING SETTING - Full size multiplier range
+  const [showKasinaSelection, setShowKasinaSelection] = useState(true);
+  const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
+  const [selectedKasina, setSelectedKasina] = useState<string>(globalSelectedKasina || KASINA_TYPES.BLUE);
+  const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
+  const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -608,8 +608,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     const handleWheel = (e: any) => {
       e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.01 : 0.01; // Scroll down = smaller, scroll up = larger
-      setSizeMultiplier(prev => Math.max(0.1, Math.min(0.8, prev + delta))); // Range: 10% to 80%
+      const delta = e.deltaY > 0 ? -0.025 : 0.025; // Scroll down = smaller, scroll up = larger
+      setSizeMultiplier(prev => Math.max(0.05, Math.min(5.0, prev + delta))); // Range: 5% to 500%
     };
 
     document.addEventListener('wheel', handleWheel, { passive: false });
@@ -792,13 +792,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       }
     };
   }, []);
-
-  // Update global kasina when prop changes
-  useEffect(() => {
-    if (propSelectedKasina) {
-      setGlobalSelectedKasina(propSelectedKasina as any);
-    }
-  }, [propSelectedKasina, setGlobalSelectedKasina]);
 
   // Handle fullscreen changes
   useEffect(() => {
@@ -1013,9 +1006,36 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // Kasina selection is now handled at the page level
+  // Handle kasina series selection
+  const handleSeriesSelection = (series: string) => {
+    setSelectedKasinaSeries(series);
+    setKasinaSelectionStep('kasina');
+  };
 
-  // Kasina series logic removed - handled at page level
+  // Handle individual kasina selection
+  const handleKasinaSelection = (kasina: string) => {
+    // Track usage before switching
+    trackKasinaUsage(kasina);
+    
+    setSelectedKasina(kasina);
+    setGlobalSelectedKasina(kasina as any); // Update global kasina store
+    setShowKasinaSelection(false);
+    console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
+  };
+
+  // Get kasinas for the selected series
+  const getKasinasForSeries = (series: string) => {
+    switch (series) {
+      case 'COLOR':
+        return KASINA_SERIES.COLOR;
+      case 'ELEMENTAL':
+        return KASINA_SERIES.ELEMENTAL;
+      case 'VAJRAYANA':
+        return KASINA_SERIES.VAJRAYANA;
+      default:
+        return [];
+    }
+  };
 
   // Get color for selected kasina - use the official KASINA_COLORS
   const getKasinaColor = (kasina: string) => {
@@ -1136,36 +1156,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
-    // Debug breath processing trigger
-    console.log('🔍 BREATH PROCESSING CHECK:', {
-      activeIsListening,
-      useVernier,
-      vernierConnected: vernierData.isConnected,
-      activeBreathAmplitude,
-      currentForce: vernierData.currentForce,
-      fullVernierData: vernierData
-    });
-    
-    // For microphone mode, only block if not listening
-    if (!useVernier && !isListening) {
-      console.log('❌ BREATH PROCESSING BLOCKED - Microphone not listening');
-      return;
-    }
-    
-    // For Vernier mode, always proceed (connection status may be delayed but data flows)
-    
-    console.log('✅ BREATH PROCESSING ALLOWED - proceeding with amplitude calculation');
-    
-    // Log Vernier data details for debugging
-    if (useVernier) {
-      console.log('📊 VERNIER DATA DETAILS:', {
-        isConnected: vernierData.isConnected,
-        currentForce: vernierData.currentForce,
-        breathAmplitude: vernierData.breathAmplitude,
-        breathPhase: vernierData.breathPhase,
-        breathingRate: vernierData.breathingRate
-      });
-    }
+    if (!activeIsListening) return;
     
     // Custom kasina now breathes like other color kasinas
     
@@ -1212,36 +1203,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Apply breathing rate intensity scaling
     scaledAmplitude = scaledAmplitude * intensityMultiplier;
     
-    // Debug breath amplitude calculation
-    console.log('🔄 BREATH AMPLITUDE DEBUG:', {
-      finalAmplitude,
-      scaledAmplitude,
-      intensityMultiplier,
-      sizeScale,
-      sizeMultiplier,
-      selectedKasina
-    });
-    
-    // Debug parameters being passed to sizing function
-    console.log('🔍 SIZING FUNCTION INPUT:', {
-      selectedKasina,
-      scaledAmplitude,
-      sizeScale,
-      sizeMultiplier
-    });
-    
     // Use unified breath kasina sizing system for consistent behavior across all types
     const breathSizing = calculateBreathKasinaSize(selectedKasina, scaledAmplitude, sizeScale, sizeMultiplier);
     const { size: newSize, minSize, maxSize, immersionLevel } = breathSizing;
-    
-    console.log('🎯 BREATH SIZING RESULT:', {
-      scaledAmplitude,
-      newSize,
-      minSize,
-      maxSize,
-      immersionLevel,
-      currentOrbSize: orbSize
-    });
     
     // Update state to trigger re-render
     setOrbSize(newSize);
@@ -1295,7 +1259,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Log the size and rate data for debugging
     console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
-  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, getKasinaColor, calculateBackgroundColor, useVernier, vernierData.isConnected, vernierData.currentForce]);
+  }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, getKasinaColor, calculateBackgroundColor]);
 
   // Modern kasina breathing orb component using Three.js
   const BreathingKasinaOrb = () => {
@@ -1334,7 +1298,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
       } else if (kasConfig.type === 'elemental') {
         // Elemental kasinas need breath-responsive scaling based on orbSize
-        finalScale = (orbSize / 150) * 1.5; // ORIGINAL WORKING SETTING - Proper scale calculation
+        finalScale = (orbSize / 150) * 1.5; // Increased multiplier to match Color kasina scale
         console.log(`🔥 Elemental kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
       } else {
         // Default scaling for other types
@@ -1694,18 +1658,20 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       </Canvas>
       
       {/* Unified Session Interface */}
-      <UnifiedSessionInterface
-        meditationTime={meditationTime}
-        onEndSession={endMeditation}
-        sizeMultiplier={sizeMultiplier}
-        onSizeChange={(size) => setSizeMultiplier(size)}
-        isFullscreen={isFullscreen}
-        onToggleFullscreen={toggleFullscreen}
-        onChangeKasina={() => {}} // Disabled - kasina selection handled at page level
-        showControls={showControls}
-        mode="breath"
-        breathingRate={activeBreathingRate}
+      {!showKasinaSelection && (
+        <UnifiedSessionInterface
+          meditationTime={meditationTime}
+          onEndSession={endMeditation}
+          sizeMultiplier={sizeMultiplier}
+          onSizeChange={(size) => setSizeMultiplier(size)}
+          isFullscreen={isFullscreen}
+          onToggleFullscreen={toggleFullscreen}
+          onChangeKasina={() => setShowKasinaSelection(true)}
+          showControls={showControls}
+          mode="breath"
+          breathingRate={activeBreathingRate}
         />
+      )}
 
 
 
@@ -1758,7 +1724,27 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         </div>
       )}
 
-
+      {/* Kasina Selection Overlay */}
+      {showKasinaSelection && (
+        <div 
+          className="absolute inset-0 z-50 flex items-center justify-center"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            backdropFilter: 'blur(4px)'
+          }}
+        >
+          <KasinaSelectionInterface
+            showKasinaSelection={showKasinaSelection}
+            kasinaSelectionStep={kasinaSelectionStep}
+            selectedKasinaSeries={selectedKasinaSeries}
+            onSeriesSelection={handleSeriesSelection}
+            onKasinaSelection={handleKasinaSelection}
+            onBackToSeries={() => setKasinaSelectionStep('series')}
+            onCancel={() => setShowKasinaSelection(false)}
+            mode="breath"
+          />
+        </div>
+      )}
     </div>
   );
 };

@@ -217,8 +217,8 @@ export const KASINA_CONFIGS: Record<string, KasinaConfig> = {
 export function calculateBreathKasinaSize(
   kasina: string,
   breathAmplitude: number,
-  sizeScale: number = 1.0,
-  sizeMultiplier: number = 1.0
+  sizeScale: number = 0.05,
+  sizeMultiplier: number = 0.3
 ): {
   size: number;
   minSize: number;
@@ -229,11 +229,11 @@ export function calculateBreathKasinaSize(
   const config = KASINA_CONFIGS[kasina] || KASINA_CONFIGS.blue;
   const { scaling } = config;
   
-  // ORIGINAL WORKING SETTINGS - Restored from pre-Musical Kasina configuration
-  const BASE_MIN_SIZE = 50;    // ORIGINAL: Proper minimum kasina size 
-  const BASE_MAX_SIZE = 600;   // ORIGINAL: Full maximum kasina size for proper breath range
+  // Use original color kasina size ranges for all kasina types
+  const BASE_MIN_SIZE = 5;    // Original color kasina minimum (5px)
+  const BASE_MAX_SIZE = 6000; // Original color kasina maximum (6000px)
   
-  // ORIGINAL: Standard size range calculation without forced minimums
+  // Calculate size range based on original color kasina scaling and multipliers
   const minSize = Math.floor(BASE_MIN_SIZE * sizeScale);
   const maxSize = Math.floor(BASE_MAX_SIZE * sizeScale * sizeMultiplier);
   const sizeRange = maxSize - minSize;
@@ -242,24 +242,8 @@ export function calculateBreathKasinaSize(
   const clampedAmplitude = Math.max(0, Math.min(1, breathAmplitude));
   const calculatedSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
   
-  // ORIGINAL: Full immersion level (600px) - proper breath kasina experience
-  const finalSize = Math.min(calculatedSize, 600);
-  
-  // Debug the breath kasina size calculation
-  console.log('🔧 BREATH KASINA SIZE CALCULATION:', {
-    kasina,
-    breathAmplitude,
-    sizeScale,
-    sizeMultiplier,
-    BASE_MIN_SIZE,
-    BASE_MAX_SIZE,
-    minSize,
-    maxSize,
-    sizeRange,
-    clampedAmplitude,
-    calculatedSize,
-    finalSize
-  });
+  // Cap at original color kasina immersion level (1200px)
+  const finalSize = Math.min(calculatedSize, 1200);
   
   // Calculate immersion level for background effects using original thresholds
   const immersionLevel = Math.max(0, Math.min(1, 

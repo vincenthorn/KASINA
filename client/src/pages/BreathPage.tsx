@@ -6,7 +6,6 @@ import { Alert, AlertDescription } from '../components/ui/alert';
 import { useAuth } from '../lib/stores/useAuth';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
-import KasinaSelectionInterface from '../components/KasinaSelectionInterface';
 import Layout from '../components/Layout';
 
 // Browser detection utility
@@ -44,13 +43,7 @@ const BreathPage: React.FC = () => {
   const navigate = useNavigate();
   const { user, isAdmin } = useAuth();
   const [showMeditation, setShowMeditation] = React.useState(false);
-  const [showKasinaSelection, setShowKasinaSelection] = React.useState(false);
-  const [selectedKasinaSeries, setSelectedKasinaSeries] = React.useState<string | null>('COLOR');
-  const [selectedKasina, setSelectedKasina] = React.useState<string>('blue');
-  const [kasinaSelectionStep, setKasinaSelectionStep] = React.useState<'series' | 'kasina'>('series');
   const [forceStayOnPage, setForceStayOnPage] = React.useState(false);
-  
-  console.log('🔍 BREATH PAGE INITIALIZATION - showMeditation:', showMeditation, 'showKasinaSelection:', showKasinaSelection);
   
   // Browser compatibility state
   const [showBrowserWarning, setShowBrowserWarning] = React.useState(false);
@@ -90,63 +83,15 @@ const BreathPage: React.FC = () => {
     }
   }, [isChromeBased]);
 
-  // Clear any existing breath session recovery data on page load
-  React.useEffect(() => {
-    const activeSession = localStorage.getItem('kasina_active_session');
-    if (activeSession) {
-      try {
-        const session = JSON.parse(activeSession);
-        if (session.kasinaType === 'breath') {
-          console.log('🚫 Clearing existing breath session recovery data');
-          localStorage.removeItem('kasina_active_session');
-        }
-      } catch (error) {
-        console.log('🚫 Clearing invalid session recovery data');
-        localStorage.removeItem('kasina_active_session');
-      }
-    }
-  }, []);
-
-  // Auto-show kasina selection when Vernier device connects and calibrates
-  React.useEffect(() => {
-    console.log('🔍 BREATH PAGE - Auto-trigger check:', { 
-      isConnected, 
-      calibrationComplete, 
-      showKasinaSelection, 
-      showMeditation,
-      shouldTrigger: isConnected && calibrationComplete && !showKasinaSelection && !showMeditation
-    });
-    
-    // Trigger kasina selection when device is connected and providing data
-    if (isConnected && !showKasinaSelection && !showMeditation) {
-      console.log('🚨 BREATH PAGE - Auto-starting kasina selection due to device connection');
-      setShowKasinaSelection(true);
-    }
-  }, [isConnected, calibrationComplete, showKasinaSelection, showMeditation]);
-
-  // Debug effect to monitor state changes
-  React.useEffect(() => {
-    console.log('🔍 BREATH PAGE - State changed:', { 
-      showKasinaSelection, 
-      showMeditation, 
-      isConnected,
-      calibrationComplete,
-      hasPremiumAccess 
-    });
-  }, [showKasinaSelection, showMeditation, isConnected, calibrationComplete, hasPremiumAccess]);
-
-  // Handle starting a session - connect and show kasina selection
+  // Handle starting a session - connect and meditate (no calibration step)
   const handleStartSession = async () => {
-    console.log('🔍 BREATH PAGE - handleStartSession called', { hasPremiumAccess, isConnected });
     if (!hasPremiumAccess) return;
     
     if (!isConnected) {
-      console.log('🔍 BREATH PAGE - Connecting device...');
       await connectDevice();
     } else {
-      // When connected, show kasina selection first
-      console.log('🔍 BREATH PAGE - Setting showKasinaSelection to true');
-      setShowKasinaSelection(true);
+      // Start meditation directly - breathing will auto-adjust during session
+      setShowMeditation(true);
     }
   };
 
@@ -159,52 +104,12 @@ const BreathPage: React.FC = () => {
 
   const getInstructions = () => {
     if (!hasPremiumAccess) return 'Premium subscription required for Vernier belt integration.';
-    if (!isConnected) return 'Connect your Respiration Belt via Bluetooth for precise breath detection.';
+    if (!isConnected) return 'Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection.';
     return 'Connected! Your breathing will automatically sync during meditation.';
   };
 
-  // Handle kasina series selection
-  const handleSeriesSelection = (series: string) => {
-    console.log('🔍 BREATH PAGE - Series selected:', series);
-    setSelectedKasinaSeries(series);
-    setKasinaSelectionStep('kasina');
-  };
-
-  // Handle specific kasina selection
-  const handleKasinaSelection = (kasina: string) => {
-    console.log('🔍 BREATH PAGE - Kasina selected:', kasina);
-    console.log('🚨 BREATH PAGE - SETTING showMeditation to TRUE via handleKasinaSelection');
-    setSelectedKasina(kasina);
-    setShowKasinaSelection(false);
-    setShowMeditation(true);
-  };
-
-  // If kasina selection is active, show full-screen kasina selection
-  if (showKasinaSelection) {
-    console.log('🔍 BREATH PAGE - Rendering kasina selection interface');
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center" style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.9)',
-        backdropFilter: 'blur(4px)'
-      }}>
-        <KasinaSelectionInterface
-          showKasinaSelection={showKasinaSelection}
-          kasinaSelectionStep={kasinaSelectionStep}
-          selectedKasinaSeries={selectedKasinaSeries}
-          onSeriesSelection={handleSeriesSelection}
-          onKasinaSelection={handleKasinaSelection}
-          onBackToSeries={() => setKasinaSelectionStep('series')}
-          onCancel={() => setShowKasinaSelection(false)}
-          mode="breath"
-        />
-      </div>
-    );
-  }
-
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
-    console.log('🚨 BREATH PAGE - MEDITATION MODE ACTIVE - Rendering meditation interface with kasina:', selectedKasina);
-    console.log('🚨 BREATH PAGE - showMeditation is TRUE, this should NOT happen automatically!');
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <BreathKasinaOrb 
@@ -212,7 +117,6 @@ const BreathPage: React.FC = () => {
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
-          selectedKasina={selectedKasina}
         />
         <Button
           onClick={() => {
@@ -307,10 +211,10 @@ const BreathPage: React.FC = () => {
               <div className="space-y-4 text-left">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-orange-400 text-xl">👁️‍🗨️</span>
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span className="text-blue-400 text-xl">💻</span>
                     </div>
-                    <p className="text-sm text-gray-400">Visual Biofeedback</p>
+                    <p className="text-sm text-gray-400">Bluetooth connection</p>
                   </div>
                   <div className="text-center">
                     <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -325,10 +229,10 @@ const BreathPage: React.FC = () => {
                     <p className="text-sm text-gray-400">Force detection</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-blue-400 text-xl">💻</span>
+                    <div className="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span className="text-orange-400 text-xl">🔮</span>
                     </div>
-                    <p className="text-sm text-gray-400">Bluetooth connection</p>
+                    <p className="text-sm text-gray-400">Visual meditation</p>
                   </div>
                 </div>
 
@@ -338,7 +242,7 @@ const BreathPage: React.FC = () => {
                     <h3 className="font-semibold text-white">Professional Grade Accuracy</h3>
                   </div>
                   <p className="text-sm text-gray-300">
-                    Uses actual respiratory force measurements (Newtons) for unprecedented precision.
+                    Uses actual respiratory force measurements (Newtons) for unprecedented precision in breath tracking.
                   </p>
                 </div>
 
@@ -381,16 +285,17 @@ const BreathPage: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Live Breathing Preview - DISABLED to prevent automatic kasina rendering */}
+                    {/* Live Breathing Preview */}
                     {isConnected && (
                       <div className="bg-slate-700/30 border border-slate-600/50 p-4 rounded-lg">
-                        <h4 className="text-white font-medium mb-3">Connection Status:</h4>
-                        <div className="relative h-32 bg-black rounded-lg overflow-hidden mb-3 flex items-center justify-center">
-                          <div className="text-green-400 text-center">
-                            <div className="text-2xl mb-2">✓</div>
-                            <div className="text-sm">Vernier device connected</div>
-                            <div className="text-xs text-gray-400">Ready for meditation</div>
-                          </div>
+                        <h4 className="text-white font-medium mb-3">Live Breath Preview:</h4>
+                        <div className="relative h-32 bg-black rounded-lg overflow-hidden mb-3">
+                          <BreathKasinaOrb 
+                            useVernier={false}
+                            breathAmplitude={breathAmplitude}
+                            breathPhase={breathPhase}
+                            isListening={true}
+                          />
                         </div>
                         <div className="grid grid-cols-3 gap-4 text-center">
                           <div>
