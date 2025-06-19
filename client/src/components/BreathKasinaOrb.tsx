@@ -1727,7 +1727,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       {/* Kasina Selection Overlay */}
       {showKasinaSelection && (
         <div 
-          className="absolute inset-0 z-50 flex items-center justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center"
           style={{
             backgroundColor: 'rgba(0, 0, 0, 0.8)',
             backdropFilter: 'blur(4px)'
