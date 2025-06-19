@@ -269,25 +269,15 @@ export default function VernierOfficialBreathPage() {
               </CardHeader>
               <CardContent>
                 <div className="relative h-96 bg-black rounded-lg overflow-hidden">
-                  {isConnected ? (
-                    <BreathKasinaOrb 
-                      useVernier={false}
-                      breathAmplitude={breathAmplitude}
-                      breathPhase={breathPhase}
-                      isListening={true}
-                      selectedKasina={selectedKasina}
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full text-gray-400">
-                      {!isConnected ? (
-                        <p>Connect your belt to see visualization</p>
-                      ) : !calibrationComplete ? (
-                        <p>Complete calibration to see visualization</p>
-                      ) : (
-                        <p>Loading...</p>
-                      )}
-                    </div>
-                  )}
+                  <div className="flex items-center justify-center h-full text-gray-400">
+                    {!isConnected ? (
+                      <p>Connect your belt to see visualization</p>
+                    ) : !calibrationComplete ? (
+                      <p>Complete calibration to see visualization</p>
+                    ) : (
+                      <p>Ready for meditation - select kasina to begin</p>
+                    )}
+                  </div>
                 </div>
                 
                 {isConnected && calibrationComplete && (
