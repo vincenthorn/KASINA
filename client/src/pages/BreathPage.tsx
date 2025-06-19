@@ -88,6 +88,23 @@ const BreathPage: React.FC = () => {
     }
   }, [isChromeBased]);
 
+  // Clear any existing breath session recovery data on page load
+  React.useEffect(() => {
+    const activeSession = localStorage.getItem('kasina_active_session');
+    if (activeSession) {
+      try {
+        const session = JSON.parse(activeSession);
+        if (session.kasinaType === 'breath') {
+          console.log('🚫 Clearing existing breath session recovery data');
+          localStorage.removeItem('kasina_active_session');
+        }
+      } catch (error) {
+        console.log('🚫 Clearing invalid session recovery data');
+        localStorage.removeItem('kasina_active_session');
+      }
+    }
+  }, []);
+
   // Debug effect to monitor state changes
   React.useEffect(() => {
     console.log('🔍 BREATH PAGE - State changed:', { 

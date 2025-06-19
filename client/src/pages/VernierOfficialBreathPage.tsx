@@ -35,6 +35,17 @@ export default function VernierOfficialBreathPage() {
     calibrationProfile
   } = useVernierBreathOfficial();
 
+  // Debug effect to monitor state changes
+  React.useEffect(() => {
+    console.log('🔍 VERNIER PAGE - State changed:', { 
+      showKasinaSelection, 
+      showMeditation, 
+      selectedKasina,
+      isConnected,
+      calibrationComplete 
+    });
+  }, [showKasinaSelection, showMeditation, selectedKasina, isConnected, calibrationComplete]);
+
   // Block automatic navigation when calibration completes
   React.useEffect(() => {
     if (calibrationComplete && !forceStayOnPage) {
