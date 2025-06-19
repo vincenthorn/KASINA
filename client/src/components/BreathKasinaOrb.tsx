@@ -478,10 +478,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [meditationTime, setMeditationTime] = useState(0); // seconds
   const [isInFocusMode, setIsInFocusMode] = useState(false);
   const [showConnectionHelp, setShowConnectionHelp] = useState(false);
-  const [showKasinaSelection, setShowKasinaSelection] = useState(false);
-  const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
-  const [selectedKasina, setSelectedKasina] = useState<string>(propSelectedKasina || globalSelectedKasina || KASINA_TYPES.BLUE);
-  const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
+  // Use kasina from props or global state, no internal kasina selection
+  const selectedKasina = propSelectedKasina || globalSelectedKasina || 'blue';
   const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
@@ -1668,20 +1666,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       </Canvas>
       
       {/* Unified Session Interface */}
-      {!showKasinaSelection && (
-        <UnifiedSessionInterface
-          meditationTime={meditationTime}
-          onEndSession={endMeditation}
-          sizeMultiplier={sizeMultiplier}
-          onSizeChange={(size) => setSizeMultiplier(size)}
-          isFullscreen={isFullscreen}
-          onToggleFullscreen={toggleFullscreen}
-          onChangeKasina={() => setShowKasinaSelection(true)}
-          showControls={showControls}
-          mode="breath"
-          breathingRate={activeBreathingRate}
+      <UnifiedSessionInterface
+        meditationTime={meditationTime}
+        onEndSession={endMeditation}
+        sizeMultiplier={sizeMultiplier}
+        onSizeChange={(size) => setSizeMultiplier(size)}
+        isFullscreen={isFullscreen}
+        onToggleFullscreen={toggleFullscreen}
+        onChangeKasina={() => {}} // Disabled - kasina selection handled at page level
+        showControls={showControls}
+        mode="breath"
+        breathingRate={activeBreathingRate}
         />
-      )}
 
 
 
@@ -1734,27 +1730,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         </div>
       )}
 
-      {/* Kasina Selection Overlay */}
-      {showKasinaSelection && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            backdropFilter: 'blur(4px)'
-          }}
-        >
-          <KasinaSelectionInterface
-            showKasinaSelection={showKasinaSelection}
-            kasinaSelectionStep={kasinaSelectionStep}
-            selectedKasinaSeries={selectedKasinaSeries}
-            onSeriesSelection={handleSeriesSelection}
-            onKasinaSelection={handleKasinaSelection}
-            onBackToSeries={() => setKasinaSelectionStep('series')}
-            onCancel={() => setShowKasinaSelection(false)}
-            mode="breath"
-          />
-        </div>
-      )}
+
     </div>
   );
 };
