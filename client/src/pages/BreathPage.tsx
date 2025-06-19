@@ -50,6 +50,8 @@ const BreathPage: React.FC = () => {
   const [kasinaSelectionStep, setKasinaSelectionStep] = React.useState<'series' | 'kasina'>('series');
   const [forceStayOnPage, setForceStayOnPage] = React.useState(false);
   
+  console.log('🔍 BREATH PAGE INITIALIZATION - showMeditation:', showMeditation, 'showKasinaSelection:', showKasinaSelection);
+  
   // Browser compatibility state
   const [showBrowserWarning, setShowBrowserWarning] = React.useState(false);
   const [isChromeBased] = React.useState(() => {
@@ -153,6 +155,7 @@ const BreathPage: React.FC = () => {
   // Handle specific kasina selection
   const handleKasinaSelection = (kasina: string) => {
     console.log('🔍 BREATH PAGE - Kasina selected:', kasina);
+    console.log('🚨 BREATH PAGE - SETTING showMeditation to TRUE via handleKasinaSelection');
     setSelectedKasina(kasina);
     setShowKasinaSelection(false);
     setShowMeditation(true);
@@ -182,7 +185,8 @@ const BreathPage: React.FC = () => {
 
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
-    console.log('🔍 BREATH PAGE - Rendering meditation interface with kasina:', selectedKasina);
+    console.log('🚨 BREATH PAGE - MEDITATION MODE ACTIVE - Rendering meditation interface with kasina:', selectedKasina);
+    console.log('🚨 BREATH PAGE - showMeditation is TRUE, this should NOT happen automatically!');
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <BreathKasinaOrb 
