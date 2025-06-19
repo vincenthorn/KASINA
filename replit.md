@@ -117,6 +117,7 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Changelog
 
 Changelog:
+- June 19, 2025: **BREATH KASINA SYNCHRONIZATION FIX**: Resolved critical issue where breath kasina remained static despite Vernier device sending changing force data - fixed Vernier connection detection logic to allow breath processing when receiving force data, added comprehensive debug logging for breath amplitude calculations, kasina now properly responds to real-time breathing patterns
 - June 19, 2025: **CRITICAL ARCHITECTURAL FIX**: Resolved breath kasina flow issue caused by Musical Kasina development - identified and disabled preview BreathKasinaOrb component in BreathPage.tsx that was automatically rendering with default white kasina, disabled MeditationPage.tsx auto-detection logic, removed internal kasina selection conflicts, disabled automatic session recovery for breath sessions
 - June 19, 2025: Implemented automatic kasina selection flow - Vernier respiration belt connection now automatically triggers kasina selection interface without requiring "Begin Meditation" button press, creating seamless device-to-meditation experience
 - June 19, 2025: Fixed breath kasina sizing issue - restored size multiplier range to 10%-80%, dramatically reduced BASE_MAX_SIZE to 200px and immersion cap to 100px, fixed initial orbSize from 150px to 20px, adjusted scale calculations, added breath amplitude debugging to verify synchronization

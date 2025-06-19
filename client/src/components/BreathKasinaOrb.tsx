@@ -1145,9 +1145,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       currentForce: vernierData.currentForce
     });
     
-    // For Vernier mode, process if connected and receiving data
-    if (useVernier && !vernierData.isConnected) {
-      console.log('❌ BREATH PROCESSING BLOCKED - Vernier not connected');
+    // For Vernier mode, process if connected OR receiving force data (connection flag may be delayed)
+    if (useVernier && !vernierData.isConnected && vernierData.currentForce === 0) {
+      console.log('❌ BREATH PROCESSING BLOCKED - Vernier not connected and no force data');
       return;
     }
     
@@ -1158,6 +1158,17 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     console.log('✅ BREATH PROCESSING ALLOWED - proceeding with amplitude calculation');
+    
+    // Log Vernier data details for debugging
+    if (useVernier) {
+      console.log('📊 VERNIER DATA DETAILS:', {
+        isConnected: vernierData.isConnected,
+        currentForce: vernierData.currentForce,
+        breathAmplitude: vernierData.breathAmplitude,
+        breathPhase: vernierData.breathPhase,
+        breathingRate: vernierData.breathingRate
+      });
+    }
     
     // Custom kasina now breathes like other color kasinas
     
