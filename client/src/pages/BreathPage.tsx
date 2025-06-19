@@ -230,9 +230,9 @@ const BreathPage: React.FC = () => {
                   </div>
                   <div className="text-center">
                     <div className="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-orange-400 text-xl">🔮</span>
+                      <span className="text-orange-400 text-xl">👁️‍🗨️</span>
                     </div>
-                    <p className="text-sm text-gray-400">Visual meditation</p>
+                    <p className="text-sm text-gray-400">Somatovisual Biofeedback</p>
                   </div>
                 </div>
 
