@@ -104,7 +104,7 @@ const BreathPage: React.FC = () => {
 
   const getInstructions = () => {
     if (!hasPremiumAccess) return 'Premium subscription required for Vernier belt integration.';
-    if (!isConnected) return 'Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection.';
+    if (!isConnected) return 'Connect your Respiration Belt via Bluetooth for precise breath detection.';
     return 'Connected! Your breathing will automatically sync during meditation.';
   };
 

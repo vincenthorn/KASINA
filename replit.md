@@ -117,6 +117,7 @@ Kasina is a meditation application that provides immersive visual kasina meditat
 ## Changelog
 
 Changelog:
+- June 19, 2025: Updated Breath Kasina page text from "Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection" to "Connect your Respiration Belt via Bluetooth for precise breath detection" - removed brand-specific reference and improved wording
 - June 17, 2025: **MAJOR ARCHITECTURE CHANGE**: Completely replaced Spotify API integration with client-side MP3 upload system using Web Audio API for real-time audio analysis and visualization. This eliminates external API dependencies and provides user control over music selection while maintaining all visual synchronization features.
 - June 17, 2025: Fixed Spotify API 403 errors by forcing re-authentication with proper scopes for audio analysis access
 - June 17, 2025: Fixed Musical Kasina redirect loop completely - removed Navigate redirect in component that was triggering after OAuth callback processing
