@@ -430,6 +430,7 @@ interface BreathKasinaOrbProps {
   breathPhase?: 'inhale' | 'exhale' | 'pause';
   isListening?: boolean;
   useVernier?: boolean;
+  selectedKasina?: string;
 }
 
 /**
@@ -440,7 +441,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   breathAmplitude = 0.5,
   breathPhase = 'pause',
   isListening = false,
-  useVernier = false
+  useVernier = false,
+  selectedKasina: propSelectedKasina
 }) => {
   // Use Vernier breathing data if enabled
   const vernierData = useVernierBreathOfficial();
@@ -478,7 +480,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [showConnectionHelp, setShowConnectionHelp] = useState(false);
   const [showKasinaSelection, setShowKasinaSelection] = useState(false);
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
-  const [selectedKasina, setSelectedKasina] = useState<string>(globalSelectedKasina || KASINA_TYPES.BLUE);
+  const [selectedKasina, setSelectedKasina] = useState<string>(propSelectedKasina || globalSelectedKasina || KASINA_TYPES.BLUE);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
   const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
@@ -792,6 +794,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       }
     };
   }, []);
+
+  // Update selected kasina when prop changes
+  useEffect(() => {
+    if (propSelectedKasina && propSelectedKasina !== selectedKasina) {
+      setSelectedKasina(propSelectedKasina);
+      setGlobalSelectedKasina(propSelectedKasina as any);
+    }
+  }, [propSelectedKasina, selectedKasina, setGlobalSelectedKasina]);
 
   // Handle fullscreen changes
   useEffect(() => {
