@@ -234,8 +234,9 @@ export function calculateBreathKasinaSize(
   const BASE_MAX_SIZE = 200;  // Maximum kasina size for breath mode (dramatically reduced)
   
   // Calculate size range based on original color kasina scaling and multipliers
-  const minSize = Math.floor(BASE_MIN_SIZE * sizeScale);
-  const maxSize = Math.floor(BASE_MAX_SIZE * sizeScale * sizeMultiplier);
+  // Ensure minimum size is always at least 10px for visibility
+  const minSize = Math.max(10, Math.floor(BASE_MIN_SIZE * sizeScale));
+  const maxSize = Math.max(minSize + 20, Math.floor(BASE_MAX_SIZE * sizeScale * sizeMultiplier));
   const sizeRange = maxSize - minSize;
   
   // Apply breath amplitude to size calculation
