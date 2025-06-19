@@ -466,7 +466,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const activeIsListening = useVernier ? vernierData.isConnected : isListening;
   const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   const orbRef = useRef<HTMLDivElement>(null);
-  const [orbSize, setOrbSize] = useState(150);
+  const [orbSize, setOrbSize] = useState(20); // Start with much smaller initial size
   const [glowIntensity, setGlowIntensity] = useState(15);
   const [heldExhaleStart, setHeldExhaleStart] = useState<number | null>(null);
   const [sizeScale, setSizeScale] = useState(0.05); // Scale factor for min-max range (minimal default size)
@@ -1183,9 +1183,27 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Apply breathing rate intensity scaling
     scaledAmplitude = scaledAmplitude * intensityMultiplier;
     
+    // Debug breath amplitude calculation
+    console.log('🔄 BREATH AMPLITUDE DEBUG:', {
+      finalAmplitude,
+      scaledAmplitude,
+      intensityMultiplier,
+      sizeScale,
+      sizeMultiplier,
+      selectedKasina
+    });
+    
     // Use unified breath kasina sizing system for consistent behavior across all types
     const breathSizing = calculateBreathKasinaSize(selectedKasina, scaledAmplitude, sizeScale, sizeMultiplier);
     const { size: newSize, minSize, maxSize, immersionLevel } = breathSizing;
+    
+    console.log('🎯 BREATH SIZING RESULT:', {
+      scaledAmplitude,
+      newSize,
+      minSize,
+      maxSize,
+      immersionLevel
+    });
     
     // Update state to trigger re-render
     setOrbSize(newSize);
@@ -1278,7 +1296,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
       } else if (kasConfig.type === 'elemental') {
         // Elemental kasinas need breath-responsive scaling based on orbSize
-        finalScale = (orbSize / 150) * 1.5; // Increased multiplier to match Color kasina scale
+        finalScale = (orbSize / 50) * 0.5; // Adjusted scale calculation for smaller breath kasinas
         console.log(`🔥 Elemental kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
       } else {
         // Default scaling for other types
