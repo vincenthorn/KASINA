@@ -6,12 +6,29 @@ import { Alert, AlertDescription } from '../components/ui/alert';
 import { useNavigate } from 'react-router-dom';
 import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
+import KasinaSelectionInterface from '../components/KasinaSelectionInterface';
 import { sessionRecovery } from '../lib/sessionRecovery';
 
 export default function VernierOfficialBreathPage() {
   const navigate = useNavigate();
   const [showMeditation, setShowMeditation] = React.useState(false);
+  const [showKasinaSelection, setShowKasinaSelection] = React.useState(false);
+  const [selectedKasina, setSelectedKasina] = React.useState('white');
+  const [selectedKasinaSeries, setSelectedKasinaSeries] = React.useState<string | null>('COLOR');
+  const [kasinaSelectionStep, setKasinaSelectionStep] = React.useState<'series' | 'kasina'>('series');
   const [forceStayOnPage, setForceStayOnPage] = React.useState(false);
+  
+  // Debug effect to monitor state changes
+  React.useEffect(() => {
+    console.log('🔍 VERNIER PAGE - State changed:', { 
+      showKasinaSelection, 
+      showMeditation, 
+      selectedKasina,
+      isConnected,
+      calibrationComplete 
+    });
+  }, [showKasinaSelection, showMeditation, selectedKasina, isConnected, calibrationComplete]);
+
   const {
     isConnected,
     isConnecting,
@@ -51,6 +68,20 @@ export default function VernierOfficialBreathPage() {
     }
   }, [calibrationComplete, forceStayOnPage]);
 
+  // Handle kasina selection
+  const handleSeriesSelection = (series: string) => {
+    console.log('🔍 VERNIER PAGE - Series selected:', series);
+    setSelectedKasinaSeries(series);
+    setKasinaSelectionStep('kasina');
+  };
+
+  const handleKasinaSelection = (kasina: string) => {
+    console.log('🔍 VERNIER PAGE - Kasina selected:', kasina);
+    setSelectedKasina(kasina);
+    setShowKasinaSelection(false);
+    setShowMeditation(true);
+  };
+
   const handleStartSession = async () => {
     console.log('handleStartSession called - isConnected:', isConnected, 'calibrationComplete:', calibrationComplete);
     if (!isConnected) {
@@ -59,14 +90,9 @@ export default function VernierOfficialBreathPage() {
       console.log('About to call startCalibration...');
       await startCalibration();
     } else {
-      // Show meditation orb directly on this page - NO NAVIGATION!
-      console.log('🎯 STARTING MEDITATION: User clicked Begin Meditation button!');
-      console.log('Showing meditation orb with Vernier data:', { 
-        breathAmplitude,
-        breathPhase,
-        calibrationProfile
-      });
-      setShowMeditation(true);
+      // Show kasina selection first
+      console.log('🎯 STARTING KASINA SELECTION: User clicked Begin Meditation button!');
+      setShowKasinaSelection(true);
     }
   };
 
@@ -93,8 +119,30 @@ export default function VernierOfficialBreathPage() {
     return 'Calibration complete! Your belt is ready for meditation.';
   };
 
+  // If kasina selection is active, show full-screen kasina selection
+  if (showKasinaSelection) {
+    console.log('🔍 VERNIER PAGE - Rendering kasina selection interface');
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center" style={{
+        backgroundColor: 'rgba(0, 0, 0, 0.95)',
+        backdropFilter: 'blur(8px)'
+      }}>
+        <KasinaSelectionInterface
+          showKasinaSelection={showKasinaSelection}
+          kasinaSelectionStep={kasinaSelectionStep}
+          selectedKasinaSeries={selectedKasinaSeries}
+          onSeriesSelection={handleSeriesSelection}
+          onKasinaSelection={handleKasinaSelection}
+          onBackToSeries={() => setKasinaSelectionStep('series')}
+          onCancel={() => setShowKasinaSelection(false)}
+        />
+      </div>
+    );
+  }
+
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
+    console.log('🔍 VERNIER PAGE - Rendering meditation interface with kasina:', selectedKasina);
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <BreathKasinaOrb 
@@ -102,6 +150,7 @@ export default function VernierOfficialBreathPage() {
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
+          selectedKasina={selectedKasina}
         />
         {/* Exit button */}
         <Button
@@ -226,6 +275,7 @@ export default function VernierOfficialBreathPage() {
                       breathAmplitude={breathAmplitude}
                       breathPhase={breathPhase}
                       isListening={true}
+                      selectedKasina={selectedKasina}
                     />
                   ) : (
                     <div className="flex items-center justify-center h-full text-gray-400">
