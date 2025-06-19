@@ -217,8 +217,8 @@ export const KASINA_CONFIGS: Record<string, KasinaConfig> = {
 export function calculateBreathKasinaSize(
   kasina: string,
   breathAmplitude: number,
-  sizeScale: number = 0.05,
-  sizeMultiplier: number = 0.3
+  sizeScale: number = 1.0,
+  sizeMultiplier: number = 1.0
 ): {
   size: number;
   minSize: number;
