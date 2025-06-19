@@ -11,7 +11,7 @@ import { sessionRecovery } from '../lib/sessionRecovery';
 import useWakeLock from '../lib/useWakeLock';
 import { KASINA_TYPES, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES, KASINA_COLORS, KASINA_BACKGROUNDS } from '../lib/constants';
 import UnifiedSessionInterface from './UnifiedSessionInterface';
-import KasinaSelectionInterface from './KasinaSelectionInterface';
+
 import WhiteAKasina from './WhiteAKasina';
 import WhiteAThigle from './WhiteAThigle';
 import OmKasina from './OmKasina';
@@ -793,13 +793,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     };
   }, []);
 
-  // Update selected kasina when prop changes
+  // Update global kasina when prop changes
   useEffect(() => {
-    if (propSelectedKasina && propSelectedKasina !== selectedKasina) {
-      setSelectedKasina(propSelectedKasina);
+    if (propSelectedKasina) {
       setGlobalSelectedKasina(propSelectedKasina as any);
     }
-  }, [propSelectedKasina, selectedKasina, setGlobalSelectedKasina]);
+  }, [propSelectedKasina, setGlobalSelectedKasina]);
 
   // Handle fullscreen changes
   useEffect(() => {
@@ -1014,36 +1013,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // Handle kasina series selection
-  const handleSeriesSelection = (series: string) => {
-    setSelectedKasinaSeries(series);
-    setKasinaSelectionStep('kasina');
-  };
+  // Kasina selection is now handled at the page level
 
-  // Handle individual kasina selection
-  const handleKasinaSelection = (kasina: string) => {
-    // Track usage before switching
-    trackKasinaUsage(kasina);
-    
-    setSelectedKasina(kasina);
-    setGlobalSelectedKasina(kasina as any); // Update global kasina store
-    setShowKasinaSelection(false);
-    console.log(`🎨 Selected kasina: ${KASINA_NAMES[kasina]} (${kasina})`);
-  };
-
-  // Get kasinas for the selected series
-  const getKasinasForSeries = (series: string) => {
-    switch (series) {
-      case 'COLOR':
-        return KASINA_SERIES.COLOR;
-      case 'ELEMENTAL':
-        return KASINA_SERIES.ELEMENTAL;
-      case 'VAJRAYANA':
-        return KASINA_SERIES.VAJRAYANA;
-      default:
-        return [];
-    }
-  };
+  // Kasina series logic removed - handled at page level
 
   // Get color for selected kasina - use the official KASINA_COLORS
   const getKasinaColor = (kasina: string) => {
