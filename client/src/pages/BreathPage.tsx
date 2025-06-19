@@ -88,14 +88,27 @@ const BreathPage: React.FC = () => {
     }
   }, [isChromeBased]);
 
+  // Debug effect to monitor state changes
+  React.useEffect(() => {
+    console.log('🔍 BREATH PAGE - State changed:', { 
+      showKasinaSelection, 
+      showMeditation, 
+      isConnected,
+      hasPremiumAccess 
+    });
+  }, [showKasinaSelection, showMeditation, isConnected, hasPremiumAccess]);
+
   // Handle starting a session - connect and show kasina selection
   const handleStartSession = async () => {
+    console.log('🔍 BREATH PAGE - handleStartSession called', { hasPremiumAccess, isConnected });
     if (!hasPremiumAccess) return;
     
     if (!isConnected) {
+      console.log('🔍 BREATH PAGE - Connecting device...');
       await connectDevice();
     } else {
       // When connected, show kasina selection first
+      console.log('🔍 BREATH PAGE - Setting showKasinaSelection to true');
       setShowKasinaSelection(true);
     }
   };
@@ -115,12 +128,14 @@ const BreathPage: React.FC = () => {
 
   // Handle kasina series selection
   const handleSeriesSelection = (series: string) => {
+    console.log('🔍 BREATH PAGE - Series selected:', series);
     setSelectedKasinaSeries(series);
     setKasinaSelectionStep('kasina');
   };
 
   // Handle specific kasina selection
   const handleKasinaSelection = (kasina: string) => {
+    console.log('🔍 BREATH PAGE - Kasina selected:', kasina);
     setSelectedKasina(kasina);
     setShowKasinaSelection(false);
     setShowMeditation(true);
@@ -128,6 +143,7 @@ const BreathPage: React.FC = () => {
 
   // If kasina selection is active, show full-screen kasina selection
   if (showKasinaSelection) {
+    console.log('🔍 BREATH PAGE - Rendering kasina selection interface');
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center" style={{
         backgroundColor: 'rgba(0, 0, 0, 0.9)',
@@ -149,6 +165,7 @@ const BreathPage: React.FC = () => {
 
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
+    console.log('🔍 BREATH PAGE - Rendering meditation interface with kasina:', selectedKasina);
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <BreathKasinaOrb 
