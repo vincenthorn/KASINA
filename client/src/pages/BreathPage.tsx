@@ -363,17 +363,16 @@ const BreathPage: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Live Breathing Preview */}
+                    {/* Live Breathing Preview - DISABLED to prevent automatic kasina rendering */}
                     {isConnected && (
                       <div className="bg-slate-700/30 border border-slate-600/50 p-4 rounded-lg">
-                        <h4 className="text-white font-medium mb-3">Live Breath Preview:</h4>
-                        <div className="relative h-32 bg-black rounded-lg overflow-hidden mb-3">
-                          <BreathKasinaOrb 
-                            useVernier={false}
-                            breathAmplitude={breathAmplitude}
-                            breathPhase={breathPhase}
-                            isListening={true}
-                          />
+                        <h4 className="text-white font-medium mb-3">Connection Status:</h4>
+                        <div className="relative h-32 bg-black rounded-lg overflow-hidden mb-3 flex items-center justify-center">
+                          <div className="text-green-400 text-center">
+                            <div className="text-2xl mb-2">✓</div>
+                            <div className="text-sm">Vernier device connected</div>
+                            <div className="text-xs text-gray-400">Ready for meditation</div>
+                          </div>
                         </div>
                         <div className="grid grid-cols-3 gap-4 text-center">
                           <div>
