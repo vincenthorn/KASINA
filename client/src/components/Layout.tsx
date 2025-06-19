@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
 import { useAutoHide } from "../lib/useAutoHide";
-import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle, Monitor, Expand, PieChart, Waves, Music } from "lucide-react";
+import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle, Monitor, Expand, PieChart, Waves } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -31,11 +31,10 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
 
   // Define navigation items based on user role
   const navItems = isAdmin ? [
-    // Admin users: Visual → Breath → Musical → Watch → Reflect
+    // Admin users: Visual → Breath → Watch → Reflect
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
     { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
-    { path: "/musical", label: "Musical", icon: <Music className="w-5 h-5" /> },
     { path: "/meditation", label: "Watch", icon: <Monitor className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
   ] : [

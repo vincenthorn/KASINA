@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import { useAuth } from "./lib/stores/useAuth";
@@ -21,7 +21,6 @@ import MicBreathPage from "./pages/MicBreathPage";
 import VernierBreathPage from "./pages/VernierBreathPage";
 import VernierOfficialBreathPage from "./pages/VernierOfficialBreathPage";
 import VernierTestPage from "./pages/VernierTestPage";
-import MusicalKasinaPage from "./pages/MusicalKasinaPage";
 import VisualKasinaOrb from "./components/VisualKasinaOrb";
 
 import NotFound from "./pages/not-found";
@@ -62,41 +61,6 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
   }
 
   return <>{children}</>;
-}
-
-// Special route for Musical Kasina that allows Spotify callbacks
-function MusicalKasinaRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, email, checkAuthStatus } = useAuth();
-  const [authCheckComplete, setAuthCheckComplete] = useState(false);
-
-  useEffect(() => {
-    checkAuthStatus().finally(() => setAuthCheckComplete(true));
-  }, [checkAuthStatus]);
-
-  // Check for Spotify callback or if we have a stored Spotify token
-  const hasSpotifyCallback = window.location.search.includes('code=');
-  const hasStoredSpotifyToken = localStorage.getItem('spotify_access_token');
-  
-  // Always allow Musical Kasina access if:
-  // 1. There's a Spotify callback in progress
-  // 2. User has a stored Spotify token (already authenticated with Spotify)
-  // 3. User is authenticated and admin
-  if (hasSpotifyCallback || hasStoredSpotifyToken || (isAuthenticated && email === "admin@kasina.app")) {
-    return <>{children}</>;
-  }
-
-  // Wait for auth check to complete before redirecting
-  if (!authCheckComplete) {
-    return <div>Loading...</div>;
-  }
-
-  // Normal authentication for non-callback access
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
-  }
-  
-  // Redirect non-admin users to home
-  return <Navigate to="/" />;
 }
 
 function App() {
@@ -180,40 +144,6 @@ function App() {
                       <BreathPage />
                     </ErrorBoundary>
                   </AdminOnlyRoute>
-                }
-              />
-              
-              <Route
-                path="/musical"
-                element={
-                  <MusicalKasinaRoute>
-                    <ErrorBoundary>
-                      <MusicalKasinaPage />
-                    </ErrorBoundary>
-                  </MusicalKasinaRoute>
-                }
-              />
-              
-              {/* Spotify callback route - redirects to /musical with auth code */}
-              <Route
-                path="/musical-kasina"
-                element={
-                  <MusicalKasinaRoute>
-                    <ErrorBoundary>
-                      <MusicalKasinaPage />
-                    </ErrorBoundary>
-                  </MusicalKasinaRoute>
-                }
-              />
-              
-              <Route
-                path="/musical-kasina/"
-                element={
-                  <MusicalKasinaRoute>
-                    <ErrorBoundary>
-                      <MusicalKasinaPage />
-                    </ErrorBoundary>
-                  </MusicalKasinaRoute>
                 }
               />
               

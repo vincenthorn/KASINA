@@ -254,127 +254,87 @@ const MicBreathPage: React.FC = () => {
         </Layout>
       ) : (
         <Layout>
-          <div className="space-y-6">
-            <h1 className="text-4xl font-bold text-white">Breath Kasina</h1>
+          <div className="container mx-auto py-8 px-4">
+            <h1 className="text-3xl font-bold mb-6">Microphone Breath Detection</h1>
             
-            <div className="flex items-center justify-center min-h-[60vh]">
-              <div className="w-full max-w-2xl">
-                <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-xl p-8 text-center">
-                  <div className="mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/30">
-                      <svg className="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                      </svg>
-                    </div>
-                    <h2 className="text-2xl font-bold text-white mb-4">🎤 Microphone Breath Detection</h2>
-                    <p className="text-gray-300 mb-6">
-                      Use your device's microphone to detect breathing patterns and create responsive visual meditation.
-                    </p>
-                  </div>
-
-                  <div className="space-y-4 text-left">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                          <span className="text-green-400 text-xl">🎤</span>
-                        </div>
-                        <p className="text-sm text-gray-400">Microphone selection</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                          <span className="text-blue-400 text-xl">⚙️</span>
-                        </div>
-                        <p className="text-sm text-gray-400">Smart calibration</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                          <span className="text-purple-400 text-xl">🫁</span>
-                        </div>
-                        <p className="text-sm text-gray-400">Pattern detection</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                          <span className="text-orange-400 text-xl">🔮</span>
-                        </div>
-                        <p className="text-sm text-gray-400">Visual meditation</p>
-                      </div>
-                    </div>
-
-                    <div className="bg-slate-700/30 border border-slate-600/50 rounded-lg p-4 mb-6">
-                      <div className="flex items-center mb-2">
-                        <span className="text-green-400 mr-2">✨</span>
-                        <h3 className="font-semibold text-white">Smart Calibration</h3>
-                      </div>
-                      <p className="text-sm text-gray-300">
-                        Automatically adjusts sensitivity for your microphone and breathing style in just 20 seconds.
-                      </p>
-                    </div>
-                  </div>
-
-                  {error && (
-                    <div className="bg-red-900/20 border border-red-500/30 p-4 rounded-lg mb-4">
-                      <h3 className="font-semibold text-red-300 mb-2">Microphone Error</h3>
-                      <p className="text-red-400 text-sm">{error}</p>
-                      <p className="text-red-400 text-sm mt-2">
-                        Please grant microphone permissions to this website.
-                      </p>
-                    </div>
-                  )}
-                  
-                  {/* Microphone selection */}
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Select Microphone:
-                      </label>
-                      <div className="flex items-center gap-2">
-                        <select
-                          value={selectedDeviceId || ''}
-                          onChange={(e) => handleDeviceChange(e.target.value)}
-                          className="flex-1 px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value="" disabled>Select a microphone...</option>
-                          {devices.map((device) => (
-                            <option key={device.deviceId} value={device.deviceId}>
-                              {device.label || `Microphone ${device.deviceId.slice(0, 5)}...`}
-                              {device.isDefault && " (Default)"}
-                            </option>
-                          ))}
-                        </select>
-                        <Button 
-                          variant="outline" 
-                          onClick={handleRefreshDevices}
-                          className="border-slate-600 text-slate-300 hover:bg-slate-800"
-                        >
-                          Refresh
-                        </Button>
-                      </div>
-                      <p className="text-sm text-gray-400 mt-1">
-                        {devices.length === 0 
-                          ? "No microphones detected. Please connect a microphone and click refresh." 
-                          : `${devices.length} microphone(s) available`}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4 mt-6">
-                    <Button 
-                      onClick={handleStartSession}
-                      disabled={isListening}
-                      className="flex-1 bg-green-600 hover:bg-green-700 text-white"
-                    >
-                      Start Calibration
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      onClick={() => navigate('/breath')}
-                      className="border-slate-600 text-slate-300 hover:bg-slate-800"
-                    >
-                      Back
-                    </Button>
-                  </div>
+            <div className="mb-8">
+              <p className="mb-4">
+                This meditation technique uses your device's microphone to detect your
+                breathing pattern and creates a visual experience that adapts to your natural rhythm.
+              </p>
+              
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-lg mb-6 shadow-sm">
+                <h2 className="font-bold text-lg mb-3 text-gray-900 dark:text-white">How it works:</h2>
+                <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300">
+                  <li className="pl-2">Select your preferred microphone from the dropdown</li>
+                  <li className="pl-2">Click "Start Calibration" to begin breath calibration</li>
+                  <li className="pl-2">Follow the 20-second calibration to learn your breathing pattern</li>
+                  <li className="pl-2">Once calibrated, breathe normally and watch the orb respond</li>
+                  <li className="pl-2">The orb will expand as you inhale and contract as you exhale</li>
+                </ol>
+                
+                <div className="mt-4 p-4 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-md">
+                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-100">
+                    ✨ Smart Calibration: The system automatically adjusts sensitivity for your microphone and breathing style
+                  </p>
                 </div>
               </div>
+              
+              {error && (
+                <div className="bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 p-4 rounded-md mb-4">
+                  <p className="font-bold">Error:</p>
+                  <p>{error}</p>
+                  <p className="mt-2 text-sm">
+                    Please make sure you've granted microphone permissions to this website.
+                  </p>
+                </div>
+              )}
+              
+              {/* Microphone selection */}
+              <div className="mb-6">
+                <label className="block text-sm font-medium mb-2">
+                  Select Microphone:
+                </label>
+                <div className="flex items-center space-x-2">
+                  <select
+                    value={selectedDeviceId || ''}
+                    onChange={(e) => handleDeviceChange(e.target.value)}
+                    className="w-[300px] px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="" disabled>Select a microphone...</option>
+                    {devices.map((device) => (
+                      <option key={device.deviceId} value={device.deviceId}>
+                        {device.label || `Microphone ${device.deviceId.slice(0, 5)}...`}
+                        {device.isDefault && " (Default)"}
+                      </option>
+                    ))}
+                  </select>
+                  <Button variant="outline" onClick={handleRefreshDevices}>
+                    Refresh
+                  </Button>
+                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  {devices.length === 0 
+                    ? "No microphones detected. Please connect a microphone and click refresh." 
+                    : `${devices.length} microphone(s) available`}
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex space-x-4">
+              <Button 
+                onClick={handleStartSession}
+                disabled={isListening}
+                className="w-full md:w-auto"
+              >
+                Start Calibration
+              </Button>
+              <Button 
+                variant="outline" 
+                onClick={() => navigate('/breath')}
+              >
+                Back
+              </Button>
             </div>
           </div>
         </Layout>

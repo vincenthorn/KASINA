@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import { Card, CardContent } from "../components/ui/card";
-import { BookOpen, BarChart, Wind, Monitor, Expand, PieChart, Waves, Music } from "lucide-react";
+import { BookOpen, BarChart, Wind, Monitor, Expand, PieChart, Waves } from "lucide-react";
 import Logo from "../components/Logo";
 import { useAuth } from "../lib/stores/useAuth";
 
@@ -172,7 +172,7 @@ const HomePage: React.FC = () => {
   
   // Define features based on user role with correct order
   const features = isAdmin ? [
-    // Admin users: Visual → Breath → Musical → Watch → Reflect
+    // Admin users: Visual → Breath → Watch → Reflect
     {
       icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
       title: "Visual",
@@ -186,13 +186,6 @@ const HomePage: React.FC = () => {
       description: "Breathing with the visual field",
       path: "/breath",
       color: "from-blue-600 to-blue-800",
-    },
-    {
-      icon: <Music className="h-10 w-10 text-purple-500" />,
-      title: "Musical",
-      description: "Let the music color your awareness",
-      path: "/musical",
-      color: "from-purple-600 to-purple-800",
     },
     {
       icon: <Monitor className="h-10 w-10" style={{ color: "#FFFF00" }} />,
