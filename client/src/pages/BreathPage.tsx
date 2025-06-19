@@ -109,8 +109,17 @@ const BreathPage: React.FC = () => {
 
   // Auto-show kasina selection when Vernier device connects and calibrates
   React.useEffect(() => {
-    if (isConnected && calibrationComplete && !showKasinaSelection && !showMeditation) {
-      console.log('🔍 BREATH PAGE - Auto-starting kasina selection due to device connection');
+    console.log('🔍 BREATH PAGE - Auto-trigger check:', { 
+      isConnected, 
+      calibrationComplete, 
+      showKasinaSelection, 
+      showMeditation,
+      shouldTrigger: isConnected && calibrationComplete && !showKasinaSelection && !showMeditation
+    });
+    
+    // Trigger kasina selection when device is connected and providing data
+    if (isConnected && !showKasinaSelection && !showMeditation) {
+      console.log('🚨 BREATH PAGE - Auto-starting kasina selection due to device connection');
       setShowKasinaSelection(true);
     }
   }, [isConnected, calibrationComplete, showKasinaSelection, showMeditation]);
