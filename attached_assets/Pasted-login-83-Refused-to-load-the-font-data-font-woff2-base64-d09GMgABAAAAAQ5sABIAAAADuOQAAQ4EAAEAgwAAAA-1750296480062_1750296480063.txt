@@ -1,0 +1,2220 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ Official Vernier data - Sensor: Force, Value: 10.578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.58N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 74, 53) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 82px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 74, 53) intensity: 0.35
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 74, 53)
+ 🎨 Background color: #34D399 -> rgb(18, 74, 53) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 82px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ Official Vernier data - Sensor: Force, Value: 10.45037841796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.45N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 65px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 72, 52)
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 65px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 82px
+ 🎯 Color kasina hum_kasina scaled from 0.858 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ Official Vernier data - Sensor: Force, Value: 10.4324951171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.43N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 64px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 72, 52)
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 64px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 64px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ Official Vernier data - Sensor: Force, Value: 10.470817565917969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.47N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 73, 53)
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 64px
+ 🎯 Color kasina hum_kasina scaled from 0.670 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ Official Vernier data - Sensor: Force, Value: 10.5423583984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.54N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 81px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.35
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 73, 53)
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 81px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 81px
+ 🎯 Color kasina hum_kasina scaled from 0.848 to 0.007
+ Official Vernier data - Sensor: Force, Value: 10.728874206542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.73N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 107px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 75, 55)
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 107px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ Official Vernier data - Sensor: Force, Value: 10.923049926757812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 134px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 77, 56)
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 134px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 107px
+ 🎯 Color kasina hum_kasina scaled from 1.120 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 134px
+ 🎯 Color kasina hum_kasina scaled from 1.402 to 0.011
+ Official Vernier data - Sensor: Force, Value: 11.091682434082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 157px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 79, 57)
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 157px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 157px
+ 🎯 Color kasina hum_kasina scaled from 1.642 to 0.013
+ Official Vernier data - Sensor: Force, Value: 11.270530700683594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 181px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 81, 59)
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 181px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ Official Vernier data - Sensor: Force, Value: 11.421279907226562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.42N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 82, 60) intensity: 0.39
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 203px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 82, 60) intensity: 0.39
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 82, 60)
+ 🎨 Background color: #34D399 -> rgb(20, 82, 60) intensity: 0.39
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 203px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 203px
+ 🎯 Color kasina hum_kasina scaled from 2.121 to 0.017
+ Official Vernier data - Sensor: Force, Value: 11.587348937988281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.59N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 83, 60) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 216px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 83, 60) intensity: 0.40
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(21, 83, 60)
+ 🎨 Background color: #34D399 -> rgb(21, 83, 60) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 216px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 216px
+ 🎯 Color kasina hum_kasina scaled from 2.256 to 0.018
+ Official Vernier data - Sensor: Force, Value: 11.753425598144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 221px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(21, 84, 61)
+ 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 221px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ Official Vernier data - Sensor: Force, Value: 11.858184814453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.86N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 221px
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 📊 Diagnostics collected at 30s
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 221px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ Official Vernier data - Sensor: Force, Value: 11.817298889160156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 221px
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 221px
+ 🎯 Color kasina hum_kasina scaled from 2.308 to 0.018
+ Official Vernier data - Sensor: Force, Value: 11.658889770507812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 83, 60) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 217px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(21, 83, 60) intensity: 0.40
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(21, 83, 60)
+ 🎨 Background color: #34D399 -> rgb(21, 83, 60) intensity: 0.40
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 217px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ Official Vernier data - Sensor: Force, Value: 11.579689025878906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.58N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 207px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 83, 60)
+ 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 207px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 217px
+ 🎯 Color kasina hum_kasina scaled from 2.266 to 0.018
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 207px
+ 🎯 Color kasina hum_kasina scaled from 2.162 to 0.017
+ Official Vernier data - Sensor: Force, Value: 11.503036499023438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.50N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 82, 59) intensity: 0.39
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 197px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 82, 59) intensity: 0.39
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 82, 59)
+ 🎨 Background color: #34D399 -> rgb(20, 82, 59) intensity: 0.39
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 197px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 197px
+ 🎯 Color kasina hum_kasina scaled from 2.058 to 0.016
+ Official Vernier data - Sensor: Force, Value: 11.411056518554688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 186px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 81, 59)
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 186px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ Official Vernier data - Sensor: Force, Value: 11.411056518554688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+ 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+ Official Vernier data - Sensor: Force, Value: 11.418724060058594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.42N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 187px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 81, 59)
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 187px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 187px
+ 🎯 Color kasina hum_kasina scaled from 1.954 to 0.016
+ Official Vernier data - Sensor: Force, Value: 11.372734069824219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.37N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 181px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 81, 59)
+ 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 181px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ Official Vernier data - Sensor: Force, Value: 11.2781982421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.28N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 169px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 80, 58)
+ 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 169px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 181px
+ 🎯 Color kasina hum_kasina scaled from 1.892 to 0.015
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ Official Vernier data - Sensor: Force, Value: 11.175994873046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 156px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 79, 57)
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 156px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 169px
+ 🎯 Color kasina hum_kasina scaled from 1.767 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 156px
+ 🎯 Color kasina hum_kasina scaled from 1.631 to 0.013
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 156px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 11.101905822753906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 78, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 147px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 78, 57) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 78, 57)
+ 🎨 Background color: #34D399 -> rgb(19, 78, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 147px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ Official Vernier data - Sensor: Force, Value: 11.050804138183594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.05N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 78, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 141px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 78, 56) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 78, 56)
+ 🎨 Background color: #34D399 -> rgb(19, 78, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 141px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 147px
+ 🎯 Color kasina hum_kasina scaled from 1.538 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 141px
+ 🎯 Color kasina hum_kasina scaled from 1.475 to 0.012
+ Official Vernier data - Sensor: Force, Value: 11.012474060058594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 78, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 136px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 78, 56) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 78, 56)
+ 🎨 Background color: #34D399 -> rgb(19, 78, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 136px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 136px
+ 🎯 Color kasina hum_kasina scaled from 1.423 to 0.011
+ Official Vernier data - Sensor: Force, Value: 10.976707458496094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 132px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 77, 56)
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 132px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ Official Vernier data - Sensor: Force, Value: 10.905166625976562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 77, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 123px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #34D399 -> rgb(19, 77, 55) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 77, 55)
+ 🎨 Background color: #34D399 -> rgb(19, 77, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 123px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 132px
+ 🎯 Color kasina hum_kasina scaled from 1.381 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 123px
+ 🎯 Color kasina hum_kasina scaled from 1.287 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 123px
+ 🎯 Color kasina hum_kasina scaled from 1.287 to 0.010
+ Official Vernier data - Sensor: Force, Value: 10.810630798339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 123px
+ 🎯 Color kasina hum_kasina scaled from 1.287 to 0.010
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 108px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 75, 55)
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 108px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 10.741645812988281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.74N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.703323364257812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 10.721206665039062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.72N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 74, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 90px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 74, 54) intensity: 0.35
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 74, 54)
+ 🎨 Background color: #34D399 -> rgb(18, 74, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 90px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 90px
+ 🎯 Color kasina hum_kasina scaled from 0.942 to 0.008
+ Official Vernier data - Sensor: Force, Value: 10.787635803222656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.79N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 90px
+ 🎯 Color kasina hum_kasina scaled from 0.942 to 0.008
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 75, 54)
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 99px
+ 🎯 Color kasina hum_kasina scaled from 1.036 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 99px
+ 🎯 Color kasina hum_kasina scaled from 1.036 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 99px
+ 🎯 Color kasina hum_kasina scaled from 1.036 to 0.008
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 99px
+ 🎯 Color kasina hum_kasina scaled from 1.036 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 99px
+ 🎯 Color kasina hum_kasina scaled from 1.036 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 99px
+ 🎯 Color kasina hum_kasina scaled from 1.036 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 99px
+ 🎯 Color kasina hum_kasina scaled from 1.036 to 0.008
+ Official Vernier data - Sensor: Force, Value: 10.823410034179688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 75, 54) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 104px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 75, 54) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 75, 54)
+ 🎨 Background color: #34D399 -> rgb(19, 75, 54) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 104px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 99px
+ 🎯 Color kasina hum_kasina scaled from 1.036 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 104px
+ 🎯 Color kasina hum_kasina scaled from 1.088 to 0.009
+ Official Vernier data - Sensor: Force, Value: 10.851509094238281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 108px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 75, 55)
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 108px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 108px
+ 🎯 Color kasina hum_kasina scaled from 1.130 to 0.009
+ Official Vernier data - Sensor: Force, Value: 10.912834167480469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: 21.09375, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 76, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 116px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 76, 55) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 76, 55)
+ 🎨 Background color: #34D399 -> rgb(19, 76, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 116px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+ 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+ 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+ 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+ 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+ 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+ 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+ 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.017585754394531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.02N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 130px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 77, 56)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 130px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 116px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.214 to 0.010
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 130px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.360 to 0.011
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.150444030761719, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.15N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(19, 78, 57) intensity: 0.37
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 149px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(19, 78, 57) intensity: 0.37
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 78, 57)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(19, 78, 57) intensity: 0.37
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 149px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 149px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.558 to 0.012
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.270530700683594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.27N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 166px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 80, 58)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 166px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 166px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.736 to 0.014
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.418724060058594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.42N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 188px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.39
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 81, 59)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 188px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 188px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.965 to 0.016
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.566909790039062, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.57N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 208px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 83, 60)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 208px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 208px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.173 to 0.017
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.638450622558594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.64N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 218px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(21, 84, 61)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(21, 84, 61) intensity: 0.40
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 218px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 218px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.277 to 0.018
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.607795715332031, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.61N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 212px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 83, 60)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 212px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 83, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 212px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 212px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.214 to 0.018
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.551582336425781, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.55N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 82, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 204px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 82, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 82, 60)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 82, 60) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 204px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 204px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.131 to 0.017
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.495368957519531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.50N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 82, 59) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 196px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 82, 59) intensity: 0.39
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 82, 59)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 82, 59) intensity: 0.39
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 196px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.418724060058594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.42N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 186px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 81, 59)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 59) intensity: 0.38
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 186px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 196px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 2.048 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 186px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.944 to 0.016
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.354850769042969, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.35N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 177px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 81, 58)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 81, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 177px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 177px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.850 to 0.015
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 11.308860778808594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.31N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 171px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1133 🔄 Updating background for kasina: hum_kasina, color: rgb(20, 80, 58)
+BreathKasinaOrb.tsx:1062 🎨 Background color: #34D399 -> rgb(20, 80, 58) intensity: 0.38
+BreathKasinaOrb.tsx:1261 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 171px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+BreathKasinaOrb.tsx:1294 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+BreathKasinaOrb.tsx:1298 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+ 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+ 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 171px
+ 🎯 Color kasina hum_kasina scaled from 1.788 to 0.014
+ Official Vernier data - Sensor: Force, Value: 11.193885803222656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 155px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 79, 57)
+ 🎨 Background color: #34D399 -> rgb(19, 79, 57) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 155px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 155px
+ 🎯 Color kasina hum_kasina scaled from 1.621 to 0.013
+ Official Vernier data - Sensor: Force, Value: 11.045692443847656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.05N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 135px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 77, 56)
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 135px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 135px
+ 🎯 Color kasina hum_kasina scaled from 1.412 to 0.011
+ Official Vernier data - Sensor: Force, Value: 11.004814147949219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 11.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 129px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 77, 56)
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 129px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 129px
+ 🎯 Color kasina hum_kasina scaled from 1.350 to 0.011
+ Official Vernier data - Sensor: Force, Value: 10.989479064941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 127px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 77, 56)
+ 🎨 Background color: #34D399 -> rgb(19, 77, 56) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 127px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 127px
+ 🎯 Color kasina hum_kasina scaled from 1.329 to 0.011
+ Official Vernier data - Sensor: Force, Value: 10.915390014648438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 76, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 117px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 76, 55) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 76, 55)
+ 🎨 Background color: #34D399 -> rgb(19, 76, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 117px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 117px
+ 🎯 Color kasina hum_kasina scaled from 1.224 to 0.010
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 76, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 117px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Official Vernier data - Sensor: Force, Value: 10.836181640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.84N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 106px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(19, 75, 55)
+ 🎨 Background color: #34D399 -> rgb(19, 75, 55) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 106px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ Official Vernier data - Sensor: Force, Value: 10.813186645507812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 97px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 75, 54)
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 97px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 106px
+ 🎯 Color kasina hum_kasina scaled from 1.109 to 0.009
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 97px
+ 🎯 Color kasina hum_kasina scaled from 1.015 to 0.008
+ Official Vernier data - Sensor: Force, Value: 10.810630798339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 95px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 75, 54)
+ 🎨 Background color: #34D399 -> rgb(18, 75, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 95px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 95px
+ 🎯 Color kasina hum_kasina scaled from 0.994 to 0.008
+ Official Vernier data - Sensor: Force, Value: 10.759529113769531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.76N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 74, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 74, 54) intensity: 0.35
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 74, 54)
+ 🎨 Background color: #34D399 -> rgb(18, 74, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 74, 54) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ Official Vernier data - Sensor: Force, Value: 10.703323364257812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 78px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.35
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 73, 53)
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 78px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 86px
+ 🎯 Color kasina hum_kasina scaled from 0.900 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 78px
+ 🎯 Color kasina hum_kasina scaled from 0.817 to 0.007
+ Official Vernier data - Sensor: Force, Value: 10.629226684570312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.63N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 73, 53)
+ 🎨 Background color: #34D399 -> rgb(18, 73, 53) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 71px
+ 🎯 Color kasina hum_kasina scaled from 0.743 to 0.006
+ Official Vernier data - Sensor: Force, Value: 10.544914245605469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.54N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 65px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 72, 52)
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 65px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ Official Vernier data - Sensor: Force, Value: 10.496368408203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.50N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 72, 52)
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 65px
+ 🎯 Color kasina hum_kasina scaled from 0.681 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 59px
+ 🎯 Color kasina hum_kasina scaled from 0.618 to 0.005
+ Official Vernier data - Sensor: Force, Value: 10.46826171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.47N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 56px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 72, 52)
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 56px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 56px
+ 🎯 Color kasina hum_kasina scaled from 0.586 to 0.005
+ Official Vernier data - Sensor: Force, Value: 10.437599182128906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 71, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 71, 52) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 71, 52)
+ 🎨 Background color: #34D399 -> rgb(18, 71, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 71, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 51px
+ 🎯 Color kasina hum_kasina scaled from 0.534 to 0.004
+ Official Vernier data - Sensor: Force, Value: 10.414604187011719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 71, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 71, 52) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 71, 52)
+ 🎨 Background color: #34D399 -> rgb(18, 71, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ Official Vernier data - Sensor: Force, Value: 10.412055969238281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 55px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ 🔄 Updating background for kasina: hum_kasina, color: rgb(18, 72, 52)
+ 🎨 Background color: #34D399 -> rgb(18, 72, 52) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 55px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 49px
+ 🎯 Color kasina hum_kasina scaled from 0.513 to 0.004
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 55px
+ 🎯 Color kasina hum_kasina scaled from 0.576 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 55px
+ 🎯 Color kasina hum_kasina scaled from 0.576 to 0.005
+ 🔍 Kasina: hum_kasina, Type: color, orbSize: 55px
+ 🎯 Color kasina hum_kasina scaled from 0.576 to 0.005
