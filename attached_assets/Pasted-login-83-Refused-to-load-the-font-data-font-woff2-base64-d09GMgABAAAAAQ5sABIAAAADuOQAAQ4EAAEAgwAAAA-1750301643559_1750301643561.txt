@@ -1,0 +1,4966 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🎯 Color kasina white scaled from 0.450 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 43px
+    baseScale: 0.287
+    normalizedScale: 0.016
+    final scale: 0.450
+    cappedScale: 0.450
+ 🔍 Kasina: white, Type: color, orbSize: 43px
+ 🎯 Color kasina white scaled from 0.450 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 43px
+    baseScale: 0.287
+    normalizedScale: 0.016
+    final scale: 0.450
+    cappedScale: 0.450
+ 🔍 Kasina: white, Type: color, orbSize: 43px
+ 🎯 Color kasina white scaled from 0.450 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 43px
+    baseScale: 0.287
+    normalizedScale: 0.016
+    final scale: 0.450
+    cappedScale: 0.450
+ 🔍 Kasina: white, Type: color, orbSize: 43px
+ 🎯 Color kasina white scaled from 0.450 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 43px
+    baseScale: 0.287
+    normalizedScale: 0.016
+    final scale: 0.450
+    cappedScale: 0.450
+ 🔍 Kasina: white, Type: color, orbSize: 43px
+ 🎯 Color kasina white scaled from 0.450 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 43px
+    baseScale: 0.287
+    normalizedScale: 0.016
+    final scale: 0.450
+    cappedScale: 0.450
+ Official Vernier data - Sensor: Force, Value: 8.6644287109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+ 🔄 Updating background for kasina: white, color: rgb(89, 89, 90)
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ Official Vernier data - Sensor: Force, Value: 8.587783813476562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.59N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(89, 89, 90)
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ Official Vernier data - Sensor: Force, Value: 8.513687133789062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 89, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ Official Vernier data - Sensor: Force, Value: 8.4447021484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 88, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ Official Vernier data - Sensor: Force, Value: 8.365493774414062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.37N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 38px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 88, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 38px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ Official Vernier data - Sensor: Force, Value: 8.314399719238281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.31N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(87, 88, 88)
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ Official Vernier data - Sensor: Force, Value: 8.329727172851562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.33N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(87, 88, 88)
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ Official Vernier data - Sensor: Force, Value: 8.506019592285156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 88, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ Official Vernier data - Sensor: Force, Value: 8.689979553222656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(89, 89, 90)
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ Official Vernier data - Sensor: Force, Value: 8.695091247558594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(89, 89, 90)
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ Official Vernier data - Sensor: Force, Value: 8.613334655761719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 89, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 41px
+ 🎯 Color kasina white scaled from 0.429 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ Official Vernier data - Sensor: Force, Value: 8.526458740234375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.53N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 38px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 88, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 38px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ 🔍 Kasina: white, Type: color, orbSize: 38px
+ 🎯 Color kasina white scaled from 0.398 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 38px
+    baseScale: 0.253
+    normalizedScale: 0.014
+    final scale: 0.398
+    cappedScale: 0.398
+ Official Vernier data - Sensor: Force, Value: 8.544349670410156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.54N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 88, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ 🔍 Kasina: white, Type: color, orbSize: 39px
+ 🎯 Color kasina white scaled from 0.408 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 39px
+    baseScale: 0.260
+    normalizedScale: 0.014
+    final scale: 0.408
+    cappedScale: 0.408
+ Official Vernier data - Sensor: Force, Value: 8.730865478515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.73N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+ 🔄 Updating background for kasina: white, color: rgb(89, 89, 90)
+ 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: white, Type: color, orbSize: 42px
+ 🎯 Color kasina white scaled from 0.440 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ Official Vernier data - Sensor: Force, Value: 8.955703735351562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.96N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(90, 90, 91) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 45px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(90, 90, 91) intensity: 0.37
+ 🔄 Updating background for kasina: white, color: rgb(90, 90, 91)
+ 🎨 Background color: #F3F4F6 -> rgb(90, 90, 91) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 45px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: white, Type: color, orbSize: 45px
+ 🎯 Color kasina white scaled from 0.471 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ Official Vernier data - Sensor: Force, Value: 9.101341247558594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(90, 91, 91) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(90, 91, 91) intensity: 0.37
+ 🔄 Updating background for kasina: white, color: rgb(90, 91, 91)
+ 🎨 Background color: #F3F4F6 -> rgb(90, 91, 91) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ Official Vernier data - Sensor: Force, Value: 9.167770385742188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+ 🔄 Updating background for kasina: white, color: rgb(91, 91, 92)
+ 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 48px
+ 🎯 Color kasina white scaled from 0.503 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: white, Type: color, orbSize: 49px
+ 🎯 Color kasina white scaled from 0.513 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ Official Vernier data - Sensor: Force, Value: 9.23675537109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.24N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+ 🔄 Updating background for kasina: white, color: rgb(91, 91, 92)
+ 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ 🔍 Kasina: white, Type: color, orbSize: 50px
+ 🎯 Color kasina white scaled from 0.524 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+ Official Vernier data - Sensor: Force, Value: 9.3287353515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.33N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+ 🔄 Updating background for kasina: white, color: rgb(91, 92, 92)
+ 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: white, Type: color, orbSize: 51px
+ 🎯 Color kasina white scaled from 0.534 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ Official Vernier data - Sensor: Force, Value: 9.354286193847656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.35N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 52px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+ 🔄 Updating background for kasina: white, color: rgb(91, 92, 92)
+ 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 52px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 52px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: white, Type: color, orbSize: 52px
+ 🎯 Color kasina white scaled from 0.544 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 52px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.544 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 9.262306213378906, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.26N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(91, 91, 92)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 9.241859436035156, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.24N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(91, 91, 92)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 9.3287353515625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.33N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(91, 92, 92)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 92, 92) intensity: 0.38
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 51px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.534 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 9.257194519042969, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.26N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(91, 91, 92)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(91, 91, 92) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 50px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.524 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 50px
+    baseScale: 0.333
+    normalizedScale: 0.019
+    final scale: 0.524
+    cappedScale: 0.524
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 9.055351257324219, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.06N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(90, 90, 91) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 45px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(90, 90, 91) intensity: 0.37
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(90, 90, 91)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(90, 90, 91) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 45px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 45px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.471 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 8.871391296386719, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.87N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(89, 89, 90)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(89, 89, 90) intensity: 0.37
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 42px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.440 to 0.004
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 8.590339660644531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.59N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(87, 88, 88)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 36px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.377 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 8.327171325683594, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.33N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(86, 86, 87)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 8.324615478515625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.32N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: 7.182761192321777, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(86, 86, 87)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 31px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.325 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 8.283737182617188, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.28N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 30px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(86, 86, 87)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 30px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:958 📊 Diagnostics collected at 30s
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 30px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 30px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 30px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.314 to 0.003
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 30px
+    baseScale: 0.200
+    normalizedScale: 0.011
+    final scale: 0.314
+    cappedScale: 0.314
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 8.148323059082031, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.15N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 27px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(85, 85, 86)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 27px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 8.189201354980469, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.19N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 26px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(85, 85, 86)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 26px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 27px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.283 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+BreathKasinaOrb.tsx:1304 🔍 Kasina: white, Type: color, orbSize: 26px
+BreathKasinaOrb.tsx:1308 🎯 Color kasina white scaled from 0.272 to 0.002
+kasinaConfig.ts:331 🎯 White (color) SCALING:
+    orbSize: 26px
+    baseScale: 0.173
+    normalizedScale: 0.010
+    final scale: 0.272
+    cappedScale: 0.272
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 8.250518798828125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.25N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 27px
+BreathKasinaOrb.tsx:455 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1143 🔄 Updating background for kasina: white, color: rgb(85, 85, 86)
+BreathKasinaOrb.tsx:1072 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+BreathKasinaOrb.tsx:1271 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 27px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ 🔍 Kasina: white, Type: color, orbSize: 27px
+ 🎯 Color kasina white scaled from 0.283 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 27px
+    baseScale: 0.180
+    normalizedScale: 0.010
+    final scale: 0.283
+    cappedScale: 0.283
+ Official Vernier data - Sensor: Force, Value: 8.163650512695312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 85, 86) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 25px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 85, 86) intensity: 0.35
+ 🔄 Updating background for kasina: white, color: rgb(84, 85, 86)
+ 🎨 Background color: #F3F4F6 -> rgb(84, 85, 86) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 25px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ Official Vernier data - Sensor: Force, Value: 8.038459777832031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.04N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 23px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.35
+ 🔄 Updating background for kasina: white, color: rgb(84, 84, 85)
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 23px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 25px
+ 🎯 Color kasina white scaled from 0.262 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 25px
+    baseScale: 0.167
+    normalizedScale: 0.009
+    final scale: 0.262
+    cappedScale: 0.262
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ 🔍 Kasina: white, Type: color, orbSize: 23px
+ 🎯 Color kasina white scaled from 0.241 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 23px
+    baseScale: 0.153
+    normalizedScale: 0.009
+    final scale: 0.241
+    cappedScale: 0.241
+ Official Vernier data - Sensor: Force, Value: 8.007797241210938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 22px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.34
+ 🔄 Updating background for kasina: white, color: rgb(84, 84, 85)
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 22px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ Official Vernier data - Sensor: Force, Value: 7.9796905517578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 22px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.34
+ 🔄 Updating background for kasina: white, color: rgb(84, 84, 85)
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 22px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ 🔍 Kasina: white, Type: color, orbSize: 22px
+ 🎯 Color kasina white scaled from 0.230 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 22px
+    baseScale: 0.147
+    normalizedScale: 0.008
+    final scale: 0.230
+    cappedScale: 0.230
+ Official Vernier data - Sensor: Force, Value: 7.9260406494140625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(83, 84, 84) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 21px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(83, 84, 84) intensity: 0.34
+ 🔄 Updating background for kasina: white, color: rgb(83, 84, 84)
+ 🎨 Background color: #F3F4F6 -> rgb(83, 84, 84) intensity: 0.34
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 21px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ 🔍 Kasina: white, Type: color, orbSize: 21px
+ 🎯 Color kasina white scaled from 0.220 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 21px
+    baseScale: 0.140
+    normalizedScale: 0.008
+    final scale: 0.220
+    cappedScale: 0.220
+ Official Vernier data - Sensor: Force, Value: 8.015464782714844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.02N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 24px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.35
+ 🔄 Updating background for kasina: white, color: rgb(84, 84, 85)
+ 🎨 Background color: #F3F4F6 -> rgb(84, 84, 85) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 24px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ 🔍 Kasina: white, Type: color, orbSize: 24px
+ 🎯 Color kasina white scaled from 0.251 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 24px
+    baseScale: 0.160
+    normalizedScale: 0.009
+    final scale: 0.251
+    cappedScale: 0.251
+ Official Vernier data - Sensor: Force, Value: 8.222419738769531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 28px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+ 🔄 Updating background for kasina: white, color: rgb(85, 85, 86)
+ 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 28px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(85, 85, 86) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 28px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ Official Vernier data - Sensor: Force, Value: 8.403823852539062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.40N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+ 🔄 Updating background for kasina: white, color: rgb(86, 86, 87)
+ 🎨 Background color: #F3F4F6 -> rgb(86, 86, 87) intensity: 0.35
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 28px
+ 🎯 Color kasina white scaled from 0.293 to 0.002
+ 🎯 White (color) SCALING:
+    orbSize: 28px
+    baseScale: 0.187
+    normalizedScale: 0.010
+    final scale: 0.293
+    cappedScale: 0.293
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ 🔍 Kasina: white, Type: color, orbSize: 31px
+ 🎯 Color kasina white scaled from 0.325 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 31px
+    baseScale: 0.207
+    normalizedScale: 0.011
+    final scale: 0.325
+    cappedScale: 0.325
+ Official Vernier data - Sensor: Force, Value: 8.5545654296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(87, 87, 88) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 34px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(87, 87, 88) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(87, 87, 88)
+ 🎨 Background color: #F3F4F6 -> rgb(87, 87, 88) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 34px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ 🔍 Kasina: white, Type: color, orbSize: 34px
+ 🎯 Color kasina white scaled from 0.356 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 34px
+    baseScale: 0.227
+    normalizedScale: 0.013
+    final scale: 0.356
+    cappedScale: 0.356
+ Official Vernier data - Sensor: Force, Value: 8.654212951660156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.65N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(87, 88, 88)
+ 🎨 Background color: #F3F4F6 -> rgb(87, 88, 88) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ Official Vernier data - Sensor: Force, Value: 8.712974548339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 37px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 88, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 88, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 37px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 36px
+ 🎯 Color kasina white scaled from 0.377 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 36px
+    baseScale: 0.240
+    normalizedScale: 0.013
+    final scale: 0.377
+    cappedScale: 0.377
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ 🔍 Kasina: white, Type: color, orbSize: 37px
+ 🎯 Color kasina white scaled from 0.387 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 37px
+    baseScale: 0.247
+    normalizedScale: 0.014
+    final scale: 0.387
+    cappedScale: 0.387
+ Official Vernier data - Sensor: Force, Value: 8.879051208496094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ 🔄 Updating background for kasina: white, color: rgb(88, 89, 89)
+ 🎨 Background color: #F3F4F6 -> rgb(88, 89, 89) intensity: 0.36
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ 🔍 Kasina: white, Type: color, orbSize: 40px
+ 🎯 Color kasina white scaled from 0.419 to 0.003
+ 🎯 White (color) SCALING:
+    orbSize: 40px
+    baseScale: 0.267
+    normalizedScale: 0.015
+    final scale: 0.419
+    cappedScale: 0.419
+ Official Vernier data - Sensor: Force, Value: 9.086006164550781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(89, 90, 90) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 44px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🎨 Background color: #F3F4F6 -> rgb(89, 90, 90) intensity: 0.37
+ 🔄 Updating background for kasina: white, color: rgb(89, 90, 90)
+ 🎨 Background color: #F3F4F6 -> rgb(89, 90, 90) intensity: 0.37
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 44px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: white, Type: color, orbSize: 44px
+ 🎯 Color kasina white scaled from 0.461 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 44px
+    baseScale: 0.293
+    normalizedScale: 0.016
+    final scale: 0.461
+    cappedScale: 0.461
+ 🔍 Kasina: white, Type: color, orbSize: 44px
+ 🎯 Color kasina white scaled from 0.461 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 44px
+    baseScale: 0.293
+    normalizedScale: 0.016
+    final scale: 0.461
+    cappedScale: 0.461
+ 🔍 Kasina: white, Type: color, orbSize: 44px
+ 🎯 Color kasina white scaled from 0.461 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 44px
+    baseScale: 0.293
+    normalizedScale: 0.016
+    final scale: 0.461
+    cappedScale: 0.461
+ 🔍 Kasina: white, Type: color, orbSize: 44px
+ 🎯 Color kasina white scaled from 0.461 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 44px
+    baseScale: 0.293
+    normalizedScale: 0.016
+    final scale: 0.461
+    cappedScale: 0.461
+ 🔍 Kasina: white, Type: color, orbSize: 44px
+ 🎯 Color kasina white scaled from 0.461 to 0.004
+ 🎯 White (color) SCALING:
+    orbSize: 44px
+    baseScale: 0.293
+    normalizedScale: 0.016
+    final scale: 0.461
+    cappedScale: 0.461

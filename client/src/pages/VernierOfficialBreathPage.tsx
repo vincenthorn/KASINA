@@ -18,17 +18,6 @@ export default function VernierOfficialBreathPage() {
   const [kasinaSelectionStep, setKasinaSelectionStep] = React.useState<'series' | 'kasina'>('series');
   const [forceStayOnPage, setForceStayOnPage] = React.useState(false);
   
-  // Debug effect to monitor state changes
-  React.useEffect(() => {
-    console.log('🔍 VERNIER PAGE - State changed:', { 
-      showKasinaSelection, 
-      showMeditation, 
-      selectedKasina,
-      isConnected,
-      calibrationComplete 
-    });
-  }, [showKasinaSelection, showMeditation, selectedKasina, isConnected, calibrationComplete]);
-
   const {
     isConnected,
     isConnecting,
