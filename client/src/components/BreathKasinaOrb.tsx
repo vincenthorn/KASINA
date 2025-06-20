@@ -1414,39 +1414,70 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     });
 
     // Render the appropriate kasina component based on selection
+    // Isolated rendering logic for Vajrayana kasinas with breath animation support
     if (selectedKasina === KASINA_TYPES.WHITE_A_KASINA) {
       return (
         <group ref={groupRef}>
+          {/* Invisible reference sphere for breath animation - critical for Vajrayana kasinas */}
+          <mesh ref={meshRef} visible={false} position={[0, 0, -100]}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <meshBasicMaterial transparent opacity={0} />
+          </mesh>
           <WhiteAKasina />
         </group>
       );
     } else if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE) {
       return (
         <group ref={groupRef}>
+          {/* Invisible reference sphere for breath animation - critical for Vajrayana kasinas */}
+          <mesh ref={meshRef} visible={false} position={[0, 0, -100]}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <meshBasicMaterial transparent opacity={0} />
+          </mesh>
           <WhiteAThigle />
         </group>
       );
     } else if (selectedKasina === KASINA_TYPES.OM_KASINA) {
       return (
         <group ref={groupRef}>
+          {/* Invisible reference sphere for breath animation - critical for Vajrayana kasinas */}
+          <mesh ref={meshRef} visible={false} position={[0, 0, -100]}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <meshBasicMaterial transparent opacity={0} />
+          </mesh>
           <OmKasina />
         </group>
       );
     } else if (selectedKasina === KASINA_TYPES.AH_KASINA) {
       return (
         <group ref={groupRef}>
+          {/* Invisible reference sphere for breath animation - critical for Vajrayana kasinas */}
+          <mesh ref={meshRef} visible={false} position={[0, 0, -100]}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <meshBasicMaterial transparent opacity={0} />
+          </mesh>
           <AhKasina />
         </group>
       );
     } else if (selectedKasina === KASINA_TYPES.HUM_KASINA) {
       return (
         <group ref={groupRef}>
+          {/* Invisible reference sphere for breath animation - critical for Vajrayana kasinas */}
+          <mesh ref={meshRef} visible={false} position={[0, 0, -100]}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <meshBasicMaterial transparent opacity={0} />
+          </mesh>
           <HumKasina />
         </group>
       );
     } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
       return (
         <group ref={groupRef}>
+          {/* Invisible reference sphere for breath animation - critical for Vajrayana kasinas */}
+          <mesh ref={meshRef} visible={false} position={[0, 0, -100]}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <meshBasicMaterial transparent opacity={0} />
+          </mesh>
           <RainbowKasina />
         </group>
       );
