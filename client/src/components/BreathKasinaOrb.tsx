@@ -1044,7 +1044,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Calculate background color that syncs with orb kasina color
   const calculateBackgroundColor = (kasinaColor: string, intensity: number): string => {
-    // Parse the kasina color
+    // For red, yellow, white, and blue kasinas, always use black background
+    if (selectedKasina === KASINA_TYPES.RED || 
+        selectedKasina === KASINA_TYPES.YELLOW || 
+        selectedKasina === KASINA_TYPES.WHITE || 
+        selectedKasina === KASINA_TYPES.BLUE) {
+      return '#000000';
+    }
+    
+    // Parse the kasina color for other kasinas
     const result = kasinaColor.slice(1).match(/.{2}/g);
     if (!result) return '#2a2a2a';
     
