@@ -184,11 +184,10 @@ const BreathPage: React.FC = () => {
       )}
 
       <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4">
-        {/* Page Title */}
-        <h1 className="text-4xl font-bold text-white mb-8 text-center">Breath Kasina</h1>
-        
         {/* Main Interface Card */}
         <div className="w-full max-w-4xl">
+          {/* Page Title */}
+          <h1 className="text-4xl font-bold text-white mb-8 text-left">Breath Kasina</h1>
           <div 
             className="rounded-2xl p-8 shadow-2xl border border-purple-500/30"
             style={{
@@ -254,8 +253,8 @@ const BreathPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Bottom Row - Professional Grade and Connection Status */}
-            <div className="grid grid-cols-2 gap-4 mb-6">
+            {/* Professional Grade Section - Full Width */}
+            <div className="mb-6">
               <div className="p-4 bg-white/5 rounded-lg border border-purple-300/20">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-lg">🏆</span>
@@ -264,19 +263,6 @@ const BreathPage: React.FC = () => {
                 <p className="text-purple-100 text-sm">
                   Uses actual respiratory force measurements (Newtons) for unprecedented precision in breath tracking.
                 </p>
-              </div>
-
-              <div className="p-4 bg-white/5 rounded-lg border border-purple-300/20">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className={`w-3 h-3 rounded-full ${isConnected ? 'bg-green-400' : 'bg-gray-400'}`}></div>
-                  <span className="text-white font-medium">Ready to connect to your Vernier GDX device</span>
-                </div>
-                
-                {isConnected && (
-                  <div className="text-sm text-purple-200">
-                    Current Force: <span className="font-mono text-blue-300">{currentForce.toFixed(2)} N</span>
-                  </div>
-                )}
               </div>
             </div>
 
