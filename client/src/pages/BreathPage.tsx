@@ -195,35 +195,31 @@ const BreathPage: React.FC = () => {
               boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)'
             }}
           >
-            {/* Header Section - Horizontal Layout */}
-            <div className="flex items-center gap-8 mb-6">
+            {/* Header Section - Centered Layout */}
+            <div className="text-center mb-6">
               {/* Device Icon */}
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center">
-                  <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
-                    <div className="w-4 h-4 bg-white rounded-full"></div>
-                  </div>
+              <div className="w-16 h-16 mx-auto mb-4 bg-blue-500/20 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-white rounded-full"></div>
                 </div>
               </div>
               
-              {/* Title and Description */}
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <h2 className="text-2xl font-bold text-white">
-                    🌀 Vernier Respiration Belt
-                  </h2>
-                  <span className="bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">
-                    Premium
-                  </span>
-                  <span className="bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">
-                    Official
-                  </span>
-                </div>
-                
-                <p className="text-purple-100 text-sm leading-relaxed">
-                  Connect your Respiration Belt via Bluetooth for precise breath detection.
-                </p>
+              {/* Title and Badges */}
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <h2 className="text-2xl font-bold text-white">
+                  🌀 Vernier Respiration Belt
+                </h2>
+                <span className="bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">
+                  Premium
+                </span>
+                <span className="bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">
+                  Official
+                </span>
               </div>
+              
+              <p className="text-purple-100 text-sm leading-relaxed">
+                Connect your Respiration Belt via Bluetooth for precise breath detection.
+              </p>
             </div>
 
             {/* Error Display */}
