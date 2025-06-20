@@ -65,11 +65,11 @@ export const KASINA_COLORS: Record<string, string> = {
   [KASINA_TYPES.LIGHT]: "#FDE047", // Bright yellow for light
   // Vajrayana Series
   [KASINA_TYPES.WHITE_A_THIGLE]: "#67E8F9", // Gentle cyan for Clear Light Thigle
-  [KASINA_TYPES.WHITE_A_KASINA]: "#A78BFA", // Gentle purple for White A
+  [KASINA_TYPES.WHITE_A_KASINA]: "#8B5CF6", // Distinct purple for White A
   [KASINA_TYPES.OM_KASINA]: "#FBBF24", // Gentle amber for OM
   [KASINA_TYPES.AH_KASINA]: "#F87171", // Gentle red for AH
   [KASINA_TYPES.HUM_KASINA]: "#34D399", // Gentle green for HUM
-  [KASINA_TYPES.RAINBOW_KASINA]: "#A78BFA" // Gentle purple for Rainbow
+  [KASINA_TYPES.RAINBOW_KASINA]: "#EC4899" // Pink for Rainbow to distinguish from White A
 };
 
 // Background colors for elemental kasinas
