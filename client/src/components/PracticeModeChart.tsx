@@ -190,9 +190,25 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     return 'text-white';
   };
 
-  // Custom tooltip for stacked bar - completely disabled to prevent grey hover background
+  // Custom tooltip for stacked bar showing practice mode and kasina type breakdown
   const StackedTooltip = ({ active, payload, label }: any) => {
-    // Return null to disable tooltips on hover
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-gray-800 border border-gray-600 rounded-lg p-3 shadow-lg">
+          <p className="text-white font-medium mb-2">{label} Mode</p>
+          {payload.map((entry: any, index: number) => {
+            if (entry.value > 0) {
+              return (
+                <p key={index} className="text-gray-300 text-sm">
+                  <span style={{ color: entry.color }}>■</span> {entry.dataKey}: {formatTime(entry.value)}
+                </p>
+              );
+            }
+            return null;
+          })}
+        </div>
+      );
+    }
     return null;
   };
 
@@ -314,6 +330,9 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
         ) : (
           // Main stacked bar chart view
           <div className="flex flex-col gap-6">
+            <div className="text-center text-gray-400 text-sm">
+              Mouse over the bar graph for more detail
+            </div>
 
             
             {/* Reserved space for tooltip to prevent layout shift */}
@@ -340,6 +359,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                       bottom: 5,
                     }}
                   >
+                  <Tooltip content={<StackedTooltip />} />
                   <XAxis 
                     dataKey="mode" 
                     axisLine={false}
