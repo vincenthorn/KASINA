@@ -221,7 +221,7 @@ const BreathPage: React.FC = () => {
                 </div>
                 
                 <p className="text-purple-100 text-sm leading-relaxed">
-                  Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection.
+                  Connect your Respiration Belt via Bluetooth for precise breath detection.
                 </p>
               </div>
             </div>
