@@ -183,7 +183,7 @@ const BreathPage: React.FC = () => {
         </div>
       )}
 
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4">
+      <div className="min-h-screen bg-black flex flex-col items-center justify-start p-4 pt-16">
         {/* Main Interface Card */}
         <div className="w-full max-w-4xl">
           {/* Page Title */}
