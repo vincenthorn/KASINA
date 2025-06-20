@@ -359,7 +359,11 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                       bottom: 5,
                     }}
                   >
-                  <Tooltip content={<StackedTooltip />} />
+                  <Tooltip 
+                    content={<StackedTooltip />}
+                    cursor={{ fill: 'transparent' }}
+                    wrapperStyle={{ outline: 'none' }}
+                  />
                   <XAxis 
                     dataKey="mode" 
                     axisLine={false}
