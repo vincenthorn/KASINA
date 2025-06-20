@@ -87,13 +87,13 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.EARTH]: "#241000", // Very dark rich brown (almost black)
   [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)
   [KASINA_TYPES.LIGHT]: "#000000", // Black background
-  // Vajrayana Series - exact outer ring colors for seamless backgrounds
-  [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff",  // Exact royal blue from Clear Light outer ring
-  [KASINA_TYPES.WHITE_A_KASINA]: "#0000ff",  // Exact blue from White A outer ring
+  // Vajrayana Series - very dark harmonizing colors for seamless backgrounds
+  [KASINA_TYPES.WHITE_A_THIGLE]: "#001133",  // Very dark royal blue harmonizing with outer ring
+  [KASINA_TYPES.WHITE_A_KASINA]: "#000033",  // Very dark blue harmonizing with outer ring
   [KASINA_TYPES.OM_KASINA]: "#000000",       // Black to match OM outer ring
   [KASINA_TYPES.AH_KASINA]: "#000000",       // Black to match AH outer ring
   [KASINA_TYPES.HUM_KASINA]: "#000000",      // Black to match HUM outer ring
-  [KASINA_TYPES.RAINBOW_KASINA]: "#1F00CC"   // Exact blue-violet from Rainbow outer ring
+  [KASINA_TYPES.RAINBOW_KASINA]: "#0F0033"   // Very dark blue-violet harmonizing with outer ring
 };
 
 // Kasina emojis

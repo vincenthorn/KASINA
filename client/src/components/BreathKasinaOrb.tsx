@@ -1267,17 +1267,17 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         newBackgroundColor = '#000000';
         console.log(`🔄 Forcing black background for Vajrayana kasina: ${selectedKasina}`);
       } else if (selectedKasina === KASINA_TYPES.WHITE_A_KASINA) {
-        // Use exact outer ring color from White A kasina
-        newBackgroundColor = '#0000ff';
-        console.log(`🔄 Using exact outer ring color for White A kasina: #0000ff`);
+        // Use very dark blue that harmonizes with outer ring without competing
+        newBackgroundColor = '#000033';
+        console.log(`🔄 Using dark harmonizing blue for White A kasina: #000033`);
       } else if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE) {
-        // Use exact outer ring color from Clear Light kasina
-        newBackgroundColor = '#0055ff';
-        console.log(`🔄 Using exact outer ring color for Clear Light kasina: #0055ff`);
+        // Use very dark royal blue that harmonizes with outer ring
+        newBackgroundColor = '#001133';
+        console.log(`🔄 Using dark harmonizing royal blue for Clear Light kasina: #001133`);
       } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
-        // Use exact outer ring color from Rainbow kasina
-        newBackgroundColor = '#1F00CC';
-        console.log(`🔄 Using exact outer ring color for Rainbow kasina: #1F00CC`);
+        // Use very dark blue-violet that harmonizes with outer ring
+        newBackgroundColor = '#0F0033';
+        console.log(`🔄 Using dark harmonizing blue-violet for Rainbow kasina: #0F0033`);
       } else {
         const currentKasinaColor = getKasinaColor(selectedKasina);
         newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
