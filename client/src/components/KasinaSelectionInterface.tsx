@@ -160,7 +160,8 @@ export default function KasinaSelectionInterface({
               }}
             >
               <div style={{ fontSize: '32px', marginBottom: '8px' }}>🎨</div>
-              <div>Color Kasinas</div>
+              <div>Color</div>
+              <div>Kasinas</div>
             </button>
             
 {/* Elemental kasinas only in Visual mode - complex shaders not ready for Breath mode */}
@@ -220,7 +221,8 @@ export default function KasinaSelectionInterface({
               }}
             >
               <div style={{ fontSize: '32px', marginBottom: '8px' }}>🔮</div>
-              <div>Vajrayana Kasinas</div>
+              <div>Vajrayana</div>
+              <div>Kasinas</div>
             </button>
           </div>
           

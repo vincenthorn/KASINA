@@ -77,6 +77,7 @@ The application follows a monorepo structure with a client-server architecture:
 ## Changelog
 
 Changelog:
+- June 20, 2025: Extended Breath mode to include Vajrayana kasinas while preserving Color kasina functionality. Fixed kasina scaling issues where Vajrayana kasinas appeared tiny (0.019x scale). Added proper kasina type detection and scaling logic for vajrayana kasinas (0.8x multiplier). Updated kasina selection interface formatting to match Visual mode with line breaks between "Color" and "Kasinas", "Vajrayana" and "Kasinas". Completed Breath mode expansion with all Vajrayana kasinas (White A, Om, Ah, Hum, Rainbow, Clear Light) now working with breath animation
 - June 20, 2025: Completed and ready for deployment - New Breath Kasina interface with purple gradient design, circular feature icons (Visual Biofeedback, Auto-calibration, Force detection, Bluetooth connection), top-aligned layout, centered device icon, and Premium/Friend access controls. Fixed cancel button in kasina selection to navigate back instead of starting session. Updated chart titles: "Practice Breakdown" → "Practice Modes", "Kasina Breakdown" → "Kasina Usage". Made Practice Modes chart non-clickable with hover tooltips showing detailed breakdowns without grey background effects. Fixed Visual Mode custom color smart backgrounds, changed basic kasinas to black backgrounds in Breath mode, updated multiple users in production database with new subscription roles
 - June 19, 2025: Initial setup
 
