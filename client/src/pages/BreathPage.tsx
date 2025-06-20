@@ -183,12 +183,12 @@ const BreathPage: React.FC = () => {
         </div>
       )}
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex flex-col items-center justify-center p-4">
+      <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4">
         {/* Page Title */}
-        <h1 className="text-4xl font-bold text-white mb-12 text-center">Breath Kasina</h1>
+        <h1 className="text-4xl font-bold text-white mb-8 text-center">Breath Kasina</h1>
         
         {/* Main Interface Card */}
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-4xl">
           <div 
             className="rounded-2xl p-8 shadow-2xl border border-purple-500/30"
             style={{
@@ -196,30 +196,35 @@ const BreathPage: React.FC = () => {
               boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)'
             }}
           >
-            {/* Device Icon and Header */}
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 mx-auto mb-4 bg-blue-500/20 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
-                  <div className="w-4 h-4 bg-white rounded-full"></div>
+            {/* Header Section - Horizontal Layout */}
+            <div className="flex items-center gap-8 mb-6">
+              {/* Device Icon */}
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                    <div className="w-4 h-4 bg-white rounded-full"></div>
+                  </div>
                 </div>
               </div>
               
-              <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center gap-3">
-                🌀 Vernier Respiration Belt
-              </h2>
-              
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <span className="bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">
-                  Premium
-                </span>
-                <span className="bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">
-                  Official
-                </span>
+              {/* Title and Description */}
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-2">
+                  <h2 className="text-2xl font-bold text-white">
+                    🌀 Vernier Respiration Belt
+                  </h2>
+                  <span className="bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">
+                    Premium
+                  </span>
+                  <span className="bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">
+                    Official
+                  </span>
+                </div>
+                
+                <p className="text-purple-100 text-sm leading-relaxed">
+                  Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection.
+                </p>
               </div>
-              
-              <p className="text-purple-100 text-sm leading-relaxed">
-                Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection.
-              </p>
             </div>
 
             {/* Error Display */}
@@ -229,51 +234,50 @@ const BreathPage: React.FC = () => {
               </div>
             )}
 
-            {/* Feature Icons Grid */}
+            {/* Feature Icons Grid - Horizontal Layout */}
+            <div className="grid grid-cols-4 gap-4 mb-6">
+              <div className="text-center p-3 bg-white/10 rounded-lg">
+                <div className="text-xl mb-1">📱</div>
+                <p className="text-white text-xs font-medium">Bluetooth connection</p>
+              </div>
+              <div className="text-center p-3 bg-white/10 rounded-lg">
+                <div className="text-xl mb-1">⚙️</div>
+                <p className="text-white text-xs font-medium">Auto-calibration</p>
+              </div>
+              <div className="text-center p-3 bg-white/10 rounded-lg">
+                <div className="text-xl mb-1">🫁</div>
+                <p className="text-white text-xs font-medium">Force detection</p>
+              </div>
+              <div className="text-center p-3 bg-white/10 rounded-lg">
+                <div className="text-xl mb-1">🧘</div>
+                <p className="text-white text-xs font-medium">Visual meditation</p>
+              </div>
+            </div>
+
+            {/* Bottom Row - Professional Grade and Connection Status */}
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <div className="text-2xl mb-2">📱</div>
-                <p className="text-white text-sm font-medium">Bluetooth connection</p>
-              </div>
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <div className="text-2xl mb-2">⚙️</div>
-                <p className="text-white text-sm font-medium">Auto-calibration</p>
-              </div>
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <div className="text-2xl mb-2">🫁</div>
-                <p className="text-white text-sm font-medium">Force detection</p>
-              </div>
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <div className="text-2xl mb-2">🧘</div>
-                <p className="text-white text-sm font-medium">Visual meditation</p>
-              </div>
-            </div>
-
-            {/* Professional Grade Section */}
-            <div className="mb-6 p-4 bg-white/5 rounded-lg border border-purple-300/20">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-lg">🏆</span>
-                <h3 className="text-white font-semibold">Professional Grade Accuracy</h3>
-              </div>
-              <p className="text-purple-100 text-sm">
-                Uses actual respiratory force measurements (Newtons) for unprecedented precision in breath tracking.
-              </p>
-            </div>
-
-            {/* Connection Status */}
-            <div className="mb-6 p-4 bg-white/5 rounded-lg border border-purple-300/20">
-              <div className="flex items-center gap-2 mb-2">
-                <div className={`w-3 h-3 rounded-full ${isConnected ? 'bg-green-400' : 'bg-gray-400'}`}></div>
-                <span className="text-white font-medium">
-                  {isConnected ? 'Ready to connect to your Vernier GDX device' : 'Ready to connect to your Vernier GDX device'}
-                </span>
-              </div>
-              
-              {isConnected && (
-                <div className="text-sm text-purple-200">
-                  Current Force: <span className="font-mono text-blue-300">{currentForce.toFixed(2)} N</span>
+              <div className="p-4 bg-white/5 rounded-lg border border-purple-300/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-lg">🏆</span>
+                  <h3 className="text-white font-semibold">Professional Grade Accuracy</h3>
                 </div>
-              )}
+                <p className="text-purple-100 text-sm">
+                  Uses actual respiratory force measurements (Newtons) for unprecedented precision in breath tracking.
+                </p>
+              </div>
+
+              <div className="p-4 bg-white/5 rounded-lg border border-purple-300/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className={`w-3 h-3 rounded-full ${isConnected ? 'bg-green-400' : 'bg-gray-400'}`}></div>
+                  <span className="text-white font-medium">Ready to connect to your Vernier GDX device</span>
+                </div>
+                
+                {isConnected && (
+                  <div className="text-sm text-purple-200">
+                    Current Force: <span className="font-mono text-blue-300">{currentForce.toFixed(2)} N</span>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Live Preview (when connected) */}
