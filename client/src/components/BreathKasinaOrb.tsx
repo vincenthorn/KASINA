@@ -1308,6 +1308,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         // Elemental kasinas need breath-responsive scaling based on orbSize
         finalScale = (orbSize / 150) * 1.5; // Increased multiplier to match Color kasina scale
         console.log(`🔥 Elemental kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
+      } else if (kasConfig.type === 'vajrayana') {
+        // Vajrayana kasinas need proper scaling - they are React components, not simple spheres
+        finalScale = (orbSize / 150) * 0.8; // Appropriate scaling for Vajrayana components
+        console.log(`🔮 Vajrayana kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
       } else {
         // Default scaling for other types
         finalScale = cappedScale * 0.008;

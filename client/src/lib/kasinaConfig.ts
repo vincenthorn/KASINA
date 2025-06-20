@@ -208,6 +208,48 @@ export const KASINA_CONFIGS: Record<string, KasinaConfig> = {
     scaling: SCALING_PRESETS.vajrayana,
     requiresShader: false,
     backgroundEnabled: true
+  },
+  rainbow_kasina: {
+    name: 'Rainbow',
+    type: 'vajrayana',
+    scaling: SCALING_PRESETS.vajrayana,
+    requiresShader: false,
+    backgroundEnabled: true
+  },
+  white_a_kasina: {
+    name: 'White A',
+    type: 'vajrayana',
+    scaling: SCALING_PRESETS.vajrayana,
+    requiresShader: false,
+    backgroundEnabled: true
+  },
+  clear_light_thigle: {
+    name: 'Clear Light',
+    type: 'vajrayana',
+    scaling: SCALING_PRESETS.vajrayana,
+    requiresShader: false,
+    backgroundEnabled: true
+  },
+  om_kasina: {
+    name: 'OM',
+    type: 'vajrayana',
+    scaling: SCALING_PRESETS.vajrayana,
+    requiresShader: false,
+    backgroundEnabled: true
+  },
+  ah_kasina: {
+    name: 'AH',
+    type: 'vajrayana',
+    scaling: SCALING_PRESETS.vajrayana,
+    requiresShader: false,
+    backgroundEnabled: true
+  },
+  hum_kasina: {
+    name: 'HUM',
+    type: 'vajrayana',
+    scaling: SCALING_PRESETS.vajrayana,
+    requiresShader: false,
+    backgroundEnabled: true
   }
 };
 
