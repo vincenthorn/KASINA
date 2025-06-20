@@ -395,7 +395,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
             </svg>
             {chartMode === 'overview' 
-              ? 'Kasina Breakdown' 
+              ? 'Kasina Usage' 
               : chartMode === 'color' 
                 ? 'Color Kasinas' 
                 : chartMode === 'elemental'

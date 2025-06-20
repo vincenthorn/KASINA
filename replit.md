@@ -77,7 +77,7 @@ The application follows a monorepo structure with a client-server architecture:
 ## Changelog
 
 Changelog:
-- June 20, 2025: Completed and ready for deployment - New Breath Kasina interface with purple gradient design, circular feature icons (Visual Biofeedback, Auto-calibration, Force detection, Bluetooth connection), top-aligned layout, centered device icon, and Premium/Friend access controls. Fixed Visual Mode custom color smart backgrounds, changed basic kasinas to black backgrounds in Breath mode, updated multiple users in production database with new subscription roles
+- June 20, 2025: Completed and ready for deployment - New Breath Kasina interface with purple gradient design, circular feature icons (Visual Biofeedback, Auto-calibration, Force detection, Bluetooth connection), top-aligned layout, centered device icon, and Premium/Friend access controls. Fixed cancel button in kasina selection to navigate back instead of starting session. Updated chart titles: "Practice Breakdown" → "Practice Mode", "Kasina Breakdown" → "Kasina Usage". Fixed Visual Mode custom color smart backgrounds, changed basic kasinas to black backgrounds in Breath mode, updated multiple users in production database with new subscription roles
 - June 19, 2025: Initial setup
 
 ## User Preferences
