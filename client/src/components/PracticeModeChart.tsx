@@ -214,14 +214,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     return null;
   };
 
-  // Handle click for drill-down (both bar and legend)
-  const handleSeriesClick = (series: string) => {
-    // Check if this series has any data
-    const seriesTotal = chartData.reduce((sum, modeData) => sum + (modeData[series] || 0), 0);
-    if (seriesTotal > 0) {
-      setDrillDownSeries(series);
-    }
-  };
+  // Removed drill-down functionality - chart is now view-only
 
   if (chartData.length === 0) {
     return (
@@ -321,9 +314,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
         ) : (
           // Main stacked bar chart view
           <div className="flex flex-col gap-6">
-            <div className="text-center text-gray-400 text-sm">
-              Click on a section to see detailed breakdown
-            </div>
+
             
             {/* Reserved space for tooltip to prevent layout shift */}
             <div className="flex justify-center h-10">
@@ -368,27 +359,18 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                     stackId="mode"
                     fill={getSeriesColor('Color Kasinas')}
                     radius={[0, 0, 0, 0]}
-                    onClick={() => handleSeriesClick('Color Kasinas')}
-                    style={{ cursor: 'pointer' }}
-                    shape={(props: any) => <CustomBar {...props} dataKey="Color Kasinas" setHoveredSegment={setHoveredSegment} />}
                   />
                   <Bar 
                     dataKey="Elemental Kasinas"
                     stackId="mode"
                     fill={getSeriesColor('Elemental Kasinas')}
                     radius={[0, 0, 0, 0]}
-                    onClick={() => handleSeriesClick('Elemental Kasinas')}
-                    style={{ cursor: 'pointer' }}
-                    shape={(props: any) => <CustomBar {...props} dataKey="Elemental Kasinas" setHoveredSegment={setHoveredSegment} />}
                   />
                   <Bar 
                     dataKey="Vajrayana Kasinas"
                     stackId="mode"
                     fill={getSeriesColor('Vajrayana Kasinas')}
                     radius={[4, 4, 0, 0]}
-                    onClick={() => handleSeriesClick('Vajrayana Kasinas')}
-                    style={{ cursor: 'pointer' }}
-                    shape={(props: any) => <CustomBar {...props} dataKey="Vajrayana Kasinas" setHoveredSegment={setHoveredSegment} />}
                   />
                   </BarChart>
                 </ResponsiveContainer>
@@ -408,9 +390,9 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
                 return (
                   <div 
                     key={series}
-                    className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent hover:border-gray-600 transition-all cursor-pointer h-12"
+                    className="flex items-center p-2 px-3 md:p-3 md:px-4 rounded-full border border-transparent h-12"
                     style={{ backgroundColor: seriesColor }}
-                    onClick={() => handleSeriesClick(series)}
+
                   >
                     <span className="mr-2 text-xl md:text-2xl">{seriesEmoji}</span>
                     <span className={`text-sm md:text-base font-medium ${getTextColor(seriesColor)}`}>
