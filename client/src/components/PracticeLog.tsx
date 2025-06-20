@@ -48,6 +48,16 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType,
     (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
   );
 
+  // Debug logging to compare with chart data
+  console.log('📝 Practice Log - Total sessions:', sessions.length);
+  console.log('📝 Practice Log - First 5 sessions:', sessions.slice(0, 5).map(s => ({
+    id: s.id,
+    kasinaType: s.kasinaType,
+    kasinaName: s.kasinaName,
+    duration: s.duration,
+    timestamp: s.timestamp
+  })));
+
   // Function to load more sessions
   const handleLoadMore = () => {
     setDisplayCount(prevCount => prevCount + LOAD_INCREMENT);

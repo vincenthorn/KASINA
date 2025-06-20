@@ -99,6 +99,8 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
       const mode = session.kasinaName === 'Visual Kasina' ? 'Visual' : 'Breath';
       const series = getKasinaSeries(session.kasinaType);
       
+
+      
       if (!modeData[mode]) {
         modeData[mode] = {};
       }
@@ -110,6 +112,7 @@ const PracticeModeChart: React.FC<PracticeModeChartProps> = ({ sessions }) => {
     const data: any[] = [];
     Object.entries(modeData).forEach(([mode, seriesData]) => {
       const total = Object.values(seriesData).reduce((sum, val) => sum + val, 0);
+      
       if (total > 0) {
         data.push({
           mode,
