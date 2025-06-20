@@ -235,21 +235,31 @@ const BreathPage: React.FC = () => {
 
             {/* Feature Icons Grid - Horizontal Layout */}
             <div className="grid grid-cols-4 gap-4 mb-6">
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-xl mb-1">📱</div>
-                <p className="text-white text-xs font-medium">Bluetooth connection</p>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-purple-600 to-purple-800 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-8 h-8 bg-purple-400 rounded-full flex items-center justify-center">
+                    <div className="w-4 h-4 bg-white rounded-full"></div>
+                  </div>
+                </div>
+                <p className="text-white text-sm font-medium">Visual Biofeedback</p>
               </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-xl mb-1">⚙️</div>
-                <p className="text-white text-xs font-medium">Auto-calibration</p>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-purple-600 to-purple-800 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="text-yellow-300 text-xl">⚙️</div>
+                </div>
+                <p className="text-white text-sm font-medium">Auto-calibration</p>
               </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-xl mb-1">🫁</div>
-                <p className="text-white text-xs font-medium">Force detection</p>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-purple-600 to-purple-800 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="text-red-400 text-xl">🫁</div>
+                </div>
+                <p className="text-white text-sm font-medium">Force detection</p>
               </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-xl mb-1">🧘</div>
-                <p className="text-white text-xs font-medium">Visual meditation</p>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-purple-600 to-purple-800 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="text-gray-300 text-xl">💻</div>
+                </div>
+                <p className="text-white text-sm font-medium">Bluetooth connection</p>
               </div>
             </div>
 
