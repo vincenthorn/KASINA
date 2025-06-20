@@ -21,9 +21,11 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     hideControls: isFocusMode // Only hide controls in focus mode
   });
 
-  // Check if user is admin or premium
+  // Check if user is admin, premium, or friend
   const isAdmin = email === "admin@kasina.app";
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
+  const isFriend = subscriptionType === "friend";
+  const hasBreathAccess = isAdmin || isPremium || isFriend;
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -37,8 +39,14 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
     { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
     { path: "/meditation", label: "Watch", icon: <Monitor className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
+  ] : hasBreathAccess ? [
+    // Premium and Friend users: Visual → Breath → Reflect
+    { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
+    { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
+    { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
+    { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
   ] : [
-    // Regular users: Visual → Reflect
+    // Freemium users: Visual → Reflect only
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },

@@ -50,13 +50,35 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
     checkAuthStatus();
   }, [checkAuthStatus]);
 
-  // Check if user is authenticated and is an admin
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
-  
-  // Redirect non-admin users to home page
+
   if (email !== "admin@kasina.app") {
+    return <Navigate to="/" />;
+  }
+
+  return <>{children}</>;
+}
+
+// Route that requires premium, friend, or admin access
+function PremiumFriendRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, email, subscriptionType, checkAuthStatus } = useAuth();
+
+  useEffect(() => {
+    checkAuthStatus();
+  }, [checkAuthStatus]);
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
+
+  const isAdmin = email === "admin@kasina.app";
+  const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
+  const isFriend = subscriptionType === "friend";
+  const hasAccess = isAdmin || isPremium || isFriend;
+
+  if (!hasAccess) {
     return <Navigate to="/" />;
   }
 
@@ -139,11 +161,11 @@ function App() {
               <Route
                 path="/breath"
                 element={
-                  <AdminOnlyRoute>
+                  <PremiumFriendRoute>
                     <ErrorBoundary>
                       <BreathPage />
                     </ErrorBoundary>
-                  </AdminOnlyRoute>
+                  </PremiumFriendRoute>
                 }
               />
               

@@ -166,9 +166,11 @@ const HomePage: React.FC = () => {
     }
   }, []);
   
-  // Check if user is admin or premium
+  // Check if user is admin, premium, or friend
   const isAdmin = email === "admin@kasina.app";
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
+  const isFriend = subscriptionType === "friend";
+  const hasBreathAccess = isAdmin || isPremium || isFriend;
   
   // Define features based on user role with correct order
   const features = isAdmin ? [
@@ -201,8 +203,31 @@ const HomePage: React.FC = () => {
       path: "/reflection",
       color: "from-gray-300 to-gray-500",
     },
+  ] : hasBreathAccess ? [
+    // Premium and Friend users: Visual → Breath → Reflect
+    {
+      icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
+      title: "Visual",
+      description: "Meditate on the sense of sight",
+      path: "/kasinas",
+      color: "from-red-600 to-red-800",
+    },
+    {
+      icon: <Waves className="h-10 w-10 text-blue-500" />,
+      title: "Breath",
+      description: "Breathing with the visual field",
+      path: "/breath",
+      color: "from-blue-600 to-blue-800",
+    },
+    {
+      icon: <PieChart className="h-10 w-10 text-white" />,
+      title: "Reflect",
+      description: "View your history & track your progress",
+      path: "/reflection",
+      color: "from-gray-300 to-gray-500",
+    },
   ] : [
-    // Regular users: Visual → Reflect
+    // Freemium users: Visual → Reflect only
     {
       icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
       title: "Visual",
