@@ -1259,8 +1259,17 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         newBackgroundColor = createDarkBackground(customColor);
       }
     } else {
-      const currentKasinaColor = getKasinaColor(selectedKasina);
-      newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
+      // Special handling for Vajrayana kasinas with black outer rings
+      if (selectedKasina === KASINA_TYPES.AH_KASINA || 
+          selectedKasina === KASINA_TYPES.OM_KASINA || 
+          selectedKasina === KASINA_TYPES.HUM_KASINA) {
+        // Force pure black background to match the black outer ring
+        newBackgroundColor = '#000000';
+        console.log(`🔄 Forcing black background for Vajrayana kasina: ${selectedKasina}`);
+      } else {
+        const currentKasinaColor = getKasinaColor(selectedKasina);
+        newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
+      }
     }
     
     setCurrentBackgroundColor(newBackgroundColor);
