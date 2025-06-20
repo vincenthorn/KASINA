@@ -93,7 +93,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.OM_KASINA]: "#000000",       // Black to match OM outer ring
   [KASINA_TYPES.AH_KASINA]: "#000000",       // Black to match AH outer ring
   [KASINA_TYPES.HUM_KASINA]: "#000000",      // Black to match HUM outer ring
-  [KASINA_TYPES.RAINBOW_KASINA]: "#0F0033"   // Very dark blue-violet harmonizing with outer ring
+  [KASINA_TYPES.RAINBOW_KASINA]: "#1F00CC"   // Exact blue-violet from Rainbow outer ring
 };
 
 // Kasina emojis

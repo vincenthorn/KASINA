@@ -1275,9 +1275,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         newBackgroundColor = '#001133';
         console.log(`🔄 Using dark harmonizing royal blue for Clear Light kasina: #001133`);
       } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
-        // Use very dark blue-violet that harmonizes with outer ring
-        newBackgroundColor = '#0F0033';
-        console.log(`🔄 Using dark harmonizing blue-violet for Rainbow kasina: #0F0033`);
+        // Use exact blue-violet from outer ring (this one was working well)
+        newBackgroundColor = '#1F00CC';
+        console.log(`🔄 Using exact outer ring color for Rainbow kasina: #1F00CC`);
       } else {
         const currentKasinaColor = getKasinaColor(selectedKasina);
         newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
