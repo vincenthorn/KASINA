@@ -1278,6 +1278,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         // Use exact blue-violet from outer ring (this one was working well)
         newBackgroundColor = '#1F00CC';
         console.log(`🔄 Using exact outer ring color for Rainbow kasina: #1F00CC`);
+      } else if (selectedKasina === KASINA_TYPES.WATER || 
+                 selectedKasina === KASINA_TYPES.AIR || 
+                 selectedKasina === KASINA_TYPES.FIRE || 
+                 selectedKasina === KASINA_TYPES.EARTH || 
+                 selectedKasina === KASINA_TYPES.SPACE || 
+                 selectedKasina === KASINA_TYPES.LIGHT) {
+        // Use predefined background colors for elemental kasinas
+        newBackgroundColor = KASINA_BACKGROUNDS[selectedKasina] || '#000000';
+        console.log(`🌊 Using predefined background for elemental kasina ${selectedKasina}: ${newBackgroundColor}`);
       } else {
         const currentKasinaColor = getKasinaColor(selectedKasina);
         newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);

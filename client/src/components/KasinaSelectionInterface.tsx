@@ -164,36 +164,35 @@ export default function KasinaSelectionInterface({
               <div>Kasinas</div>
             </button>
             
-{/* Elemental kasinas only in Visual mode - complex shaders not ready for Breath mode */}
-            {mode === 'visual' && (
-              <button
-                onClick={() => onSeriesSelection('ELEMENTAL')}
-                style={{
-                  backgroundColor: '#059669',
-                  color: 'white',
-                  border: 'none',
-                  padding: '24px 32px',
-                  borderRadius: '16px',
-                  fontSize: '18px',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  width: '180px',
-                  textAlign: 'center',
-                  transition: 'all 0.2s ease-out'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.backgroundColor = '#047857';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.backgroundColor = '#059669';
-                }}
-              >
-                <div style={{ fontSize: '32px', marginBottom: '8px' }}>🌊</div>
-                <div>Elemental Kasinas</div>
-              </button>
-            )}
+{/* Elemental kasinas now available in both Visual and Breath modes */}
+            <button
+              onClick={() => onSeriesSelection('ELEMENTAL')}
+              style={{
+                backgroundColor: '#059669',
+                color: 'white',
+                border: 'none',
+                padding: '24px 32px',
+                borderRadius: '16px',
+                fontSize: '18px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                width: '180px',
+                textAlign: 'center',
+                transition: 'all 0.2s ease-out'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.backgroundColor = '#047857';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.backgroundColor = '#059669';
+              }}
+            >
+              <div style={{ fontSize: '32px', marginBottom: '8px' }}>🌊</div>
+              <div>Elemental</div>
+              <div>Kasinas</div>
+            </button>
                 
             {/* Vajrayana kasinas now available in both Visual and Breath modes */}
             <button
