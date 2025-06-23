@@ -81,8 +81,8 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.YELLOW]: "#000000", // Default black
   [KASINA_TYPES.CUSTOM]: "#000000", // Default black
   // Elemental Kasinas
-  [KASINA_TYPES.WATER]: "#001a33", // Deep oceanic blue background
-  [KASINA_TYPES.AIR]: "#87CEEB",   // Light sky blue for airier quality
+  [KASINA_TYPES.WATER]: "#000d1a", // Dark navy blue background for better contrast
+  [KASINA_TYPES.AIR]: "#001122",   // Dark blue-grey for better contrast
   [KASINA_TYPES.FIRE]: "#000000",  // Pure black background
   [KASINA_TYPES.EARTH]: "#241000", // Very dark rich brown (almost black)
   [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)

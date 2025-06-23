@@ -80,11 +80,12 @@ export const waterShader = {
     void main() {
       float flowValue = waterFlow(vPosition, time);
       
-      vec3 deepOceanBlue = vec3(0.0, 0.2, 0.5);
-      vec3 midnightBlue = vec3(0.05, 0.25, 0.6);
-      vec3 azureBlue = vec3(0.1, 0.4, 0.75);
-      vec3 caribbeanBlue = vec3(0.0, 0.5, 0.8);
-      vec3 tropicalBlue = vec3(0.2, 0.65, 0.9);
+      // Brighter, more vibrant water colors for better contrast against dark background
+      vec3 deepBlue = vec3(0.1, 0.4, 0.8);      // Brighter deep blue
+      vec3 oceanBlue = vec3(0.2, 0.5, 0.9);     // Bright ocean blue
+      vec3 aquaBlue = vec3(0.3, 0.7, 1.0);      // Bright aqua
+      vec3 lightAqua = vec3(0.4, 0.8, 1.0);     // Light aqua
+      vec3 crystalBlue = vec3(0.6, 0.9, 1.0);   // Crystal blue highlights
       
       vec3 p = normalize(vPosition);
       float waves = 0.0;
@@ -97,29 +98,30 @@ export const waterShader = {
       vec3 waterColor;
       if (flowValue < 0.25) {
         float t = flowValue / 0.25;
-        waterColor = mix(deepOceanBlue, midnightBlue, t);
+        waterColor = mix(deepBlue, oceanBlue, t);
       } else if (flowValue < 0.5) {
         float t = (flowValue - 0.25) / 0.25;
-        waterColor = mix(midnightBlue, azureBlue, t);
+        waterColor = mix(oceanBlue, aquaBlue, t);
       } else if (flowValue < 0.75) {
         float t = (flowValue - 0.5) / 0.25;
-        waterColor = mix(azureBlue, caribbeanBlue, t);
+        waterColor = mix(aquaBlue, lightAqua, t);
       } else {
         float t = (flowValue - 0.75) / 0.25;
-        waterColor = mix(caribbeanBlue, tropicalBlue, t);
+        waterColor = mix(lightAqua, crystalBlue, t);
       }
       
       float fresnel = pow(1.0 - max(0.0, dot(normalize(vPosition), vec3(0.0, 0.0, 1.0))), 2.0);
-      // Use seamless 3D coordinates for ripples to avoid seams
-      float ripples = sin(length(p) * 30.0 - time * 1.0) * 0.008;
-      ripples += sin(p.x * 12.0 + p.y * 12.0 + p.z * 8.0 + time * 0.8) * 0.015;
-      ripples += sin(p.y * 8.0 + p.z * 8.0 + p.x * 6.0 + time * 1.2) * 0.012;
+      // Enhanced ripples for more dynamic water effect
+      float ripples = sin(length(p) * 30.0 - time * 1.0) * 0.015;
+      ripples += sin(p.x * 12.0 + p.y * 12.0 + p.z * 8.0 + time * 0.8) * 0.025;
+      ripples += sin(p.y * 8.0 + p.z * 8.0 + p.x * 6.0 + time * 1.2) * 0.02;
       
-      float glow = pow(1.0 - length(vPosition) * 0.5, 2.0) * 0.15;
-      float highlight = fresnel * 0.15;
+      // Enhanced glow and highlights for better visibility
+      float glow = pow(1.0 - length(vPosition) * 0.5, 2.0) * 0.25;
+      float highlight = fresnel * 0.25;
       
       vec3 finalColor = waterColor + ripples + glow + highlight;
-      gl_FragColor = vec4(finalColor, opacity * 0.9);
+      gl_FragColor = vec4(finalColor, opacity * 0.95);
     }
   `
 };
