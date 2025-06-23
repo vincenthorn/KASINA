@@ -16,7 +16,7 @@ interface KasinaRendererProps {
   showImmersiveBackground?: boolean;
 }
 
-// Unified shader materials for elemental kasinas
+// Unified shader materials for elemental kasinas - using seamless Visual mode water shader
 const waterShader = {
   uniforms: {
     time: { value: 0 },
@@ -33,7 +33,8 @@ const waterShader = {
       vPosition = position;
       
       vec3 pos = position;
-      pos += normal * sin(time * 2.0 + position.y * 10.0) * 0.01;
+      float deformAmount = 0.025;
+      pos += normal * sin(position.x * 2.0 + position.y * 3.0 + time * 0.7) * deformAmount;
       
       gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     }
@@ -45,17 +46,96 @@ const waterShader = {
     varying vec2 vUv;
     varying vec3 vPosition;
     
+    float hash(float n) {
+      return fract(sin(n) * 43758.5453);
+    }
+    
+    float noise(vec3 x) {
+      vec3 p = floor(x);
+      vec3 f = fract(x);
+      f = f * f * (3.0 - 2.0 * f);
+      
+      float n = p.x + p.y * 57.0 + p.z * 113.0;
+      return mix(
+        mix(
+          mix(hash(n), hash(n + 1.0), f.x),
+          mix(hash(n + 57.0), hash(n + 58.0), f.x),
+          f.y),
+        mix(
+          mix(hash(n + 113.0), hash(n + 114.0), f.x),
+          mix(hash(n + 170.0), hash(n + 171.0), f.x),
+          f.y),
+        f.z);
+    }
+    
+    float waterFlow(vec3 p, float t) {
+      // Use 3D position directly instead of spherical coordinates to avoid seams
+      vec3 pos = normalize(p);
+      
+      float flow = 0.0;
+      for (float i = 1.0; i <= 4.0; i++) {
+        float speed = 0.4 - 0.05 * i;
+        float scale = pow(1.8, i - 1.0);
+        float intensity = pow(0.7, i);
+        
+        // Use seamless 3D coordinates instead of spherical
+        vec3 flowCoord = pos * 3.0 * scale + vec3(
+          t * speed * 0.3,
+          t * speed * 0.5,
+          t * speed * 0.7
+        );
+        
+        flow += noise(flowCoord) * intensity;
+      }
+      
+      return flow * 0.6;
+    }
+    
     void main() {
-      vec2 uv = vUv;
+      float flowValue = waterFlow(vPosition, time);
       
-      float wave1 = sin(uv.x * 20.0 + time * 2.0) * 0.1;
-      float wave2 = sin(uv.y * 15.0 + time * 1.5) * 0.1;
-      float combined = wave1 + wave2;
+      // Brighter, more vibrant water colors for better contrast against dark background
+      vec3 deepBlue = vec3(0.1, 0.4, 0.8);      // Brighter deep blue
+      vec3 oceanBlue = vec3(0.2, 0.5, 0.9);     // Bright ocean blue
+      vec3 aquaBlue = vec3(0.3, 0.7, 1.0);      // Bright aqua
+      vec3 lightAqua = vec3(0.4, 0.8, 1.0);     // Light aqua
+      vec3 crystalBlue = vec3(0.6, 0.9, 1.0);   // Crystal blue highlights
       
-      vec3 waterColor = color + vec3(combined * 0.3);
-      waterColor = mix(waterColor, vec3(0.4, 0.8, 1.0), combined * 0.2);
+      vec3 p = normalize(vPosition);
+      float waves = 0.0;
+      waves += sin(p.x * 8.0 + p.y * 4.0 + time * 0.8) * 0.08;
+      waves += sin(p.y * 7.0 - p.z * 5.0 + time * 0.6) * 0.06;
+      waves += sin(p.z * 6.0 + p.x * 3.0 + time * 0.4) * 0.04;
       
-      gl_FragColor = vec4(waterColor, opacity);
+      flowValue += waves;
+      
+      vec3 waterColor;
+      if (flowValue < 0.25) {
+        float t = flowValue / 0.25;
+        waterColor = mix(deepBlue, oceanBlue, t);
+      } else if (flowValue < 0.5) {
+        float t = (flowValue - 0.25) / 0.25;
+        waterColor = mix(oceanBlue, aquaBlue, t);
+      } else if (flowValue < 0.75) {
+        float t = (flowValue - 0.5) / 0.25;
+        waterColor = mix(aquaBlue, lightAqua, t);
+      } else {
+        float t = (flowValue - 0.75) / 0.25;
+        waterColor = mix(lightAqua, crystalBlue, t);
+      }
+      
+      float fresnel = pow(1.0 - max(0.0, dot(normalize(vPosition), vec3(0.0, 0.0, 1.0))), 2.0);
+      // Enhanced ripples for more dynamic water effect
+      float ripples = sin(length(p) * 30.0 - time * 1.0) * 0.015;
+      ripples += sin(p.x * 12.0 + p.y * 12.0 + p.z * 8.0 + time * 0.8) * 0.025;
+      ripples += sin(p.y * 8.0 + p.z * 8.0 + p.x * 6.0 + time * 1.2) * 0.02;
+      
+      // Enhanced glow and highlights for better visibility
+      float glow = pow(1.0 - length(vPosition) * 0.5, 2.0) * 0.25;
+      float highlight = fresnel * 0.25;
+      
+      vec3 finalColor = waterColor + ripples + glow + highlight;
+      gl_FragColor = vec4(finalColor, opacity * 0.95);
     }
   `
 };
