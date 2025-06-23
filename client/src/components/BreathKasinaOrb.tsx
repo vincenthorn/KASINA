@@ -1122,8 +1122,18 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Removed complex color-changing logic for custom kasina
   // Custom kasina now uses user's selected color like other color kasinas
 
-  // Initialize and update background color whenever kasina changes
+  // Initialize and update background color whenever kasina changes - ONLY for non-elemental kasinas
   useEffect(() => {
+    // Skip background calculation for elemental kasinas - they use static predefined backgrounds
+    if (selectedKasina === KASINA_TYPES.WATER || 
+        selectedKasina === KASINA_TYPES.AIR || 
+        selectedKasina === KASINA_TYPES.FIRE || 
+        selectedKasina === KASINA_TYPES.EARTH || 
+        selectedKasina === KASINA_TYPES.SPACE || 
+        selectedKasina === KASINA_TYPES.LIGHT) {
+      return; // Skip - elemental backgrounds are handled in the main useEffect
+    }
+    
     let newBackgroundColor: string;
     
     if (selectedKasina === 'custom') {
@@ -1138,12 +1148,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       newBackgroundColor = calculateBackgroundColor(currentKasinaColor, backgroundIntensity);
     }
     
-    console.log(`🔄 Updating background for kasina: ${selectedKasina}, color: ${newBackgroundColor}`);
+    console.log(`🔄 NON-ELEMENTAL background update for kasina: ${selectedKasina}, color: ${newBackgroundColor}`);
     setCurrentBackgroundColor(newBackgroundColor);
   }, [selectedKasina, customColor, backgroundIntensity]);
 
-  // Initialize background color on component mount
+  // Initialize background color on component mount - ONLY for non-elemental kasinas
   useEffect(() => {
+    // Skip background calculation for elemental kasinas - they use static predefined backgrounds
+    if (selectedKasina === KASINA_TYPES.WATER || 
+        selectedKasina === KASINA_TYPES.AIR || 
+        selectedKasina === KASINA_TYPES.FIRE || 
+        selectedKasina === KASINA_TYPES.EARTH || 
+        selectedKasina === KASINA_TYPES.SPACE || 
+        selectedKasina === KASINA_TYPES.LIGHT) {
+      return; // Skip - elemental backgrounds are handled in the main useEffect
+    }
+    
     let initialBackgroundColor: string;
     
     if (selectedKasina === 'custom') {
@@ -1159,7 +1179,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
     
     setCurrentBackgroundColor(initialBackgroundColor);
-    console.log(`🚀 Initial background color set: ${initialBackgroundColor} for kasina: ${selectedKasina}`);
+    console.log(`🚀 NON-ELEMENTAL initial background color set: ${initialBackgroundColor} for kasina: ${selectedKasina}`);
   }, [selectedKasina, customColor]);
 
   // Update the orb size based on breath amplitude with hold detection
