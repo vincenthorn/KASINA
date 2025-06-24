@@ -20,7 +20,7 @@ const pool = new Pool({
 });
 
 async function importFreemiumFromCsv(csvFilePath) {
-  console.log(`📄 Processing CSV file: ${csvFilePath}`);
+  console.log(`Processing CSV file: ${csvFilePath}`);
   
   try {
     const csvData = fs.readFileSync(csvFilePath, 'utf8');
@@ -37,7 +37,7 @@ async function importFreemiumFromCsv(csvFilePath) {
       });
     });
 
-    console.log(`📊 Found ${records.length} records in CSV`);
+    console.log(`Found ${records.length} records in CSV`);
 
     let imported = 0;
     let skipped = 0;
@@ -47,48 +47,47 @@ async function importFreemiumFromCsv(csvFilePath) {
       const email = record.Email?.toLowerCase().trim();
       
       if (!email || email === 'email') {
-        console.log(`⚠️ Skipping invalid email: ${record.Email}`);
+        console.log(`Skipping invalid email: ${record.Email}`);
         skipped++;
         continue;
       }
 
       try {
         // Check if user already exists
-        const existingUser = await db.select().from(users).where(eq(users.email, email)).limit(1);
+        const existingUserQuery = 'SELECT id FROM users WHERE email = $1 LIMIT 1';
+        const existingUser = await pool.query(existingUserQuery, [email]);
         
-        if (existingUser.length > 0) {
-          console.log(`👤 User already exists: ${email}`);
+        if (existingUser.rows.length > 0) {
+          console.log(`User already exists: ${email}`);
           skipped++;
           continue;
         }
 
         // Insert new freemium user
-        await db.insert(users).values({
-          email: email,
-          subscriptionType: 'freemium'
-        });
+        const insertQuery = 'INSERT INTO users (email, subscription_type, created_at) VALUES ($1, $2, $3)';
+        await pool.query(insertQuery, [email, 'freemium', new Date()]);
 
-        console.log(`✅ Added freemium user: ${email}`);
+        console.log(`Added freemium user: ${email}`);
         imported++;
 
       } catch (error) {
-        console.error(`❌ Error processing ${email}:`, error.message);
+        console.error(`Error processing ${email}:`, error.message);
         errors++;
       }
     }
 
-    console.log('\n📈 Import Summary:');
-    console.log(`   ✅ Imported: ${imported} users`);
-    console.log(`   ⚠️ Skipped: ${skipped} users`);
-    console.log(`   ❌ Errors: ${errors} users`);
-    console.log(`   📊 Total processed: ${records.length} records`);
+    console.log('\nImport Summary:');
+    console.log(`   Imported: ${imported} users`);
+    console.log(`   Skipped: ${skipped} users`);
+    console.log(`   Errors: ${errors} users`);
+    console.log(`   Total processed: ${records.length} records`);
 
   } catch (error) {
-    console.error('❌ Failed to import CSV:', error);
+    console.error('Failed to import CSV:', error);
   } finally {
     // Close database connection
-    await sql.end();
-    console.log('🔌 Database connection closed');
+    await pool.end();
+    console.log('Database connection closed');
   }
 }
 
