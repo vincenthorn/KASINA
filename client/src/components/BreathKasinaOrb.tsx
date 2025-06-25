@@ -1249,69 +1249,68 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       console.error('Error updating orb DOM styles:', error);
     }
     
-    // Update background intensity sync with breathing
-    // scaledAmplitude represents breath state: higher = inhale (larger orb), lower = exhale (smaller orb)
-    const breathIntensity = scaledAmplitude * 0.8;
-    
-    let finalBackgroundIntensity;
-    
-    if (selectedKasina === 'custom') {
-      // Custom kasina: static background intensity (no breathing effect)
-      finalBackgroundIntensity = 0.3; // Fixed intensity for custom colors
-    } else {
-      // Standard color kasinas: lighten on inhale, darken on exhale
-      if (selectedKasina === 'water') {
-        finalBackgroundIntensity = 0.02 + breathIntensity * 0.10; // Much darker: base 0.02 + breathing adds up to 0.12
-      } else {
-        finalBackgroundIntensity = 0.1 + breathIntensity * 0.6; // Balanced effect: base 0.1 + breathing adds up to 0.7
-      }
-    }
-    
-    setBackgroundIntensity(finalBackgroundIntensity);
-    
     // Calculate and update background color based on current kasina
     let newBackgroundColor: string;
     
-    // Handle elemental kasinas FIRST to prevent override by dynamic calculation
+    // Handle elemental kasinas FIRST with NO dynamic calculations or breathing effects
     if (selectedKasina === KASINA_TYPES.WATER || 
         selectedKasina === KASINA_TYPES.AIR || 
         selectedKasina === KASINA_TYPES.FIRE || 
         selectedKasina === KASINA_TYPES.EARTH || 
         selectedKasina === KASINA_TYPES.SPACE || 
         selectedKasina === KASINA_TYPES.LIGHT) {
-      // Use predefined static background colors for elemental kasinas - no dynamic calculation
+      // Use predefined static background colors for elemental kasinas - NO breathing intensity calculation
       newBackgroundColor = KASINA_BACKGROUNDS[selectedKasina] || '#000000';
       console.log(`🌊 Using STATIC predefined background for elemental kasina ${selectedKasina}: ${newBackgroundColor}`);
-    } else if (selectedKasina === 'custom') {
-      // For custom kasinas, use static backgrounds with color tint (no breathing effect)
-      if (isColorDark(customColor)) {
-        newBackgroundColor = createLightBackground(customColor);
-      } else {
-        newBackgroundColor = createDarkBackground(customColor);
-      }
+      
+      // Skip all breathing intensity calculations for elemental kasinas
+      setBackgroundIntensity(0); // Set to 0 to prevent any dynamic effects
     } else {
-      // Special handling for Vajrayana kasinas to match their outer ring colors
-      if (selectedKasina === KASINA_TYPES.AH_KASINA || 
-          selectedKasina === KASINA_TYPES.OM_KASINA || 
-          selectedKasina === KASINA_TYPES.HUM_KASINA) {
-        // Force pure black background to match the black outer ring
-        newBackgroundColor = '#000000';
-        console.log(`🔄 Forcing black background for Vajrayana kasina: ${selectedKasina}`);
-      } else if (selectedKasina === KASINA_TYPES.WHITE_A_KASINA) {
-        // Use very dark blue that harmonizes with outer ring without competing
-        newBackgroundColor = '#000033';
-        console.log(`🔄 Using dark harmonizing blue for White A kasina: #000033`);
-      } else if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE) {
-        // Use very dark royal blue that harmonizes with outer ring
-        newBackgroundColor = '#001133';
-        console.log(`🔄 Using dark harmonizing royal blue for Clear Light kasina: #001133`);
-      } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
-        // Use exact blue-violet from outer ring (this one was working well)
-        newBackgroundColor = '#1F00CC';
-        console.log(`🔄 Using exact outer ring color for Rainbow kasina: #1F00CC`);
+      // For non-elemental kasinas, calculate breathing intensity
+      const breathIntensity = scaledAmplitude * 0.8;
+      let finalBackgroundIntensity;
+      
+      if (selectedKasina === 'custom') {
+        // Custom kasina: static background intensity (no breathing effect)
+        finalBackgroundIntensity = 0.3; // Fixed intensity for custom colors
       } else {
-        const currentKasinaColor = getKasinaColor(selectedKasina);
-        newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
+        // Standard color kasinas: lighten on inhale, darken on exhale
+        finalBackgroundIntensity = 0.1 + breathIntensity * 0.6; // Balanced effect: base 0.1 + breathing adds up to 0.7
+      }
+      
+      setBackgroundIntensity(finalBackgroundIntensity);
+      
+      if (selectedKasina === 'custom') {
+        // For custom kasinas, use static backgrounds with color tint (no breathing effect)
+        if (isColorDark(customColor)) {
+          newBackgroundColor = createLightBackground(customColor);
+        } else {
+          newBackgroundColor = createDarkBackground(customColor);
+        }
+      } else {
+        // Special handling for Vajrayana kasinas to match their outer ring colors
+        if (selectedKasina === KASINA_TYPES.AH_KASINA || 
+            selectedKasina === KASINA_TYPES.OM_KASINA || 
+            selectedKasina === KASINA_TYPES.HUM_KASINA) {
+          // Force pure black background to match the black outer ring
+          newBackgroundColor = '#000000';
+          console.log(`🔄 Forcing black background for Vajrayana kasina: ${selectedKasina}`);
+        } else if (selectedKasina === KASINA_TYPES.WHITE_A_KASINA) {
+          // Use very dark blue that harmonizes with outer ring without competing
+          newBackgroundColor = '#000033';
+          console.log(`🔄 Using dark harmonizing blue for White A kasina: #000033`);
+        } else if (selectedKasina === KASINA_TYPES.WHITE_A_THIGLE) {
+          // Use very dark royal blue that harmonizes with outer ring
+          newBackgroundColor = '#001133';
+          console.log(`🔄 Using dark harmonizing royal blue for Clear Light kasina: #001133`);
+        } else if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
+          // Use exact blue-violet from outer ring (this one was working well)
+          newBackgroundColor = '#1F00CC';
+          console.log(`🔄 Using exact outer ring color for Rainbow kasina: #1F00CC`);
+        } else {
+          const currentKasinaColor = getKasinaColor(selectedKasina);
+          newBackgroundColor = calculateBackgroundColor(currentKasinaColor, finalBackgroundIntensity);
+        }
       }
     }
     

@@ -1,0 +1,2003 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 70px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ Official Vernier data - Sensor: Force, Value: 10.383949279785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.38N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ Official Vernier data - Sensor: Force, Value: 10.481040954589844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.48N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina water scaled to 0.710 (orbSize: 71px)
+ Official Vernier data - Sensor: Force, Value: 10.562797546386719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.56N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ Official Vernier data - Sensor: Force, Value: 10.639450073242188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ Official Vernier data - Sensor: Force, Value: 10.713539123535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ Official Vernier data - Sensor: Force, Value: 10.774864196777344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ Official Vernier data - Sensor: Force, Value: 10.810630798339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ Official Vernier data - Sensor: Force, Value: 10.808074951171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ Official Vernier data - Sensor: Force, Value: 10.797859191894531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina water scaled to 0.720 (orbSize: 72px)
+ Official Vernier data - Sensor: Force, Value: 10.785079956054688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.79N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 70px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 70px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 70px
+ 🔥 Elemental kasina water scaled to 0.700 (orbSize: 70px)
+ Official Vernier data - Sensor: Force, Value: 10.741645812988281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.74N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 69px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 69px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina water scaled to 0.690 (orbSize: 69px)
+ Official Vernier data - Sensor: Force, Value: 10.613899230957031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 67px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 67px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina water scaled to 0.670 (orbSize: 67px)
+ Official Vernier data - Sensor: Force, Value: 10.455490112304688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.46N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 66px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 66px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 66px
+ 🔥 Elemental kasina water scaled to 0.660 (orbSize: 66px)
+ Official Vernier data - Sensor: Force, Value: 10.281745910644531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.28N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 64px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 64px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina water scaled to 0.640 (orbSize: 64px)
+ Official Vernier data - Sensor: Force, Value: 10.0645751953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.06N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 62px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 62px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 62px
+ 🔥 Elemental kasina water scaled to 0.620 (orbSize: 62px)
+ Official Vernier data - Sensor: Force, Value: 9.901054382324219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 61px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 61px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina water scaled to 0.610 (orbSize: 61px)
+ Official Vernier data - Sensor: Force, Value: 9.765640258789062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🛡️ Session recovery started for breath (session_1750819042763_7skixzmhs)
+ 🛡️ Started session recovery tracking for breath meditation
+ Requesting screen wake lock...
+ 🔒 Wake lock requested to prevent screen sleep during meditation
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Screen wake lock enabled - screen will remain on
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina water scaled to 0.590 (orbSize: 59px)
+ Official Vernier data - Sensor: Force, Value: 9.637886047363281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina water scaled to 0.580 (orbSize: 58px)
+ Official Vernier data - Sensor: Force, Value: 9.522911071777344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.52N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 57px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 57px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina water scaled to 0.570 (orbSize: 57px)
+ Official Vernier data - Sensor: Force, Value: 9.395164489746094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.40N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 56px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 56px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina water scaled to 0.560 (orbSize: 56px)
+ Official Vernier data - Sensor: Force, Value: 9.267410278320312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 54px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 54px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 54px
+ 🔥 Elemental kasina water scaled to 0.540 (orbSize: 54px)
+ Official Vernier data - Sensor: Force, Value: 9.149879455566406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 53px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 53px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 53px
+ 🔥 Elemental kasina water scaled to 0.530 (orbSize: 53px)
+ Official Vernier data - Sensor: Force, Value: 9.022132873535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.02N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 52px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 52px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 52px
+ 🔥 Elemental kasina water scaled to 0.520 (orbSize: 52px)
+ Official Vernier data - Sensor: Force, Value: 8.896934509277344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 50px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 50px
+ 🔥 Elemental kasina water scaled to 0.500 (orbSize: 50px)
+ Official Vernier data - Sensor: Force, Value: 8.77685546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.78N
+ Official Vernier data - Sensor: Respiration Rate, Value: 6.8233513832092285, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 49px
+ 🔥 Elemental kasina water scaled to 0.490 (orbSize: 49px)
+ Official Vernier data - Sensor: Force, Value: 8.687423706054688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ Official Vernier data - Sensor: Force, Value: 8.618438720703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.62N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 48px
+ 🔥 Elemental kasina water scaled to 0.480 (orbSize: 48px)
+ Official Vernier data - Sensor: Force, Value: 8.5545654296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 47px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 47px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 47px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 47px
+ 🔥 Elemental kasina water scaled to 0.470 (orbSize: 47px)
+ Official Vernier data - Sensor: Force, Value: 8.48046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.48N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 46px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 46px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: water, Type: elemental, orbSize: 46px
+ 🔥 Elemental kasina water scaled to 0.460 (orbSize: 46px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 46px
+ 🔥 Elemental kasina water scaled to 0.460 (orbSize: 46px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 46px
+ 🔥 Elemental kasina water scaled to 0.460 (orbSize: 46px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 46px
+ 🔥 Elemental kasina water scaled to 0.460 (orbSize: 46px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 46px
+ 🔥 Elemental kasina water scaled to 0.460 (orbSize: 46px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 46px
+ 🔥 Elemental kasina water scaled to 0.460 (orbSize: 46px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 46px
+ 🔥 Elemental kasina water scaled to 0.460 (orbSize: 46px)
+ Official Vernier data - Sensor: Force, Value: 8.391044616699219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 45px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 45px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 46px
+ 🔥 Elemental kasina water scaled to 0.460 (orbSize: 46px)
+ Official Vernier data - Sensor: Force, Value: 8.299064636230469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.30N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.212196350097656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.21N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 8.125328063964844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.13N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: water, Type: elemental, orbSize: 45px
+ 🔥 Elemental kasina water scaled to 0.450 (orbSize: 45px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 43px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 43px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 43px
+ 🔥 Elemental kasina water scaled to 0.430 (orbSize: 43px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 43px
+ 🔥 Elemental kasina water scaled to 0.430 (orbSize: 43px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 43px
+ 🔥 Elemental kasina water scaled to 0.430 (orbSize: 43px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 43px
+ 🔥 Elemental kasina water scaled to 0.430 (orbSize: 43px)
+ Official Vernier data - Sensor: Force, Value: 8.010353088378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: water, Type: elemental, orbSize: 43px
+ 🔥 Elemental kasina water scaled to 0.430 (orbSize: 43px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 43px
+ 🔥 Elemental kasina water scaled to 0.430 (orbSize: 43px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 41px
+ 🔥 Elemental kasina water scaled to 0.410 (orbSize: 41px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 41px
+ 🔥 Elemental kasina water scaled to 0.410 (orbSize: 41px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 41px
+ 🔥 Elemental kasina water scaled to 0.410 (orbSize: 41px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 41px
+ 🔥 Elemental kasina water scaled to 0.410 (orbSize: 41px)
+ Official Vernier data - Sensor: Force, Value: 7.918373107910156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ Official Vernier data - Sensor: Force, Value: 7.854499816894531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.85N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 40px
+ 🔥 Elemental kasina water scaled to 0.400 (orbSize: 40px)
+ Official Vernier data - Sensor: Force, Value: 7.770179748535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 39px
+ 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 39px
+ 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 39px
+ 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 39px
+ 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 39px
+ 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 39px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 39px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 39px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 39px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 39px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 39px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 39px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.390 (orbSize: 39px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.6960906982421875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.70N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 38px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 38px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 38px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.380 (orbSize: 38px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.6117706298828125, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.61N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 37px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 37px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 37px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.370 (orbSize: 37px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.5197906494140625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.52N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.458473205566406, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.46N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 36px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 36px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.360 (orbSize: 36px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.3997039794921875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.40N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 35px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 35px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.3639373779296875, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.36N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 35px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 35px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.356269836425781, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.36N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 35px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 35px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 35px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.350 (orbSize: 35px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.3000640869140625, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.30N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 34px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 34px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 34px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.340 (orbSize: 34px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.228523254394531, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.23N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 33px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 33px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Force, Value: 7.1927490234375, Units: N
+useVernierBreathOfficial.ts:141 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.19N
+useVernierBreathOfficial.ts:132 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 33px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1284 🌊 Using STATIC predefined background for elemental kasina water: #001122
+BreathKasinaOrb.tsx:1321 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 33px
+BreathKasinaOrb.tsx:453 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+BreathKasinaOrb.tsx:1354 🔍 Kasina: water, Type: elemental, orbSize: 33px
+BreathKasinaOrb.tsx:1362 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 33px
+ 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 33px
+ 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 33px
+ 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 33px
+ 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 33px
+ 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 33px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 33px
+ 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 33px
+ 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 33px
+ 🔥 Elemental kasina water scaled to 0.330 (orbSize: 33px)
+ Official Vernier data - Sensor: Force, Value: 7.1339874267578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.13N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ Official Vernier data - Sensor: Force, Value: 7.085441589355469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ Official Vernier data - Sensor: Force, Value: 7.072669982910156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ Official Vernier data - Sensor: Force, Value: 7.039451599121094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.04N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 32px
+ 🔥 Elemental kasina water scaled to 0.320 (orbSize: 32px)
+ Official Vernier data - Sensor: Force, Value: 7.0062408447265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ Official Vernier data - Sensor: Force, Value: 6.9960174560546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ Official Vernier data - Sensor: Force, Value: 6.980690002441406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ Official Vernier data - Sensor: Force, Value: 6.9730224609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.97N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ Official Vernier data - Sensor: Force, Value: 6.980690002441406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ Official Vernier data - Sensor: Force, Value: 6.980690002441406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ Official Vernier data - Sensor: Force, Value: 6.957695007324219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.96N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 31px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 31px
+ 🔥 Elemental kasina water scaled to 0.310 (orbSize: 31px)
+ Official Vernier data - Sensor: Force, Value: 6.919364929199219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 30px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 30px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 30px
+ 🔥 Elemental kasina water scaled to 0.300 (orbSize: 30px)
+ Official Vernier data - Sensor: Force, Value: 6.909149169921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 29px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 29px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 29px
+ 🔥 Elemental kasina water scaled to 0.290 (orbSize: 29px)
+ Official Vernier data - Sensor: Force, Value: 6.911705017089844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 27px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 27px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 27px
+ 🔥 Elemental kasina water scaled to 0.270 (orbSize: 27px)
+ Official Vernier data - Sensor: Force, Value: 6.91680908203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 25px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina water: #001122
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 25px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: water, Type: elemental, orbSize: 25px
+ 🔥 Elemental kasina water scaled to 0.250 (orbSize: 25px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 25px
+ 🔥 Elemental kasina water scaled to 0.250 (orbSize: 25px)
+ 🔍 Kasina: water, Type: elemental, orbSize: 25px
+ 🔥 Elemental kasina water scaled to 0.250 (orbSize: 25px)
