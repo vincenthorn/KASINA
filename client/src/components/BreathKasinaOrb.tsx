@@ -1564,17 +1564,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
               transparent={true}
             />
           </mesh>
-          {/* Immersion background - inside-out sphere */}
-          <mesh ref={immersionBackgroundRef}>
-            <sphereGeometry args={[1, 64, 64]} />
-            <shaderMaterial
-              uniforms={waterShader.uniforms}
-              vertexShader={waterShader.vertexShader}
-              fragmentShader={waterShader.fragmentShader}
-              transparent={true}
-              side={THREE.BackSide} // Render inside faces
-            />
-          </mesh>
+          {/* Immersion background disabled to prevent background color override */}
         </>
       );
     } else if (selectedKasina === KASINA_TYPES.AIR) {
@@ -1591,17 +1581,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
               transparent={true}
             />
           </mesh>
-          {/* Immersion background - inside-out sphere */}
-          <mesh ref={immersionBackgroundRef}>
-            <sphereGeometry args={[1, 64, 64]} />
-            <shaderMaterial
-              uniforms={airShader.uniforms}
-              vertexShader={airShader.vertexShader}
-              fragmentShader={airShader.fragmentShader}
-              transparent={true}
-              side={THREE.BackSide}
-            />
-          </mesh>
+          {/* Immersion background disabled to prevent background color override */}
         </>
       );
     } else if (selectedKasina === KASINA_TYPES.FIRE) {
@@ -1618,17 +1598,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
               transparent={true}
             />
           </mesh>
-          {/* Immersion background - inside-out sphere */}
-          <mesh ref={immersionBackgroundRef}>
-            <sphereGeometry args={[1, 64, 64]} />
-            <shaderMaterial
-              uniforms={fireShader.uniforms}
-              vertexShader={fireShader.vertexShader}
-              fragmentShader={fireShader.fragmentShader}
-              transparent={true}
-              side={THREE.BackSide}
-            />
-          </mesh>
+          {/* Immersion background disabled to prevent background color override */}
         </>
       );
     } else if (selectedKasina === KASINA_TYPES.EARTH) {
@@ -1645,17 +1615,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
               transparent={true}
             />
           </mesh>
-          {/* Immersion background - inside-out sphere */}
-          <mesh ref={immersionBackgroundRef}>
-            <sphereGeometry args={[1, 64, 64]} />
-            <shaderMaterial
-              uniforms={earthShader.uniforms}
-              vertexShader={earthShader.vertexShader}
-              fragmentShader={earthShader.fragmentShader}
-              transparent={true}
-              side={THREE.BackSide}
-            />
-          </mesh>
+          {/* Immersion background disabled to prevent background color override */}
         </>
       );
     } else if (selectedKasina === KASINA_TYPES.SPACE) {
@@ -1672,17 +1632,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
               transparent={true}
             />
           </mesh>
-          {/* Immersion background - inside-out sphere */}
-          <mesh ref={immersionBackgroundRef}>
-            <sphereGeometry args={[1, 64, 64]} />
-            <shaderMaterial
-              uniforms={spaceShader.uniforms}
-              vertexShader={spaceShader.vertexShader}
-              fragmentShader={spaceShader.fragmentShader}
-              transparent={true}
-              side={THREE.BackSide}
-            />
-          </mesh>
+          {/* Immersion background disabled to prevent background color override */}
         </>
       );
     } else if (selectedKasina === KASINA_TYPES.LIGHT) {
@@ -1699,17 +1649,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
               transparent={true}
             />
           </mesh>
-          {/* Immersion background - inside-out sphere */}
-          <mesh ref={immersionBackgroundRef}>
-            <sphereGeometry args={[1, 64, 64]} />
-            <shaderMaterial
-              uniforms={lightShader.uniforms}
-              vertexShader={lightShader.vertexShader}
-              fragmentShader={lightShader.fragmentShader}
-              transparent={true}
-              side={THREE.BackSide}
-            />
-          </mesh>
+          {/* Immersion background disabled to prevent background color override */}
         </>
       );
     } else {
@@ -1759,7 +1699,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       <Canvas
         style={{ width: '100%', height: '100%', background: 'transparent' }}
         camera={{ position: [0, 0, 3], fov: 75 }}
-        gl={{ alpha: true, premultipliedAlpha: false, clearColor: 'transparent' }}
+        gl={{ alpha: true, premultipliedAlpha: false }}
       >
         <SceneController backgroundColor={currentBackgroundColor} />
         <ambientLight intensity={0.8} />

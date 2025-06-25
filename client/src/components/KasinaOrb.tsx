@@ -1134,7 +1134,8 @@ const Scene: React.FC<{ enableZoom?: boolean, remainingTime?: number | null }> =
   // Set the background color based on the selected kasina
   useEffect(() => {
     const bgColor = KASINA_BACKGROUNDS[selectedKasina as KasinaType] || "#000000";
-    gl.setClearColor(new THREE.Color(bgColor), 1);
+    // Don't set clear color - let the parent container handle background
+    gl.setClearColor(0x000000, 0); // Transparent
   }, [gl, selectedKasina]);
 
   // Add camera ref to work with zoom 
