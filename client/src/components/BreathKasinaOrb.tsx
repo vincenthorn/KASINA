@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
@@ -21,6 +21,20 @@ import RainbowKasina from './RainbowKasina';
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
 import { calculateKasinaScale, calculateBreathKasinaSize, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
+
+// Component to control Three.js scene background
+const SceneController: React.FC<{ backgroundColor: string }> = ({ backgroundColor }) => {
+  const { scene, gl } = useThree();
+  
+  useEffect(() => {
+    // Set the renderer clear color to transparent so the background div shows through
+    gl.setClearColor(0x000000, 0); // Completely transparent
+    scene.background = null; // Remove any scene background
+    console.log(`🎬 Three.js scene background cleared for kasina background: ${backgroundColor}`);
+  }, [backgroundColor, scene, gl]);
+
+  return null;
+};
 
 // Browser detection utility
 function isChromeBasedBrowser(): boolean {
@@ -1745,8 +1759,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       <Canvas
         style={{ width: '100%', height: '100%', background: 'transparent' }}
         camera={{ position: [0, 0, 3], fov: 75 }}
-        gl={{ alpha: true, premultipliedAlpha: false }}
+        gl={{ alpha: true, premultipliedAlpha: false, clearColor: 'transparent' }}
       >
+        <SceneController backgroundColor={currentBackgroundColor} />
         <ambientLight intensity={0.8} />
         <pointLight position={[10, 10, 10]} />
         <BreathingKasinaOrb />
