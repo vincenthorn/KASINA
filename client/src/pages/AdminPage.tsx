@@ -97,14 +97,15 @@ const AdminPage: React.FC = () => {
   const fetchWhitelistData = async () => {
     setLoading(true);
     try {
-      // Try emergency endpoint first (bypasses authentication to show all 1,437 users)
+      // Try emergency endpoint first (bypasses authentication to show all users)
       const timestamp = Date.now();
       console.log("ADMIN FETCH ATTEMPT:", timestamp);
-      let response = await fetch(`/api/emergency-admin?t=${timestamp}&v=2`, {
+      let response = await fetch(`https://start.kasina.app/api/emergency-admin?t=${timestamp}&v=3&refresh=true`, {
         cache: 'no-cache',
         headers: { 
           'Cache-Control': 'no-cache',
-          'Pragma': 'no-cache'
+          'Pragma': 'no-cache',
+          'X-Requested-With': 'XMLHttpRequest'
         }
       });
       
