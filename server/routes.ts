@@ -225,8 +225,6 @@ export function registerRoutes(app: Express): Server {
           status = "Premium";
         } else if (user.subscription_type === 'friend') {
           status = "Friend";
-        } else if (user.subscription_type === 'friend') {
-          status = "Friend";
         }
         
         return {
