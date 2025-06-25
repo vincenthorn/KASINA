@@ -301,10 +301,8 @@ export const spaceShader = {
   },
   vertexShader: `
     varying vec2 vUv;
-    varying vec3 vNormal;
     void main() {
       vUv = uv;
-      vNormal = normalize(normalMatrix * normal);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -312,24 +310,21 @@ export const spaceShader = {
     uniform float time;
     uniform vec3 color;
     varying vec2 vUv;
-    varying vec3 vNormal;
     
     float rand(vec2 co) {
       return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
     }
     
     void main() {
-      // Create perfect sphere appearance with subtle depth shading
-      vec3 lightDir = normalize(vec3(0.5, 0.5, 1.0));
-      float lightFactor = max(0.6, dot(vNormal, lightDir));
+      // Perfect uniform sphere - no lighting effects
+      vec3 baseColor = color;
       
-      // Add subtle star-like sparkle effect for space theme
-      vec2 sparkleUv = vUv * 20.0 + time * 0.1;
-      float sparkle = rand(floor(sparkleUv)) * step(0.98, rand(floor(sparkleUv) + 0.1));
-      sparkle *= sin(time * 10.0 + rand(floor(sparkleUv)) * 6.28) * 0.5 + 0.5;
+      // Add very subtle star-like sparkle effect for space theme
+      vec2 sparkleUv = vUv * 30.0 + time * 0.05;
+      float sparkle = rand(floor(sparkleUv)) * step(0.99, rand(floor(sparkleUv) + 0.1));
+      sparkle *= sin(time * 8.0 + rand(floor(sparkleUv)) * 6.28) * 0.5 + 0.5;
       
-      vec3 baseColor = color + vec3(sparkle * 0.3);
-      vec3 finalColor = baseColor * lightFactor;
+      vec3 finalColor = baseColor + vec3(sparkle * 0.1);
       
       gl_FragColor = vec4(finalColor, 1.0);
     }
@@ -344,10 +339,8 @@ export const lightShader = {
   },
   vertexShader: `
     varying vec2 vUv;
-    varying vec3 vNormal;
     void main() {
       vUv = uv;
-      vNormal = normalize(normalMatrix * normal);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -355,21 +348,15 @@ export const lightShader = {
     uniform float time;
     uniform vec3 color;
     varying vec2 vUv;
-    varying vec3 vNormal;
     
     void main() {
-      // Create perfect sphere appearance with proper lighting
-      vec3 lightDir = normalize(vec3(0.5, 0.5, 1.0));
-      float lightFactor = max(0.7, dot(vNormal, lightDir));
+      // Perfect uniform sphere - no lighting effects
+      vec3 baseColor = color;
       
-      // Add gentle pulsing glow effect
-      float pulse = 0.1 * sin(time * 1.5) + 1.0;
+      // Add very gentle pulsing effect (uniform across the sphere)
+      float pulse = 0.05 * sin(time * 1.5) + 1.0;
       
-      // Create rim lighting effect for sphere depth
-      float rimLight = 1.0 - max(0.0, dot(vNormal, vec3(0.0, 0.0, 1.0)));
-      rimLight = pow(rimLight, 2.0) * 0.3;
-      
-      vec3 finalColor = color * lightFactor * pulse + vec3(rimLight);
+      vec3 finalColor = baseColor * pulse;
       gl_FragColor = vec4(finalColor, 1.0);
     }
   `
