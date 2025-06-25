@@ -1743,8 +1743,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     >
       {/* Three.js Canvas with modern kasina components */}
       <Canvas
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: '100%', height: '100%', background: 'transparent' }}
         camera={{ position: [0, 0, 3], fov: 75 }}
+        gl={{ alpha: true, premultipliedAlpha: false }}
       >
         <ambientLight intensity={0.8} />
         <pointLight position={[10, 10, 10]} />

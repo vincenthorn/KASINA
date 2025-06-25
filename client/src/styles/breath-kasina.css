@@ -45,7 +45,7 @@
   position: absolute;
   inset: -20px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(77, 143, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
   filter: blur(15px);
   animation: breatheHalo 4s ease-in-out infinite;
 }
