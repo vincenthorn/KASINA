@@ -668,7 +668,7 @@ export function registerRoutes(app: Express): Server {
         return res.status(400).json({ message: "No CSV file uploaded" });
       }
 
-      const userType = (req.body.userType as 'freemium' | 'premium' | 'admin') || 'freemium';
+      const userType = (req.body.userType as 'freemium' | 'premium' | 'friend' | 'admin') || 'freemium';
       console.log(`📥 ADDITIVE CSV upload for user type: ${userType}`);
 
       // Parse CSV data
@@ -1122,7 +1122,7 @@ export function registerRoutes(app: Express): Server {
         return res.status(400).json({ message: "No CSV file uploaded" });
       }
 
-      const userType = (req.body.userType as 'freemium' | 'premium' | 'admin') || 'freemium';
+      const userType = (req.body.userType as 'freemium' | 'premium' | 'friend' | 'admin') || 'freemium';
       console.log(`Processing CSV upload for user type: ${userType}`);
 
       // Parse CSV data

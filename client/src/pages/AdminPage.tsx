@@ -507,7 +507,7 @@ const AdminPage: React.FC = () => {
       </div>
       
       {/* User categories row */}
-      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Freemium Users Card */}
         <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900 to-cyan-900 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
           <div className="flex flex-col items-center">
@@ -704,6 +704,26 @@ const AdminPage: React.FC = () => {
                       </div>
                       <span className={selectedUserType === 'premium' ? 'text-amber-200' : 'text-gray-300'}>
                         Premium Users
+                      </span>
+                    </div>
+                    
+                    <div 
+                      className={`flex items-center gap-2 p-3 rounded-md cursor-pointer border ${
+                        selectedUserType === 'friend' 
+                          ? 'bg-green-900/40 border-green-700/60' 
+                          : 'bg-gray-800/40 border-gray-700/40 hover:bg-gray-800/60'
+                      }`}
+                      onClick={() => setSelectedUserType('friend')}
+                    >
+                      <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                        selectedUserType === 'friend' ? 'border-green-400' : 'border-gray-500'
+                      }`}>
+                        {selectedUserType === 'friend' && (
+                          <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                        )}
+                      </div>
+                      <span className={selectedUserType === 'friend' ? 'text-green-200' : 'text-gray-300'}>
+                        Friend Users
                       </span>
                     </div>
                     
