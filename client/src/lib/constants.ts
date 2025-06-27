@@ -84,7 +84,7 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.WATER]: "#001122", // Very dark blue-grey background matching Visual mode
   [KASINA_TYPES.AIR]: "#001122",   // Dark blue-grey for better contrast
   [KASINA_TYPES.FIRE]: "#000000",  // Pure black background
-  [KASINA_TYPES.EARTH]: "#241000", // Very dark rich brown (almost black)
+  [KASINA_TYPES.EARTH]: "#000000", // Pure black background
   [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)
   [KASINA_TYPES.LIGHT]: "#000000", // Black background
   // Vajrayana Series - very dark harmonizing colors for seamless backgrounds
