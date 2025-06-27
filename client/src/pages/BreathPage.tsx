@@ -86,6 +86,15 @@ const BreathPage: React.FC = () => {
   React.useEffect(() => {
     console.log('🚨 BREATH PAGE MOUNTED - Initial hook values:', { isConnected, calibrationComplete });
   }, []);
+
+  // Add logging for the exact values being passed to component
+  React.useEffect(() => {
+    console.log('🔍 BREATH PAGE - Connection values for component:', {
+      hookReturned_isConnected: isConnected,
+      willPassTo_useVernier: isConnected,
+      willPassTo_isListening: isConnected
+    });
+  }, [isConnected]);
   
   // Check if user has premium access
   const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;

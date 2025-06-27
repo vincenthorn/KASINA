@@ -91,6 +91,14 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
 
   // Connection state - Initialize with session storage data
   const [isConnected, setIsConnected] = useState(initialConnectionState);
+
+  // Force state to reflect restored connection immediately
+  useEffect(() => {
+    if (initialConnectionState && !isConnected) {
+      console.log('🔄 FORCING CONNECTION STATE UPDATE - Setting isConnected to true');
+      setIsConnected(true);
+    }
+  }, [initialConnectionState, isConnected]);
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   

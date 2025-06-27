@@ -1,0 +1,5503 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.3409423828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.34N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.514678955078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.614326477050781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.6756439208984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.68N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.7088623046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.706306457519531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.74462890625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.74N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.772735595703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.7778472900390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.78N
+ Official Vernier data - Sensor: Respiration Rate, Value: 6.711409568786621, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.8136138916015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.7957305908203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.6960906982421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.58111572265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.58N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.4559173583984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.46N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.3179473876953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.32N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.205528259277344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.21N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🛡️ Session recovery started for breath (session_1751033298434_j6dhksr1d)
+ 🛡️ Started session recovery tracking for breath meditation
+ Requesting screen wake lock...
+ 🔒 Wake lock requested to prevent screen sleep during meditation
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033298434
+ 🔍 HOOK INIT - Checking session storage for initial state: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033298435
+ 🔍 HOOK INIT - Checking session storage for initial state: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Screen wake lock enabled - screen will remain on
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033298443
+ 🔍 HOOK INIT - Checking session storage for initial state: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033298444
+ 🔍 HOOK INIT - Checking session storage for initial state: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.1161041259765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.0701141357421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 7.067558288574219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 6.993461608886719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 6.80694580078125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 6.6740875244140625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 6.594879150390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.59N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 6.482460021972656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.48N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033299193
+ 🔍 HOOK INIT - Checking session storage for initial state: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033299194
+ 🔍 HOOK INIT - Checking session storage for initial state: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 6.367485046386719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.37N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 6.2601776123046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 6.1630859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.0762176513671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.08N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.9791259765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033299705
+ 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033299705
+ 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 5.83349609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.83N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 5.659751892089844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 5.549888610839844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 5.44512939453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.45N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 5.307159423828125, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.31N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 5.22540283203125, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.23N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 5.153861999511719, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.15N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:50 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033300434
+useVernierBreathOfficial.ts:56 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+useVernierBreathOfficial.ts:63 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+useVernierBreathOfficial.ts:86 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+useVernierBreathOfficial.ts:583 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+useVernierBreathOfficial.ts:50 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033300435
+useVernierBreathOfficial.ts:56 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+useVernierBreathOfficial.ts:63 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+useVernierBreathOfficial.ts:86 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+useVernierBreathOfficial.ts:583 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 5.11553955078125, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.12N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 5.102760314941406, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.10N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 5.1283111572265625, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.13N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 5.1283111572265625, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.13N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 5.038887023925781, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.04N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 4.969902038574219, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.97N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 4.918800354003906, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.92N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Force, Value: 4.8625946044921875, Units: N
+useVernierBreathOfficial.ts:225 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.86N
+useVernierBreathOfficial.ts:216 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: red, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.773170471191406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.67352294921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033301434
+ 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033301435
+ 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.693962097167969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.6862945556640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.619865417480469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.62N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.63775634765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.6505279541015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.65N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.665855407714844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.676078796386719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.68N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.645416259765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.65N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033302206
+ 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033302208
+ 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.607093811035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.553436279296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033302435
+ 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751033302436
+ 🔍 HOOK INIT - Checking session storage for initial state: {wasConnected: 'true', hasDevice: true}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {isConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false}
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.532997131347656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.53N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.550880432128906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ Official Vernier data - Sensor: Force, Value: 4.538108825683594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.54N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: red, Type: color, orbSize: 0px
+ 🎯 Color kasina red scaled from 0.001 to 0.000
+ 🎯 Red (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
