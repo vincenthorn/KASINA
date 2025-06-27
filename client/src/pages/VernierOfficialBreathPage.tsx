@@ -30,12 +30,12 @@ export default function VernierOfficialBreathPage() {
     calibrationProfile
   } = useVernierBreathOfficial();
 
-  // Auto-navigate to kasina selection if device is already connected and calibrated
+  // Auto-navigate to existing breath page if device is already connected and calibrated
   React.useEffect(() => {
     if (!hasCheckedAutoConnect && isConnected && calibrationComplete && !isCalibrating) {
-      console.log('✅ Device already connected and calibrated - navigating to kasina selection');
+      console.log('✅ Device already connected and calibrated - navigating to breath kasina selection');
       setHasCheckedAutoConnect(true);
-      navigate('/breath-kasina-selection');
+      navigate('/breath');
     } else if (!hasCheckedAutoConnect && !isConnecting) {
       // Mark as checked once we've determined the initial state
       setHasCheckedAutoConnect(true);

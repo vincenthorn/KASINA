@@ -74,6 +74,14 @@ const BreathPage: React.FC = () => {
   // Check if user has premium access
   const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;
 
+  // Auto-start kasina selection if device is already connected and calibrated
+  React.useEffect(() => {
+    if (isConnected && calibrationComplete && !isCalibrating && !showMeditation) {
+      console.log('✅ Vernier device already connected and calibrated - starting kasina selection automatically');
+      setShowMeditation(true);
+    }
+  }, [isConnected, calibrationComplete, isCalibrating, showMeditation]);
+
   // Show browser warning on non-Chrome browsers
   React.useEffect(() => {
     console.log('🚨 BREATH PAGE - Browser warning check:', { isChromeBased });
