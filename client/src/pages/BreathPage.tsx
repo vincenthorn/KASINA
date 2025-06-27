@@ -134,6 +134,14 @@ const BreathPage: React.FC = () => {
 
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
+    console.log('🔍 BREATH PAGE - Passing props to BreathKasinaOrb:', {
+      useVernier: isConnected,
+      isListening: isConnected,
+      breathAmplitude,
+      breathPhase,
+      calibrationComplete
+    });
+    
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <BreathKasinaOrb 

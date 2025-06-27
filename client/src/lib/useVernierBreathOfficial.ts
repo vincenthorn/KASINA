@@ -577,8 +577,18 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     loadVernierLibrary();
   }, []);
 
-  return {
+  // Ensure the returned isConnected value reflects the restored state
+  const finalIsConnected = isConnected || initialConnectionState;
+  
+  console.log('🔍 HOOK RETURN - Final values:', {
     isConnected,
+    initialConnectionState,
+    finalIsConnected,
+    calibrationComplete
+  });
+
+  return {
+    isConnected: finalIsConnected,
     isConnecting,
     breathAmplitude,
     breathPhase,
