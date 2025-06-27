@@ -1253,6 +1253,11 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             meshRef.current.rotation.y = 0;
             meshRef.current.rotation.x = 0;
             meshRef.current.rotation.z = 0;
+          } else if (selectedKasina === KASINA_TYPES.EARTH) {
+            // Earth kasina stays stationary to be less distracting
+            meshRef.current.rotation.y = 0;
+            meshRef.current.rotation.x = 0;
+            meshRef.current.rotation.z = 0;
           } else {
             // Other elemental kasinas get rotation that evolves with chapters
             meshRef.current.rotation.y = time * 0.15 * chapterSpeed;

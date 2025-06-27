@@ -219,7 +219,7 @@ export const airShader = {
 export const earthShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#CD853F") }, // Terra cotta base color
+    color: { value: new THREE.Color("#A0522D") }, // Darker terra cotta base color
     opacity: { value: 1.0 }
   },
   vertexShader: `
@@ -266,11 +266,11 @@ export const earthShader = {
     }
     
     void main() {
-      // Terra cotta color palette - warm, earthy tones
-      vec3 deepTerra = vec3(0.6, 0.35, 0.2);     // Deep terra cotta
-      vec3 baseTerra = vec3(0.8, 0.52, 0.25);    // Base terra cotta  
-      vec3 lightTerra = vec3(0.9, 0.65, 0.4);    // Light terra cotta
-      vec3 warmTerra = vec3(0.95, 0.7, 0.45);    // Warm highlights
+      // Darker terra cotta color palette - warm, earthy tones
+      vec3 deepTerra = vec3(0.45, 0.25, 0.15);   // Darker deep terra cotta
+      vec3 baseTerra = vec3(0.65, 0.35, 0.2);    // Darker base terra cotta  
+      vec3 lightTerra = vec3(0.75, 0.45, 0.28);  // Darker light terra cotta
+      vec3 warmTerra = vec3(0.8, 0.52, 0.32);    // Darker warm highlights
       
       // Use 3D position for seamless texture
       vec3 pos = normalize(vPosition);
