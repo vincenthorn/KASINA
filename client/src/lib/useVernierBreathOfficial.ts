@@ -78,6 +78,40 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const lastForceUpdateRef = useRef<number>(0);
   const breathCyclesRef = useRef<number[]>([]); // Track breath cycle timestamps
   const lastRateUpdateRef = useRef<number>(0);
+  const persistentDeviceRef = useRef<any>(null); // Keep device reference across sessions
+
+  /**
+   * Check for existing device connection and attempt to reuse it
+   */
+  const checkExistingConnection = useCallback(async () => {
+    try {
+      // Check if there's a persistent device reference that's still open
+      if (persistentDeviceRef.current && persistentDeviceRef.current.isOpen) {
+        console.log('Found existing device connection, attempting to reuse...');
+        deviceRef.current = persistentDeviceRef.current;
+        
+        // Verify the device is still functional
+        try {
+          const enabledSensors = deviceRef.current.sensors.filter((s: any) => s.enabled);
+          if (enabledSensors.length > 0) {
+            console.log('Existing device connection is valid, reusing connection');
+            setIsConnected(true);
+            return true;
+          }
+        } catch (err) {
+          console.log('Existing device connection is invalid, will need new connection');
+          persistentDeviceRef.current = null;
+        }
+      }
+      
+      return false;
+    } catch (err) {
+      console.log('Connection check failed:', err);
+      return false;
+    }
+  }, []);
+
+
 
   /**
    * Connect to Vernier GDX respiration belt using official library
@@ -89,9 +123,16 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       
       console.log('Connecting to Vernier device using official GoDirect library...');
       
+      // First, try auto-reconnection
+      const autoReconnected = await attemptAutoReconnection();
+      if (autoReconnected) {
+        setIsConnecting(false);
+        console.log('Successfully auto-reconnected to existing device');
+        return;
+      }
+      
       // Check if the official library is loaded with retry logic
       if (!window.godirect) {
-        // Try to wait a bit for the library to load
         let retries = 3;
         while (retries > 0 && !window.godirect) {
           console.log(`Waiting for GoDirect library... (${retries} retries left)`);
@@ -109,15 +150,16 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       // Connect using official Vernier method
       const gdxDevice = await window.godirect.selectDevice(true); // true = Bluetooth
       deviceRef.current = gdxDevice;
+      persistentDeviceRef.current = gdxDevice; // Store for future sessions
       
       console.log('Connected to:', gdxDevice.name);
       
+      // Store connection info in session storage
+      sessionStorage.setItem('vernier_device_connected', 'true');
+      sessionStorage.setItem('vernier_device_name', gdxDevice.name || 'Unknown Vernier Device');
+      
       // Set up device event handlers
-      gdxDevice.on('device-closed', () => {
-        console.log('Device disconnected');
-        setIsConnected(false);
-        setError(null);
-      });
+      setupDeviceHandlers(gdxDevice);
 
       // Enable default sensors (should include force sensor for respiration belt)
       gdxDevice.enableDefaultSensors();
@@ -251,21 +293,55 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   }, []);
 
   /**
-   * Disconnect from the device
+   * Disconnect from the device (soft disconnect - keeps reference for reconnection)
    */
   const disconnectDevice = useCallback(() => {
+    try {
+      // Don't actually close the device connection to allow reconnection
+      // Just set UI state to disconnected
+      setIsConnected(false);
+      setIsCalibrating(false);
+      setError(null);
+      
+      console.log('Soft disconnect - device reference maintained for future reconnection');
+      
+    } catch (err) {
+      console.error('Error disconnecting:', err);
+    }
+  }, []);
+
+  /**
+   * Force disconnect from the device (hard disconnect - closes connection)
+   */
+  const forceDisconnectDevice = useCallback(() => {
     try {
       if (deviceRef.current) {
         deviceRef.current.close();
         deviceRef.current = null;
       }
       
+      if (persistentDeviceRef.current) {
+        try {
+          persistentDeviceRef.current.close();
+        } catch (err) {
+          console.log('Error closing persistent device:', err);
+        }
+        persistentDeviceRef.current = null;
+      }
+      
       setIsConnected(false);
       setIsCalibrating(false);
       setError(null);
       
+      // Clear session storage
+      sessionStorage.removeItem('vernier_device_connected');
+      sessionStorage.removeItem('vernier_device_name');
+      sessionStorage.removeItem('vernier_previously_paired');
+      
+      console.log('Hard disconnect - all device references cleared');
+      
     } catch (err) {
-      console.error('Error disconnecting:', err);
+      console.error('Error force disconnecting:', err);
     }
   }, []);
 
