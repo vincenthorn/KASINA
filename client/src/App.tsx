@@ -20,6 +20,7 @@ import BreathPage from "./pages/BreathPage";
 import MicBreathPage from "./pages/MicBreathPage";
 import VernierBreathPage from "./pages/VernierBreathPage";
 import VernierOfficialBreathPage from "./pages/VernierOfficialBreathPage";
+import BreathKasinaSelectionPage from "./pages/BreathKasinaSelectionPage";
 import VernierTestPage from "./pages/VernierTestPage";
 import VisualKasinaOrb from "./components/VisualKasinaOrb";
 
@@ -197,6 +198,17 @@ function App() {
                   <AdminOnlyRoute>
                     <ErrorBoundary>
                       <VernierOfficialBreathPage />
+                    </ErrorBoundary>
+                  </AdminOnlyRoute>
+                }
+              />
+
+              <Route
+                path="/breath-kasina-selection"
+                element={
+                  <AdminOnlyRoute>
+                    <ErrorBoundary>
+                      <BreathKasinaSelectionPage />
                     </ErrorBoundary>
                   </AdminOnlyRoute>
                 }
