@@ -47,8 +47,37 @@ interface VernierBreathOfficialHookResult {
  * Custom hook using official Vernier GoDirect library for breathing detection
  */
 export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
-  // Connection state
-  const [isConnected, setIsConnected] = useState(false);
+  // Check session storage synchronously for initial state
+  const getInitialConnectionState = () => {
+    const wasConnected = sessionStorage.getItem('vernier_device_connected');
+    const hasDevice = wasConnected === 'true';
+    console.log('🔍 HOOK INIT - Checking session storage for initial state:', { wasConnected, hasDevice });
+    return hasDevice;
+  };
+
+  const getInitialCalibrationState = () => {
+    const savedCalibrationComplete = sessionStorage.getItem('vernier_calibration_complete');
+    const isComplete = savedCalibrationComplete === 'true';
+    console.log('🔍 HOOK INIT - Checking calibration state:', { savedCalibrationComplete, isComplete });
+    return isComplete;
+  };
+
+  const getInitialCalibrationProfile = () => {
+    const savedProfile = sessionStorage.getItem('vernier_calibration_profile');
+    if (!savedProfile) return null;
+    
+    try {
+      const profile = JSON.parse(savedProfile);
+      console.log('🔍 HOOK INIT - Restored calibration profile:', profile);
+      return profile.isValid ? profile : null;
+    } catch (err) {
+      console.log('🔍 HOOK INIT - Failed to parse saved profile');
+      return null;
+    }
+  };
+
+  // Connection state - Initialize with session storage data
+  const [isConnected, setIsConnected] = useState(getInitialConnectionState);
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
@@ -57,10 +86,10 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
   const [breathingRate, setBreathingRate] = useState(0);
   
-  // Calibration state
+  // Calibration state - Initialize with session storage data
   const [isCalibrating, setIsCalibrating] = useState(false);
-  const [calibrationProgress, setCalibrationProgress] = useState(0);
-  const [calibrationComplete, setCalibrationComplete] = useState(false);
+  const [calibrationProgress, setCalibrationProgress] = useState(() => getInitialCalibrationState() ? 1.0 : 0);
+  const [calibrationComplete, setCalibrationComplete] = useState(getInitialCalibrationState);
   const [currentForce, setCurrentForce] = useState(0);
   const [calibrationProfile, setCalibrationProfile] = useState<{
     minForce: number;
@@ -68,7 +97,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     baselineForce: number;
     forceRange: number;
     isValid: boolean;
-  } | null>(null);
+  } | null>(getInitialCalibrationProfile);
   
   // Refs for device and data tracking
   const deviceRef = useRef<any>(null);

@@ -70,6 +70,17 @@ const BreathPage: React.FC = () => {
     currentForce,
     calibrationProfile
   } = useVernierBreathOfficial();
+
+  // Add logging to track connection state changes
+  React.useEffect(() => {
+    console.log('🔍 BREATH PAGE - Vernier hook state:', {
+      isConnected,
+      isConnecting,
+      calibrationComplete,
+      hasCalibrationProfile: !!calibrationProfile,
+      currentForce
+    });
+  }, [isConnected, isConnecting, calibrationComplete, calibrationProfile, currentForce]);
   
   // Check if user has premium access
   const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;
