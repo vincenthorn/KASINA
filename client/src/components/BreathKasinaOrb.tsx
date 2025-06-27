@@ -19,7 +19,7 @@ import AhKasina from './AhKasina';
 import HumKasina from './HumKasina';
 import RainbowKasina from './RainbowKasina';
 import * as THREE from 'three';
-import { getKasinaShader } from '../lib/shaders/kasinaShaders';
+import { getKasinaShader, waterShader as unifiedWaterShader } from '../lib/shaders/kasinaShaders';
 import { calculateKasinaScale, calculateBreathKasinaSize, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
 
 // Component to control Three.js scene background
@@ -66,126 +66,6 @@ function isChromeBasedBrowser(): boolean {
   console.log('Browser detection result:', isChromeBased ? 'Chrome-based' : 'Not Chrome-based');
   return isChromeBased;
 }
-
-// Shader materials for the elemental kasinas (copied from main KasinaOrb component)
-const waterShader = {
-  uniforms: {
-    time: { value: 0 },
-    color: { value: new THREE.Color("#0065b3") },
-    opacity: { value: 1.0 }
-  },
-  vertexShader: `
-    varying vec2 vUv;
-    varying vec3 vPosition;
-    uniform float time;
-    
-    void main() {
-      vUv = uv;
-      vPosition = position;
-      
-      vec3 pos = position;
-      float deformAmount = 0.025;
-      pos += normal * sin(position.x * 2.0 + position.y * 3.0 + time * 0.7) * deformAmount;
-      
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-    }
-  `,
-  fragmentShader: `
-    uniform float time;
-    uniform vec3 color;
-    uniform float opacity;
-    varying vec2 vUv;
-    varying vec3 vPosition;
-    
-    float hash(float n) {
-      return fract(sin(n) * 43758.5453);
-    }
-    
-    float noise(vec3 x) {
-      vec3 p = floor(x);
-      vec3 f = fract(x);
-      f = f * f * (3.0 - 2.0 * f);
-      
-      float n = p.x + p.y * 57.0 + p.z * 113.0;
-      return mix(
-        mix(
-          mix(hash(n), hash(n + 1.0), f.x),
-          mix(hash(n + 57.0), hash(n + 58.0), f.x),
-          f.y),
-        mix(
-          mix(hash(n + 113.0), hash(n + 114.0), f.x),
-          mix(hash(n + 170.0), hash(n + 171.0), f.x),
-          f.y),
-        f.z);
-    }
-    
-    float waterFlow(vec3 p, float t) {
-      float radius = length(p);
-      float theta = acos(p.z / radius);
-      float phi = atan(p.y, p.x);
-      
-      float flow = 0.0;
-      for (float i = 1.0; i <= 4.0; i++) {
-        float speed = 0.4 - 0.05 * i;
-        float scale = pow(1.8, i - 1.0);
-        float intensity = pow(0.7, i);
-        
-        vec3 flowCoord = vec3(
-          phi * 2.5 * scale + t * speed * sin(theta),
-          theta * 2.5 * scale + t * speed * 0.5,
-          radius * scale + t * speed
-        );
-        
-        flow += noise(flowCoord) * intensity;
-      }
-      
-      return flow * 0.6;
-    }
-    
-    void main() {
-      float flowValue = waterFlow(vPosition, time);
-      
-      vec3 deepOceanBlue = vec3(0.0, 0.2, 0.5);
-      vec3 midnightBlue = vec3(0.05, 0.25, 0.6);
-      vec3 azureBlue = vec3(0.1, 0.4, 0.75);
-      vec3 caribbeanBlue = vec3(0.0, 0.5, 0.8);
-      vec3 tropicalBlue = vec3(0.2, 0.65, 0.9);
-      
-      vec3 p = normalize(vPosition);
-      float waves = 0.0;
-      waves += sin(p.x * 8.0 + p.y * 4.0 + time * 0.8) * 0.08;
-      waves += sin(p.y * 7.0 - p.z * 5.0 + time * 0.6) * 0.06;
-      waves += sin(p.z * 6.0 + p.x * 3.0 + time * 0.4) * 0.04;
-      
-      flowValue += waves;
-      
-      vec3 waterColor;
-      if (flowValue < 0.25) {
-        float t = flowValue / 0.25;
-        waterColor = mix(deepOceanBlue, midnightBlue, t);
-      } else if (flowValue < 0.5) {
-        float t = (flowValue - 0.25) / 0.25;
-        waterColor = mix(midnightBlue, azureBlue, t);
-      } else if (flowValue < 0.75) {
-        float t = (flowValue - 0.5) / 0.25;
-        waterColor = mix(azureBlue, caribbeanBlue, t);
-      } else {
-        float t = (flowValue - 0.75) / 0.25;
-        waterColor = mix(caribbeanBlue, tropicalBlue, t);
-      }
-      
-      float fresnel = pow(1.0 - max(0.0, dot(normalize(vPosition), vec3(0.0, 0.0, 1.0))), 2.0);
-      float ripples = sin(length(p) * 40.0 - time * 1.0) * 0.01;
-      ripples += sin(p.x * 15.0 + p.y * 15.0 + time * 0.8) * sin(p.y * 10.0 + p.z * 10.0 + time * 1.2) * 0.025;
-      
-      float glow = pow(1.0 - length(vPosition) * 0.5, 2.0) * 0.15;
-      float highlight = fresnel * 0.15;
-      
-      vec3 finalColor = waterColor + ripples + glow + highlight;
-      gl_FragColor = vec4(finalColor, opacity * 0.9);
-    }
-  `
-};
 
 const fireShader = {
   uniforms: {
@@ -1558,9 +1438,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
             <sphereGeometry args={[1, 64, 64]} />
             <shaderMaterial
               ref={waterMaterialRef}
-              uniforms={waterShader.uniforms}
-              vertexShader={waterShader.vertexShader}
-              fragmentShader={waterShader.fragmentShader}
+              uniforms={unifiedWaterShader.uniforms}
+              vertexShader={unifiedWaterShader.vertexShader}
+              fragmentShader={unifiedWaterShader.fragmentShader}
               transparent={true}
             />
           </mesh>
