@@ -81,6 +81,11 @@ const BreathPage: React.FC = () => {
       currentForce
     });
   }, [isConnected, isConnecting, calibrationComplete, calibrationProfile, currentForce]);
+
+  // Add explicit logging on component mount
+  React.useEffect(() => {
+    console.log('🚨 BREATH PAGE MOUNTED - Initial hook values:', { isConnected, calibrationComplete });
+  }, []);
   
   // Check if user has premium access
   const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;

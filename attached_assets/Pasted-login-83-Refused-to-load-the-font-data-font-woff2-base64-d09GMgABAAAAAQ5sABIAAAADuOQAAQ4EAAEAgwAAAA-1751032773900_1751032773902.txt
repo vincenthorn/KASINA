@@ -1,0 +1,1485 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.6045379638671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.60N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.469123840332031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.47N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.382255554199219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.38N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.308158874511719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.31N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.2647247314453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.297935485839844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.30N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.320930480957031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.32N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.2826080322265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.28N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.267280578613281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.2545013427734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.25N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.234062194824219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.2008514404296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.182960510253906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.185516357421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.147193908691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.1778564453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.221290588378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.223846435546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.234062194824219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.241729736328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.24N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.2647247314453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.274940490722656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.343925476074219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.34N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.5023345947265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.50N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.6684112548828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.811492919921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.81N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 4.957130432128906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 4.96N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.0823211669921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.08N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.22540283203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.360816955566406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.36N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.493675231933594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.49N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.692970275878906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.88714599609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.025115966796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.03N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.1681976318359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.298500061035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.30N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.4262542724609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.43N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.54888916015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.6280975341796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.63N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.7021942138671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.750740051269531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.768623352050781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.77N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.781394958496094, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.78N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.758399963378906, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.76N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.73284912109375, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.73N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.69708251953125, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.70N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.651092529296875, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.65N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.62298583984375, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.62N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.6383209228515625, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.64N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.6843109130859375, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.68N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.67919921875, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.68N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.62298583984375, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.62N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.556556701660156, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.56N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Force, Value: 6.4799041748046875, Units: N
+useVernierBreathOfficial.ts:212 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.48N
+useVernierBreathOfficial.ts:203 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1186 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.418586730957031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.42N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.423698425292969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.42N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.4441375732421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.4160308837890625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.42N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.3853759765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.344490051269531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.34N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.308723449707031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.31N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.2959442138671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.30N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.247406005859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.25N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.155426025390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🛡️ Session recovery started for breath (session_1751032732724_hk45v8lhw)
+ 🛡️ Started session recovery tracking for breath meditation
+ Requesting screen wake lock...
+ 🔒 Wake lock requested to prevent screen sleep during meditation
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Screen wake lock enabled - screen will remain on
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 Using exact outer ring color for Rainbow kasina: #1F00CC
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.152870178222656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.188636779785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.1630859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: rainbow_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina rainbow_kasina scaled to 0.000 (orbSize: 0px)
