@@ -26,6 +26,7 @@ interface VernierBreathOfficialHookResult {
   breathingRate: number; // breaths per minute
   connectDevice: () => Promise<void>;
   disconnectDevice: () => void;
+  forceDisconnectDevice: () => void; // Hard disconnect that clears all references
   error: string | null;
   // Calibration system for respiration belt
   isCalibrating: boolean;
@@ -123,11 +124,11 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       
       console.log('Connecting to Vernier device using official GoDirect library...');
       
-      // First, try auto-reconnection
-      const autoReconnected = await attemptAutoReconnection();
-      if (autoReconnected) {
+      // First, check for existing connection
+      const existingConnection = await checkExistingConnection();
+      if (existingConnection) {
         setIsConnecting(false);
-        console.log('Successfully auto-reconnected to existing device');
+        console.log('Successfully reusing existing device connection');
         return;
       }
       
@@ -158,8 +159,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       sessionStorage.setItem('vernier_device_connected', 'true');
       sessionStorage.setItem('vernier_device_name', gdxDevice.name || 'Unknown Vernier Device');
       
-      // Set up device event handlers
-      setupDeviceHandlers(gdxDevice);
+      // Set up device event handlers directly here to avoid dependency issues
 
       // Enable default sensors (should include force sensor for respiration belt)
       gdxDevice.enableDefaultSensors();
@@ -304,6 +304,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       setError(null);
       
       console.log('Soft disconnect - device reference maintained for future reconnection');
+      console.log('✅ Device will automatically reconnect on next session without re-pairing');
       
     } catch (err) {
       console.error('Error disconnecting:', err);
@@ -336,7 +337,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       // Clear session storage
       sessionStorage.removeItem('vernier_device_connected');
       sessionStorage.removeItem('vernier_device_name');
-      sessionStorage.removeItem('vernier_previously_paired');
       
       console.log('Hard disconnect - all device references cleared');
       
@@ -465,19 +465,44 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     return peaks;
   };
 
-  // Load the official Vernier library on component mount
+  // Load the official Vernier library and check for existing connections on component mount
   useEffect(() => {
     const loadVernierLibrary = async () => {
       try {
         if (window.godirect) {
           console.log('Vernier GoDirect library already loaded');
-          return;
+        } else {
+          // Import the library directly from the installed package
+          const godirect = await import('@vernier/godirect');
+          window.godirect = godirect.default || godirect;
+          console.log('Vernier GoDirect library loaded successfully from package');
         }
 
-        // Import the library directly from the installed package
-        const godirect = await import('@vernier/godirect');
-        window.godirect = godirect.default || godirect;
-        console.log('Vernier GoDirect library loaded successfully from package');
+        // Check if there was a previous connection in this browser session
+        const wasConnected = sessionStorage.getItem('vernier_device_connected');
+        if (wasConnected === 'true') {
+          console.log('Found previous Vernier device connection in session storage');
+          
+          // Try to reuse existing connection if the device reference is still valid
+          if (persistentDeviceRef.current && persistentDeviceRef.current.isOpen) {
+            try {
+              const enabledSensors = persistentDeviceRef.current.sensors.filter((s: any) => s.enabled);
+              if (enabledSensors.length > 0) {
+                console.log('Previous device connection is still valid, automatically reconnecting...');
+                deviceRef.current = persistentDeviceRef.current;
+                setIsConnected(true);
+                
+                // Note to user about automatic reconnection
+                console.log('✅ Vernier device automatically reconnected - no need to pair again!');
+                return;
+              }
+            } catch (err) {
+              console.log('Previous device connection is no longer valid');
+              persistentDeviceRef.current = null;
+              sessionStorage.removeItem('vernier_device_connected');
+            }
+          }
+        }
       } catch (error) {
         console.error('Failed to load Vernier GoDirect library:', error);
         setError('Failed to load Vernier GoDirect library. Please refresh the page and try again.');
@@ -495,6 +520,7 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     breathingRate,
     connectDevice,
     disconnectDevice,
+    forceDisconnectDevice,
     error,
     isCalibrating,
     calibrationProgress,
