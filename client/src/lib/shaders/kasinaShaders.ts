@@ -219,7 +219,7 @@ export const airShader = {
 export const earthShader = {
   uniforms: {
     time: { value: 0 },
-    color: { value: new THREE.Color("#CC6633") },
+    color: { value: new THREE.Color("#CD853F") }, // Terra cotta base color
     opacity: { value: 1.0 }
   },
   vertexShader: `
@@ -237,58 +237,103 @@ export const earthShader = {
   fragmentShader: `
     uniform float time;
     uniform vec3 color;
+    uniform float opacity;
     varying vec2 vUv;
     varying vec3 vPosition;
     varying vec3 vNormal;
     
-    float rand(vec2 co) {
-      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    // Simple noise function for subtle terra cotta texture
+    float hash(float n) {
+      return fract(sin(n) * 43758.5453);
     }
     
-    float worleyNoise(vec2 uv, float scale) {
-      vec2 id = floor(uv * scale);
-      vec2 lv = fract(uv * scale);
+    float noise(vec3 x) {
+      vec3 p = floor(x);
+      vec3 f = fract(x);
+      f = f * f * (3.0 - 2.0 * f);
       
-      float minDist = 1.0;
-      
-      for (int y = -1; y <= 1; y++) {
-        for (int x = -1; x <= 1; x++) {
-          vec2 offset = vec2(float(x), float(y));
-          vec2 pos = offset + 0.5 + 0.3 * vec2(
-            sin(rand(id + offset) * 6.28),
-            cos(rand(id + offset + vec2(1.0, 2.0)) * 6.28)
-          );
-          float dist = length(pos - lv);
-          minDist = min(minDist, dist);
-        }
-      }
-      
-      return minDist;
+      float n = p.x + p.y * 57.0 + p.z * 113.0;
+      return mix(
+        mix(
+          mix(hash(n), hash(n + 1.0), f.x),
+          mix(hash(n + 57.0), hash(n + 58.0), f.x),
+          f.y),
+        mix(
+          mix(hash(n + 113.0), hash(n + 114.0), f.x),
+          mix(hash(n + 170.0), hash(n + 171.0), f.x),
+          f.y),
+        f.z);
     }
     
     void main() {
-      vec3 baseColor = color;
+      // Terra cotta color palette - warm, earthy tones
+      vec3 deepTerra = vec3(0.6, 0.35, 0.2);     // Deep terra cotta
+      vec3 baseTerra = vec3(0.8, 0.52, 0.25);    // Base terra cotta  
+      vec3 lightTerra = vec3(0.9, 0.65, 0.4);    // Light terra cotta
+      vec3 warmTerra = vec3(0.95, 0.7, 0.45);    // Warm highlights
       
-      float clayTexture = 0.0;
-      float large = worleyNoise(vUv * 2.0, 4.0);
-      float medium = worleyNoise(vUv * 4.0, 8.0);
-      float small = worleyNoise(vUv * 8.0, 16.0);
+      // Use 3D position for seamless texture
+      vec3 pos = normalize(vPosition);
       
-      clayTexture = large * 0.6 + medium * 0.3 + small * 0.1;
-      clayTexture += sin(time * 0.05) * 0.02;
+      // Create subtle terra cotta variations with multiple noise layers
+      float earthFlow = 0.0;
+      for (float i = 1.0; i <= 3.0; i++) {
+        float speed = 0.02 - 0.005 * i; // Very slow, earthy movement
+        float scale = pow(2.0, i - 1.0);
+        float intensity = pow(0.8, i);
+        
+        vec3 flowCoord = pos * 2.0 * scale + vec3(
+          time * speed * 0.1,
+          time * speed * 0.15,
+          time * speed * 0.08
+        );
+        
+        earthFlow += noise(flowCoord) * intensity;
+      }
       
-      float d = length(vUv - vec2(0.5, 0.5));
-      float lightIntensity = 1.0 - smoothstep(0.0, 0.8, d);
-      float normalShading = 0.5 + 0.5 * dot(vNormal, vec3(0.5, 0.5, 0.5));
+      earthFlow = earthFlow * 0.4; // Subtle variation
       
-      vec3 darkClay = baseColor * 0.7;
-      vec3 lightClay = baseColor * 1.3;
-      vec3 clayColor = mix(darkClay, lightClay, clayTexture);
+      // Add gentle breathing-like variation
+      float pulse = sin(time * 0.3) * 0.05 + sin(time * 0.7) * 0.03;
+      earthFlow += pulse;
       
-      clayColor *= 0.7 + 0.3 * normalShading + 0.2 * lightIntensity;
-      clayColor *= 0.97 + rand(vUv * 100.0) * 0.05;
+      // Smooth color gradients for terra cotta appearance
+      vec3 terraCottaColor;
+      if (earthFlow < 0.25) {
+        float t = earthFlow / 0.25;
+        terraCottaColor = mix(deepTerra, baseTerra, t);
+      } else if (earthFlow < 0.5) {
+        float t = (earthFlow - 0.25) / 0.25;
+        terraCottaColor = mix(baseTerra, lightTerra, t);
+      } else if (earthFlow < 0.75) {
+        float t = (earthFlow - 0.5) / 0.25;
+        terraCottaColor = mix(lightTerra, warmTerra, t);
+      } else {
+        float t = (earthFlow - 0.75) / 0.25;
+        terraCottaColor = mix(warmTerra, lightTerra, t);
+      }
       
-      gl_FragColor = vec4(clayColor, 1.0);
+      // Subtle surface variations that maintain smoothness
+      float surfaceVariation = sin(pos.x * 6.0 + pos.y * 4.0 + time * 0.1) * 0.03;
+      surfaceVariation += sin(pos.y * 5.0 - pos.z * 3.0 + time * 0.15) * 0.02;
+      surfaceVariation += sin(pos.z * 4.0 + pos.x * 7.0 + time * 0.08) * 0.025;
+      
+      // Apply surface variation
+      terraCottaColor += surfaceVariation;
+      
+      // Gentle ambient lighting for dimensionality without harsh contrasts
+      float fresnel = pow(1.0 - max(0.0, dot(normalize(vPosition), vec3(0.0, 0.0, 1.0))), 1.5);
+      float ambientGlow = 0.1 + fresnel * 0.15;
+      
+      // Soft inner glow for terra cotta warmth
+      float innerGlow = pow(1.0 - length(vPosition) * 0.4, 1.2) * 0.1;
+      
+      vec3 finalColor = terraCottaColor + ambientGlow + innerGlow;
+      
+      // Ensure the color stays within terra cotta range
+      finalColor = clamp(finalColor, vec3(0.5, 0.3, 0.15), vec3(1.0, 0.8, 0.6));
+      
+      gl_FragColor = vec4(finalColor, opacity);
     }
   `
 };

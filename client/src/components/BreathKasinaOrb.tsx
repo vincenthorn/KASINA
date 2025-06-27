@@ -19,7 +19,7 @@ import AhKasina from './AhKasina';
 import HumKasina from './HumKasina';
 import RainbowKasina from './RainbowKasina';
 import * as THREE from 'three';
-import { getKasinaShader, waterShader as unifiedWaterShader } from '../lib/shaders/kasinaShaders';
+import { getKasinaShader, waterShader as unifiedWaterShader, earthShader } from '../lib/shaders/kasinaShaders';
 import { calculateKasinaScale, calculateBreathKasinaSize, logKasinaScaling, getKasinaConfig } from '../lib/kasinaConfig';
 
 // Component to control Three.js scene background
@@ -157,80 +157,7 @@ const airShader = {
   `
 };
 
-const earthShader = {
-  uniforms: {
-    time: { value: 0 },
-    color: { value: new THREE.Color("#CC6633") },
-    opacity: { value: 1.0 }
-  },
-  vertexShader: `
-    varying vec2 vUv;
-    varying vec3 vPosition;
-    varying vec3 vNormal;
-    
-    void main() {
-      vUv = uv;
-      vPosition = position;
-      vNormal = normalize(normalMatrix * normal);
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
-  fragmentShader: `
-    uniform float time;
-    uniform vec3 color;
-    varying vec2 vUv;
-    varying vec3 vPosition;
-    varying vec3 vNormal;
-    
-    float rand(vec2 co) {
-      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
-    }
-    
-    float worleyNoise(vec2 uv, float scale) {
-      vec2 id = floor(uv * scale);
-      vec2 lv = fract(uv * scale);
-      float minDist = 1.0;
-      
-      for (int y = -1; y <= 1; y++) {
-        for (int x = -1; x <= 1; x++) {
-          vec2 offset = vec2(float(x), float(y));
-          vec2 pos = offset + 0.5 + 0.3 * vec2(
-            sin(rand(id + offset) * 6.28),
-            cos(rand(id + offset + vec2(1.0, 2.0)) * 6.28)
-          );
-          float dist = length(pos - lv);
-          minDist = min(minDist, dist);
-        }
-      }
-      return minDist;
-    }
-    
-    void main() {
-      vec3 baseColor = color;
-      
-      float clayTexture = 0.0;
-      float large = worleyNoise(vUv * 2.0, 4.0);
-      float medium = worleyNoise(vUv * 4.0, 8.0);
-      float small = worleyNoise(vUv * 8.0, 16.0);
-      
-      clayTexture = large * 0.6 + medium * 0.3 + small * 0.1;
-      clayTexture += sin(time * 0.05) * 0.02;
-      
-      float d = length(vUv - vec2(0.5, 0.5));
-      float lightIntensity = 1.0 - smoothstep(0.0, 0.8, d);
-      float normalShading = 0.5 + 0.5 * dot(vNormal, vec3(0.5, 0.5, 0.5));
-      
-      vec3 darkClay = baseColor * 0.7;
-      vec3 lightClay = baseColor * 1.3;
-      vec3 clayColor = mix(darkClay, lightClay, clayTexture);
-      
-      clayColor *= 0.7 + 0.3 * normalShading + 0.2 * lightIntensity;
-      clayColor *= 0.97 + rand(vUv * 100.0) * 0.05;
-      
-      gl_FragColor = vec4(clayColor, 1.0);
-    }
-  `
-};
+
 
 const spaceShader = {
   uniforms: {
