@@ -1254,8 +1254,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             meshRef.current.rotation.x = 0;
             meshRef.current.rotation.z = 0;
           } else if (selectedKasina === KASINA_TYPES.EARTH) {
-            // Earth kasina stays stationary to be less distracting
-            meshRef.current.rotation.y = 0;
+            // Earth kasina gets very slow, subtle rotation
+            meshRef.current.rotation.y = time * 0.02; // Very slow rotation
             meshRef.current.rotation.x = 0;
             meshRef.current.rotation.z = 0;
           } else {
