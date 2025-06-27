@@ -488,50 +488,99 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
         const deviceName = sessionStorage.getItem('vernier_device_name');
         
         if (wasConnected === 'true' && deviceName) {
-          console.log('Found previous Vernier device connection in session storage:', deviceName);
+          console.log('🔍 Found previous Vernier device connection in session storage:', deviceName);
           
-          // Try to reuse existing connection if the device reference is still valid
-          if (persistentDeviceRef.current) {
-            try {
-              // Check if device is still open and has sensors
-              if (persistentDeviceRef.current.isOpen && persistentDeviceRef.current.sensors) {
-                const enabledSensors = persistentDeviceRef.current.sensors.filter((s: any) => s.enabled);
-                if (enabledSensors.length > 0) {
-                  console.log('✅ Previous device connection is still valid, automatically reconnecting...');
-                  deviceRef.current = persistentDeviceRef.current;
-                  setIsConnected(true);
-                  
-                  // Check if we have a calibration profile
-                  const savedProfile = sessionStorage.getItem('vernier_calibration_profile');
-                  const savedCalibrationComplete = sessionStorage.getItem('vernier_calibration_complete');
-                  
-                  if (savedProfile && savedCalibrationComplete === 'true') {
-                    try {
-                      const profile = JSON.parse(savedProfile);
-                      if (profile.isValid) {
-                        console.log('✅ Previous calibration profile found and valid - restoring calibration state');
-                        setCalibrationProfile(profile);
-                        setCalibrationComplete(true);
-                        setCalibrationProgress(1.0);
-                      }
-                    } catch (err) {
-                      console.log('Failed to parse saved calibration profile');
-                      sessionStorage.removeItem('vernier_calibration_profile');
-                      sessionStorage.removeItem('vernier_calibration_complete');
+          // Try to find and reuse existing active device
+          try {
+            // First check if we have a persistent device reference
+            if (persistentDeviceRef.current && persistentDeviceRef.current.isOpen) {
+              console.log('🔍 Checking persistent device reference...');
+              const enabledSensors = persistentDeviceRef.current.sensors.filter((s: any) => s.enabled);
+              if (enabledSensors.length > 0) {
+                console.log('✅ Persistent device reference is valid - restoring connection');
+                deviceRef.current = persistentDeviceRef.current;
+                setIsConnected(true);
+                
+                // Restore calibration state
+                const savedProfile = sessionStorage.getItem('vernier_calibration_profile');
+                const savedCalibrationComplete = sessionStorage.getItem('vernier_calibration_complete');
+                
+                if (savedProfile && savedCalibrationComplete === 'true') {
+                  try {
+                    const profile = JSON.parse(savedProfile);
+                    if (profile.isValid) {
+                      console.log('✅ Restoring calibration profile');
+                      setCalibrationProfile(profile);
+                      setCalibrationComplete(true);
+                      setCalibrationProgress(1.0);
                     }
+                  } catch (err) {
+                    console.log('Failed to parse saved calibration profile');
                   }
-                  
-                  console.log('✅ Vernier device automatically reconnected - no need to pair again!');
-                  return;
                 }
+                
+                // Resume data processing by setting up event listeners
+                console.log('🔄 Resuming data processing for restored connection...');
+                // Note: Event listeners are already set up - the device should continue receiving data
+                
+                console.log('✅ VERNIER DEVICE AUTOMATICALLY RECONNECTED - Connection restored successfully!');
+                return;
               }
-            } catch (err) {
-              console.log('Previous device connection is no longer valid:', err);
-              persistentDeviceRef.current = null;
-              sessionStorage.removeItem('vernier_device_connected');
-              sessionStorage.removeItem('vernier_device_name');
-              sessionStorage.removeItem('vernier_calibration_profile');
             }
+            
+            // If no persistent reference, try to find active devices
+            console.log('🔍 No persistent reference, checking for active devices...');
+            const activeDevices = await window.godirect.getDevices();
+            console.log('🔍 Found active devices:', activeDevices.length);
+            
+            for (const device of activeDevices) {
+              if (device.isOpen && device.name === deviceName) {
+                console.log('✅ Found matching active device:', device.name);
+                deviceRef.current = device;
+                persistentDeviceRef.current = device;
+                setIsConnected(true);
+                
+                // Restore calibration state
+                const savedProfile = sessionStorage.getItem('vernier_calibration_profile');
+                const savedCalibrationComplete = sessionStorage.getItem('vernier_calibration_complete');
+                
+                if (savedProfile && savedCalibrationComplete === 'true') {
+                  try {
+                    const profile = JSON.parse(savedProfile);
+                    if (profile.isValid) {
+                      console.log('✅ Restoring calibration profile');
+                      setCalibrationProfile(profile);
+                      setCalibrationComplete(true);
+                      setCalibrationProgress(1.0);
+                    }
+                  } catch (err) {
+                    console.log('Failed to parse saved calibration profile');
+                  }
+                }
+                
+                // Resume data processing by setting up event listeners
+                console.log('🔄 Resuming data processing for found active device...');
+                // Note: Event listeners are already set up - the device should continue receiving data
+                
+                console.log('✅ VERNIER DEVICE AUTOMATICALLY RECONNECTED - Found active device!');
+                return;
+              }
+            }
+            
+            console.log('⚠️ No matching active device found, connection may have been lost');
+            // Clear session storage if no valid connection found
+            sessionStorage.removeItem('vernier_device_connected');
+            sessionStorage.removeItem('vernier_device_name');
+            sessionStorage.removeItem('vernier_calibration_profile');
+            sessionStorage.removeItem('vernier_calibration_complete');
+            
+          } catch (err) {
+            console.log('❌ Error checking for existing connections:', err);
+            // Clear session storage on error
+            sessionStorage.removeItem('vernier_device_connected');
+            sessionStorage.removeItem('vernier_device_name');
+            sessionStorage.removeItem('vernier_calibration_profile');
+            sessionStorage.removeItem('vernier_calibration_complete');
           }
         }
       } catch (error) {
