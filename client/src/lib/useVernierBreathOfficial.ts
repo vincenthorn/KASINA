@@ -53,7 +53,11 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const getInitialConnectionState = () => {
     const wasConnected = sessionStorage.getItem('vernier_device_connected');
     const hasDevice = wasConnected === 'true';
-    console.log('🔍 HOOK INIT - Checking session storage for initial state:', { wasConnected, hasDevice });
+    console.log('🔍 HOOK INIT - Session storage check:', {
+      rawValue: wasConnected,
+      parsedValue: hasDevice,
+      stringComparison: wasConnected === 'true'
+    });
     return hasDevice;
   };
 
@@ -92,13 +96,34 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   // Connection state - Initialize with session storage data
   const [isConnected, setIsConnected] = useState(initialConnectionState);
 
-  // Force state to reflect restored connection immediately
+  // Force state to reflect restored connection immediately on mount
   useEffect(() => {
     if (initialConnectionState && !isConnected) {
       console.log('🔄 FORCING CONNECTION STATE UPDATE - Setting isConnected to true');
       setIsConnected(true);
     }
-  }, [initialConnectionState, isConnected]);
+  }, []);
+
+  // Additional effect to ensure persistent device reference updates connection state
+  useEffect(() => {
+    if (persistentDeviceRef.current && !isConnected) {
+      console.log('🔄 PERSISTENT DEVICE DETECTED - Updating connection state');
+      setIsConnected(true);
+    }
+  }, [isConnected]);
+
+  // Critical fix: Force connection state based on active data flow
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // If we're receiving current force data but not marked as connected, fix the state
+      if (currentForce > 0 && !isConnected) {
+        console.log('🚨 FORCE DATA DETECTED WITHOUT CONNECTION STATE - Forcing connection update');
+        setIsConnected(true);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [currentForce, isConnected]);
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
@@ -589,10 +614,11 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const finalIsConnected = isConnected || initialConnectionState;
   
   console.log('🔍 HOOK RETURN - Final values:', {
-    isConnected,
+    originalIsConnected: isConnected,
     initialConnectionState,
     finalIsConnected,
-    calibrationComplete
+    calibrationComplete,
+    willReturnIsConnected: finalIsConnected
   });
 
   return {
