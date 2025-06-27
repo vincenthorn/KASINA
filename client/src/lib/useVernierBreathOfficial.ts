@@ -399,8 +399,13 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     setCalibrationComplete(true);
     setIsCalibrating(false);
     
+    // Save calibration profile to session storage for persistence
+    sessionStorage.setItem('vernier_calibration_profile', JSON.stringify(profile));
+    sessionStorage.setItem('vernier_calibration_complete', 'true');
+    
     console.log('Calibration complete:', profile);
     console.log('Setting calibrationComplete to true - button should now show Begin Meditation');
+    console.log('✅ Calibration profile saved for future sessions');
   }, []);
 
   /**
@@ -480,26 +485,52 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
 
         // Check if there was a previous connection in this browser session
         const wasConnected = sessionStorage.getItem('vernier_device_connected');
-        if (wasConnected === 'true') {
-          console.log('Found previous Vernier device connection in session storage');
+        const deviceName = sessionStorage.getItem('vernier_device_name');
+        
+        if (wasConnected === 'true' && deviceName) {
+          console.log('Found previous Vernier device connection in session storage:', deviceName);
           
           // Try to reuse existing connection if the device reference is still valid
-          if (persistentDeviceRef.current && persistentDeviceRef.current.isOpen) {
+          if (persistentDeviceRef.current) {
             try {
-              const enabledSensors = persistentDeviceRef.current.sensors.filter((s: any) => s.enabled);
-              if (enabledSensors.length > 0) {
-                console.log('Previous device connection is still valid, automatically reconnecting...');
-                deviceRef.current = persistentDeviceRef.current;
-                setIsConnected(true);
-                
-                // Note to user about automatic reconnection
-                console.log('✅ Vernier device automatically reconnected - no need to pair again!');
-                return;
+              // Check if device is still open and has sensors
+              if (persistentDeviceRef.current.isOpen && persistentDeviceRef.current.sensors) {
+                const enabledSensors = persistentDeviceRef.current.sensors.filter((s: any) => s.enabled);
+                if (enabledSensors.length > 0) {
+                  console.log('✅ Previous device connection is still valid, automatically reconnecting...');
+                  deviceRef.current = persistentDeviceRef.current;
+                  setIsConnected(true);
+                  
+                  // Check if we have a calibration profile
+                  const savedProfile = sessionStorage.getItem('vernier_calibration_profile');
+                  const savedCalibrationComplete = sessionStorage.getItem('vernier_calibration_complete');
+                  
+                  if (savedProfile && savedCalibrationComplete === 'true') {
+                    try {
+                      const profile = JSON.parse(savedProfile);
+                      if (profile.isValid) {
+                        console.log('✅ Previous calibration profile found and valid - restoring calibration state');
+                        setCalibrationProfile(profile);
+                        setCalibrationComplete(true);
+                        setCalibrationProgress(1.0);
+                      }
+                    } catch (err) {
+                      console.log('Failed to parse saved calibration profile');
+                      sessionStorage.removeItem('vernier_calibration_profile');
+                      sessionStorage.removeItem('vernier_calibration_complete');
+                    }
+                  }
+                  
+                  console.log('✅ Vernier device automatically reconnected - no need to pair again!');
+                  return;
+                }
               }
             } catch (err) {
-              console.log('Previous device connection is no longer valid');
+              console.log('Previous device connection is no longer valid:', err);
               persistentDeviceRef.current = null;
               sessionStorage.removeItem('vernier_device_connected');
+              sessionStorage.removeItem('vernier_device_name');
+              sessionStorage.removeItem('vernier_calibration_profile');
             }
           }
         }
