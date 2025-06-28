@@ -52,11 +52,14 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   // Check session storage synchronously for initial state
   const getInitialConnectionState = () => {
     const wasConnected = sessionStorage.getItem('vernier_device_connected');
+    const deviceName = sessionStorage.getItem('vernier_device_name');
     const hasDevice = wasConnected === 'true';
     console.log('🔍 HOOK INIT - Session storage check:', {
-      rawValue: wasConnected,
-      parsedValue: hasDevice,
-      stringComparison: wasConnected === 'true'
+      wasConnected_raw: wasConnected,
+      deviceName_raw: deviceName,
+      hasDevice_computed: hasDevice,
+      stringCheck: wasConnected === 'true',
+      sessionStorageKeys: Object.keys(sessionStorage)
     });
     return hasDevice;
   };
@@ -128,15 +131,27 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   // Critical fix: Force connection state based on active data flow
   useEffect(() => {
     const interval = setInterval(() => {
-      // If we're receiving current force data but not marked as connected, fix the state
-      if (currentForce > 0 && !isConnected) {
-        console.log('🚨 FORCE DATA DETECTED WITHOUT CONNECTION STATE - Forcing connection update');
+      // Check if we have a device reference or receiving force data but not marked as connected
+      if ((persistentDeviceRef.current || currentForce > 0) && !isConnected) {
+        console.log('🚨 FORCE DATA DETECTED WITHOUT CONNECTION STATE - Forcing connection update', {
+          hasDevice: !!persistentDeviceRef.current,
+          currentForce,
+          isConnected
+        });
         setIsConnected(true);
       }
-    }, 1000);
+    }, 500); // Check more frequently
 
     return () => clearInterval(interval);
   }, [currentForce, isConnected]);
+
+  // Immediate fix: Update connection state when force data starts flowing
+  useEffect(() => {
+    if (currentForce > 0 && !isConnected) {
+      console.log('🚨 IMMEDIATE FORCE DATA FIX - Connection state update', { currentForce, isConnected });
+      setIsConnected(true);
+    }
+  }, [currentForce]);
   const [calibrationProfile, setCalibrationProfile] = useState<{
     minForce: number;
     maxForce: number;
