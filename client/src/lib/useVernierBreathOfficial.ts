@@ -95,6 +95,19 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
 
   // Connection state - Initialize with session storage data
   const [isConnected, setIsConnected] = useState(initialConnectionState);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  
+  // Breathing analysis state
+  const [breathAmplitude, setBreathAmplitude] = useState(0);
+  const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
+  const [breathingRate, setBreathingRate] = useState(0);
+  
+  // Calibration state - Initialize with session storage data
+  const [isCalibrating, setIsCalibrating] = useState(false);
+  const [calibrationProgress, setCalibrationProgress] = useState(initialCalibrationState ? 1.0 : 0);
+  const [calibrationComplete, setCalibrationComplete] = useState(initialCalibrationState);
+  const [currentForce, setCurrentForce] = useState(0);
 
   // Force state to reflect restored connection immediately on mount
   useEffect(() => {
@@ -124,19 +137,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
 
     return () => clearInterval(interval);
   }, [currentForce, isConnected]);
-  const [isConnecting, setIsConnecting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  
-  // Breathing analysis state
-  const [breathAmplitude, setBreathAmplitude] = useState(0);
-  const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
-  const [breathingRate, setBreathingRate] = useState(0);
-  
-  // Calibration state - Initialize with session storage data
-  const [isCalibrating, setIsCalibrating] = useState(false);
-  const [calibrationProgress, setCalibrationProgress] = useState(initialCalibrationState ? 1.0 : 0);
-  const [calibrationComplete, setCalibrationComplete] = useState(initialCalibrationState);
-  const [currentForce, setCurrentForce] = useState(0);
   const [calibrationProfile, setCalibrationProfile] = useState<{
     minForce: number;
     maxForce: number;
