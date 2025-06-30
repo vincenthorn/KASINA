@@ -100,7 +100,7 @@ const AdminPage: React.FC = () => {
       // Try emergency endpoint first (bypasses authentication to show all users)
       const timestamp = Date.now();
       console.log("ADMIN FETCH ATTEMPT:", timestamp);
-      let response = await fetch(`https://start.kasina.app/api/emergency-admin?t=${timestamp}&v=3&refresh=true`, {
+      let response = await fetch(`/api/admin/users-simple?t=${timestamp}&v=3&refresh=true`, {
         cache: 'no-cache',
         headers: { 
           'Cache-Control': 'no-cache',
