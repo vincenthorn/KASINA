@@ -4,6 +4,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 declare global {
   interface Window {
     godirect: any;
+    globalVernierDevice: any; // Global device reference to persist across component unmounts
   }
 }
 
@@ -120,38 +121,45 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     }
   }, []);
 
-  // Additional effect to ensure persistent device reference updates connection state
+  // Store device reference globally to persist across component unmounts
   useEffect(() => {
-    if (persistentDeviceRef.current && !isConnected) {
-      console.log('🔄 PERSISTENT DEVICE DETECTED - Updating connection state');
-      setIsConnected(true);
+    if (!window.globalVernierDevice && persistentDeviceRef.current) {
+      window.globalVernierDevice = persistentDeviceRef.current;
+      console.log('🌍 STORED GLOBAL DEVICE REFERENCE');
     }
-  }, [isConnected]);
+  }, []);
 
-  // Critical fix: Force connection state based on active data flow
+  // Restore device reference from global storage on mount
+  useEffect(() => {
+    if (window.globalVernierDevice && !persistentDeviceRef.current && initialConnectionState) {
+      console.log('🌍 RESTORING GLOBAL DEVICE REFERENCE');
+      persistentDeviceRef.current = window.globalVernierDevice;
+      deviceRef.current = window.globalVernierDevice;
+      
+      // Immediately start monitoring for data
+      if (window.globalVernierDevice.isOpen) {
+        try {
+          const enabledSensors = window.globalVernierDevice.sensors.filter((s: any) => s.enabled);
+          console.log('🌍 RESTORED DEVICE - Enabled sensors:', enabledSensors.length);
+          setIsConnected(true);
+        } catch (err) {
+          console.log('🌍 RESTORED DEVICE ERROR:', err);
+        }
+      }
+    }
+  }, [initialConnectionState]);
+
+  // Monitor for data flow to ensure connection state accuracy
   useEffect(() => {
     const interval = setInterval(() => {
-      // Check if we have a device reference or receiving force data but not marked as connected
-      if ((persistentDeviceRef.current || currentForce > 0) && !isConnected) {
-        console.log('🚨 FORCE DATA DETECTED WITHOUT CONNECTION STATE - Forcing connection update', {
-          hasDevice: !!persistentDeviceRef.current,
-          currentForce,
-          isConnected
-        });
+      if (persistentDeviceRef.current && !isConnected) {
+        console.log('🔄 DEVICE EXISTS BUT NOT CONNECTED - Updating state');
         setIsConnected(true);
       }
-    }, 500); // Check more frequently
+    }, 1000);
 
     return () => clearInterval(interval);
-  }, [currentForce, isConnected]);
-
-  // Immediate fix: Update connection state when force data starts flowing
-  useEffect(() => {
-    if (currentForce > 0 && !isConnected) {
-      console.log('🚨 IMMEDIATE FORCE DATA FIX - Connection state update', { currentForce, isConnected });
-      setIsConnected(true);
-    }
-  }, [currentForce]);
+  }, [isConnected]);
   const [calibrationProfile, setCalibrationProfile] = useState<{
     minForce: number;
     maxForce: number;
@@ -242,8 +250,10 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       const gdxDevice = await window.godirect.selectDevice(true); // true = Bluetooth
       deviceRef.current = gdxDevice;
       persistentDeviceRef.current = gdxDevice; // Store for future sessions
+      window.globalVernierDevice = gdxDevice; // Store globally to persist across component unmounts
       
       console.log('Connected to:', gdxDevice.name);
+      console.log('🌍 STORED DEVICE GLOBALLY:', !!window.globalVernierDevice);
       
       // Store connection info in session storage
       sessionStorage.setItem('vernier_device_connected', 'true');
@@ -420,6 +430,17 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
         persistentDeviceRef.current = null;
       }
       
+      // Clear global device reference
+      if (window.globalVernierDevice) {
+        try {
+          window.globalVernierDevice.close();
+        } catch (err) {
+          console.log('Error closing global device:', err);
+        }
+        window.globalVernierDevice = null;
+        console.log('🌍 CLEARED GLOBAL DEVICE REFERENCE');
+      }
+      
       setIsConnected(false);
       setIsCalibrating(false);
       setError(null);
@@ -427,6 +448,8 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       // Clear session storage
       sessionStorage.removeItem('vernier_device_connected');
       sessionStorage.removeItem('vernier_device_name');
+      sessionStorage.removeItem('vernier_calibration_complete');
+      sessionStorage.removeItem('vernier_calibration_profile');
       
       console.log('Hard disconnect - all device references cleared');
       
