@@ -136,12 +136,28 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       persistentDeviceRef.current = window.globalVernierDevice;
       deviceRef.current = window.globalVernierDevice;
       
-      // Immediately start monitoring for data
+      // Immediately start monitoring for data and re-establish event listeners
       if (window.globalVernierDevice.isOpen) {
         try {
           const enabledSensors = window.globalVernierDevice.sensors.filter((s: any) => s.enabled);
           console.log('🌍 RESTORED DEVICE - Enabled sensors:', enabledSensors.length);
+          
+          // Re-establish data collection for each enabled sensor
+          enabledSensors.forEach((sensor: any) => {
+            sensor.on('value-changed', (sensor: any) => {
+              console.log(`🌍 RESTORED - Sensor: ${sensor.name}, Value: ${sensor.value}, Units: ${sensor.unit}`);
+              
+              // Process force sensor data for breathing
+              if (sensor.name.toLowerCase().includes('force') || sensor.unit === 'N') {
+                const forceValue = parseFloat(sensor.value);
+                setCurrentForce(forceValue);
+                console.log('🌍 RESTORED FORCE DATA:', forceValue.toFixed(2) + 'N');
+              }
+            });
+          });
+          
           setIsConnected(true);
+          console.log('🌍 DEVICE RESTORATION COMPLETE');
         } catch (err) {
           console.log('🌍 RESTORED DEVICE ERROR:', err);
         }
