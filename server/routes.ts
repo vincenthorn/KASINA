@@ -670,6 +670,7 @@ export function registerRoutes(app: Express): Server {
 
       const userType = (req.body.userType as 'freemium' | 'premium' | 'friend' | 'admin') || 'freemium';
       console.log(`📥 ADDITIVE CSV upload for user type: ${userType}`);
+      console.log(`📋 File size: ${req.file.size} bytes, filename: ${req.file.originalname}`);
 
       // Parse CSV data
       const records = parse(req.file.buffer, {
@@ -677,6 +678,10 @@ export function registerRoutes(app: Express): Server {
         skip_empty_lines: true,
         trim: true,
       });
+
+      console.log(`📊 Parsed ${records.length} records from CSV`);
+      console.log(`🔍 First record keys:`, Object.keys(records[0] || {}));
+      console.log(`🔍 First record values:`, records[0]);
 
       if (!records || records.length === 0) {
         throw new Error("No data found in the CSV file");
@@ -693,67 +698,77 @@ export function registerRoutes(app: Express): Server {
       for (const colName of possibleEmailColumns) {
         if (firstRecord[colName] !== undefined) {
           emailColumnName = colName;
+          console.log(`✅ Found email column: ${colName}`);
           break;
         }
       }
 
       if (!emailColumnName) {
         // Try to find any column that might contain an email
+        console.log(`🔍 Searching for email-like values in columns:`, Object.keys(firstRecord));
         for (const key of Object.keys(firstRecord)) {
           const value = firstRecord[key];
+          console.log(`🔍 Checking column '${key}': '${value}'`);
           if (typeof value === 'string' && value.includes('@')) {
             emailColumnName = key;
+            console.log(`✅ Found email-like column: ${key}`);
             break;
           }
         }
       }
 
       if (!emailColumnName) {
-        throw new Error("No email column found in CSV file");
+        console.log(`❌ Available columns:`, Object.keys(firstRecord));
+        throw new Error(`No email column found in CSV file. Available columns: ${Object.keys(firstRecord).join(', ')}`);
       }
 
-      // Extract emails and names for additive-only insertion
-      const usersToAdd = [];
-      let skippedExisting = 0;
+      // Extract and process ALL valid emails (both new and existing for updates)
+      const usersToProcess = [];
+      let invalidEmails = 0;
       
-      for (const record of records) {
+      console.log(`🔄 Processing ${records.length} records...`);
+      
+      for (let i = 0; i < records.length; i++) {
+        const record = records[i];
         const email = record[emailColumnName]?.trim();
+        console.log(`📧 Row ${i + 1}: Processing '${email}' from column '${emailColumnName}'`);
+        
         if (email && email.includes('@')) {
-          // Check if user already exists (additive-only approach)
-          const existingUser = await getUserByEmail(email);
-          if (existingUser) {
-            skippedExisting++;
-            console.log(`⏭️ Skipping existing user: ${email}`);
-            continue;
-          }
-          
           const name = record['Name'] || record['name'] || record['Full Name'] || record['fullName'] || null;
-          usersToAdd.push({
+          console.log(`➕ Adding ${userType} user: ${email} (name: ${name || 'none'})`);
+          usersToProcess.push({
             email,
             name: name?.trim() || null,
             subscriptionType: userType
           });
+        } else {
+          invalidEmails++;
+          console.log(`❌ Invalid email in row ${i + 1}: '${email}'`);
         }
       }
 
-      if (usersToAdd.length === 0 && skippedExisting === 0) {
-        throw new Error("No valid email addresses found in CSV file");
+      console.log(`📊 Processing summary:`);
+      console.log(`   - Users to process: ${usersToProcess.length}`);
+      console.log(`   - Invalid emails: ${invalidEmails}`);
+
+      if (usersToProcess.length === 0) {
+        throw new Error(`No valid email addresses found in CSV file. Invalid emails: ${invalidEmails}`);
       }
 
-      // Bulk insert NEW users only (preserves all existing users)
-      const result = await bulkUpsertUsers(usersToAdd);
-      
-      console.log(`✅ Added ${usersToAdd.length} new users, skipped ${skippedExisting} existing users`);
+      // Process ALL users (will insert new or update existing)
+      console.log(`🔄 Attempting to process ${usersToProcess.length} users...`);
+      const result = await bulkUpsertUsers(usersToProcess);
+      console.log(`✅ Database processing result: ${result} users processed`);
 
       return res.status(200).json({ 
-        message: `Added ${usersToAdd.length} new ${userType} users (${skippedExisting} already existed)`, 
-        count: usersToAdd.length,
-        skipped: skippedExisting,
+        message: `Successfully updated ${userType} whitelist with ${result} emails`, 
+        count: result,
         userType
       });
 
     } catch (error) {
-      console.error("Error processing additive CSV upload:", error);
+      console.error("❌ Error processing additive CSV upload:", error);
+      console.error("❌ Error stack:", error instanceof Error ? error.stack : 'No stack trace');
       return res.status(500).json({ 
         message: "Failed to process the uploaded CSV file",
         error: error instanceof Error ? error.message : "Unknown error" 

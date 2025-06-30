@@ -70,14 +70,21 @@ export async function upsertUser(email: string, name?: string, subscriptionType:
 // Add multiple users from CSV data
 export async function bulkUpsertUsers(users: Array<{email: string, name?: string, subscriptionType: 'admin' | 'premium' | 'freemium' | 'friend'}>): Promise<number> {
   try {
-    let insertedCount = 0;
+    let processedCount = 0;
     
     for (const user of users) {
+      console.log(`🔄 Processing user: ${user.email} as ${user.subscriptionType}`);
       const result = await upsertUser(user.email, user.name, user.subscriptionType);
-      if (result) insertedCount++;
+      if (result) {
+        processedCount++;
+        console.log(`✅ Successfully processed: ${user.email}`);
+      } else {
+        console.log(`❌ Failed to process: ${user.email}`);
+      }
     }
     
-    return insertedCount;
+    console.log(`📊 Bulk upsert complete: ${processedCount}/${users.length} users processed`);
+    return processedCount;
   } catch (error) {
     console.error('Error bulk upserting users:', error);
     return 0;

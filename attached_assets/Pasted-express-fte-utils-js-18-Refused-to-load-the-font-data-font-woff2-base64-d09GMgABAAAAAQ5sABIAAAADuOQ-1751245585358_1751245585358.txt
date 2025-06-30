@@ -1,0 +1,42 @@
+express-fte-utils.js:18 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+addFontToDocument @ express-fte-utils.js:18
+index-Crx1iu62.js:49 Use of history.pushState in a trivial session history context, which maintains only one session history entry, is treated as history.replaceState.
+d @ index-Crx1iu62.js:49
+index-Crx1iu62.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-30T00:07:15.418Z
+api/auth/me:1 
+            
+            
+           Failed to load resource: the server responded with a status of 401 ()
+index-Crx1iu62.js:68 [AUTH_CHECK] Authentication failed - status: 401 at 2025-06-30T00:07:15.484Z
+index-Crx1iu62.js:233 === COMPLETE DIAGNOSTIC REPORT ===
+index-Crx1iu62.js:233 WebGL Capabilities: Object
+index-Crx1iu62.js:233 Crash History: Array(5)
+index-Crx1iu62.js:233 Crash #1: Object
+index-Crx1iu62.js:233 Crash #2: Object
+index-Crx1iu62.js:233 Crash #3: Object
+index-Crx1iu62.js:233 Crash #4: Object
+index-Crx1iu62.js:233 Crash #5: Object
+index-Crx1iu62.js:233 === END DIAGNOSTIC REPORT ===
+index-Crx1iu62.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-30T00:09:13.901Z
+index-Crx1iu62.js:68 Setting auth state with user: Object
+index-Crx1iu62.js:4795 ADMIN FETCH ATTEMPT: 1751242156193
+index-Crx1iu62.js:68 [AUTH_CHECK] Checking authentication status at 2025-06-30T00:09:16.193Z
+index-Crx1iu62.js:4795 === EMERGENCY ENDPOINT FULL RESPONSE ===
+index-Crx1iu62.js:4795 Full data object: Object
+index-Crx1iu62.js:4795 Premium users count: 21
+index-Crx1iu62.js:4795 Members array length: 2841
+index-Crx1iu62.js:4795 Sample members: Array(3)
+index-Crx1iu62.js:4795 === END RESPONSE DEBUG ===
+index-Crx1iu62.js:4795 Emergency endpoint: loaded 2841 users
+index-Crx1iu62.js:68 Setting auth state with user: Object
+admin:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+admin:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+index-Crx1iu62.js:4795 ADMIN FETCH ATTEMPT: 1751245539254
+index-Crx1iu62.js:4795 === EMERGENCY ENDPOINT FULL RESPONSE ===
+index-Crx1iu62.js:4795 Full data object: Object
+index-Crx1iu62.js:4795 Premium users count: 21
+index-Crx1iu62.js:4795 Members array length: 2841
+index-Crx1iu62.js:4795 Sample members: Array(3)
+index-Crx1iu62.js:4795 === END RESPONSE DEBUG ===
+index-Crx1iu62.js:4795 Emergency endpoint: loaded 2841 users
