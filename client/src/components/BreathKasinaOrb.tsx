@@ -271,8 +271,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const { enableWakeLock, disableWakeLock } = useWakeLock();
   
   // Auto-detect Vernier usage based on connection state and data flow
-  const autoDetectedVernier = vernierData.isConnected && vernierData.currentForce > 0;
+  // More robust detection: device connected AND (has force data OR breath amplitude data OR is calibrated)
+  const autoDetectedVernier = vernierData.isConnected && (
+    vernierData.currentForce > 0 || 
+    vernierData.breathAmplitude > 0 || 
+    vernierData.calibrationComplete
+  );
   const shouldUseVernier = useVernier || autoDetectedVernier;
+  
+  // Debug current force values for troubleshooting
+  console.log('🔧 FORCE DEBUG - currentForce:', vernierData.currentForce, 'breathAmplitude:', vernierData.breathAmplitude, 'isConnected:', vernierData.isConnected);
   
   // Log Vernier data for debugging
   console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'autoDetected:', autoDetectedVernier, 'shouldUse:', shouldUseVernier, 'vernierData:', {
@@ -1013,7 +1021,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     console.log('🔄 ORB SIZE EFFECT - activeIsListening:', activeIsListening, 'shouldUseVernier:', shouldUseVernier, 'autoDetected:', autoDetectedVernier, 'vernierConnected:', vernierData.isConnected, 'hasForce:', vernierData.currentForce > 0);
     
     // Allow orb size updates if we have force data, even if activeIsListening is false
-    const hasActiveForceData = vernierData.currentForce > 0 && vernierData.breathAmplitude > 0;
+    const hasActiveForceData = vernierData.currentForce > 0 || vernierData.breathAmplitude > 0;
     
     if (!activeIsListening && !hasActiveForceData) {
       console.log('❌ Orb size update BLOCKED - activeIsListening is false and no force data');

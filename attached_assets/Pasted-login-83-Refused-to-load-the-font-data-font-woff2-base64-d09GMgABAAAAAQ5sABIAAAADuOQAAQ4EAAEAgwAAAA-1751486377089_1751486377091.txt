@@ -1,0 +1,2030 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.0941009521484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.050666809082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.05N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.0123443603515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.9663543701171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.97N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486362656
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🌊 Using STATIC predefined background for elemental kasina fire: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486362657
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.940803527832031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.94N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.876930236816406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 5.899925231933594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.0864410400390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.395591735839844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.40N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.740516662597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.74N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.090553283691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.4201507568359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.42N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.670539855957031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.87493896484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.87N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486363656
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🌊 Using STATIC predefined background for elemental kasina fire: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486363657
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.092109680175781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.345054626464844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.35N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.64654541015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.65N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.953147888183594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.95N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.226531982421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.23N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.502471923828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.50N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.6583251953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.66N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.589340209960938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.59N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.305740356445312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.31N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.856056213378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.86N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486364664
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🌊 Using STATIC predefined background for elemental kasina fire: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486364666
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.421707153320312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.42N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.155990600585938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.9337005615234375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.65264892578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.65N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.440589904785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.287284851074219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.29N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.054779052734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.05N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.8938140869140625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.8401641845703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.84N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.707305908203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486365664
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🌊 Using STATIC predefined background for elemental kasina fire: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486365665
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.5540008544921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.523345947265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.52N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.612770080566406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.707305908203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.804389953613281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.80N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 6.89892578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.90N
+ Official Vernier data - Sensor: Respiration Rate, Value: 12.940330505371094, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.8938140869140625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.88104248046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.906593322753906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.9679107666015625, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.97N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.0777740478515625, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.08N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.128875732421875, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.13N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.0701141357421875, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.07N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.0241241455078125, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.02N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.975578308105469, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.98N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.799285888671875, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.80N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.566780090332031, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.57N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.4083709716796875, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.41N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.3853759765625, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.39N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.40325927734375, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.40N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.469688415527344, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.47N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.699638366699219, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.70N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 6.9679107666015625, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.97N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.187644958496094, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.19N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.35882568359375, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.36N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.5376739501953125, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.54N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.775291442871094, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.78N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+BreathKasinaOrb.tsx:1199 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1191 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.964363098144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.96N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.992469787597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.018020629882812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.02N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🛡️ Session recovery started for breath (session_1751486368685_q5qijfye9)
+ 🛡️ Started session recovery tracking for breath meditation
+ Requesting screen wake lock...
+ 🔒 Wake lock requested to prevent screen sleep during meditation
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486368687
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🌊 Using STATIC predefined background for elemental kasina fire: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486368688
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Screen wake lock enabled - screen will remain on
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486368692
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🌊 Using STATIC predefined background for elemental kasina fire: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486368693
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.153434753417969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.171318054199219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.035903930664062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.04N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.8877105712890625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.754852294921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.75N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.637321472167969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.5478973388671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.430366516113281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.43N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.200416564941406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.20N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.919364929199219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486369687
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🌊 Using STATIC predefined background for elemental kasina fire: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751486369688
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.832496643066406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.83N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 6.888710021972656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: fire, Type: elemental, orbSize: 0px
+ 🔥 Elemental kasina fire scaled to 0.000 (orbSize: 0px)
