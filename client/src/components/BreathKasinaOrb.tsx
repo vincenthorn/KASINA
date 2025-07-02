@@ -286,7 +286,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Determine which breathing data to use with auto-detection
   const activeBreathAmplitude = shouldUseVernier ? vernierData.breathAmplitude : breathAmplitude;
   const activeBreathPhase = shouldUseVernier ? vernierData.breathPhase : breathPhase;
-  const activeIsListening = shouldUseVernier ? vernierData.isConnected : isListening;
+  const activeIsListening = shouldUseVernier ? (vernierData.isConnected || autoDetectedVernier) : isListening;
   const activeBreathingRate = shouldUseVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
@@ -1009,7 +1009,20 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
-    if (!activeIsListening) return;
+    // Enhanced logging for debugging connection issues
+    console.log('🔄 ORB SIZE EFFECT - activeIsListening:', activeIsListening, 'shouldUseVernier:', shouldUseVernier, 'autoDetected:', autoDetectedVernier, 'vernierConnected:', vernierData.isConnected, 'hasForce:', vernierData.currentForce > 0);
+    
+    // Allow orb size updates if we have force data, even if activeIsListening is false
+    const hasActiveForceData = vernierData.currentForce > 0 && vernierData.breathAmplitude > 0;
+    
+    if (!activeIsListening && !hasActiveForceData) {
+      console.log('❌ Orb size update BLOCKED - activeIsListening is false and no force data');
+      return;
+    }
+    
+    if (hasActiveForceData) {
+      console.log('✅ Allowing orb size update due to active force data:', vernierData.currentForce, 'N');
+    }
     
     // Custom kasina now breathes like other color kasinas
     
