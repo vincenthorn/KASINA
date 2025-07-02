@@ -270,8 +270,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, customColor } = useKasina();
   const { enableWakeLock, disableWakeLock } = useWakeLock();
   
+  // Auto-detect Vernier usage based on connection state and data flow
+  const autoDetectedVernier = vernierData.isConnected && vernierData.currentForce > 0;
+  const shouldUseVernier = useVernier || autoDetectedVernier;
+  
   // Log Vernier data for debugging
-  console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
+  console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'autoDetected:', autoDetectedVernier, 'shouldUse:', shouldUseVernier, 'vernierData:', {
     isConnected: vernierData.isConnected,
     breathAmplitude: vernierData.breathAmplitude,
     breathPhase: vernierData.breathPhase,
@@ -279,11 +283,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     calibrationComplete: vernierData.calibrationComplete
   });
   
-  // Determine which breathing data to use
-  const activeBreathAmplitude = useVernier ? vernierData.breathAmplitude : breathAmplitude;
-  const activeBreathPhase = useVernier ? vernierData.breathPhase : breathPhase;
-  const activeIsListening = useVernier ? vernierData.isConnected : isListening;
-  const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
+  // Determine which breathing data to use with auto-detection
+  const activeBreathAmplitude = shouldUseVernier ? vernierData.breathAmplitude : breathAmplitude;
+  const activeBreathPhase = shouldUseVernier ? vernierData.breathPhase : breathPhase;
+  const activeIsListening = shouldUseVernier ? vernierData.isConnected : isListening;
+  const activeBreathingRate = shouldUseVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);

@@ -172,10 +172,16 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
         console.log('🔄 DEVICE EXISTS BUT NOT CONNECTED - Updating state');
         setIsConnected(true);
       }
-    }, 1000);
+      
+      // Also check if we're receiving force data but not marked as connected
+      if (currentForce > 0 && !isConnected) {
+        console.log('🚨 FORCE DATA DETECTED WITHOUT CONNECTION STATE - Auto-connecting');
+        setIsConnected(true);
+      }
+    }, 500); // Check more frequently for responsive connection detection
 
     return () => clearInterval(interval);
-  }, [isConnected]);
+  }, [isConnected, currentForce]);
   const [calibrationProfile, setCalibrationProfile] = useState<{
     minForce: number;
     maxForce: number;
