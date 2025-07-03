@@ -274,6 +274,38 @@ export default function UnifiedSessionInterface({
           Change Kasina
         </button>
       </div>
+
+      {/* Breath Rate Display - Bottom Right (only in breath mode) */}
+      {mode === 'breath' && breathingRate !== undefined && breathingRate > 0 && (
+        <div 
+          className="absolute bottom-8 right-4 z-20"
+          style={{
+            padding: '12px 20px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            minWidth: '120px',
+            textAlign: 'center',
+            transition: 'all 0.3s ease-out'
+          }}
+        >
+          <div style={{ 
+            color: 'rgba(255, 255, 255, 0.8)', 
+            fontSize: '14px', 
+            fontWeight: '500',
+            marginBottom: '4px'
+          }}>
+            Breath Rate
+          </div>
+          <div style={{ 
+            color: 'white', 
+            fontSize: '24px', 
+            fontWeight: 'bold',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+          }}>
+            {breathingRate} BPM
+          </div>
+        </div>
+      )}
     </>
   );
 }

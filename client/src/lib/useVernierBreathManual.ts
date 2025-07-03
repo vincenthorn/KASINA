@@ -331,10 +331,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         setBreathPhase('pause');
       }
       
-      // Calculate breathing rate every 10 seconds
-      if (currentTime - lastRateUpdateRef.current > 10000) {
+      // Calculate breathing rate every 2 seconds for more responsive display
+      if (currentTime - lastRateUpdateRef.current > 2000) {
         const recentCycles = breathCyclesRef.current.filter(
-          timestamp => currentTime - timestamp < 60000 // Last minute
+          timestamp => currentTime - timestamp < 60000 // Last 60 seconds
         );
         
         if (recentCycles.length >= 2) {
