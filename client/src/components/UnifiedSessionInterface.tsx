@@ -275,8 +275,8 @@ export default function UnifiedSessionInterface({
         </button>
       </div>
 
-      {/* Breath Rate Display - Bottom Right (only in breath mode after 1 minute) */}
-      {mode === 'breath' && meditationTime >= 60 && breathingRate !== undefined && breathingRate > 0 && (
+      {/* Breath Rate Display - Bottom Right (only in breath mode) */}
+      {mode === 'breath' && (
         <div 
           className="absolute bottom-8 right-4 z-20"
           style={{
@@ -302,8 +302,21 @@ export default function UnifiedSessionInterface({
             fontWeight: 'bold',
             textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
           }}>
-            {breathingRate} BPM
+            {breathingRate !== undefined && breathingRate > 0 
+              ? `${breathingRate} BPM` 
+              : meditationTime < 30 
+                ? 'Calibrating...'
+                : 'Waiting...'}
           </div>
+          {meditationTime < 30 && (
+            <div style={{ 
+              color: 'rgba(255, 255, 255, 0.6)', 
+              fontSize: '12px',
+              marginTop: '4px'
+            }}>
+              {30 - meditationTime}s
+            </div>
+          )}
         </div>
       )}
     </>

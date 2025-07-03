@@ -284,6 +284,25 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const activeBreathPhase = useVernier ? vernierData.breathPhase : breathPhase;
   const activeIsListening = useVernier ? vernierData.isConnected : isListening;
   const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
+  
+  // Debug logging every 2 seconds
+  useEffect(() => {
+    if (!useVernier) return;
+    
+    const logInterval = setInterval(() => {
+      console.log('🎯 BREATH SYNC DEBUG:', {
+        connected: vernierData.isConnected,
+        amplitude: vernierData.breathAmplitude.toFixed(3),
+        phase: vernierData.breathPhase,
+        bpm: vernierData.breathingRate,
+        respirationDataReceived: vernierData.respirationDataReceived,
+        currentForce: vernierData.currentForce?.toFixed(4) || 'N/A',
+        orbSize: orbSize
+      });
+    }, 2000);
+    
+    return () => clearInterval(logInterval);
+  }, [useVernier, vernierData, orbSize]);
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
