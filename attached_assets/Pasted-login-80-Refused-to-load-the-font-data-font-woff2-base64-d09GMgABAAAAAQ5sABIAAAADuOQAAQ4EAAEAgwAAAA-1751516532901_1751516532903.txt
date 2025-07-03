@@ -1,0 +1,2976 @@
+login:80 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.8596038818359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.86N
+ [BREATH DEBUG] Force change: 0.0307 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.954139709472656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.95N
+ [BREATH DEBUG] Force change: 0.0945 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: 0, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = 0 bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.056343078613281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.06N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.196868896484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.20N
+ [BREATH DEBUG] Force change: 0.2427 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] Manual BPM calculation - Recent cycles: 0 Total cycles: 0
+ [BREATH DEBUG] Not enough cycles for manual BPM calculation
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.35272216796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.35N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.531570434570312, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.53N
+ [BREATH DEBUG] Force change: 0.3347 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.712974548339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.848396301269531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.85N
+ [BREATH DEBUG] Force change: 0.3168 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.983810424804688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.152435302734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.15N
+ [BREATH DEBUG] Force change: 0.3040 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.344062805175781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.34N
+ [BREATH DEBUG] Force change: 0.1916 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.436042785644531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.44N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.510139465332031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.51N
+ [BREATH DEBUG] Force change: 0.1661 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.683876037597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.68N
+ [BREATH DEBUG] Force change: 0.1737 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.857620239257812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.86N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.977699279785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.98N
+ [BREATH DEBUG] Force change: 0.2938 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 10.074790954589844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.07N
+ [BREATH DEBUG] Force change: 0.0971 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 10.153999328613281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 10.169326782226562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.17N
+ [BREATH DEBUG] Force change: 0.0945 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 10.100341796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 10.10N
+ [BREATH DEBUG] Force change: -0.0690 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.985366821289062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.865280151367188, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.87N
+ [BREATH DEBUG] Force change: -0.2351 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.688987731933594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.69N
+ [BREATH DEBUG] Force change: -0.1763 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.482032775878906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.48N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.326179504394531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.33N
+ [BREATH DEBUG] Force change: -0.3628 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.1805419921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.18N
+ [BREATH DEBUG] Force change: -0.1456 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.006805419921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.845840454101562, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.85N
+ [BREATH DEBUG] Force change: -0.3347 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.695091247558594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.70N
+ [BREATH DEBUG] Force change: -0.1507 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.552009582519531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.55N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.411483764648438, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.41N
+ [BREATH DEBUG] Force change: -0.2836 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.286293029785156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.29N
+ [BREATH DEBUG] Force change: -0.1252 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.178985595703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.079338073730469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.08N
+ [BREATH DEBUG] Force change: -0.2070 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.987358093261719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.99N
+ [BREATH DEBUG] Force change: -0.0920 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.913261413574219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.862159729003906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.86N
+ [BREATH DEBUG] Force change: -0.1252 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.793174743652344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.79N
+ [BREATH DEBUG] Force change: -0.0690 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.698638916015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.644989013671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.64N
+ [BREATH DEBUG] Force change: -0.1482 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.632209777832031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.63N
+ [BREATH DEBUG] Force change: -0.0128 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.6219940185546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.62N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.619438171386719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.62N
+ [BREATH DEBUG] Force change: -0.0128 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.6398773193359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.64N
+ [BREATH DEBUG] Force change: 0.0204 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🛡️ Session recovery started for breath (session_1751516503364_3btv3l466)
+ 🛡️ Started session recovery tracking for breath meditation
+ Requesting screen wake lock...
+ 🔒 Wake lock requested to prevent screen sleep during meditation
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ Screen wake lock enabled - screen will remain on
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.673095703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.724189758300781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.72N
+ [BREATH DEBUG] Force change: 0.0843 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.811065673828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.81N
+ [BREATH DEBUG] Force change: 0.0869 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.9285888671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.93N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.061454772949219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.06N
+ [BREATH DEBUG] Force change: 0.2504 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: Object
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.212196350097656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.21N
+ [BREATH DEBUG] Force change: 0.1507 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4965255887020835, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.212196350097656}
+ Official Vernier data - Sensor: Force, Value: 8.365493774414062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.37N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ Official Vernier data - Sensor: Force, Value: 8.518798828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.52N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.5891619574726064, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.518798828125}
+ Official Vernier data - Sensor: Force, Value: 8.64654541015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.65N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.6277590997995687, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.64654541015625}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.735969543457031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.74N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.6547775604549871, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.735969543457031}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.822845458984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.82N
+ [BREATH DEBUG] Force change: 0.6106 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.6810261067806631, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.822845458984375}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.971031188964844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.97N
+ [BREATH DEBUG] Force change: 0.1482 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.7257986996746305, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.971031188964844}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.073234558105469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.7566782576423794, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 9.073234558105469}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.05279541015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.05N
+ [BREATH DEBUG] Force change: 0.0818 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.7505028070753744, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 9.05279541015625}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.073234558105469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.07N
+ [BREATH DEBUG] Force change: 0.0204 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.7566782576423794, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 9.073234558105469}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.103889465332031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.765940280926525, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 9.103889465332031}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 9.086006164550781, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.09N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: 0.0128 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.7605370498219861, breathPhase: 'pause', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 9.086006164550781}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 9.068122863769531, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.07N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: -0.0179 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.7551338187174472, breathPhase: 'pause', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 9.068122863769531}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 9.034904479980469, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.03N
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.7450972708381117, breathPhase: 'pause', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 9.034904479980469}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.976142883300781, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.98N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: -0.0920 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.7273431385995627, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.976142883300781}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.876495361328125, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.88N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: -0.0996 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.6972358000942799, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.876495361328125}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.771743774414062, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.77N
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.6655863277967887, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.771743774414062}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.6644287109375, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.66N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: -0.2121 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.6331623309041077, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.6644287109375}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.557121276855469, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.56N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: -0.1073 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.6007406391441503, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.557121276855469}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.447257995605469, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.45N
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.5675467279217269, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.447257995605469}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.345054626464844, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.35N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: -0.2121 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.536667169953978, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.345054626464844}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.276069641113281, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.28N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: -0.0690 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.5158241598655646, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.276069641113281}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.201980590820312, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.20N
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4934390159849429, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.201980590820312}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Force, Value: 8.15087890625, Units: N
+useVernierBreathManual.ts:185 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.15N
+useVernierBreathManual.ts:249 [BREATH DEBUG] Force change: -0.1252 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:156 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:161 [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+useVernierBreathManual.ts:168 [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathPage.tsx:160 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.47799923700106844, breathPhase: 'exhale', …}
+useVernierBreathManual.ts:64 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathPage.tsx:77 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.15087890625}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 150px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.176429748535156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.18N
+ [BREATH DEBUG] Force change: 0.0256 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.48571912649300564, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.176429748535156}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.145767211914062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4764547980761362, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.145767211914062}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.079338073730469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.08N
+ [BREATH DEBUG] Force change: -0.0971 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.456384007450189, breathPhase: 'exhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.079338073730469}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.089553833007812, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.09N
+ [BREATH DEBUG] Force change: 0.0102 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4594705801673296, breathPhase: 'pause', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.089553833007812}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.061454772949219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.06N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.45098077634565004, breathPhase: 'pause', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.061454772949219}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.010353088378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.01N
+ [BREATH DEBUG] Force change: -0.0792 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4355409973617756, breathPhase: 'exhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.010353088378906}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.9975738525390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.00N
+ [BREATH DEBUG] Force change: -0.0128 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4316799000494451, breathPhase: 'pause', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 7.9975738525390625}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.987358093261719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4285933273323045, breathPhase: 'pause', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 7.987358093261719}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.969474792480469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.97N
+ [BREATH DEBUG] Force change: -0.0281 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.42319009622776554, breathPhase: 'exhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 7.969474792480469}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.987358093261719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.99N
+ [BREATH DEBUG] Force change: 0.0179 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4285933273323045, breathPhase: 'pause', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 7.987358093261719}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.9899139404296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.42936554679477057, breathPhase: 'pause', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 7.9899139404296875}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 7.98480224609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.98N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4278211078698384, breathPhase: 'pause', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 7.98480224609375}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ Official Vernier data - Sensor: Force, Value: 8.010353088378906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.01N
+ [BREATH DEBUG] Force change: 0.0256 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ [BREATH DEBUG] Respiration Rate Sensor: Respiration Rate = NaN bpm
+ [BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection: {isConnected: true, useVernier: true, isListening: true, breathAmplitude: 0.4355409973617756, breathPhase: 'inhale', …}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: true vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 8.010353088378906}
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569
+ 🔍 Kasina: yellow, Type: color, orbSize: 150px
+ 🎯 Color kasina yellow scaled from 1.569 to 0.013
+ 🎯 Yellow (color) SCALING:
+    orbSize: 150px
+    baseScale: 1.000
+    normalizedScale: 0.056
+    final scale: 1.569
+    cappedScale: 1.569

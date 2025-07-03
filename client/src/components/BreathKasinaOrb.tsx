@@ -288,7 +288,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
   const [heldExhaleStart, setHeldExhaleStart] = useState<number | null>(null);
-  const [sizeScale, setSizeScale] = useState(0.05); // Scale factor for min-max range (minimal default size)
+  const [sizeScale, setSizeScale] = useState(0.5); // Scale factor for min-max range (reasonable default size)
   const [showCalibrationMessage, setShowCalibrationMessage] = useState(false);
   const [calibrationTimeRemaining, setCalibrationTimeRemaining] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
@@ -301,7 +301,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
   const [selectedKasina, setSelectedKasina] = useState<string>(globalSelectedKasina || KASINA_TYPES.BLUE);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
-  const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
+  const [sizeMultiplier, setSizeMultiplier] = useState(1.5); // Start at 150% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1010,7 +1010,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     // Custom kasina now breathes like other color kasinas
     
     // Detect if amplitude has changed significantly (not holding breath)
-    const amplitudeChanged = Math.abs(activeBreathAmplitude - lastAmplitudeRef.current) > 0.01;
+    // Use more sensitive threshold for Vernier belt data
+    const amplitudeThreshold = useVernier ? 0.001 : 0.01;
+    const amplitudeChanged = Math.abs(activeBreathAmplitude - lastAmplitudeRef.current) > amplitudeThreshold;
     
     let finalAmplitude = activeBreathAmplitude;
     
