@@ -1045,7 +1045,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     let scaledAmplitude = finalAmplitude;
     
     // Add stronger smoothing to reduce jerkiness for smoother animation
-    const smoothingFactor = 0.97; // Maximum smoothing for ultra-smooth transitions
+    const smoothingFactor = 0.95; // 95% smoothing for ultra-smooth transitions
     const lastSmoothedAmplitude = lastAmplitudeRef.current || finalAmplitude;
     scaledAmplitude = (lastSmoothedAmplitude * smoothingFactor) + (finalAmplitude * (1 - smoothingFactor));
     

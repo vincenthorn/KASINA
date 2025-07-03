@@ -16,7 +16,7 @@
   position: relative;
   overflow: hidden;
   background-color: transparent;
-  transition: all 1.0s ease-out;
+  transition: all 0.75s ease-out;
 }
 
 /* Particles Effect - Enhanced for microphone breath detection */

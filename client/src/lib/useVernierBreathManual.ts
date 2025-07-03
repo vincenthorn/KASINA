@@ -313,7 +313,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       const forceChange = forceValue - lastForceValueRef.current;
       
       // Use calibrated thresholds for phase detection
-      const changeThreshold = calibrationProfile.forceRange * 0.05; // 5% of calibrated range for minimal sensitivity
+      const changeThreshold = calibrationProfile.forceRange * 0.04; // 4% of calibrated range for minimal sensitivity
       
       if (forceChange > changeThreshold) {
         // Detect start of inhale - count as new breath cycle
