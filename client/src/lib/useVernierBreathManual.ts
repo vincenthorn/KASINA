@@ -70,7 +70,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   // Breathing analysis state
   const [breathAmplitude, setBreathAmplitude] = useState(0);
   const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
-  const [breathingRate, setBreathingRate] = useState(0);
+  const [breathingRate, setBreathingRate] = useState(12); // Start with typical rate until we detect actual breathing
   
   // Calibration state - Start fresh each session
   const [isCalibrating, setIsCalibrating] = useState(false);
@@ -195,7 +195,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
               if (currentTime - lastForceUpdateRef.current > 100) { // Update every 100ms
                 const forceChange = forceValue - lastForceValueRef.current;
                 
-                if (forceChange > 0.2) {
+                // Use more sensitive thresholds for uncalibrated detection
+                const sensitiveThreshold = 0.05; // Much more sensitive for small force changes
+                
+                if (forceChange > sensitiveThreshold) {
                   // Detect start of inhale - count as new breath cycle
                   if (breathPhase !== 'inhale') {
                     breathCyclesRef.current.push(currentTime);
@@ -205,7 +208,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                     );
                   }
                   setBreathPhase('inhale');
-                } else if (forceChange < -0.2) {
+                } else if (forceChange < -sensitiveThreshold) {
                   setBreathPhase('exhale');
                 } else {
                   setBreathPhase('pause');
