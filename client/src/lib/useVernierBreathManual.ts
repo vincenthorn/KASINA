@@ -53,6 +53,7 @@ interface VernierBreathManualHookResult {
     forceRange: number;
     isValid: boolean;
   } | null;
+  respirationDataReceived: boolean;
 }
 
 /**
@@ -71,6 +72,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const [breathAmplitude, setBreathAmplitude] = useState(0);
   const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
   const [breathingRate, setBreathingRate] = useState(12); // Start with typical rate until we detect actual breathing
+  const [respirationDataReceived, setRespirationDataReceived] = useState(false); // Track if we've received valid sensor data
   
   // Calibration state - Start fresh each session
   const [isCalibrating, setIsCalibrating] = useState(false);
@@ -117,8 +119,32 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       
       console.log('Connected to:', gdxDevice.name);
       
-      // Enable default sensors (should include force sensor for respiration belt)
+      // Try to enable all sensors to capture respiration rate
+      console.log('Attempting to enable all sensors...');
+      
+      // First enable defaults
       gdxDevice.enableDefaultSensors();
+      
+      // Then try to enable respiration rate sensor specifically
+      const respirationSensor = gdxDevice.sensors.find((s: any) => 
+        s.name.toLowerCase().includes('respiration') || 
+        s.name.toLowerCase().includes('breath') ||
+        s.name.toLowerCase().includes('rate')
+      );
+      
+      if (respirationSensor && !respirationSensor.enabled) {
+        console.log('Found respiration sensor, enabling it:', respirationSensor.name);
+        respirationSensor.enabled = true;
+      }
+      
+      // Get all sensors (not just enabled ones)
+      console.log('All available sensors:', gdxDevice.sensors.map((s: any) => ({
+        name: s.name,
+        number: s.number,
+        enabled: s.enabled,
+        unit: s.unit,
+        type: s.type
+      })));
       
       // Get enabled sensors
       const enabledSensors = gdxDevice.sensors.filter((s: any) => s.enabled);
@@ -132,9 +158,15 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
           // Check if this is the respiration rate sensor
           if (sensor.name.toLowerCase().includes('respiration') && sensor.unit === 'bpm') {
             const rate = parseFloat(sensor.value);
+            console.log('[BREATH DEBUG] Respiration Rate Sensor:', sensor.name, '=', sensor.value, sensor.unit);
+            
             if (!isNaN(rate) && rate > 0) {
-              console.log('[BREATH DEBUG] Direct respiration rate from Vernier:', rate, 'BPM');
+              console.log('[BREATH DEBUG] ✅ Valid respiration rate from Vernier:', rate, 'BPM');
               setBreathingRate(Math.round(rate));
+              setRespirationDataReceived(true);
+            } else if (isNaN(rate)) {
+              console.log('[BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...');
+              // This is normal - Vernier needs 30 seconds of data before calculating BPM
             }
           }
           
@@ -475,5 +507,6 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     calibrationComplete,
     currentForce,
     calibrationProfile,
+    respirationDataReceived,
   };
 }

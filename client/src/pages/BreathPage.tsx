@@ -68,7 +68,8 @@ const BreathPage: React.FC = () => {
     startCalibration,
     calibrationComplete,
     currentForce,
-    calibrationProfile
+    calibrationProfile,
+    respirationDataReceived
   } = useVernierBreathManual();
 
   // Add logging to track connection state changes
@@ -150,7 +151,8 @@ const BreathPage: React.FC = () => {
   const getInstructions = () => {
     if (!hasPremiumAccess) return 'Premium subscription required for Vernier belt integration.';
     if (!isConnected) return 'Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection.';
-    return 'Connected! Your breathing will automatically sync during meditation.';
+    if (!respirationDataReceived) return 'Connected! Waiting for respiration sensor data (30 seconds)... Force sensor active.';
+    return 'Connected! Respiration sensor ready - Real BPM data available.';
   };
 
   // If meditation mode is active, show full-screen breathing orb
