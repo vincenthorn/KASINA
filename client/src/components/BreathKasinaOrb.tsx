@@ -4,7 +4,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
-import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
+import { useVernierBreathManual } from '../lib/useVernierBreathManual';
 import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { useKasina } from '../lib/stores/useKasina';
 import { sessionRecovery } from '../lib/sessionRecovery';
@@ -264,7 +264,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useVernier = false
 }) => {
   // Use Vernier breathing data if enabled
-  const vernierData = useVernierBreathOfficial();
+  const vernierData = useVernierBreathManual();
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, customColor } = useKasina();

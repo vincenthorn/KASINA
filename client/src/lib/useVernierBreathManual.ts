@@ -16,9 +16,9 @@ export interface VernierRespirationData {
 }
 
 /**
- * Interface for the official Vernier breath detection hook results
+ * Interface for the manual Vernier breath detection hook results
  */
-interface VernierBreathOfficialHookResult {
+interface VernierBreathManualHookResult {
   isConnected: boolean;
   isConnecting: boolean;
   breathAmplitude: number; // 0-1 normalized amplitude based on force data
@@ -45,9 +45,9 @@ interface VernierBreathOfficialHookResult {
 
 /**
  * Custom hook using official Vernier GoDirect library for breathing detection
- * Manual connection approach - users connect fresh each session
+ * Manual connection approach - users connect fresh each session for reliability
  */
-export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
+export function useVernierBreathManual(): VernierBreathManualHookResult {
   console.log('🚨 VERNIER HOOK CALLED - Manual connection mode');
   
   // Connection state - Start fresh each time (no persistence)
@@ -84,8 +84,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   const breathCyclesRef = useRef<number[]>([]); // Track breath cycle timestamps
   const lastRateUpdateRef = useRef<number>(0);
 
-
-
   /**
    * Connect to Vernier GDX respiration belt using official library
    * Manual connection - fresh connection each session
@@ -119,8 +117,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       
       console.log('Connected to:', gdxDevice.name);
       
-      // Set up device event handlers directly here to avoid dependency issues
-
       // Enable default sensors (should include force sensor for respiration belt)
       gdxDevice.enableDefaultSensors();
       
@@ -245,64 +241,164 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       console.log('Successfully connected to Vernier respiration belt via official library');
       
     } catch (err) {
-      console.error('Error connecting to Vernier device:', err);
-      setError(`Connection failed: ${err}`);
+      console.error('Connection failed:', err);
+      setError(`Connection failed: ${err instanceof Error ? err.message : 'Unknown error'}`);
       setIsConnecting(false);
       setIsConnected(false);
     }
-  }, []);
+  }, [calibrationProfile, breathPhase, isCalibrating, calibrationComplete]);
 
   /**
-   * Disconnect from the device (soft disconnect - keeps reference for reconnection)
+   * Disconnect from device and clean up
    */
   const disconnectDevice = useCallback(() => {
     try {
-      // Don't actually close the device connection to allow reconnection
-      // Just set UI state to disconnected
-      setIsConnected(false);
-      setIsCalibrating(false);
-      setError(null);
-      
-      console.log('Soft disconnect - device reference maintained for future reconnection');
-      console.log('✅ Device will automatically reconnect on next session without re-pairing');
-      
-    } catch (err) {
-      console.error('Error disconnecting:', err);
-    }
-  }, []);
-
-  /**
-   * Force disconnect from the device (hard disconnect - closes connection)
-   */
-  const forceDisconnectDevice = useCallback(() => {
-    try {
       if (deviceRef.current) {
+        console.log('Disconnecting from Vernier device...');
         deviceRef.current.close();
         deviceRef.current = null;
       }
       
-      if (persistentDeviceRef.current) {
-        try {
-          persistentDeviceRef.current.close();
-        } catch (err) {
-          console.log('Error closing persistent device:', err);
+      setIsConnected(false);
+      setIsConnecting(false);
+      setError(null);
+      setBreathAmplitude(0);
+      setBreathPhase('pause');
+      setBreathingRate(0);
+      setCurrentForce(0);
+      
+      // Reset calibration
+      setIsCalibrating(false);
+      setCalibrationProgress(0);
+      setCalibrationComplete(false);
+      setCalibrationProfile(null);
+      
+      // Clear data refs
+      forceDataRef.current = [];
+      calibrationDataRef.current = [];
+      calibrationStartTimeRef.current = 0;
+      breathCyclesRef.current = [];
+      
+      console.log('Device disconnected successfully');
+    } catch (err) {
+      console.error('Error during disconnect:', err);
+      setError(`Disconnect error: ${err instanceof Error ? err.message : 'Unknown error'}`);
+    }
+  }, []);
+
+  /**
+   * Force disconnect that clears all references
+   */
+  const forceDisconnectDevice = useCallback(() => {
+    console.log('Force disconnecting from Vernier device...');
+    disconnectDevice();
+  }, [disconnectDevice]);
+
+  /**
+   * Process breathing data using calibration profile
+   */
+  const processBreathingData = useCallback((forceValue: number) => {
+    if (!calibrationProfile) return;
+    
+    // Normalize force value to 0-1 range using calibration data
+    const normalizedAmplitude = Math.max(0, Math.min(1, 
+      (forceValue - calibrationProfile.minForce) / calibrationProfile.forceRange
+    ));
+    
+    setBreathAmplitude(normalizedAmplitude);
+    
+    // Enhanced phase detection with calibrated thresholds
+    const currentTime = Date.now();
+    if (currentTime - lastForceUpdateRef.current > 100) { // Update every 100ms
+      const forceChange = forceValue - lastForceValueRef.current;
+      
+      // Use calibrated thresholds for phase detection
+      const changeThreshold = calibrationProfile.forceRange * 0.02; // 2% of calibrated range
+      
+      if (forceChange > changeThreshold) {
+        // Detect start of inhale - count as new breath cycle
+        if (breathPhase !== 'inhale') {
+          breathCyclesRef.current.push(currentTime);
+          // Keep only recent cycles (last 2 minutes for rate calculation)
+          breathCyclesRef.current = breathCyclesRef.current.filter(
+            timestamp => currentTime - timestamp < 120000
+          );
         }
-        persistentDeviceRef.current = null;
+        setBreathPhase('inhale');
+      } else if (forceChange < -changeThreshold) {
+        setBreathPhase('exhale');
+      } else {
+        setBreathPhase('pause');
       }
       
-      setIsConnected(false);
-      setIsCalibrating(false);
-      setError(null);
+      // Calculate breathing rate every 10 seconds
+      if (currentTime - lastRateUpdateRef.current > 10000) {
+        const recentCycles = breathCyclesRef.current.filter(
+          timestamp => currentTime - timestamp < 60000 // Last minute
+        );
+        
+        if (recentCycles.length >= 2) {
+          // Calculate BPM from recent cycles
+          const timeSpan = (currentTime - recentCycles[0]) / 1000; // seconds
+          const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
+          const bpm = Math.round(cyclesPerSecond * 60);
+          setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
+        }
+        
+        lastRateUpdateRef.current = currentTime;
+      }
       
-      // Clear session storage
-      sessionStorage.removeItem('vernier_device_connected');
-      sessionStorage.removeItem('vernier_device_name');
-      
-      console.log('Hard disconnect - all device references cleared');
-      
-    } catch (err) {
-      console.error('Error force disconnecting:', err);
+      lastForceValueRef.current = forceValue;
+      lastForceUpdateRef.current = currentTime;
     }
+  }, [calibrationProfile, breathPhase]);
+
+  /**
+   * Complete calibration and calculate profile
+   */
+  const completeCalibration = useCallback(() => {
+    if (calibrationDataRef.current.length === 0) {
+      setError('No calibration data collected');
+      return;
+    }
+    
+    console.log('Completing calibration with', calibrationDataRef.current.length, 'samples');
+    
+    // Calculate calibration profile from collected data
+    const forces = [...calibrationDataRef.current];
+    forces.sort((a, b) => a - b);
+    
+    const minForce = forces[0];
+    const maxForce = forces[forces.length - 1];
+    const baselineForce = forces[Math.floor(forces.length / 2)]; // Median
+    const forceRange = maxForce - minForce;
+    
+    const profile = {
+      minForce,
+      maxForce,
+      baselineForce,
+      forceRange,
+      isValid: forceRange > 0.5 // Minimum range threshold
+    };
+    
+    console.log('Calibration profile:', profile);
+    
+    if (profile.isValid) {
+      setCalibrationProfile(profile);
+      setCalibrationComplete(true);
+      setIsCalibrating(false);
+      setCalibrationProgress(1.0);
+      
+      console.log('Calibration completed successfully');
+    } else {
+      setError('Calibration failed: insufficient force range detected. Try breathing more deeply during calibration.');
+      setIsCalibrating(false);
+      setCalibrationProgress(0);
+    }
+    
+    // Reset calibration data
+    calibrationDataRef.current = [];
+    calibrationStartTimeRef.current = 0;
   }, []);
 
   /**
@@ -310,204 +406,26 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
    */
   const startCalibration = useCallback(async () => {
     if (!isConnected) {
-      setError('Please connect to device first');
+      setError('Device must be connected before calibration');
       return;
     }
-
-    console.log('Starting Vernier respiration belt calibration...');
+    
+    console.log('Starting respiration belt calibration...');
     setIsCalibrating(true);
     setCalibrationProgress(0);
     setCalibrationComplete(false);
+    setCalibrationProfile(null);
     setError(null);
+    
+    // Reset calibration data
     calibrationDataRef.current = [];
     calibrationStartTimeRef.current = Date.now();
     
-    console.log('Calibration started at:', new Date(calibrationStartTimeRef.current).toLocaleTimeString());
-    console.log('setIsCalibrating(true) called - calibration should now be active');
-    
+    console.log('Calibration started - breathe normally for 20 seconds');
   }, [isConnected]);
 
-  /**
-   * Complete calibration and calculate breathing profile
-   */
-  const completeCalibration = useCallback(() => {
-    const data = calibrationDataRef.current;
-    
-    console.log(`Calibration completed with ${data.length} data points`);
-    
-    if (data.length < 10) {
-      setError('Not enough calibration data. Please try again.');
-      setIsCalibrating(false);
-      return;
-    }
-
-    // Calculate breathing profile statistics
-    const minForce = Math.min(...data);
-    const maxForce = Math.max(...data);
-    const baselineForce = data.reduce((sum, val) => sum + val, 0) / data.length;
-    const forceRange = maxForce - minForce;
-
-    const profile = {
-      minForce,
-      maxForce,
-      baselineForce,
-      forceRange,
-      isValid: forceRange > 0.1 // Valid if range is more than 0.1N
-    };
-
-    setCalibrationProfile(profile);
-    setCalibrationComplete(true);
-    setIsCalibrating(false);
-    
-    // Save calibration profile to session storage for persistence
-    sessionStorage.setItem('vernier_calibration_profile', JSON.stringify(profile));
-    sessionStorage.setItem('vernier_calibration_complete', 'true');
-    
-    console.log('Calibration complete:', profile);
-    console.log('Setting calibrationComplete to true - button should now show Begin Meditation');
-    console.log('✅ Calibration profile saved for future sessions');
-  }, []);
-
-  /**
-   * Process breathing data using calibration profile
-   */
-  const processBreathingData = useCallback((force: number) => {
-    if (!calibrationProfile) return;
-
-    // Normalize force to 0-1 based on calibration
-    const normalized = Math.max(0, Math.min(1, 
-      (force - calibrationProfile.minForce) / calibrationProfile.forceRange
-    ));
-    
-    setBreathAmplitude(normalized);
-
-    // Determine breathing phase
-    if (normalized > 0.7) {
-      setBreathPhase('inhale');
-    } else if (normalized < 0.3) {
-      setBreathPhase('exhale');
-    } else {
-      setBreathPhase('pause');
-    }
-
-    // Store data for breathing rate calculation
-    const timestamp = Date.now();
-    forceDataRef.current.push({ force, timestamp });
-    
-    // Keep only last 60 seconds of data
-    const cutoffTime = timestamp - 60000;
-    forceDataRef.current = forceDataRef.current.filter(d => d.timestamp > cutoffTime);
-
-    // Calculate breathing rate (simplified)
-    if (forceDataRef.current.length > 100) {
-      // Count peaks in the last minute
-      const peaks = countBreathPeaks(forceDataRef.current);
-      setBreathingRate(peaks);
-    }
-  }, [calibrationProfile]);
-
-  /**
-   * Count breathing peaks for rate calculation
-   */
-  const countBreathPeaks = (data: VernierRespirationData[]): number => {
-    if (data.length < 20) return 0;
-    
-    let peaks = 0;
-    let lastWasPeak = false;
-    
-    for (let i = 5; i < data.length - 5; i++) {
-      const current = data[i].force;
-      const isLocalMax = data.slice(i-3, i+4).every(d => d.force <= current);
-      
-      if (isLocalMax && !lastWasPeak && current > (calibrationProfile?.baselineForce || 0) + 0.1) {
-        peaks++;
-        lastWasPeak = true;
-      } else if (!isLocalMax) {
-        lastWasPeak = false;
-      }
-    }
-    
-    return peaks;
-  };
-
-  // Load the official Vernier library and check for existing connections on component mount
-  useEffect(() => {
-    const loadVernierLibrary = async () => {
-      console.log('🚀 VERNIER HOOK INITIALIZATION - Starting library load and connection check');
-      
-      try {
-        if (window.godirect) {
-          console.log('✅ Vernier GoDirect library already loaded');
-        } else {
-          console.log('📦 Loading Vernier GoDirect library...');
-          const godirect = await import('@vernier/godirect');
-          window.godirect = godirect.default || godirect;
-          console.log('✅ Vernier GoDirect library loaded successfully from package');
-        }
-
-        // Check if there was a previous connection in this browser session
-        const wasConnected = sessionStorage.getItem('vernier_device_connected');
-        const deviceName = sessionStorage.getItem('vernier_device_name');
-        const savedProfile = sessionStorage.getItem('vernier_calibration_profile');
-        const savedCalibrationComplete = sessionStorage.getItem('vernier_calibration_complete');
-        
-        console.log('🔍 SESSION STORAGE CHECK:', { 
-          wasConnected, 
-          deviceName, 
-          hasProfile: !!savedProfile, 
-          calibrationComplete: savedCalibrationComplete 
-        });
-        
-        if (wasConnected === 'true' && deviceName) {
-          console.log('🔍 Previous connection found - attempting automatic restoration...');
-          
-          // Try a direct approach - assume the device is still active and force connection state
-          console.log('🔄 FORCING CONNECTION RESTORATION...');
-          setIsConnected(true);
-          
-          // Restore calibration state immediately
-          if (savedProfile && savedCalibrationComplete === 'true') {
-            try {
-              const profile = JSON.parse(savedProfile);
-              if (profile.isValid) {
-                console.log('✅ Restoring saved calibration profile:', profile);
-                setCalibrationProfile(profile);
-                setCalibrationComplete(true);
-                setCalibrationProgress(1.0);
-              }
-            } catch (err) {
-              console.log('❌ Failed to parse saved calibration profile:', err);
-            }
-          }
-          
-          console.log('✅ VERNIER CONNECTION RESTORED - Device should be ready for use!');
-          console.log('📋 Connection state: isConnected=true, calibrationComplete=true');
-          
-        } else {
-          console.log('ℹ️ No previous connection found in session storage');
-        }
-      } catch (error) {
-        console.error('❌ Failed to load Vernier GoDirect library:', error);
-        setError('Failed to load Vernier GoDirect library. Please refresh the page and try again.');
-      }
-    };
-
-    loadVernierLibrary();
-  }, []);
-
-  // Ensure the returned isConnected value reflects the restored state
-  const finalIsConnected = isConnected || initialConnectionState;
-  
-  console.log('🔍 HOOK RETURN - Final values:', {
-    originalIsConnected: isConnected,
-    initialConnectionState,
-    finalIsConnected,
-    calibrationComplete,
-    willReturnIsConnected: finalIsConnected
-  });
-
   return {
-    isConnected: finalIsConnected,
+    isConnected,
     isConnecting,
     breathAmplitude,
     breathPhase,
@@ -521,6 +439,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     startCalibration,
     calibrationComplete,
     currentForce,
-    calibrationProfile
+    calibrationProfile,
   };
 }

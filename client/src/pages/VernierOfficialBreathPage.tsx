@@ -4,7 +4,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Alert, AlertDescription } from '../components/ui/alert';
 import { useNavigate } from 'react-router-dom';
-import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
+import { useVernierBreathManual } from '../lib/useVernierBreathManual';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
 import { sessionRecovery } from '../lib/sessionRecovery';
 
@@ -28,7 +28,7 @@ export default function VernierOfficialBreathPage() {
     calibrationComplete,
     currentForce,
     calibrationProfile
-  } = useVernierBreathOfficial();
+  } = useVernierBreathManual();
 
   // Auto-navigate to existing breath page if device is already connected and calibrated
   React.useEffect(() => {

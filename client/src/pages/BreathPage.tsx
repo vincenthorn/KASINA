@@ -4,7 +4,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Alert, AlertDescription } from '../components/ui/alert';
 import { useAuth } from '../lib/stores/useAuth';
-import { useVernierBreathOfficial } from '../lib/useVernierBreathOfficial';
+import { useVernierBreathManual } from '../lib/useVernierBreathManual';
 import BreathKasinaOrb from '../components/BreathKasinaOrb';
 import Layout from '../components/Layout';
 
@@ -69,7 +69,7 @@ const BreathPage: React.FC = () => {
     calibrationComplete,
     currentForce,
     calibrationProfile
-  } = useVernierBreathOfficial();
+  } = useVernierBreathManual();
 
   // Add logging to track connection state changes
   React.useEffect(() => {
