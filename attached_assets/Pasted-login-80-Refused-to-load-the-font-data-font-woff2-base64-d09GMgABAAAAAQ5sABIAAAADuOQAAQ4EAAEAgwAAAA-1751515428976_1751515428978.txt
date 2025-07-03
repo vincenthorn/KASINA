@@ -1,0 +1,2297 @@
+login:80 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 81px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 81px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 81px
+ 🔥 Elemental kasina space scaled to 0.810 (orbSize: 81px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 81px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 81px
+ 🔥 Elemental kasina space scaled to 0.810 (orbSize: 81px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 81px
+ 🔥 Elemental kasina space scaled to 0.810 (orbSize: 81px)
+ Official Vernier data - Sensor: Force, Value: 6.022560119628906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.02N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 85px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 85px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 85px
+ 🔥 Elemental kasina space scaled to 0.850 (orbSize: 85px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 85px
+ 🔥 Elemental kasina space scaled to 0.850 (orbSize: 85px)
+ Official Vernier data - Sensor: Force, Value: 6.060890197753906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.06N
+ [BREATH DEBUG] Force change: 0.0690 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:15 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 89px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 89px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 89px
+ 🔥 Elemental kasina space scaled to 0.890 (orbSize: 89px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 89px
+ 🔥 Elemental kasina space scaled to 0.890 (orbSize: 89px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 89px
+ 🔥 Elemental kasina space scaled to 0.890 (orbSize: 89px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 89px
+ 🔥 Elemental kasina space scaled to 0.890 (orbSize: 89px)
+ Official Vernier data - Sensor: Force, Value: 6.1043243408203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.10N
+ [BREATH DEBUG] Force change: 0.0434 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:15 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 95px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 95px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 95px
+ 🔥 Elemental kasina space scaled to 0.950 (orbSize: 95px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 95px
+ 🔥 Elemental kasina space scaled to 0.950 (orbSize: 95px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 95px
+ 🔥 Elemental kasina space scaled to 0.950 (orbSize: 95px)
+ Official Vernier data - Sensor: Force, Value: 6.117095947265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 96px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 96px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 96px
+ 🔥 Elemental kasina space scaled to 0.960 (orbSize: 96px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 96px
+ 🔥 Elemental kasina space scaled to 0.960 (orbSize: 96px)
+ Official Vernier data - Sensor: Force, Value: 6.1222076416015625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.12N
+ [BREATH DEBUG] Force change: 0.0179 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 97px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 97px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 97px
+ 🔥 Elemental kasina space scaled to 0.970 (orbSize: 97px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 97px
+ 🔥 Elemental kasina space scaled to 0.970 (orbSize: 97px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 97px
+ 🔥 Elemental kasina space scaled to 0.970 (orbSize: 97px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 97px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 97px
+ 🔥 Elemental kasina space scaled to 0.970 (orbSize: 97px)
+ Official Vernier data - Sensor: Force, Value: 6.14520263671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.15N
+ [BREATH DEBUG] Force change: 0.0230 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:15 AM
+ [BREATH DEBUG] BPM calculation - Recent cycles: 114 Total cycles: 219
+ [BREATH DEBUG] Calculated BPM: 119 from 114 cycles over 57.2 seconds
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 99px
+ 🔥 Elemental kasina space scaled to 0.990 (orbSize: 99px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 99px
+ 🔥 Elemental kasina space scaled to 0.990 (orbSize: 99px)
+ Official Vernier data - Sensor: Force, Value: 6.173309326171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 103px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 103px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 99px
+ 🔥 Elemental kasina space scaled to 0.990 (orbSize: 99px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 103px
+ 🔥 Elemental kasina space scaled to 1.030 (orbSize: 103px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 103px
+ 🔥 Elemental kasina space scaled to 1.030 (orbSize: 103px)
+ Official Vernier data - Sensor: Force, Value: 6.216743469238281, Units: N
+ [BREATH DEBUG] Raw force value: 6.2167 N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.22N
+ [BREATH DEBUG] Force change: 0.0715 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:15 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 108px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 108px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina space scaled to 1.080 (orbSize: 108px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina space scaled to 1.080 (orbSize: 108px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina space scaled to 1.080 (orbSize: 108px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 108px
+ 🔥 Elemental kasina space scaled to 1.080 (orbSize: 108px)
+ Official Vernier data - Sensor: Force, Value: 6.262733459472656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.26N
+ [BREATH DEBUG] Force change: 0.0460 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:15 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 112px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 112px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina space scaled to 1.120 (orbSize: 112px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina space scaled to 1.120 (orbSize: 112px)
+ Official Vernier data - Sensor: Force, Value: 6.2780609130859375, Units: N
+ [BREATH DEBUG] Raw force value: 6.2781 N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.28N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: space, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina space scaled to 1.120 (orbSize: 112px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 113px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 113px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 113px
+ 🔥 Elemental kasina space scaled to 1.130 (orbSize: 113px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 113px
+ 🔥 Elemental kasina space scaled to 1.130 (orbSize: 113px)
+ Official Vernier data - Sensor: Force, Value: 6.2882843017578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.29N
+ [BREATH DEBUG] Force change: 0.0256 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:15 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 114px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 114px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina space scaled to 1.140 (orbSize: 114px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina space scaled to 1.140 (orbSize: 114px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina space scaled to 1.140 (orbSize: 114px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 114px
+ 🔥 Elemental kasina space scaled to 1.140 (orbSize: 114px)
+ Official Vernier data - Sensor: Force, Value: 6.308723449707031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.31N
+ [BREATH DEBUG] Force change: 0.0204 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:16 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 116px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 116px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 116px
+ 🔥 Elemental kasina space scaled to 1.160 (orbSize: 116px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 116px
+ 🔥 Elemental kasina space scaled to 1.160 (orbSize: 116px)
+ Official Vernier data - Sensor: Force, Value: 6.32916259765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.33N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 117px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 116px
+ 🔥 Elemental kasina space scaled to 1.160 (orbSize: 116px)
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 117px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 117px
+ 🔥 Elemental kasina space scaled to 1.170 (orbSize: 117px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 117px
+ 🔥 Elemental kasina space scaled to 1.170 (orbSize: 117px)
+ Official Vernier data - Sensor: Force, Value: 6.344490051269531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.34N
+ [BREATH DEBUG] Force change: 0.0358 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:16 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 119px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 119px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 119px
+ 🔥 Elemental kasina space scaled to 1.190 (orbSize: 119px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 119px
+ 🔥 Elemental kasina space scaled to 1.190 (orbSize: 119px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 119px
+ 🔥 Elemental kasina space scaled to 1.190 (orbSize: 119px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 119px
+ 🔥 Elemental kasina space scaled to 1.190 (orbSize: 119px)
+ Official Vernier data - Sensor: Force, Value: 6.3623809814453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.36N
+ [BREATH DEBUG] Force change: 0.0179 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 6.3853759765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.413475036621094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.41N
+ [BREATH DEBUG] Force change: 0.0511 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:16 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.441581726074219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.44N
+ [BREATH DEBUG] Force change: 0.0281 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:16 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.474800109863281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.47N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.502899169921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.50N
+ [BREATH DEBUG] Force change: 0.0613 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:16 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.528450012207031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.53N
+ [BREATH DEBUG] Force change: 0.0256 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:16 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.556556701660156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.56N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.579551696777344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.58N
+ [BREATH DEBUG] Force change: 0.0511 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:17 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.6051025390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.61N
+ [BREATH DEBUG] Force change: 0.0256 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:17 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.6383209228515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 6.640869140625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.64N
+ [BREATH DEBUG] Force change: 0.0358 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:17 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.615325927734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.62N
+ [BREATH DEBUG] Force change: -0.0255 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.579551696777344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.58N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 120px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 120px
+ 🔥 Elemental kasina space scaled to 1.200 (orbSize: 120px)
+ Official Vernier data - Sensor: Force, Value: 6.538673400878906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.54N
+ [BREATH DEBUG] Force change: -0.0767 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 116px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 116px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 116px
+ 🔥 Elemental kasina space scaled to 1.160 (orbSize: 116px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 116px
+ 🔥 Elemental kasina space scaled to 1.160 (orbSize: 116px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 116px
+ 🔥 Elemental kasina space scaled to 1.160 (orbSize: 116px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 116px
+ 🔥 Elemental kasina space scaled to 1.160 (orbSize: 116px)
+ Official Vernier data - Sensor: Force, Value: 6.502899169921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.50N
+ [BREATH DEBUG] Force change: -0.0358 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 112px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 112px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina space scaled to 1.120 (orbSize: 112px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina space scaled to 1.120 (orbSize: 112px)
+ Official Vernier data - Sensor: Force, Value: 6.459465026855469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.46N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 109px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 109px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 112px
+ 🔥 Elemental kasina space scaled to 1.120 (orbSize: 112px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina space scaled to 1.090 (orbSize: 109px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 109px
+ 🔥 Elemental kasina space scaled to 1.090 (orbSize: 109px)
+ Official Vernier data - Sensor: Force, Value: 6.405815124511719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.41N
+ [BREATH DEBUG] Force change: -0.0971 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 104px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 104px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 104px
+ 🔥 Elemental kasina space scaled to 1.040 (orbSize: 104px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 104px
+ 🔥 Elemental kasina space scaled to 1.040 (orbSize: 104px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 104px
+ 🔥 Elemental kasina space scaled to 1.040 (orbSize: 104px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 104px
+ 🔥 Elemental kasina space scaled to 1.040 (orbSize: 104px)
+ Official Vernier data - Sensor: Force, Value: 6.357269287109375, Units: N
+ [BREATH DEBUG] Raw force value: 6.3573 N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.36N
+ [BREATH DEBUG] Force change: -0.0485 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 99px
+ 🔥 Elemental kasina space scaled to 0.990 (orbSize: 99px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 99px
+ 🔥 Elemental kasina space scaled to 0.990 (orbSize: 99px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 99px
+ 🔥 Elemental kasina space scaled to 0.990 (orbSize: 99px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 99px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 6.3240509033203125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.32N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 97px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 97px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 97px
+ 🔥 Elemental kasina space scaled to 0.970 (orbSize: 97px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 97px
+ 🔥 Elemental kasina space scaled to 0.970 (orbSize: 97px)
+ Official Vernier data - Sensor: Force, Value: 6.298500061035156, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.30N
+ [BREATH DEBUG] Force change: -0.0588 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 94px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 94px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 94px
+ 🔥 Elemental kasina space scaled to 0.940 (orbSize: 94px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 94px
+ 🔥 Elemental kasina space scaled to 0.940 (orbSize: 94px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 94px
+ 🔥 Elemental kasina space scaled to 0.940 (orbSize: 94px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 94px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 94px
+ 🔥 Elemental kasina space scaled to 0.940 (orbSize: 94px)
+ Official Vernier data - Sensor: Force, Value: 6.257621765136719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.26N
+ [BREATH DEBUG] Force change: -0.0409 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 91px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 91px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 91px
+ 🔥 Elemental kasina space scaled to 0.910 (orbSize: 91px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 91px
+ 🔥 Elemental kasina space scaled to 0.910 (orbSize: 91px)
+ Official Vernier data - Sensor: Force, Value: 6.216743469238281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 87px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 87px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 91px
+ 🔥 Elemental kasina space scaled to 0.910 (orbSize: 91px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 87px
+ 🔥 Elemental kasina space scaled to 0.870 (orbSize: 87px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 87px
+ 🔥 Elemental kasina space scaled to 0.870 (orbSize: 87px)
+ Official Vernier data - Sensor: Force, Value: 6.193748474121094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.19N
+ [BREATH DEBUG] Force change: -0.0639 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 85px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 85px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 85px
+ 🔥 Elemental kasina space scaled to 0.850 (orbSize: 85px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 85px
+ 🔥 Elemental kasina space scaled to 0.850 (orbSize: 85px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 85px
+ 🔥 Elemental kasina space scaled to 0.850 (orbSize: 85px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 85px
+ 🔥 Elemental kasina space scaled to 0.850 (orbSize: 85px)
+ Official Vernier data - Sensor: Force, Value: 6.1681976318359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.17N
+ [BREATH DEBUG] Force change: -0.0256 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 83px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 83px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 83px
+ 🔥 Elemental kasina space scaled to 0.830 (orbSize: 83px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 83px
+ 🔥 Elemental kasina space scaled to 0.830 (orbSize: 83px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 83px
+ 🔥 Elemental kasina space scaled to 0.830 (orbSize: 83px)
+ Official Vernier data - Sensor: Force, Value: 6.14520263671875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.15N
+ [BREATH DEBUG] Force change: -0.0230 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 81px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 81px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 81px
+ 🔥 Elemental kasina space scaled to 0.810 (orbSize: 81px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 81px
+ 🔥 Elemental kasina space scaled to 0.810 (orbSize: 81px)
+ Official Vernier data - Sensor: Force, Value: 6.119651794433594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 78px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 78px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 78px
+ 🔥 Elemental kasina space scaled to 0.780 (orbSize: 78px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 78px
+ 🔥 Elemental kasina space scaled to 0.780 (orbSize: 78px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 78px
+ 🔥 Elemental kasina space scaled to 0.780 (orbSize: 78px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 78px
+ 🔥 Elemental kasina space scaled to 0.780 (orbSize: 78px)
+ Official Vernier data - Sensor: Force, Value: 6.0889892578125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.09N
+ [BREATH DEBUG] Force change: -0.0562 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 76px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 76px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 76px
+ 🔥 Elemental kasina space scaled to 0.760 (orbSize: 76px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 76px
+ 🔥 Elemental kasina space scaled to 0.760 (orbSize: 76px)
+ Official Vernier data - Sensor: Force, Value: 6.0659942626953125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 74px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 74px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 76px
+ 🔥 Elemental kasina space scaled to 0.760 (orbSize: 76px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 74px
+ 🔥 Elemental kasina space scaled to 0.740 (orbSize: 74px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 74px
+ 🔥 Elemental kasina space scaled to 0.740 (orbSize: 74px)
+ Official Vernier data - Sensor: Force, Value: 6.05322265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.05N
+ [BREATH DEBUG] Force change: -0.0358 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 72px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina space scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina space scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina space scaled to 0.720 (orbSize: 72px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 72px
+ 🔥 Elemental kasina space scaled to 0.720 (orbSize: 72px)
+ Official Vernier data - Sensor: Force, Value: 6.037895202636719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.04N
+ [BREATH DEBUG] Force change: -0.0153 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina space scaled to 0.710 (orbSize: 71px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina space scaled to 0.710 (orbSize: 71px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Official Vernier data - Sensor: Force, Value: 6.014900207519531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 69px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 69px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: space, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina space scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina space scaled to 0.690 (orbSize: 69px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina space scaled to 0.690 (orbSize: 69px)
+ Official Vernier data - Sensor: Force, Value: 6.0021209716796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.00N
+ [BREATH DEBUG] Force change: -0.0358 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 68px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 6.0021209716796875}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 68px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 69px
+ 🔥 Elemental kasina space scaled to 0.690 (orbSize: 69px)
+ Official Vernier data - Sensor: Force, Value: 5.999565124511719, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.991905212402344, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.99N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 5.968910217285156, Units: N
+ [BREATH DEBUG] Raw force value: 5.9689 N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.97N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 65px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.968910217285156}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 65px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 65px
+ 🔥 Elemental kasina space scaled to 0.650 (orbSize: 65px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 65px
+ 🔥 Elemental kasina space scaled to 0.650 (orbSize: 65px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 65px
+ 🔥 Elemental kasina space scaled to 0.650 (orbSize: 65px)
+ Official Vernier data - Sensor: Force, Value: 5.945915222167969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.95N
+ [BREATH DEBUG] Force change: -0.0562 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: space, Type: elemental, orbSize: 65px
+ 🔥 Elemental kasina space scaled to 0.650 (orbSize: 65px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 63px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.945915222167969}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 63px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 65px
+ 🔥 Elemental kasina space scaled to 0.650 (orbSize: 65px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 63px
+ 🔥 Elemental kasina space scaled to 0.630 (orbSize: 63px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 63px
+ 🔥 Elemental kasina space scaled to 0.630 (orbSize: 63px)
+ Official Vernier data - Sensor: Force, Value: 5.922920227050781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 61px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.922920227050781}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 61px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 63px
+ 🔥 Elemental kasina space scaled to 0.630 (orbSize: 63px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ Official Vernier data - Sensor: Force, Value: 5.917808532714844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.92N
+ [BREATH DEBUG] Force change: -0.0281 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.917808532714844}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ Official Vernier data - Sensor: Force, Value: 5.9203643798828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 61px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.9203643798828125}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 61px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ Official Vernier data - Sensor: Force, Value: 5.907585144042969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+ [BREATH DEBUG] Force change: -0.0128 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.907585144042969}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ Official Vernier data - Sensor: Force, Value: 5.907585144042969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ Official Vernier data - Sensor: Force, Value: 5.917808532714844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.92N
+ [BREATH DEBUG] Force change: 0.0102 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.917808532714844}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ Official Vernier data - Sensor: Force, Value: 5.9101409912109375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.9101409912109375}
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ Official Vernier data - Sensor: Force, Value: 5.907585144042969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+ [BREATH DEBUG] Force change: -0.0102 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.907585144042969}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ Official Vernier data - Sensor: Force, Value: 5.894813537597656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+ [BREATH DEBUG] Force change: -0.0128 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.894813537597656}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ Official Vernier data - Sensor: Force, Value: 5.884590148925781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 57px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.884590148925781}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 57px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ Official Vernier data - Sensor: Force, Value: 5.8922576904296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.8922576904296875}
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.897369384765625, Units: N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.897369384765625}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.9024810791015625, Units: N
+useVernierBreathManual.ts:139 [BREATH DEBUG] Raw force value: 5.9025 N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.9024810791015625}
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.907585144042969, Units: N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+useVernierBreathManual.ts:208 [BREATH DEBUG] Force change: 0.0102 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.907585144042969}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 59px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.912696838378906, Units: N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.912696838378906}
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.9101409912109375, Units: N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.91N
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.9101409912109375}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 60px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.897369384765625, Units: N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+useVernierBreathManual.ts:208 [BREATH DEBUG] Force change: -0.0153 Current phase: pause Threshold: 0.02
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.897369384765625}
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.894813537597656, Units: N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.894813537597656}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.897369384765625, Units: N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.897369384765625}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+BreathKasinaOrb.tsx:1182 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Force, Value: 5.8922576904296875, Units: N
+useVernierBreathManual.ts:144 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+useVernierBreathManual.ts:130 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:63 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1085 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+BreathPage.tsx:76 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.8922576904296875}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ Official Vernier data - Sensor: Force, Value: 5.8922576904296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ Official Vernier data - Sensor: Force, Value: 5.8820343017578125, Units: N
+ [BREATH DEBUG] Raw force value: 5.8820 N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 57px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.8820343017578125}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 57px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ Official Vernier data - Sensor: Force, Value: 5.8743743896484375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.87N
+ [BREATH DEBUG] Force change: -0.0179 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 56px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.8743743896484375}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 56px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 57px
+ 🔥 Elemental kasina space scaled to 0.570 (orbSize: 57px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 56px
+ 🔥 Elemental kasina space scaled to 0.560 (orbSize: 56px)
+ Official Vernier data - Sensor: Force, Value: 5.889701843261719, Units: N
+ [BREATH DEBUG] Raw force value: 5.8897 N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+ [BREATH DEBUG] Force change: 0.0153 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.889701843261719}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ Official Vernier data - Sensor: Force, Value: 5.894813537597656, Units: N
+ [BREATH DEBUG] Raw force value: 5.8948 N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.89N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.894813537597656}
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 58px
+ 🔥 Elemental kasina space scaled to 0.580 (orbSize: 58px)
+ Official Vernier data - Sensor: Force, Value: 5.899925231933594, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.90N
+ [BREATH DEBUG] Force change: 0.0102 Current phase: pause Threshold: 0.02
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.899925231933594}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 59px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ Official Vernier data - Sensor: Force, Value: 5.922920227050781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.92N
+ [BREATH DEBUG] Force change: 0.0230 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:22 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.922920227050781}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 59px
+ 🔥 Elemental kasina space scaled to 0.590 (orbSize: 59px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ Official Vernier data - Sensor: Force, Value: 5.9484710693359375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.95N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.9484710693359375}
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ Official Vernier data - Sensor: Force, Value: 5.976570129394531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 5.98N
+ [BREATH DEBUG] Force change: 0.0536 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:22 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 60px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 5.976570129394531}
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ Official Vernier data - Sensor: Force, Value: 6.014900207519531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.01N
+ [BREATH DEBUG] Force change: 0.0383 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:22 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 61px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 6.014900207519531}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 61px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 60px
+ 🔥 Elemental kasina space scaled to 0.600 (orbSize: 60px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 61px
+ 🔥 Elemental kasina space scaled to 0.610 (orbSize: 61px)
+ Official Vernier data - Sensor: Force, Value: 6.055778503417969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.06N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 64px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 6.055778503417969}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 64px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina space scaled to 0.640 (orbSize: 64px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina space scaled to 0.640 (orbSize: 64px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 64px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 64px
+ 🔥 Elemental kasina space scaled to 0.640 (orbSize: 64px)
+ Official Vernier data - Sensor: Force, Value: 6.091545104980469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.09N
+ [BREATH DEBUG] Force change: 0.0766 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:23 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 67px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 6.091545104980469}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 67px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina space scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina space scaled to 0.670 (orbSize: 67px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 67px
+ 🔥 Elemental kasina space scaled to 0.670 (orbSize: 67px)
+ Official Vernier data - Sensor: Force, Value: 6.129875183105469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.13N
+ [BREATH DEBUG] Force change: 0.0383 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:23 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 6.129875183105469}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 71px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina space scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina space scaled to 0.710 (orbSize: 71px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 71px
+ 🔥 Elemental kasina space scaled to 0.710 (orbSize: 71px)
+ Official Vernier data - Sensor: Force, Value: 6.170753479003906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.17N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 75px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 6.170753479003906}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 75px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 75px
+ 🔥 Elemental kasina space scaled to 0.750 (orbSize: 75px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 75px
+ 🔥 Elemental kasina space scaled to 0.750 (orbSize: 75px)
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 75px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 75px
+ 🔥 Elemental kasina space scaled to 0.750 (orbSize: 75px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 75px
+ 🔥 Elemental kasina space scaled to 0.750 (orbSize: 75px)
+ Official Vernier data - Sensor: Force, Value: 6.221855163574219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.22N
+ [BREATH DEBUG] Force change: 0.0920 Current phase: pause Threshold: 0.02
+ [BREATH DEBUG] New breath cycle detected at 12:03:23 AM
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 80px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 6.221855163574219}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 80px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 80px
+ 🔥 Elemental kasina space scaled to 0.800 (orbSize: 80px)
+ 🔍 Kasina: space, Type: elemental, orbSize: 80px
+ 🔥 Elemental kasina space scaled to 0.800 (orbSize: 80px)
+ Official Vernier data - Sensor: Force, Value: 6.2704010009765625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 6.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🔍 BREATH PAGE - Vernier hook state: {isConnected: true, isConnecting: false, calibrationComplete: false, hasCalibrationProfile: false, currentForce: 6.2704010009765625}
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🌊 Using STATIC predefined background for elemental kasina space: #2a0055
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 86px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: space, Type: elemental, orbSize: 86px
+ 🔥 Elemental kasina space scaled to 0.860 (orbSize: 86px)

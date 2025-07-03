@@ -129,6 +129,15 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         sensor.on('value-changed', (sensor: any) => {
           console.log(`Official Vernier data - Sensor: ${sensor.name}, Value: ${sensor.value}, Units: ${sensor.unit}`);
           
+          // Check if this is the respiration rate sensor
+          if (sensor.name.toLowerCase().includes('respiration') && sensor.unit === 'bpm') {
+            const rate = parseFloat(sensor.value);
+            if (!isNaN(rate) && rate > 0) {
+              console.log('[BREATH DEBUG] Direct respiration rate from Vernier:', rate, 'BPM');
+              setBreathingRate(Math.round(rate));
+            }
+          }
+          
           // Process force sensor data for breathing
           if (sensor.name.toLowerCase().includes('force') || sensor.unit === 'N') {
             const forceValue = parseFloat(sensor.value);
@@ -208,16 +217,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                   console.log('[BREATH DEBUG] Force change:', forceChange.toFixed(4), 'Current phase:', breathPhase, 'Threshold:', sensitiveThreshold);
                 }
                 
+                // Track phase transitions to detect complete breath cycles
+                const previousPhase = breathPhase;
+                
                 if (forceChange > sensitiveThreshold) {
-                  // Detect start of inhale - count as new breath cycle
-                  if (breathPhase !== 'inhale') {
-                    console.log('[BREATH DEBUG] New breath cycle detected at', new Date(currentTime).toLocaleTimeString());
-                    breathCyclesRef.current.push(currentTime);
-                    // Keep only recent cycles (last 2 minutes for rate calculation)
-                    breathCyclesRef.current = breathCyclesRef.current.filter(
-                      timestamp => currentTime - timestamp < 120000
-                    );
-                  }
                   setBreathPhase('inhale');
                 } else if (forceChange < -sensitiveThreshold) {
                   setBreathPhase('exhale');
@@ -225,23 +228,36 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                   setBreathPhase('pause');
                 }
                 
-                // Calculate breathing rate every 10 seconds
+                // Only count a new breath cycle when transitioning from exhale to inhale
+                if (previousPhase === 'exhale' && breathPhase === 'inhale') {
+                  console.log('[BREATH DEBUG] New breath cycle detected at', new Date(currentTime).toLocaleTimeString());
+                  breathCyclesRef.current.push(currentTime);
+                  // Keep only recent cycles (last 2 minutes for rate calculation)
+                  breathCyclesRef.current = breathCyclesRef.current.filter(
+                    timestamp => currentTime - timestamp < 120000
+                  );
+                }
+                
+                // Only calculate breathing rate manually if we're not getting it from the sensor
+                // The Vernier belt provides direct respiration rate data, but it may return NaN initially
                 if (currentTime - lastRateUpdateRef.current > 10000) {
+                  // Check if we need manual calculation (respiration sensor not providing valid data)
                   const recentCycles = breathCyclesRef.current.filter(
                     timestamp => currentTime - timestamp < 60000 // Last minute
                   );
                   
-                  console.log('[BREATH DEBUG] BPM calculation - Recent cycles:', recentCycles.length, 'Total cycles:', breathCyclesRef.current.length);
+                  console.log('[BREATH DEBUG] Manual BPM calculation - Recent cycles:', recentCycles.length, 'Total cycles:', breathCyclesRef.current.length);
                   
                   if (recentCycles.length >= 2) {
                     // Calculate BPM from recent cycles
                     const timeSpan = (currentTime - recentCycles[0]) / 1000; // seconds
                     const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
                     const bpm = Math.round(cyclesPerSecond * 60);
-                    console.log('[BREATH DEBUG] Calculated BPM:', bpm, 'from', recentCycles.length, 'cycles over', timeSpan.toFixed(1), 'seconds');
-                    setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
+                    console.log('[BREATH DEBUG] Manually calculated BPM:', bpm, 'from', recentCycles.length, 'cycles over', timeSpan.toFixed(1), 'seconds');
+                    // Don't override if we're getting valid data from the respiration sensor
+                    // setBreathingRate(Math.max(4, Math.min(20, bpm))); // Commented out - prefer sensor data
                   } else {
-                    console.log('[BREATH DEBUG] Not enough cycles for BPM calculation');
+                    console.log('[BREATH DEBUG] Not enough cycles for manual BPM calculation');
                   }
                   
                   lastRateUpdateRef.current = currentTime;
