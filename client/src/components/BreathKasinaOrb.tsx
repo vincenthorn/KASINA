@@ -270,10 +270,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, customColor } = useKasina();
   const { enableWakeLock, disableWakeLock } = useWakeLock();
   
-  // Simple, reliable approach: if device was ever connected in this session, use Vernier mode
+  // Smart Vernier detection: auto-enable only when device is currently connected
   const wasEverConnected = sessionStorage.getItem('vernier_device_connected') === 'true';
   const isCurrentlyConnected = vernierData.isConnected;
-  const shouldUseVernier = useVernier || wasEverConnected || isCurrentlyConnected;
+  // Only auto-enable if device is currently connected (not just was connected previously)
+  const shouldUseVernier = useVernier || isCurrentlyConnected;
   
   console.log('🔧 CONNECTION CHECK - useVernier:', useVernier, 'wasEverConnected:', wasEverConnected, 'isCurrentlyConnected:', isCurrentlyConnected, 'shouldUse:', shouldUseVernier);
   
@@ -1017,6 +1018,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Allow orb size updates if we have force data, even if activeIsListening is false
     const hasActiveForceData = vernierData.currentForce > 0 || vernierData.breathAmplitude > 0;
+    
+    // If using Vernier but breath amplitude is 0, fall back to microphone mode temporarily
+    if (shouldUseVernier && activeBreathAmplitude === 0 && !hasActiveForceData) {
+      console.log('🔄 VERNIER FALLBACK - Vernier enabled but no breath data, using microphone fallback');
+      // Use microphone breath data as fallback
+      setOrbSize(Math.max(150 + breathAmplitude * 200, 10));
+      return;
+    }
     
     if (!activeIsListening && !hasActiveForceData) {
       console.log('❌ Orb size update BLOCKED - activeIsListening is false and no force data');
