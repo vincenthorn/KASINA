@@ -275,8 +275,8 @@ export default function UnifiedSessionInterface({
         </button>
       </div>
 
-      {/* Breath Rate Display - Bottom Right (only in breath mode) */}
-      {mode === 'breath' && breathingRate !== undefined && breathingRate > 0 && (
+      {/* Breath Rate Display - Bottom Right (only in breath mode after 1 minute) */}
+      {mode === 'breath' && meditationTime >= 60 && breathingRate !== undefined && breathingRate > 0 && (
         <div 
           className="absolute bottom-8 right-4 z-20"
           style={{
