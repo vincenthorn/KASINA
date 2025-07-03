@@ -4,7 +4,6 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 declare global {
   interface Window {
     godirect: any;
-    globalVernierDevice: any; // Global device reference to persist across component unmounts
   }
 }
 
@@ -121,67 +120,38 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
     }
   }, []);
 
-  // Store device reference globally to persist across component unmounts
+  // Additional effect to ensure persistent device reference updates connection state
   useEffect(() => {
-    if (!window.globalVernierDevice && persistentDeviceRef.current) {
-      window.globalVernierDevice = persistentDeviceRef.current;
-      console.log('🌍 STORED GLOBAL DEVICE REFERENCE');
+    if (persistentDeviceRef.current && !isConnected) {
+      console.log('🔄 PERSISTENT DEVICE DETECTED - Updating connection state');
+      setIsConnected(true);
     }
-  }, []);
+  }, [isConnected]);
 
-  // Restore device reference from global storage on mount
-  useEffect(() => {
-    if (window.globalVernierDevice && !persistentDeviceRef.current && initialConnectionState) {
-      console.log('🌍 RESTORING GLOBAL DEVICE REFERENCE');
-      persistentDeviceRef.current = window.globalVernierDevice;
-      deviceRef.current = window.globalVernierDevice;
-      
-      // Immediately start monitoring for data and re-establish event listeners
-      if (window.globalVernierDevice.isOpen) {
-        try {
-          const enabledSensors = window.globalVernierDevice.sensors.filter((s: any) => s.enabled);
-          console.log('🌍 RESTORED DEVICE - Enabled sensors:', enabledSensors.length);
-          
-          // Re-establish data collection for each enabled sensor
-          enabledSensors.forEach((sensor: any) => {
-            sensor.on('value-changed', (sensor: any) => {
-              console.log(`🌍 RESTORED - Sensor: ${sensor.name}, Value: ${sensor.value}, Units: ${sensor.unit}`);
-              
-              // Process force sensor data for breathing
-              if (sensor.name.toLowerCase().includes('force') || sensor.unit === 'N') {
-                const forceValue = parseFloat(sensor.value);
-                setCurrentForce(forceValue);
-                console.log('🌍 RESTORED FORCE DATA:', forceValue.toFixed(2) + 'N');
-              }
-            });
-          });
-          
-          setIsConnected(true);
-          console.log('🌍 DEVICE RESTORATION COMPLETE');
-        } catch (err) {
-          console.log('🌍 RESTORED DEVICE ERROR:', err);
-        }
-      }
-    }
-  }, [initialConnectionState]);
-
-  // Monitor for data flow to ensure connection state accuracy
+  // Critical fix: Force connection state based on active data flow
   useEffect(() => {
     const interval = setInterval(() => {
-      if (persistentDeviceRef.current && !isConnected) {
-        console.log('🔄 DEVICE EXISTS BUT NOT CONNECTED - Updating state');
+      // Check if we have a device reference or receiving force data but not marked as connected
+      if ((persistentDeviceRef.current || currentForce > 0) && !isConnected) {
+        console.log('🚨 FORCE DATA DETECTED WITHOUT CONNECTION STATE - Forcing connection update', {
+          hasDevice: !!persistentDeviceRef.current,
+          currentForce,
+          isConnected
+        });
         setIsConnected(true);
       }
-      
-      // Also check if we're receiving force data but not marked as connected
-      if (currentForce > 0 && !isConnected) {
-        console.log('🚨 FORCE DATA DETECTED WITHOUT CONNECTION STATE - Auto-connecting');
-        setIsConnected(true);
-      }
-    }, 500); // Check more frequently for responsive connection detection
+    }, 500); // Check more frequently
 
     return () => clearInterval(interval);
-  }, [isConnected, currentForce]);
+  }, [currentForce, isConnected]);
+
+  // Immediate fix: Update connection state when force data starts flowing
+  useEffect(() => {
+    if (currentForce > 0 && !isConnected) {
+      console.log('🚨 IMMEDIATE FORCE DATA FIX - Connection state update', { currentForce, isConnected });
+      setIsConnected(true);
+    }
+  }, [currentForce]);
   const [calibrationProfile, setCalibrationProfile] = useState<{
     minForce: number;
     maxForce: number;
@@ -272,10 +242,8 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       const gdxDevice = await window.godirect.selectDevice(true); // true = Bluetooth
       deviceRef.current = gdxDevice;
       persistentDeviceRef.current = gdxDevice; // Store for future sessions
-      window.globalVernierDevice = gdxDevice; // Store globally to persist across component unmounts
       
       console.log('Connected to:', gdxDevice.name);
-      console.log('🌍 STORED DEVICE GLOBALLY:', !!window.globalVernierDevice);
       
       // Store connection info in session storage
       sessionStorage.setItem('vernier_device_connected', 'true');
@@ -321,11 +289,9 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
               }
             } else if (calibrationProfile) {
               // Process breathing data using calibration profile
-              console.log('📊 USING CALIBRATION PROFILE for breath processing');
               processBreathingData(forceValue);
             } else {
               // Breath-cycle-aware dynamic range that stabilizes during each breath
-              console.log('📊 USING DYNAMIC RANGE for breath processing (no calibration profile)');
               const recentSamples = 100; // Larger sample window for stability
               forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
               
@@ -355,14 +321,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                 
                 // Calculate amplitude with stable range
                 const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
-                console.log('📊 DYNAMIC RANGE CALCULATION:', 
-                  'force:', forceValue.toFixed(2),
-                  'min:', dynamicMin.toFixed(2),
-                  'max:', dynamicMax.toFixed(2),
-                  'amplitude:', normalizedAmplitude.toFixed(3),
-                  'range:', (dynamicMax - dynamicMin).toFixed(2),
-                  'samples:', forceDataRef.current.length
-                );
                 setBreathAmplitude(normalizedAmplitude);
               }
               
@@ -462,17 +420,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
         persistentDeviceRef.current = null;
       }
       
-      // Clear global device reference
-      if (window.globalVernierDevice) {
-        try {
-          window.globalVernierDevice.close();
-        } catch (err) {
-          console.log('Error closing global device:', err);
-        }
-        window.globalVernierDevice = null;
-        console.log('🌍 CLEARED GLOBAL DEVICE REFERENCE');
-      }
-      
       setIsConnected(false);
       setIsCalibrating(false);
       setError(null);
@@ -480,8 +427,6 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
       // Clear session storage
       sessionStorage.removeItem('vernier_device_connected');
       sessionStorage.removeItem('vernier_device_name');
-      sessionStorage.removeItem('vernier_calibration_complete');
-      sessionStorage.removeItem('vernier_calibration_profile');
       
       console.log('Hard disconnect - all device references cleared');
       
@@ -683,13 +628,13 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   // Ensure the returned isConnected value reflects the restored state
   const finalIsConnected = isConnected || initialConnectionState;
   
-  console.log('🔍 HOOK RETURN - Final values:', 
-    'isConnected:', finalIsConnected,
-    'breathAmplitude:', breathAmplitude,
-    'breathPhase:', breathPhase,
-    'currentForce:', currentForce,
-    'calibrationComplete:', calibrationComplete
-  );
+  console.log('🔍 HOOK RETURN - Final values:', {
+    originalIsConnected: isConnected,
+    initialConnectionState,
+    finalIsConnected,
+    calibrationComplete,
+    willReturnIsConnected: finalIsConnected
+  });
 
   return {
     isConnected: finalIsConnected,
