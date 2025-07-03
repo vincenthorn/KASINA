@@ -120,10 +120,22 @@ const BreathPage: React.FC = () => {
   const handleStartSession = async () => {
     if (!hasPremiumAccess) return;
     
+    console.log('🔍 BREATH PAGE - handleStartSession called:', { 
+      isConnected, 
+      breathingRate,
+      currentForce 
+    });
+    
     if (!isConnected) {
       await connectDevice();
+      // After connecting, wait for state to update then start meditation
+      setTimeout(() => {
+        console.log('🔍 BREATH PAGE - Auto-starting meditation after connection');
+        setShowMeditation(true);
+      }, 1000);
     } else {
       // Start meditation directly - breathing will auto-adjust during session
+      console.log('🔍 BREATH PAGE - Already connected, starting meditation');
       setShowMeditation(true);
     }
   };
@@ -143,11 +155,14 @@ const BreathPage: React.FC = () => {
 
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
-    console.log('🔍 BREATH PAGE - Passing props to BreathKasinaOrb:', {
+    console.log('🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection:', {
+      isConnected,
       useVernier: isConnected,
       isListening: isConnected,
       breathAmplitude,
       breathPhase,
+      breathingRate,
+      currentForce,
       calibrationComplete
     });
     

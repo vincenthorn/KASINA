@@ -254,8 +254,8 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                     const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
                     const bpm = Math.round(cyclesPerSecond * 60);
                     console.log('[BREATH DEBUG] Manually calculated BPM:', bpm, 'from', recentCycles.length, 'cycles over', timeSpan.toFixed(1), 'seconds');
-                    // Don't override if we're getting valid data from the respiration sensor
-                    // setBreathingRate(Math.max(4, Math.min(20, bpm))); // Commented out - prefer sensor data
+                    // Use manual calculation as fallback when sensor data is invalid
+                    setBreathingRate(Math.max(4, Math.min(20, bpm)));
                   } else {
                     console.log('[BREATH DEBUG] Not enough cycles for manual BPM calculation');
                   }
