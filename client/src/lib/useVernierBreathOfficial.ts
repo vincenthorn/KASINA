@@ -321,9 +321,11 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
               }
             } else if (calibrationProfile) {
               // Process breathing data using calibration profile
+              console.log('📊 USING CALIBRATION PROFILE for breath processing');
               processBreathingData(forceValue);
             } else {
               // Breath-cycle-aware dynamic range that stabilizes during each breath
+              console.log('📊 USING DYNAMIC RANGE for breath processing (no calibration profile)');
               const recentSamples = 100; // Larger sample window for stability
               forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
               
@@ -353,6 +355,13 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                 
                 // Calculate amplitude with stable range
                 const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
+                console.log('📊 DYNAMIC RANGE CALCULATION:', {
+                  forceValue: forceValue.toFixed(2),
+                  dynamicMin: dynamicMin.toFixed(2),
+                  dynamicMax: dynamicMax.toFixed(2),
+                  normalizedAmplitude: normalizedAmplitude.toFixed(3),
+                  range: (dynamicMax - dynamicMin).toFixed(2)
+                });
                 setBreathAmplitude(normalizedAmplitude);
               }
               
