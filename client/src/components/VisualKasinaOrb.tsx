@@ -1113,7 +1113,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.025 : 0.025; // Scroll down = smaller, scroll up = larger
+      const delta = e.deltaY > 0 ? -0.008 : 0.008; // Reduced by 3x for finer control (was 0.025)
       setSizeMultiplier(prev => {
         const newSize = Math.max(0.05, Math.min(5.0, prev + delta));
         return newSize;
