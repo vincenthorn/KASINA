@@ -1,11 +1,23 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 
-// Import the official Vernier GoDirect library
-declare global {
-  interface Window {
-    godirect: any;
+// Import the official Vernier GoDirect library directly
+let godirect: any = null;
+
+// Dynamically import the Vernier library
+const loadGoDirectLibrary = async () => {
+  if (!godirect) {
+    try {
+      const goDirectModule = await import('@vernier/godirect');
+      godirect = goDirectModule.default || goDirectModule;
+      console.log('GoDirect library loaded successfully via import');
+      return godirect;
+    } catch (err) {
+      console.error('Failed to import GoDirect library:', err);
+      throw new Error('Failed to load Vernier GoDirect library');
+    }
   }
-}
+  return godirect;
+};
 
 /**
  * Interface for Vernier respiration belt data using official library
@@ -95,24 +107,12 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       
       console.log('Connecting to Vernier device using official GoDirect library (manual mode)...');
       
-      // Check if the official library is loaded with retry logic
-      if (!window.godirect) {
-        let retries = 3;
-        while (retries > 0 && !window.godirect) {
-          console.log(`Waiting for GoDirect library... (${retries} retries left)`);
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          retries--;
-        }
-        
-        if (!window.godirect) {
-          throw new Error('Failed to load Vernier GoDirect library. Please refresh the page and try again.');
-        }
-      }
-      
+      // Load the GoDirect library via dynamic import
+      const goDirectLib = await loadGoDirectLibrary();
       console.log('GoDirect library loaded successfully');
 
       // Connect using official Vernier method
-      const gdxDevice = await window.godirect.selectDevice(true); // true = Bluetooth
+      const gdxDevice = await goDirectLib.selectDevice(true); // true = Bluetooth
       deviceRef.current = gdxDevice;
       
       console.log('Connected to:', gdxDevice.name);
