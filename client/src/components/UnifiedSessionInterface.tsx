@@ -49,8 +49,8 @@ export default function UnifiedSessionInterface({
 
   // Configure slider based on mode
   const sliderConfig = mode === 'breath' 
-    ? { min: 0.05, max: 1.0, step: 0.05 }  // Breath kasinas: 5% to 100%
-    : { min: 0.05, max: 3.0, step: 0.05 }; // Visual kasinas: 5% to 300%
+    ? { min: 0.05, max: 1.0, step: 0.0125 }  // Breath kasinas: 5% to 100%, 4x finer steps
+    : { min: 0.05, max: 3.0, step: 0.0125 }; // Visual kasinas: 5% to 300%, 4x finer steps
 
   // For visual mode, we need to map between display percentage (0-100%) and actual multiplier (0.05-3.0)
   const getDisplayValue = () => {
@@ -182,7 +182,7 @@ export default function UnifiedSessionInterface({
           type="range"
           min={mode === 'breath' ? sliderConfig.min : 0}
           max={mode === 'breath' ? sliderConfig.max : 100}
-          step={mode === 'breath' ? sliderConfig.step : 1}
+          step={mode === 'breath' ? sliderConfig.step : 0.25}
           value={getDisplayValue()}
           onChange={handleSizeSliderChange}
           style={{
