@@ -355,13 +355,14 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
                 
                 // Calculate amplitude with stable range
                 const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
-                console.log('📊 DYNAMIC RANGE CALCULATION:', {
-                  forceValue: forceValue.toFixed(2),
-                  dynamicMin: dynamicMin.toFixed(2),
-                  dynamicMax: dynamicMax.toFixed(2),
-                  normalizedAmplitude: normalizedAmplitude.toFixed(3),
-                  range: (dynamicMax - dynamicMin).toFixed(2)
-                });
+                console.log('📊 DYNAMIC RANGE CALCULATION:', 
+                  'force:', forceValue.toFixed(2),
+                  'min:', dynamicMin.toFixed(2),
+                  'max:', dynamicMax.toFixed(2),
+                  'amplitude:', normalizedAmplitude.toFixed(3),
+                  'range:', (dynamicMax - dynamicMin).toFixed(2),
+                  'samples:', forceDataRef.current.length
+                );
                 setBreathAmplitude(normalizedAmplitude);
               }
               
@@ -682,13 +683,13 @@ export function useVernierBreathOfficial(): VernierBreathOfficialHookResult {
   // Ensure the returned isConnected value reflects the restored state
   const finalIsConnected = isConnected || initialConnectionState;
   
-  console.log('🔍 HOOK RETURN - Final values:', {
-    originalIsConnected: isConnected,
-    initialConnectionState,
-    finalIsConnected,
-    calibrationComplete,
-    willReturnIsConnected: finalIsConnected
-  });
+  console.log('🔍 HOOK RETURN - Final values:', 
+    'isConnected:', finalIsConnected,
+    'breathAmplitude:', breathAmplitude,
+    'breathPhase:', breathPhase,
+    'currentForce:', currentForce,
+    'calibrationComplete:', calibrationComplete
+  );
 
   return {
     isConnected: finalIsConnected,
