@@ -269,6 +269,62 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Emergency admin stats endpoint - production compatible
+  app.get("/api/admin/stats", async (req, res) => {
+    try {
+      console.log('🔍 Emergency Admin Stats: Fetching production data...');
+      
+      // Simple queries to get user counts by subscription type
+      const [usersResult, sessionsResult] = await Promise.all([
+        dbPool.query('SELECT subscription_type, COUNT(*) as count FROM users GROUP BY subscription_type'),
+        dbPool.query('SELECT SUM(duration_seconds) as total_seconds FROM sessions WHERE duration_seconds > 0')
+      ]);
+      
+      // Process subscription counts
+      const subscriptionCounts = {
+        freemium: 0,
+        premium: 0,
+        friend: 0,
+        admin: 0
+      };
+      
+      usersResult.rows.forEach((row: any) => {
+        const type = row.subscription_type?.toLowerCase() || 'freemium';
+        if (type in subscriptionCounts) {
+          subscriptionCounts[type as keyof typeof subscriptionCounts] = parseInt(row.count);
+        }
+      });
+      
+      const totalUsers = Object.values(subscriptionCounts).reduce((sum, count) => sum + count, 0);
+      const totalPracticeSeconds = parseInt(sessionsResult.rows[0]?.total_seconds || 0);
+      const totalHours = Math.floor(totalPracticeSeconds / 3600);
+      const totalMinutes = Math.floor((totalPracticeSeconds % 3600) / 60);
+      
+      const response = {
+        totalUsers,
+        freemiumUsers: subscriptionCounts.freemium,
+        premiumUsers: subscriptionCounts.premium,
+        friendUsers: subscriptionCounts.friend,
+        adminUsers: subscriptionCounts.admin,
+        totalPracticeTimeFormatted: `${totalHours}h ${totalMinutes}m`,
+        totalPracticeTimeSeconds: totalPracticeSeconds,
+        timestamp: new Date().toISOString(),
+        source: 'emergency-stats-endpoint'
+      };
+      
+      console.log('✅ Admin stats retrieved:', response);
+      res.json(response);
+      
+    } catch (error) {
+      console.error("❌ Admin Stats Error:", error);
+      res.status(500).json({ 
+        message: "Database query failed", 
+        error: error instanceof Error ? error.message : "Unknown error",
+        source: 'emergency-stats-endpoint'
+      });
+    }
+  });
+
   // Direct database endpoint for debugging admin dashboard
   app.get("/api/admin/whitelist-direct", async (req, res) => {
     try {

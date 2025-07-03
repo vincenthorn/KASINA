@@ -97,10 +97,10 @@ const AdminPage: React.FC = () => {
   const fetchWhitelistData = async () => {
     setLoading(true);
     try {
-      // Try emergency endpoint first (bypasses authentication to show all users)
+      // Try new emergency stats endpoint first (production compatible)
       const timestamp = Date.now();
       console.log("ADMIN FETCH ATTEMPT:", timestamp);
-      let response = await fetch(`/api/admin/users-simple?t=${timestamp}&v=3&refresh=true`, {
+      let response = await fetch(`/api/admin/stats?t=${timestamp}`, {
         cache: 'no-cache',
         headers: { 
           'Cache-Control': 'no-cache',
@@ -111,13 +111,15 @@ const AdminPage: React.FC = () => {
       
       if (response.ok) {
         const data = await response.json();
-        console.log("=== EMERGENCY ENDPOINT FULL RESPONSE ===");
+        console.log("=== ADMIN STATS RESPONSE ===");
         console.log("Full data object:", data);
-        console.log("Premium users count:", data.premiumUsers);
-        console.log("Members array length:", data.members?.length);
-        console.log("Sample members:", data.members?.slice(0, 3));
-        console.log("=== END RESPONSE DEBUG ===");
-        setMembers(data.members);
+        console.log("Total users:", data.totalUsers);
+        console.log("Friend users:", data.friendUsers);
+        console.log("Source:", data.source);
+        console.log("=== END STATS DEBUG ===");
+        
+        // Stats endpoint only provides counts, not individual members
+        setMembers([]); // Clear members list since stats endpoint doesn't provide it
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
         setApiCounts({
           freemiumUsers: data.freemiumUsers || 0,
@@ -126,10 +128,10 @@ const AdminPage: React.FC = () => {
           adminUsers: data.adminUsers || 0,
           totalUsers: data.totalUsers || 0
         });
-        console.log("Emergency endpoint: loaded", data.totalUsers, "users");
+        console.log("Admin stats loaded:", data.totalUsers, "users");
         return;
       } else {
-        console.error("Emergency endpoint failed:", response.status, response.statusText);
+        console.error("Admin stats endpoint failed:", response.status, response.statusText);
       }
       
       // Fallback to authenticated admin endpoint with credentials
