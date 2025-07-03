@@ -134,6 +134,11 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
             const forceValue = parseFloat(sensor.value);
             setCurrentForce(forceValue);
             
+            // Log every 20th force value to see the range
+            if (Math.random() < 0.05) {
+              console.log('[BREATH DEBUG] Raw force value:', forceValue.toFixed(4), 'N');
+            }
+            
             // Add to calibration data if calibrating
             const isCurrentlyCalibrating = calibrationStartTimeRef.current > 0 && !calibrationProfile;
             console.log('Data received - isCalibrating:', isCalibrating, 'isCurrentlyCalibrating:', isCurrentlyCalibrating, 'force:', forceValue.toFixed(2) + 'N');
@@ -196,11 +201,17 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                 const forceChange = forceValue - lastForceValueRef.current;
                 
                 // Use more sensitive thresholds for uncalibrated detection
-                const sensitiveThreshold = 0.05; // Much more sensitive for small force changes
+                const sensitiveThreshold = 0.02; // Even more sensitive for tiny force changes
+                
+                // Debug logging for force changes
+                if (Math.abs(forceChange) > 0.01) {
+                  console.log('[BREATH DEBUG] Force change:', forceChange.toFixed(4), 'Current phase:', breathPhase, 'Threshold:', sensitiveThreshold);
+                }
                 
                 if (forceChange > sensitiveThreshold) {
                   // Detect start of inhale - count as new breath cycle
                   if (breathPhase !== 'inhale') {
+                    console.log('[BREATH DEBUG] New breath cycle detected at', new Date(currentTime).toLocaleTimeString());
                     breathCyclesRef.current.push(currentTime);
                     // Keep only recent cycles (last 2 minutes for rate calculation)
                     breathCyclesRef.current = breathCyclesRef.current.filter(
@@ -220,12 +231,17 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                     timestamp => currentTime - timestamp < 60000 // Last minute
                   );
                   
+                  console.log('[BREATH DEBUG] BPM calculation - Recent cycles:', recentCycles.length, 'Total cycles:', breathCyclesRef.current.length);
+                  
                   if (recentCycles.length >= 2) {
                     // Calculate BPM from recent cycles
                     const timeSpan = (currentTime - recentCycles[0]) / 1000; // seconds
                     const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
                     const bpm = Math.round(cyclesPerSecond * 60);
+                    console.log('[BREATH DEBUG] Calculated BPM:', bpm, 'from', recentCycles.length, 'cycles over', timeSpan.toFixed(1), 'seconds');
                     setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
+                  } else {
+                    console.log('[BREATH DEBUG] Not enough cycles for BPM calculation');
                   }
                   
                   lastRateUpdateRef.current = currentTime;
