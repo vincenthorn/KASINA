@@ -1,0 +1,1985 @@
+login:83 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.724189758300781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.72N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.642433166503906, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.64N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.632209777832031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.63N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.6117706298828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.61N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.5606689453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.56N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506505512
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🔄 Forcing black background for Vajrayana kasina: hum_kasina
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506505513
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.4891357421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.49N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.386932373046875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.277069091796875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.28N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.2157440185546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.22N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.185089111328125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.1442108154296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.14N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.1237640380859375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.118659973144531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.10076904296875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.10N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.090553283691406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.09N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506506512
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🔄 Forcing black background for Vajrayana kasina: hum_kasina
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506506513
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.1518707275390625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.302619934082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.30N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.4916839599609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.49N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.673095703125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.67N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.8238372802734375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.000129699707031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.255630493164062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.26N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.470252990722656, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.47N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.623550415039062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.62N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.700202941894531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506507511
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🔄 Forcing black background for Vajrayana kasina: hum_kasina
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506507513
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.687423706054688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.69N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.620994567871094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.62N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.513687133789062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.408935546875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.41N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.270965576171875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.117660522460938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.005241394042969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.01N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.923484802246094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.828948974609375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.83N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.7037506103515625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.70N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506508511
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🔄 Forcing black background for Vajrayana kasina: hum_kasina
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506508512
+ 🔍 HOOK INIT - Session storage check: Object
+ 🔍 HOOK INIT - Checking calibration state: Object
+ 🔍 HOOK INIT - Initial states determined: Object
+ 🔍 HOOK RETURN - Final values: Object
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: Object
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.596443176269531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.60N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.504463195800781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.50N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.3920440673828125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.39N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ Official Vernier data - Sensor: Force, Value: 7.297508239746094, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.30N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.2361907958984375, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.24N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.1902008056640625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.19N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.156982421875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.16N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.154426574707031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.15N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.177421569824219, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.246406555175781, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.25N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506509513
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🔄 Forcing black background for Vajrayana kasina: hum_kasina
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506509514
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 7.348609924316406, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.35N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.4891357421875, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.49N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.670539855957031, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.67N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.8136138916015625, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.81N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 7.959251403808594, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 7.96N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 8.161094665527344, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.16N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 8.322059631347656, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.32N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 8.421707153320312, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.42N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 8.546905517578125, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.55N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 8.656768798828125, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.66N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:51 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506510511
+useVernierBreathOfficial.ts:58 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+useVernierBreathOfficial.ts:71 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+useVernierBreathOfficial.ts:94 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+useVernierBreathOfficial.ts:676 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+BreathKasinaOrb.tsx:283 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+BreathKasinaOrb.tsx:286 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1021 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+BreathKasinaOrb.tsx:1143 🔄 Forcing black background for Vajrayana kasina: hum_kasina
+BreathKasinaOrb.tsx:1166 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+useVernierBreathOfficial.ts:51 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506510513
+useVernierBreathOfficial.ts:58 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+useVernierBreathOfficial.ts:71 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+useVernierBreathOfficial.ts:94 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+useVernierBreathOfficial.ts:676 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+BreathKasinaOrb.tsx:283 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+BreathKasinaOrb.tsx:286 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Force, Value: 8.771743774414062, Units: N
+useVernierBreathOfficial.ts:305 Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.77N
+useVernierBreathOfficial.ts:296 Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+BreathKasinaOrb.tsx:1211 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+BreathKasinaOrb.tsx:1199 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.919929504394531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.92N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.068122863769531, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.07N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.269966125488281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.27N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.400276184082031, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.40N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.379829406738281, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.38N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.313400268554688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.31N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.249526977539062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.25N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.1805419921875, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.18N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506511443
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🔄 Forcing black background for Vajrayana kasina: hum_kasina
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506511446
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.119224548339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.12N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506511512
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔄 ORB SIZE EFFECT - activeIsListening: true shouldUseVernier: false autoDetected: false vernierConnected: true hasForce: false
+ 🔄 Forcing black background for Vajrayana kasina: hum_kasina
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - TIMESTAMP: 1751506511513
+ 🔍 HOOK INIT - Session storage check: {wasConnected_raw: 'true', deviceName_raw: 'GDX-RB 0K7001C3', hasDevice_computed: true, stringCheck: true, sessionStorageKeys: Array(2)}
+ 🔍 HOOK INIT - Checking calibration state: {savedCalibrationComplete: null, isComplete: false}
+ 🔍 HOOK INIT - Initial states determined: {initialConnectionState: true, initialCalibrationState: false, hasInitialProfile: false}
+ 🔍 HOOK RETURN - Final values: {originalIsConnected: true, initialConnectionState: true, finalIsConnected: true, calibrationComplete: false, willReturnIsConnected: true}
+ 🔧 FORCE DEBUG - currentForce: 0 breathAmplitude: 0 isConnected: true
+ 🔵 BreathKasinaOrb - useVernier: false autoDetected: false shouldUse: false vernierData: {isConnected: true, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.060455322265625, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.06N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 9.001693725585938, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 9.00N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.945480346679688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.95N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.881607055664062, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.88N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.815177917480469, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.82N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.712974548339844, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.71N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.631217956542969, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.63N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.577560424804688, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.58N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ 🔍 Kasina: hum_kasina, Type: vajrayana, orbSize: 0px
+ 🔮 Vajrayana kasina hum_kasina scaled to 0.000 (orbSize: 0px)
+ Official Vernier data - Sensor: Force, Value: 8.508575439453125, Units: N
+ Data received - isCalibrating: false isCurrentlyCalibrating: false force: 8.51N
+ Official Vernier data - Sensor: Respiration Rate, Value: NaN, Units: bpm
