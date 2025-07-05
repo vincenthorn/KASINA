@@ -285,6 +285,17 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const activeIsListening = useVernier ? vernierData.isConnected : isListening;
   const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   
+  // Debug active values
+  console.log('🟢 ACTIVE VALUES:', {
+    useVernier,
+    activeBreathAmplitude,
+    activeBreathPhase,
+    activeIsListening,
+    activeBreathingRate,
+    vernierConnected: vernierData?.isConnected,
+    vernierAmplitude: vernierData?.breathAmplitude
+  });
+  
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
@@ -1031,7 +1042,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
-    if (!activeIsListening) return;
+    console.log('🎯 ORB SIZE EFFECT - Entry:', {
+      activeIsListening,
+      useVernier,
+      activeBreathAmplitude
+    });
+    
+    if (!activeIsListening) {
+      console.log('🔴 ORB SIZE EFFECT - Not listening, returning early');
+      return;
+    }
     
     // Debug log to track amplitude values
     console.log('🎯 ORB SIZE UPDATE:', {
