@@ -233,6 +233,19 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                 
                 // Calculate amplitude with stable range
                 const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
+                
+                // Debug amplitude calculation
+                console.log('[BREATH AMPLITUDE DEBUG]:', {
+                  forceValue: forceValue.toFixed(4),
+                  percentile10: percentile10.toFixed(4),
+                  percentile90: percentile90.toFixed(4),
+                  range: range.toFixed(4),
+                  dynamicMin: dynamicMin.toFixed(4),
+                  dynamicMax: dynamicMax.toFixed(4),
+                  normalizedAmplitude: normalizedAmplitude.toFixed(4),
+                  dataPoints: forceDataRef.current.length
+                });
+                
                 setBreathAmplitude(normalizedAmplitude);
               }
               

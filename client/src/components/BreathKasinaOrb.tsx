@@ -1033,6 +1033,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   useEffect(() => {
     if (!activeIsListening) return;
     
+    // Debug log to track amplitude values
+    console.log('🎯 ORB SIZE UPDATE:', {
+      useVernier,
+      activeBreathAmplitude,
+      vernierAmplitude: vernierData?.breathAmplitude,
+      vernierPhase: vernierData?.breathPhase,
+      activeIsListening
+    });
+    
     // Custom kasina now breathes like other color kasinas
     
     // Detect if amplitude has changed significantly (not holding breath)
