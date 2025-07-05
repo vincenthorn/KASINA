@@ -157,21 +157,25 @@ const BreathPage: React.FC = () => {
 
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
+    // Force useVernier to true - we only start meditation when connected
+    const useVernierForSession = true; // Always use Vernier in breath mode since we connected to start session
+    
     console.log('🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection:', {
       isConnected,
-      useVernier: isConnected,
+      useVernier: useVernierForSession,
       isListening: isConnected,
       breathAmplitude,
       breathPhase,
       breathingRate,
       currentForce,
-      calibrationComplete
+      calibrationComplete,
+      sessionStartForced: true
     });
     
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <BreathKasinaOrb 
-          useVernier={isConnected}
+          useVernier={useVernierForSession}
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
