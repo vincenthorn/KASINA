@@ -282,19 +282,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Determine which breathing data to use
   const activeBreathAmplitude = useVernier ? vernierData.breathAmplitude : breathAmplitude;
   const activeBreathPhase = useVernier ? vernierData.breathPhase : breathPhase;
-  const activeIsListening = useVernier ? vernierData.isConnected : isListening;
+  // Fix: Check if we're getting force data OR connected status
+  const activeIsListening = useVernier ? 
+    (vernierData.isConnected || vernierData.currentForce > 0) : 
+    isListening;
   const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   
-  // Debug active values
-  console.log('🟢 ACTIVE VALUES:', {
-    useVernier,
-    activeBreathAmplitude,
-    activeBreathPhase,
-    activeIsListening,
-    activeBreathingRate,
-    vernierConnected: vernierData?.isConnected,
-    vernierAmplitude: vernierData?.breathAmplitude
-  });
+  // Debug active values - log individual values to avoid [Object object]
+  console.log('🟢 ACTIVE VALUES:');
+  console.log('  useVernier:', useVernier);
+  console.log('  activeBreathAmplitude:', activeBreathAmplitude);
+  console.log('  activeBreathPhase:', activeBreathPhase);
+  console.log('  activeIsListening:', activeIsListening);
+  console.log('  activeBreathingRate:', activeBreathingRate);
+  console.log('  vernierConnected:', vernierData?.isConnected);
+  console.log('  vernierAmplitude:', vernierData?.breathAmplitude);
+  console.log('  vernierForce:', vernierData?.currentForce);
   
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
