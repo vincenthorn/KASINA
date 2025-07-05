@@ -251,6 +251,15 @@ interface BreathKasinaOrbProps {
   breathPhase?: 'inhale' | 'exhale' | 'pause';
   isListening?: boolean;
   useVernier?: boolean;
+  vernierData?: {
+    isConnected: boolean;
+    breathAmplitude: number;
+    breathPhase: 'inhale' | 'exhale' | 'pause';
+    breathingRate: number;
+    currentForce: number;
+    calibrationComplete: boolean;
+    respirationDataReceived?: boolean;
+  };
 }
 
 /**
@@ -261,10 +270,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   breathAmplitude = 0.5,
   breathPhase = 'pause',
   isListening = false,
-  useVernier = false
+  useVernier = false,
+  vernierData: externalVernierData
 }) => {
-  // Use Vernier breathing data if enabled
-  const vernierData = useVernierBreathManual();
+  // Use external Vernier data if provided, otherwise create local instance
+  const localVernierData = useVernierBreathManual();
+  const vernierData = externalVernierData || localVernierData;
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, customColor } = useKasina();

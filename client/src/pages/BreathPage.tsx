@@ -179,6 +179,15 @@ const BreathPage: React.FC = () => {
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
+          vernierData={{
+            isConnected,
+            breathAmplitude,
+            breathPhase,
+            breathingRate,
+            currentForce,
+            calibrationComplete,
+            respirationDataReceived
+          }}
         />
         <Button
           onClick={() => {
@@ -343,6 +352,15 @@ const BreathPage: React.FC = () => {
                     breathAmplitude={breathAmplitude}
                     breathPhase={breathPhase}
                     isListening={isConnected}
+                    vernierData={{
+                      isConnected,
+                      breathAmplitude,
+                      breathPhase,
+                      breathingRate,
+                      currentForce,
+                      calibrationComplete,
+                      respirationDataReceived
+                    }}
                   />
                   <div className="absolute bottom-2 left-2 right-2 flex justify-center gap-4 text-xs">
                     <div className="text-center">
