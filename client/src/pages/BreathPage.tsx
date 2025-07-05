@@ -335,10 +335,10 @@ const BreathPage: React.FC = () => {
               <div className="mb-6">
                 <div className="relative h-32 bg-black/30 rounded-lg overflow-hidden border border-purple-300/20">
                   <BreathKasinaOrb 
-                    useVernier={false}
+                    useVernier={isConnected}
                     breathAmplitude={breathAmplitude}
                     breathPhase={breathPhase}
-                    isListening={true}
+                    isListening={isConnected}
                   />
                   <div className="absolute bottom-2 left-2 right-2 flex justify-center gap-4 text-xs">
                     <div className="text-center">

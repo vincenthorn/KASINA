@@ -272,11 +272,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   
   // Log Vernier data for debugging
   console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
-    isConnected: vernierData.isConnected,
-    breathAmplitude: vernierData.breathAmplitude,
-    breathPhase: vernierData.breathPhase,
-    currentForce: vernierData.currentForce,
-    calibrationComplete: vernierData.calibrationComplete
+    isConnected: vernierData?.isConnected || false,
+    breathAmplitude: vernierData?.breathAmplitude || 0,
+    breathPhase: vernierData?.breathPhase || 'pause',
+    currentForce: vernierData?.currentForce || 0,
+    calibrationComplete: vernierData?.calibrationComplete || false
   });
   
   // Determine which breathing data to use
@@ -285,24 +285,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const activeIsListening = useVernier ? vernierData.isConnected : isListening;
   const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
   
-  // Debug logging every 2 seconds
-  useEffect(() => {
-    if (!useVernier) return;
-    
-    const logInterval = setInterval(() => {
-      console.log('🎯 BREATH SYNC DEBUG:', {
-        connected: vernierData.isConnected,
-        amplitude: vernierData.breathAmplitude.toFixed(3),
-        phase: vernierData.breathPhase,
-        bpm: vernierData.breathingRate,
-        respirationDataReceived: vernierData.respirationDataReceived,
-        currentForce: vernierData.currentForce?.toFixed(4) || 'N/A',
-        orbSize: orbSize
-      });
-    }, 2000);
-    
-    return () => clearInterval(logInterval);
-  }, [useVernier, vernierData, orbSize]);
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
@@ -370,6 +352,31 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const breathHistoryRef = useRef<number[]>([]);
   const peakBreathTimeRef = useRef({ duration: 0, transitionStartTime: null as number | null });
   const [breathDirection, setBreathDirection] = useState<'rising' | 'falling' | 'stable'>('stable');
+  
+  // Debug logging every 2 seconds (after all state declarations)
+  useEffect(() => {
+    if (!useVernier) {
+      console.log('🔴 BREATH SYNC - Not using Vernier (useVernier=false)');
+      return;
+    }
+    
+    const logInterval = setInterval(() => {
+      console.log('🎯 BREATH SYNC DEBUG:', {
+        useVernier: useVernier,
+        connected: vernierData?.isConnected || false,
+        amplitude: (vernierData?.breathAmplitude || 0).toFixed(3),
+        phase: vernierData?.breathPhase || 'pause',
+        bpm: vernierData?.breathingRate || 0,
+        respirationDataReceived: vernierData?.respirationDataReceived || false,
+        currentForce: vernierData?.currentForce?.toFixed(4) || 'N/A',
+        orbSize: orbSize,
+        activeAmplitude: activeBreathAmplitude.toFixed(3),
+        activeBPM: activeBreathingRate
+      });
+    }, 2000);
+    
+    return () => clearInterval(logInterval);
+  }, [useVernier, vernierData, orbSize, activeBreathAmplitude, activeBreathingRate]);
   
   // Helper function to detect if a color is dark
   const isColorDark = (hexColor: string): boolean => {
