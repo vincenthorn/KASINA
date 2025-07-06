@@ -53,7 +53,6 @@ interface VernierBreathManualHookResult {
     forceRange: number;
     isValid: boolean;
   } | null;
-  respirationDataReceived: boolean;
 }
 
 /**
@@ -71,8 +70,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   // Breathing analysis state
   const [breathAmplitude, setBreathAmplitude] = useState(0);
   const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
-  const [breathingRate, setBreathingRate] = useState(12); // Start with typical rate until we detect actual breathing
-  const [respirationDataReceived, setRespirationDataReceived] = useState(false); // Track if we've received valid sensor data
+  const [breathingRate, setBreathingRate] = useState(0);
   
   // Calibration state - Start fresh each session
   const [isCalibrating, setIsCalibrating] = useState(false);
@@ -119,32 +117,8 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       
       console.log('Connected to:', gdxDevice.name);
       
-      // Try to enable all sensors to capture respiration rate
-      console.log('Attempting to enable all sensors...');
-      
-      // First enable defaults
+      // Enable default sensors (should include force sensor for respiration belt)
       gdxDevice.enableDefaultSensors();
-      
-      // Then try to enable respiration rate sensor specifically
-      const respirationSensor = gdxDevice.sensors.find((s: any) => 
-        s.name.toLowerCase().includes('respiration') || 
-        s.name.toLowerCase().includes('breath') ||
-        s.name.toLowerCase().includes('rate')
-      );
-      
-      if (respirationSensor && !respirationSensor.enabled) {
-        console.log('Found respiration sensor, enabling it:', respirationSensor.name);
-        respirationSensor.enabled = true;
-      }
-      
-      // Get all sensors (not just enabled ones)
-      console.log('All available sensors:', gdxDevice.sensors.map((s: any) => ({
-        name: s.name,
-        number: s.number,
-        enabled: s.enabled,
-        unit: s.unit,
-        type: s.type
-      })));
       
       // Get enabled sensors
       const enabledSensors = gdxDevice.sensors.filter((s: any) => s.enabled);
@@ -155,30 +129,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         sensor.on('value-changed', (sensor: any) => {
           console.log(`Official Vernier data - Sensor: ${sensor.name}, Value: ${sensor.value}, Units: ${sensor.unit}`);
           
-          // Check if this is the respiration rate sensor
-          if (sensor.name.toLowerCase().includes('respiration') && sensor.unit === 'bpm') {
-            const rate = parseFloat(sensor.value);
-            console.log('[BREATH DEBUG] Respiration Rate Sensor:', sensor.name, '=', sensor.value, sensor.unit);
-            
-            if (!isNaN(rate) && rate > 0) {
-              console.log('[BREATH DEBUG] ✅ Valid respiration rate from Vernier:', rate, 'BPM');
-              setBreathingRate(Math.round(rate));
-              setRespirationDataReceived(true);
-            } else if (isNaN(rate)) {
-              console.log('[BREATH DEBUG] ⏳ Respiration rate is NaN - waiting for 30 seconds of data...');
-              // This is normal - Vernier needs 30 seconds of data before calculating BPM
-            }
-          }
-          
           // Process force sensor data for breathing
           if (sensor.name.toLowerCase().includes('force') || sensor.unit === 'N') {
             const forceValue = parseFloat(sensor.value);
             setCurrentForce(forceValue);
-            
-            // Log every 20th force value to see the range
-            if (Math.random() < 0.05) {
-              console.log('[BREATH DEBUG] Raw force value:', forceValue.toFixed(4), 'N');
-            }
             
             // Add to calibration data if calibrating
             const isCurrentlyCalibrating = calibrationStartTimeRef.current > 0 && !calibrationProfile;
@@ -233,19 +187,6 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                 
                 // Calculate amplitude with stable range
                 const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
-                
-                // Debug amplitude calculation
-                console.log('[BREATH AMPLITUDE DEBUG]:', {
-                  forceValue: forceValue.toFixed(4),
-                  percentile10: percentile10.toFixed(4),
-                  percentile90: percentile90.toFixed(4),
-                  range: range.toFixed(4),
-                  dynamicMin: dynamicMin.toFixed(4),
-                  dynamicMax: dynamicMax.toFixed(4),
-                  normalizedAmplitude: normalizedAmplitude.toFixed(4),
-                  dataPoints: forceDataRef.current.length
-                });
-                
                 setBreathAmplitude(normalizedAmplitude);
               }
               
@@ -254,55 +195,34 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
               if (currentTime - lastForceUpdateRef.current > 100) { // Update every 100ms
                 const forceChange = forceValue - lastForceValueRef.current;
                 
-                // Use more sensitive thresholds for uncalibrated detection
-                const sensitiveThreshold = 0.02; // Even more sensitive for tiny force changes
-                
-                // Debug logging for force changes
-                if (Math.abs(forceChange) > 0.01) {
-                  console.log('[BREATH DEBUG] Force change:', forceChange.toFixed(4), 'Current phase:', breathPhase, 'Threshold:', sensitiveThreshold);
-                }
-                
-                // Track phase transitions to detect complete breath cycles
-                const previousPhase = breathPhase;
-                
-                if (forceChange > sensitiveThreshold) {
+                if (forceChange > 0.2) {
+                  // Detect start of inhale - count as new breath cycle
+                  if (breathPhase !== 'inhale') {
+                    breathCyclesRef.current.push(currentTime);
+                    // Keep only recent cycles (last 2 minutes for rate calculation)
+                    breathCyclesRef.current = breathCyclesRef.current.filter(
+                      timestamp => currentTime - timestamp < 120000
+                    );
+                  }
                   setBreathPhase('inhale');
-                } else if (forceChange < -sensitiveThreshold) {
+                } else if (forceChange < -0.2) {
                   setBreathPhase('exhale');
                 } else {
                   setBreathPhase('pause');
                 }
                 
-                // Only count a new breath cycle when transitioning from exhale to inhale
-                if (previousPhase === 'exhale' && breathPhase === 'inhale') {
-                  console.log('[BREATH DEBUG] New breath cycle detected at', new Date(currentTime).toLocaleTimeString());
-                  breathCyclesRef.current.push(currentTime);
-                  // Keep only recent cycles (last 2 minutes for rate calculation)
-                  breathCyclesRef.current = breathCyclesRef.current.filter(
-                    timestamp => currentTime - timestamp < 120000
-                  );
-                }
-                
-                // Only calculate breathing rate manually if we're not getting it from the sensor
-                // The Vernier belt provides direct respiration rate data, but it may return NaN initially
+                // Calculate breathing rate every 10 seconds
                 if (currentTime - lastRateUpdateRef.current > 10000) {
-                  // Check if we need manual calculation (respiration sensor not providing valid data)
                   const recentCycles = breathCyclesRef.current.filter(
                     timestamp => currentTime - timestamp < 60000 // Last minute
                   );
-                  
-                  console.log('[BREATH DEBUG] Manual BPM calculation - Recent cycles:', recentCycles.length, 'Total cycles:', breathCyclesRef.current.length);
                   
                   if (recentCycles.length >= 2) {
                     // Calculate BPM from recent cycles
                     const timeSpan = (currentTime - recentCycles[0]) / 1000; // seconds
                     const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
                     const bpm = Math.round(cyclesPerSecond * 60);
-                    console.log('[BREATH DEBUG] Manually calculated BPM:', bpm, 'from', recentCycles.length, 'cycles over', timeSpan.toFixed(1), 'seconds');
-                    // Use manual calculation as fallback when sensor data is invalid
-                    setBreathingRate(Math.max(4, Math.min(20, bpm)));
-                  } else {
-                    console.log('[BREATH DEBUG] Not enough cycles for manual BPM calculation');
+                    setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
                   }
                   
                   lastRateUpdateRef.current = currentTime;
@@ -411,10 +331,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         setBreathPhase('pause');
       }
       
-      // Calculate breathing rate every 2 seconds for more responsive display
-      if (currentTime - lastRateUpdateRef.current > 2000) {
+      // Calculate breathing rate every 10 seconds
+      if (currentTime - lastRateUpdateRef.current > 10000) {
         const recentCycles = breathCyclesRef.current.filter(
-          timestamp => currentTime - timestamp < 60000 // Last 60 seconds
+          timestamp => currentTime - timestamp < 60000 // Last minute
         );
         
         if (recentCycles.length >= 2) {
@@ -520,6 +440,5 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     calibrationComplete,
     currentForce,
     calibrationProfile,
-    respirationDataReceived,
   };
 }

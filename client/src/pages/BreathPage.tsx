@@ -68,8 +68,7 @@ const BreathPage: React.FC = () => {
     startCalibration,
     calibrationComplete,
     currentForce,
-    calibrationProfile,
-    respirationDataReceived
+    calibrationProfile
   } = useVernierBreathManual();
 
   // Add logging to track connection state changes
@@ -121,22 +120,10 @@ const BreathPage: React.FC = () => {
   const handleStartSession = async () => {
     if (!hasPremiumAccess) return;
     
-    console.log('🔍 BREATH PAGE - handleStartSession called:', { 
-      isConnected, 
-      breathingRate,
-      currentForce 
-    });
-    
     if (!isConnected) {
       await connectDevice();
-      // After connecting, wait for state to update then start meditation
-      setTimeout(() => {
-        console.log('🔍 BREATH PAGE - Auto-starting meditation after connection');
-        setShowMeditation(true);
-      }, 1000);
     } else {
       // Start meditation directly - breathing will auto-adjust during session
-      console.log('🔍 BREATH PAGE - Already connected, starting meditation');
       setShowMeditation(true);
     }
   };
@@ -151,43 +138,26 @@ const BreathPage: React.FC = () => {
   const getInstructions = () => {
     if (!hasPremiumAccess) return 'Premium subscription required for Vernier belt integration.';
     if (!isConnected) return 'Connect your Vernier GDX Respiration Belt via Bluetooth for precise breathing detection.';
-    if (!respirationDataReceived) return 'Connected! Waiting for respiration sensor data (30 seconds)... Force sensor active.';
-    return 'Connected! Respiration sensor ready - Real BPM data available.';
+    return 'Connected! Your breathing will automatically sync during meditation.';
   };
 
   // If meditation mode is active, show full-screen breathing orb
   if (showMeditation) {
-    // Force useVernier to true - we only start meditation when connected
-    const useVernierForSession = true; // Always use Vernier in breath mode since we connected to start session
-    
-    console.log('🔍 BREATH PAGE - Rendering BreathKasinaOrb with Vernier connection:', {
-      isConnected,
-      useVernier: useVernierForSession,
+    console.log('🔍 BREATH PAGE - Passing props to BreathKasinaOrb:', {
+      useVernier: isConnected,
       isListening: isConnected,
       breathAmplitude,
       breathPhase,
-      breathingRate,
-      currentForce,
-      calibrationComplete,
-      sessionStartForced: true
+      calibrationComplete
     });
     
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <BreathKasinaOrb 
-          useVernier={useVernierForSession}
+          useVernier={isConnected}
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
-          vernierData={{
-            isConnected,
-            breathAmplitude,
-            breathPhase,
-            breathingRate,
-            currentForce,
-            calibrationComplete,
-            respirationDataReceived
-          }}
         />
         <Button
           onClick={() => {
@@ -348,19 +318,10 @@ const BreathPage: React.FC = () => {
               <div className="mb-6">
                 <div className="relative h-32 bg-black/30 rounded-lg overflow-hidden border border-purple-300/20">
                   <BreathKasinaOrb 
-                    useVernier={isConnected}
+                    useVernier={false}
                     breathAmplitude={breathAmplitude}
                     breathPhase={breathPhase}
-                    isListening={isConnected}
-                    vernierData={{
-                      isConnected,
-                      breathAmplitude,
-                      breathPhase,
-                      breathingRate,
-                      currentForce,
-                      calibrationComplete,
-                      respirationDataReceived
-                    }}
+                    isListening={true}
                   />
                   <div className="absolute bottom-2 left-2 right-2 flex justify-center gap-4 text-xs">
                     <div className="text-center">

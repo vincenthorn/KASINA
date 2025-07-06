@@ -97,10 +97,10 @@ const AdminPage: React.FC = () => {
   const fetchWhitelistData = async () => {
     setLoading(true);
     try {
-      // Try new emergency stats endpoint first (production compatible)
+      // Try emergency endpoint first (bypasses authentication to show all users)
       const timestamp = Date.now();
       console.log("ADMIN FETCH ATTEMPT:", timestamp);
-      let response = await fetch(`/api/admin/stats?t=${timestamp}`, {
+      let response = await fetch(`/api/admin/users-simple?t=${timestamp}&v=3&refresh=true`, {
         cache: 'no-cache',
         headers: { 
           'Cache-Control': 'no-cache',
@@ -111,15 +111,13 @@ const AdminPage: React.FC = () => {
       
       if (response.ok) {
         const data = await response.json();
-        console.log("=== ADMIN STATS RESPONSE ===");
+        console.log("=== EMERGENCY ENDPOINT FULL RESPONSE ===");
         console.log("Full data object:", data);
-        console.log("Total users:", data.totalUsers);
-        console.log("Friend users:", data.friendUsers);
-        console.log("Source:", data.source);
-        console.log("=== END STATS DEBUG ===");
-        
-        // Stats endpoint only provides counts, not individual members
-        setMembers([]); // Clear members list since stats endpoint doesn't provide it
+        console.log("Premium users count:", data.premiumUsers);
+        console.log("Members array length:", data.members?.length);
+        console.log("Sample members:", data.members?.slice(0, 3));
+        console.log("=== END RESPONSE DEBUG ===");
+        setMembers(data.members);
         setTotalPracticeTime(data.totalPracticeTimeFormatted);
         setApiCounts({
           freemiumUsers: data.freemiumUsers || 0,
@@ -128,10 +126,10 @@ const AdminPage: React.FC = () => {
           adminUsers: data.adminUsers || 0,
           totalUsers: data.totalUsers || 0
         });
-        console.log("Admin stats loaded:", data.totalUsers, "users");
+        console.log("Emergency endpoint: loaded", data.totalUsers, "users");
         return;
       } else {
-        console.error("Admin stats endpoint failed:", response.status, response.statusText);
+        console.error("Emergency endpoint failed:", response.status, response.statusText);
       }
       
       // Fallback to authenticated admin endpoint with credentials
@@ -509,7 +507,7 @@ const AdminPage: React.FC = () => {
       </div>
       
       {/* User categories row */}
-      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Freemium Users Card */}
         <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900 to-cyan-900 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
           <div className="flex flex-col items-center">

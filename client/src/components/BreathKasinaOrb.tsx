@@ -251,15 +251,6 @@ interface BreathKasinaOrbProps {
   breathPhase?: 'inhale' | 'exhale' | 'pause';
   isListening?: boolean;
   useVernier?: boolean;
-  vernierData?: {
-    isConnected: boolean;
-    breathAmplitude: number;
-    breathPhase: 'inhale' | 'exhale' | 'pause';
-    breathingRate: number;
-    currentForce: number;
-    calibrationComplete: boolean;
-    respirationDataReceived?: boolean;
-  };
 }
 
 /**
@@ -270,12 +261,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   breathAmplitude = 0.5,
   breathPhase = 'pause',
   isListening = false,
-  useVernier = false,
-  vernierData: externalVernierData
+  useVernier = false
 }) => {
-  // Use external Vernier data if provided, otherwise create local instance
-  const localVernierData = useVernierBreathManual();
-  const vernierData = externalVernierData || localVernierData;
+  // Use Vernier breathing data if enabled
+  const vernierData = useVernierBreathManual();
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, customColor } = useKasina();
@@ -283,38 +272,23 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   
   // Log Vernier data for debugging
   console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
-    isConnected: vernierData?.isConnected || false,
-    breathAmplitude: vernierData?.breathAmplitude || 0,
-    breathPhase: vernierData?.breathPhase || 'pause',
-    currentForce: vernierData?.currentForce || 0,
-    calibrationComplete: vernierData?.calibrationComplete || false
+    isConnected: vernierData.isConnected,
+    breathAmplitude: vernierData.breathAmplitude,
+    breathPhase: vernierData.breathPhase,
+    currentForce: vernierData.currentForce,
+    calibrationComplete: vernierData.calibrationComplete
   });
   
   // Determine which breathing data to use
   const activeBreathAmplitude = useVernier ? vernierData.breathAmplitude : breathAmplitude;
   const activeBreathPhase = useVernier ? vernierData.breathPhase : breathPhase;
-  // Fix: Check if we're getting force data OR connected status
-  const activeIsListening = useVernier ? 
-    (vernierData.isConnected || vernierData.currentForce > 0) : 
-    isListening;
+  const activeIsListening = useVernier ? vernierData.isConnected : isListening;
   const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
-  
-  // Debug active values - log individual values to avoid [Object object]
-  console.log('🟢 ACTIVE VALUES:');
-  console.log('  useVernier:', useVernier);
-  console.log('  activeBreathAmplitude:', activeBreathAmplitude);
-  console.log('  activeBreathPhase:', activeBreathPhase);
-  console.log('  activeIsListening:', activeIsListening);
-  console.log('  activeBreathingRate:', activeBreathingRate);
-  console.log('  vernierConnected:', vernierData?.isConnected);
-  console.log('  vernierAmplitude:', vernierData?.breathAmplitude);
-  console.log('  vernierForce:', vernierData?.currentForce);
-  
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
   const [heldExhaleStart, setHeldExhaleStart] = useState<number | null>(null);
-  const [sizeScale, setSizeScale] = useState(0.5); // Scale factor for min-max range (reasonable default size)
+  const [sizeScale, setSizeScale] = useState(0.05); // Scale factor for min-max range (minimal default size)
   const [showCalibrationMessage, setShowCalibrationMessage] = useState(false);
   const [calibrationTimeRemaining, setCalibrationTimeRemaining] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
@@ -327,7 +301,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [selectedKasinaSeries, setSelectedKasinaSeries] = useState<string | null>('COLOR');
   const [selectedKasina, setSelectedKasina] = useState<string>(globalSelectedKasina || KASINA_TYPES.BLUE);
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
-  const [sizeMultiplier, setSizeMultiplier] = useState(1.5); // Start at 150% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
+  const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -377,31 +351,6 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const breathHistoryRef = useRef<number[]>([]);
   const peakBreathTimeRef = useRef({ duration: 0, transitionStartTime: null as number | null });
   const [breathDirection, setBreathDirection] = useState<'rising' | 'falling' | 'stable'>('stable');
-  
-  // Debug logging every 2 seconds (after all state declarations)
-  useEffect(() => {
-    if (!useVernier) {
-      console.log('🔴 BREATH SYNC - Not using Vernier (useVernier=false)');
-      return;
-    }
-    
-    const logInterval = setInterval(() => {
-      console.log('🎯 BREATH SYNC DEBUG:', {
-        useVernier: useVernier,
-        connected: vernierData?.isConnected || false,
-        amplitude: (vernierData?.breathAmplitude || 0).toFixed(3),
-        phase: vernierData?.breathPhase || 'pause',
-        bpm: vernierData?.breathingRate || 0,
-        respirationDataReceived: vernierData?.respirationDataReceived || false,
-        currentForce: vernierData?.currentForce?.toFixed(4) || 'N/A',
-        orbSize: orbSize,
-        activeAmplitude: activeBreathAmplitude.toFixed(3),
-        activeBPM: activeBreathingRate
-      });
-    }, 2000);
-    
-    return () => clearInterval(logInterval);
-  }, [useVernier, vernierData, orbSize, activeBreathAmplitude, activeBreathingRate]);
   
   // Helper function to detect if a color is dark
   const isColorDark = (hexColor: string): boolean => {
@@ -1056,32 +1005,12 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Update the orb size based on breath amplitude with hold detection
   useEffect(() => {
-    console.log('🎯 ORB SIZE EFFECT - Entry:', {
-      activeIsListening,
-      useVernier,
-      activeBreathAmplitude
-    });
-    
-    if (!activeIsListening) {
-      console.log('🔴 ORB SIZE EFFECT - Not listening, returning early');
-      return;
-    }
-    
-    // Debug log to track amplitude values
-    console.log('🎯 ORB SIZE UPDATE:', {
-      useVernier,
-      activeBreathAmplitude,
-      vernierAmplitude: vernierData?.breathAmplitude,
-      vernierPhase: vernierData?.breathPhase,
-      activeIsListening
-    });
+    if (!activeIsListening) return;
     
     // Custom kasina now breathes like other color kasinas
     
     // Detect if amplitude has changed significantly (not holding breath)
-    // Use more sensitive threshold for Vernier belt data
-    const amplitudeThreshold = useVernier ? 0.001 : 0.01;
-    const amplitudeChanged = Math.abs(activeBreathAmplitude - lastAmplitudeRef.current) > amplitudeThreshold;
+    const amplitudeChanged = Math.abs(activeBreathAmplitude - lastAmplitudeRef.current) > 0.01;
     
     let finalAmplitude = activeBreathAmplitude;
     
