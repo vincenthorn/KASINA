@@ -507,7 +507,7 @@ const AdminPage: React.FC = () => {
       </div>
       
       {/* User categories row */}
-      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Freemium Users Card */}
         <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900 to-cyan-900 p-5 shadow-lg" style={{ borderRadius: '1rem' }}>
           <div className="flex flex-col items-center">
