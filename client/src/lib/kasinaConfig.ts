@@ -284,8 +284,8 @@ export function calculateBreathKasinaSize(
   const clampedAmplitude = Math.max(0, Math.min(1, breathAmplitude));
   const calculatedSize = Math.floor(minSize + (sizeRange * clampedAmplitude));
   
-  // Cap at original color kasina immersion level (1200px)
-  const finalSize = Math.min(calculatedSize, 1200);
+  // No maximum cap - let the orb expand freely with breath
+  const finalSize = calculatedSize;
   
   // Calculate immersion level for background effects using original thresholds
   const immersionLevel = Math.max(0, Math.min(1, 
