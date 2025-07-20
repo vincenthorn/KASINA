@@ -212,8 +212,8 @@ export default function UnifiedSessionInterface({
 
       {/* Breathing Rate and Fullscreen - Upper Right */}
       <div className="absolute top-4 right-4 z-30 flex items-center space-x-2">
-        {/* Breathing Rate Display - Only show in breath mode when connected */}
-        {mode === 'breath' && breathingRate && breathingRate > 0 && (
+        {/* Breathing Rate Display - Only show after 20 seconds of meditation */}
+        {mode === 'breath' && breathingRate && breathingRate > 0 && meditationTime >= 20 && (
           <div
             style={{
               padding: '8px 16px',
