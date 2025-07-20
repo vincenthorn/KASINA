@@ -287,7 +287,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Use Vernier breathing rate if available, even if useVernier is false (for debugging connection issues)
   const activeBreathingRate = (vernierData.breathingRate && vernierData.breathingRate > 0) 
     ? vernierData.breathingRate 
-    : 0; // Default to 0 BPM to clearly show when sensor data is available
+    : 12; // Default to 12 BPM
   
   // Log breathing rate updates periodically for monitoring
   useEffect(() => {
@@ -1185,9 +1185,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       console.log(`🔍 Kasina: ${selectedKasina}, Type: ${kasConfig.type}, orbSize: ${orbSize}px`);
       
       if (kasConfig.type === 'color') {
-        // Color kasinas use orbSize-based scaling for consistent sizing
-        finalScale = (orbSize / 150) * 2.0; // Scale color kasinas appropriately
-        console.log(`🎯 Color kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
+        finalScale = cappedScale * 0.008; // Scale for color kasinas
+        console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
       } else if (kasConfig.type === 'elemental') {
         // Elemental kasinas need breath-responsive scaling based on orbSize
         finalScale = (orbSize / 150) * 1.5; // Increased multiplier to match Color kasina scale
@@ -1198,8 +1197,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         console.log(`🔮 Vajrayana kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
       } else {
         // Default scaling for other types
-        finalScale = (orbSize / 150) * 2.0; // Same as color kasinas
-        console.log(`⚙️ Default kasina ${selectedKasina} (type: ${kasConfig.type}) scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
+        finalScale = cappedScale * 0.008;
+        console.log(`⚙️ Default kasina ${selectedKasina} (type: ${kasConfig.type}) scaled to ${finalScale.toFixed(3)}`);
       }
 
       // Apply scaling to group or mesh depending on kasina type

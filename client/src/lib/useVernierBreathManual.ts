@@ -141,11 +141,6 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       if (gdxDevice.sensors[1]) {
         gdxDevice.sensors[1].setEnabled(true);
         console.log('✅ Enabled Channel 1:', gdxDevice.sensors[1].name);
-        console.log('📊 Channel 1 initial state:', {
-          value: gdxDevice.sensors[1].value,
-          unit: gdxDevice.sensors[1].unit,
-          enabled: gdxDevice.sensors[1].enabled
-        });
       }
       
       // Get enabled sensors
@@ -291,60 +286,6 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       // Start data collection
       console.log('🚀 Starting data collection on device...');
       gdxDevice.start();
-      
-      // Add delayed checks for the Respiration Rate sensor
-      // According to Vernier docs, it needs 30 seconds to start calculating
-      setTimeout(() => {
-        console.log('⏰ 30-second check - Checking Respiration Rate sensor...');
-        const respirationSensor = gdxDevice.sensors[1];
-        if (respirationSensor) {
-          console.log(`Channel 1 status:`, {
-            name: respirationSensor.name,
-            value: respirationSensor.value,
-            unit: respirationSensor.unit,
-            enabled: respirationSensor.enabled
-          });
-          // Try to manually read the value
-          const currentValue = respirationSensor.value;
-          if (!isNaN(currentValue) && currentValue > 0) {
-            console.log('✅ Respiration Rate sensor is now providing data!');
-            setBreathingRate(Math.round(currentValue));
-          }
-        }
-      }, 30000);
-      
-      setTimeout(() => {
-        console.log('⏰ 45-second check - Checking Respiration Rate sensor...');
-        const respirationSensor = gdxDevice.sensors[1];
-        if (respirationSensor) {
-          console.log(`Channel 1 status:`, {
-            name: respirationSensor.name,
-            value: respirationSensor.value,
-            unit: respirationSensor.unit,
-            enabled: respirationSensor.enabled
-          });
-        }
-      }, 45000);
-      
-      // Additional 60-second check
-      setTimeout(() => {
-        console.log('⏰ 60-second check - Final Respiration Rate sensor check...');
-        const respirationSensor = gdxDevice.sensors[1];
-        if (respirationSensor) {
-          console.log(`Channel 1 final status:`, {
-            name: respirationSensor.name,
-            value: respirationSensor.value,
-            unit: respirationSensor.unit,
-            enabled: respirationSensor.enabled
-          });
-          
-          // If still no data, suggest alternative
-          if (isNaN(respirationSensor.value)) {
-            console.log('⚠️ Respiration Rate sensor still returning NaN after 60 seconds.');
-            console.log('📈 Consider using Force sensor data to calculate breathing rate manually.');
-          }
-        }
-      }, 60000);
       
       setIsConnected(true);
       setIsConnecting(false);
