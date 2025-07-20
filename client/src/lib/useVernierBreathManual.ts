@@ -287,6 +287,23 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       console.log('🚀 Starting data collection on device...');
       gdxDevice.start();
       
+      // Add a delayed check for the Respiration Rate sensor
+      setTimeout(() => {
+        console.log('⏰ 30-second check - Checking Respiration Rate sensor status...');
+        const respirationSensor = gdxDevice.sensors[1];
+        if (respirationSensor) {
+          console.log(`Respiration Rate sensor value after 30s: ${respirationSensor.value}`);
+        }
+      }, 30000);
+      
+      setTimeout(() => {
+        console.log('⏰ 45-second check - Checking Respiration Rate sensor status...');
+        const respirationSensor = gdxDevice.sensors[1];
+        if (respirationSensor) {
+          console.log(`Respiration Rate sensor value after 45s: ${respirationSensor.value}`);
+        }
+      }, 45000);
+      
       setIsConnected(true);
       setIsConnecting(false);
       console.log('Successfully connected to Vernier respiration belt via official library');

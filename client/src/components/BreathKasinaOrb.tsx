@@ -287,7 +287,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Use Vernier breathing rate if available, even if useVernier is false (for debugging connection issues)
   const activeBreathingRate = (vernierData.breathingRate && vernierData.breathingRate > 0) 
     ? vernierData.breathingRate 
-    : 12; // Default to 12 BPM
+    : 0; // Default to 0 BPM to clearly show when sensor data is available
   
   // Log breathing rate updates periodically for monitoring
   useEffect(() => {
