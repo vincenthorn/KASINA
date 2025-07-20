@@ -111,8 +111,23 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       const goDirectLib = await loadGoDirectLibrary();
       console.log('GoDirect library loaded successfully');
 
-      // Connect using official Vernier method
-      const gdxDevice = await goDirectLib.selectDevice(true); // true = Bluetooth
+      // Connect using official Vernier method with proper initialization
+      console.log('Opening device selection dialog...');
+      
+      // Request the BLE device first
+      const bleDevice = await navigator.bluetooth.requestDevice({
+        filters: [{namePrefix: 'GDX'}],
+        optionalServices: ['d91714ef-28b9-4f91-ba16-f0d9a604f112']
+      });
+      
+      console.log('BLE device selected:', bleDevice.name);
+      
+      // Create the GDX device with specific options
+      const gdxDevice = await goDirectLib.createDevice(bleDevice, {
+        open: true,              // Open the device connection
+        startMeasurements: false // Don't start measurements immediately
+      });
+      
       deviceRef.current = gdxDevice;
       
       console.log('Connected to:', gdxDevice.name);
@@ -174,6 +189,25 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
           if (sensor.name.toLowerCase().includes('force') || sensor.unit === 'N') {
             const forceValue = parseFloat(sensor.value);
             setCurrentForce(forceValue);
+            
+            // Diagnostic: Track force variation
+            if (forceDataRef.current.length > 10) {
+              const recentForces = forceDataRef.current.slice(-10).map(d => d.force);
+              const minForce = Math.min(...recentForces);
+              const maxForce = Math.max(...recentForces);
+              const forceRange = maxForce - minForce;
+              const avgForce = recentForces.reduce((a, b) => a + b, 0) / recentForces.length;
+              
+              // Log every 5 seconds
+              if (Date.now() % 5000 < 100) {
+                console.log(`📊 Force Analysis: Range=${forceRange.toFixed(3)}N, Min=${minForce.toFixed(3)}N, Max=${maxForce.toFixed(3)}N, Avg=${avgForce.toFixed(3)}N`);
+                
+                if (forceRange < 0.1) { // Less than 0.1N variation
+                  console.warn('⚠️ LOW FORCE VARIATION - Belt may be too loose or positioned incorrectly');
+                  console.warn('💡 TIP: Ensure belt is snug and positioned just below sternum');
+                }
+              }
+            }
             
             // Add to calibration data if calibrating
             const isCurrentlyCalibrating = calibrationStartTimeRef.current > 0 && !calibrationProfile;
@@ -285,7 +319,11 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       
       // Start data collection
       console.log('🚀 Starting data collection on device...');
-      gdxDevice.start();
+      await gdxDevice.start();
+      
+      // Additional initialization for respiration rate sensor
+      console.log('⏱️ Respiration Rate sensor needs 30+ seconds of breathing data to calculate BPM');
+      console.log('💡 Please breathe normally - the sensor will start showing BPM after collecting enough cycles');
       
       setIsConnected(true);
       setIsConnecting(false);
