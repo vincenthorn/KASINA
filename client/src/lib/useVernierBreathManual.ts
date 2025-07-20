@@ -101,6 +101,61 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const breathingPatternRef = useRef<'rising' | 'falling'>('rising'); // Track breathing direction
 
   /**
+   * Calculate BPM from detected breath cycles
+   */
+  const calculateBPM = useCallback(() => {
+    const now = Date.now();
+    
+    console.log(`📊 calculateBPM called with ${breathCyclesRef.current.length} total cycles`);
+    
+    // Clean up old cycles (keep last 2 minutes)
+    const beforeCleanup = breathCyclesRef.current.length;
+    breathCyclesRef.current = breathCyclesRef.current.filter(
+      timestamp => now - timestamp < 120000
+    );
+    const afterCleanup = breathCyclesRef.current.length;
+    
+    if (beforeCleanup !== afterCleanup) {
+      console.log(`🧹 Cleaned up ${beforeCleanup - afterCleanup} old cycles`);
+    }
+    
+    // Need at least 3 cycles for reliable calculation
+    if (breathCyclesRef.current.length >= 3) {
+      // Use recent cycles for calculation
+      const recentCycles = breathCyclesRef.current.slice(-10); // Last 10 breaths
+      console.log(`📈 Using ${recentCycles.length} recent cycles for BPM calculation`);
+      
+      // Calculate average interval
+      let totalInterval = 0;
+      const intervals: number[] = [];
+      for (let i = 1; i < recentCycles.length; i++) {
+        const interval = recentCycles[i] - recentCycles[i - 1];
+        intervals.push(interval);
+        totalInterval += interval;
+      }
+      const avgInterval = totalInterval / (recentCycles.length - 1);
+      
+      console.log(`⏱️ Breath intervals (ms): ${intervals.map(i => Math.round(i)).join(', ')}`);
+      console.log(`⏱️ Average interval: ${Math.round(avgInterval)}ms`);
+      
+      // Convert to BPM
+      const bpm = Math.round(60000 / avgInterval);
+      
+      console.log(`🫁 Calculated BPM: ${bpm}`);
+      
+      // Validate reasonable range
+      if (bpm >= 4 && bpm <= 30) {
+        console.log(`✅ Setting BPM to ${bpm} (from ${recentCycles.length} cycles)`);
+        setBreathingRate(bpm);
+      } else {
+        console.warn(`⚠️ BPM ${bpm} outside valid range (4-30)`);
+      }
+    } else {
+      console.log(`⏳ Not enough cycles yet (${breathCyclesRef.current.length} < 3)`);
+    }
+  }, []);
+
+  /**
    * Detect breathing cycles from force sensor patterns
    */
   const detectBreathingCycles = useCallback((forceValue: number) => {
@@ -162,61 +217,6 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       }
     }
   }, [calculateBPM]);
-
-  /**
-   * Calculate BPM from detected breath cycles
-   */
-  const calculateBPM = useCallback(() => {
-    const now = Date.now();
-    
-    console.log(`📊 calculateBPM called with ${breathCyclesRef.current.length} total cycles`);
-    
-    // Clean up old cycles (keep last 2 minutes)
-    const beforeCleanup = breathCyclesRef.current.length;
-    breathCyclesRef.current = breathCyclesRef.current.filter(
-      timestamp => now - timestamp < 120000
-    );
-    const afterCleanup = breathCyclesRef.current.length;
-    
-    if (beforeCleanup !== afterCleanup) {
-      console.log(`🧹 Cleaned up ${beforeCleanup - afterCleanup} old cycles`);
-    }
-    
-    // Need at least 3 cycles for reliable calculation
-    if (breathCyclesRef.current.length >= 3) {
-      // Use recent cycles for calculation
-      const recentCycles = breathCyclesRef.current.slice(-10); // Last 10 breaths
-      console.log(`📈 Using ${recentCycles.length} recent cycles for BPM calculation`);
-      
-      // Calculate average interval
-      let totalInterval = 0;
-      const intervals: number[] = [];
-      for (let i = 1; i < recentCycles.length; i++) {
-        const interval = recentCycles[i] - recentCycles[i - 1];
-        intervals.push(interval);
-        totalInterval += interval;
-      }
-      const avgInterval = totalInterval / (recentCycles.length - 1);
-      
-      console.log(`⏱️ Breath intervals (ms): ${intervals.map(i => Math.round(i)).join(', ')}`);
-      console.log(`⏱️ Average interval: ${Math.round(avgInterval)}ms`);
-      
-      // Convert to BPM
-      const bpm = Math.round(60000 / avgInterval);
-      
-      console.log(`🫁 Calculated BPM: ${bpm}`);
-      
-      // Validate reasonable range
-      if (bpm >= 4 && bpm <= 30) {
-        console.log(`✅ Setting BPM to ${bpm} (from ${recentCycles.length} cycles)`);
-        setBreathingRate(bpm);
-      } else {
-        console.warn(`⚠️ BPM ${bpm} outside valid range (4-30)`);
-      }
-    } else {
-      console.log(`⏳ Not enough cycles yet (${breathCyclesRef.current.length} < 3)`);
-    }
-  }, []);
 
   /**
    * Connect to Vernier GDX respiration belt using official library
