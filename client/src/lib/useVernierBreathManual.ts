@@ -129,6 +129,15 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         sensor.on('value-changed', (sensor: any) => {
           console.log(`Official Vernier data - Sensor: ${sensor.name}, Value: ${sensor.value}, Units: ${sensor.unit}`);
           
+          // Process respiration rate sensor data
+          if (sensor.name.toLowerCase().includes('respiration rate') || sensor.unit === 'bpm') {
+            const bpmValue = parseFloat(sensor.value);
+            if (!isNaN(bpmValue) && bpmValue > 0) {
+              console.log(`📊 RESPIRATION RATE SENSOR: ${bpmValue} BPM`);
+              setBreathingRate(Math.round(bpmValue));
+            }
+          }
+          
           // Process force sensor data for breathing
           if (sensor.name.toLowerCase().includes('force') || sensor.unit === 'N') {
             const forceValue = parseFloat(sensor.value);
@@ -211,18 +220,23 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                   setBreathPhase('pause');
                 }
                 
-                // Calculate breathing rate every 10 seconds
+                // Only calculate breathing rate manually if we don't have sensor data
+                // The Respiration Rate sensor provides more accurate BPM readings
                 if (currentTime - lastRateUpdateRef.current > 10000) {
                   const recentCycles = breathCyclesRef.current.filter(
                     timestamp => currentTime - timestamp < 60000 // Last minute
                   );
                   
                   if (recentCycles.length >= 2) {
-                    // Calculate BPM from recent cycles
+                    // Calculate BPM from recent cycles as fallback
                     const timeSpan = (currentTime - recentCycles[0]) / 1000; // seconds
                     const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
                     const bpm = Math.round(cyclesPerSecond * 60);
-                    setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
+                    // Only update if we don't have sensor BPM data
+                    if (breathingRate === 0) {
+                      console.log('📊 Calculated BPM (fallback):', bpm);
+                      setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
+                    }
                   }
                   
                   lastRateUpdateRef.current = currentTime;
