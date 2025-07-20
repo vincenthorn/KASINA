@@ -113,53 +113,79 @@ export default function UnifiedSessionInterface({
     <>
       {/* Timer and End button - Upper Left */}
       <div 
-        className="absolute top-4 left-4 z-30 flex items-center space-x-3"
-        style={{
-          padding: '12px 16px',
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease-out'
-        }}
+        className="absolute top-4 left-4 z-30 flex flex-col space-y-2"
       >
+        {/* Timer and End button container */}
         <div 
+          className="flex items-center space-x-3"
           style={{
-            color: 'white',
-            fontSize: '20px',
-            fontWeight: 'bold',
-            fontFamily: 'monospace',
-            textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+            padding: '12px 16px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease-out'
           }}
         >
-          {formatTime(meditationTime)}
-        </div>
+          <div 
+            style={{
+              color: 'white',
+              fontSize: '20px',
+              fontWeight: 'bold',
+              fontFamily: 'monospace',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+            }}
+          >
+            {formatTime(meditationTime)}
+          </div>
 
-        <button
-          onClick={handleEndSession}
-          disabled={isEnding}
-          style={{
-            backgroundColor: isEnding ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.2)',
-            color: isEnding ? 'rgba(255, 255, 255, 0.5)' : 'white',
-            border: 'none',
-            padding: '6px 12px',
-            borderRadius: '4px',
-            fontSize: '14px',
-            fontWeight: '500',
-            cursor: isEnding ? 'not-allowed' : 'pointer',
-            transition: 'all 0.2s ease-out'
-          }}
-          onMouseEnter={(e) => {
-            if (!isEnding) {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (!isEnding) {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-            }
-          }}
-        >
-          {isEnding ? 'Ending...' : 'End'}
-        </button>
+          <button
+            onClick={handleEndSession}
+            disabled={isEnding}
+            style={{
+              backgroundColor: isEnding ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.2)',
+              color: isEnding ? 'rgba(255, 255, 255, 0.5)' : 'white',
+              border: 'none',
+              padding: '6px 12px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: '500',
+              cursor: isEnding ? 'not-allowed' : 'pointer',
+              transition: 'all 0.2s ease-out'
+            }}
+            onMouseEnter={(e) => {
+              if (!isEnding) {
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isEnding) {
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+              }
+            }}
+          >
+            {isEnding ? 'Ending...' : 'End'}
+          </button>
+        </div>
+        
+        {/* Breathing Rate Display - Only show in breath mode when connected */}
+        {mode === 'breath' && breathingRate && breathingRate > 0 && (
+          <div 
+            style={{
+              padding: '8px 16px',
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              borderRadius: '8px',
+              color: 'white',
+              fontSize: '16px',
+              fontWeight: '500',
+              textAlign: 'center',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+            }}
+          >
+            <div style={{ fontSize: '12px', opacity: 0.7, marginBottom: '2px' }}>Breath Rate</div>
+            <div style={{ fontFamily: 'monospace', fontSize: '18px' }}>
+              {breathingRate} <span style={{ fontSize: '14px', opacity: 0.8 }}>BPM</span>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Size Control Slider - Top Center */}
