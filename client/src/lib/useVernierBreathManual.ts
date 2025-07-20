@@ -232,11 +232,9 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                     const timeSpan = (currentTime - recentCycles[0]) / 1000; // seconds
                     const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
                     const bpm = Math.round(cyclesPerSecond * 60);
-                    // Only update if we don't have sensor BPM data
-                    if (breathingRate === 0) {
-                      console.log('📊 Calculated BPM (fallback):', bpm);
-                      setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
-                    }
+                    // Update breathing rate from force sensor calculation
+                    console.log('📊 Calculated BPM from force sensor:', bpm);
+                    setBreathingRate(Math.max(4, Math.min(30, bpm))); // Clamp between 4-30 BPM
                   }
                   
                   lastRateUpdateRef.current = currentTime;
