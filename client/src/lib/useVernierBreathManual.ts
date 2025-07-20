@@ -95,6 +95,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const lastForceUpdateRef = useRef<number>(0);
   const breathCyclesRef = useRef<number[]>([]); // Track breath cycle timestamps
   const lastRateUpdateRef = useRef<number>(0);
+  const dataCollectionStartRef = useRef<number>(0); // Track when data collection started
 
   /**
    * Connect to Vernier GDX respiration belt using official library
@@ -166,22 +167,73 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         channelNumber: gdxDevice.sensors.indexOf(s)
       })));
       
-      // Set up data collection for each enabled sensor
+      // Try device-level event handler for better sensor data
+      if (gdxDevice.on) {
+        console.log('🔧 Setting up device-level event handler...');
+        gdxDevice.on('device-readings-received', (readings: any) => {
+          console.log('📊 Device readings received:', readings);
+          
+          readings.forEach((reading: any) => {
+            const sensor = gdxDevice.sensors[reading.sensor_id];
+            if (sensor) {
+              console.log(`Sensor ${reading.sensor_id}: ${sensor.name} = ${reading.value} ${sensor.unit}`);
+              
+              // Process based on sensor type
+              if (sensor.name.toLowerCase().includes('respiration rate')) {
+                const elapsedSeconds = dataCollectionStartRef.current > 0 
+                  ? Math.round((Date.now() - dataCollectionStartRef.current) / 1000)
+                  : 0;
+                console.log(`🔍 RESPIRATION RATE at ${elapsedSeconds}s: ${reading.value} BPM`);
+                
+                if (reading.value && !isNaN(reading.value) && reading.value > 0) {
+                  console.log(`✅ Valid BPM after ${elapsedSeconds}s: ${reading.value}`);
+                  setBreathingRate(Math.round(reading.value));
+                }
+              } else if (sensor.name.toLowerCase().includes('force')) {
+                // Process force reading inline for now
+                const forceValue = parseFloat(reading.value);
+                setCurrentForce(forceValue);
+                
+                // Add to force data
+                forceDataRef.current.push({
+                  timestamp: Date.now(),
+                  force: forceValue
+                });
+                
+                // Keep only last 100 samples
+                if (forceDataRef.current.length > 100) {
+                  forceDataRef.current = forceDataRef.current.slice(-100);
+                }
+              }
+            }
+          });
+        });
+      }
+      
+      // Also set up individual sensor handlers as fallback
       enabledSensors.forEach((sensor: any) => {
         sensor.on('value-changed', (sensor: any) => {
-          console.log(`Official Vernier data - Sensor: ${sensor.name}, Value: ${sensor.value}, Units: ${sensor.unit}`);
+          console.log(`Sensor event - ${sensor.name}: ${sensor.value} ${sensor.unit}`);
           
           // Process respiration rate sensor data
           if (sensor.name.toLowerCase().includes('respiration rate') || sensor.unit === 'bpm') {
             const bpmValue = parseFloat(sensor.value);
-            console.log(`🔍 RESPIRATION RATE SENSOR RAW VALUE: ${sensor.value}, parsed: ${bpmValue}, isNaN: ${isNaN(bpmValue)}`);
+            const elapsedSeconds = dataCollectionStartRef.current > 0 
+              ? Math.round((Date.now() - dataCollectionStartRef.current) / 1000)
+              : 0;
+            
+            console.log(`🔍 RESPIRATION RATE SENSOR at ${elapsedSeconds}s: raw=${sensor.value}, parsed=${bpmValue}, isNaN=${isNaN(bpmValue)}`);
             
             if (!isNaN(bpmValue) && bpmValue > 0) {
-              console.log(`📊 RESPIRATION RATE SENSOR VALID: ${bpmValue} BPM`);
+              console.log(`✅ RESPIRATION RATE SENSOR VALID after ${elapsedSeconds}s: ${bpmValue} BPM`);
               setBreathingRate(Math.round(bpmValue));
             } else {
-              // Log why it's not valid
-              console.log(`⚠️ RESPIRATION RATE SENSOR INVALID: value=${sensor.value}, NaN=${isNaN(bpmValue)}, positive=${bpmValue > 0}`);
+              // Log timing info for NaN values
+              if (elapsedSeconds < 30) {
+                console.log(`⏳ Waiting for sensor data... ${elapsedSeconds}/30s elapsed`);
+              } else {
+                console.log(`⚠️ Still NaN after ${elapsedSeconds}s - check belt position`);
+              }
             }
           }
           
@@ -324,6 +376,9 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       // Additional initialization for respiration rate sensor
       console.log('⏱️ Respiration Rate sensor needs 30+ seconds of breathing data to calculate BPM');
       console.log('💡 Please breathe normally - the sensor will start showing BPM after collecting enough cycles');
+      
+      // Track when data collection started
+      dataCollectionStartRef.current = Date.now();
       
       setIsConnected(true);
       setIsConnecting(false);
