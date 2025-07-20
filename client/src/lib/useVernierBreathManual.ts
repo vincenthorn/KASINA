@@ -107,41 +107,61 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     const now = Date.now();
     
     // Need some data to work with
-    if (forceDataRef.current.length < 10) return;
+    if (forceDataRef.current.length < 10) {
+      return;
+    }
     
     // Get recent force values for pattern detection
-    const recentForces = forceDataRef.current.slice(-20).map(d => d.force);
+    const recentForces = forceDataRef.current.slice(-30).map(d => d.force);
     const avgForce = recentForces.reduce((a, b) => a + b, 0) / recentForces.length;
     const minForce = Math.min(...recentForces);
     const maxForce = Math.max(...recentForces);
     const forceRange = maxForce - minForce;
     
-    // Need meaningful variation to detect breathing
-    if (forceRange < 0.05) return;
-    
-    // Detect peaks and valleys
-    const threshold = forceRange * 0.15; // 15% of range for noise filtering
-    
-    if (breathingPatternRef.current === 'rising' && forceValue > lastPeakRef.current) {
-      lastPeakRef.current = forceValue;
-    } else if (breathingPatternRef.current === 'rising' && forceValue < lastPeakRef.current - threshold) {
-      // Peak detected, now falling
-      console.log(`🌊 Breath peak detected at ${lastPeakRef.current.toFixed(2)}N`);
-      breathCyclesRef.current.push(now);
-      breathingPatternRef.current = 'falling';
-      lastValleyRef.current = forceValue;
-      
-      // Calculate BPM if we have enough cycles
-      calculateBPM();
-    } else if (breathingPatternRef.current === 'falling' && forceValue < lastValleyRef.current) {
-      lastValleyRef.current = forceValue;
-    } else if (breathingPatternRef.current === 'falling' && forceValue > lastValleyRef.current + threshold) {
-      // Valley detected, now rising
-      console.log(`🌊 Breath valley detected at ${lastValleyRef.current.toFixed(2)}N`);
-      breathingPatternRef.current = 'rising';
-      lastPeakRef.current = forceValue;
+    // Log detection status periodically
+    if (now % 3000 < 100) {
+      console.log(`🔍 Breathing detection: range=${forceRange.toFixed(3)}N, current=${forceValue.toFixed(2)}N, pattern=${breathingPatternRef.current}, lastPeak=${lastPeakRef.current.toFixed(2)}N, lastValley=${lastValleyRef.current.toFixed(2)}N`);
     }
-  }, []);
+    
+    // Need meaningful variation to detect breathing
+    if (forceRange < 0.05) {
+      return;
+    }
+    
+    // Initialize peak/valley if not set
+    if (lastPeakRef.current === 0 || lastValleyRef.current === 0) {
+      lastPeakRef.current = avgForce + forceRange * 0.3;
+      lastValleyRef.current = avgForce - forceRange * 0.3;
+      console.log(`🎯 Initialized peak/valley: peak=${lastPeakRef.current.toFixed(2)}N, valley=${lastValleyRef.current.toFixed(2)}N`);
+    }
+    
+    // Detect peaks and valleys with lower threshold
+    const threshold = forceRange * 0.08; // 8% of range for better sensitivity
+    
+    if (breathingPatternRef.current === 'rising') {
+      if (forceValue > lastPeakRef.current) {
+        lastPeakRef.current = forceValue;
+      } else if (forceValue < lastPeakRef.current - threshold && lastPeakRef.current > avgForce) {
+        // Peak detected, now falling
+        console.log(`🌊 Breath PEAK detected at ${lastPeakRef.current.toFixed(2)}N (threshold=${threshold.toFixed(3)}N)`);
+        breathCyclesRef.current.push(now);
+        breathingPatternRef.current = 'falling';
+        lastValleyRef.current = forceValue;
+        
+        // Calculate BPM if we have enough cycles
+        calculateBPM();
+      }
+    } else { // falling
+      if (forceValue < lastValleyRef.current) {
+        lastValleyRef.current = forceValue;
+      } else if (forceValue > lastValleyRef.current + threshold && lastValleyRef.current < avgForce) {
+        // Valley detected, now rising
+        console.log(`🌊 Breath VALLEY detected at ${lastValleyRef.current.toFixed(2)}N (threshold=${threshold.toFixed(3)}N)`);
+        breathingPatternRef.current = 'rising';
+        lastPeakRef.current = forceValue;
+      }
+    }
+  }, [calculateBPM]);
 
   /**
    * Calculate BPM from detected breath cycles
@@ -149,31 +169,52 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const calculateBPM = useCallback(() => {
     const now = Date.now();
     
+    console.log(`📊 calculateBPM called with ${breathCyclesRef.current.length} total cycles`);
+    
     // Clean up old cycles (keep last 2 minutes)
+    const beforeCleanup = breathCyclesRef.current.length;
     breathCyclesRef.current = breathCyclesRef.current.filter(
       timestamp => now - timestamp < 120000
     );
+    const afterCleanup = breathCyclesRef.current.length;
+    
+    if (beforeCleanup !== afterCleanup) {
+      console.log(`🧹 Cleaned up ${beforeCleanup - afterCleanup} old cycles`);
+    }
     
     // Need at least 3 cycles for reliable calculation
     if (breathCyclesRef.current.length >= 3) {
       // Use recent cycles for calculation
       const recentCycles = breathCyclesRef.current.slice(-10); // Last 10 breaths
+      console.log(`📈 Using ${recentCycles.length} recent cycles for BPM calculation`);
       
       // Calculate average interval
       let totalInterval = 0;
+      const intervals: number[] = [];
       for (let i = 1; i < recentCycles.length; i++) {
-        totalInterval += recentCycles[i] - recentCycles[i - 1];
+        const interval = recentCycles[i] - recentCycles[i - 1];
+        intervals.push(interval);
+        totalInterval += interval;
       }
       const avgInterval = totalInterval / (recentCycles.length - 1);
+      
+      console.log(`⏱️ Breath intervals (ms): ${intervals.map(i => Math.round(i)).join(', ')}`);
+      console.log(`⏱️ Average interval: ${Math.round(avgInterval)}ms`);
       
       // Convert to BPM
       const bpm = Math.round(60000 / avgInterval);
       
+      console.log(`🫁 Calculated BPM: ${bpm}`);
+      
       // Validate reasonable range
       if (bpm >= 4 && bpm <= 30) {
-        console.log(`✅ Calculated BPM from force patterns: ${bpm} (${recentCycles.length} cycles)`);
+        console.log(`✅ Setting BPM to ${bpm} (from ${recentCycles.length} cycles)`);
         setBreathingRate(bpm);
+      } else {
+        console.warn(`⚠️ BPM ${bpm} outside valid range (4-30)`);
       }
+    } else {
+      console.log(`⏳ Not enough cycles yet (${breathCyclesRef.current.length} < 3)`);
     }
   }, []);
 
