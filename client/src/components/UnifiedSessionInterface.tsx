@@ -213,7 +213,7 @@ export default function UnifiedSessionInterface({
       {/* Breathing Rate and Fullscreen - Upper Right */}
       <div className="absolute top-4 right-4 z-30 flex items-center space-x-2">
         {/* Breathing Rate Display - Only show after 20 seconds of meditation */}
-        {mode === 'breath' && breathingRate && breathingRate > 0 && meditationTime >= 20 && (
+        {mode === 'breath' && meditationTime >= 20 && (
           <div
             style={{
               padding: '8px 16px',
@@ -226,7 +226,7 @@ export default function UnifiedSessionInterface({
               textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
             }}
           >
-            {breathingRate} bpm
+            {breathingRate && breathingRate > 0 ? `${breathingRate} bpm` : '0 bpm'}
           </div>
         )}
         

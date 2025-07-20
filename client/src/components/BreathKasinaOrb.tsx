@@ -287,7 +287,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   // Use Vernier breathing rate if available, even if useVernier is false (for debugging connection issues)
   const activeBreathingRate = (vernierData.breathingRate && vernierData.breathingRate > 0) 
     ? vernierData.breathingRate 
-    : 12; // Default to 12 BPM
+    : 0; // Default to 0 to indicate no sensor data
   
   // Log breathing rate updates periodically for monitoring
   useEffect(() => {
@@ -1044,9 +1044,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     
     // Calculate intensity multiplier based on breathing rate (4-20 BPM)
     // At 4 BPM (deep meditation): very subtle (30% intensity)
+    // Handle no sensor data (0 BPM) by using a default medium intensity
     // At 12 BPM (normal): medium intensity (80% intensity) 
     // At 20 BPM (fast breathing): full intensity (100%)
-    const normalizedRate = Math.max(4, Math.min(20, activeBreathingRate)); // Clamp to range
+    const normalizedRate = activeBreathingRate === 0 ? 12 : Math.max(4, Math.min(20, activeBreathingRate)); // Use 12 BPM behavior when no sensor data
     const intensityMultiplier = normalizedRate <= 4 ? 0.3 : 
                                normalizedRate <= 12 ? 0.3 + ((normalizedRate - 4) / 8) * 0.5 :
                                0.8 + ((normalizedRate - 12) / 8) * 0.2;
@@ -1149,7 +1150,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     setCurrentBackgroundColor(newBackgroundColor);
     
     // Log the size and rate data for debugging
-    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
+    console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm${activeBreathingRate === 0 ? ' (no sensor data)' : ''}, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
   }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, getKasinaColor, calculateBackgroundColor]);
 
   // Modern kasina breathing orb component using Three.js
