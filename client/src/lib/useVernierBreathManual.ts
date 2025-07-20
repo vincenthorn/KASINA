@@ -195,11 +195,16 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     if (lastPeakRef.current === 0 || lastValleyRef.current === 0) {
       lastPeakRef.current = avgForce + forceRange * 0.3;
       lastValleyRef.current = avgForce - forceRange * 0.3;
-      console.log(`🎯 Initialized peak/valley: peak=${lastPeakRef.current.toFixed(2)}N, valley=${lastValleyRef.current.toFixed(2)}N`);
+      console.log(`🎯 Initialized peak/valley: peak=${lastPeakRef.current.toFixed(2)}N, valley=${lastValleyRef.current.toFixed(2)}N, avg=${avgForce.toFixed(2)}N`);
     }
     
     // Detect peaks and valleys with lower threshold
     const threshold = forceRange * 0.08; // 8% of range for better sensitivity
+    
+    // Debug current state
+    const peakDiff = forceValue - lastPeakRef.current;
+    const valleyDiff = forceValue - lastValleyRef.current;
+    console.log(`📊 Pattern=${breathingPatternRef.current}, Force=${forceValue.toFixed(2)}N, PeakDiff=${peakDiff.toFixed(3)}N, ValleyDiff=${valleyDiff.toFixed(3)}N, Threshold=${threshold.toFixed(3)}N`);
     
     if (breathingPatternRef.current === 'rising') {
       if (forceValue > lastPeakRef.current) {
