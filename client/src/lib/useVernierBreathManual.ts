@@ -96,6 +96,86 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const breathCyclesRef = useRef<number[]>([]); // Track breath cycle timestamps
   const lastRateUpdateRef = useRef<number>(0);
   const dataCollectionStartRef = useRef<number>(0); // Track when data collection started
+  const lastPeakRef = useRef<number>(0); // Track last peak force value
+  const lastValleyRef = useRef<number>(0); // Track last valley force value
+  const breathingPatternRef = useRef<'rising' | 'falling'>('rising'); // Track breathing direction
+
+  /**
+   * Detect breathing cycles from force sensor patterns
+   */
+  const detectBreathingCycles = useCallback((forceValue: number) => {
+    const now = Date.now();
+    
+    // Need some data to work with
+    if (forceDataRef.current.length < 10) return;
+    
+    // Get recent force values for pattern detection
+    const recentForces = forceDataRef.current.slice(-20).map(d => d.force);
+    const avgForce = recentForces.reduce((a, b) => a + b, 0) / recentForces.length;
+    const minForce = Math.min(...recentForces);
+    const maxForce = Math.max(...recentForces);
+    const forceRange = maxForce - minForce;
+    
+    // Need meaningful variation to detect breathing
+    if (forceRange < 0.05) return;
+    
+    // Detect peaks and valleys
+    const threshold = forceRange * 0.15; // 15% of range for noise filtering
+    
+    if (breathingPatternRef.current === 'rising' && forceValue > lastPeakRef.current) {
+      lastPeakRef.current = forceValue;
+    } else if (breathingPatternRef.current === 'rising' && forceValue < lastPeakRef.current - threshold) {
+      // Peak detected, now falling
+      console.log(`🌊 Breath peak detected at ${lastPeakRef.current.toFixed(2)}N`);
+      breathCyclesRef.current.push(now);
+      breathingPatternRef.current = 'falling';
+      lastValleyRef.current = forceValue;
+      
+      // Calculate BPM if we have enough cycles
+      calculateBPM();
+    } else if (breathingPatternRef.current === 'falling' && forceValue < lastValleyRef.current) {
+      lastValleyRef.current = forceValue;
+    } else if (breathingPatternRef.current === 'falling' && forceValue > lastValleyRef.current + threshold) {
+      // Valley detected, now rising
+      console.log(`🌊 Breath valley detected at ${lastValleyRef.current.toFixed(2)}N`);
+      breathingPatternRef.current = 'rising';
+      lastPeakRef.current = forceValue;
+    }
+  }, []);
+
+  /**
+   * Calculate BPM from detected breath cycles
+   */
+  const calculateBPM = useCallback(() => {
+    const now = Date.now();
+    
+    // Clean up old cycles (keep last 2 minutes)
+    breathCyclesRef.current = breathCyclesRef.current.filter(
+      timestamp => now - timestamp < 120000
+    );
+    
+    // Need at least 3 cycles for reliable calculation
+    if (breathCyclesRef.current.length >= 3) {
+      // Use recent cycles for calculation
+      const recentCycles = breathCyclesRef.current.slice(-10); // Last 10 breaths
+      
+      // Calculate average interval
+      let totalInterval = 0;
+      for (let i = 1; i < recentCycles.length; i++) {
+        totalInterval += recentCycles[i] - recentCycles[i - 1];
+      }
+      const avgInterval = totalInterval / (recentCycles.length - 1);
+      
+      // Convert to BPM
+      const bpm = Math.round(60000 / avgInterval);
+      
+      // Validate reasonable range
+      if (bpm >= 4 && bpm <= 30) {
+        console.log(`✅ Calculated BPM from force patterns: ${bpm} (${recentCycles.length} cycles)`);
+        setBreathingRate(bpm);
+      }
+    }
+  }, []);
 
   /**
    * Connect to Vernier GDX respiration belt using official library
@@ -204,6 +284,9 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                 if (forceDataRef.current.length > 100) {
                   forceDataRef.current = forceDataRef.current.slice(-100);
                 }
+                
+                // Detect breathing cycles from force patterns
+                detectBreathingCycles(forceValue);
               }
             }
           });
@@ -287,6 +370,9 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
               // Breath-cycle-aware dynamic range that stabilizes during each breath
               const recentSamples = 100; // Larger sample window for stability
               forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
+              
+              // Also detect breathing cycles for BPM calculation
+              detectBreathingCycles(forceValue);
               
               if (forceDataRef.current.length < 20) {
                 // Build up initial data
