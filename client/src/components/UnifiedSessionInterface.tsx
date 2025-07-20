@@ -165,27 +165,6 @@ export default function UnifiedSessionInterface({
             {isEnding ? 'Ending...' : 'End'}
           </button>
         </div>
-        
-        {/* Breathing Rate Display - Only show in breath mode when connected */}
-        {mode === 'breath' && breathingRate && breathingRate > 0 && (
-          <div 
-            style={{
-              padding: '8px 16px',
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              borderRadius: '8px',
-              color: 'white',
-              fontSize: '16px',
-              fontWeight: '500',
-              textAlign: 'center',
-              textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
-            }}
-          >
-            <div style={{ fontSize: '12px', opacity: 0.7, marginBottom: '2px' }}>Breath Rate</div>
-            <div style={{ fontFamily: 'monospace', fontSize: '18px' }}>
-              {breathingRate} <span style={{ fontSize: '14px', opacity: 0.8 }}>BPM</span>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Size Control Slider - Top Center */}
@@ -231,46 +210,66 @@ export default function UnifiedSessionInterface({
         </span>
       </div>
 
-      {/* Fullscreen Button - Upper Right */}
-      <div 
-        className="absolute top-4 right-4 z-30"
-        style={{
-          padding: '12px',
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease-out'
-        }}
-        onClick={onToggleFullscreen}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-        }}
-      >
-        <svg 
-          width="20" 
-          height="20" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="white" 
-          strokeWidth="2"
-          strokeLinecap="round" 
-          strokeLinejoin="round"
+      {/* Breathing Rate and Fullscreen - Upper Right */}
+      <div className="absolute top-4 right-4 z-30 flex items-center space-x-2">
+        {/* Breathing Rate Display - Only show in breath mode when connected */}
+        {mode === 'breath' && breathingRate && breathingRate > 0 && (
+          <div
+            style={{
+              padding: '8px 16px',
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              borderRadius: '8px',
+              color: 'white',
+              fontSize: '16px',
+              fontWeight: '500',
+              transition: 'all 0.2s ease-out',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+            }}
+          >
+            {breathingRate} bpm
+          </div>
+        )}
+        
+        {/* Fullscreen Button */}
+        <div 
+          style={{
+            padding: '12px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease-out'
+          }}
+          onClick={onToggleFullscreen}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+          }}
         >
-          {isFullscreen ? (
-            // Exit fullscreen icon
-            <>
-              <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
-            </>
-          ) : (
-            // Enter fullscreen icon
-            <>
-              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-            </>
-          )}
-        </svg>
+          <svg 
+            width="20" 
+            height="20" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="white" 
+            strokeWidth="2"
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            {isFullscreen ? (
+              // Exit fullscreen icon
+              <>
+                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+              </>
+            ) : (
+              // Enter fullscreen icon
+              <>
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+              </>
+            )}
+          </svg>
+        </div>
       </div>
 
       {/* Change Kasina Button - Bottom Center */}
