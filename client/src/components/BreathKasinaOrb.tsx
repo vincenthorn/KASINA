@@ -1185,8 +1185,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       console.log(`🔍 Kasina: ${selectedKasina}, Type: ${kasConfig.type}, orbSize: ${orbSize}px`);
       
       if (kasConfig.type === 'color') {
-        finalScale = cappedScale * 0.008; // Scale for color kasinas
-        console.log(`🎯 Color kasina ${selectedKasina} scaled from ${cappedScale.toFixed(3)} to ${finalScale.toFixed(3)}`);
+        // Color kasinas use orbSize-based scaling for consistent sizing
+        finalScale = (orbSize / 150) * 2.0; // Scale color kasinas appropriately
+        console.log(`🎯 Color kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
       } else if (kasConfig.type === 'elemental') {
         // Elemental kasinas need breath-responsive scaling based on orbSize
         finalScale = (orbSize / 150) * 1.5; // Increased multiplier to match Color kasina scale
@@ -1197,8 +1198,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         console.log(`🔮 Vajrayana kasina ${selectedKasina} scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
       } else {
         // Default scaling for other types
-        finalScale = cappedScale * 0.008;
-        console.log(`⚙️ Default kasina ${selectedKasina} (type: ${kasConfig.type}) scaled to ${finalScale.toFixed(3)}`);
+        finalScale = (orbSize / 150) * 2.0; // Same as color kasinas
+        console.log(`⚙️ Default kasina ${selectedKasina} (type: ${kasConfig.type}) scaled to ${finalScale.toFixed(3)} (orbSize: ${orbSize}px)`);
       }
 
       // Apply scaling to group or mesh depending on kasina type
