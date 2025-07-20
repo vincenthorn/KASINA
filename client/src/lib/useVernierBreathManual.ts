@@ -161,8 +161,12 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const detectBreathingCycles = useCallback((forceValue: number) => {
     const now = Date.now();
     
+    // Debug logging
+    console.log(`🔍 detectBreathingCycles called: force=${forceValue.toFixed(2)}N, samples=${forceDataRef.current.length}`);
+    
     // Need some data to work with
     if (forceDataRef.current.length < 10) {
+      console.log(`⏳ Not enough data yet: ${forceDataRef.current.length} < 10`);
       return;
     }
     
@@ -180,8 +184,12 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     
     // Need meaningful variation to detect breathing
     if (forceRange < 0.05) {
+      console.log(`⚠️ Force range too small: ${forceRange.toFixed(3)}N < 0.05N (min=${minForce.toFixed(2)}N, max=${maxForce.toFixed(2)}N)`);
       return;
     }
+    
+    console.log(`✅ Force range OK: ${forceRange.toFixed(3)}N (min=${minForce.toFixed(2)}N, max=${maxForce.toFixed(2)}N)`);
+    
     
     // Initialize peak/valley if not set
     if (lastPeakRef.current === 0 || lastValleyRef.current === 0) {
@@ -327,6 +335,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                 }
                 
                 // Detect breathing cycles from force patterns
+                console.log(`📍 Calling detectBreathingCycles from readings handler`);
                 detectBreathingCycles(forceValue);
               }
             }
@@ -413,6 +422,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
               forceDataRef.current.push({ timestamp: Date.now(), force: forceValue });
               
               // Also detect breathing cycles for BPM calculation
+              console.log(`📍 Calling detectBreathingCycles from sensor event handler`);
               detectBreathingCycles(forceValue);
               
               if (forceDataRef.current.length < 20) {
