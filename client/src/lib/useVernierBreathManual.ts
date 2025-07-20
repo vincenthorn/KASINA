@@ -117,12 +117,39 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       
       console.log('Connected to:', gdxDevice.name);
       
-      // Enable default sensors (should include force sensor for respiration belt)
-      gdxDevice.enableDefaultSensors();
+      // Log all available sensors with their channel numbers
+      console.log('📊 Available sensors on device:');
+      gdxDevice.sensors.forEach((sensor: any, index: number) => {
+        console.log(`  Channel ${index}: ${sensor.name} (${sensor.unit}) - Enabled: ${sensor.enabled}`);
+      });
+      
+      // Try manually enabling sensors 0 and 1 (Force and Respiration Rate)
+      console.log('🔧 Manually enabling Force (0) and Respiration Rate (1) channels...');
+      
+      // First, disable all sensors
+      gdxDevice.sensors.forEach((sensor: any, index: number) => {
+        sensor.setEnabled(false);
+      });
+      
+      // Enable Force sensor (channel 0)
+      if (gdxDevice.sensors[0]) {
+        gdxDevice.sensors[0].setEnabled(true);
+        console.log('✅ Enabled Channel 0:', gdxDevice.sensors[0].name);
+      }
+      
+      // Enable Respiration Rate sensor (channel 1)
+      if (gdxDevice.sensors[1]) {
+        gdxDevice.sensors[1].setEnabled(true);
+        console.log('✅ Enabled Channel 1:', gdxDevice.sensors[1].name);
+      }
       
       // Get enabled sensors
       const enabledSensors = gdxDevice.sensors.filter((s: any) => s.enabled);
-      console.log('Enabled sensors:', enabledSensors.map((s: any) => s.name));
+      console.log('✅ Manually enabled sensors:', enabledSensors.map((s: any) => ({
+        name: s.name,
+        unit: s.unit,
+        channelNumber: gdxDevice.sensors.indexOf(s)
+      })));
       
       // Set up data collection for each enabled sensor
       enabledSensors.forEach((sensor: any) => {
@@ -132,9 +159,14 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
           // Process respiration rate sensor data
           if (sensor.name.toLowerCase().includes('respiration rate') || sensor.unit === 'bpm') {
             const bpmValue = parseFloat(sensor.value);
+            console.log(`🔍 RESPIRATION RATE SENSOR RAW VALUE: ${sensor.value}, parsed: ${bpmValue}, isNaN: ${isNaN(bpmValue)}`);
+            
             if (!isNaN(bpmValue) && bpmValue > 0) {
-              console.log(`📊 RESPIRATION RATE SENSOR: ${bpmValue} BPM`);
+              console.log(`📊 RESPIRATION RATE SENSOR VALID: ${bpmValue} BPM`);
               setBreathingRate(Math.round(bpmValue));
+            } else {
+              // Log why it's not valid
+              console.log(`⚠️ RESPIRATION RATE SENSOR INVALID: value=${sensor.value}, NaN=${isNaN(bpmValue)}, positive=${bpmValue > 0}`);
             }
           }
           
@@ -232,9 +264,12 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                     const timeSpan = (currentTime - recentCycles[0]) / 1000; // seconds
                     const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
                     const bpm = Math.round(cyclesPerSecond * 60);
-                    // Update breathing rate from force sensor calculation
-                    console.log('📊 Calculated BPM from force sensor:', bpm);
-                    setBreathingRate(Math.max(4, Math.min(30, bpm))); // Clamp between 4-30 BPM
+                    // Only update if we don't have sensor BPM data
+                    if (!breathingRate || breathingRate === 0 || breathingRate === 12) {
+                      console.log('📊 Calculated BPM (fallback):', bpm);
+                      // Don't update - user wants direct sensor data only
+                      // setBreathingRate(Math.max(4, Math.min(20, bpm))); // Clamp between 4-20 BPM
+                    }
                   }
                   
                   lastRateUpdateRef.current = currentTime;
@@ -247,6 +282,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
           }
         });
       });
+      
+      // Start data collection
+      console.log('🚀 Starting data collection on device...');
+      gdxDevice.start();
       
       setIsConnected(true);
       setIsConnecting(false);
@@ -267,6 +306,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     try {
       if (deviceRef.current) {
         console.log('Disconnecting from Vernier device...');
+        deviceRef.current.stop();
         deviceRef.current.close();
         deviceRef.current = null;
       }
