@@ -98,7 +98,8 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const dataCollectionStartRef = useRef<number>(0); // Track when data collection started
   const lastPeakRef = useRef<number>(0); // Track last peak force value
   const lastValleyRef = useRef<number>(0); // Track last valley force value
-  const breathingPatternRef = useRef<'rising' | 'falling'>('rising'); // Track breathing direction
+  const breathingPatternRef = useRef<'rising' | 'falling' | 'unknown'>('unknown'); // Track breathing direction
+  const patternInitializedRef = useRef<boolean>(false); // Track if pattern has been initialized
 
   /**
    * Calculate BPM from detected breath cycles
@@ -190,12 +191,33 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     
     console.log(`✅ Force range OK: ${forceRange.toFixed(3)}N (min=${minForce.toFixed(2)}N, max=${maxForce.toFixed(2)}N)`);
     
+    // Initialize pattern based on force trend if not yet initialized
+    if (!patternInitializedRef.current && forceDataRef.current.length >= 20) {
+      // Look at recent trend
+      const recentForces = forceDataRef.current.slice(-10).map(d => d.force);
+      const avgRecent = recentForces.reduce((a, b) => a + b, 0) / recentForces.length;
+      const firstHalf = recentForces.slice(0, 5).reduce((a, b) => a + b, 0) / 5;
+      const secondHalf = recentForces.slice(5).reduce((a, b) => a + b, 0) / 5;
+      
+      // Determine initial pattern
+      if (secondHalf > firstHalf + 0.02) {
+        breathingPatternRef.current = 'rising';
+        lastValleyRef.current = minForce;
+        lastPeakRef.current = maxForce;
+      } else {
+        breathingPatternRef.current = 'falling';
+        lastPeakRef.current = maxForce;
+        lastValleyRef.current = minForce;
+      }
+      
+      patternInitializedRef.current = true;
+      console.log(`🎯 Initialized pattern: ${breathingPatternRef.current}, peak=${lastPeakRef.current.toFixed(2)}N, valley=${lastValleyRef.current.toFixed(2)}N`);
+    }
     
-    // Initialize peak/valley if not set
-    if (lastPeakRef.current === 0 || lastValleyRef.current === 0) {
-      lastPeakRef.current = avgForce + forceRange * 0.3;
-      lastValleyRef.current = avgForce - forceRange * 0.3;
-      console.log(`🎯 Initialized peak/valley: peak=${lastPeakRef.current.toFixed(2)}N, valley=${lastValleyRef.current.toFixed(2)}N, avg=${avgForce.toFixed(2)}N`);
+    // Skip if pattern not initialized
+    if (!patternInitializedRef.current) {
+      console.log(`⏳ Waiting for pattern initialization...`);
+      return;
     }
     
     // Detect peaks and valleys with lower threshold
@@ -219,7 +241,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         // Calculate BPM if we have enough cycles
         calculateBPM();
       }
-    } else { // falling
+    } else if (breathingPatternRef.current === 'falling') {
       if (forceValue < lastValleyRef.current) {
         lastValleyRef.current = forceValue;
       } else if (forceValue > lastValleyRef.current + threshold && lastValleyRef.current < avgForce) {
@@ -565,6 +587,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       calibrationDataRef.current = [];
       calibrationStartTimeRef.current = 0;
       breathCyclesRef.current = [];
+      lastPeakRef.current = 0;
+      lastValleyRef.current = 0;
+      breathingPatternRef.current = 'unknown';
+      patternInitializedRef.current = false;
       
       console.log('Device disconnected successfully');
     } catch (err) {
