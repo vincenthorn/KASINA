@@ -186,6 +186,15 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     // Need meaningful variation to detect breathing
     if (forceRange < 0.05) {
       console.log(`⚠️ Force range too small: ${forceRange.toFixed(3)}N < 0.05N (min=${minForce.toFixed(2)}N, max=${maxForce.toFixed(2)}N)`);
+      
+      // Reset pattern if we had one but lost variation (belt position changed)
+      if (patternInitializedRef.current) {
+        console.log(`🔄 Resetting pattern due to lost variation`);
+        patternInitializedRef.current = false;
+        breathingPatternRef.current = 'unknown';
+        breathCyclesRef.current = [];
+        setBreathingRate(0);
+      }
       return;
     }
     
@@ -199,15 +208,24 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       const firstHalf = recentForces.slice(0, 5).reduce((a, b) => a + b, 0) / 5;
       const secondHalf = recentForces.slice(5).reduce((a, b) => a + b, 0) / 5;
       
-      // Determine initial pattern
-      if (secondHalf > firstHalf + 0.02) {
+      // Determine initial pattern with more sensitivity
+      const trendDiff = secondHalf - firstHalf;
+      console.log(`📈 Trend analysis: firstHalf=${firstHalf.toFixed(2)}N, secondHalf=${secondHalf.toFixed(2)}N, diff=${trendDiff.toFixed(3)}N`);
+      
+      if (Math.abs(trendDiff) < 0.01) {
+        // Too small difference, wait for clearer pattern
+        console.log(`⏳ Trend difference too small (${trendDiff.toFixed(3)}N), waiting for clearer pattern`);
+        return;
+      }
+      
+      if (trendDiff > 0) {
         breathingPatternRef.current = 'rising';
         lastValleyRef.current = minForce;
-        lastPeakRef.current = maxForce;
+        lastPeakRef.current = forceValue;
       } else {
         breathingPatternRef.current = 'falling';
         lastPeakRef.current = maxForce;
-        lastValleyRef.current = minForce;
+        lastValleyRef.current = forceValue;
       }
       
       patternInitializedRef.current = true;
