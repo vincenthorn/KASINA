@@ -244,11 +244,17 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     } else if (breathingPatternRef.current === 'falling') {
       if (forceValue < lastValleyRef.current) {
         lastValleyRef.current = forceValue;
-      } else if (forceValue > lastValleyRef.current + threshold && lastValleyRef.current < avgForce) {
-        // Valley detected, now rising
-        console.log(`🌊 Breath VALLEY detected at ${lastValleyRef.current.toFixed(2)}N (threshold=${threshold.toFixed(3)}N)`);
-        breathingPatternRef.current = 'rising';
-        lastPeakRef.current = forceValue;
+        console.log(`📉 Updated valley to ${lastValleyRef.current.toFixed(2)}N`);
+      } else if (forceValue > lastValleyRef.current + threshold) {
+        console.log(`🔍 Valley check: force=${forceValue.toFixed(2)}N, valley=${lastValleyRef.current.toFixed(2)}N, diff=${(forceValue - lastValleyRef.current).toFixed(3)}N, threshold=${threshold.toFixed(3)}N, avgForce=${avgForce.toFixed(2)}N`);
+        if (lastValleyRef.current < avgForce) {
+          // Valley detected, now rising
+          console.log(`🌊 Breath VALLEY detected at ${lastValleyRef.current.toFixed(2)}N (threshold=${threshold.toFixed(3)}N)`);
+          breathingPatternRef.current = 'rising';
+          lastPeakRef.current = forceValue;
+        } else {
+          console.log(`⚠️ Valley ${lastValleyRef.current.toFixed(2)}N >= avgForce ${avgForce.toFixed(2)}N, skipping`);
+        }
       }
     }
   }, [calculateBPM]);
@@ -268,6 +274,15 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       const goDirectLib = await loadGoDirectLibrary();
       console.log('GoDirect library loaded successfully');
 
+      // Reset breathing detection state for fresh start
+      breathCyclesRef.current = [];
+      lastPeakRef.current = 0;
+      lastValleyRef.current = 0;
+      breathingPatternRef.current = 'unknown';
+      patternInitializedRef.current = false;
+      setBreathingRate(0);
+      console.log('🔄 Reset breathing detection state for new connection');
+      
       // Connect using official Vernier method with proper initialization
       console.log('Opening device selection dialog...');
       
