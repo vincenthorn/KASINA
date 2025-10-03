@@ -1,0 +1,87 @@
+Justin Selig <justin.s.selig@gmail.com>	Sat, Aug 23, 2025 at 11:44 PM
+To: Vince Fakhoury Horn <vjhorn@gmail.com>
+Updates:
+My first time using Replit. I was able to navigate my way around the interface and located the files implementing the Vernier algos.
+Although, I'm now facing an issue in testing any code changes. Looks like you can't connect to any bluetooth devices via the Replit interface.
+So I downloaded the codebase and started a node session locally hoping to run in a local dev environment. Was able to get the site up and running after installing a bunch of dependencies.
+Currently facing a login issue where I need to connect to a db instance. I think I might need to create a db from scratch. I installed postgres to do so. 
+Do you have a suggested way of going about user login locally? ie. what is the structure of the db I should construct and format to login? Also, what's the env variable you'd use? Here's my best guess so far...
+
+DATABASE_URL="postgres://justin:admin@localhost:5001" npm run dev
+
+On Sat, Aug 23, 2025 at 6:41 PM Vince Fakhoury Horn <vjhorn@gmail.com> wrote:
+Hey Justin,
+
+Sorry to hear about the retreat being disrupted by climate chaos–these are definitely the times we live in. 😣
+
+I just added you as a "multiplayer" to the Kasina project on Replit.  This being the first time I've done this, let me know if you receive the invite.  If not, I'll go back to the drawing board and see if there's some other way to add you to the project.
+
+Gratitude,
+
+-Vince
+
+On Sat, Aug 23, 2025 at 9:20 PM Justin Selig <justin.s.selig@gmail.com> wrote:
+Hey Vince, my retreat unfortunately got cut short due to forest fires in Norcal. So I'm back online!
+I just made a Replit account. My username is justinselig.
+Looking forward to contributing!
+
+Justin
+
+On Thu, Aug 21, 2025 at 1:47 AM Vince Fakhoury Horn <vjhorn@gmail.com> wrote:
+Sounds great Justin, enjoy your retreat!
+
+Best,
+
+Vince Fakhoury Horn | vincehorn.space
++1.828.395.7140 | vjhorn@gmail.com
+
+
+On Thu, Aug 21, 2025 at 12:43 AM Justin Selig <justin.s.selig@gmail.com> wrote:
+Thanks! I’m excited to dive in. I’m heading on retreat tomorrow morning so will get back to you next week once I set up a Replit account. 
+
+re: Jitter-as-a-feature, I get it and agree there must be some middle-way solution in between mapping the kasina directly to the force of the belt vs applying a super low-pass filter. I look forward to experimenting.
+
+Cheers,
+Justin
+
+On Aug 17, 2025, at 2:50 PM, Vince Fakhoury Horn <vjhorn@gmail.com> wrote:
+
+﻿
+Dear Justin,
+
+Just wanted to let you know that I got your feedback and really appreciate it!
+
+I'd love to find a way to loop you into my development process so that you could take a crack at improving the sensitivity of the breath kasina.  I've done a bit in this direction already, and agree with you that it could be improved further.  That said, there's another way in which the sensitivity of the respiration belt and the jitteriness you're describing can also been seen as a feature, as it invites the practitioner into a deeper state of stillness + a slower respiration rate. What appears, at first, as a bug, has revealed itself to be a feature for achieving deeper states of samadhi.  So, my guess is there's probably an optimal sensitivity that maintains some of the responsiveness of the kasina, since the breath is jittery when we aren't fully settled.  
+
+Ok, all that said, would love to invite you to check out the codebase and contribute as you see fit.  I do use Github to push code the code live, but I'm primarily working with Replit to develop the app, so I think it'd be best if I invited you into that environment, so you could make some changes there, and I could check them out, before pushing them to Github and Render (our web host).
+
+Re: Electron - This is definitely something I've considered, but it's beyond my current technical capacity.  :)
+
+Best,
+
+-Vince
+
+On Thu, Aug 14, 2025 at 2:48 PM Justin Selig <justin.s.selig@gmail.com> wrote:
+Hey Vince, I unfortunately can't make the meeting today because of a work conflict. I was wondering if you could record the session, but understand if that's not possible.
+
+I've been able to use the Breath Kasina kit over the past week and have some feedback:
+1. The Kasina can be pretty jittery. I'm wondering if you could apply some sort of smoothing function with an increased framerate to ameliorate this.
+2. It looks like the auto-calibration algorithm you're using isn't sophisticated enough to account for variations in breathing patterns over a session of use. For instance, if my breath naturally pauses for over ~5 seconds, the algorithm will window itself to a narrower min/max range and then pick up on my heartbeat. 
+3. I plan to go offline on a solo retreat and was interested in using the Breath Kasina. But it occurred to me that I would need a wifi connection to access the site. So I was curious if this could be ported to something like an Electron app to be used offline.
+4. I have a bunch of experience implementing DSP algos on real-time systems and can see how a better filtering methodology would improve the UX. If you're open to my contributions, I'd offer to give you my github credentials to contribute.
+
+Cheers,
+Justin
+
+On Thu, Aug 7, 2025 at 3:06 PM Vince Fakhoury Horn <vjhorn@gmail.com> wrote:
+Hi Justin,
+
+I've added you as a premium user to the kasina.app so you should now have access to the Breath functionality!
+
+Nice meeting you today.
+
+Best,
+
+--
+Vince Fakhoury Horn | vincehorn.space
++1.828.395.7140 | vjhorn@gmail.com
