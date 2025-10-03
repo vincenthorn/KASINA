@@ -11,6 +11,8 @@ import KasinaSelectionInterface from './KasinaSelectionInterface';
 import UnifiedSessionInterface from './UnifiedSessionInterface';
 import useWakeLock from '../lib/useWakeLock';
 import { useAutoHide } from '../lib/useAutoHide';
+import { useGuidedMeditation } from '../lib/stores/useGuidedMeditation';
+import { getGuidedMeditation } from '../lib/guidedMeditations';
 
 import * as THREE from 'three';
 import { getKasinaShader } from '../lib/shaders/kasinaShaders';
@@ -392,7 +394,9 @@ const lightShader = {
   `
 };
 
-interface VisualKasinaOrbProps {}
+interface VisualKasinaOrbProps {
+  isGuidedMeditation?: boolean;
+}
 
 export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // Helper function to detect if a color is dark
@@ -621,6 +625,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   const navigate = useNavigate();
   const { logSession } = useSessionLogger();
   const { enableWakeLock, disableWakeLock } = useWakeLock();
+  const guidedMeditation = useGuidedMeditation();
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   
   // State for UI controls (moved before error handlers)
   const [meditationTime, setMeditationTime] = useState(0);
@@ -653,6 +659,39 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
   // Comprehensive crash monitoring
   useEffect(() => {
     console.log('🔍 Visual mode session started, crash monitoring active');
+    
+    // Set up guided meditation if enabled
+    if (props.isGuidedMeditation && selectedKasina) {
+      const meditationConfig = getGuidedMeditation(selectedKasina);
+      if (meditationConfig) {
+        console.log('🎵 Setting up guided meditation:', meditationConfig);
+        
+        // Load meditation configuration into store
+        guidedMeditation.loadMeditation(meditationConfig);
+        
+        // Create audio element
+        const audio = new Audio(meditationConfig.audioPath);
+        audio.preload = 'auto';
+        audioRef.current = audio;
+        
+        // Set up audio element in store
+        guidedMeditation.setAudioElement(audio);
+        
+        // Add onended handler to automatically end session
+        audio.addEventListener('ended', () => {
+          console.log('🎵 Guided meditation completed, ending session');
+          endMeditation();
+        });
+        
+        // Start playing audio automatically
+        audio.play().then(() => {
+          console.log('🎵 Guided meditation started playing');
+        }).catch(error => {
+          console.error('Failed to autoplay guided meditation:', error);
+          // Fall back to silent practice if audio fails
+        });
+      }
+    }
     
     // Immediate localStorage marker to detect hard crashes
     localStorage.setItem('visualModeActive', 'true');
@@ -741,6 +780,14 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       window.removeEventListener('error', handleError);
       window.removeEventListener('unhandledrejection', handleUnhandledRejection);
       // Removed memory monitoring cleanup
+      
+      // Clean up audio element if guided meditation
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = '';
+        guidedMeditation.cleanup();
+        console.log('🎵 Cleaned up guided meditation audio');
+      }
       
       // WebGL cleanup handled by centralized recovery system
       
@@ -1552,6 +1599,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           onChangeKasina={() => setShowKasinaSelection(true)}
           showControls={showControls}
           mode="visual"
+          isGuidedMeditation={props.isGuidedMeditation}
         />
       )}
 
