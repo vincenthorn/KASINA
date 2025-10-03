@@ -61,14 +61,22 @@ const jhanaVideos = [
 
 const YouTubeEmbed: React.FC<{ embedId: string; title: string }> = ({ embedId, title }) => {
   return (
-    <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg bg-gray-800">
+    <div className="w-full" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '8px', backgroundColor: '#1f2937' }}>
       <iframe
         src={`https://www.youtube.com/embed/${embedId}`}
         title={title}
         frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
-        className="absolute top-0 left-0 w-full h-full"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          border: 'none'
+        }}
       />
     </div>
   );
