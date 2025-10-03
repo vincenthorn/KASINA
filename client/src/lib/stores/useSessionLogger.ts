@@ -22,6 +22,7 @@ interface SessionLoggerState {
     showToast?: boolean;
     kasinaBreakdown?: { [kasina: string]: number };
     customSessionName?: string;
+    practiceType?: 'guided' | 'silent';
   }) => Promise<boolean>;
   
   // For debugging
@@ -33,7 +34,7 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
   lastSaved: null,
   lastError: null,
   
-  logSession: async ({ kasinaType, duration, showToast = true, kasinaBreakdown = {}, customSessionName }) => {
+  logSession: async ({ kasinaType, duration, showToast = true, kasinaBreakdown = {}, customSessionName, practiceType }) => {
     // Prevent duplicate saves within 2 seconds
     const { lastSaved, isSaving } = get();
     if (isSaving) {
@@ -90,6 +91,7 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
         durationInMinutes: minutes,
         timestamp: new Date().toISOString(),
         userEmail: userEmail || null, // Include the user's email for proper attribution
+        practiceType: practiceType || 'silent', // Default to silent if not specified
         _guaranteedSession: true, // This flag tells the server to prioritize this session
         _critical: true // Mark as critical to ensure it's saved
       };
@@ -106,7 +108,8 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
           duration: minutes * 60, // Duration in seconds
           userEmail: userEmail,
           timestamp: new Date().toISOString(),
-          kasinaBreakdown: kasinaBreakdown // Include breakdown data
+          kasinaBreakdown: kasinaBreakdown, // Include breakdown data
+          practiceType: practiceType || 'silent' // Include practice type
         })
       });
       

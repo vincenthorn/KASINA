@@ -1105,7 +1105,8 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           duration: durationInMinutes * 60, // Convert back to seconds for logging
           showToast: true,
           kasinaBreakdown: finalUsage,
-          customSessionName: `Visual Kasina`
+          customSessionName: `Visual Kasina`,
+          practiceType: props.isGuidedMeditation ? 'guided' : 'silent'
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
         
