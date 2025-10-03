@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "./ui/card";
+import { PlayCircle } from "lucide-react";
 
 // The 9 Jhāna videos in order
 const jhanaVideos = [
@@ -59,26 +60,34 @@ const jhanaVideos = [
   }
 ];
 
-const YouTubeEmbed: React.FC<{ embedId: string; title: string }> = ({ embedId, title }) => {
+const YouTubeCard: React.FC<{ video: typeof jhanaVideos[0] }> = ({ video }) => {
+  const thumbnailUrl = `https://img.youtube.com/vi/${video.embedId}/hqdefault.jpg`;
+  const videoUrl = `https://www.youtube.com/watch?v=${video.embedId}`;
+
   return (
-    <div className="w-full" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '8px', backgroundColor: '#1f2937' }}>
-      <iframe
-        src={`https://www.youtube.com/embed/${embedId}`}
-        title={title}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          border: 'none'
-        }}
-      />
-    </div>
+    <a 
+      href={videoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block group"
+    >
+      <div className="relative overflow-hidden rounded-lg bg-gray-800">
+        {/* Thumbnail Image */}
+        <div className="relative aspect-video">
+          <img
+            src={thumbnailUrl}
+            alt={video.title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          
+          {/* Play Button Overlay */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-300">
+            <PlayCircle className="w-16 h-16 text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+          </div>
+        </div>
+      </div>
+    </a>
   );
 };
 
@@ -93,6 +102,9 @@ const MeditationVideos: React.FC = () => {
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
           Explore the depths of Jhāna meditation through these comprehensive teachings
         </p>
+        <p className="text-gray-500 text-sm mt-2">
+          Click any video to watch on YouTube
+        </p>
       </div>
 
       {/* Video Grid - Responsive: 1 col mobile, 2 cols tablet, 3 cols desktop */}
@@ -103,8 +115,8 @@ const MeditationVideos: React.FC = () => {
             className="bg-gray-900 border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
             <CardContent className="p-0">
-              {/* Video Embed */}
-              <YouTubeEmbed embedId={video.embedId} title={video.title} />
+              {/* Video Card */}
+              <YouTubeCard video={video} />
               
               {/* Video Info */}
               <div className="p-4">
