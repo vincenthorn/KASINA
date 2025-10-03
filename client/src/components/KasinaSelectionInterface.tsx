@@ -161,7 +161,7 @@ export default function KasinaSelectionInterface({
             {KASINA_NAMES[pendingKasina]} Kasina
           </div>
           <div style={{ fontSize: '16px', color: '#666', marginBottom: '32px' }}>
-            Would you like to practice with guided meditation or in silence?
+            Want to practice a guided meditation or in silence?
           </div>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
@@ -221,7 +221,7 @@ export default function KasinaSelectionInterface({
             >
               <div style={{ fontSize: '18px', fontWeight: 'bold' }}>Silent Practice</div>
               <div style={{ fontSize: '14px', opacity: 0.9 }}>
-                Traditional meditation without guidance
+                Self-guided meditation
               </div>
             </button>
           </div>
