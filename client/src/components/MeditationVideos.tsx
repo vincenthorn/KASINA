@@ -61,8 +61,23 @@ const jhanaVideos = [
 ];
 
 const YouTubeCard: React.FC<{ video: typeof jhanaVideos[0] }> = ({ video }) => {
-  const thumbnailUrl = `https://img.youtube.com/vi/${video.embedId}/hqdefault.jpg`;
   const videoUrl = `https://www.youtube.com/watch?v=${video.embedId}`;
+  
+  // Use gradient backgrounds for visual variety
+  const gradients = [
+    "from-purple-600 to-indigo-600",
+    "from-indigo-600 to-blue-600",
+    "from-blue-600 to-cyan-600",
+    "from-cyan-600 to-teal-600",
+    "from-teal-600 to-green-600",
+    "from-green-600 to-emerald-600",
+    "from-emerald-600 to-purple-600",
+    "from-purple-600 to-pink-600",
+    "from-pink-600 to-purple-600"
+  ];
+  
+  const gradientIndex = parseInt(video.id) - 1;
+  const gradient = gradients[gradientIndex % gradients.length];
 
   return (
     <a 
@@ -71,19 +86,25 @@ const YouTubeCard: React.FC<{ video: typeof jhanaVideos[0] }> = ({ video }) => {
       rel="noopener noreferrer"
       className="block group"
     >
-      <div className="relative overflow-hidden rounded-lg bg-gray-800">
-        {/* Thumbnail Image */}
-        <div className="relative aspect-video">
-          <img
-            src={thumbnailUrl}
-            alt={video.title}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+      <div className="relative overflow-hidden rounded-lg">
+        {/* Gradient Background with Play Icon */}
+        <div className={`relative aspect-video bg-gradient-to-br ${gradient} flex items-center justify-center`}>
+          {/* YouTube Logo/Icon */}
+          <div className="absolute top-3 right-3 bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
+            YouTube
+          </div>
           
-          {/* Play Button Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-300">
-            <PlayCircle className="w-16 h-16 text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+          {/* Central Play Button */}
+          <div className="flex flex-col items-center justify-center text-white">
+            <PlayCircle className="w-20 h-20 mb-3 opacity-90 group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-sm font-medium opacity-80">Click to watch</span>
+          </div>
+          
+          {/* Decorative Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="h-full w-full" style={{
+              backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)`
+            }}></div>
           </div>
         </div>
       </div>
