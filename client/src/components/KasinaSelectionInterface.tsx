@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { KASINA_TYPES, KASINA_COLORS, KASINA_NAMES, KASINA_EMOJIS, KASINA_SERIES } from '../lib/constants';
 import CustomColorDialog from './CustomColorDialog';
 import { useKasina } from '../lib/stores/useKasina';
+import { hasGuidedMeditation, getGuidedMeditation } from '../lib/guidedMeditations';
 
 interface KasinaSelectionInterfaceProps {
   showKasinaSelection: boolean;
-  kasinaSelectionStep: 'series' | 'kasina';
+  kasinaSelectionStep: 'series' | 'kasina' | 'meditation-choice';
   selectedKasinaSeries: string | null;
   onSeriesSelection: (series: string) => void;
-  onKasinaSelection: (kasina: string) => void;
+  onKasinaSelection: (kasina: string, isGuided?: boolean) => void;
   onBackToSeries: () => void;
   onCancel: () => void;
   mode?: 'visual' | 'breath'; // Add mode prop to restrict available kasinas
@@ -27,6 +28,7 @@ export default function KasinaSelectionInterface({
   const { customColor, setCustomColor } = useKasina();
   const [isColorDialogOpen, setIsColorDialogOpen] = useState(false);
   const [tempCustomColor, setTempCustomColor] = useState(customColor);
+  const [pendingKasina, setPendingKasina] = useState<string | null>(null);
 
   // Get kasinas for the selected series
   const getKasinasForSeries = (series: string) => {
@@ -68,8 +70,8 @@ export default function KasinaSelectionInterface({
       console.log("📺 Fullscreen request failed:", error);
     }
     
-    // Then proceed with kasina selection
-    onKasinaSelection('custom');
+    // Then proceed with kasina selection (custom color never has guided meditation)
+    onKasinaSelection('custom', false);
   };
 
   // Handle kasina click - intercept custom color to show picker
@@ -80,7 +82,17 @@ export default function KasinaSelectionInterface({
       return;
     }
 
-    // For all other kasinas, proceed normally
+    // Check if this kasina has a guided meditation available (only for visual mode)
+    if (mode === 'visual' && hasGuidedMeditation(kasina)) {
+      // Store the kasina and show meditation choice dialog
+      setPendingKasina(kasina);
+      // Parent component should handle updating kasinaSelectionStep to 'meditation-choice'
+      // For now, we'll call a modified onKasinaSelection that indicates we need to show choice
+      // Actually, let's handle this locally by showing the meditation choice dialog
+      return;
+    }
+
+    // For kasinas without guided meditation, proceed normally
     try {
       if (!document.fullscreenElement) {
         await document.documentElement.requestFullscreen();
@@ -90,7 +102,24 @@ export default function KasinaSelectionInterface({
       console.log("📺 Fullscreen request failed:", error);
     }
     
-    onKasinaSelection(kasina);
+    onKasinaSelection(kasina, false);
+  };
+
+  // Handle meditation choice
+  const handleMeditationChoice = async (isGuided: boolean) => {
+    if (!pendingKasina) return;
+
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+        console.log("📺 Entered fullscreen for meditation session");
+      }
+    } catch (error) {
+      console.log("📺 Fullscreen request failed:", error);
+    }
+    
+    onKasinaSelection(pendingKasina, isGuided);
+    setPendingKasina(null);
   };
 
   if (!showKasinaSelection) {
@@ -116,7 +145,113 @@ export default function KasinaSelectionInterface({
           backdropFilter: 'blur(4px)'
         }}
       >
-      {kasinaSelectionStep === 'series' ? (
+      {/* Meditation Choice Dialog - shows when kasina has guided meditation */}
+      {pendingKasina && mode === 'visual' && hasGuidedMeditation(pendingKasina) && (
+        <div 
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            padding: '32px',
+            borderRadius: '16px',
+            textAlign: 'center',
+            maxWidth: '500px',
+            margin: '20px'
+          }}
+        >
+          <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', color: '#333' }}>
+            {KASINA_NAMES[pendingKasina]} Kasina
+          </div>
+          <div style={{ fontSize: '16px', color: '#666', marginBottom: '32px' }}>
+            Would you like to practice with guided meditation or in silence?
+          </div>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
+            <button
+              onClick={() => handleMeditationChoice(true)}
+              style={{
+                backgroundColor: '#4F46E5',
+                color: 'white',
+                border: 'none',
+                padding: '20px 24px',
+                borderRadius: '12px',
+                fontSize: '16px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease-out',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.02)';
+                e.currentTarget.style.backgroundColor = '#4338CA';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.backgroundColor = '#4F46E5';
+              }}
+            >
+              <div style={{ fontSize: '18px', fontWeight: 'bold' }}>Guided Practice</div>
+              <div style={{ fontSize: '14px', opacity: 0.9 }}>
+                {getGuidedMeditation(pendingKasina)?.title}
+              </div>
+            </button>
+            
+            <button
+              onClick={() => handleMeditationChoice(false)}
+              style={{
+                backgroundColor: '#059669',
+                color: 'white',
+                border: 'none',
+                padding: '20px 24px',
+                borderRadius: '12px',
+                fontSize: '16px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease-out'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.02)';
+                e.currentTarget.style.backgroundColor = '#047857';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.backgroundColor = '#059669';
+              }}
+            >
+              <div style={{ fontSize: '18px', fontWeight: 'bold' }}>Silent Practice</div>
+              <div style={{ fontSize: '14px', opacity: 0.9 }}>
+                Traditional meditation without guidance
+              </div>
+            </button>
+          </div>
+          
+          <button
+            onClick={() => setPendingKasina(null)}
+            style={{
+              backgroundColor: '#6B7280',
+              color: 'white',
+              border: 'none',
+              padding: '12px 24px',
+              borderRadius: '8px',
+              fontSize: '14px',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease-out'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#4B5563';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#6B7280';
+            }}
+          >
+            ← Back
+          </button>
+        </div>
+      )}
+
+      {/* Series Selection */}
+      {!pendingKasina && kasinaSelectionStep === 'series' ? (
         <div 
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.95)',
@@ -242,7 +377,7 @@ export default function KasinaSelectionInterface({
             Cancel
           </button>
         </div>
-      ) : (
+      ) : !pendingKasina && (
         <div 
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.95)',
