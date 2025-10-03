@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useGuidedMeditation } from '../lib/stores/useGuidedMeditation';
 
 interface UnifiedSessionInterfaceProps {
   // Timer and session controls
@@ -24,6 +25,9 @@ interface UnifiedSessionInterfaceProps {
   
   // Optional breathing rate for breath mode
   breathingRate?: number;
+  
+  // Guided meditation
+  isGuidedMeditation?: boolean;
 }
 
 export default function UnifiedSessionInterface({
@@ -36,9 +40,11 @@ export default function UnifiedSessionInterface({
   onChangeKasina,
   showControls,
   mode,
-  breathingRate
+  breathingRate,
+  isGuidedMeditation = false
 }: UnifiedSessionInterfaceProps) {
   const [isEnding, setIsEnding] = useState(false);
+  const guidedMeditation = useGuidedMeditation();
   
   // Format time display
   const formatTime = (seconds: number) => {
@@ -246,6 +252,80 @@ export default function UnifiedSessionInterface({
           )}
         </svg>
       </div>
+
+      {/* Guided Meditation Audio Player - Bottom Left */}
+      {isGuidedMeditation && guidedMeditation.selectedMeditation && (
+        <div 
+          className="absolute bottom-4 left-4 z-30"
+          style={{
+            opacity: showControls ? 1 : 0,
+            transition: 'opacity 0.3s ease-out',
+            pointerEvents: showControls ? 'auto' : 'none',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            padding: '12px 16px',
+            borderRadius: '8px',
+            minWidth: '320px'
+          }}
+        >
+          {/* Play/Pause Button and Progress */}
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={() => guidedMeditation.togglePlayPause()}
+              style={{
+                backgroundColor: 'transparent',
+                border: 'none',
+                color: 'white',
+                fontSize: '24px',
+                cursor: 'pointer',
+                padding: '4px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              {guidedMeditation.isPlaying ? '⏸' : '▶️'}
+            </button>
+            
+            {/* Progress Bar */}
+            <div className="flex-1 flex items-center gap-2">
+              <input 
+                type="range"
+                min={0}
+                max={guidedMeditation.duration || 100}
+                value={guidedMeditation.currentTime}
+                onChange={(e) => guidedMeditation.seek(Number(e.target.value))}
+                style={{
+                  flex: 1,
+                  height: '4px',
+                  background: 'rgba(255, 255, 255, 0.3)',
+                  borderRadius: '2px',
+                  outline: 'none',
+                  cursor: 'pointer'
+                }}
+              />
+            </div>
+            
+            {/* Time Display */}
+            <span style={{ 
+              color: 'rgba(255, 255, 255, 0.9)', 
+              fontSize: '12px',
+              fontFamily: 'monospace',
+              minWidth: '90px'
+            }}>
+              {formatTime(Math.floor(guidedMeditation.currentTime))} / {formatTime(Math.floor(guidedMeditation.duration))}
+            </span>
+          </div>
+          
+          {/* Meditation Title */}
+          <div style={{ 
+            color: 'rgba(255, 255, 255, 0.7)', 
+            fontSize: '13px', 
+            marginTop: '8px'
+          }}>
+            {guidedMeditation.selectedMeditation.title}
+          </div>
+        </div>
+      )}
 
       {/* Change Kasina Button - Bottom Center */}
       <div 
