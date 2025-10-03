@@ -315,8 +315,8 @@ export function useVernierBreath(): VernierBreathHookResult {
    * Process respiration force data to extract breathing information
    */
   const processRespirationData = useCallback((data: RespirationData) => {
-    // Apply exponential smoothing to reduce noise
-    const smoothingFactor = 0.1;
+    // Apply exponential smoothing to reduce noise (95% smoothing for much less jitter)
+    const smoothingFactor = 0.95;
     smoothedForceRef.current = smoothedForceRef.current * (1 - smoothingFactor) + data.force * smoothingFactor;
     
     // Only process if we have calibration data

@@ -38,6 +38,7 @@
 .breath-kasina-orb {
   position: relative;
   animation: pulseGlow 4s ease-in-out infinite;
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1), scale 0.75s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .breath-kasina-orb::before {

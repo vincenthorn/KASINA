@@ -96,8 +96,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
   const lastBreathAmplitudeRef = useRef<number | null>(null);
   const envelopeRef = useRef<number>(0); // For amplitude envelope following
   const breathAmplitudeRef = useRef<number>(0.4); // For smooth amplitude tracking
-  const dynamicBaselineRef = useRef<{min: number, max: number, history: number[]}>({
-    min: 0, max: 0.02, history: []
+  const dynamicBaselineRef = useRef<{min: number, max: number, history: number[], initialRange: number | null}>({
+    min: 0, max: 0.02, history: [], initialRange: null
   }); // Dynamic baseline that adapts to real breathing
   
   // Breath cycle detection refs
@@ -606,16 +606,30 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         // Update baseline every 10 samples for smooth responsiveness
         if (baseline.history.length >= 10 && baseline.history.length % 10 === 0) {
           const sorted = [...baseline.history].sort((a, b) => a - b);
-          baseline.min = sorted[Math.floor(sorted.length * 0.05)]; // 5th percentile (lower)
-          baseline.max = sorted[Math.floor(sorted.length * 0.95)]; // 95th percentile (higher)
+          let newMin = sorted[Math.floor(sorted.length * 0.05)]; // 5th percentile (lower)
+          let newMax = sorted[Math.floor(sorted.length * 0.95)]; // 95th percentile (higher)
+          let range = newMax - newMin;
           
-          // Ensure minimum range to prevent division issues
-          const minRange = 0.001;
-          if ((baseline.max - baseline.min) < minRange) {
-            const center = (baseline.max + baseline.min) / 2;
-            baseline.min = center - minRange / 2;
-            baseline.max = center + minRange / 2;
+          // Store initial range if not set
+          if (!baseline.initialRange && range > 0.001) {
+            baseline.initialRange = range;
+            console.log(`Setting initial baseline range: ${baseline.initialRange.toFixed(4)}`);
           }
+          
+          // CRITICAL FIX: Prevent range from collapsing to heartbeat level
+          // Never let range drop below 15% of initial range to prevent heartbeat detection
+          if (baseline.initialRange) {
+            const minAllowedRange = baseline.initialRange * 0.15;
+            if (range < minAllowedRange) {
+              console.log(`Baseline range too narrow (${range.toFixed(4)}), using minimum: ${minAllowedRange.toFixed(4)}`);
+              const center = (newMax + newMin) / 2;
+              newMin = center - minAllowedRange / 2;
+              newMax = center + minAllowedRange / 2;
+            }
+          }
+          
+          baseline.min = newMin;
+          baseline.max = newMax;
         }
         
         // Normalize using dynamic baseline instead of fixed calibration
@@ -641,8 +655,8 @@ export function useMicrophoneBreath(): MicrophoneBreathHookResult {
         // Apply heavy smoothing to reduce noise and create fluid motion
         const targetAmplitude = 0.15 + (clampedNormalized * 0.6);
         
-        // Use exponential moving average with more responsive smoothing
-        const smoothingFactor = 0.4; // Higher = more responsive to breathing
+        // Use exponential moving average with much heavier smoothing to reduce jitter
+        const smoothingFactor = 0.95; // Very high smoothing (95%) to eliminate jitter
         const currentAmplitude = breathAmplitudeRef.current || 0.4; // Default middle value
         const smoothedAmplitude = currentAmplitude + smoothingFactor * (targetAmplitude - currentAmplitude);
         

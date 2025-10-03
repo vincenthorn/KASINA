@@ -95,6 +95,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const lastForceUpdateRef = useRef<number>(0);
   const breathCyclesRef = useRef<number[]>([]); // Track breath cycle timestamps
   const lastRateUpdateRef = useRef<number>(0);
+  const initialRangeRef = useRef<number | null>(null); // Store initial force range to prevent heartbeat detection
 
   /**
    * Connect to Vernier GDX respiration belt using official library
@@ -178,7 +179,23 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
                 const percentile10 = sortedForces[Math.floor(sortedForces.length * 0.1)]; // 10th percentile as baseline min
                 const percentile90 = sortedForces[Math.floor(sortedForces.length * 0.9)]; // 90th percentile as baseline max
                 
-                const range = percentile90 - percentile10;
+                let range = percentile90 - percentile10;
+                
+                // CRITICAL FIX: Prevent range from collapsing to heartbeat level
+                // Store initial range if not set
+                if (!initialRangeRef.current && range > 0.5) {
+                  initialRangeRef.current = range;
+                  console.log(`Setting initial range: ${initialRangeRef.current.toFixed(3)}N`);
+                }
+                
+                // Never let range drop below 15% of initial range to prevent heartbeat detection
+                if (initialRangeRef.current) {
+                  const minAllowedRange = initialRangeRef.current * 0.15;
+                  if (range < minAllowedRange) {
+                    console.log(`Range too narrow (${range.toFixed(3)}N), using minimum: ${minAllowedRange.toFixed(3)}N`);
+                    range = minAllowedRange;
+                  }
+                }
                 
                 // Add breathing space only below for deeper exhales
                 const bufferAmount = range * 0.6; // Increased buffer to capture full exhale capacity
@@ -299,6 +316,12 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
    */
   const processBreathingData = useCallback((forceValue: number) => {
     if (!calibrationProfile) return;
+    
+    // Store initial calibration range if not set
+    if (!initialRangeRef.current && calibrationProfile.forceRange > 0) {
+      initialRangeRef.current = calibrationProfile.forceRange;
+      console.log(`Calibration range stored: ${initialRangeRef.current.toFixed(3)}N`);
+    }
     
     // Normalize force value to 0-1 range using calibration data
     const normalizedAmplitude = Math.max(0, Math.min(1, 
