@@ -121,11 +121,11 @@ function App() {
               <Route
                 path="/meditation"
                 element={
-                  <AdminOnlyRoute>
+                  <AuthenticatedRoute>
                     <ErrorBoundary>
                       <MeditationPage />
                     </ErrorBoundary>
-                  </AdminOnlyRoute>
+                  </AuthenticatedRoute>
                 }
               />
               <Route
