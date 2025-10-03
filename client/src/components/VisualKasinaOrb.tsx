@@ -1090,7 +1090,16 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
       try {
         // Get the most used kasina for this session
         const mostUsedKasina = getMostUsedKasina();
-        const kasinaName = `Visual Kasina`; // Just use the mode name
+        
+        // Determine session name based on guided meditation
+        let sessionName = `Visual Kasina`;
+        if (props.isGuidedMeditation && selectedKasina) {
+          const meditation = getGuidedMeditation(selectedKasina);
+          if (meditation) {
+            sessionName = meditation.title; // Use the meditation title
+          }
+        }
+        
         const kasinaEmoji = KASINA_EMOJIS[mostUsedKasina];
         
         // Get final kasina usage data
@@ -1105,10 +1114,10 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           duration: durationInMinutes * 60, // Convert back to seconds for logging
           showToast: true,
           kasinaBreakdown: finalUsage,
-          customSessionName: `Visual Kasina`,
+          customSessionName: sessionName, // Use the meditation title or default name
           practiceType: props.isGuidedMeditation ? 'guided' : 'silent'
         });
-        console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
+        console.log(`✅ ${sessionName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
         
       } catch (error) {
         console.error('Failed to log meditation session:', error);
