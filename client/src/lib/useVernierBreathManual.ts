@@ -102,6 +102,44 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const breathCyclesRef = useRef<number[]>([]); // Track breath cycle timestamps
   const lastRateUpdateRef = useRef<number>(0);
   const initialRangeRef = useRef<number | null>(null); // Store initial force range to prevent heartbeat detection
+  const hasSensorDiscoveryRun = useRef<boolean>(false); // Track if sensor discovery has run
+
+  // Run sensor discovery immediately if device exists (for already connected devices)
+  useEffect(() => {
+    if (deviceRef.current && !hasSensorDiscoveryRun.current) {
+      const gdxDevice = deviceRef.current;
+      console.log('=== 🔍 DISCOVERING SENSORS ON EXISTING CONNECTION ===');
+      console.log(`Total sensors on device: ${gdxDevice.sensors?.length || 0}`);
+      
+      if (gdxDevice.sensors) {
+        gdxDevice.sensors.forEach((sensor: any, index: number) => {
+          console.log(`📊 Sensor ${index}:`, {
+            name: sensor.name,
+            channel: sensor.channel,
+            number: sensor.number,
+            unit: sensor.unit,
+            enabled: sensor.enabled,
+            visible: sensor.visible
+          });
+        });
+      }
+      
+      // Check each channel directly
+      console.log('=== 🔍 CHECKING EACH CHANNEL ON EXISTING CONNECTION ===');
+      for (let i = 0; i < 5; i++) {
+        const sensor = gdxDevice.getSensor?.(i);
+        if (sensor) {
+          console.log(`✅ Channel ${i} exists:`, {
+            name: sensor.name,
+            unit: sensor.unit
+          });
+        } else {
+          console.log(`❌ Channel ${i}: No sensor found`);
+        }
+      }
+      hasSensorDiscoveryRun.current = true;
+    }
+  }, [isConnected]);
 
   /**
    * Connect to Vernier GDX respiration belt using official library
@@ -153,21 +191,22 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
           console.log(`❌ Channel ${i}: No sensor found`);
         }
       }
+      hasSensorDiscoveryRun.current = true; // Mark as run to prevent duplicate discovery
       
-      // CRITICAL: Explicitly enable both Force and Respiration Rate sensors
-      // CHANNELS ARE 0-INDEXED!
-      // Channel 0: Force (N)
-      const forceSensor = gdxDevice.getSensor(0);
+      // CRITICAL: Based on actual device data, Force is on Channel 1!
+      // Your device appears to have Force on Channel 1 (not 0 as docs suggest)
+      // Channel 1: Force (N) - ACTUAL DATA SHOWS THIS
+      const forceSensor = gdxDevice.getSensor(1);
       if (forceSensor) {
         forceSensor.setEnabled(true);
-        console.log('✅ Enabled Force sensor (Channel 0)');
+        console.log('✅ Enabled Force sensor (Channel 1 - based on actual device data)');
       }
       
-      // Channel 1: Respiration Rate (BPM) - THIS IS THE KEY!
-      const respirationRateSensor = gdxDevice.getSensor(1);
-      if (respirationRateSensor) {
-        respirationRateSensor.setEnabled(true);
-        console.log('✅ Enabled Respiration Rate sensor (Channel 1)');
+      // Channel 0: Might be Respiration Rate or empty
+      const channel0Sensor = gdxDevice.getSensor(0);
+      if (channel0Sensor) {
+        channel0Sensor.setEnabled(true);
+        console.log('✅ Enabled Channel 0 sensor:', channel0Sensor.name, 'Unit:', channel0Sensor.unit);
       }
       
       // Optional: Enable Steps and Step Rate sensors if needed
@@ -183,10 +222,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         console.log('⏭️ Step Rate sensor (Channel 3) - disabled');
       }
       
-      // Set up listeners for Force sensor
+      // Set up listeners for Force sensor (now on Channel 1)
       if (forceSensor) {
         forceSensor.on('value-changed', (sensor: any) => {
-          console.log(`📊 VERNIER SENSOR DATA - Channel 0 (Force): ${sensor.value} ${sensor.unit}`);
+          console.log(`📊 VERNIER SENSOR DATA - Channel 1 (Force): ${sensor.value} ${sensor.unit}`);
           
           // Process ALL sensor types - not just Force!
           const sensorNameLower = sensor.name.toLowerCase();
@@ -316,10 +355,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         });
       }
       
-      // Set up listener for Respiration Rate sensor (Channel 2)
-      if (respirationRateSensor) {
-        respirationRateSensor.on('value-changed', (sensor: any) => {
-          console.log(`📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): ${sensor.value} ${sensor.unit}`);
+      // Set up listener for Channel 0 sensor (might be Respiration Rate or empty)
+      if (channel0Sensor) {
+        channel0Sensor.on('value-changed', (sensor: any) => {
+          console.log(`📊 VERNIER SENSOR DATA - Channel 0: ${sensor.value} ${sensor.unit}`);
           
           const sensorValue = sensor.value;
           

@@ -1,0 +1,5310 @@
+login:80 Refused to load the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' because it violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com".
+
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.160102844238281 N
+ ✅ DEVICE BREATH RATE: 9.160102844238281 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.1805419921875 N
+ ✅ DEVICE BREATH RATE: 9.1805419921875 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.193321228027344 N
+ ✅ DEVICE BREATH RATE: 9.193321228027344 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.203536987304688 N
+ ✅ DEVICE BREATH RATE: 9.203536987304688 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.254638671875 N
+ ✅ DEVICE BREATH RATE: 9.254638671875 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.338951110839844 N
+ ✅ DEVICE BREATH RATE: 9.338951110839844 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.400276184082031 N
+ ✅ DEVICE BREATH RATE: 9.400276184082031 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.372169494628906 N
+ ✅ DEVICE BREATH RATE: 9.372169494628906 BPM
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.517799377441406 N
+ ✅ DEVICE BREATH RATE: 9.517799377441406 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.760528564453125 N
+ ✅ DEVICE BREATH RATE: 9.760528564453125 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.890830993652344 N
+ ✅ DEVICE BREATH RATE: 9.890830993652344 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.054351806640625 N
+ ✅ DEVICE BREATH RATE: 10.054351806640625 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.233200073242188 N
+ ✅ DEVICE BREATH RATE: 10.233200073242188 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.419715881347656 N
+ ✅ DEVICE BREATH RATE: 10.419715881347656 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.598564147949219 N
+ ✅ DEVICE BREATH RATE: 10.598564147949219 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.731430053710938 N
+ ✅ DEVICE BREATH RATE: 10.731430053710938 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.861732482910156 N
+ ✅ DEVICE BREATH RATE: 10.861732482910156 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.946044921875 N
+ ✅ DEVICE BREATH RATE: 10.946044921875 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.012474060058594 N
+ ✅ DEVICE BREATH RATE: 11.012474060058594 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.135116577148438 N
+ ✅ DEVICE BREATH RATE: 11.135116577148438 BPM
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.183662414550781 N
+ ✅ DEVICE BREATH RATE: 11.183662414550781 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.2041015625 N
+ ✅ DEVICE BREATH RATE: 11.2041015625 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.288414001464844 N
+ ✅ DEVICE BREATH RATE: 11.288414001464844 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.31396484375 N
+ ✅ DEVICE BREATH RATE: 11.31396484375 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: Object
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.137672424316406 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 11.137672424316406 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.022697448730469 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 11.022697448730469 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.086570739746094 N
+ ✅ DEVICE BREATH RATE: 11.086570739746094 BPM
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 11.107009887695312 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 11.107009887695312 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.969039916992188 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.969039916992188 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.897499084472656 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.897499084472656 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.884727478027344 N
+ ✅ DEVICE BREATH RATE: 10.884727478027344 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.843849182128906 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.843849182128906 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.797859191894531 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.797859191894531 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.611343383789062 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.611343383789062 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.455490112304688 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.455490112304688 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.378837585449219 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.378837585449219 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.2843017578125 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.2843017578125 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.212760925292969 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.212760925292969 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.159111022949219 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.159111022949219 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+useVernierBreathManual.ts:322 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 10.046684265136719 N
+useVernierBreathManual.ts:332 ✅ DEVICE BREATH RATE: 10.046684265136719 BPM
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+useVernierBreathManual.ts:66 🚨 VERNIER HOOK CALLED - Manual connection mode
+BreathKasinaOrb.tsx:274 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+BreathKasinaOrb.tsx:1141 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+BreathKasinaOrb.tsx:1174 🔍 Kasina: yellow, Type: color, orbSize: 0px
+BreathKasinaOrb.tsx:1178 🎯 Color kasina yellow scaled from 0.001 to 0.000
+kasinaConfig.ts:373 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.855064392089844 N
+ ✅ DEVICE BREATH RATE: 9.855064392089844 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.763084411621094 N
+ ✅ DEVICE BREATH RATE: 9.763084411621094 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.778411865234375 N
+ ✅ DEVICE BREATH RATE: 9.778411865234375 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.701759338378906 N
+ ✅ DEVICE BREATH RATE: 9.701759338378906 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.630226135253906 N
+ ✅ DEVICE BREATH RATE: 9.630226135253906 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.607231140136719 N
+ ✅ DEVICE BREATH RATE: 9.607231140136719 BPM
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.563789367675781 N
+ ✅ DEVICE BREATH RATE: 9.563789367675781 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.482032775878906 N
+ ✅ DEVICE BREATH RATE: 9.482032775878906 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.344062805175781 N
+ ✅ DEVICE BREATH RATE: 9.344062805175781 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.216316223144531 N
+ ✅ DEVICE BREATH RATE: 9.216316223144531 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.211204528808594 N
+ ✅ DEVICE BREATH RATE: 9.211204528808594 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.223976135253906 N
+ ✅ DEVICE BREATH RATE: 9.223976135253906 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 📊 VERNIER SENSOR DATA - Channel 1 (Respiration Rate): 9.193321228027344 N
+ ✅ DEVICE BREATH RATE: 9.193321228027344 BPM
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🚨 VERNIER HOOK CALLED - Manual connection mode
+ 🔵 BreathKasinaOrb - useVernier: false vernierData: {isConnected: false, breathAmplitude: 0, breathPhase: 'pause', currentForce: 0, calibrationComplete: false}
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 0px
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
+ 🔍 Kasina: yellow, Type: color, orbSize: 0px
+ 🎯 Color kasina yellow scaled from 0.001 to 0.000
+ 🎯 Yellow (color) SCALING:
+    orbSize: 0px
+    baseScale: 0.000
+    normalizedScale: 0.000
+    final scale: 0.001
+    cappedScale: 0.001
