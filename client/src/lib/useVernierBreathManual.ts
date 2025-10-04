@@ -124,22 +124,38 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       
       console.log('Connected to:', gdxDevice.name);
       
-      // Enable default sensors (should include force sensor for respiration belt)
-      gdxDevice.enableDefaultSensors();
+      // CRITICAL: Explicitly enable both Force and Respiration Rate sensors
+      // Channel 1: Force (N)
+      const forceSensor = gdxDevice.getSensor(1);
+      if (forceSensor) {
+        forceSensor.setEnabled(true);
+        console.log('✅ Enabled Force sensor (Channel 1)');
+      }
       
-      // Get enabled sensors
-      const enabledSensors = gdxDevice.sensors.filter((s: any) => s.enabled);
-      console.log('Enabled sensors:', enabledSensors.map((s: any) => s.name));
+      // Channel 2: Respiration Rate (BPM) - THIS IS THE KEY!
+      const respirationRateSensor = gdxDevice.getSensor(2);
+      if (respirationRateSensor) {
+        respirationRateSensor.setEnabled(true);
+        console.log('✅ Enabled Respiration Rate sensor (Channel 2)');
+      }
       
-      // CRITICAL: Start data collection to trigger respiration rate calculation
-      // Without this, Respiration Rate sensor will always return NaN
-      await gdxDevice.start();
-      console.log('✅ Data collection started - Respiration Rate will begin calculating (10-30 second window)');
+      // Optional: Enable Steps and Step Rate sensors if needed
+      const stepsSensor = gdxDevice.getSensor(3);
+      if (stepsSensor) {
+        stepsSensor.setEnabled(false); // Disabled for now
+        console.log('⏭️ Steps sensor (Channel 3) - disabled');
+      }
       
-      // Set up data collection for each enabled sensor
-      enabledSensors.forEach((sensor: any) => {
-        sensor.on('value-changed', (sensor: any) => {
-          console.log(`📊 VERNIER SENSOR DATA - Name: "${sensor.name}", Value: ${sensor.value}, Units: "${sensor.unit}", Channel: ${sensor.channelNumber || 'unknown'}`);
+      const stepRateSensor = gdxDevice.getSensor(4);
+      if (stepRateSensor) {
+        stepRateSensor.setEnabled(false); // Disabled for now
+        console.log('⏭️ Step Rate sensor (Channel 4) - disabled');
+      }
+      
+      // Set up listeners for Force sensor
+      if (forceSensor) {
+        forceSensor.on('value-changed', (sensor: any) => {
+          console.log(`📊 VERNIER SENSOR DATA - Channel 1 (Force): ${sensor.value} ${sensor.unit}`);
           
           // Process ALL sensor types - not just Force!
           const sensorNameLower = sensor.name.toLowerCase();
@@ -266,45 +282,35 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
               }
             }
           }
+        });
+      }
+      
+      // Set up listener for Respiration Rate sensor (Channel 2)
+      if (respirationRateSensor) {
+        respirationRateSensor.on('value-changed', (sensor: any) => {
+          console.log(`📊 VERNIER SENSOR DATA - Channel 2 (Respiration Rate): ${sensor.value} ${sensor.unit}`);
           
-          // Channel 2: Respiration Rate (calculated by device)
-          else if (sensorNameLower.includes('respiration rate') || sensorNameLower.includes('breath') && sensorNameLower.includes('rate')) {
-            console.log(`🫁 RESPIRATION RATE SENSOR FOUND!`);
-            // Handle NAN values that occur initially
-            if (sensorValue === 'NAN' || sensorValue === 'NaN' || isNaN(parseFloat(sensorValue))) {
-              console.log(`⏳ Respiration Rate is calculating... (waiting for enough data)`);
-              setDeviceBreathingRate(null);
-            } else {
-              const rateValue = parseFloat(sensorValue);
-              console.log(`✅ DEVICE BREATH RATE: ${rateValue} BPM`);
-              setDeviceBreathingRate(rateValue);
-              // Use device rate as primary if available
-              if (rateValue > 0) {
-                setBreathingRate(Math.round(rateValue));
-              }
+          const sensorValue = sensor.value;
+          
+          // Handle NAN values that occur initially
+          if (sensorValue === 'NAN' || sensorValue === 'NaN' || isNaN(parseFloat(sensorValue))) {
+            console.log(`⏳ Respiration Rate is calculating... (waiting for enough data)`);
+            setDeviceBreathingRate(null);
+          } else {
+            const rateValue = parseFloat(sensorValue);
+            console.log(`✅ DEVICE BREATH RATE: ${rateValue} BPM`);
+            setDeviceBreathingRate(rateValue);
+            // Use device rate as primary if available
+            if (rateValue > 0) {
+              setBreathingRate(Math.round(rateValue));
             }
           }
-          
-          // Channel 3: Steps
-          else if (sensorNameLower.includes('steps') && !sensorNameLower.includes('rate')) {
-            const stepsValue = parseFloat(sensorValue);
-            console.log(`👟 Steps: ${stepsValue}`);
-            setStepsCount(stepsValue);
-          }
-          
-          // Channel 4: Step Rate
-          else if (sensorNameLower.includes('step') && sensorNameLower.includes('rate')) {
-            const stepRateValue = parseFloat(sensorValue);
-            console.log(`🏃 Step Rate: ${stepRateValue}`);
-            setStepRate(stepRateValue);
-          }
-          
-          // Unknown sensor - log for discovery
-          else {
-            console.log(`❓ Unknown sensor type - Name: "${sensor.name}", Units: "${sensor.unit}"`);
-          }
         });
-      });
+      }
+      
+      // CRITICAL: Start data collection AFTER setting up all listeners
+      await gdxDevice.start();
+      console.log('✅ Data collection started - Respiration Rate will begin calculating (10-30 second window)');
       
       setIsConnected(true);
       setIsConnecting(false);
