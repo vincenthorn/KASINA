@@ -27,7 +27,10 @@ export default function VernierOfficialBreathPage() {
     startCalibration,
     calibrationComplete,
     currentForce,
-    calibrationProfile
+    calibrationProfile,
+    deviceBreathingRate,  // New: Device-calculated breath rate
+    stepsCount,           // New: Steps from Channel 3
+    stepRate              // New: Step rate from Channel 4
   } = useVernierBreathManual();
 
   // Auto-navigate to existing breath page if device is already connected and calibrated
@@ -170,9 +173,48 @@ export default function VernierOfficialBreathPage() {
                   
                   {isConnected && (
                     <>
-                      <p className="text-sm text-gray-300">
-                        Current Force: <span className="font-mono text-blue-400">{currentForce.toFixed(2)} N</span>
-                      </p>
+                      <div className="bg-gray-900 rounded-lg p-4 space-y-2">
+                        <h4 className="text-white font-semibold mb-2">📊 All Sensor Channels:</h4>
+                        
+                        {/* Channel 1: Force */}
+                        <p className="text-sm text-gray-300">
+                          <span className="text-gray-500">Ch 1 - Force:</span>{' '}
+                          <span className="font-mono text-blue-400">{currentForce.toFixed(3)} N</span>
+                        </p>
+                        
+                        {/* Channel 2: Respiration Rate */}
+                        <p className="text-sm text-gray-300">
+                          <span className="text-gray-500">Ch 2 - Respiration Rate:</span>{' '}
+                          <span className="font-mono text-green-400">
+                            {deviceBreathingRate !== null ? 
+                              `${deviceBreathingRate.toFixed(1)} BPM` : 
+                              'Calculating...'
+                            }
+                          </span>
+                          {deviceBreathingRate !== null && (
+                            <span className="ml-2 text-green-300">✅ DEVICE CALCULATED</span>
+                          )}
+                        </p>
+                        
+                        {/* Channel 3: Steps */}
+                        <p className="text-sm text-gray-300">
+                          <span className="text-gray-500">Ch 3 - Steps:</span>{' '}
+                          <span className="font-mono text-yellow-400">{stepsCount}</span>
+                        </p>
+                        
+                        {/* Channel 4: Step Rate */}
+                        <p className="text-sm text-gray-300">
+                          <span className="text-gray-500">Ch 4 - Step Rate:</span>{' '}
+                          <span className="font-mono text-orange-400">{stepRate.toFixed(1)}</span>
+                        </p>
+                      </div>
+                      
+                      {/* Original manual calculation for comparison */}
+                      <div className="mt-4 pt-4 border-t border-gray-700">
+                        <p className="text-sm text-gray-300">
+                          Manual Breath Rate (from Force): <span className="font-mono text-gray-400">{breathingRate} BPM</span>
+                        </p>
+                      </div>
                       
                       {calibrationProfile && (
                         <div className="text-sm space-y-1 text-gray-300">

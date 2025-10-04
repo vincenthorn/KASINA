@@ -35,7 +35,10 @@ interface VernierBreathManualHookResult {
   isConnecting: boolean;
   breathAmplitude: number; // 0-1 normalized amplitude based on force data
   breathPhase: 'inhale' | 'exhale' | 'pause'; // Current breathing phase
-  breathingRate: number; // breaths per minute
+  breathingRate: number; // breaths per minute (manual calculation)
+  deviceBreathingRate: number | null; // Device-calculated breath rate from Channel 2
+  stepsCount: number; // Steps from Channel 3
+  stepRate: number; // Step rate from Channel 4
   connectDevice: () => Promise<void>;
   disconnectDevice: () => void;
   forceDisconnectDevice: () => void; // Hard disconnect that clears all references
@@ -71,6 +74,9 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const [breathAmplitude, setBreathAmplitude] = useState(0);
   const [breathPhase, setBreathPhase] = useState<'inhale' | 'exhale' | 'pause'>('pause');
   const [breathingRate, setBreathingRate] = useState(0);
+  const [deviceBreathingRate, setDeviceBreathingRate] = useState<number | null>(null); // Direct from Vernier Channel 2
+  const [stepsCount, setStepsCount] = useState(0); // Channel 3
+  const [stepRate, setStepRate] = useState(0); // Channel 4
   
   // Calibration state - Start fresh each session
   const [isCalibrating, setIsCalibrating] = useState(false);
@@ -128,12 +134,17 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       // Set up data collection for each enabled sensor
       enabledSensors.forEach((sensor: any) => {
         sensor.on('value-changed', (sensor: any) => {
-          console.log(`Official Vernier data - Sensor: ${sensor.name}, Value: ${sensor.value}, Units: ${sensor.unit}`);
+          console.log(`📊 VERNIER SENSOR DATA - Name: "${sensor.name}", Value: ${sensor.value}, Units: "${sensor.unit}", Channel: ${sensor.channelNumber || 'unknown'}`);
           
-          // Process force sensor data for breathing
-          if (sensor.name.toLowerCase().includes('force') || sensor.unit === 'N') {
-            const forceValue = parseFloat(sensor.value);
+          // Process ALL sensor types - not just Force!
+          const sensorNameLower = sensor.name.toLowerCase();
+          const sensorValue = sensor.value;
+          
+          // Channel 1: Force sensor (in Newtons)
+          if (sensorNameLower.includes('force') || sensor.unit === 'N') {
+            const forceValue = parseFloat(sensorValue);
             setCurrentForce(forceValue);
+            console.log(`💪 Force detected: ${forceValue.toFixed(3)} N`);
             
             // Add to calibration data if calibrating
             const isCurrentlyCalibrating = calibrationStartTimeRef.current > 0 && !calibrationProfile;
@@ -250,6 +261,43 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
               }
             }
           }
+          
+          // Channel 2: Respiration Rate (calculated by device)
+          else if (sensorNameLower.includes('respiration rate') || sensorNameLower.includes('breath') && sensorNameLower.includes('rate')) {
+            console.log(`🫁 RESPIRATION RATE SENSOR FOUND!`);
+            // Handle NAN values that occur initially
+            if (sensorValue === 'NAN' || sensorValue === 'NaN' || isNaN(parseFloat(sensorValue))) {
+              console.log(`⏳ Respiration Rate is calculating... (waiting for enough data)`);
+              setDeviceBreathingRate(null);
+            } else {
+              const rateValue = parseFloat(sensorValue);
+              console.log(`✅ DEVICE BREATH RATE: ${rateValue} BPM`);
+              setDeviceBreathingRate(rateValue);
+              // Use device rate as primary if available
+              if (rateValue > 0) {
+                setBreathingRate(Math.round(rateValue));
+              }
+            }
+          }
+          
+          // Channel 3: Steps
+          else if (sensorNameLower.includes('steps') && !sensorNameLower.includes('rate')) {
+            const stepsValue = parseFloat(sensorValue);
+            console.log(`👟 Steps: ${stepsValue}`);
+            setStepsCount(stepsValue);
+          }
+          
+          // Channel 4: Step Rate
+          else if (sensorNameLower.includes('step') && sensorNameLower.includes('rate')) {
+            const stepRateValue = parseFloat(sensorValue);
+            console.log(`🏃 Step Rate: ${stepRateValue}`);
+            setStepRate(stepRateValue);
+          }
+          
+          // Unknown sensor - log for discovery
+          else {
+            console.log(`❓ Unknown sensor type - Name: "${sensor.name}", Units: "${sensor.unit}"`);
+          }
         });
       });
       
@@ -283,6 +331,9 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       setBreathPhase('pause');
       setBreathingRate(0);
       setCurrentForce(0);
+      setDeviceBreathingRate(null);
+      setStepsCount(0);
+      setStepRate(0);
       
       // Reset calibration
       setIsCalibrating(false);
@@ -453,6 +504,9 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     breathAmplitude,
     breathPhase,
     breathingRate,
+    deviceBreathingRate, // New: Device-calculated breath rate
+    stepsCount,         // New: Steps from Channel 3
+    stepRate,          // New: Step rate from Channel 4
     connectDevice,
     disconnectDevice,
     forceDisconnectDevice,
