@@ -124,6 +124,36 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       
       console.log('Connected to:', gdxDevice.name);
       
+      // DEBUG: List ALL available sensors to find where respiration rate actually is
+      console.log('=== 🔍 DISCOVERING ALL AVAILABLE SENSORS ===');
+      console.log(`Total sensors on device: ${gdxDevice.sensors.length}`);
+      
+      // Log each sensor with all its properties
+      gdxDevice.sensors.forEach((sensor: any, index: number) => {
+        console.log(`📊 Sensor ${index}:`, {
+          name: sensor.name,
+          channel: sensor.channel,
+          number: sensor.number,
+          unit: sensor.unit,
+          enabled: sensor.enabled,
+          visible: sensor.visible
+        });
+      });
+      
+      // Also try getSensor for each index to see what's available
+      console.log('=== 🔍 CHECKING EACH CHANNEL DIRECTLY ===');
+      for (let i = 0; i < 5; i++) {
+        const sensor = gdxDevice.getSensor(i);
+        if (sensor) {
+          console.log(`✅ Channel ${i} exists:`, {
+            name: sensor.name,
+            unit: sensor.unit
+          });
+        } else {
+          console.log(`❌ Channel ${i}: No sensor found`);
+        }
+      }
+      
       // CRITICAL: Explicitly enable both Force and Respiration Rate sensors
       // CHANNELS ARE 0-INDEXED!
       // Channel 0: Force (N)
