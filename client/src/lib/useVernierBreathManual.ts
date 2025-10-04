@@ -40,8 +40,8 @@ interface VernierBreathManualHookResult {
   stepsCount: number; // Steps from Channel 3
   stepRate: number; // Step rate from Channel 4
   connectDevice: () => Promise<void>;
-  disconnectDevice: () => void;
-  forceDisconnectDevice: () => void; // Hard disconnect that clears all references
+  disconnectDevice: () => Promise<void>;
+  forceDisconnectDevice: () => Promise<void>; // Hard disconnect that clears all references
   error: string | null;
   // Calibration system for respiration belt
   isCalibrating: boolean;
@@ -130,6 +130,11 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       // Get enabled sensors
       const enabledSensors = gdxDevice.sensors.filter((s: any) => s.enabled);
       console.log('Enabled sensors:', enabledSensors.map((s: any) => s.name));
+      
+      // CRITICAL: Start data collection to trigger respiration rate calculation
+      // Without this, Respiration Rate sensor will always return NaN
+      await gdxDevice.start();
+      console.log('✅ Data collection started - Respiration Rate will begin calculating (10-30 second window)');
       
       // Set up data collection for each enabled sensor
       enabledSensors.forEach((sensor: any) => {
@@ -316,10 +321,13 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   /**
    * Disconnect from device and clean up
    */
-  const disconnectDevice = useCallback(() => {
+  const disconnectDevice = useCallback(async () => {
     try {
       if (deviceRef.current) {
         console.log('Disconnecting from Vernier device...');
+        // Stop data collection before closing
+        await deviceRef.current.stop();
+        console.log('Data collection stopped');
         deviceRef.current.close();
         deviceRef.current = null;
       }
@@ -357,9 +365,9 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   /**
    * Force disconnect that clears all references
    */
-  const forceDisconnectDevice = useCallback(() => {
+  const forceDisconnectDevice = useCallback(async () => {
     console.log('Force disconnecting from Vernier device...');
-    disconnectDevice();
+    await disconnectDevice();
   }, [disconnectDevice]);
 
   /**
