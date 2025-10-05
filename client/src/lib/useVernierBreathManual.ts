@@ -104,6 +104,131 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const initialRangeRef = useRef<number | null>(null); // Store initial force range to prevent heartbeat detection
   const hasSensorDiscoveryRun = useRef<boolean>(false); // Track if sensor discovery has run
 
+  // Check for auto-connected device on component mount
+  useEffect(() => {
+    const checkForAutoConnectedDevice = async () => {
+      try {
+        console.log('🔍 Checking for auto-connected Vernier device...');
+        
+        // Load GoDirect library to check for existing connections
+        const goDirectLib = await loadGoDirectLibrary();
+        console.log('GoDirect library loaded, checking for connections...');
+        
+        // Try different methods to find connected devices
+        let gdxDevice = null;
+        
+        // Method 1: Check connectedDevices array
+        if (goDirectLib.connectedDevices && goDirectLib.connectedDevices.length > 0) {
+          console.log('🔌 AUTO-CONNECTED DEVICE DETECTED via connectedDevices!');
+          gdxDevice = goDirectLib.connectedDevices[0];
+        }
+        // Method 2: Check devices property
+        else if (goDirectLib.devices && goDirectLib.devices.length > 0) {
+          console.log('🔌 AUTO-CONNECTED DEVICE DETECTED via devices!');
+          gdxDevice = goDirectLib.devices[0];
+        }
+        // Method 3: Check for getDevices method
+        else if (goDirectLib.getDevices) {
+          const devices = await goDirectLib.getDevices();
+          if (devices && devices.length > 0) {
+            console.log('🔌 AUTO-CONNECTED DEVICE DETECTED via getDevices!');
+            gdxDevice = devices[0];
+          }
+        }
+        // Method 4: Check for global device reference
+        else if ((window as any).vernierDevice) {
+          console.log('🔌 AUTO-CONNECTED DEVICE DETECTED via global reference!');
+          gdxDevice = (window as any).vernierDevice;
+        }
+        
+        if (gdxDevice) {
+          deviceRef.current = gdxDevice;
+          
+          console.log('=== 🔍 DISCOVERING SENSORS ON AUTO-CONNECTED DEVICE ===');
+          console.log(`Device name: ${gdxDevice.name}`);
+          console.log(`Total sensors: ${gdxDevice.sensors?.length || 0}`);
+          
+          // Run sensor discovery on auto-connected device
+          if (gdxDevice.sensors) {
+            gdxDevice.sensors.forEach((sensor: any, index: number) => {
+              console.log(`📊 Sensor ${index}:`, {
+                name: sensor.name,
+                channel: sensor.channel, 
+                number: sensor.number,
+                unit: sensor.unit,
+                enabled: sensor.enabled,
+                visible: sensor.visible
+              });
+            });
+          }
+          
+          // Check each channel directly and enable them
+          console.log('=== 🔍 CHECKING EACH CHANNEL ON AUTO-CONNECTED DEVICE ===');
+          const sensorMap: { [key: number]: any } = {};
+          
+          for (let i = 0; i < 5; i++) {
+            const sensor = gdxDevice.getSensor?.(i);
+            if (sensor) {
+              console.log(`✅ Channel ${i} exists:`, {
+                name: sensor.name,
+                unit: sensor.unit,
+                enabled: sensor.enabled
+              });
+              sensorMap[i] = sensor;
+              
+              // Enable the sensor if not already enabled
+              if (!sensor.enabled) {
+                sensor.setEnabled(true);
+                console.log(`📌 Enabled sensor on Channel ${i}: ${sensor.name}`);
+              }
+              
+              // Set up listener for this sensor
+              sensor.on('value-changed', (sensorData: any) => {
+                const value = sensorData.value;
+                const unit = sensorData.unit;
+                console.log(`📊 Channel ${i} (${sensor.name}): ${value} ${unit}`);
+                
+                // Process based on sensor type
+                if (unit === 'N' || sensor.name.toLowerCase().includes('force')) {
+                  // Force sensor
+                  console.log(`💪 Force: ${value} N`);
+                } else if (unit === 'bpm' || unit === 'breaths/min' || sensor.name.toLowerCase().includes('respiration rate')) {
+                  // Respiration rate sensor
+                  if (value === 'NAN' || value === 'NaN' || isNaN(parseFloat(value))) {
+                    console.log(`⏳ Respiration Rate calculating...`);
+                  } else {
+                    console.log(`🫁 RESPIRATION RATE: ${value} BPM`);
+                  }
+                } else if (sensor.name.toLowerCase().includes('step')) {
+                  console.log(`👟 Steps: ${value}`);
+                }
+              });
+            } else {
+              console.log(`❌ Channel ${i}: No sensor found`);
+            }
+          }
+          
+          // Start data collection if device has start method
+          if (gdxDevice.start) {
+            try {
+              await gdxDevice.start();
+              console.log('✅ Started data collection on auto-connected device');
+            } catch (err) {
+              console.log('Could not start data collection:', err);
+            }
+          }
+          
+          setIsConnected(true);
+          hasSensorDiscoveryRun.current = true;
+        }
+      } catch (err) {
+        console.log('No auto-connected device found, normal connection flow will be used');
+      }
+    };
+    
+    checkForAutoConnectedDevice();
+  }, []); // Run only on mount
+
   // Run sensor discovery immediately if device exists (for already connected devices)
   useEffect(() => {
     if (deviceRef.current && !hasSensorDiscoveryRun.current) {
@@ -193,36 +318,50 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       }
       hasSensorDiscoveryRun.current = true; // Mark as run to prevent duplicate discovery
       
-      // CRITICAL: Based on actual device data, Force is on Channel 1!
-      // Your device appears to have Force on Channel 1 (not 0 as docs suggest)
-      // Channel 1: Force (N) - ACTUAL DATA SHOWS THIS
-      const forceSensor = gdxDevice.getSensor(1);
-      if (forceSensor) {
-        forceSensor.setEnabled(true);
-        console.log('✅ Enabled Force sensor (Channel 1 - based on actual device data)');
+      // Enable ALL sensors to discover what data is available
+      console.log('=== 📌 ENABLING ALL SENSORS FOR DISCOVERY ===');
+      const enabledSensors: any[] = [];
+      
+      for (let i = 0; i < 5; i++) {
+        const sensor = gdxDevice.getSensor(i);
+        if (sensor) {
+          sensor.setEnabled(true);
+          enabledSensors.push({ channel: i, sensor });
+          console.log(`✅ Enabled Channel ${i}: ${sensor.name} (${sensor.unit})`);
+        }
       }
       
-      // Channel 0: Might be Respiration Rate or empty
-      const channel0Sensor = gdxDevice.getSensor(0);
-      if (channel0Sensor) {
-        channel0Sensor.setEnabled(true);
-        console.log('✅ Enabled Channel 0 sensor:', channel0Sensor.name, 'Unit:', channel0Sensor.unit);
-      }
+      // Set up listeners for ALL enabled sensors
+      console.log('=== 🎧 SETTING UP LISTENERS FOR ALL SENSORS ===');
+      enabledSensors.forEach(({ channel, sensor }) => {
+        sensor.on('value-changed', (sensorData: any) => {
+          const value = sensorData.value;
+          const unit = sensorData.unit;
+          console.log(`📊 Channel ${channel} (${sensor.name}): ${value} ${unit}`);
+          
+          // Process based on sensor type
+          if (unit === 'N' || sensor.name.toLowerCase().includes('force')) {
+            // This is the Force sensor
+            console.log(`💪 FORCE DATA on Channel ${channel}: ${value} N`);
+          } else if (unit === 'bpm' || unit === 'breaths/min' || sensor.name.toLowerCase().includes('respiration')) {
+            // This is the Respiration Rate sensor!
+            if (value === 'NAN' || value === 'NaN' || isNaN(parseFloat(value))) {
+              console.log(`⏳ RESPIRATION RATE on Channel ${channel} is calculating...`);
+            } else {
+              console.log(`🫁 RESPIRATION RATE on Channel ${channel}: ${value} BPM`);
+              setDeviceBreathingRate(parseFloat(value));
+            }
+          } else if (sensor.name.toLowerCase().includes('step')) {
+            console.log(`👟 STEPS DATA on Channel ${channel}: ${value}`);
+          }
+        });
+      });
       
-      // Optional: Enable Steps and Step Rate sensors if needed
-      const stepsSensor = gdxDevice.getSensor(2);
-      if (stepsSensor) {
-        stepsSensor.setEnabled(false); // Disabled for now
-        console.log('⏭️ Steps sensor (Channel 2) - disabled');
-      }
+      // Get specific sensor references for compatibility with existing code
+      const forceSensor = gdxDevice.getSensor(1); // Force is on Channel 1 based on actual data
+      const channel0Sensor = gdxDevice.getSensor(0); // Might be Respiration Rate
       
-      const stepRateSensor = gdxDevice.getSensor(3);
-      if (stepRateSensor) {
-        stepRateSensor.setEnabled(false); // Disabled for now
-        console.log('⏭️ Step Rate sensor (Channel 3) - disabled');
-      }
-      
-      // Set up listeners for Force sensor (now on Channel 1)
+      // Keep existing Force sensor listener for backward compatibility
       if (forceSensor) {
         forceSensor.on('value-changed', (sensor: any) => {
           console.log(`📊 VERNIER SENSOR DATA - Channel 1 (Force): ${sensor.value} ${sensor.unit}`);
