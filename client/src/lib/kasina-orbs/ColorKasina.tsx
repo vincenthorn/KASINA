@@ -24,11 +24,8 @@ const ColorKasina = ({
     
     const time = clock.getElapsedTime();
     
-    // Gentle rotation
-    meshRef.current.rotation.y = time * speed * 0.3;
-    meshRef.current.rotation.x = Math.sin(time * speed * 0.2) * 0.2;
-    
-    // Subtle pulsing if enabled
+    // No rotation for color kasinas - keeping them completely static as requested
+    // Only subtle pulsing if enabled
     if (pulsate) {
       const pulse = Math.sin(time * speed) * 0.05 + 1;
       meshRef.current.scale.copy(initialScale.clone().multiplyScalar(pulse));
