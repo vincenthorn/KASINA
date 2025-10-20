@@ -381,10 +381,7 @@ export default function KasinaRenderer({
       const scale = sizeMultiplier * breathValue;
       meshRef.current.scale.setScalar(scale);
       
-      // Gentle rotation for sphere kasinas
-      if (isSphericalKasina(selectedKasina)) {
-        meshRef.current.rotation.y += 0.002;
-      }
+      // No rotation for color kasinas - keeping them static as requested
     }
 
     // Update immersion background if enabled
