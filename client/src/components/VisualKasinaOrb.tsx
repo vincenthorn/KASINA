@@ -1492,7 +1492,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
           key={sceneKey} // Force scene recreation when key changes
           camera={{ position: [0, 0, 4], fov: 50 }}
           gl={{ 
-            antialias: false,
+            antialias: true,
             powerPreference: lowPowerMode ? "low-power" : "default",
             failIfMajorPerformanceCaveat: false,
             preserveDrawingBuffer: false,
