@@ -1,6 +1,5 @@
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import { MeshStandardMaterial, SphereGeometry, Mesh, Vector3 } from "three";
+import { Mesh } from "three";
 
 interface ColorKasinaProps {
   color: string;
@@ -16,21 +15,8 @@ const ColorKasina = ({
   pulsate = true 
 }: ColorKasinaProps) => {
   const meshRef = useRef<Mesh>(null);
-  const initialScale = new Vector3(1, 1, 1);
   
-  // Animation loop
-  useFrame(({ clock }) => {
-    if (!meshRef.current) return;
-    
-    const time = clock.getElapsedTime();
-    
-    // No rotation for color kasinas - keeping them completely static as requested
-    // Only subtle pulsing if enabled
-    if (pulsate) {
-      const pulse = Math.sin(time * speed) * 0.05 + 1;
-      meshRef.current.scale.copy(initialScale.clone().multiplyScalar(pulse));
-    }
-  });
+  // No animation for color kasinas - keeping them completely static without pulsing
   
   return (
     <mesh ref={meshRef}>
