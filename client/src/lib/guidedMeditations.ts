@@ -15,7 +15,12 @@ export const GUIDED_MEDITATIONS: Record<string, GuidedMeditationConfig | null> =
     audioPath: '/sounds/meditations/white-kasina.mp3',
     kasina: 'white'
   },
-  'blue': null,
+  'blue': {
+    id: 'blue-sweet-spot',
+    title: 'Finding the Sweet Spot',
+    audioPath: '/sounds/meditations/blue-kasina.mp3',
+    kasina: 'blue'
+  },
   'red': null,
   'yellow': null,
   'green': null,
