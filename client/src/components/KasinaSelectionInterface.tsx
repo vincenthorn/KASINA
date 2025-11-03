@@ -198,6 +198,14 @@ export default function KasinaSelectionInterface({
               <div style={{ fontSize: '14px', opacity: 0.9 }}>
                 {getGuidedMeditation(pendingKasina)?.title}
               </div>
+              <div style={{ fontSize: '12px', opacity: 0.7, marginTop: '4px' }}>
+                {(() => {
+                  const meditation = getGuidedMeditation(pendingKasina);
+                  if (!meditation) return null;
+                  const minutes = Math.round(meditation.durationSeconds / 60);
+                  return `${minutes} minute${minutes !== 1 ? 's' : ''}`;
+                })()}
+              </div>
             </button>
             
             <button

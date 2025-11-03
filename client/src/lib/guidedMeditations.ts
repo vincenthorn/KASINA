@@ -3,6 +3,7 @@ export interface GuidedMeditationConfig {
   title: string;
   audioPath: string;
   kasina: string;
+  durationSeconds: number; // Duration in seconds
 }
 
 // Mapping of kasina types to their guided meditation (if available)
@@ -13,13 +14,15 @@ export const GUIDED_MEDITATIONS: Record<string, GuidedMeditationConfig | null> =
     id: 'white-focus',
     title: 'Focusing with the White Orb',
     audioPath: '/sounds/meditations/white-kasina.mp3',
-    kasina: 'white'
+    kasina: 'white',
+    durationSeconds: 741 // 12 minutes
   },
   'blue': {
     id: 'blue-sweet-spot',
     title: 'Finding the Sweet Spot',
     audioPath: '/sounds/meditations/blue-kasina.mp3',
-    kasina: 'blue'
+    kasina: 'blue',
+    durationSeconds: 981 // 16 minutes
   },
   'red': null,
   'yellow': null,
