@@ -13,6 +13,7 @@ interface KasinaSelectionInterfaceProps {
   onBackToSeries: () => void;
   onCancel: () => void;
   mode?: 'visual' | 'breath'; // Add mode prop to restrict available kasinas
+  isInSelfGuidedSession?: boolean; // If true, skip guided meditation choice
 }
 
 export default function KasinaSelectionInterface({
@@ -23,7 +24,8 @@ export default function KasinaSelectionInterface({
   onKasinaSelection,
   onBackToSeries,
   onCancel,
-  mode = 'visual' // Default to visual mode for backwards compatibility
+  mode = 'visual', // Default to visual mode for backwards compatibility
+  isInSelfGuidedSession = false // Default to false for normal behavior
 }: KasinaSelectionInterfaceProps) {
   const { customColor, setCustomColor } = useKasina();
   const [isColorDialogOpen, setIsColorDialogOpen] = useState(false);
@@ -83,7 +85,8 @@ export default function KasinaSelectionInterface({
     }
 
     // Check if this kasina has a guided meditation available (only for visual mode)
-    if (mode === 'visual' && hasGuidedMeditation(kasina)) {
+    // BUT skip the choice if we're already in a self-guided session
+    if (mode === 'visual' && hasGuidedMeditation(kasina) && !isInSelfGuidedSession) {
       // Store the kasina and show meditation choice dialog
       setPendingKasina(kasina);
       // Parent component should handle updating kasinaSelectionStep to 'meditation-choice'
@@ -92,7 +95,7 @@ export default function KasinaSelectionInterface({
       return;
     }
 
-    // For kasinas without guided meditation, proceed normally
+    // For kasinas without guided meditation OR when in self-guided session, proceed with self-guided
     try {
       if (!document.fullscreenElement) {
         await document.documentElement.requestFullscreen();
@@ -102,7 +105,7 @@ export default function KasinaSelectionInterface({
       console.log("📺 Fullscreen request failed:", error);
     }
     
-    onKasinaSelection(kasina, false);
+    onKasinaSelection(kasina, false); // Always false (self-guided) when in self-guided session
   };
 
   // Handle meditation choice

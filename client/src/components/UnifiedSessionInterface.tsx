@@ -327,33 +327,35 @@ export default function UnifiedSessionInterface({
         </div>
       )}
 
-      {/* Change Kasina Button - Bottom Center */}
-      <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-      >
-        <button
-          onClick={onChangeKasina}
-          style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            color: 'white',
-            border: 'none',
-            padding: '12px 24px',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '600',
-            transition: 'background-color 0.2s'
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-          }}
+      {/* Change Kasina Button - Bottom Center - Only show for self-guided sessions */}
+      {!isGuidedMeditation && (
+        <div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         >
-          Change Kasina
-        </button>
-      </div>
+          <button
+            onClick={onChangeKasina}
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              color: 'white',
+              border: 'none',
+              padding: '12px 24px',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '16px',
+              fontWeight: '600',
+              transition: 'background-color 0.2s'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            }}
+          >
+            Change Kasina
+          </button>
+        </div>
+      )}
     </>
   );
 }

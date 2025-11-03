@@ -1631,6 +1631,7 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
             onBackToSeries={() => setKasinaSelectionStep('series')}
             onCancel={() => setShowKasinaSelection(false)}
             mode="visual"
+            isInSelfGuidedSession={meditationTime > 0 && !props.isGuidedMeditation}
           />
         </div>
       )}
