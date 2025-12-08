@@ -87,8 +87,8 @@ export const KASINA_BACKGROUNDS: Record<string, string> = {
   [KASINA_TYPES.EARTH]: "#000000", // Pure black background
   [KASINA_TYPES.SPACE]: "#2a0055", // Dark purple background (inverted from black)
   [KASINA_TYPES.LIGHT]: "#000000", // Black background
-  // Vajrayana Series - very dark harmonizing colors for seamless backgrounds
-  [KASINA_TYPES.WHITE_A_THIGLE]: "#001133",  // Very dark royal blue harmonizing with outer ring
+  // Vajrayana Series - exact outer ring colors for seamless backgrounds
+  [KASINA_TYPES.WHITE_A_THIGLE]: "#0055ff",  // Exact blue from Clear Light kasina outer ring
   [KASINA_TYPES.WHITE_A_KASINA]: "#000033",  // Very dark blue harmonizing with outer ring
   [KASINA_TYPES.OM_KASINA]: "#000000",       // Black to match OM outer ring
   [KASINA_TYPES.AH_KASINA]: "#000000",       // Black to match AH outer ring
