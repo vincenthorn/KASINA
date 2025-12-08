@@ -44,7 +44,13 @@ export const GUIDED_MEDITATIONS: Record<string, GuidedMeditationConfig | null> =
   
   // Vajrayana kasinas
   'white_a_kasina': null,
-  'clear_light_thigle': null,
+  'clear_light_thigle': {
+    id: 'clear-light-cycle',
+    title: 'The Clear Light Cycle',
+    audioPath: '/sounds/meditations/The Clear Light Cycle.mp3',
+    kasina: 'clear_light_thigle',
+    durationSeconds: 1060 // 17 minutes 40 seconds
+  },
   'om_kasina': null,
   'ah_kasina': null,
   'hum_kasina': null,
