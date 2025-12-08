@@ -89,15 +89,9 @@ const WhiteAThigle = () => {
   
   return (
     <group ref={groupRef}>
-      {/* Blue background - use a larger circle for the entire background */}
-      <mesh position={[0, 0, -0.006]}>
-        <circleGeometry args={[1.0, 64]} />
-        <meshBasicMaterial color="#0055ff" />
-      </mesh>
-      
-      {/* Yellow ring - use full circles instead of rings to avoid gaps */}
+      {/* Yellow outer ring - now the outermost visible element, background color handles the seamless transition */}
       <mesh position={[0, 0, -0.005]}>
-        <circleGeometry args={[0.95, 64]} />
+        <circleGeometry args={[1.0, 64]} />
         <meshBasicMaterial color="#ffff00" />
       </mesh>
       
