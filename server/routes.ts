@@ -1131,14 +1131,16 @@ export function registerRoutes(app: Express): Server {
   });
 
   // Internal API endpoint for membership sync from Jhana.community
-  // Authenticated via SYNC_API_SECRET header
+  // Authenticated via SYNC_API_SECRET or KASINA_SYNC_API_SECRET header
+  // Supports both single-member format (from Jhana) and batch format
   app.post("/api/internal/memberships", async (req, res) => {
     try {
       const apiSecret = req.headers['x-sync-api-secret'] as string;
-      const expectedSecret = process.env.SYNC_API_SECRET;
+      // Support both secret names for flexibility
+      const expectedSecret = process.env.KASINA_SYNC_API_SECRET || process.env.SYNC_API_SECRET;
       
       if (!expectedSecret) {
-        console.error('❌ SYNC_API_SECRET not configured');
+        console.error('❌ Neither KASINA_SYNC_API_SECRET nor SYNC_API_SECRET configured');
         return res.status(500).json({ message: "Server configuration error" });
       }
       
@@ -1147,17 +1149,71 @@ export function registerRoutes(app: Express): Server {
         return res.status(401).json({ message: "Unauthorized: Invalid API secret" });
       }
       
-      const { action, members } = req.body;
+      const { action, members, email, name, stripeCustomerId, membershipAmount } = req.body;
       
-      if (!action || !['sync', 'add', 'remove', 'deactivate'].includes(action)) {
-        return res.status(400).json({ message: "Invalid action. Must be 'sync', 'add', 'remove', or 'deactivate'" });
+      // Detect format: single-member (from Jhana) or batch format
+      const isSingleMemberFormat = email && action && !members;
+      
+      // Map action names: subscribe->sync, cancel->deactivate
+      const normalizedAction = action === 'subscribe' ? 'sync' : 
+                               action === 'cancel' ? 'deactivate' : action;
+      
+      if (!normalizedAction || !['sync', 'add', 'remove', 'deactivate'].includes(normalizedAction)) {
+        return res.status(400).json({ message: "Invalid action. Must be 'subscribe', 'cancel', 'sync', 'add', 'remove', or 'deactivate'" });
       }
       
+      // Handle single-member format (from Jhana.community)
+      if (isSingleMemberFormat) {
+        console.log(`🔄 Membership sync (single): ${email} with action '${action}' (normalized: ${normalizedAction})`);
+        
+        const memberEmail = email?.toLowerCase()?.trim();
+        
+        if (!memberEmail || !memberEmail.includes('@')) {
+          return res.status(400).json({ message: "Invalid email address" });
+        }
+        
+        try {
+          if (normalizedAction === 'sync' || normalizedAction === 'add') {
+            // Add or update user as premium (subscribed from Jhana.community)
+            const result = await upsertUser(memberEmail, name || null, 'premium', 'jhana_sync');
+            if (result) {
+              console.log(`✅ User ${memberEmail} granted premium access (Stripe: ${stripeCustomerId || 'N/A'})`);
+              return res.json({
+                message: "User granted premium access",
+                email: memberEmail,
+                action: action,
+                status: "success"
+              });
+            } else {
+              return res.status(500).json({ message: "Database error" });
+            }
+          } else if (normalizedAction === 'remove' || normalizedAction === 'deactivate') {
+            // Downgrade user to freemium (cancelled subscription)
+            const result = await upsertUser(memberEmail, name || null, 'freemium', 'jhana_sync');
+            if (result) {
+              console.log(`✅ User ${memberEmail} premium access revoked`);
+              return res.json({
+                message: "User premium access revoked",
+                email: memberEmail,
+                action: action,
+                status: "success"
+              });
+            } else {
+              return res.status(500).json({ message: "Database error" });
+            }
+          }
+        } catch (error) {
+          console.error(`Error processing member ${email}:`, error);
+          return res.status(500).json({ message: "Failed to process membership update" });
+        }
+      }
+      
+      // Handle batch format (original implementation)
       if (!members || !Array.isArray(members)) {
-        return res.status(400).json({ message: "Members array is required" });
+        return res.status(400).json({ message: "Either single member (email, action) or members array is required" });
       }
       
-      console.log(`🔄 Membership sync: Processing ${members.length} members with action '${action}'`);
+      console.log(`🔄 Membership sync (batch): Processing ${members.length} members with action '${normalizedAction}'`);
       
       let processedCount = 0;
       let errorCount = 0;
@@ -1165,31 +1221,31 @@ export function registerRoutes(app: Express): Server {
       
       for (const member of members) {
         try {
-          const email = member.email?.toLowerCase()?.trim();
+          const memberEmail = member.email?.toLowerCase()?.trim();
           
-          if (!email || !email.includes('@')) {
+          if (!memberEmail || !memberEmail.includes('@')) {
             results.push({ email: member.email || 'unknown', status: 'skipped', error: 'Invalid email' });
             continue;
           }
           
-          if (action === 'sync' || action === 'add') {
+          if (normalizedAction === 'sync' || normalizedAction === 'add') {
             // Add or update user as premium (synced from Jhana.community)
-            const result = await upsertUser(email, member.name || null, 'premium', 'jhana_sync');
+            const result = await upsertUser(memberEmail, member.name || null, 'premium', 'jhana_sync');
             if (result) {
-              results.push({ email, status: 'added' });
+              results.push({ email: memberEmail, status: 'added' });
               processedCount++;
             } else {
-              results.push({ email, status: 'error', error: 'Database error' });
+              results.push({ email: memberEmail, status: 'error', error: 'Database error' });
               errorCount++;
             }
-          } else if (action === 'remove' || action === 'deactivate') {
+          } else if (normalizedAction === 'remove' || normalizedAction === 'deactivate') {
             // Downgrade user to freemium (cancelled subscription)
-            const result = await upsertUser(email, member.name || null, 'freemium', 'jhana_sync');
+            const result = await upsertUser(memberEmail, member.name || null, 'freemium', 'jhana_sync');
             if (result) {
-              results.push({ email, status: 'deactivated' });
+              results.push({ email: memberEmail, status: 'deactivated' });
               processedCount++;
             } else {
-              results.push({ email, status: 'error', error: 'Database error' });
+              results.push({ email: memberEmail, status: 'error', error: 'Database error' });
               errorCount++;
             }
           }
@@ -1204,7 +1260,7 @@ export function registerRoutes(app: Express): Server {
       
       res.json({
         message: `Processed ${processedCount} members`,
-        action,
+        action: normalizedAction,
         processedCount,
         errorCount,
         totalReceived: members.length,
