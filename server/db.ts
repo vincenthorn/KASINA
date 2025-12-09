@@ -10,6 +10,7 @@ export interface User {
   email: string;
   name?: string;
   subscription_type: 'admin' | 'premium' | 'freemium' | 'friend';
+  source?: 'csv' | 'jhana_sync' | 'manual';
   created_at: Date;
   updated_at: Date;
 }
@@ -48,17 +49,18 @@ export async function getAllUsers(subscriptionType?: string): Promise<User[]> {
 }
 
 // Add or update user
-export async function upsertUser(email: string, name?: string, subscriptionType: 'admin' | 'premium' | 'freemium' | 'friend' = 'freemium'): Promise<User | null> {
+export async function upsertUser(email: string, name?: string, subscriptionType: 'admin' | 'premium' | 'freemium' | 'friend' = 'freemium', source: 'csv' | 'jhana_sync' | 'manual' = 'csv'): Promise<User | null> {
   try {
     const result = await pool.query(
-      `INSERT INTO users (email, name, subscription_type) 
-       VALUES ($1, $2, $3) 
+      `INSERT INTO users (email, name, subscription_type, source) 
+       VALUES ($1, $2, $3, $4) 
        ON CONFLICT (email) DO UPDATE SET 
          name = COALESCE($2, users.name),
          subscription_type = $3,
+         source = $4,
          updated_at = CURRENT_TIMESTAMP
        RETURNING *`,
-      [email.toLowerCase(), name, subscriptionType]
+      [email.toLowerCase(), name, subscriptionType, source]
     );
     return result.rows[0];
   } catch (error) {

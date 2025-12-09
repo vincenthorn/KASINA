@@ -1130,6 +1130,96 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Internal API endpoint for membership sync from Jhana.community
+  // Authenticated via SYNC_API_SECRET header
+  app.post("/api/internal/memberships", async (req, res) => {
+    try {
+      const apiSecret = req.headers['x-sync-api-secret'] as string;
+      const expectedSecret = process.env.SYNC_API_SECRET;
+      
+      if (!expectedSecret) {
+        console.error('❌ SYNC_API_SECRET not configured');
+        return res.status(500).json({ message: "Server configuration error" });
+      }
+      
+      if (!apiSecret || apiSecret !== expectedSecret) {
+        console.log('❌ Invalid or missing sync API secret');
+        return res.status(401).json({ message: "Unauthorized: Invalid API secret" });
+      }
+      
+      const { action, members } = req.body;
+      
+      if (!action || !['sync', 'add', 'remove', 'deactivate'].includes(action)) {
+        return res.status(400).json({ message: "Invalid action. Must be 'sync', 'add', 'remove', or 'deactivate'" });
+      }
+      
+      if (!members || !Array.isArray(members)) {
+        return res.status(400).json({ message: "Members array is required" });
+      }
+      
+      console.log(`🔄 Membership sync: Processing ${members.length} members with action '${action}'`);
+      
+      let processedCount = 0;
+      let errorCount = 0;
+      const results: Array<{email: string, status: string, error?: string}> = [];
+      
+      for (const member of members) {
+        try {
+          const email = member.email?.toLowerCase()?.trim();
+          
+          if (!email || !email.includes('@')) {
+            results.push({ email: member.email || 'unknown', status: 'skipped', error: 'Invalid email' });
+            continue;
+          }
+          
+          if (action === 'sync' || action === 'add') {
+            // Add or update user as premium (synced from Jhana.community)
+            const result = await upsertUser(email, member.name || null, 'premium', 'jhana_sync');
+            if (result) {
+              results.push({ email, status: 'added' });
+              processedCount++;
+            } else {
+              results.push({ email, status: 'error', error: 'Database error' });
+              errorCount++;
+            }
+          } else if (action === 'remove' || action === 'deactivate') {
+            // Downgrade user to freemium (cancelled subscription)
+            const result = await upsertUser(email, member.name || null, 'freemium', 'jhana_sync');
+            if (result) {
+              results.push({ email, status: 'deactivated' });
+              processedCount++;
+            } else {
+              results.push({ email, status: 'error', error: 'Database error' });
+              errorCount++;
+            }
+          }
+        } catch (error) {
+          console.error(`Error processing member ${member.email}:`, error);
+          results.push({ email: member.email || 'unknown', status: 'error', error: String(error) });
+          errorCount++;
+        }
+      }
+      
+      console.log(`✅ Membership sync complete: ${processedCount} processed, ${errorCount} errors`);
+      
+      res.json({
+        message: `Processed ${processedCount} members`,
+        action,
+        processedCount,
+        errorCount,
+        totalReceived: members.length,
+        results
+      });
+      
+    } catch (error) {
+      console.error('❌ Membership sync error:', error);
+      res.status(500).json({ 
+        message: "Membership sync failed",
+        error: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
   // CSV Upload endpoint for PostgreSQL database
   app.post("/api/admin/upload-whitelist", isAdmin, upload.single("csv"), async (req, res) => {
     try {
