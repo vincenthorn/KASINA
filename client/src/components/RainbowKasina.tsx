@@ -55,27 +55,23 @@ const RainbowKasina = () => {
           float dist = length(vPosition.xy);
           
           // Create smooth blue-violet background (#1F00CC)
-          vec3 bgColor = vec3(0.123, 0.0, 0.8); // blue-violet
+          vec3 bgColor = vec3(0.122, 0.0, 0.8); // blue-violet matching exact background
           
-          // Initialize with background color
+          // Initialize with background color - this ensures the entire geometry is the background color
           vec3 finalColor = bgColor;
           float alpha = 1.0;
           
           // Rainbow ring parameters
           float ringCenter = (innerRadius + outerRadius) * 0.5;
-          float normalizedPos = (dist - innerRadius) / rainbowWidth;
+          float normalizedPos = clamp((dist - innerRadius) / rainbowWidth, 0.0, 1.0);
           
-          // Base glow effect around the ring
-          float glow = smoothstep(outerRadius + 0.05, outerRadius - 0.05, dist) - 
-                       smoothstep(innerRadius + 0.05, innerRadius - 0.05, dist);
-          glow = pow(glow, 1.5) * glowStrength;
+          // Create smooth ring mask with soft edges - no hard boundaries
+          float innerEdge = smoothstep(innerRadius - 0.03, innerRadius + 0.02, dist);
+          float outerEdge = 1.0 - smoothstep(outerRadius - 0.02, outerRadius + 0.03, dist);
+          float ringMask = innerEdge * outerEdge;
           
-          // Soft falloff at edges
-          float edgeFade = smoothstep(outerRadius + 0.02, outerRadius - 0.02, dist) - 
-                           smoothstep(innerRadius + 0.02, innerRadius - 0.02, dist);
-          
-          // Only render rainbow in the ring area
-          if (dist >= innerRadius && dist <= outerRadius) {
+          // Only calculate rainbow color where needed
+          if (ringMask > 0.001) {
             // Animate hue shift over time
             float timeShift = sin(time * 0.2) * 0.01;
             
@@ -95,15 +91,10 @@ const RainbowKasina = () => {
             float pulse = 1.0 + sin(time * 0.3) * pulseIntensity;
             rainbowColor *= pulse;
             
-            // Create soft blur effect by adding glow
-            rainbowColor += glow * 0.5;
-            
-            // Blend with background based on edge fade
-            finalColor = mix(bgColor, rainbowColor, edgeFade);
-          } else {
-            // Add subtle glow outside the ring
-            finalColor += glow * mix(vec3(1.0, 0.4, 0.2), vec3(0.4, 0.8, 0.0), 0.5) * 0.25;
+            // Blend rainbow with background using the soft ring mask
+            finalColor = mix(bgColor, rainbowColor, ringMask);
           }
+          // Outside the ring, finalColor remains bgColor - no additional effects needed
           
           gl_FragColor = vec4(finalColor, alpha);
         }
