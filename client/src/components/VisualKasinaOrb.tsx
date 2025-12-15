@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useKasina } from '../lib/stores/useKasina';
 import { useColor } from '../lib/contexts/ColorContext';
 import { useSessionLogger } from '../lib/stores/useSessionLogger';
@@ -1251,6 +1251,21 @@ export default function VisualKasinaOrb(props: VisualKasinaOrbProps) {
     const earthMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const spaceMaterialRef = useRef<THREE.ShaderMaterial>(null);
     const lightMaterialRef = useRef<THREE.ShaderMaterial>(null);
+    
+    // Access Three.js scene to set background
+    const { scene } = useThree();
+    
+    // Set scene background to match shader background for kasinas that need it
+    useEffect(() => {
+      if (selectedKasina === KASINA_TYPES.RAINBOW_KASINA) {
+        // Exact RGB values matching the shader: vec3(0.122, 0.0, 0.8) = #1F00CC
+        scene.background = new THREE.Color(0x1F00CC);
+      } else {
+        // Use the kasina background color for other kasinas
+        const bgColor = getKasinaBackgroundColor(selectedKasina);
+        scene.background = new THREE.Color(bgColor);
+      }
+    }, [selectedKasina, scene]);
     
     // Chapter state for visual progression
     const [currentChapter, setCurrentChapter] = useState(0);

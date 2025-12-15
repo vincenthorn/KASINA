@@ -200,8 +200,9 @@ const RainbowKasina = () => {
   return (
     <group ref={groupRef}>
       {/* Single mesh with shader material for entire rainbow kasina */}
+      {/* Extended geometry (1.5 radius) so edge anti-aliasing happens in pure background area */}
       <mesh position={[0, 0, 0]}>
-        <circleGeometry args={[1.0, 64]} />
+        <circleGeometry args={[1.5, 128]} />
         <primitive object={shaderMaterial} />
       </mesh>
     </group>
