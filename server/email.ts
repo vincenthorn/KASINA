@@ -67,11 +67,7 @@ export async function sendAuthEmail(
     <body style="margin: 0; padding: 0; background-color: #0f0f0f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
       <div style="max-width: 480px; margin: 0 auto; padding: 40px 20px;">
         <div style="background: linear-gradient(135deg, #0A0052 0%, #2a1570 100%); border-radius: 16px; padding: 40px 30px; text-align: center;">
-          <div style="width: 100px; height: 100px; margin: 0 auto 20px auto; position: relative;">
-            <div style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(232, 183, 48, 0.4) 30%, rgba(232, 183, 48, 0.15) 50%, rgba(232, 183, 48, 0) 70%); border-radius: 50%;"></div>
-            <div style="position: absolute; top: 15px; left: 15px; width: 70px; height: 70px; background: radial-gradient(circle at 40% 35%, #F5D76E, #E8B730 50%, #C99A2E 100%); border-radius: 50%; box-shadow: 0 0 20px rgba(232, 183, 48, 0.5), 0 0 40px rgba(232, 183, 48, 0.25);"></div>
-          </div>
-          <h1 style="color: #ffffff; font-size: 28px; margin: 0 0 30px 0; font-weight: 700;">KASINA</h1>
+          <img src="https://start.kasina.app/images/kasina-logo-yellow.png" alt="KASINA" width="160" height="160" style="display: block; margin: 0 auto 20px auto; width: 160px; height: 160px;" />
           
           <h2 style="color: #ffffff; font-size: 20px; margin: 0 0 12px 0;">${headerText}</h2>
           <p style="color: #c4b5fd; font-size: 14px; margin: 0 0 30px 0; line-height: 1.5;">${descriptionText}</p>
