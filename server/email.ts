@@ -67,8 +67,8 @@ export async function sendAuthEmail(
     <body style="margin: 0; padding: 0; background-color: #0f0f0f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
       <div style="max-width: 480px; margin: 0 auto; padding: 40px 20px;">
         <div style="background: linear-gradient(135deg, #0A0052 0%, #2a1570 100%); border-radius: 16px; padding: 40px 30px; text-align: center;">
-          <h1 style="color: #ffffff; font-size: 28px; margin: 0 0 8px 0; font-weight: 700;">KASINA</h1>
-          <p style="color: #a78bfa; font-size: 14px; margin: 0 0 30px 0; letter-spacing: 1px;">MEDITATION</p>
+          <div style="width: 60px; height: 60px; margin: 0 auto 16px auto; background: radial-gradient(circle, #E8B730 50%, rgba(232, 183, 48, 0.3) 70%, rgba(232, 183, 48, 0) 100%); border-radius: 50%;"></div>
+          <h1 style="color: #ffffff; font-size: 28px; margin: 0 0 30px 0; font-weight: 700;">KASINA</h1>
           
           <h2 style="color: #ffffff; font-size: 20px; margin: 0 0 12px 0;">${headerText}</h2>
           <p style="color: #c4b5fd; font-size: 14px; margin: 0 0 30px 0; line-height: 1.5;">${descriptionText}</p>

@@ -167,7 +167,7 @@ const HomePage: React.FC = () => {
   }, []);
   
   // Check if user is admin, premium, or friend
-  const isAdmin = email === "admin@kasina.app";
+  const isAdmin = subscriptionType === "admin";
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
   const isFriend = subscriptionType === "friend";
   const hasBreathAccess = isAdmin || isPremium || isFriend;

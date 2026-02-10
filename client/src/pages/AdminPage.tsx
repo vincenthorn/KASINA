@@ -51,11 +51,10 @@ const AdminPage: React.FC = () => {
   const [editedName, setEditedName] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const editInputRef = useRef<HTMLInputElement>(null);
-  const { email, isAuthenticated } = useAuth();
+  const { email, isAuthenticated, subscriptionType } = useAuth();
   
-  // List of admin emails
-  const adminEmails = ["admin@kasina.app"];
-  const isAdmin = isAuthenticated && email && adminEmails.includes(email);
+  // Check admin status from subscription type
+  const isAdmin = isAuthenticated && subscriptionType === "admin";
   
   // If not admin, redirect to home
   if (!isAdmin) {
@@ -1035,7 +1034,7 @@ const AdminPage: React.FC = () => {
                             </td>
                             <td className="px-4 py-3">
                               {/* Don't show delete button for protected accounts */}
-                              {member.email !== "admin@kasina.app" && 
+                              {member.status !== "Admin" && 
                                member.email !== "premium@kasina.app" && 
                                member.email !== "user@kasina.app" &&
                                member.email !== "brian@terma.asia" &&

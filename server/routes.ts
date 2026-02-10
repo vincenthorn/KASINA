@@ -29,23 +29,24 @@ declare module "express-session" {
 }
 
 export function registerRoutes(app: Express): Server {
-  // Admin routes - restricted to admin users
-  const adminEmails = ["admin@kasina.app"];
-  
-  // Middleware to check if user is admin
-  const isAdmin = (req: Request, res: Response, next: NextFunction) => {
-    // Get email from session if available
+  // Middleware to check if user is admin via subscription_type in database
+  const isAdmin = async (req: Request, res: Response, next: NextFunction) => {
     const userEmail = req.session?.user?.email;
     
     if (!userEmail) {
       return res.status(401).json({ message: "Authentication required" });
     }
     
-    if (!adminEmails.includes(userEmail)) {
-      return res.status(403).json({ message: "Admin access required" });
+    try {
+      const user = await getUserByEmail(userEmail);
+      if (!user || user.subscription_type !== 'admin') {
+        return res.status(403).json({ message: "Admin access required" });
+      }
+      next();
+    } catch (error) {
+      console.error("Admin check error:", error);
+      return res.status(500).json({ message: "Admin check failed" });
     }
-    
-    next();
   };
 
   // Middleware to check Zapier API key
@@ -248,24 +249,33 @@ export function registerRoutes(app: Express): Server {
   });
 
   // Admin middleware with enhanced debugging
-  const checkAdmin = (req: Request, res: Response, next: NextFunction) => {
+  const checkAdmin = async (req: Request, res: Response, next: NextFunction) => {
     const userEmail = req.session?.user?.email;
-    const adminEmails = ["admin@kasina.app"];
     
     console.log('🔐 Admin Auth Check:', {
       sessionExists: !!req.session,
       userInSession: !!req.session?.user,
       userEmail: userEmail,
-      sessionId: req.sessionID,
-      isAdmin: userEmail && adminEmails.includes(userEmail)
+      sessionId: req.sessionID
     });
     
-    if (userEmail && adminEmails.includes(userEmail)) {
-      console.log('✅ Admin access granted for:', userEmail);
-      next();
-    } else {
-      console.log('❌ Admin access denied. User email:', userEmail);
-      res.status(403).json({ message: "Unauthorized: Admin access required" });
+    if (!userEmail) {
+      console.log('❌ Admin access denied. No user email in session.');
+      return res.status(403).json({ message: "Unauthorized: Admin access required" });
+    }
+    
+    try {
+      const user = await getUserByEmail(userEmail);
+      if (user && user.subscription_type === 'admin') {
+        console.log('✅ Admin access granted for:', userEmail);
+        next();
+      } else {
+        console.log('❌ Admin access denied. User email:', userEmail, 'subscription_type:', user?.subscription_type);
+        res.status(403).json({ message: "Unauthorized: Admin access required" });
+      }
+    } catch (error) {
+      console.error("Admin check error:", error);
+      res.status(500).json({ message: "Admin check failed" });
     }
   };
 
@@ -295,9 +305,8 @@ export function registerRoutes(app: Express): Server {
         );
         const totalSeconds = userSessions.reduce((sum, s) => sum + (parseInt(s.duration_seconds) || 0), 0);
         
-        // Properly determine status based on subscription_type
         let status = "Freemium";
-        if (user.email === 'admin@kasina.app') {
+        if (user.subscription_type === 'admin') {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
@@ -391,14 +400,13 @@ export function registerRoutes(app: Express): Server {
       const totalMinutes = Math.floor((totalPracticeTimeSeconds % 3600) / 60);
       const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
       
-      const adminEmails = ["admin@kasina.app"];
       const members = usersWithStats.map(user => {
         const practiceHours = Math.floor(user.practiceStats.totalSeconds / 3600);
         const practiceMinutes = Math.floor((user.practiceStats.totalSeconds % 3600) / 60);
         const practiceTimeFormatted = `${practiceHours}h ${practiceMinutes}m`;
         
         let status = "Freemium";
-        if (adminEmails.includes(user.email)) {
+        if (user.subscription_type === 'admin') {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
@@ -499,7 +507,7 @@ export function registerRoutes(app: Express): Server {
         const practiceTimeFormatted = `${practiceHours}h ${practiceMinutes}m`;
         
         let status = "Freemium";
-        if (adminEmails.includes(user.email)) {
+        if (user.subscription_type === 'admin') {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
@@ -571,7 +579,6 @@ export function registerRoutes(app: Express): Server {
       const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
       
       // Transform users to match expected admin page format
-      const adminEmails = ["admin@kasina.app"];
       const members = users.map(user => {
         const userSessions = sessions.filter(s => 
           s.user_email && s.user_email.toLowerCase() === user.email.toLowerCase()
@@ -582,7 +589,7 @@ export function registerRoutes(app: Express): Server {
         const practiceTimeFormatted = `${practiceHours}h ${practiceMinutes}m`;
         
         let status = "Freemium";
-        if (adminEmails.includes(user.email)) {
+        if (user.subscription_type === 'admin') {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";
@@ -693,7 +700,6 @@ export function registerRoutes(app: Express): Server {
       const totalPracticeTimeFormatted = `${totalHours}h ${totalMinutes}m`;
       
       // Transform users to match expected admin page format
-      const adminEmails = ["admin@kasina.app"];
       const members = users.map(user => {
         const userSessions = sessions.filter(s => 
           s.user_email && s.user_email.toLowerCase() === user.email.toLowerCase()
@@ -704,7 +710,7 @@ export function registerRoutes(app: Express): Server {
         const practiceTimeFormatted = `${practiceHours}h ${practiceMinutes}m`;
         
         let status = "Freemium";
-        if (adminEmails.includes(user.email)) {
+        if (user.subscription_type === 'admin') {
           status = "Admin";
         } else if (user.subscription_type === 'premium') {
           status = "Premium";

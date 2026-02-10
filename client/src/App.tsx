@@ -47,7 +47,7 @@ function AuthenticatedRoute({ children }: { children: React.ReactNode }) {
 
 // Special route that requires admin access
 function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, email, checkAuthStatus } = useAuth();
+  const { isAuthenticated, email, subscriptionType, checkAuthStatus } = useAuth();
 
   useEffect(() => {
     checkAuthStatus();
@@ -57,7 +57,7 @@ function AdminOnlyRoute({ children }: { children: React.ReactNode }) {
     return <Navigate to="/login" />;
   }
 
-  if (email !== "admin@kasina.app") {
+  if (subscriptionType !== "admin") {
     return <Navigate to="/" />;
   }
 
@@ -76,7 +76,7 @@ function PremiumFriendRoute({ children }: { children: React.ReactNode }) {
     return <Navigate to="/login" />;
   }
 
-  const isAdmin = email === "admin@kasina.app";
+  const isAdmin = subscriptionType === "admin";
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
   const isFriend = subscriptionType === "friend";
   const hasAccess = isAdmin || isPremium || isFriend;
@@ -166,11 +166,11 @@ function App() {
               <Route
                 path="/breath"
                 element={
-                  <PremiumFriendRoute>
+                  <AuthenticatedRoute>
                     <ErrorBoundary>
                       <BreathPage />
                     </ErrorBoundary>
-                  </PremiumFriendRoute>
+                  </AuthenticatedRoute>
                 }
               />
               

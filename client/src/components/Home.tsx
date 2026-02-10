@@ -5,10 +5,10 @@ import { PlayCircle, Video, BarChart3, Disc } from "lucide-react";
 import { useAuth } from "../lib/stores/useAuth";
 
 const Home = () => {
-  const { email } = useAuth();
+  const { email, subscriptionType } = useAuth();
   
   // Check if user is admin
-  const isAdmin = email === "admin@kasina.app";
+  const isAdmin = subscriptionType === "admin";
   
   // Base menu items visible to all users
   const baseMenuItems = [

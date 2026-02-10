@@ -28,13 +28,13 @@ const ReflectionPage: React.FC = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [userRegistrationDate, setUserRegistrationDate] = useState<string | undefined>(undefined);
-  const { email } = useAuth();
+  const { email, subscriptionType } = useAuth();
   
   // State to track the currently selected kasina type from chart
   const [selectedKasinaType, setSelectedKasinaType] = useState<string | null>(null);
   
   // Check if user is admin
-  const isAdmin = email === 'admin@kasina.app';
+  const isAdmin = subscriptionType === 'admin';
 
   // Disable caching in useEffect by using a refresh counter
   const [refreshCounter, setRefreshCounter] = useState(0);

@@ -53,8 +53,8 @@ export const useAuth = create<AuthState>((set) => ({
       const userEmail = data.user?.email || data.email;
       const subscriptionType = data.user?.subscriptionType || data.subscriptionType;
       
-      // Determine if user is admin
-      const isAdmin = userEmail === 'admin@kasina.app';
+      // Determine if user is admin based on subscription type from database
+      const isAdmin = subscriptionType === 'admin';
       
       // Use the subscription type from the database instead of hardcoded list
       const isPremium = subscriptionType === 'premium' || subscriptionType === 'admin' || subscriptionType === 'friend';
@@ -137,11 +137,11 @@ export const useAuth = create<AuthState>((set) => ({
         // Handle both response formats (direct email or nested user object)
         const userEmail = data.user?.email || data.email;
         
-        // Determine if user is admin
-        const isAdmin = userEmail === 'admin@kasina.app';
-        
         // Get subscription type from server response
         const serverSubscriptionType = data.user?.subscriptionType || data.subscriptionType;
+        
+        // Determine if user is admin based on subscription type from database
+        const isAdmin = serverSubscriptionType === 'admin';
         
         // Create user object with subscription info from database
         const user = {

@@ -70,7 +70,7 @@ export default function SimpleAdminPage() {
   const totalUsers = users.length;
   const freemiumUsers = users.filter(u => u.subscription_type === 'freemium').length;
   const premiumUsers = users.filter(u => u.subscription_type === 'premium').length;
-  const adminUsers = users.filter(u => u.email === 'admin@kasina.app').length;
+  const adminUsers = users.filter(u => u.subscription_type === 'admin').length;
 
   const totalPracticeSeconds = sessions.reduce((sum, s) => sum + (s.duration_seconds || 0), 0);
   const totalHours = Math.floor(totalPracticeSeconds / 3600);

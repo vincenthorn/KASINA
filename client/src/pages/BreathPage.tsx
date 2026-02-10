@@ -39,11 +39,16 @@ function isChromeBasedBrowser(): boolean {
   return isChromeBased;
 }
 
+const BREATH_SENSOR_KEY = 'kasina_has_breath_sensor';
+
 const BreathPage: React.FC = () => {
   const navigate = useNavigate();
   const { user, isAdmin } = useAuth();
   const [showMeditation, setShowMeditation] = React.useState(false);
   const [forceStayOnPage, setForceStayOnPage] = React.useState(false);
+  const [hasSensor, setHasSensor] = React.useState(() => {
+    return localStorage.getItem(BREATH_SENSOR_KEY) === 'true';
+  });
   
   // Browser compatibility state
   const [showBrowserWarning, setShowBrowserWarning] = React.useState(false);
@@ -96,8 +101,7 @@ const BreathPage: React.FC = () => {
     });
   }, [isConnected]);
   
-  // Check if user has premium access
-  const hasPremiumAccess = user?.subscription === 'premium' || isAdmin;
+  const hasPremiumAccess = true;
 
   // Auto-start kasina selection if device is already connected and calibrated
   React.useEffect(() => {
@@ -170,6 +174,74 @@ const BreathPage: React.FC = () => {
           End Session
         </Button>
       </div>
+    );
+  }
+
+  const handleConfirmSensor = () => {
+    localStorage.setItem(BREATH_SENSOR_KEY, 'true');
+    setHasSensor(true);
+  };
+
+  if (!hasSensor) {
+    return (
+      <Layout>
+        <div className="min-h-screen bg-black flex flex-col items-center justify-start p-4 pt-16">
+          <div className="w-full max-w-2xl">
+            <h1 className="text-4xl font-bold text-white mb-8 text-left">Breath Kasina</h1>
+            <div 
+              className="rounded-2xl p-8 shadow-2xl border border-purple-500/30"
+              style={{
+                background: 'linear-gradient(135deg, #4c1d95 0%, #5b21b6 25%, #6d28d9 50%, #7c3aed 75%, #8b5cf6 100%)',
+                boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)'
+              }}
+            >
+              <div className="text-center mb-8">
+                <div className="text-6xl mb-6">🌬️</div>
+                <h2 className="text-2xl font-bold text-white mb-4">Breath-Guided Meditation</h2>
+                <p className="text-purple-100 text-base leading-relaxed max-w-lg mx-auto">
+                  Breath Kasina mode uses a Vernier GDX Respiration Belt to track your breathing in real time, 
+                  creating a meditation experience that responds to each breath you take.
+                </p>
+              </div>
+
+              <div className="bg-white/10 rounded-xl p-6 mb-8 border border-white/10">
+                <h3 className="text-lg font-semibold text-white mb-3">You'll Need a Respiration Belt</h3>
+                <p className="text-purple-100 text-sm leading-relaxed mb-4">
+                  To use Breath Kasina mode, you need a Vernier Go Direct Respiration Belt. 
+                  This sensor wraps around your chest and connects to your browser via Bluetooth 
+                  to detect your breathing patterns with high precision.
+                </p>
+                <a 
+                  href="https://www.vernier.com/product/go-direct-respiration-belt/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white text-purple-900 font-semibold px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors"
+                >
+                  <span>View on Vernier.com</span>
+                  <span>↗</span>
+                </a>
+              </div>
+
+              <div className="space-y-3">
+                <Button
+                  onClick={handleConfirmSensor}
+                  className="w-full py-4 text-lg font-bold rounded-xl bg-green-500 hover:bg-green-600 text-white shadow-lg"
+                  style={{ boxShadow: '0 10px 30px rgba(34, 197, 94, 0.3)' }}
+                >
+                  Yes, I Have a Breath Sensor
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => navigate('/')}
+                  className="w-full py-3 border-purple-300/30 text-purple-100 hover:bg-white/10 rounded-xl"
+                >
+                  Go Back
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
     );
   }
 
@@ -250,9 +322,6 @@ const BreathPage: React.FC = () => {
                 <h2 className="text-2xl font-bold text-white">
                   🌀 Vernier Respiration Belt
                 </h2>
-                <span className="bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">
-                  Premium
-                </span>
                 <span className="bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">
                   Official
                 </span>

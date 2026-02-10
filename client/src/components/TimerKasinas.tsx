@@ -50,7 +50,7 @@ const TimerKasinas: React.FC = () => {
   const { email, subscriptionType } = useAuth(); // Get user email and subscription type
   
   // Check if user is admin or premium
-  const isAdmin = email === "admin@kasina.app";
+  const isAdmin = subscriptionType === "admin";
   
   // Check if current user is premium based on their actual subscription status
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
@@ -740,7 +740,6 @@ const TimerKasinas: React.FC = () => {
                               </span>
                               <span>
                                 Vajrayana Kasinas
-                                {!isPremium && <span className="ml-2 text-yellow-400 text-xs">✦ Premium</span>}
                               </span>
                             </span>
                           </SelectItem>
@@ -924,8 +923,6 @@ const TimerKasinas: React.FC = () => {
                       {/* Vajrayana Kasinas - With different content based on user type */}
                       {kasinaTab === 'vajrayana' && (
                         <div className="py-1">
-                          {isPremium ? (
-                            // Premium users get access to the Vajrayana kasinas
                             <div className="grid grid-cols-2 gap-3">
                               {/* OM Kasina button */}
                               <Button
@@ -1011,23 +1008,6 @@ const TimerKasinas: React.FC = () => {
                                 <span>Rainbow</span>
                               </Button>
                             </div>
-                          ) : (
-                            // Non-premium users see a subscription message
-                            <div className="flex flex-col items-center justify-center h-full w-full p-10 py-16 bg-gradient-to-br from-purple-900/60 to-indigo-900/60 rounded-2xl border border-indigo-500/30 overflow-hidden shadow-xl">
-                              <div className="text-center mb-8">
-                                <h3 className="text-3xl font-bold text-white mb-4">
-                                  <span className="mr-2">💀</span>
-                                  Vajrayana Kasinas
-                                </h3>
-                                <p className="text-indigo-100 mb-8 text-lg max-w-md">
-                                  Access advanced meditation objects with our premium subscription.
-                                </p>
-                              </div>
-                              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 px-10 rounded-full font-medium text-lg shadow-lg">
-                                Premium Feature
-                              </div>
-                            </div>
-                          )}
                         </div>
                       )}
                     </div>

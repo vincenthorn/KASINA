@@ -683,7 +683,7 @@ const DynamicOrb: React.FC<{ remainingTime?: number | null }> = ({ remainingTime
   const { email, subscriptionType } = useAuth(); // Get user email and subscription type
   
   // Check if user is admin
-  const isAdmin = email === "admin@kasina.app";
+  const isAdmin = subscriptionType === "admin";
   
   // Check if current user is premium based on their actual subscription status from the database
   const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
