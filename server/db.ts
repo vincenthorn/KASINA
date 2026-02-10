@@ -401,4 +401,28 @@ export async function registerUser(email: string): Promise<User | null> {
   }
 }
 
+export async function applyDataMigrations(): Promise<void> {
+  try {
+    console.log('Running startup data migrations...');
+
+    const adminResult = await pool.query(
+      `UPDATE users SET subscription_type = 'admin' WHERE LOWER(email) = LOWER('vjhorn@gmail.com') AND subscription_type != 'admin'`
+    );
+    if (adminResult.rowCount && adminResult.rowCount > 0) {
+      console.log('Updated vjhorn@gmail.com to admin');
+    }
+
+    const deleteResult = await pool.query(
+      `DELETE FROM users WHERE LOWER(email) = LOWER('admin@kasina.app')`
+    );
+    if (deleteResult.rowCount && deleteResult.rowCount > 0) {
+      console.log('Removed admin@kasina.app user');
+    }
+
+    console.log('Startup data migrations complete');
+  } catch (error) {
+    console.error('Error running startup data migrations:', error);
+  }
+}
+
 export default pool;
