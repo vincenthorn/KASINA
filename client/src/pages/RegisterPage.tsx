@@ -139,9 +139,10 @@ const RegisterPage: React.FC = () => {
             {step === "email" ? (
               <form onSubmit={handleRequestCode} className="space-y-4 max-w-[95%] mx-auto">
                 <div className="text-center mb-4">
-                  <h2 className="text-white text-xl font-semibold mb-1">Create Free Account</h2>
+                  <h2 className="text-white text-xl font-semibold mb-1">Create A Free Account</h2>
                   <p className="text-gray-400 text-sm">
-                    Register to start your meditation practice
+                    KASINA is freely offered by the{' '}
+                    <a href="https://www.pragmaticdharma.com" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Pragmatic Dharma Sangha</a>
                   </p>
                 </div>
 
