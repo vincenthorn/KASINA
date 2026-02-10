@@ -14,7 +14,6 @@ import AuthVerifyPage from "./pages/AuthVerifyPage";
 import HomePage from "./pages/HomePage";
 import KasinasPage from "./pages/KasinasPage";
 
-import MeditationPage from "./pages/MeditationPage";
 import ReflectionPage from "./pages/ReflectionPage";
 import AdminPage from "./pages/AdminPage";
 import LogoExportPage from "./pages/LogoExportPage";
@@ -122,16 +121,6 @@ function App() {
                 }
               />
 
-              <Route
-                path="/meditation"
-                element={
-                  <AuthenticatedRoute>
-                    <ErrorBoundary>
-                      <MeditationPage />
-                    </ErrorBoundary>
-                  </AuthenticatedRoute>
-                }
-              />
               <Route
                 path="/reflection"
                 element={

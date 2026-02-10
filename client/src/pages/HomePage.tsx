@@ -2,13 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import { Card, CardContent } from "../components/ui/card";
-import { BookOpen, BarChart, Wind, Monitor, Expand, PieChart, Waves } from "lucide-react";
+import { BookOpen, BarChart, Wind, Expand, PieChart, Waves } from "lucide-react";
 import Logo from "../components/Logo";
 import { useAuth } from "../lib/stores/useAuth";
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
-  const { email, subscriptionType } = useAuth();
+  const { email } = useAuth();
   
   // Check for crash logs and monitoring data from visual mode
   React.useEffect(() => {
@@ -166,15 +166,8 @@ const HomePage: React.FC = () => {
     }
   }, []);
   
-  // Check if user is admin, premium, or friend
-  const isAdmin = subscriptionType === "admin";
-  const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
-  const isFriend = subscriptionType === "friend";
-  const hasBreathAccess = isAdmin || isPremium || isFriend;
   
-  // Define features based on user role with correct order
-  const features = isAdmin ? [
-    // Admin users: Visual → Breath → Watch → Reflect
+  const features = [
     {
       icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
       title: "Visual",
@@ -188,52 +181,6 @@ const HomePage: React.FC = () => {
       description: "Breathing with the visual field",
       path: "/breath",
       color: "from-blue-600 to-blue-800",
-    },
-    {
-      icon: <Monitor className="h-10 w-10" style={{ color: "#FFFF00" }} />,
-      title: "Watch",
-      description: "Guided meditations to accelerate learning",
-      path: "/meditation",
-      color: "from-yellow-400 to-yellow-600",
-    },
-    {
-      icon: <PieChart className="h-10 w-10 text-white" />,
-      title: "Reflect",
-      description: "View your history & track your progress",
-      path: "/reflection",
-      color: "from-gray-300 to-gray-500",
-    },
-  ] : hasBreathAccess ? [
-    // Premium and Friend users: Visual → Breath → Reflect
-    {
-      icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
-      title: "Visual",
-      description: "Meditate on the sense of sight",
-      path: "/kasinas",
-      color: "from-red-600 to-red-800",
-    },
-    {
-      icon: <Waves className="h-10 w-10 text-blue-500" />,
-      title: "Breath",
-      description: "Breathing with the visual field",
-      path: "/breath",
-      color: "from-blue-600 to-blue-800",
-    },
-    {
-      icon: <PieChart className="h-10 w-10 text-white" />,
-      title: "Reflect",
-      description: "View your history & track your progress",
-      path: "/reflection",
-      color: "from-gray-300 to-gray-500",
-    },
-  ] : [
-    // Freemium users: Visual → Reflect only
-    {
-      icon: <div className="h-10 w-10 bg-red-500 rounded-full" />,
-      title: "Visual",
-      description: "Meditate on the sense of sight",
-      path: "/kasinas",
-      color: "from-red-600 to-red-800",
     },
     {
       icon: <PieChart className="h-10 w-10 text-white" />,

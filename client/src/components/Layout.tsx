@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import Logo from "./Logo";
 import { useAuth } from "../lib/stores/useAuth";
 import { useAutoHide } from "../lib/useAutoHide";
-import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle, Monitor, Expand, PieChart, Waves } from "lucide-react";
+import { Home, Flame, BookOpen, BarChart, LogOut, Settings, Wind, Circle, Expand, PieChart, Waves } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -23,34 +23,16 @@ const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false, isFocusMod
 
   // Check if user is admin, premium, or friend
   const isAdmin = subscriptionType === "admin";
-  const isPremium = subscriptionType === "premium" || subscriptionType === "admin";
-  const isFriend = subscriptionType === "friend";
-  const hasBreathAccess = isAdmin || isPremium || isFriend;
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
 
   // Define navigation items based on user role
-  const navItems = isAdmin ? [
-    // Admin users: Visual → Breath → Watch → Reflect
+  const navItems = [
     { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
     { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
     { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
-    { path: "/meditation", label: "Watch", icon: <Monitor className="w-5 h-5" /> },
-    { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
-  ] : hasBreathAccess ? [
-    // Premium and Friend users: Visual → Breath → Watch → Reflect
-    { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
-    { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
-    { path: "/breath", label: "Breath", icon: <Waves className="w-5 h-5" /> },
-    { path: "/meditation", label: "Watch", icon: <Monitor className="w-5 h-5" /> },
-    { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
-  ] : [
-    // Freemium users: Visual → Watch → Reflect
-    { path: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
-    { path: "/kasinas", label: "Visual", icon: <Circle className="w-5 h-5" /> },
-    { path: "/meditation", label: "Watch", icon: <Monitor className="w-5 h-5" /> },
     { path: "/reflection", label: "Reflect", icon: <PieChart className="w-5 h-5" /> },
   ];
   

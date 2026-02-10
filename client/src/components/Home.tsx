@@ -1,14 +1,9 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "./ui/card";
 import Logo from "./Logo";
-import { PlayCircle, Video, BarChart3, Disc } from "lucide-react";
-import { useAuth } from "../lib/stores/useAuth";
+import { PlayCircle, BarChart3 } from "lucide-react";
 
 const Home = () => {
-  const { email, subscriptionType } = useAuth();
-  
-  // Check if user is admin
-  const isAdmin = subscriptionType === "admin";
   
   // Base menu items visible to all users
   const baseMenuItems = [
@@ -26,27 +21,7 @@ const Home = () => {
     }
   ];
   
-  // Admin-only menu items
-  const adminMenuItems = [
-    {
-      title: "Meditation",
-      icon: <Disc className="h-12 w-12 mb-4 text-purple-500" />,
-      description: "Guided meditation videos and community resources",
-      path: "/meditation"
-    },
-    {
-      title: "Recording",
-      icon: <Video className="h-12 w-12 mb-4 text-red-500" />,
-      description: "Record your meditation sessions and manage recordings",
-      path: "/recording"
-    }
-  ];
-  
-  // Combine items based on user role
-  const menuItems = [
-    ...baseMenuItems,
-    ...(isAdmin ? adminMenuItems : [])
-  ];
+  const menuItems = baseMenuItems;
 
   return (
     <div className="container mx-auto px-4 py-10 flex flex-col items-center">
