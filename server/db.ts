@@ -11,6 +11,10 @@ export interface User {
   name?: string;
   subscription_type: 'admin' | 'premium' | 'freemium' | 'friend';
   source?: 'csv' | 'jhana_sync' | 'manual';
+  auth_code?: string;
+  auth_code_expires_at?: Date;
+  magic_link_token?: string;
+  magic_link_expires_at?: Date;
   created_at: Date;
   updated_at: Date;
 }
@@ -300,6 +304,100 @@ export async function getAllUsersWithStats(): Promise<Array<User & {practiceStat
   } catch (error) {
     console.error('❌ Admin Dashboard: Error getting users with stats:', error);
     return [];
+  }
+}
+
+import crypto from 'crypto';
+
+export function generateAuthCode(): string {
+  return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
+export function generateMagicLinkToken(): string {
+  return crypto.randomBytes(32).toString('hex');
+}
+
+export async function setAuthCodes(email: string, authCode: string, magicLinkToken: string): Promise<boolean> {
+  try {
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000);
+    const result = await pool.query(
+      `UPDATE users SET 
+        auth_code = $1, 
+        auth_code_expires_at = $2, 
+        magic_link_token = $3, 
+        magic_link_expires_at = $2,
+        updated_at = CURRENT_TIMESTAMP
+       WHERE LOWER(email) = LOWER($4)`,
+      [authCode, expiresAt, magicLinkToken, email]
+    );
+    return (result.rowCount || 0) > 0;
+  } catch (error) {
+    console.error('Error setting auth codes:', error);
+    return false;
+  }
+}
+
+export async function verifyAuthCode(email: string, code: string): Promise<User | null> {
+  try {
+    const result = await pool.query(
+      `SELECT * FROM users 
+       WHERE LOWER(email) = LOWER($1) 
+       AND auth_code = $2 
+       AND auth_code_expires_at > NOW()`,
+      [email, code]
+    );
+    if (result.rows[0]) {
+      await pool.query(
+        `UPDATE users SET auth_code = NULL, auth_code_expires_at = NULL, updated_at = CURRENT_TIMESTAMP WHERE id = $1`,
+        [result.rows[0].id]
+      );
+      return result.rows[0];
+    }
+    return null;
+  } catch (error) {
+    console.error('Error verifying auth code:', error);
+    return null;
+  }
+}
+
+export async function verifyMagicLinkToken(token: string): Promise<User | null> {
+  try {
+    const result = await pool.query(
+      `SELECT * FROM users 
+       WHERE magic_link_token = $1 
+       AND magic_link_expires_at > NOW()`,
+      [token]
+    );
+    if (result.rows[0]) {
+      await pool.query(
+        `UPDATE users SET magic_link_token = NULL, magic_link_expires_at = NULL, updated_at = CURRENT_TIMESTAMP WHERE id = $1`,
+        [result.rows[0].id]
+      );
+      return result.rows[0];
+    }
+    return null;
+  } catch (error) {
+    console.error('Error verifying magic link token:', error);
+    return null;
+  }
+}
+
+export async function registerUser(email: string): Promise<User | null> {
+  try {
+    const existing = await getUserByEmail(email);
+    if (existing) {
+      return existing;
+    }
+    const result = await pool.query(
+      `INSERT INTO users (email, subscription_type, source) 
+       VALUES (LOWER($1), 'freemium', 'manual') 
+       RETURNING *`,
+      [email]
+    );
+    return result.rows[0] || null;
+  } catch (error) {
+    console.error('Error registering user:', error);
+    return null;
   }
 }
 

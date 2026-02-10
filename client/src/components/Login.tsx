@@ -28,7 +28,7 @@ const Login = () => {
       if (success) {
         navigate("/");
       } else {
-        toast.error("Become a premium member of contemplative.technology for access. Visit https://www.contemplative.technology/subscribe");
+        toast.error("Login failed. Please check your email and try again.");
       }
     } catch (error) {
       toast.error("Login failed. Please try again.");

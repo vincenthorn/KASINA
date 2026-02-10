@@ -80,34 +80,6 @@ export const useAuth = create<AuthState>((set) => ({
     } catch (error) {
       console.error("Login error:", error);
       toast.error('Login failed. Please try again later.');
-      
-      // Fallback login for development/testing
-      if (import.meta.env.DEV) {
-        const isAdmin = email === 'admin@kasina.app';
-        
-        // Check for premium email addresses
-        const isPremium = 
-          email === 'premium@kasina.app' || 
-          email === 'brian@terma.asia' || 
-          email === 'emilywhorn@gmail.com' || 
-          email === 'ryan@ryanoelke.com' || 
-          email === 'ksowocki@gmail.com' ||
-          isAdmin;
-          
-        const user: User = { 
-          email, 
-          subscription: isPremium ? 'premium' : 'free'
-        };
-        
-        set({ 
-          isAuthenticated: true, 
-          email,
-          user,
-          isAdmin
-        });
-        return true;
-      }
-      
       return false;
     }
   },

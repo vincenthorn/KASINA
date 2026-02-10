@@ -9,7 +9,8 @@ import { parse } from "csv-parse/sync";
 
 // Configure multer for file uploads
 const upload = multer({ storage: multer.memoryStorage() });
-import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser, addSession, getUserSessions, getAllSessions, getUserPracticeStats, getAllUsersWithStats, deleteUserSession } from "./db";
+import { getUserByEmail, getAllUsers, upsertUser, bulkUpsertUsers, isUserWhitelisted, getUserSubscriptionType, removeUser, addSession, getUserSessions, getAllSessions, getUserPracticeStats, getAllUsersWithStats, deleteUserSession, generateAuthCode, generateMagicLinkToken, setAuthCodes, verifyAuthCode, verifyMagicLinkToken, registerUser } from "./db";
+import { sendAuthEmail } from "./email";
 import { handleCsvUpload, uploadMiddleware } from "./upload-fix.js";
 import { Pool } from 'pg';
 
@@ -58,66 +59,143 @@ export function registerRoutes(app: Express): Server {
     next();
   };
 
-  // Enhanced authentication routes with session debugging
+  // Helper to establish session after successful auth
+  function establishSession(req: Request, res: Response, user: any) {
+    req.session.regenerate((regenErr) => {
+      if (regenErr) {
+        console.error("🔐 Session regeneration error:", regenErr);
+        return res.status(500).json({ message: "Session error" });
+      }
+      req.session.user = { email: user.email };
+      req.session.save((saveErr) => {
+        if (saveErr) {
+          console.error("🔐 Session save error:", saveErr);
+          return res.status(500).json({ message: "Session error" });
+        }
+        console.log(`🔐 Session established for ${user.email}`);
+        res.json({
+          message: "Login successful",
+          user: {
+            email: user.email,
+            subscriptionType: user.subscription_type
+          }
+        });
+      });
+    });
+  }
+
+  // Request a magic link / auth code (works for both login and registration)
+  app.post("/api/auth/request-code", async (req, res) => {
+    const { email, isRegistration } = req.body;
+
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      return res.status(400).json({ message: "Valid email is required" });
+    }
+
+    try {
+      let user = await getUserByEmail(email);
+
+      if (!user && isRegistration) {
+        user = await registerUser(email);
+        if (!user) {
+          return res.status(500).json({ message: "Failed to create account" });
+        }
+        console.log(`🔐 New user registered: ${email}`);
+      }
+
+      if (!user) {
+        return res.status(404).json({ message: "No account found with this email. Would you like to register?" });
+      }
+
+      const authCode = generateAuthCode();
+      const magicLinkToken = generateMagicLinkToken();
+
+      const saved = await setAuthCodes(email, authCode, magicLinkToken);
+      if (!saved) {
+        return res.status(500).json({ message: "Failed to generate authentication code" });
+      }
+
+      const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+      const host = req.headers['x-forwarded-host'] || req.headers.host;
+      const baseUrl = `${protocol}://${host}`;
+
+      await sendAuthEmail(email, authCode, magicLinkToken, baseUrl, !!isRegistration);
+
+      console.log(`🔐 Auth code sent to ${email}`);
+      res.json({ message: "Authentication code sent to your email", emailSent: true });
+    } catch (error) {
+      console.error("🔐 Request code error:", error);
+      res.status(500).json({ message: "Failed to send authentication email. Please try again." });
+    }
+  });
+
+  // Verify 6-digit auth code
+  app.post("/api/auth/verify-code", async (req, res) => {
+    const { email, code } = req.body;
+
+    if (!email || !code) {
+      return res.status(400).json({ message: "Email and code are required" });
+    }
+
+    try {
+      const user = await verifyAuthCode(email, code);
+      if (!user) {
+        return res.status(401).json({ message: "Invalid or expired code" });
+      }
+
+      console.log(`🔐 Auth code verified for ${email}`);
+      establishSession(req, res, user);
+    } catch (error) {
+      console.error("🔐 Verify code error:", error);
+      res.status(500).json({ message: "Verification failed" });
+    }
+  });
+
+  // Verify magic link token
+  app.get("/api/auth/verify-magic-link", async (req, res) => {
+    const { token } = req.query;
+
+    if (!token || typeof token !== 'string') {
+      return res.status(400).json({ message: "Invalid link" });
+    }
+
+    try {
+      const user = await verifyMagicLinkToken(token);
+      if (!user) {
+        return res.status(401).json({ message: "Invalid or expired link" });
+      }
+
+      console.log(`🔐 Magic link verified for ${user.email}`);
+      req.session.regenerate((regenErr) => {
+        if (regenErr) {
+          return res.redirect('/login?error=session');
+        }
+        req.session.user = { email: user.email };
+        req.session.save((saveErr) => {
+          if (saveErr) {
+            return res.redirect('/login?error=session');
+          }
+          res.redirect('/auth/verify?success=true');
+        });
+      });
+    } catch (error) {
+      console.error("🔐 Magic link error:", error);
+      res.redirect('/login?error=invalid');
+    }
+  });
+
+  // Keep legacy login endpoint for backwards compatibility
   app.post("/api/auth/login", async (req, res) => {
     const { email } = req.body;
-    
-    console.log(`🔐 LOGIN ATTEMPT: ${email}`);
-    console.log(`🔐 Pre-login session ID: ${req.sessionID}`);
-    console.log(`🔐 Pre-login session data:`, req.session);
-    
     if (!email) {
       return res.status(400).json({ message: "Email is required" });
     }
-    
     try {
-      // Check if user exists in database
       const user = await getUserByEmail(email);
       if (!user) {
-        console.log(`🔐 LOGIN FAILED: User ${email} not found in database`);
         return res.status(401).json({ message: "User not found" });
       }
-      
-      console.log(`🔐 LOGIN SUCCESS: User ${email} found with subscription: ${user.subscription_type}`);
-      
-      // Store user in session with enhanced debugging
-      req.session.user = { email: user.email };
-      console.log(`🔐 Setting session user data:`, req.session.user);
-      console.log(`🔐 Session ID after user assignment: ${req.sessionID}`);
-      console.log(`🔐 Full session object:`, req.session);
-      
-      // Force session regeneration to ensure clean state
-      req.session.regenerate((regenErr) => {
-        if (regenErr) {
-          console.error("🔐 Session regeneration error:", regenErr);
-          return res.status(500).json({ message: "Session regeneration failed" });
-        }
-        
-        // Set user data in new session
-        req.session.user = { email: user.email };
-        console.log(`🔐 New session ID after regeneration: ${req.sessionID}`);
-        console.log(`🔐 User data in new session:`, req.session.user);
-        
-        // Save session explicitly
-        req.session.save((saveErr) => {
-          if (saveErr) {
-            console.error("🔐 Session save error:", saveErr);
-            return res.status(500).json({ message: "Session save failed" });
-          }
-          
-          console.log(`🔐 Session saved successfully for ${email}`);
-          console.log(`🔐 Final session ID: ${req.sessionID}`);
-          
-          res.json({ 
-            message: "Login successful",
-            user: { 
-              email: user.email,
-              subscriptionType: user.subscription_type 
-            },
-            sessionId: req.sessionID // Include for debugging
-          });
-        });
-      });
+      establishSession(req, res, user);
     } catch (error) {
       console.error("🔐 Login error:", error);
       res.status(500).json({ message: "Login failed" });

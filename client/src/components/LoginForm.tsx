@@ -1,38 +1,116 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../lib/stores/useAuth";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "./ui/card";
-import { AlertCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardFooter } from "./ui/card";
+import { AlertCircle, ArrowLeft, Mail } from "lucide-react";
 import { Alert, AlertDescription } from "./ui/alert";
 import Logo from "./Logo";
+import { toast } from "sonner";
+
+type Step = "email" | "code";
 
 const LoginForm: React.FC = () => {
+  const [step, setStep] = useState<Step>("email");
   const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { login } = useAuth();
+  const [notFound, setNotFound] = useState(false);
+  const { checkAuthStatus } = useAuth();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleRequestCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setNotFound(false);
     setIsSubmitting(true);
 
     try {
       if (!email.trim()) {
         throw new Error("Email is required");
       }
-
       if (!/\S+@\S+\.\S+/.test(email)) {
         throw new Error("Please enter a valid email address");
       }
 
-      const success = await login(email);
-      if (!success) {
-        throw new Error("Sorry, you don't have access to this application");
+      const response = await fetch('/api/auth/request-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, isRegistration: false }),
+        credentials: 'include',
+      });
+
+      const data = await response.json();
+
+      if (response.status === 404) {
+        setNotFound(true);
+        return;
       }
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send code');
+      }
+
+      toast.success('Check your email for the login code');
+      setStep("code");
     } catch (err) {
       setError(err instanceof Error ? err.message : "An unexpected error occurred");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleVerifyCode = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setIsSubmitting(true);
+
+    try {
+      if (!code.trim() || code.length !== 6) {
+        throw new Error("Please enter the 6-digit code from your email");
+      }
+
+      const response = await fetch('/api/auth/verify-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, code }),
+        credentials: 'include',
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Invalid code');
+      }
+
+      toast.success('Successfully signed in');
+      await checkAuthStatus();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An unexpected error occurred");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleResend = async () => {
+    setError(null);
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/auth/request-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, isRegistration: false }),
+        credentials: 'include',
+      });
+      if (response.ok) {
+        toast.success('New code sent to your email');
+      } else {
+        const data = await response.json();
+        throw new Error(data.message || 'Failed to resend');
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to resend code");
     } finally {
       setIsSubmitting(false);
     }
@@ -52,38 +130,119 @@ const LoginForm: React.FC = () => {
           </div>
         </CardHeader>
         <CardContent className="px-6 md:px-8">
-          <form onSubmit={handleSubmit} className="space-y-4 max-w-[95%] mx-auto">
-            {error && (
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>{error}</AlertDescription>
-              </Alert>
-            )}
-            
-            <div className="space-y-2">
-              <div className="text-sm text-gray-300 mb-2">Email address</div>
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-gray-800 border-gray-700 text-white"
+          {step === "email" ? (
+            <form onSubmit={handleRequestCode} className="space-y-4 max-w-[95%] mx-auto">
+              {error && (
+                <Alert variant="destructive">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              )}
+
+              {notFound && (
+                <Alert className="bg-yellow-900/50 border-yellow-700">
+                  <AlertCircle className="h-4 w-4 text-yellow-400" />
+                  <AlertDescription className="text-yellow-200">
+                    No account found with this email.{" "}
+                    <Link to="/register" className="text-indigo-400 hover:text-indigo-300 underline">
+                      Register a free account
+                    </Link>
+                  </AlertDescription>
+                </Alert>
+              )}
+
+              <div className="space-y-2">
+                <div className="text-sm text-gray-300 mb-2">Email address</div>
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setNotFound(false); }}
+                  className="bg-gray-800 border-gray-700 text-white"
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 mt-4"
                 disabled={isSubmitting}
-              />
-            </div>
-            
-            <Button 
-              type="submit" 
-              className="w-full bg-indigo-600 hover:bg-indigo-700 mt-4"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Checking..." : "Enter"}
-            </Button>
-          </form>
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                {isSubmitting ? "Sending..." : "Send Login Code"}
+              </Button>
+            </form>
+          ) : (
+            <form onSubmit={handleVerifyCode} className="space-y-4 max-w-[95%] mx-auto">
+              {error && (
+                <Alert variant="destructive">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              )}
+
+              <div className="text-center mb-4">
+                <Mail className="w-10 h-10 text-indigo-400 mx-auto mb-2" />
+                <p className="text-gray-300 text-sm">
+                  We sent a 6-digit code to<br />
+                  <span className="text-white font-medium">{email}</span>
+                </p>
+                <p className="text-gray-500 text-xs mt-1">
+                  You can also click the magic link in the email
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <div className="text-sm text-gray-300 mb-2">Enter 6-digit code</div>
+                <Input
+                  type="text"
+                  placeholder="000000"
+                  value={code}
+                  onChange={(e) => {
+                    const val = e.target.value.replace(/\D/g, '').slice(0, 6);
+                    setCode(val);
+                  }}
+                  className="bg-gray-800 border-gray-700 text-white text-center text-2xl tracking-[0.5em] font-mono"
+                  disabled={isSubmitting}
+                  maxLength={6}
+                  autoFocus
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 mt-4"
+                disabled={isSubmitting || code.length !== 6}
+              >
+                {isSubmitting ? "Verifying..." : "Verify Code"}
+              </Button>
+
+              <div className="flex justify-between items-center mt-2">
+                <button
+                  type="button"
+                  onClick={() => { setStep("email"); setCode(""); setError(null); }}
+                  className="text-sm text-gray-400 hover:text-gray-300 flex items-center"
+                >
+                  <ArrowLeft className="w-3 h-3 mr-1" /> Back
+                </button>
+                <button
+                  type="button"
+                  onClick={handleResend}
+                  disabled={isSubmitting}
+                  className="text-sm text-indigo-400 hover:text-indigo-300"
+                >
+                  Resend code
+                </button>
+              </div>
+            </form>
+          )}
         </CardContent>
         <CardFooter className="flex justify-center pb-6">
           <div className="text-sm text-gray-400 text-center max-w-[90%] mx-auto">
-            Use a <a href="https://www.contemplative.technology/subscribe" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">contemplative.technology</a> account to login.
+            Don't have an account?{" "}
+            <Link to="/register" className="text-indigo-400 hover:text-indigo-300">
+              Register for free
+            </Link>
           </div>
         </CardFooter>
       </Card>

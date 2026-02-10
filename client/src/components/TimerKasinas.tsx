@@ -1023,14 +1023,9 @@ const TimerKasinas: React.FC = () => {
                                   Access advanced meditation objects with our premium subscription.
                                 </p>
                               </div>
-                              <a 
-                                href="https://www.contemplative.technology/subscribe" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 px-10 rounded-full font-medium text-lg shadow-lg hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105"
-                              >
-                                Upgrade to Premium
-                              </a>
+                              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 px-10 rounded-full font-medium text-lg shadow-lg">
+                                Premium Feature
+                              </div>
                             </div>
                           )}
                         </div>

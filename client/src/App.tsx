@@ -9,6 +9,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import SessionRecovery from "./components/SessionRecovery";
 
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import AuthVerifyPage from "./pages/AuthVerifyPage";
 import HomePage from "./pages/HomePage";
 import KasinasPage from "./pages/KasinasPage";
 
@@ -94,6 +96,8 @@ function App() {
           <Router>
             <Routes>
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/auth/verify" element={<AuthVerifyPage />} />
               <Route path="/logo-export" element={<LogoExportPage />} />
               <Route path="/crash-log" element={<CrashLogPage />} />
               <Route path="/diagnostics" element={<DiagnosticsPage />} />
