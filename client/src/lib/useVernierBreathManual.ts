@@ -22,6 +22,11 @@ export interface VernierRespirationData {
   timestamp: number;
 }
 
+export interface BreathRateDataPoint {
+  time: number;
+  bpm: number;
+}
+
 interface VernierBreathManualHookResult {
   isConnected: boolean;
   isConnecting: boolean;
@@ -48,6 +53,8 @@ interface VernierBreathManualHookResult {
     isValid: boolean;
   } | null;
   sessionElapsed: number;
+  breathRateHistory: BreathRateDataPoint[];
+  resetBreathRateHistory: () => void;
 }
 
 export function useVernierBreathManual(): VernierBreathManualHookResult {
@@ -76,6 +83,8 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     isValid: boolean;
   } | null>(null);
 
+  const [breathRateHistory, setBreathRateHistory] = useState<BreathRateDataPoint[]>([]);
+
   const deviceRef = useRef<any>(null);
   const forceDataRef = useRef<VernierRespirationData[]>([]);
   const calibrationDataRef = useRef<number[]>([]);
@@ -87,6 +96,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const initialRangeRef = useRef<number | null>(null);
   const connectionStartTimeRef = useRef<number>(0);
   const sessionTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const lastBreathRateRecordRef = useRef<number>(0);
 
   useEffect(() => {
     return () => {
@@ -242,6 +252,15 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
           console.log(`  -> VALID RESPIRATION RATE: ${roundedRate} bpm`);
           setDeviceBreathingRate(roundedRate);
           setBreathingRate(roundedRate);
+
+          const now = Date.now();
+          if (now - lastBreathRateRecordRef.current >= 1000) {
+            lastBreathRateRecordRef.current = now;
+            const elapsed = connectionStartTimeRef.current > 0
+              ? Math.floor((now - connectionStartTimeRef.current) / 1000)
+              : 0;
+            setBreathRateHistory(prev => [...prev, { time: elapsed, bpm: roundedRate }]);
+          }
         });
       }
 
@@ -429,6 +448,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       breathCyclesRef.current = [];
       initialRangeRef.current = null;
       connectionStartTimeRef.current = 0;
+      lastBreathRateRecordRef.current = 0;
 
       console.log('Device disconnected');
     } catch (err) {
@@ -458,6 +478,11 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     calibrationStartTimeRef.current = Date.now();
   }, [isConnected]);
 
+  const resetBreathRateHistory = useCallback(() => {
+    setBreathRateHistory([]);
+    lastBreathRateRecordRef.current = 0;
+  }, []);
+
   return {
     isConnected,
     isConnecting,
@@ -478,5 +503,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     currentForce,
     calibrationProfile,
     sessionElapsed,
+    breathRateHistory,
+    resetBreathRateHistory,
   };
 }

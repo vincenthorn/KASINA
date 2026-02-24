@@ -511,6 +511,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         // Start meditation timer when entering focus mode
         if (!meditationStartRef.current) {
           meditationStartRef.current = Date.now();
+
+          if (useVernier) {
+            vernierData.resetBreathRateHistory();
+          }
           
           // Initialize diagnostics tracking
           diagnosticsRef.current = {
@@ -688,12 +692,22 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           customSessionName: `Breath Kasina`
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
+
+        if (durationInMinutes >= 5 && useVernier && vernierData.breathRateHistory.length > 0) {
+          try {
+            sessionStorage.setItem('lastBreathRateHistory', JSON.stringify(vernierData.breathRateHistory));
+            console.log(`📊 Saved ${vernierData.breathRateHistory.length} breath rate data points for post-session chart`);
+          } catch (e) {
+            console.warn('Could not save breath rate history:', e);
+          }
+        }
         
       } catch (error) {
         console.error('Failed to log meditation session:', error);
       }
     } else {
       console.log(`⏱️ Session too short (${durationInSeconds}s) - not logging`);
+      sessionStorage.removeItem('lastBreathRateHistory');
     }
 
     // Complete session recovery tracking (after our main logging to avoid duplicates)
