@@ -1527,6 +1527,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           showControls={showControls}
           mode="breath"
           breathingRate={activeBreathingRate}
+          deviceBreathingRate={useVernier ? vernierData.deviceBreathingRate : null}
+          sessionElapsed={useVernier ? vernierData.sessionElapsed : meditationTime}
         />
       )}
 

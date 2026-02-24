@@ -2,31 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useGuidedMeditation } from '../lib/stores/useGuidedMeditation';
 
 interface UnifiedSessionInterfaceProps {
-  // Timer and session controls
   meditationTime: number;
   onEndSession: () => void;
-  
-  // Size control
   sizeMultiplier: number;
   onSizeChange: (size: number) => void;
-  
-  // Fullscreen control
   isFullscreen: boolean;
   onToggleFullscreen: () => void;
-  
-  // Kasina selection
   onChangeKasina: () => void;
-  
-  // Visibility controls
   showControls: boolean;
-  
-  // Mode to determine slider scale
   mode: 'visual' | 'breath';
-  
-  // Optional breathing rate for breath mode
   breathingRate?: number;
-  
-  // Guided meditation
+  deviceBreathingRate?: number | null;
+  sessionElapsed?: number;
   isGuidedMeditation?: boolean;
 }
 
@@ -41,6 +28,8 @@ export default function UnifiedSessionInterface({
   showControls,
   mode,
   breathingRate,
+  deviceBreathingRate,
+  sessionElapsed = 0,
   isGuidedMeditation = false
 }: UnifiedSessionInterfaceProps) {
   const [isEnding, setIsEnding] = useState(false);
@@ -330,8 +319,26 @@ export default function UnifiedSessionInterface({
       {/* Change Kasina Button - Bottom Center - Only show for self-guided sessions */}
       {!isGuidedMeditation && (
         <div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-3"
         >
+          {mode === 'breath' && sessionElapsed >= 30 && deviceBreathingRate != null && deviceBreathingRate > 0 && (
+            <div
+              style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                color: 'rgba(255, 255, 255, 0.85)',
+                padding: '6px 16px',
+                borderRadius: '20px',
+                fontSize: '14px',
+                fontFamily: 'monospace',
+                fontWeight: '500',
+                letterSpacing: '0.5px',
+                pointerEvents: 'none',
+                userSelect: 'none',
+              }}
+            >
+              {deviceBreathingRate.toFixed(1)} bpm
+            </div>
+          )}
           <button
             onClick={onChangeKasina}
             style={{
