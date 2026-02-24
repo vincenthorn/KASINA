@@ -28,9 +28,12 @@ export default function VernierOfficialBreathPage() {
     calibrationComplete,
     currentForce,
     calibrationProfile,
-    deviceBreathingRate,  // New: Device-calculated breath rate
-    stepsCount,           // New: Steps from Channel 3
-    stepRate              // New: Step rate from Channel 4
+    deviceBreathingRate,
+    stepsCount,
+    stepRate,
+    sessionElapsed,
+    breathRateHistory,
+    resetBreathRateHistory
   } = useVernierBreathManual();
 
   // Auto-navigate to existing breath page if device is already connected and calibrated
@@ -118,6 +121,11 @@ export default function VernierOfficialBreathPage() {
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
+          vernierDeviceBreathingRate={deviceBreathingRate}
+          vernierBreathingRate={breathingRate}
+          vernierSessionElapsed={sessionElapsed}
+          vernierBreathRateHistory={breathRateHistory}
+          vernierResetBreathRateHistory={resetBreathRateHistory}
         />
         {/* Exit button */}
         <Button

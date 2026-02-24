@@ -4,7 +4,6 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import '../styles/kasina-animations.css';
 import '../styles/breath-kasina.css';
-import { useVernierBreathManual } from '../lib/useVernierBreathManual';
 import { useSessionLogger } from '../lib/stores/useSessionLogger';
 import { useKasina } from '../lib/stores/useKasina';
 import { sessionRecovery } from '../lib/sessionRecovery';
@@ -251,6 +250,11 @@ interface BreathKasinaOrbProps {
   breathPhase?: 'inhale' | 'exhale' | 'pause';
   isListening?: boolean;
   useVernier?: boolean;
+  vernierDeviceBreathingRate?: number | null;
+  vernierBreathingRate?: number;
+  vernierSessionElapsed?: number;
+  vernierBreathRateHistory?: { time: number; bpm: number }[];
+  vernierResetBreathRateHistory?: () => void;
 }
 
 /**
@@ -261,29 +265,31 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   breathAmplitude = 0.5,
   breathPhase = 'pause',
   isListening = false,
-  useVernier = false
+  useVernier = false,
+  vernierDeviceBreathingRate = null,
+  vernierBreathingRate = 12,
+  vernierSessionElapsed = 0,
+  vernierBreathRateHistory = [],
+  vernierResetBreathRateHistory
 }) => {
-  // Use Vernier breathing data if enabled
-  const vernierData = useVernierBreathManual();
   const { logSession } = useSessionLogger();
   const navigate = useNavigate();
   const { selectedKasina: globalSelectedKasina, setSelectedKasina: setGlobalSelectedKasina, customColor } = useKasina();
   const { enableWakeLock, disableWakeLock } = useWakeLock();
   
   // Log Vernier data for debugging
-  console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierData:', {
-    isConnected: vernierData.isConnected,
-    breathAmplitude: vernierData.breathAmplitude,
-    breathPhase: vernierData.breathPhase,
-    currentForce: vernierData.currentForce,
-    calibrationComplete: vernierData.calibrationComplete
+  console.log('🔵 BreathKasinaOrb - useVernier:', useVernier, 'vernierProps:', {
+    deviceBreathingRate: vernierDeviceBreathingRate,
+    breathingRate: vernierBreathingRate,
+    sessionElapsed: vernierSessionElapsed,
+    historyLength: vernierBreathRateHistory.length
   });
   
-  // Determine which breathing data to use
-  const activeBreathAmplitude = useVernier ? vernierData.breathAmplitude : breathAmplitude;
-  const activeBreathPhase = useVernier ? vernierData.breathPhase : breathPhase;
-  const activeIsListening = useVernier ? vernierData.isConnected : isListening;
-  const activeBreathingRate = useVernier ? vernierData.breathingRate : 12; // Default to 12 BPM
+  // Determine which breathing data to use - props come from BreathPage's connected hook
+  const activeBreathAmplitude = breathAmplitude;
+  const activeBreathPhase = breathPhase;
+  const activeIsListening = isListening;
+  const activeBreathingRate = useVernier ? vernierBreathingRate : 12;
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
@@ -512,8 +518,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         if (!meditationStartRef.current) {
           meditationStartRef.current = Date.now();
 
-          if (useVernier) {
-            vernierData.resetBreathRateHistory();
+          if (useVernier && vernierResetBreathRateHistory) {
+            vernierResetBreathRateHistory();
           }
           
           // Initialize diagnostics tracking
@@ -693,10 +699,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
 
-        if (durationInMinutes >= 5 && useVernier && vernierData.breathRateHistory.length > 0) {
+        if (durationInMinutes >= 5 && useVernier && vernierBreathRateHistory.length > 0) {
           try {
-            sessionStorage.setItem('lastBreathRateHistory', JSON.stringify(vernierData.breathRateHistory));
-            console.log(`📊 Saved ${vernierData.breathRateHistory.length} breath rate data points for post-session chart`);
+            sessionStorage.setItem('lastBreathRateHistory', JSON.stringify(vernierBreathRateHistory));
+            console.log(`📊 Saved ${vernierBreathRateHistory.length} breath rate data points for post-session chart`);
           } catch (e) {
             console.warn('Could not save breath rate history:', e);
           }
@@ -1541,8 +1547,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           showControls={showControls}
           mode="breath"
           breathingRate={activeBreathingRate}
-          deviceBreathingRate={useVernier ? vernierData.deviceBreathingRate : null}
-          sessionElapsed={useVernier ? vernierData.sessionElapsed : meditationTime}
+          deviceBreathingRate={useVernier ? vernierDeviceBreathingRate : null}
+          sessionElapsed={useVernier ? vernierSessionElapsed : meditationTime}
         />
       )}
 

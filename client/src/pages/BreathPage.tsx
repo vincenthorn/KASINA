@@ -65,6 +65,7 @@ const BreathPage: React.FC = () => {
     breathAmplitude,
     breathPhase,
     breathingRate,
+    deviceBreathingRate,
     connectDevice,
     disconnectDevice,
     error,
@@ -73,7 +74,10 @@ const BreathPage: React.FC = () => {
     startCalibration,
     calibrationComplete,
     currentForce,
-    calibrationProfile
+    calibrationProfile,
+    sessionElapsed,
+    breathRateHistory,
+    resetBreathRateHistory
   } = useVernierBreathManual();
 
   // Add logging to track connection state changes
@@ -162,6 +166,11 @@ const BreathPage: React.FC = () => {
           breathAmplitude={breathAmplitude}
           breathPhase={breathPhase}
           isListening={isConnected}
+          vernierDeviceBreathingRate={deviceBreathingRate}
+          vernierBreathingRate={breathingRate}
+          vernierSessionElapsed={sessionElapsed}
+          vernierBreathRateHistory={breathRateHistory}
+          vernierResetBreathRateHistory={resetBreathRateHistory}
         />
         <Button
           onClick={() => {
