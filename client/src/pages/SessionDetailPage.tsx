@@ -167,8 +167,8 @@ export default function SessionDetailPage() {
                       dataKey="bpm" 
                       stroke="#818CF8" 
                       strokeWidth={2}
-                      dot={false}
-                      activeDot={{ r: 4, fill: '#818CF8' }}
+                      dot={{ r: 4, fill: '#818CF8', stroke: '#1F2937', strokeWidth: 2 }}
+                      activeDot={{ r: 6, fill: '#A5B4FC', stroke: '#818CF8', strokeWidth: 2 }}
                     />
                   </LineChart>
                 </ResponsiveContainer>

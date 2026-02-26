@@ -115,8 +115,8 @@ const BreathPage: React.FC = () => {
     
     if (!isConnected) {
       await connectDevice();
+      setShowMeditation(true);
     } else {
-      // Start meditation directly - breathing will auto-adjust during session
       setShowMeditation(true);
     }
   };

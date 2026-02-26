@@ -291,34 +291,11 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
   }, [useVernier, vernierDeviceBreathingRate, vernierBreathingRate, vernierSessionElapsed, vernierBreathRateHistory.length]);
   
-  const breathAmplitudeHistoryRef = useRef<number[]>([]);
-  const effectiveVernierLatchRef = useRef(false);
-  const effectiveUseVernier = (() => {
-    if (useVernier) return true;
-    if (effectiveVernierLatchRef.current) return true;
-    if (breathAmplitude !== 0.5 && breathAmplitude !== 0) {
-      breathAmplitudeHistoryRef.current.push(breathAmplitude);
-      if (breathAmplitudeHistoryRef.current.length > 50) {
-        breathAmplitudeHistoryRef.current = breathAmplitudeHistoryRef.current.slice(-50);
-      }
-      const values = breathAmplitudeHistoryRef.current;
-      if (values.length >= 10) {
-        const min = Math.min(...values);
-        const max = Math.max(...values);
-        if (max - min > 0.05) {
-          effectiveVernierLatchRef.current = true;
-          console.log('⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, latching Vernier-connected for BPM display');
-          return true;
-        }
-      }
-    }
-    return false;
-  })();
-
   const activeBreathAmplitude = breathAmplitude;
   const activeBreathPhase = breathPhase;
   const activeIsListening = isListening;
-  const activeBreathingRate = (useVernier || effectiveUseVernier) ? vernierBreathingRate : 12;
+  const activeBreathingRate = useVernier && vernierDeviceBreathingRate != null && vernierDeviceBreathingRate > 0
+    ? vernierDeviceBreathingRate : 12;
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
@@ -547,7 +524,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         if (!meditationStartRef.current) {
           meditationStartRef.current = Date.now();
 
-          if ((useVernier || effectiveUseVernier) && vernierResetBreathRateHistory) {
+          if (useVernier && vernierResetBreathRateHistory) {
             vernierResetBreathRateHistory();
           }
           
@@ -719,9 +696,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           finalUsage[selectedKasina] = (finalUsage[selectedKasina] || 0) + currentTimeSpent;
         }
 
-        const hasBreathData = (useVernier || effectiveUseVernier) && vernierBreathRateHistory.length > 0;
+        const hasBreathData = useVernier && vernierBreathRateHistory.length > 0 && durationInMinutes >= 5;
         const breathRateDataJson = hasBreathData ? JSON.stringify(vernierBreathRateHistory) : undefined;
-        console.log(`📊 Breath rate chart check: useVernier=${useVernier}, effectiveUseVernier=${effectiveUseVernier}, historyLength=${vernierBreathRateHistory.length}, durationMin=${durationInMinutes}, saving=${!!breathRateDataJson}`);
+        console.log(`📊 Breath rate chart check: useVernier=${useVernier}, historyLength=${vernierBreathRateHistory.length}, durationMin=${durationInMinutes}, saving=${!!breathRateDataJson}`);
 
         await logSession({
           kasinaType: mostUsedKasina as any,
@@ -952,7 +929,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Monitor connection and show help if needed
   useEffect(() => {
-    if (!useVernier && !effectiveUseVernier) return;
+    if (!useVernier) return;
 
     // Check for connection issues
     const checkConnection = () => {
@@ -983,7 +960,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         clearTimeout(connectionCheckRef.current);
       }
     };
-  }, [useVernier, effectiveUseVernier, activeIsListening, activeBreathAmplitude]);
+  }, [useVernier, activeIsListening, activeBreathAmplitude]);
   
   // Removed complex color-changing logic for custom kasina
   // Custom kasina now uses user's selected color like other color kasinas
@@ -1559,16 +1536,15 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           showControls={showControls}
           mode="breath"
           breathingRate={activeBreathingRate}
-          deviceBreathingRate={effectiveUseVernier ? vernierDeviceBreathingRate : null}
-          sessionElapsed={effectiveUseVernier ? vernierSessionElapsed : meditationTime}
+          deviceBreathingRate={useVernier ? vernierDeviceBreathingRate : null}
+          sessionElapsed={useVernier ? vernierSessionElapsed : meditationTime}
         />
       )}
 
       {/* Live BPM Display - Bottom Left (follows mouse-driven show/hide like other controls) */}
-      {!showKasinaSelection && showControls && effectiveUseVernier && meditationTime >= 30 && (() => {
-        const displayBpm = vernierBreathingRate > 0 && vernierBreathingRate !== 12
-          ? vernierBreathingRate
-          : (vernierDeviceBreathingRate != null && vernierDeviceBreathingRate > 0 ? vernierDeviceBreathingRate : null);
+      {!showKasinaSelection && showControls && useVernier && meditationTime >= 30 && (() => {
+        const displayBpm = vernierDeviceBreathingRate != null && vernierDeviceBreathingRate > 0
+          ? vernierDeviceBreathingRate : null;
         return displayBpm !== null ? (
           <div
             className="absolute bottom-8 left-8 z-30"
