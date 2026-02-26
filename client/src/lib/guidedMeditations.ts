@@ -24,7 +24,13 @@ export const GUIDED_MEDITATIONS: Record<string, GuidedMeditationConfig | null> =
     kasina: 'blue',
     durationSeconds: 981 // 16 minutes
   },
-  'red': null,
+  'red': {
+    id: 'red-absorbed',
+    title: 'Absorbed in Red',
+    audioPath: '/sounds/meditations/absorbed-in-red.mp3',
+    kasina: 'red',
+    durationSeconds: 1020
+  },
   'yellow': null,
   'green': null,
   'purple': null,
