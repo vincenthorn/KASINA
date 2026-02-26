@@ -924,6 +924,80 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  app.get("/api/sessions/breath-trends", async (req, res) => {
+    if (!req.session?.user?.email) {
+      return res.status(401).json({ message: "Authentication required" });
+    }
+
+    try {
+      const result = await dbPool.query(
+        `SELECT id, kasina_type, kasina_name, duration_seconds, session_date, breath_rate_data
+         FROM sessions
+         WHERE LOWER(user_email) = LOWER($1) AND breath_rate_data IS NOT NULL
+         ORDER BY session_date DESC
+         LIMIT 50`,
+        [req.session.user.email]
+      );
+
+      const trends = result.rows.map(session => {
+        let avgBpm = 0;
+        let minSustainedBpm = 0;
+        let settlingTimeSeconds: number | null = null;
+        let crucialZonePercent = 0;
+        let dataPointCount = 0;
+
+        try {
+          const data: Array<{ time: number; bpm: number }> = JSON.parse(session.breath_rate_data);
+          if (Array.isArray(data) && data.length > 0) {
+            const bpmValues = data.map(d => d.bpm);
+            dataPointCount = bpmValues.length;
+            avgBpm = bpmValues.reduce((s: number, v: number) => s + v, 0) / bpmValues.length;
+
+            const windowSize = Math.min(60, bpmValues.length);
+            let minRolling = Infinity;
+            for (let i = 0; i <= bpmValues.length - windowSize; i++) {
+              const avg = bpmValues.slice(i, i + windowSize).reduce((s: number, v: number) => s + v, 0) / windowSize;
+              if (avg < minRolling) minRolling = avg;
+            }
+            minSustainedBpm = minRolling === Infinity ? avgBpm : minRolling;
+
+            const settleWindow = Math.min(30, bpmValues.length);
+            for (let i = 0; i <= bpmValues.length - settleWindow; i++) {
+              const avg = bpmValues.slice(i, i + settleWindow).reduce((s: number, v: number) => s + v, 0) / settleWindow;
+              if (avg <= 9) {
+                settlingTimeSeconds = data[i].time;
+                break;
+              }
+            }
+
+            const inZone = bpmValues.filter((v: number) => v >= 4 && v <= 9).length;
+            crucialZonePercent = (inZone / bpmValues.length) * 100;
+          }
+        } catch (e) {
+          // skip parse errors
+        }
+
+        return {
+          id: session.id.toString(),
+          sessionDate: session.session_date.toISOString(),
+          durationSeconds: session.duration_seconds,
+          kasinaType: session.kasina_type,
+          kasinaName: session.kasina_name,
+          avgBpm: Math.round(avgBpm * 10) / 10,
+          minSustainedBpm: Math.round(minSustainedBpm * 10) / 10,
+          settlingTimeSeconds,
+          crucialZonePercent: Math.round(crucialZonePercent),
+          dataPointCount
+        };
+      });
+
+      res.json(trends.reverse());
+    } catch (error) {
+      console.error('Error getting breath trends:', error);
+      res.status(500).json({ message: "Failed to retrieve breath trends" });
+    }
+  });
+
   app.get("/api/sessions/:id", async (req, res) => {
     if (!req.session?.user?.email) {
       return res.status(401).json({ message: "Authentication required" });

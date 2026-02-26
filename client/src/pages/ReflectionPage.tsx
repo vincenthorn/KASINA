@@ -6,6 +6,7 @@ import PracticeModeChart from "../components/PracticeModeChart";
 import PracticeLog from "../components/PracticeLog";
 import PracticeConsistencyCalendar from "../components/PracticeConsistencyCalendar";
 import BreathRateChart from "../components/BreathRateChart";
+import BreathTrends from "../components/BreathTrends";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { apiRequest } from "../lib/api";
 import { KASINA_NAMES } from "../lib/constants";
@@ -277,6 +278,7 @@ const ReflectionPage: React.FC = () => {
             </Card>
             
             <BreathRateChart />
+            <BreathTrends />
 
             {/* Charts Section - Two Column Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

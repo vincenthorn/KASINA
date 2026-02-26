@@ -2,99 +2,52 @@
 
 ## Overview
 
-KASINA is a full-stack meditation application focused on kasina meditation practices with 3D visualization, user management, and session tracking. The platform features immersive meditation experiences, admin dashboard functionality, and user subscription management.
-
-## System Architecture
-
-The application follows a monorepo structure with a client-server architecture:
-
-- **Frontend**: React application built with Vite, featuring 3D meditation environments using Three.js
-- **Backend**: Express.js server with PostgreSQL database integration
-- **Database**: PostgreSQL with Drizzle ORM for type-safe database operations
-- **Deployment**: Configured for Render.com with auto-deployment capabilities
-
-## Key Components
-
-### Frontend Architecture
-- **Framework**: React with TypeScript
-- **Build Tool**: Vite for fast development and optimized production builds
-- **3D Graphics**: Three.js with React Three Fiber for immersive meditation environments
-- **UI Components**: Radix UI with Tailwind CSS for modern, accessible interface
-- **State Management**: Zustand for client-side state management
-- **Query Management**: TanStack Query for server state management
-
-### Backend Architecture
-- **Runtime**: Node.js with Express.js framework
-- **Database ORM**: Drizzle for type-safe database operations
-- **Session Management**: Express sessions with PostgreSQL store
-- **Authentication**: Custom session-based authentication with subscription tiers
-- **File Handling**: Multer for file uploads and CSV processing
-
-### Database Schema
-- **Users Table**: Email-based user management with subscription types (freemium, premium, admin)
-- **Sessions Table**: Meditation session tracking with duration and kasina type
-- **Kasina Breakdowns**: Detailed meditation practice analytics
-
-## Data Flow
-
-1. **User Authentication**: Session-based authentication with subscription validation
-2. **Meditation Sessions**: Real-time session tracking with 3D visualization
-3. **Data Persistence**: Meditation sessions stored with user association and practice analytics
-4. **Admin Dashboard**: Real-time user analytics and subscription management
-5. **CSV Import/Export**: Bulk user management capabilities for admin operations
-
-## External Dependencies
-
-### Core Dependencies
-- **Database**: PostgreSQL (Neon.tech for development, Render PostgreSQL for production)
-- **3D Rendering**: Three.js ecosystem (@react-three/fiber, @react-three/drei, @react-three/postprocessing)
-- **UI Framework**: Radix UI components with Tailwind CSS styling
-- **Development**: TypeScript, Vite, ESBuild for fast development and builds
-
-### Third-Party Integrations
-- **Font Loading**: Fontsource for Inter and Nunito fonts
-- **Icons**: Lucide React for consistent iconography
-- **Utilities**: Various utility libraries for date handling, validation, and formatting
-
-## Deployment Strategy
-
-### Development Environment
-- **Platform**: Replit with live development server
-- **Database**: Neon.tech PostgreSQL instance
-- **Hot Reload**: Vite development server with fast refresh
-
-### Production Environment
-- **Platform**: Render.com with auto-deployment from GitHub
-- **Database**: Render PostgreSQL with SSL connections
-- **Build Process**: Automated builds triggered by git commits
-- **Session Storage**: PostgreSQL-backed session store for scalability
-
-### Build Configuration
-- **Client Build**: Vite optimized build with code splitting and asset optimization
-- **Server Build**: ESBuild compilation with external package handling
-- **Static Assets**: Efficient serving of built assets through Express
-
-## Changelog
-
-Changelog:
-- February 26, 2026: Switched to device-only respiration rate — removed all force-computed BPM logic from useVernierBreathManual.ts (processForceValue no longer computes BPM or records history). BPM now sourced exclusively from Vernier belt's Respiration Rate sensor (~1 valid reading every 10s). Fixed connection flow in BreathPage: handleStartSession now calls setShowMeditation(true) after connectDevice() so useVernier=true propagates correctly. Removed effectiveUseVernier latch workaround (no longer needed). BPM display uses vernierDeviceBreathingRate directly. Session detail chart enhanced with visible hoverable dots (r=4, active r=6) showing exact BPM on mouse-over. Breath rate data only saved for sessions >= 5 minutes. Force sensor still used for breath amplitude/phase animation.
-- February 26, 2026: Fixed Vernier live BPM display — three bugs found and fixed: (1) BPM display was inside UnifiedSessionInterface which returns null when mouse isn't moving — moved to BreathKasinaOrb as always-visible overlay. (2) Added effectiveUseVernier fallback: detects active breath amplitude variation from force sensor as proof device is connected, even if useVernier/isConnected state is false. (3) Throttled Respiration Rate sensor NaN logging from 10/sec to 1/10sec with periodic summary (sensor outputs NaN 99% of the time). BPM display now uses force-computed breathing rate as primary source since device Respiration Rate sensor is unreliable. Also added "Absorbed in Red" guided meditation, updated email template, fixed guidedMeditations key safety, removed Sangha text from registration, switched hosting to Replit, added diagnostic logging.
-- February 24, 2026: Added post-session breath rate chart for Breath Kasina sessions 5+ minutes with Vernier belt. Collects ~1/second BPM data points from device during session, saves to sessionStorage on session end, displays Recharts line chart on Reflection page with time (x-axis) vs BPM (y-axis). Chart shows summary stats (average, start, end BPM, change). History resets on each new session start. Chart auto-cleans from sessionStorage after display.
-- February 24, 2026: Rewrote Vernier GDX Respiration Belt integration (useVernierBreathManual.ts) following official Vernier GoDirect API patterns. Sensors now discovered by name/unit rather than hardcoded channel numbers. Uses explicit 100ms measurement period via gdxDevice.start(100). Robust NaN handling for respiration rate sensor (30-second warm-up expected per Vernier docs). Added live breath rate display (to 1 decimal) in Breath Kasina session overlay - appears bottom-center with mouse movement controls, only shows after 30+ seconds when device reports valid BPM. Display hidden during Visual Kasina sessions. Updated VernierTestPage.tsx as proper diagnostic tool showing all sensor channels with live values. Updated registration page heading to "Create A Free Account" with Pragmatic Dharma Sangha attribution link.
-- February 10, 2026: Removed all hardcoded admin@kasina.app email checks across codebase. Admin detection now uses subscription_type='admin' from database instead. Elevated vjhorn@gmail.com to admin, deleted admin@kasina.app user. Opened Breath Kasina mode to all users (removed premium/friend gate). Added breath sensor landing page with Vernier Go Direct Respiration Belt product link (vernier.com). Users confirm they have a sensor (stored in localStorage) before accessing connection flow. Updated email template: removed 'MEDITATION' subtitle, added yellow circle orb icon above KASINA text. Vajrayana kasinas also opened to all users (removed premium gate).
-- February 10, 2026: Implemented Magic Link authentication system with 6-digit authorization codes. Users can now register free accounts and sign in via email-based magic links or 6-digit codes (10-minute expiry). Added Resend email integration for sending auth emails with branded KASINA template. New endpoints: POST /api/auth/request-code, POST /api/auth/verify-code, GET /api/auth/verify-magic-link. New pages: /register, /auth/verify. Removed contemplative.technology login references. Database updated with auth_code, auth_code_expires_at, magic_link_token, magic_link_expires_at columns on users table. Auth store cleaned up - removed hardcoded email fallbacks.
-- December 9, 2025: Added Jhana.community membership sync integration. New API endpoint POST /api/internal/memberships allows automatic syncing of paying members from Jhana.community to KASINA as premium users. Supports both single-member (subscribe/cancel actions) and batch formats. Users from Jhana tracked with 'jhana_sync' source in database to distinguish from CSV-uploaded friends. Also added Clear Light guided meditation "The Clear Light Cycle" (17m 40s) for Visual Mode.
-- July 10, 2025: Fixed admin dashboard layout issue where second row user category cards (Freemium Users, Premium Users, Friends, Administrators) were not spanning full width. Changed grid layout from lg:grid-cols-5 to lg:grid-cols-4 for proper 4-column distribution. Admin dashboard now displays with consistent full-width card layouts across both rows.
-- July 3, 2025: **SUCCESSFULLY RESOLVED** Vernier respiration belt connection issues. Fixed Content Security Policy blocking external scripts by removing CSP restrictions and implementing dynamic ES6 imports from the local @vernier/godirect package instead of external CDN. Manual connection approach now working reliably with proper library loading via import('@vernier/godirect'). Eliminated dependency on window.godirect global variable. Users can now connect their Vernier belts successfully for breath-guided meditation sessions. Also optimized breath kasina animation smoothness by increasing smoothing factor from 0.85 to 0.95 (95% smoothing), extending CSS transition time from 0.3s to 0.75s, and raising phase detection threshold from 2% to 4% to reduce sensitivity to minor breathing fluctuations. Additionally improved scale adjustment precision by reducing Visual Kasina scroll wheel sensitivity from 0.025 to 0.00625 (4x slower) and Breath Kasina slider step size from 0.05 to 0.025 (2x finer) for optimal orb sizing control across both modes.
-- June 27, 2025: Implemented persistent Vernier respiration belt connections to eliminate re-pairing between sessions. System now automatically reconnects to previously paired devices using session storage and persistent device references. Users only need to pair once per browser session, solving the annoying reconnection issue reported by users. Also updated Earth kasina with darker terra cotta appearance and added very slow rotation in Visual mode. Changed from #CD853F to #A0522D base color with darker gradient palette (deep browns to warm earth tones). Earth kasina now has subtle rotation (0.02 speed) in Visual mode - slow enough to avoid distraction while providing gentle motion. Maintains smooth terra cotta shader in both Visual and Breath modes.
-- June 26, 2025: Updated admin interface to support Friend user type in CSV uploads. Added Friend Users option to upload section and display cards. Fixed phong@phong.com and nathan@nathanvansynder.com as Friend users in development database (7 total Friend users). Production database requires manual CSV upload via admin interface with properly formatted CSV file.
-- June 25, 2025: Attempted to add nathan@nathanvansynder.com as Friend user. Successfully added to development database but production database at start.kasina.app requires manual admin interface addition due to separate database instances. Fixed Space and Light kasina shaders to render as perfect spheres by removing all lighting effects causing warped appearance. Resolved elemental kasina background color issue by removing immersion background spheres and fixing Three.js clear color overrides.
-- June 24, 2025: Successfully imported 1,364 new freemium subscribers from CSV to production database (start.kasina.app). Production database now contains 2,808 freemium users, 20 premium users, and 1 admin user (2,834 total). Import process authenticated as admin and uploaded CSV via production API, handling duplicate detection automatically. All valid email addresses now have freemium subscription access to the KASINA platform.
-- June 20, 2025: Finalized Vajrayana kasina background colors with exact outer ring HEX code matches. All six kasinas now have perfectly seamless backgrounds: AH/OM/HUM (#000000), White A (#0000ff), Clear Light (#0055ff), Rainbow (#1F00CC). Extracted precise colors directly from kasina component definitions for perfect visual integration.
-- June 20, 2025: Extended Breath mode to include Vajrayana kasinas while preserving Color kasina functionality. Fixed kasina scaling issues where Vajrayana kasinas appeared tiny (0.019x scale). Added proper kasina type detection and scaling logic for vajrayana kasinas (0.8x multiplier). Updated kasina selection interface formatting to match Visual mode with line breaks between "Color" and "Kasinas", "Vajrayana" and "Kasinas". Completed Breath mode expansion with all Vajrayana kasinas (White A, Om, Ah, Hum, Rainbow, Clear Light) now working with breath animation
-- June 20, 2025: Completed and ready for deployment - New Breath Kasina interface with purple gradient design, circular feature icons (Visual Biofeedback, Auto-calibration, Force detection, Bluetooth connection), top-aligned layout, centered device icon, and Premium/Friend access controls. Fixed cancel button in kasina selection to navigate back instead of starting session. Updated chart titles: "Practice Breakdown" → "Practice Modes", "Kasina Breakdown" → "Kasina Usage". Made Practice Modes chart non-clickable with hover tooltips showing detailed breakdowns without grey background effects. Fixed Visual Mode custom color smart backgrounds, changed basic kasinas to black backgrounds in Breath mode, updated multiple users in production database with new subscription roles
-- June 19, 2025: Initial setup
+KASINA is a full-stack meditation application providing immersive kasina meditation experiences with 3D visualizations, user management, and detailed session tracking. It aims to offer unique meditation journeys through interactive features and a comprehensive admin dashboard for platform oversight.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+
+## System Architecture
+
+The application uses a monorepo structure with a client-server architecture.
+
+**Frontend:**
+- Built with React and TypeScript using Vite.
+- Features 3D meditation environments powered by Three.js and React Three Fiber.
+- UI components are built with Radix UI and styled with Tailwind CSS for an accessible and modern interface.
+- State management is handled by Zustand for client-side and TanStack Query for server-side state.
+
+**Backend:**
+- Developed with Node.js and Express.js.
+- Utilizes PostgreSQL for the database, accessed via Drizzle ORM for type-safe operations.
+- Implements custom session-based authentication with support for subscription tiers.
+- Handles file uploads and CSV processing using Multer.
+
+**Database Schema:**
+- Includes tables for users (with email, subscription types: freemium, premium, admin), meditation sessions (tracking duration and kasina type), and detailed kasina breakdowns.
+
+**Deployment:**
+- Configured for auto-deployment on Render.com.
+
+**Key Features:**
+- Real-time session tracking with 3D visualization.
+- Admin dashboard for user analytics, subscription management, and CSV import/export.
+- Magic Link authentication system with email-based sign-in and 6-digit codes.
+- Integration with Vernier GDX Respiration Belt for breath-guided meditation, including post-session breath analytics.
+- Persistent Vernier device connections to reduce re-pairing.
+- Comprehensive breath analytics suite for sessions, including BPM zone analysis, settling time, time-in-zone percentages, breath rate variability, session phase detection, and respiratory pause detection.
+- Longitudinal breath trend analysis across multiple sessions.
+- Support for various kasina types, including elemental and Vajrayana, with specific scaling and rendering logic for each.
+
+## External Dependencies
+
+- **Database:** PostgreSQL (Neon.tech for development, Render PostgreSQL for production).
+- **3D Rendering:** Three.js ecosystem (`@react-three/fiber`, `@react-three/drei`, `@react-three/postprocessing`).
+- **UI Framework:** Radix UI with Tailwind CSS.
+- **Development Tools:** TypeScript, Vite, ESBuild.
+- **Email Service:** Resend for authentication emails.
+- **Icons:** Lucide React.
+- **Font Loading:** Fontsource (Inter and Nunito).
+- **Membership Sync:** Jhana.community membership integration.
+- **Vernier Integration:** `@vernier/godirect` for GDX Respiration Belt.
