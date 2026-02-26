@@ -696,7 +696,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           finalUsage[selectedKasina] = (finalUsage[selectedKasina] || 0) + currentTimeSpent;
         }
 
-        const hasBreathData = useVernier && vernierBreathRateHistory.length > 0 && durationInMinutes >= 5;
+        const hasBreathData = useVernier && vernierBreathRateHistory.length > 0 && durationInMinutes >= 1;
         const breathRateDataJson = hasBreathData ? JSON.stringify(vernierBreathRateHistory) : undefined;
         console.log(`📊 Breath rate chart check: useVernier=${useVernier}, historyLength=${vernierBreathRateHistory.length}, durationMin=${durationInMinutes}, saving=${!!breathRateDataJson}`);
 
