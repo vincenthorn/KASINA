@@ -98,6 +98,33 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const sensorListenersRef = useRef<Array<{ sensor: any; handler: (obj: any) => void }>>([]);
   const adoptedRef = useRef(false);
 
+  const lpfStateRef = useRef({
+    x1: 0, x2: 0,
+    y1: 0, y2: 0,
+    initialized: false
+  });
+
+  const LPF_B0 = 0.013359200027856503;
+  const LPF_B1 = 0.026718400055713007;
+  const LPF_B2 = 0.013359200027856503;
+  const LPF_A1 = -1.6474599810769766;
+  const LPF_A2 = 0.7008967811884025;
+
+  const applyLowPassFilter = useCallback((rawValue: number): number => {
+    const s = lpfStateRef.current;
+    if (!s.initialized) {
+      s.x1 = rawValue; s.x2 = rawValue;
+      s.y1 = rawValue; s.y2 = rawValue;
+      s.initialized = true;
+      return rawValue;
+    }
+    const filtered = LPF_B0 * rawValue + LPF_B1 * s.x1 + LPF_B2 * s.x2
+                     - LPF_A1 * s.y1 - LPF_A2 * s.y2;
+    s.x2 = s.x1; s.x1 = rawValue;
+    s.y2 = s.y1; s.y1 = filtered;
+    return filtered;
+  }, []);
+
   const removeAllSensorListeners = useCallback(() => {
     for (const { sensor, handler } of sensorListenersRef.current) {
       try {
@@ -367,16 +394,18 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
 
   const processForceValue = useCallback((forceValue: number) => {
     const now = Date.now();
-    forceDataRef.current.push({ timestamp: now, force: forceValue });
+    const filteredValue = applyLowPassFilter(forceValue);
 
-    const recentSamples = 100;
+    forceDataRef.current.push({ timestamp: now, force: filteredValue });
+
+    const recentSamples = 300;
     if (forceDataRef.current.length > recentSamples) {
       forceDataRef.current = forceDataRef.current.slice(-recentSamples);
     }
 
-    if (forceDataRef.current.length < 20) {
+    if (forceDataRef.current.length < 50) {
       setBreathAmplitude(0.5);
-      lastForceValueRef.current = forceValue;
+      lastForceValueRef.current = filteredValue;
       lastForceUpdateRef.current = now;
       return;
     }
@@ -388,12 +417,12 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
 
     let range = p90 - p10;
 
-    if (!initialRangeRef.current && range > 0.5) {
+    if (!initialRangeRef.current && forceDataRef.current.length >= 50 && range > 0.3) {
       initialRangeRef.current = range;
     }
 
     if (initialRangeRef.current) {
-      const minAllowed = initialRangeRef.current * 0.15;
+      const minAllowed = initialRangeRef.current * 0.4;
       if (range < minAllowed) range = minAllowed;
     }
 
@@ -402,14 +431,14 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     const dynamicMin = p10 - bufferBelow;
     const dynamicMax = p90 + bufferAbove;
 
-    const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
+    const normalizedAmplitude = Math.max(0, Math.min(1, (filteredValue - dynamicMin) / (dynamicMax - dynamicMin)));
     setBreathAmplitude(normalizedAmplitude);
 
     if (now - lastForceUpdateRef.current > 100) {
-      const forceChange = forceValue - lastForceValueRef.current;
+      const forceChange = filteredValue - lastForceValueRef.current;
       const changeThreshold = calibrationProfile
         ? calibrationProfile.forceRange * 0.04
-        : 0.2;
+        : 0.15;
 
       if (forceChange > changeThreshold) {
         setBreathPhase('inhale');
@@ -419,10 +448,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         setBreathPhase('pause');
       }
 
-      lastForceValueRef.current = forceValue;
+      lastForceValueRef.current = filteredValue;
       lastForceUpdateRef.current = now;
     }
-  }, [calibrationProfile]);
+  }, [calibrationProfile, applyLowPassFilter]);
 
   const finishCalibration = useCallback(() => {
     if (calibrationDataRef.current.length === 0) {
@@ -498,6 +527,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       initialRangeRef.current = null;
       connectionStartTimeRef.current = 0;
       lastBreathRateRecordRef.current = 0;
+      lpfStateRef.current = { x1: 0, x2: 0, y1: 0, y2: 0, initialized: false };
 
       console.log('Device disconnected');
     } catch (err) {

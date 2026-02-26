@@ -315,6 +315,9 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   const [kasinaSelectionStep, setKasinaSelectionStep] = useState<'series' | 'kasina'>('series');
   const [sizeMultiplier, setSizeMultiplier] = useState(0.3); // Start at 30% - Control the expansion range (0.2 = 20% size, 2.0 = 200% size)
   const lastAmplitudeRef = useRef(activeBreathAmplitude);
+  const targetOrbSizeRef = useRef(150);
+  const currentOrbSizeRef = useRef(150);
+  const animFrameRef = useRef<number | null>(null);
   const calibrationStartRef = useRef<number | null>(null);
   const cursorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const controlsTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1024,72 +1027,40 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     console.log(`🚀 NON-ELEMENTAL initial background color set: ${initialBackgroundColor} for kasina: ${selectedKasina}`);
   }, [selectedKasina, customColor]);
 
-  // Update the orb size based on breath amplitude with hold detection
+  // Update the orb target size based on breath amplitude with hold detection
   useEffect(() => {
     if (!activeIsListening) return;
     
-    // Custom kasina now breathes like other color kasinas
-    
-    // Detect if amplitude has changed significantly (not holding breath)
     const amplitudeChanged = Math.abs(activeBreathAmplitude - lastAmplitudeRef.current) > 0.01;
     
     let finalAmplitude = activeBreathAmplitude;
     
-    // If we're in a low amplitude state and not changing much, we might be holding an exhale
     if (activeBreathAmplitude < 0.15 && !amplitudeChanged) {
       if (heldExhaleStart === null) {
         setHeldExhaleStart(Date.now());
       } else {
-        // Gradually reduce amplitude during held exhale
         const holdDuration = Date.now() - heldExhaleStart;
-        const shrinkRate = 0.999; // Very gradual shrinking
-        const shrinkFactor = Math.pow(shrinkRate, holdDuration / 100); // Every 100ms
+        const shrinkRate = 0.999;
+        const shrinkFactor = Math.pow(shrinkRate, holdDuration / 100);
         finalAmplitude = activeBreathAmplitude * shrinkFactor;
       }
     } else {
-      setHeldExhaleStart(null); // Reset hold detection
+      setHeldExhaleStart(null);
     }
     
     lastAmplitudeRef.current = activeBreathAmplitude;
     
-    // Calculate intensity multiplier based on breathing rate (4-20 BPM)
-    // At 4 BPM (deep meditation): very subtle (30% intensity)
-    // At 12 BPM (normal): medium intensity (80% intensity) 
-    // At 20 BPM (fast breathing): full intensity (100%)
-    const normalizedRate = Math.max(4, Math.min(20, activeBreathingRate)); // Clamp to range
+    const normalizedRate = Math.max(4, Math.min(20, activeBreathingRate));
     const intensityMultiplier = normalizedRate <= 4 ? 0.3 : 
                                normalizedRate <= 12 ? 0.3 + ((normalizedRate - 4) / 8) * 0.5 :
                                0.8 + ((normalizedRate - 12) / 8) * 0.2;
     
-    // Direct, smooth amplitude mapping that follows breathing naturally
-    // Remove all complex scaling to prevent jerky movement
-    let scaledAmplitude = finalAmplitude;
+    const scaledAmplitude = finalAmplitude * intensityMultiplier;
     
-    // Add stronger smoothing to reduce jerkiness for smoother animation
-    const smoothingFactor = 0.95; // 95% smoothing for ultra-smooth transitions
-    const lastSmoothedAmplitude = lastAmplitudeRef.current || finalAmplitude;
-    scaledAmplitude = (lastSmoothedAmplitude * smoothingFactor) + (finalAmplitude * (1 - smoothingFactor));
-    
-    // Apply breathing rate intensity scaling
-    scaledAmplitude = scaledAmplitude * intensityMultiplier;
-    
-    // Use unified breath kasina sizing system for consistent behavior across all types
     const breathSizing = calculateBreathKasinaSize(selectedKasina, scaledAmplitude, sizeScale, sizeMultiplier);
-    const { size: newSize, minSize, maxSize, immersionLevel } = breathSizing;
+    const { size: newSize } = breathSizing;
     
-    // Update state to trigger re-render
-    setOrbSize(newSize);
-    
-    // Also directly modify the DOM for immediate visual feedback
-    try {
-      if (orbRef.current) {
-        orbRef.current.style.width = `${newSize}px`;
-        orbRef.current.style.height = `${newSize}px`;
-        orbRef.current.style.boxShadow = 'none'; // Remove all glow effects
-      }
-    } catch (error) {
-      console.error('Error updating orb DOM styles:', error);
-    }
+    targetOrbSizeRef.current = newSize;
     
     // Calculate and update background color based on current kasina
     let newBackgroundColor: string;
@@ -1159,9 +1130,37 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     setCurrentBackgroundColor(newBackgroundColor);
     
     if (Math.random() < 0.002) {
-      console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, current: ${newSize}px`);
+      console.log(`Scale: ${sizeScale.toFixed(1)}x, rate: ${activeBreathingRate}bpm, intensity: ${(intensityMultiplier * 100).toFixed(0)}%, target: ${newSize}px`);
     }
   }, [activeBreathAmplitude, activeIsListening, heldExhaleStart, activeBreathingRate, sizeScale, selectedKasina, customColor, isColorDark, getKasinaColor, calculateBackgroundColor]);
+
+  useEffect(() => {
+    let frameCount = 0;
+    const animate = () => {
+      const target = targetOrbSizeRef.current;
+      const current = currentOrbSizeRef.current;
+      const lerp = 0.12;
+      const next = current + (target - current) * lerp;
+      currentOrbSizeRef.current = next;
+
+      if (orbRef.current) {
+        orbRef.current.style.width = `${next}px`;
+        orbRef.current.style.height = `${next}px`;
+        orbRef.current.style.boxShadow = 'none';
+      }
+
+      frameCount++;
+      if (frameCount % 6 === 0) {
+        setOrbSize(Math.round(next));
+      }
+
+      animFrameRef.current = requestAnimationFrame(animate);
+    };
+    animFrameRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+    };
+  }, []);
 
   // Modern kasina breathing orb component using Three.js
   const BreathingKasinaOrb = () => {
