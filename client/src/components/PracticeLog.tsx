@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { format } from "date-fns";
 import { useKasina } from "../lib/stores/useKasina";
@@ -14,6 +15,7 @@ interface Session {
   kasinaName: string;
   duration: number;
   timestamp: string;
+  hasBreathRateData?: boolean;
 }
 
 interface PracticeLogProps {
@@ -28,6 +30,7 @@ const INITIAL_DISPLAY_COUNT = 12;
 const LOAD_INCREMENT = 6;
 
 const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType, onSessionDeleted }) => {
+  const navigate = useNavigate();
   const { getKasinaEmoji } = useKasina();
   // State to track how many sessions to display
   const [displayCount, setDisplayCount] = useState(INITIAL_DISPLAY_COUNT);
@@ -182,13 +185,16 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType,
         <div className="space-y-3">
           {/* For desktop, use a grid layout to show sessions side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {sessionsToDisplay.map((session) => (
+            {sessionsToDisplay.map((session) => {
+              const isBreathSession = session.kasinaName?.includes('Breath') || session.kasinaType === 'breath';
+              const isClickable = isBreathSession;
+              return (
               <div 
                 key={session.id} 
+                onClick={isClickable ? () => navigate(`/reflection/session/${session.id}`) : undefined}
                 className={`group relative flex items-center p-4 transition-colors rounded-lg border ${
-                  // Check if we should highlight this session
-                  // 1. Direct match with the kasinaType
-                  // 2. Compound selection with this kasinaType
+                  isClickable ? 'cursor-pointer ' : ''
+                }${
                   (selectedKasinaType === session.kasinaType || 
                    (selectedKasinaType?.includes('+') && 
                     selectedKasinaType.split('+')[1] === session.kasinaType))
@@ -246,7 +252,8 @@ const PracticeLog: React.FC<PracticeLogProps> = ({ sessions, selectedKasinaType,
                   </div>
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
           
           {hasMoreSessions && (

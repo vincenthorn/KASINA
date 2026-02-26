@@ -913,13 +913,61 @@ export function registerRoutes(app: Express): Server {
         kasinaName: session.kasina_name,
         duration: session.duration_seconds,
         timestamp: session.session_date.toISOString(),
-        kasinaBreakdown: (session as any).kasina_breakdown || []
+        kasinaBreakdown: (session as any).kasina_breakdown || [],
+        hasBreathRateData: !!(session as any).breath_rate_data
       }));
       
       res.json(formattedSessions);
     } catch (error) {
       console.error('Error getting user sessions:', error);
       res.status(500).json({ message: "Failed to retrieve sessions" });
+    }
+  });
+
+  app.get("/api/sessions/:id", async (req, res) => {
+    if (!req.session?.user?.email) {
+      return res.status(401).json({ message: "Authentication required" });
+    }
+    
+    try {
+      const sessionId = parseInt(req.params.id);
+      if (isNaN(sessionId)) {
+        return res.status(400).json({ message: "Invalid session ID" });
+      }
+      
+      const result = await dbPool.query(
+        `SELECT s.*,
+          COALESCE(
+            json_agg(
+              json_build_object('kasina_type', kb.kasina_type, 'duration_seconds', kb.duration_seconds)
+            ) FILTER (WHERE kb.kasina_type IS NOT NULL),
+            '[]'
+          ) as kasina_breakdown
+         FROM sessions s
+         LEFT JOIN kasina_breakdowns kb ON s.id = kb.session_id
+         WHERE s.id = $1 AND LOWER(s.user_email) = LOWER($2)
+         GROUP BY s.id`,
+        [sessionId, req.session.user.email]
+      );
+      
+      if (result.rows.length === 0) {
+        return res.status(404).json({ message: "Session not found" });
+      }
+      
+      const session = result.rows[0];
+      res.json({
+        id: session.id.toString(),
+        userEmail: session.user_email,
+        kasinaType: session.kasina_type,
+        kasinaName: session.kasina_name,
+        duration: session.duration_seconds,
+        timestamp: session.session_date.toISOString(),
+        kasinaBreakdown: session.kasina_breakdown || [],
+        breathRateData: session.breath_rate_data ? JSON.parse(session.breath_rate_data) : null
+      });
+    } catch (error) {
+      console.error('Error getting session detail:', error);
+      res.status(500).json({ message: "Failed to retrieve session" });
     }
   });
 
@@ -1126,12 +1174,15 @@ export function registerRoutes(app: Express): Server {
       const kasinaType = safeBody.kasinaType || "white";
       const displayName = safeBody.kasinaName || safeBody.kasinaType || "White";
       
+      const breathRateData = safeBody.breathRateData || null;
+      
       // Save session to PostgreSQL database
       const dbSession = await addSession(
         req.session.user.email,
         kasinaType,
         finalDuration,
-        displayName
+        displayName,
+        breathRateData
       );
       
       if (dbSession) {

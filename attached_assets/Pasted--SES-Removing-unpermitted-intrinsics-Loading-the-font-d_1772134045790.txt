@@ -1,0 +1,224 @@
+ SES Removing unpermitted intrinsics
+ Loading the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com". The action has been blocked.
+OptiButton @ optibutton.js:240
+ [AUTH_CHECK] Checking authentication status at 2026-02-26T19:18:40.239Z
+ Setting auth state with user: Object
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Crash History: Array(8)
+ Crash #1: Object
+ Crash #2: Object
+ Crash #3: Object
+ Crash #4: Object
+ Crash #5: Object
+ Crash #6: Object
+ Crash #7: Object
+ Crash #8: Object
+ === END DIAGNOSTIC REPORT ===
+ [AUTH_CHECK] Checking authentication status at 2026-02-26T19:18:40.469Z
+ Setting auth state with user: Object
+ 🔍 BREATH PAGE - Browser detection - User Agent: mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/537.36 (khtml, like gecko) chrome/145.0.0.0 safari/537.36
+ 🔍 BREATH PAGE - Browser detection result: Chrome-based
+ 🔍 BREATH PAGE - Initial browser detection on page load: true
+ === HOOK MOUNT — checking window.vernierDevice: null/undefined, adoptedRef: false ===
+ 🔍 BREATH PAGE - Vernier state changed: Object
+ 🚨 BREATH PAGE - Browser warning check: Object
+ === VERNIER GDX: Starting connection ===
+ 🔍 BREATH PAGE - Vernier state changed: Object
+ GoDirect library loaded successfully via import
+ GoDirect library loaded
+ Connected to: GDX-RB 0K7001C3
+ Order code: GDX-RB
+ Serial: 0K7001C3
+ === SENSOR DISCOVERY ===
+ Total sensors available: 4
+   Sensor[0]: name="Force", unit="N", number=1, enabled=true
+   Sensor[1]: name="Respiration Rate", unit="bpm", number=2, enabled=true
+   Sensor[2]: name="Steps", unit="steps", number=4, enabled=false
+   Sensor[3]: name="Step Rate", unit="spm", number=5, enabled=false
+ === ENABLING SENSORS ===
+   Enabled: Force (N)
+   Enabled: Respiration Rate (bpm)
+   Enabled: Steps (steps)
+   Enabled: Step Rate (spm)
+ === ATTACHED 4 SENSOR LISTENERS ===
+ === STARTING DATA COLLECTION ===
+ Data collection started with 100ms measurement period
+ === CONNECTION COMPLETE ===
+ 🔍 BROWSER DETECTION - User Agent: mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/537.36 (khtml, like gecko) chrome/145.0.0.0 safari/537.36
+ 🔍 BROWSER FLAGS: Object
+ 🔍 FINAL DETECTION RESULT: Chrome-based
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🚨 BROWSER WARNING CHECK: Object
+ ✅ Chrome-based browser - no warning needed
+ 🔄 STATE UPDATE: Object
+ 🚀 NON-ELEMENTAL initial background color set: #000000 for kasina: yellow
+ 🔍 BREATH PAGE - Vernier state changed: Object
+ 🎬 Three.js scene background cleared for kasina background: #000000
+ ✅ VALID RESPIRATION RATE: 5.1 bpm (1 valid out of 1 total)
+ ✅ VALID RESPIRATION RATE: 5.1 bpm (2 valid out of 2 total)
+ RESP RATE: still NaN (1 NaN readings so far, 2 valid)
+ 📺 Entered fullscreen for meditation session
+ [STATE_CHANGE] Kasina selection changed to: yellow
+ 🎨 Selected kasina: Yellow (yellow)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ 🛡️ Session recovery started for breath (session_1772133565656_4aiun3glo)
+ 🛡️ Started session recovery tracking for breath meditation
+ Requesting screen wake lock...
+ 🔒 Wake lock requested to prevent screen sleep during meditation
+ Screen wake lock enabled - screen will remain on
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 25px
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 7.9 bpm (3 valid out of 102 total)
+ RESP RATE: still NaN (101 NaN readings so far, 3 valid)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 6.6 bpm (4 valid out of 202 total)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ RESP RATE: still NaN (200 NaN readings so far, 4 valid)
+ 📊 RESP RATE summary: 296 NaN, 4 valid readings
+ ✅ VALID RESPIRATION RATE: 5.8 bpm (5 valid out of 302 total)
+ RESP RATE: still NaN (300 NaN readings so far, 5 valid)
+ 📊 Diagnostics collected at 30s
+ ✅ VALID RESPIRATION RATE: 5.4 bpm (6 valid out of 402 total)
+ RESP RATE: still NaN (399 NaN readings so far, 6 valid)
+ ✅ VALID RESPIRATION RATE: 5.5 bpm (7 valid out of 502 total)
+ RESP RATE: still NaN (499 NaN readings so far, 7 valid)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ 📊 RESP RATE summary: 593 NaN, 7 valid readings
+ ✅ VALID RESPIRATION RATE: 5.4 bpm (8 valid out of 602 total)
+ RESP RATE: still NaN (598 NaN readings so far, 8 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ 🔄 Session recovery checkpoint: 60s elapsed
+ 📊 Diagnostics collected at 60s
+ ✅ VALID RESPIRATION RATE: 5.6 bpm (9 valid out of 702 total)
+ RESP RATE: still NaN (698 NaN readings so far, 9 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 5.2 bpm (10 valid out of 802 total)
+ RESP RATE: still NaN (797 NaN readings so far, 10 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 33px
+ 📊 RESP RATE summary: 890 NaN, 10 valid readings
+ ✅ VALID RESPIRATION RATE: 5.1 bpm (11 valid out of 902 total)
+ RESP RATE: still NaN (897 NaN readings so far, 11 valid)
+ 📊 Diagnostics collected at 90s
+ ✅ VALID RESPIRATION RATE: 5.1 bpm (12 valid out of 1002 total)
+ RESP RATE: still NaN (996 NaN readings so far, 12 valid)
+ ✅ VALID RESPIRATION RATE: 5.4 bpm (13 valid out of 1102 total)
+ RESP RATE: still NaN (1096 NaN readings so far, 13 valid)
+ 📊 RESP RATE summary: 1187 NaN, 13 valid readings
+ ✅ VALID RESPIRATION RATE: 4.1 bpm (14 valid out of 1202 total)
+ RESP RATE: still NaN (1195 NaN readings so far, 14 valid)
+ 🔄 Session recovery checkpoint: 120s elapsed
+ 📊 Diagnostics collected at 120s
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 11.2 bpm (15 valid out of 1302 total)
+ RESP RATE: still NaN (1295 NaN readings so far, 15 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 6 bpm (16 valid out of 1402 total)
+ RESP RATE: still NaN (1394 NaN readings so far, 16 valid)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 66px
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ 📊 RESP RATE summary: 1484 NaN, 16 valid readings
+ ✅ VALID RESPIRATION RATE: 5.9 bpm (17 valid out of 1502 total)
+ RESP RATE: still NaN (1494 NaN readings so far, 17 valid)
+ 📊 Diagnostics collected at 150s
+ ✅ VALID RESPIRATION RATE: 6 bpm (18 valid out of 1602 total)
+ RESP RATE: still NaN (1593 NaN readings so far, 18 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 5.6 bpm (19 valid out of 1702 total)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 24px
+ RESP RATE: still NaN (1693 NaN readings so far, 19 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ 📊 RESP RATE summary: 1781 NaN, 19 valid readings
+ ✅ VALID RESPIRATION RATE: 4.8 bpm (20 valid out of 1802 total)
+ RESP RATE: still NaN (1792 NaN readings so far, 20 valid)
+ 🔄 Session recovery checkpoint: 180s elapsed
+ 📊 Diagnostics collected at 180s
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 4.4 bpm (21 valid out of 1902 total)
+ RESP RATE: still NaN (1892 NaN readings so far, 21 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 4.1 bpm (22 valid out of 2002 total)
+ RESP RATE: still NaN (1992 NaN readings so far, 22 valid)
+ 📊 RESP RATE summary: 2079 NaN, 22 valid readings
+ ✅ VALID RESPIRATION RATE: 5.5 bpm (23 valid out of 2102 total)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ RESP RATE: still NaN (2092 NaN readings so far, 23 valid)
+ 📊 Diagnostics collected at 210s
+ ✅ VALID RESPIRATION RATE: 5.2 bpm (24 valid out of 2202 total)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ RESP RATE: still NaN (2191 NaN readings so far, 24 valid)
+ ✅ VALID RESPIRATION RATE: 5.2 bpm (25 valid out of 2302 total)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ RESP RATE: still NaN (2291 NaN readings so far, 25 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ 📊 RESP RATE summary: 2376 NaN, 25 valid readings
+ ✅ VALID RESPIRATION RATE: 5.8 bpm (26 valid out of 2402 total)
+ RESP RATE: still NaN (2390 NaN readings so far, 26 valid)
+ 🔄 Session recovery checkpoint: 240s elapsed
+ 📊 Diagnostics collected at 240s
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 34px
+ ✅ VALID RESPIRATION RATE: 5.8 bpm (27 valid out of 2502 total)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ RESP RATE: still NaN (2490 NaN readings so far, 27 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 5.5 bpm (28 valid out of 2602 total)
+ RESP RATE: still NaN (2589 NaN readings so far, 28 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ 📊 RESP RATE summary: 2673 NaN, 28 valid readings
+ ✅ VALID RESPIRATION RATE: 5.7 bpm (29 valid out of 2702 total)
+ RESP RATE: still NaN (2689 NaN readings so far, 29 valid)
+ 📊 Diagnostics collected at 270s
+ ✅ VALID RESPIRATION RATE: 8.4 bpm (30 valid out of 2802 total)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ RESP RATE: still NaN (2788 NaN readings so far, 30 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ ✅ VALID RESPIRATION RATE: 6.8 bpm (31 valid out of 2902 total)
+ 📈 Breath rate history: 30 data points collected
+ RESP RATE: still NaN (2888 NaN readings so far, 31 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 69px
+index-Bhyz7pBa.js:4656 📊 RESP RATE summary: 2970 NaN, 31 valid readings
+index-Bhyz7pBa.js:4656 ✅ VALID RESPIRATION RATE: 7.4 bpm (32 valid out of 3002 total)
+index-Bhyz7pBa.js:4656 RESP RATE: still NaN (2987 NaN readings so far, 32 valid)
+index-Bhyz7pBa.js:4119 🔄 Session recovery checkpoint: 300s elapsed
+index-Bhyz7pBa.js:4793 📊 Diagnostics collected at 300s
+index-Bhyz7pBa.js:4793 ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display
+index-Bhyz7pBa.js:4793 Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 30px
+index-Bhyz7pBa.js:4656 ✅ VALID RESPIRATION RATE: 6 bpm (33 valid out of 3102 total)
+index-Bhyz7pBa.js:4656 RESP RATE: still NaN (3087 NaN readings so far, 33 valid)
+index-Bhyz7pBa.js:4793 📋 Session diagnostics stored for analysis: Object
+index-Bhyz7pBa.js:4793 🧘 Ending meditation session: 307s (5 minutes)
+index-Bhyz7pBa.js:4119 💾 Saved session backup to localStorage
+index-Bhyz7pBa.js:4119 🚀 SessionLogger - Saving session: Object
+index-Bhyz7pBa.js:4119 ✅ SessionLogger - Session saved successfully
+index-Bhyz7pBa.js:4793 ✅ Breath Kasina session logged: 5 minute(s) with 🟡
+index-Bhyz7pBa.js:4793 📊 Breath rate chart check: useVernier=false, effectiveUseVernier=true, historyLength=0, durationMin=5
+index-Bhyz7pBa.js:4793 📊 NOT saving breath rate history: conditions not met (need 5+min=true, vernier=true, hasData=false)
+index-Bhyz7pBa.js:4119 🧹 Session recovery cleared
+index-Bhyz7pBa.js:4793 🛡️ Session recovery cleared
+index-Bhyz7pBa.js:4238 Screen wake lock was released
+index-Bhyz7pBa.js:4793 🔓 Wake lock released - screen can sleep normally again
+index-Bhyz7pBa.js:4238 Screen wake lock released
+index-Bhyz7pBa.js:4656 === HOOK UNMOUNTING — cleaning up listeners ===
+index-Bhyz7pBa.js:4655 ================================
+index-Bhyz7pBa.js:4655 LOADING SESSIONS FROM DATABASE
+index-Bhyz7pBa.js:4655 Refresh counter: 0
+index-Bhyz7pBa.js:4655 Current user: vjhorn@gmail.com
+index-Bhyz7pBa.js:4655 ================================
+index-Bhyz7pBa.js:4793 📺 Auto-exited fullscreen after meditation session
+index-Bhyz7pBa.js:4077 THREE.WebGLRenderer: Context Lost.
+index-Bhyz7pBa.js:4655 Fetched database sessions: 8
+index-Bhyz7pBa.js:4655 ✅ Successfully loaded sessions from database
+index-Bhyz7pBa.js:4655 Final sessions loaded: 8
+index-Bhyz7pBa.js:4655 ================================
+index-Bhyz7pBa.js:4655 📊 BreathRateChart: not rendering (data=0 points, need >= 10)
+index-Bhyz7pBa.js:4655 📊 BreathRateChart: sessionStorage has data = false

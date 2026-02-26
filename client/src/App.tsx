@@ -25,6 +25,7 @@ import VernierOfficialBreathPage from "./pages/VernierOfficialBreathPage";
 import VernierTestPage from "./pages/VernierTestPage";
 import VisualKasinaOrb from "./components/VisualKasinaOrb";
 
+import SessionDetailPage from "./pages/SessionDetailPage";
 import NotFound from "./pages/not-found";
 import CrashLogPage from "./pages/CrashLogPage";
 import DiagnosticsPage from "./pages/DiagnosticsPage";
@@ -137,6 +138,16 @@ function App() {
                   <AuthenticatedRoute>
                     <ErrorBoundary>
                       <ReflectionPage />
+                    </ErrorBoundary>
+                  </AuthenticatedRoute>
+                }
+              />
+              <Route
+                path="/reflection/session/:id"
+                element={
+                  <AuthenticatedRoute>
+                    <ErrorBoundary>
+                      <SessionDetailPage />
                     </ErrorBoundary>
                   </AuthenticatedRoute>
                 }

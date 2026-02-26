@@ -292,8 +292,10 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
   }, [useVernier, vernierDeviceBreathingRate, vernierBreathingRate, vernierSessionElapsed, vernierBreathRateHistory.length]);
   
   const breathAmplitudeHistoryRef = useRef<number[]>([]);
+  const effectiveVernierLatchRef = useRef(false);
   const effectiveUseVernier = (() => {
     if (useVernier) return true;
+    if (effectiveVernierLatchRef.current) return true;
     if (breathAmplitude !== 0.5 && breathAmplitude !== 0) {
       breathAmplitudeHistoryRef.current.push(breathAmplitude);
       if (breathAmplitudeHistoryRef.current.length > 50) {
@@ -304,22 +306,14 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         const min = Math.min(...values);
         const max = Math.max(...values);
         if (max - min > 0.05) {
+          effectiveVernierLatchRef.current = true;
+          console.log('⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, latching Vernier-connected for BPM display');
           return true;
         }
       }
     }
     return false;
   })();
-
-  const prevEffectiveVernierRef = useRef<boolean | null>(null);
-  useEffect(() => {
-    if (prevEffectiveVernierRef.current !== effectiveUseVernier) {
-      if (effectiveUseVernier && !useVernier) {
-        console.log('⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display');
-      }
-      prevEffectiveVernierRef.current = effectiveUseVernier;
-    }
-  }, [effectiveUseVernier, useVernier]);
 
   const activeBreathAmplitude = breathAmplitude;
   const activeBreathPhase = breathPhase;
@@ -725,26 +719,19 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           finalUsage[selectedKasina] = (finalUsage[selectedKasina] || 0) + currentTimeSpent;
         }
 
+        const hasBreathData = (useVernier || effectiveUseVernier) && vernierBreathRateHistory.length > 0;
+        const breathRateDataJson = hasBreathData ? JSON.stringify(vernierBreathRateHistory) : undefined;
+        console.log(`📊 Breath rate chart check: useVernier=${useVernier}, effectiveUseVernier=${effectiveUseVernier}, historyLength=${vernierBreathRateHistory.length}, durationMin=${durationInMinutes}, saving=${!!breathRateDataJson}`);
+
         await logSession({
-          kasinaType: mostUsedKasina as any, // Use the most-used kasina as the type for emoji
-          duration: durationInMinutes * 60, // Convert back to seconds for logging
+          kasinaType: mostUsedKasina as any,
+          duration: durationInMinutes * 60,
           showToast: true,
           kasinaBreakdown: finalUsage,
-          customSessionName: `Breath Kasina`
+          customSessionName: `Breath Kasina`,
+          breathRateData: breathRateDataJson
         });
-        console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
-
-        console.log(`📊 Breath rate chart check: useVernier=${useVernier}, effectiveUseVernier=${effectiveUseVernier}, historyLength=${vernierBreathRateHistory.length}, durationMin=${durationInMinutes}`);
-        if (durationInMinutes >= 5 && (useVernier || effectiveUseVernier) && vernierBreathRateHistory.length > 0) {
-          try {
-            sessionStorage.setItem('lastBreathRateHistory', JSON.stringify(vernierBreathRateHistory));
-            console.log(`📊 SAVED ${vernierBreathRateHistory.length} breath rate data points to sessionStorage`);
-          } catch (e) {
-            console.warn('Could not save breath rate history:', e);
-          }
-        } else {
-          console.log(`📊 NOT saving breath rate history: conditions not met (need 5+min=${durationInMinutes >= 5}, vernier=${useVernier || effectiveUseVernier}, hasData=${vernierBreathRateHistory.length > 0})`);
-        }
+        console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}${breathRateDataJson ? ` + ${vernierBreathRateHistory.length} breath rate data points` : ''}`);
         
       } catch (error) {
         console.error('Failed to log meditation session:', error);
@@ -1578,28 +1565,30 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
       )}
 
       {/* Always-visible Live BPM Display - Bottom Left (independent of mouse/controls) */}
-      {!showKasinaSelection && effectiveUseVernier && meditationTime >= 30 && (
-        <div
-          className="absolute bottom-8 left-8 z-30"
-          style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            color: 'rgba(255, 255, 255, 0.85)',
-            padding: '6px 16px',
-            borderRadius: '20px',
-            fontSize: '14px',
-            fontFamily: 'monospace',
-            fontWeight: '500',
-            letterSpacing: '0.5px',
-            pointerEvents: 'none',
-            userSelect: 'none',
-          }}
-        >
-          {(vernierDeviceBreathingRate != null && vernierDeviceBreathingRate > 0
-            ? vernierDeviceBreathingRate
-            : vernierBreathingRate
-          ).toFixed(1)} bpm
-        </div>
-      )}
+      {!showKasinaSelection && effectiveUseVernier && meditationTime >= 30 && (() => {
+        const displayBpm = vernierBreathingRate > 0 && vernierBreathingRate !== 12
+          ? vernierBreathingRate
+          : (vernierDeviceBreathingRate != null && vernierDeviceBreathingRate > 0 ? vernierDeviceBreathingRate : null);
+        return displayBpm !== null ? (
+          <div
+            className="absolute bottom-8 left-8 z-30"
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.6)',
+              color: 'rgba(255, 255, 255, 0.85)',
+              padding: '6px 16px',
+              borderRadius: '20px',
+              fontSize: '14px',
+              fontFamily: 'monospace',
+              fontWeight: '500',
+              letterSpacing: '0.5px',
+              pointerEvents: 'none',
+              userSelect: 'none',
+            }}
+          >
+            {displayBpm.toFixed(1)} bpm
+          </div>
+        ) : null;
+      })()}
 
 
 

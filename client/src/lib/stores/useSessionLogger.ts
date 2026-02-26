@@ -23,6 +23,7 @@ interface SessionLoggerState {
     kasinaBreakdown?: { [kasina: string]: number };
     customSessionName?: string;
     practiceType?: 'guided' | 'silent';
+    breathRateData?: string;
   }) => Promise<boolean>;
   
   // For debugging
@@ -34,7 +35,7 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
   lastSaved: null,
   lastError: null,
   
-  logSession: async ({ kasinaType, duration, showToast = true, kasinaBreakdown = {}, customSessionName, practiceType }) => {
+  logSession: async ({ kasinaType, duration, showToast = true, kasinaBreakdown = {}, customSessionName, practiceType, breathRateData }) => {
     // Prevent duplicate saves within 2 seconds
     const { lastSaved, isSaving } = get();
     if (isSaving) {
@@ -105,11 +106,12 @@ export const useSessionLogger = create<SessionLoggerState>((set, get) => ({
         body: JSON.stringify({ 
           kasinaType: kasinaTypeNormalized,
           kasinaName,
-          duration: minutes * 60, // Duration in seconds
+          duration: minutes * 60,
           userEmail: userEmail,
           timestamp: new Date().toISOString(),
-          kasinaBreakdown: kasinaBreakdown, // Include breakdown data
-          practiceType: practiceType || 'silent' // Include practice type
+          kasinaBreakdown: kasinaBreakdown,
+          practiceType: practiceType || 'silent',
+          breathRateData: breathRateData || undefined
         })
       });
       

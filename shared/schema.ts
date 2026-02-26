@@ -18,6 +18,7 @@ export const sessions = pgTable("sessions", {
   kasinaName: text("kasina_name").notNull(),
   duration: integer("duration").notNull(), // in seconds
   timestamp: timestamp("timestamp").notNull().defaultNow(),
+  breathRateData: text("breath_rate_data"),
 });
 
 // Kasina breakdown data for sessions

@@ -134,15 +134,15 @@ export interface Session {
 }
 
 // Add a new session
-export async function addSession(userEmail: string, kasinaType: string, durationSeconds: number, kasinaName?: string): Promise<Session | null> {
+export async function addSession(userEmail: string, kasinaType: string, durationSeconds: number, kasinaName?: string, breathRateData?: string): Promise<Session | null> {
   try {
-    console.log(`📝 Saving session: ${userEmail}, ${kasinaType}, ${durationSeconds}s, ${kasinaName}`);
+    console.log(`📝 Saving session: ${userEmail}, ${kasinaType}, ${durationSeconds}s, ${kasinaName}${breathRateData ? ', with breath rate data' : ''}`);
     
     const result = await pool.query(
-      `INSERT INTO sessions (user_email, kasina_type, kasina_name, duration_seconds) 
-       VALUES ($1, $2, $3, $4) 
+      `INSERT INTO sessions (user_email, kasina_type, kasina_name, duration_seconds, breath_rate_data) 
+       VALUES ($1, $2, $3, $4, $5) 
        RETURNING *`,
-      [userEmail.toLowerCase(), kasinaType, kasinaName || kasinaType, durationSeconds]
+      [userEmail.toLowerCase(), kasinaType, kasinaName || kasinaType, durationSeconds, breathRateData || null]
     );
     
     console.log('✅ Session saved successfully:', result.rows[0]);

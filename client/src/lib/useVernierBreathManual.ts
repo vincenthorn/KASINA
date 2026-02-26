@@ -409,6 +409,10 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     const normalizedAmplitude = Math.max(0, Math.min(1, (forceValue - dynamicMin) / (dynamicMax - dynamicMin)));
     setBreathAmplitude(normalizedAmplitude);
 
+    if (connectionStartTimeRef.current === 0) {
+      connectionStartTimeRef.current = now;
+    }
+
     if (now - lastForceUpdateRef.current > 100) {
       const forceChange = forceValue - lastForceValueRef.current;
       const changeThreshold = calibrationProfile
@@ -434,8 +438,18 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
           const cyclesPerSecond = (recentCycles.length - 1) / timeSpan;
           const bpm = Math.round(cyclesPerSecond * 60 * 10) / 10;
           const calculatedRate = Math.max(4, Math.min(30, bpm));
-          if (deviceBreathingRate === null) {
-            setBreathingRate(calculatedRate);
+          setBreathingRate(calculatedRate);
+
+          if (connectionStartTimeRef.current > 0 && now - lastBreathRateRecordRef.current >= 1000) {
+            lastBreathRateRecordRef.current = now;
+            const elapsed = Math.floor((now - connectionStartTimeRef.current) / 1000);
+            setBreathRateHistory(prev => {
+              const updated = [...prev, { time: elapsed, bpm: calculatedRate }];
+              if (updated.length % 30 === 0) {
+                console.log(`📈 Breath rate history (force): ${updated.length} data points collected`);
+              }
+              return updated;
+            });
           }
         }
         lastRateUpdateRef.current = now;
@@ -444,7 +458,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       lastForceValueRef.current = forceValue;
       lastForceUpdateRef.current = now;
     }
-  }, [calibrationProfile, breathPhase, deviceBreathingRate]);
+  }, [calibrationProfile, breathPhase]);
 
   const finishCalibration = useCallback(() => {
     if (calibrationDataRef.current.length === 0) {
