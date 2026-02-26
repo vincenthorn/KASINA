@@ -80,30 +80,15 @@ const BreathPage: React.FC = () => {
     resetBreathRateHistory
   } = useVernierBreathManual();
 
-  // Add logging to track connection state changes
   React.useEffect(() => {
-    console.log('🔍 BREATH PAGE - Vernier hook state:', {
+    console.log('🔍 BREATH PAGE - Vernier state changed:', {
       isConnected,
       isConnecting,
       calibrationComplete,
       hasCalibrationProfile: !!calibrationProfile,
-      currentForce
+      willPassTo_useVernier: isConnected
     });
-  }, [isConnected, isConnecting, calibrationComplete, calibrationProfile, currentForce]);
-
-  // Add explicit logging on component mount
-  React.useEffect(() => {
-    console.log('🚨 BREATH PAGE MOUNTED - Initial hook values:', { isConnected, calibrationComplete });
-  }, []);
-
-  // Add logging for the exact values being passed to component
-  React.useEffect(() => {
-    console.log('🔍 BREATH PAGE - Connection values for component:', {
-      hookReturned_isConnected: isConnected,
-      willPassTo_useVernier: isConnected,
-      willPassTo_isListening: isConnected
-    });
-  }, [isConnected]);
+  }, [isConnected, isConnecting, calibrationComplete, calibrationProfile]);
   
   const hasPremiumAccess = true;
 

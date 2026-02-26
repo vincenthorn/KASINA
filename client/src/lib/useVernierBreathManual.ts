@@ -97,14 +97,190 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   const connectionStartTimeRef = useRef<number>(0);
   const sessionTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const lastBreathRateRecordRef = useRef<number>(0);
+  const sensorListenersRef = useRef<Array<{ sensor: any; handler: (obj: any) => void }>>([]);
+  const adoptedRef = useRef(false);
+
+  const removeAllSensorListeners = useCallback(() => {
+    for (const { sensor, handler } of sensorListenersRef.current) {
+      try {
+        sensor.off('value-changed', handler);
+      } catch (e) { /* ignore */ }
+    }
+    sensorListenersRef.current = [];
+  }, []);
+
+  const discoverSensors = useCallback((gdxDevice: any) => {
+    let forceSensor: any = null;
+    let respRateSensor: any = null;
+    let stepsSensor: any = null;
+    let stepRateSensor: any = null;
+
+    gdxDevice.sensors.forEach((sensor: any) => {
+      const name = (sensor.name || '').toLowerCase();
+      const unit = (sensor.unit || '').toLowerCase();
+
+      if (unit === 'n' || name.includes('force')) {
+        forceSensor = sensor;
+      } else if (unit === 'bpm' || unit === 'breaths/min' || name.includes('respiration rate')) {
+        respRateSensor = sensor;
+      } else if (name.includes('steps') && !name.includes('rate')) {
+        stepsSensor = sensor;
+      } else if (name.includes('step rate') || (name.includes('step') && name.includes('rate'))) {
+        stepRateSensor = sensor;
+      }
+    });
+
+    if (!forceSensor) {
+      for (let i = 0; i < Math.min(5, gdxDevice.sensors.length); i++) {
+        const s = gdxDevice.sensors[i];
+        if (s && (s.unit === 'N' || s.name?.toLowerCase().includes('force'))) {
+          forceSensor = s;
+          break;
+        }
+      }
+    }
+
+    return { forceSensor, respRateSensor, stepsSensor, stepRateSensor };
+  }, []);
+
+  const attachSensorListeners = useCallback((sensors: { forceSensor: any; respRateSensor: any; stepsSensor: any; stepRateSensor: any }) => {
+    removeAllSensorListeners();
+
+    const { forceSensor, respRateSensor, stepsSensor, stepRateSensor } = sensors;
+
+    if (forceSensor) {
+      const handler = (sensorObj: any) => {
+        const val = typeof sensorObj.value === 'number' ? sensorObj.value : parseFloat(sensorObj.value);
+        if (isNaN(val)) return;
+
+        setCurrentForce(val);
+
+        const isCurrentlyCalibrating = calibrationStartTimeRef.current > 0;
+        if (isCurrentlyCalibrating) {
+          calibrationDataRef.current.push(val);
+          const elapsed = Date.now() - calibrationStartTimeRef.current;
+          const calibrationDuration = 20000;
+          const progressPercent = Math.min(elapsed / calibrationDuration, 1);
+          setCalibrationProgress(progressPercent);
+
+          if (elapsed >= calibrationDuration) {
+            finishCalibration();
+          }
+          return;
+        }
+
+        processForceValue(val);
+      };
+      forceSensor.on('value-changed', handler);
+      sensorListenersRef.current.push({ sensor: forceSensor, handler });
+    }
+
+    if (respRateSensor) {
+      const handler = (sensorObj: any) => {
+        const raw = sensorObj.value;
+        console.log(`RESP RATE raw value: ${raw} (type: ${typeof raw})`);
+
+        if (raw === undefined || raw === null) {
+          console.log('  -> Respiration rate: undefined/null, waiting...');
+          return;
+        }
+
+        const strVal = String(raw).trim().toUpperCase();
+        if (strVal === 'NAN' || strVal === 'UNDEFINED' || strVal === 'NULL' || strVal === '') {
+          console.log('  -> Respiration rate: NaN string, device still calculating...');
+          return;
+        }
+
+        const numVal = parseFloat(raw);
+        if (isNaN(numVal) || !isFinite(numVal)) {
+          console.log(`  -> Respiration rate: parsed NaN/Infinite from "${raw}", waiting...`);
+          return;
+        }
+
+        if (numVal <= 0 || numVal > 60) {
+          console.log(`  -> Respiration rate: ${numVal} out of range (0-60), ignoring`);
+          return;
+        }
+
+        const roundedRate = Math.round(numVal * 10) / 10;
+        console.log(`  -> VALID RESPIRATION RATE: ${roundedRate} bpm`);
+        setDeviceBreathingRate(roundedRate);
+        setBreathingRate(roundedRate);
+
+        const now = Date.now();
+        if (now - lastBreathRateRecordRef.current >= 1000) {
+          lastBreathRateRecordRef.current = now;
+          const elapsed = connectionStartTimeRef.current > 0
+            ? Math.floor((now - connectionStartTimeRef.current) / 1000)
+            : 0;
+          setBreathRateHistory(prev => {
+            const updated = [...prev, { time: elapsed, bpm: roundedRate }];
+            if (updated.length % 30 === 0) {
+              console.log(`📈 Breath rate history: ${updated.length} data points collected`);
+            }
+            return updated;
+          });
+        }
+      };
+      respRateSensor.on('value-changed', handler);
+      sensorListenersRef.current.push({ sensor: respRateSensor, handler });
+    }
+
+    if (stepsSensor) {
+      const handler = (sensorObj: any) => {
+        const val = parseFloat(sensorObj.value);
+        if (!isNaN(val)) setStepsCount(val);
+      };
+      stepsSensor.on('value-changed', handler);
+      sensorListenersRef.current.push({ sensor: stepsSensor, handler });
+    }
+
+    if (stepRateSensor) {
+      const handler = (sensorObj: any) => {
+        const val = parseFloat(sensorObj.value);
+        if (!isNaN(val)) setStepRate(val);
+      };
+      stepRateSensor.on('value-changed', handler);
+      sensorListenersRef.current.push({ sensor: stepRateSensor, handler });
+    }
+
+    console.log(`=== ATTACHED ${sensorListenersRef.current.length} SENSOR LISTENERS ===`);
+  }, [removeAllSensorListeners]);
 
   useEffect(() => {
+    const existingDevice = (window as any).vernierDevice;
+    if (existingDevice && !adoptedRef.current) {
+      adoptedRef.current = true;
+      console.log('=== AUTO-ADOPTING EXISTING VERNIER DEVICE ===');
+      console.log(`Device: ${existingDevice.name || 'unknown'}`);
+
+      deviceRef.current = existingDevice;
+
+      const sensors = discoverSensors(existingDevice);
+      console.log(`Found sensors: force=${!!sensors.forceSensor}, respRate=${!!sensors.respRateSensor}, steps=${!!sensors.stepsSensor}, stepRate=${!!sensors.stepRateSensor}`);
+
+      attachSensorListeners(sensors);
+
+      connectionStartTimeRef.current = Date.now();
+      sessionTimerRef.current = setInterval(() => {
+        if (connectionStartTimeRef.current > 0) {
+          setSessionElapsed(Math.floor((Date.now() - connectionStartTimeRef.current) / 1000));
+        }
+      }, 1000);
+
+      setIsConnected(true);
+      console.log('=== AUTO-ADOPT COMPLETE — useVernier will be true ===');
+    }
+
     return () => {
+      console.log('=== HOOK UNMOUNTING — cleaning up listeners ===');
+      removeAllSensorListeners();
       if (sessionTimerRef.current) {
         clearInterval(sessionTimerRef.current);
+        sessionTimerRef.current = null;
       }
     };
-  }, []);
+  }, [discoverSensors, attachSensorListeners, removeAllSensorListeners]);
 
   const connectDevice = useCallback(async () => {
     try {
@@ -131,158 +307,31 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         console.log(`  Sensor[${index}]: name="${sensor.name}", unit="${sensor.unit}", number=${sensor.number}, enabled=${sensor.enabled}`);
       });
 
-      let forceSensor: any = null;
-      let respRateSensor: any = null;
-      let stepsSensor: any = null;
-      let stepRateSensor: any = null;
+      const sensors = discoverSensors(gdxDevice);
 
-      gdxDevice.sensors.forEach((sensor: any) => {
-        const name = (sensor.name || '').toLowerCase();
-        const unit = (sensor.unit || '').toLowerCase();
-
-        if (unit === 'n' || name.includes('force')) {
-          forceSensor = sensor;
-          console.log(`  -> Identified FORCE sensor: number=${sensor.number}, unit=${sensor.unit}`);
-        } else if (unit === 'bpm' || unit === 'breaths/min' || name.includes('respiration rate')) {
-          respRateSensor = sensor;
-          console.log(`  -> Identified RESPIRATION RATE sensor: number=${sensor.number}, unit=${sensor.unit}`);
-        } else if (name.includes('steps') && !name.includes('rate')) {
-          stepsSensor = sensor;
-          console.log(`  -> Identified STEPS sensor: number=${sensor.number}, unit=${sensor.unit}`);
-        } else if (name.includes('step rate') || (name.includes('step') && name.includes('rate'))) {
-          stepRateSensor = sensor;
-          console.log(`  -> Identified STEP RATE sensor: number=${sensor.number}, unit=${sensor.unit}`);
-        }
-      });
-
-      if (!forceSensor) {
-        for (let i = 0; i < Math.min(5, gdxDevice.sensors.length); i++) {
-          const s = gdxDevice.sensors[i];
-          if (s && (s.unit === 'N' || s.name?.toLowerCase().includes('force'))) {
-            forceSensor = s;
-            console.log(`  -> Found Force sensor via fallback scan at index ${i}`);
-            break;
-          }
-        }
-      }
-
-      if (!forceSensor) {
+      if (!sensors.forceSensor) {
         console.warn('No force sensor found on device!');
       }
 
       console.log('=== ENABLING SENSORS ===');
-      const sensorsToEnable: any[] = [];
-
-      if (forceSensor) {
-        forceSensor.setEnabled(true);
-        sensorsToEnable.push(forceSensor);
-        console.log(`  Enabled: ${forceSensor.name} (${forceSensor.unit})`);
+      if (sensors.forceSensor) {
+        sensors.forceSensor.setEnabled(true);
+        console.log(`  Enabled: ${sensors.forceSensor.name} (${sensors.forceSensor.unit})`);
       }
-      if (respRateSensor) {
-        respRateSensor.setEnabled(true);
-        sensorsToEnable.push(respRateSensor);
-        console.log(`  Enabled: ${respRateSensor.name} (${respRateSensor.unit})`);
+      if (sensors.respRateSensor) {
+        sensors.respRateSensor.setEnabled(true);
+        console.log(`  Enabled: ${sensors.respRateSensor.name} (${sensors.respRateSensor.unit})`);
       }
-      if (stepsSensor) {
-        stepsSensor.setEnabled(true);
-        sensorsToEnable.push(stepsSensor);
-        console.log(`  Enabled: ${stepsSensor.name} (${stepsSensor.unit})`);
+      if (sensors.stepsSensor) {
+        sensors.stepsSensor.setEnabled(true);
+        console.log(`  Enabled: ${sensors.stepsSensor.name} (${sensors.stepsSensor.unit})`);
       }
-      if (stepRateSensor) {
-        stepRateSensor.setEnabled(true);
-        sensorsToEnable.push(stepRateSensor);
-        console.log(`  Enabled: ${stepRateSensor.name} (${stepRateSensor.unit})`);
+      if (sensors.stepRateSensor) {
+        sensors.stepRateSensor.setEnabled(true);
+        console.log(`  Enabled: ${sensors.stepRateSensor.name} (${sensors.stepRateSensor.unit})`);
       }
 
-      console.log('=== SETTING UP VALUE LISTENERS ===');
-
-      if (forceSensor) {
-        forceSensor.on('value-changed', (sensorObj: any) => {
-          const val = typeof sensorObj.value === 'number' ? sensorObj.value : parseFloat(sensorObj.value);
-          if (isNaN(val)) return;
-
-          setCurrentForce(val);
-
-          const isCurrentlyCalibrating = calibrationStartTimeRef.current > 0;
-          if (isCurrentlyCalibrating) {
-            calibrationDataRef.current.push(val);
-            const elapsed = Date.now() - calibrationStartTimeRef.current;
-            const calibrationDuration = 20000;
-            const progressPercent = Math.min(elapsed / calibrationDuration, 1);
-            setCalibrationProgress(progressPercent);
-
-            if (elapsed >= calibrationDuration) {
-              finishCalibration();
-            }
-            return;
-          }
-
-          processForceValue(val);
-        });
-      }
-
-      if (respRateSensor) {
-        respRateSensor.on('value-changed', (sensorObj: any) => {
-          const raw = sensorObj.value;
-          console.log(`RESP RATE raw value: ${raw} (type: ${typeof raw})`);
-
-          if (raw === undefined || raw === null) {
-            console.log('  -> Respiration rate: undefined/null, waiting...');
-            return;
-          }
-
-          const strVal = String(raw).trim().toUpperCase();
-          if (strVal === 'NAN' || strVal === 'UNDEFINED' || strVal === 'NULL' || strVal === '') {
-            console.log('  -> Respiration rate: NaN string, device still calculating...');
-            return;
-          }
-
-          const numVal = parseFloat(raw);
-          if (isNaN(numVal) || !isFinite(numVal)) {
-            console.log(`  -> Respiration rate: parsed NaN/Infinite from "${raw}", waiting...`);
-            return;
-          }
-
-          if (numVal <= 0 || numVal > 60) {
-            console.log(`  -> Respiration rate: ${numVal} out of range (0-60), ignoring`);
-            return;
-          }
-
-          const roundedRate = Math.round(numVal * 10) / 10;
-          console.log(`  -> VALID RESPIRATION RATE: ${roundedRate} bpm`);
-          setDeviceBreathingRate(roundedRate);
-          setBreathingRate(roundedRate);
-
-          const now = Date.now();
-          if (now - lastBreathRateRecordRef.current >= 1000) {
-            lastBreathRateRecordRef.current = now;
-            const elapsed = connectionStartTimeRef.current > 0
-              ? Math.floor((now - connectionStartTimeRef.current) / 1000)
-              : 0;
-            setBreathRateHistory(prev => {
-              const updated = [...prev, { time: elapsed, bpm: roundedRate }];
-              if (updated.length % 30 === 0) {
-                console.log(`📈 Breath rate history: ${updated.length} data points collected`);
-              }
-              return updated;
-            });
-          }
-        });
-      }
-
-      if (stepsSensor) {
-        stepsSensor.on('value-changed', (sensorObj: any) => {
-          const val = parseFloat(sensorObj.value);
-          if (!isNaN(val)) setStepsCount(val);
-        });
-      }
-
-      if (stepRateSensor) {
-        stepRateSensor.on('value-changed', (sensorObj: any) => {
-          const val = parseFloat(sensorObj.value);
-          if (!isNaN(val)) setStepRate(val);
-        });
-      }
+      attachSensorListeners(sensors);
 
       console.log('=== STARTING DATA COLLECTION ===');
       await gdxDevice.start(100);
@@ -305,7 +354,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       setIsConnecting(false);
       setIsConnected(false);
     }
-  }, []);
+  }, [discoverSensors, attachSensorListeners]);
 
   const processForceValue = useCallback((forceValue: number) => {
     const now = Date.now();
@@ -418,6 +467,8 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
 
   const disconnectDevice = useCallback(async () => {
     try {
+      removeAllSensorListeners();
+
       if (deviceRef.current) {
         console.log('Disconnecting from Vernier device...');
         try { await deviceRef.current.stop(); } catch (e) { /* ignore */ }
@@ -430,6 +481,8 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
         clearInterval(sessionTimerRef.current);
         sessionTimerRef.current = null;
       }
+
+      adoptedRef.current = false;
 
       setIsConnected(false);
       setIsConnecting(false);
@@ -461,7 +514,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
       console.error('Disconnect error:', err);
       setError(`Disconnect error: ${err instanceof Error ? err.message : 'Unknown error'}`);
     }
-  }, []);
+  }, [removeAllSensorListeners]);
 
   const forceDisconnectDevice = useCallback(async () => {
     await disconnectDevice();
