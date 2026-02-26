@@ -176,38 +176,50 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
     }
 
     if (respRateSensor) {
+      let nanCount = 0;
+      let validCount = 0;
+      let lastNanLogTime = 0;
+      let lastSummaryTime = Date.now();
+
       const handler = (sensorObj: any) => {
         const raw = sensorObj.value;
-        console.log(`RESP RATE raw value: ${raw} (type: ${typeof raw})`);
+        const now = Date.now();
 
         if (raw === undefined || raw === null) {
-          console.log('  -> Respiration rate: undefined/null, waiting...');
+          nanCount++;
           return;
         }
 
         const strVal = String(raw).trim().toUpperCase();
         if (strVal === 'NAN' || strVal === 'UNDEFINED' || strVal === 'NULL' || strVal === '') {
-          console.log('  -> Respiration rate: NaN string, device still calculating...');
+          nanCount++;
+          if (now - lastNanLogTime >= 10000) {
+            lastNanLogTime = now;
+            console.log(`RESP RATE: still NaN (${nanCount} NaN readings so far, ${validCount} valid)`);
+          }
+          if (now - lastSummaryTime >= 30000) {
+            lastSummaryTime = now;
+            console.log(`📊 RESP RATE summary: ${nanCount} NaN, ${validCount} valid readings`);
+          }
           return;
         }
 
         const numVal = parseFloat(raw);
         if (isNaN(numVal) || !isFinite(numVal)) {
-          console.log(`  -> Respiration rate: parsed NaN/Infinite from "${raw}", waiting...`);
+          nanCount++;
           return;
         }
 
         if (numVal <= 0 || numVal > 60) {
-          console.log(`  -> Respiration rate: ${numVal} out of range (0-60), ignoring`);
           return;
         }
 
+        validCount++;
         const roundedRate = Math.round(numVal * 10) / 10;
-        console.log(`  -> VALID RESPIRATION RATE: ${roundedRate} bpm`);
+        console.log(`✅ VALID RESPIRATION RATE: ${roundedRate} bpm (${validCount} valid out of ${nanCount + validCount} total)`);
         setDeviceBreathingRate(roundedRate);
         setBreathingRate(roundedRate);
 
-        const now = Date.now();
         if (now - lastBreathRateRecordRef.current >= 1000) {
           lastBreathRateRecordRef.current = now;
           const elapsed = connectionStartTimeRef.current > 0
@@ -249,10 +261,11 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
 
   useEffect(() => {
     const existingDevice = (window as any).vernierDevice;
+    console.log(`=== HOOK MOUNT — checking window.vernierDevice: ${existingDevice ? 'EXISTS' : 'null/undefined'}, adoptedRef: ${adoptedRef.current} ===`);
     if (existingDevice && !adoptedRef.current) {
       adoptedRef.current = true;
       console.log('=== AUTO-ADOPTING EXISTING VERNIER DEVICE ===');
-      console.log(`Device: ${existingDevice.name || 'unknown'}`);
+      console.log(`Device: ${existingDevice.name || 'unknown'}, sensors: ${existingDevice.sensors?.length || 0}`);
 
       deviceRef.current = existingDevice;
 

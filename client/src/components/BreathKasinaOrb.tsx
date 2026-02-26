@@ -291,11 +291,40 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
     }
   }, [useVernier, vernierDeviceBreathingRate, vernierBreathingRate, vernierSessionElapsed, vernierBreathRateHistory.length]);
   
-  // Determine which breathing data to use - props come from BreathPage's connected hook
+  const breathAmplitudeHistoryRef = useRef<number[]>([]);
+  const effectiveUseVernier = (() => {
+    if (useVernier) return true;
+    if (breathAmplitude !== 0.5 && breathAmplitude !== 0) {
+      breathAmplitudeHistoryRef.current.push(breathAmplitude);
+      if (breathAmplitudeHistoryRef.current.length > 50) {
+        breathAmplitudeHistoryRef.current = breathAmplitudeHistoryRef.current.slice(-50);
+      }
+      const values = breathAmplitudeHistoryRef.current;
+      if (values.length >= 10) {
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        if (max - min > 0.05) {
+          return true;
+        }
+      }
+    }
+    return false;
+  })();
+
+  const prevEffectiveVernierRef = useRef<boolean | null>(null);
+  useEffect(() => {
+    if (prevEffectiveVernierRef.current !== effectiveUseVernier) {
+      if (effectiveUseVernier && !useVernier) {
+        console.log('⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, treating as Vernier-connected for BPM display');
+      }
+      prevEffectiveVernierRef.current = effectiveUseVernier;
+    }
+  }, [effectiveUseVernier, useVernier]);
+
   const activeBreathAmplitude = breathAmplitude;
   const activeBreathPhase = breathPhase;
   const activeIsListening = isListening;
-  const activeBreathingRate = useVernier ? vernierBreathingRate : 12;
+  const activeBreathingRate = (useVernier || effectiveUseVernier) ? vernierBreathingRate : 12;
   const orbRef = useRef<HTMLDivElement>(null);
   const [orbSize, setOrbSize] = useState(150);
   const [glowIntensity, setGlowIntensity] = useState(15);
@@ -524,7 +553,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         if (!meditationStartRef.current) {
           meditationStartRef.current = Date.now();
 
-          if (useVernier && vernierResetBreathRateHistory) {
+          if ((useVernier || effectiveUseVernier) && vernierResetBreathRateHistory) {
             vernierResetBreathRateHistory();
           }
           
@@ -705,8 +734,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
 
-        console.log(`📊 Breath rate chart check: useVernier=${useVernier}, historyLength=${vernierBreathRateHistory.length}, durationMin=${durationInMinutes}`);
-        if (durationInMinutes >= 5 && useVernier && vernierBreathRateHistory.length > 0) {
+        console.log(`📊 Breath rate chart check: useVernier=${useVernier}, effectiveUseVernier=${effectiveUseVernier}, historyLength=${vernierBreathRateHistory.length}, durationMin=${durationInMinutes}`);
+        if (durationInMinutes >= 5 && (useVernier || effectiveUseVernier) && vernierBreathRateHistory.length > 0) {
           try {
             sessionStorage.setItem('lastBreathRateHistory', JSON.stringify(vernierBreathRateHistory));
             console.log(`📊 SAVED ${vernierBreathRateHistory.length} breath rate data points to sessionStorage`);
@@ -714,7 +743,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
             console.warn('Could not save breath rate history:', e);
           }
         } else {
-          console.log(`📊 NOT saving breath rate history: conditions not met (need 5+min=${durationInMinutes >= 5}, vernier=${useVernier}, hasData=${vernierBreathRateHistory.length > 0})`);
+          console.log(`📊 NOT saving breath rate history: conditions not met (need 5+min=${durationInMinutes >= 5}, vernier=${useVernier || effectiveUseVernier}, hasData=${vernierBreathRateHistory.length > 0})`);
         }
         
       } catch (error) {
@@ -936,7 +965,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
 
   // Monitor connection and show help if needed
   useEffect(() => {
-    if (!useVernier) return;
+    if (!useVernier && !effectiveUseVernier) return;
 
     // Check for connection issues
     const checkConnection = () => {
@@ -967,7 +996,7 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         clearTimeout(connectionCheckRef.current);
       }
     };
-  }, [useVernier, activeIsListening, activeBreathAmplitude]);
+  }, [useVernier, effectiveUseVernier, activeIsListening, activeBreathAmplitude]);
   
   // Removed complex color-changing logic for custom kasina
   // Custom kasina now uses user's selected color like other color kasinas
@@ -1543,9 +1572,33 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
           showControls={showControls}
           mode="breath"
           breathingRate={activeBreathingRate}
-          deviceBreathingRate={useVernier ? vernierDeviceBreathingRate : null}
-          sessionElapsed={useVernier ? vernierSessionElapsed : meditationTime}
+          deviceBreathingRate={effectiveUseVernier ? vernierDeviceBreathingRate : null}
+          sessionElapsed={effectiveUseVernier ? vernierSessionElapsed : meditationTime}
         />
+      )}
+
+      {/* Always-visible Live BPM Display - Bottom Left (independent of mouse/controls) */}
+      {!showKasinaSelection && effectiveUseVernier && meditationTime >= 30 && (
+        <div
+          className="absolute bottom-8 left-8 z-30"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            color: 'rgba(255, 255, 255, 0.85)',
+            padding: '6px 16px',
+            borderRadius: '20px',
+            fontSize: '14px',
+            fontFamily: 'monospace',
+            fontWeight: '500',
+            letterSpacing: '0.5px',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        >
+          {(vernierDeviceBreathingRate != null && vernierDeviceBreathingRate > 0
+            ? vernierDeviceBreathingRate
+            : vernierBreathingRate
+          ).toFixed(1)} bpm
+        </div>
       )}
 
 

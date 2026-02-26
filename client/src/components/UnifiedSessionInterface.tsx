@@ -316,26 +316,6 @@ export default function UnifiedSessionInterface({
         </div>
       )}
 
-      {/* Live Breath Rate Display - Bottom Left */}
-      {mode === 'breath' && sessionElapsed >= 30 && deviceBreathingRate != null && deviceBreathingRate > 0 && (
-        <div
-          className="absolute bottom-8 left-8 z-20"
-          style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            color: 'rgba(255, 255, 255, 0.85)',
-            padding: '6px 16px',
-            borderRadius: '20px',
-            fontSize: '14px',
-            fontFamily: 'monospace',
-            fontWeight: '500',
-            letterSpacing: '0.5px',
-            pointerEvents: 'none',
-            userSelect: 'none',
-          }}
-        >
-          {deviceBreathingRate.toFixed(1)} bpm
-        </div>
-      )}
 
       {/* Change Kasina Button - Bottom Center - Only show for self-guided sessions */}
       {!isGuidedMeditation && (
