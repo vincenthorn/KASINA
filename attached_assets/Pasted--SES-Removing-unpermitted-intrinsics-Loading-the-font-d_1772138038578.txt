@@ -1,0 +1,137 @@
+ SES Removing unpermitted intrinsics
+ Loading the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com". The action has been blocked.
+OptiButton @ optibutton.js:240
+ [AUTH_CHECK] Checking authentication status at 2026-02-26T20:30:32.222Z
+ Setting auth state with user: Object
+ === COMPLETE DIAGNOSTIC REPORT ===
+ WebGL Capabilities: Object
+ Crash History: Array(8)
+ Crash #1: Object
+ Crash #2: Object
+ Crash #3: Object
+ Crash #4: Object
+ Crash #5: Object
+ Crash #6: Object
+ Crash #7: Object
+ Crash #8: Object
+ === END DIAGNOSTIC REPORT ===
+ [AUTH_CHECK] Checking authentication status at 2026-02-26T20:30:32.461Z
+ Setting auth state with user: Object
+ 🔍 BREATH PAGE - Browser detection - User Agent: mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/537.36 (khtml, like gecko) chrome/145.0.0.0 safari/537.36
+ 🔍 BREATH PAGE - Browser detection result: Chrome-based
+ 🔍 BREATH PAGE - Initial browser detection on page load: true
+ === HOOK MOUNT — checking window.vernierDevice: null/undefined, adoptedRef: false ===
+ 🔍 BREATH PAGE - Vernier state changed: Object
+ 🚨 BREATH PAGE - Browser warning check: Object
+ === VERNIER GDX: Starting connection ===
+ 🔍 BREATH PAGE - Vernier state changed: Object
+ GoDirect library loaded successfully via import
+ GoDirect library loaded
+ Connected to: GDX-RB 0K7001C3
+ Order code: GDX-RB
+ Serial: 0K7001C3
+ === SENSOR DISCOVERY ===
+ Total sensors available: 4
+   Sensor[0]: name="Force", unit="N", number=1, enabled=true
+   Sensor[1]: name="Respiration Rate", unit="bpm", number=2, enabled=true
+   Sensor[2]: name="Steps", unit="steps", number=4, enabled=false
+   Sensor[3]: name="Step Rate", unit="spm", number=5, enabled=false
+ === ENABLING SENSORS ===
+   Enabled: Force (N)
+   Enabled: Respiration Rate (bpm)
+   Enabled: Steps (steps)
+   Enabled: Step Rate (spm)
+ === ATTACHED 4 SENSOR LISTENERS ===
+ === STARTING DATA COLLECTION ===
+ Data collection started with 100ms measurement period
+ === CONNECTION COMPLETE ===
+ 🔍 BROWSER DETECTION - User Agent: mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/537.36 (khtml, like gecko) chrome/145.0.0.0 safari/537.36
+ 🔍 BROWSER FLAGS: Object
+ 🔍 FINAL DETECTION RESULT: Chrome-based
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🚨 BROWSER WARNING CHECK: Object
+ ✅ Chrome-based browser - no warning needed
+ 🔄 STATE UPDATE: Object
+ 🚀 NON-ELEMENTAL initial background color set: #000000 for kasina: yellow
+ 🔍 BREATH PAGE - Vernier state changed: Object
+ 🎬 Three.js scene background cleared for kasina background: #000000
+ RESP RATE: still NaN (1 NaN readings so far, 0 valid)
+ ⚠️ BreathKasinaOrb: useVernier=false but breath amplitude is varying — force data is flowing, latching Vernier-connected for BPM display
+ 📺 Entered fullscreen for meditation session
+ [STATE_CHANGE] Kasina selection changed to: yellow
+ 🎨 Selected kasina: Yellow (yellow)
+ 🛡️ Session recovery started for breath (session_1772137858811_9sue1zscb)
+ 🛡️ Started session recovery tracking for breath meditation
+ Requesting screen wake lock...
+ 🔒 Wake lock requested to prevent screen sleep during meditation
+ Screen wake lock enabled - screen will remain on
+ RESP RATE: still NaN (101 NaN readings so far, 0 valid)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 32px
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 24px
+ RESP RATE: still NaN (200 NaN readings so far, 0 valid)
+ 📊 RESP RATE summary: 296 NaN, 0 valid readings
+ ✅ VALID RESPIRATION RATE: 6.5 bpm (1 valid out of 298 total)
+ RESP RATE: still NaN (300 NaN readings so far, 1 valid)
+ 📊 Diagnostics collected at 30s
+ ✅ VALID RESPIRATION RATE: 5.1 bpm (2 valid out of 398 total)
+ RESP RATE: still NaN (399 NaN readings so far, 2 valid)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ ✅ VALID RESPIRATION RATE: 5.6 bpm (3 valid out of 498 total)
+ RESP RATE: still NaN (499 NaN readings so far, 3 valid)
+ 📊 RESP RATE summary: 594 NaN, 3 valid readings
+ ✅ VALID RESPIRATION RATE: 6.2 bpm (4 valid out of 598 total)
+ RESP RATE: still NaN (598 NaN readings so far, 4 valid)
+ 🔄 Session recovery checkpoint: 60s elapsed
+ 📊 Diagnostics collected at 60s
+ ✅ VALID RESPIRATION RATE: 6.6 bpm (5 valid out of 698 total)
+ RESP RATE: still NaN (698 NaN readings so far, 5 valid)
+ ✅ VALID RESPIRATION RATE: 5.9 bpm (6 valid out of 798 total)
+ RESP RATE: still NaN (797 NaN readings so far, 6 valid)
+ 📊 RESP RATE summary: 891 NaN, 6 valid readings
+ ✅ VALID RESPIRATION RATE: 5 bpm (7 valid out of 898 total)
+ RESP RATE: still NaN (897 NaN readings so far, 7 valid)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 69px
+ 📊 Diagnostics collected at 90s
+ ✅ VALID RESPIRATION RATE: 6.5 bpm (8 valid out of 998 total)
+ RESP RATE: still NaN (996 NaN readings so far, 8 valid)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 40px
+ ✅ VALID RESPIRATION RATE: 6.4 bpm (9 valid out of 1098 total)
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 34px
+ RESP RATE: still NaN (1096 NaN readings so far, 9 valid)
+ 📋 Session diagnostics stored for analysis: Object
+index-ByRHKHfV.js:4793 🧘 Ending meditation session: 102s (1 minutes)
+index-ByRHKHfV.js:4793 📊 Breath rate chart check: useVernier=false, effectiveUseVernier=true, historyLength=0, durationMin=1, saving=false
+index-ByRHKHfV.js:4119 💾 Saved session backup to localStorage
+index-ByRHKHfV.js:4119 🚀 SessionLogger - Saving session: Object
+index-ByRHKHfV.js:4119 ✅ SessionLogger - Session saved successfully
+index-ByRHKHfV.js:4793 ✅ Breath Kasina session logged: 1 minute(s) with 🟡
+index-ByRHKHfV.js:4119 🧹 Session recovery cleared
+index-ByRHKHfV.js:4793 🛡️ Session recovery cleared
+index-ByRHKHfV.js:4238 Screen wake lock was released
+index-ByRHKHfV.js:4793 🔓 Wake lock released - screen can sleep normally again
+index-ByRHKHfV.js:4238 Screen wake lock released
+index-ByRHKHfV.js:4656 === HOOK UNMOUNTING — cleaning up listeners ===
+index-ByRHKHfV.js:4655 ================================
+index-ByRHKHfV.js:4655 LOADING SESSIONS FROM DATABASE
+index-ByRHKHfV.js:4655 Refresh counter: 0
+index-ByRHKHfV.js:4655 Current user: vjhorn@gmail.com
+index-ByRHKHfV.js:4655 ================================
+index-ByRHKHfV.js:4793 📺 Auto-exited fullscreen after meditation session
+index-ByRHKHfV.js:4077 THREE.WebGLRenderer: Context Lost.
+index-ByRHKHfV.js:4655 Fetched database sessions: 9
+index-ByRHKHfV.js:4655 ✅ Successfully loaded sessions from database
+index-ByRHKHfV.js:4655 Final sessions loaded: 9
+index-ByRHKHfV.js:4655 ================================
+index-ByRHKHfV.js:4655 📊 BreathRateChart: not rendering (data=0 points, need >= 10)
+index-ByRHKHfV.js:4655 📊 BreathRateChart: sessionStorage has data = false
+index-ByRHKHfV.js:4655 ================================
+index-ByRHKHfV.js:4655 LOADING SESSIONS FROM DATABASE
+index-ByRHKHfV.js:4655 Refresh counter: 0
+index-ByRHKHfV.js:4655 Current user: vjhorn@gmail.com
+index-ByRHKHfV.js:4655 ================================
+index-ByRHKHfV.js:4655 Fetched database sessions: 9
+index-ByRHKHfV.js:4655 ✅ Successfully loaded sessions from database
+index-ByRHKHfV.js:4655 Final sessions loaded: 9
+index-ByRHKHfV.js:4655 ================================
+index-ByRHKHfV.js:4655 📊 BreathRateChart: not rendering (data=0 points, need >= 10)
+index-ByRHKHfV.js:4655 📊 BreathRateChart: sessionStorage has data = false
