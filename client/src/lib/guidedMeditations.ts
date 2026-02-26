@@ -64,9 +64,9 @@ export const GUIDED_MEDITATIONS: Record<string, GuidedMeditationConfig | null> =
 };
 
 export const hasGuidedMeditation = (kasina: string): boolean => {
-  return GUIDED_MEDITATIONS[kasina] !== null;
+  return GUIDED_MEDITATIONS[kasina] != null;
 };
 
 export const getGuidedMeditation = (kasina: string): GuidedMeditationConfig | null => {
-  return GUIDED_MEDITATIONS[kasina];
+  return GUIDED_MEDITATIONS[kasina] ?? null;
 };
