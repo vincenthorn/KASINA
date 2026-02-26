@@ -259,7 +259,13 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
             const elapsed = connectionStartTimeRef.current > 0
               ? Math.floor((now - connectionStartTimeRef.current) / 1000)
               : 0;
-            setBreathRateHistory(prev => [...prev, { time: elapsed, bpm: roundedRate }]);
+            setBreathRateHistory(prev => {
+              const updated = [...prev, { time: elapsed, bpm: roundedRate }];
+              if (updated.length % 30 === 0) {
+                console.log(`📈 Breath rate history: ${updated.length} data points collected`);
+              }
+              return updated;
+            });
           }
         });
       }
@@ -479,6 +485,7 @@ export function useVernierBreathManual(): VernierBreathManualHookResult {
   }, [isConnected]);
 
   const resetBreathRateHistory = useCallback(() => {
+    console.log('🔄 Breath rate history RESET (new session starting)');
     setBreathRateHistory([]);
     lastBreathRateRecordRef.current = 0;
   }, []);

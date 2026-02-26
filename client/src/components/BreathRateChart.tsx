@@ -39,8 +39,10 @@ const BreathRateChart: React.FC = () => {
   useEffect(() => {
     try {
       const stored = sessionStorage.getItem('lastBreathRateHistory');
+      console.log(`📊 BreathRateChart: sessionStorage has data = ${!!stored}`);
       if (stored) {
         const parsed = JSON.parse(stored) as BreathRateDataPoint[];
+        console.log(`📊 BreathRateChart: parsed ${parsed.length} data points`);
         if (Array.isArray(parsed) && parsed.length > 0) {
           setData(parsed);
         }
@@ -51,7 +53,10 @@ const BreathRateChart: React.FC = () => {
     }
   }, []);
 
-  if (!data || data.length < 10) return null;
+  if (!data || data.length < 10) {
+    console.log(`📊 BreathRateChart: not rendering (data=${data?.length ?? 0} points, need >= 10)`);
+    return null;
+  }
 
   const bpmValues = data.map(d => d.bpm);
   const minBpm = Math.floor(Math.min(...bpmValues) - 1);

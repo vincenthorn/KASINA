@@ -699,13 +699,16 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         });
         console.log(`✅ ${kasinaName} session logged: ${durationInMinutes} minute(s) with ${kasinaEmoji}`);
 
+        console.log(`📊 Breath rate chart check: useVernier=${useVernier}, historyLength=${vernierBreathRateHistory.length}, durationMin=${durationInMinutes}`);
         if (durationInMinutes >= 5 && useVernier && vernierBreathRateHistory.length > 0) {
           try {
             sessionStorage.setItem('lastBreathRateHistory', JSON.stringify(vernierBreathRateHistory));
-            console.log(`📊 Saved ${vernierBreathRateHistory.length} breath rate data points for post-session chart`);
+            console.log(`📊 SAVED ${vernierBreathRateHistory.length} breath rate data points to sessionStorage`);
           } catch (e) {
             console.warn('Could not save breath rate history:', e);
           }
+        } else {
+          console.log(`📊 NOT saving breath rate history: conditions not met (need 5+min=${durationInMinutes >= 5}, vernier=${useVernier}, hasData=${vernierBreathRateHistory.length > 0})`);
         }
         
       } catch (error) {
