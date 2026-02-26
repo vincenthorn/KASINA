@@ -1,0 +1,50 @@
+2026-02-26T13:27:25.940767635Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CiC2fk4J.woff2     11.05 kB
+2026-02-26T13:27:25.940805066Z ../dist/public/assets/nunito-cyrillic-ext-700-normal-D-e9fzlR.woff      14.12 kB
+2026-02-26T13:27:25.940809566Z ../dist/public/assets/inter-cyrillic-ext-400-normal-BPnxn4xp.woff       14.19 kB
+2026-02-26T13:27:25.940813066Z ../dist/public/assets/nunito-cyrillic-ext-400-normal-CUrc3HHF.woff      14.36 kB
+2026-02-26T13:27:25.940849297Z ../dist/public/assets/nunito-latin-ext-700-normal-DwQwRZln.woff2        15.39 kB
+2026-02-26T13:27:25.940853297Z ../dist/public/assets/nunito-latin-ext-400-normal-Z5e_fnxp.woff2        15.45 kB
+2026-02-26T13:27:25.940856598Z ../dist/public/assets/nunito-latin-400-normal-CA33qtOw.woff2            16.29 kB
+2026-02-26T13:27:25.940859778Z ../dist/public/assets/nunito-latin-700-normal-CGDVIs8t.woff2            16.31 kB
+2026-02-26T13:27:25.940866198Z ../dist/public/assets/nunito-latin-700-normal-C5gyHyFo.woff             20.19 kB
+2026-02-26T13:27:25.940869508Z ../dist/public/assets/nunito-latin-400-normal-nExtXIcZ.woff             20.52 kB
+2026-02-26T13:27:25.940907699Z ../dist/public/assets/nunito-latin-ext-700-normal-G8lcDK0M.woff         20.82 kB
+2026-02-26T13:27:25.940911419Z ../dist/public/assets/nunito-latin-ext-400-normal-DZILPSLY.woff         21.07 kB
+2026-02-26T13:27:25.94092332Z ../dist/public/assets/inter-latin-400-normal-BOOGhInR.woff2             23.69 kB
+2026-02-26T13:27:25.94092715Z ../dist/public/assets/inter-latin-ext-400-normal-hnt3BR84.woff2         30.68 kB
+2026-02-26T13:27:25.94093918Z ../dist/public/assets/inter-latin-400-normal-gitzw0hO.woff              31.20 kB
+2026-02-26T13:27:25.94094393Z ../dist/public/assets/inter-latin-ext-400-normal-C1t-h-pH.woff          42.88 kB
+2026-02-26T13:27:25.941027203Z ../dist/public/assets/index-BXS7NAks.css                               112.64 kB │ gzip:  18.50 kB
+2026-02-26T13:27:25.941049193Z ../dist/public/assets/godirect.min.esm-D_z86mMB.js                      12.66 kB │ gzip:   4.19 kB
+2026-02-26T13:27:25.941051633Z ../dist/public/assets/index-ClfwzhDI.js                              1,900.41 kB │ gzip: 523.81 kB
+2026-02-26T13:27:25.941098875Z 
+2026-02-26T13:27:25.941103545Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-02-26T13:27:25.941107985Z - Using dynamic import() to code-split the application
+2026-02-26T13:27:25.941111495Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-02-26T13:27:25.941114225Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2026-02-26T13:27:25.941424885Z ✓ built in 13.39s
+2026-02-26T13:27:26.081851549Z 
+2026-02-26T13:27:26.08189626Z   dist/index.js  67.9kb
+2026-02-26T13:27:26.081900051Z 
+2026-02-26T13:27:26.081903791Z ⚡ Done in 8ms
+2026-02-26T13:27:27.46921661Z ==> Uploading build...
+2026-02-26T13:28:18.053286451Z ==> Uploaded in 43.5s. Compression took 7.0s
+2026-02-26T13:28:18.423683964Z ==> Build successful 🎉
+2026-02-26T13:28:24.305718042Z ==> Deploying...
+2026-02-26T13:29:23.299175642Z ==> Running 'npm run start'
+2026-02-26T13:29:24.28368306Z 
+2026-02-26T13:29:24.28371412Z > rest-express@1.0.0 start
+2026-02-26T13:29:24.28371898Z > NODE_ENV=production node dist/index.js
+2026-02-26T13:29:24.283721451Z 
+2026-02-26T13:29:25.442561763Z 1:29:25 PM [express] Using PostgreSQL session store for production
+2026-02-26T13:29:25.444873948Z Running startup data migrations...
+2026-02-26T13:29:25.493744136Z Startup data migrations complete
+2026-02-26T13:29:25.498397487Z 1:29:25 PM [express] KASINA meditation app serving on port 10000
+2026-02-26T13:29:25.599842772Z 📥 INCOMING REQUEST: HEAD /
+2026-02-26T13:29:36.497186985Z ==> Your service is live 🎉
+2026-02-26T13:29:36.655666642Z ==> 
+2026-02-26T13:29:36.658895679Z ==> ///////////////////////////////////////////////////////////
+2026-02-26T13:29:36.662611882Z ==> 
+2026-02-26T13:29:36.665606473Z ==> Available at your primary URL https://start.kasina.app + 1 more domain
+2026-02-26T13:29:36.668182111Z ==> 
+2026-02-26T13:29:36.671247633Z ==> ///////////////////////////////////////////////////////////

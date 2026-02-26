@@ -1,0 +1,39 @@
+2026-02-26T13:29:36.497186985Z ==> Your service is live 🎉
+2026-02-26T13:29:36.655666642Z ==> 
+2026-02-26T13:29:36.658895679Z ==> ///////////////////////////////////////////////////////////
+2026-02-26T13:29:36.662611882Z ==> 
+2026-02-26T13:29:36.665606473Z ==> Available at your primary URL https://start.kasina.app + 1 more domain
+2026-02-26T13:29:36.668182111Z ==> 
+2026-02-26T13:29:36.671247633Z ==> ///////////////////////////////////////////////////////////
+2026-02-26T13:29:36.739525874Z 📥 INCOMING REQUEST: GET /
+2026-02-26T13:34:29.987520791Z ==> Detected service running on port 10000
+2026-02-26T13:34:30.173022729Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2026-02-26T14:15:56.268917813Z 📥 INCOMING REQUEST: GET /
+2026-02-26T14:28:35.691015011Z 📥 INCOMING REQUEST: GET /
+2026-02-26T14:28:35.777624964Z 📥 INCOMING REQUEST: GET /assets/index-ClfwzhDI.js
+2026-02-26T14:28:35.791815895Z 📥 INCOMING REQUEST: GET /assets/index-BXS7NAks.css
+2026-02-26T14:28:36.011499739Z 📥 INCOMING REQUEST: GET /logo.svg
+2026-02-26T14:28:36.022484253Z 🔍 SESSION DEBUG - GET /api/auth/me:
+2026-02-26T14:28:36.022509404Z   Session ID: fFXDQvqHv6W4fIbOG0BAs-ACRNg57IYg
+2026-02-26T14:28:36.022515424Z   Session exists: true
+2026-02-26T14:28:36.022520025Z   User in session: false
+2026-02-26T14:28:36.022525045Z   User email: undefined
+2026-02-26T14:28:36.022530145Z   Cookies: undefined
+2026-02-26T14:28:36.022543635Z   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+2026-02-26T14:28:36.022550515Z 📥 INCOMING REQUEST: GET /api/auth/me
+2026-02-26T14:28:36.02482854Z Auth check - Session ID: fFXDQvqHv6W4fIbOG0BAs-ACRNg57IYg
+2026-02-26T14:28:36.031413338Z Auth check - Session data: Session {
+2026-02-26T14:28:36.031426399Z   cookie: {
+2026-02-26T14:28:36.031431669Z     path: '/',
+2026-02-26T14:28:36.031436519Z     _expires: 2026-02-27T14:28:36.022Z,
+2026-02-26T14:28:36.031441589Z     originalMaxAge: 86400000,
+2026-02-26T14:28:36.031446359Z     httpOnly: true,
+2026-02-26T14:28:36.031450999Z     secure: false,
+2026-02-26T14:28:36.031455469Z     sameSite: 'lax'
+2026-02-26T14:28:36.03146016Z   }
+2026-02-26T14:28:36.03146474Z }
+2026-02-26T14:28:36.03147643Z Auth check - Cookie headers: undefined
+2026-02-26T14:28:36.03148155Z Auth check failed - No session user data
+2026-02-26T14:28:36.072878576Z 2:28:36 PM [express] GET /api/auth/me 401 in 15ms :: {"message":"Not authenticated"}
+2026-02-26T14:28:36.073705876Z 📥 INCOMING REQUEST: GET /assets/nunito-latin-700-normal-CGDVIs8t.woff2
+2026-02-26T14:28:36.231632134Z 📥 INCOMING REQUEST: GET /logo.svg
