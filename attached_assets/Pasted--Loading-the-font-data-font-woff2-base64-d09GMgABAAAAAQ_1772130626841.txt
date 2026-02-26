@@ -1,0 +1,2205 @@
+ Loading the font 'data:font/woff2;base64,d09GMgABAAAAAQ5sABIAAAADuOQAAQ4EAAEAgwAAAAAAAAAAAAAAAAAAAAAAAAAAG4SpIhy4XhSHMgZgAJJmCF4JgnMREAqGskiFyggSgrVoATYCJAOdOAuOXgAEIAWPGAfGYAyDGFsKfLME/nOMvX+HnQoMqyRqK6tt2TW8K2BDX9Umu4PZkCXwtMjpcHYNTx6UUmu30UdwcxxnVMvcNgAim7rdXiPZ////////////C5dF2ObuXM7ZvQeSECARwueHlaLVtkJEIaLRAI3ulswSE13cSPdM15RCyYQuuS7A0mBqpQO9pYZWQQMqa9lQb0dpJzHxHpLyCHIi8uBdwF58nNH+YOA40OpJvEjJtaokKaUkx/N5UeSinp5TWoW1vSpFjimBgeFGeCF66U0n6ZUN/qSqC4XC11GKUNmzSy2d5Jxyqw5JzGUlJUnyi0lKkE8BlxadTZsyRm8c1/Cti2hEjzIHnuOZ0fU6OjKc...FVw9csGnQ1BnbMbfzgRj3WjPytwZYWpPh3OtmsLZaNcxxqaGVqMVqFffFpU8bbs/0N1vG3POWfS7LUeB81TfHn+VbD7x/UnT3lXyFltHfdX6+X6Rzmg9d4dAISK7GlTj2zgME/JUwAETAECwABAUgUmAysrKI5shRwAchnFSMheQ8UoKlvnVbkW9mMeq2+bbO9EQ2q09Z9wzsADarYt4ftoamBDi8gmfbZKnl+lkZWyRx1VYVSIpVFXs9VXy9ytCyTNYt09YIAGKjqpDT22SgOdP5OsdAK/vOCXFnrpEwA/PPTJiopB7HxZV+MlaGCT/04K/LY3kjPYV/YR146Ggg+9sX6na/c2So+Epz3PXve3PKRylPIhNZASBUYVDIGhikiWc1jj/claeVCJvljX7JfvO+xhfTDIjSXBs4HV16Ol/BMfcuFQ4NRmDOWEh6diOI6NZmGl87N9J+r2JfpW2+5NhV/fGHLO57Yavbq7zaCewa/RDxp/aSH+luOPwAA' violates the following Content Security Policy directive: "font-src 'self' https://fonts.gstatic.com". The action has been blocked.
+OptiButton @ optibutton.js:240
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 56px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 56px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 59px
+ 🎯 Color kasina red scaled from 0.618 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 59px
+    baseScale: 0.393
+    normalizedScale: 0.022
+    final scale: 0.618
+    cappedScale: 0.618
+ 🔍 Kasina: red, Type: color, orbSize: 56px
+ 🎯 Color kasina red scaled from 0.586 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 56px
+    baseScale: 0.373
+    normalizedScale: 0.021
+    final scale: 0.586
+    cappedScale: 0.586
+ 🔍 Kasina: red, Type: color, orbSize: 56px
+ 🎯 Color kasina red scaled from 0.586 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 56px
+    baseScale: 0.373
+    normalizedScale: 0.021
+    final scale: 0.586
+    cappedScale: 0.586
+ 🔍 Kasina: red, Type: color, orbSize: 56px
+ 🎯 Color kasina red scaled from 0.586 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 56px
+    baseScale: 0.373
+    normalizedScale: 0.021
+    final scale: 0.586
+    cappedScale: 0.586
+ 🔍 Kasina: red, Type: color, orbSize: 56px
+ 🎯 Color kasina red scaled from 0.586 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 56px
+    baseScale: 0.373
+    normalizedScale: 0.021
+    final scale: 0.586
+    cappedScale: 0.586
+ 🔍 Kasina: red, Type: color, orbSize: 56px
+ 🎯 Color kasina red scaled from 0.586 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 56px
+    baseScale: 0.373
+    normalizedScale: 0.021
+    final scale: 0.586
+    cappedScale: 0.586
+ 🔍 Kasina: red, Type: color, orbSize: 56px
+ 🎯 Color kasina red scaled from 0.586 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 56px
+    baseScale: 0.373
+    normalizedScale: 0.021
+    final scale: 0.586
+    cappedScale: 0.586
+ 🔍 Kasina: red, Type: color, orbSize: 56px
+ 🎯 Color kasina red scaled from 0.586 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 56px
+    baseScale: 0.373
+    normalizedScale: 0.021
+    final scale: 0.586
+    cappedScale: 0.586
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 53px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 53px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 49px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ 🔍 Kasina: red, Type: color, orbSize: 49px
+ 🎯 Color kasina red scaled from 0.513 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 49px
+    baseScale: 0.327
+    normalizedScale: 0.018
+    final scale: 0.513
+    cappedScale: 0.513
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 48px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 47px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 47px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 48px
+ 🎯 Color kasina red scaled from 0.503 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 48px
+    baseScale: 0.320
+    normalizedScale: 0.018
+    final scale: 0.503
+    cappedScale: 0.503
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 47px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 45px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 45px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ 🔍 Kasina: red, Type: color, orbSize: 45px
+ 🎯 Color kasina red scaled from 0.471 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 45px
+    baseScale: 0.300
+    normalizedScale: 0.017
+    final scale: 0.471
+    cappedScale: 0.471
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 41px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ 🔍 Kasina: red, Type: color, orbSize: 41px
+ 🎯 Color kasina red scaled from 0.429 to 0.003
+ 🎯 Red (color) SCALING:
+    orbSize: 41px
+    baseScale: 0.273
+    normalizedScale: 0.015
+    final scale: 0.429
+    cappedScale: 0.429
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 42px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ 🔍 Kasina: red, Type: color, orbSize: 42px
+ 🎯 Color kasina red scaled from 0.440 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 42px
+    baseScale: 0.280
+    normalizedScale: 0.016
+    final scale: 0.440
+    cappedScale: 0.440
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 47px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 47px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ 🔍 Kasina: red, Type: color, orbSize: 47px
+ 🎯 Color kasina red scaled from 0.492 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 47px
+    baseScale: 0.313
+    normalizedScale: 0.017
+    final scale: 0.492
+    cappedScale: 0.492
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 51px
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ 🔍 Kasina: red, Type: color, orbSize: 51px
+ 🎯 Color kasina red scaled from 0.534 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 51px
+    baseScale: 0.340
+    normalizedScale: 0.019
+    final scale: 0.534
+    cappedScale: 0.534
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 52px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 52px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 53px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 53px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 52px
+ 🎯 Color kasina red scaled from 0.544 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 52px
+    baseScale: 0.347
+    normalizedScale: 0.019
+    final scale: 0.544
+    cappedScale: 0.544
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 53px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 54px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 54px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 53px
+ 🎯 Color kasina red scaled from 0.555 to 0.004
+ 🎯 Red (color) SCALING:
+    orbSize: 53px
+    baseScale: 0.353
+    normalizedScale: 0.020
+    final scale: 0.555
+    cappedScale: 0.555
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 54px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 54px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ 🔍 Kasina: red, Type: color, orbSize: 54px
+ 🎯 Color kasina red scaled from 0.565 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 54px
+    baseScale: 0.360
+    normalizedScale: 0.020
+    final scale: 0.565
+    cappedScale: 0.565
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 55px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 55px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ 🔍 Kasina: red, Type: color, orbSize: 55px
+ 🎯 Color kasina red scaled from 0.576 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 55px
+    baseScale: 0.367
+    normalizedScale: 0.020
+    final scale: 0.576
+    cappedScale: 0.576
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🔍 BREATH PAGE - Vernier hook state: Object
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔄 NON-ELEMENTAL background update for kasina: red, color: #000000
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ 🔍 Kasina: red, Type: color, orbSize: 58px
+ 🎯 Color kasina red scaled from 0.607 to 0.005
+ 🎯 Red (color) SCALING:
+    orbSize: 58px
+    baseScale: 0.387
+    normalizedScale: 0.021
+    final scale: 0.607
+    cappedScale: 0.607
+ ✅ SessionLogger - Session saved successfully
+ 🔵 BreathKasinaOrb - useVernier: false vernierProps: Object
+ Scale: 0.1x, rate: 12bpm, intensity: 80%, current: 58px
+ ✅ Breath Kasina session logged: 3 minute(s) with 🔴
+ 📊 Breath rate chart check: useVernier=false, historyLength=0, durationMin=3
+ 📊 NOT saving breath rate history: conditions not met (need 5+min=false, vernier=false, hasData=false)
+ 🧹 Session recovery cleared
+ 🛡️ Session recovery cleared
+ Screen wake lock was released
+ 🔓 Wake lock released - screen can sleep normally again
+ Screen wake lock released
+ ================================
+ LOADING SESSIONS FROM DATABASE
+ Refresh counter: 0
+ Current user: vjhorn@gmail.com
+ ================================
+ 📺 Auto-exited fullscreen after meditation session
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ THREE.WebGLRenderer: Context Lost.
+ Fetched database sessions: 6
+ ✅ Successfully loaded sessions from database
+ Final sessions loaded: 6
+ ================================
+ 📊 BreathRateChart: not rendering (data=0 points, need >= 10)
+ 📊 BreathRateChart: sessionStorage has data = false
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: 9.819967269897461 (type: number)
+index-Dl4HIu09.js:4656   -> VALID RESPIRATION RATE: 9.8 bpm
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+index-Dl4HIu09.js:4656 RESP RATE raw value: NaN (type: number)
+index-Dl4HIu09.js:4656   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
+ RESP RATE raw value: NaN (type: number)
+   -> Respiration rate: NaN string, device still calculating...
