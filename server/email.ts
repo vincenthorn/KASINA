@@ -68,7 +68,7 @@ export async function sendAuthEmail(
       <div style="max-width: 480px; margin: 0 auto; padding: 40px 20px;">
         <div style="background: linear-gradient(135deg, #0A0052 0%, #2a1570 100%); border-radius: 16px; padding: 40px 30px; text-align: center;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="padding: 0 0 8px 0;">
-            <div style="width: 100px; height: 100px; border-radius: 50%; background-color: #e8e0f0; background: radial-gradient(circle, #ffffff 0%, #e8e0f0 50%, rgba(138,100,220,0.4) 75%, rgba(42,21,112,0) 100%); box-shadow: 0 0 40px 15px rgba(200,180,255,0.3);"></div>
+            <div style="width: 100px; height: 100px; border-radius: 50%; background: #ffffff;"></div>
           </td></tr></table>
           
           <h1 style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 0 0 4px 0; letter-spacing: 4px;">KASINA</h1>
