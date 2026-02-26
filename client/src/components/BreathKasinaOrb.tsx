@@ -1564,8 +1564,8 @@ const BreathKasinaOrb: React.FC<BreathKasinaOrbProps> = ({
         />
       )}
 
-      {/* Always-visible Live BPM Display - Bottom Left (independent of mouse/controls) */}
-      {!showKasinaSelection && effectiveUseVernier && meditationTime >= 30 && (() => {
+      {/* Live BPM Display - Bottom Left (follows mouse-driven show/hide like other controls) */}
+      {!showKasinaSelection && showControls && effectiveUseVernier && meditationTime >= 30 && (() => {
         const displayBpm = vernierBreathingRate > 0 && vernierBreathingRate !== 12
           ? vernierBreathingRate
           : (vernierDeviceBreathingRate != null && vernierDeviceBreathingRate > 0 ? vernierDeviceBreathingRate : null);
