@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea, ReferenceLine } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts';
 import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { format } from 'date-fns';
@@ -26,13 +26,6 @@ interface DetectedPause {
   duration: number;
 }
 
-interface SessionPhase {
-  name: string;
-  startTime: number;
-  endTime: number;
-  color: string;
-}
-
 function computeRollingAverage(bpmValues: number[], windowSize: number): number[] {
   const result: number[] = [];
   for (let i = 0; i <= bpmValues.length - windowSize; i++) {
@@ -44,131 +37,6 @@ function computeRollingAverage(bpmValues: number[], windowSize: number): number[
 
 function formatTimeLabel(seconds: number): string {
   return `${Math.floor(seconds / 60)}:${String(Math.round(seconds) % 60).padStart(2, '0')}`;
-}
-
-function findIndexAtTime(data: BreathRateDataPoint[], targetTime: number): number {
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].time >= targetTime) return i;
-  }
-  return data.length - 1;
-}
-
-function detectPhases(data: BreathRateDataPoint[]): SessionPhase[] {
-  if (data.length < 30) return [];
-
-  const totalDuration = data[data.length - 1].time - data[0].time;
-  const phases: SessionPhase[] = [];
-  const windowSize = Math.min(30, Math.floor(data.length / 3));
-  const rolling = computeRollingAverage(data.map(d => d.bpm), windowSize);
-  if (rolling.length < 2) return [];
-
-  const slopes: number[] = [];
-  for (let i = 1; i < rolling.length; i++) {
-    slopes.push(rolling[i] - rolling[i - 1]);
-  }
-
-  const maxSettleIdx = findIndexAtTime(data, data[0].time + 3 * 60);
-  let settlingEnd = Math.min(data.length - 1, maxSettleIdx);
-  const maxSlopeSearch = findIndexAtTime(data, data[0].time + 8 * 60);
-  const minSlopeSearch = findIndexAtTime(data, data[0].time + 30);
-  for (let i = minSlopeSearch; i < Math.min(slopes.length, maxSlopeSearch); i++) {
-    if (slopes[i] >= 0) {
-      settlingEnd = Math.min(i + windowSize, data.length - 1);
-      break;
-    }
-  }
-
-  phases.push({
-    name: 'Settling',
-    startTime: data[0].time,
-    endTime: data[settlingEnd].time,
-    color: '#F59E0B'
-  });
-
-  if (totalDuration < 5 * 60) {
-    phases.push({
-      name: 'Practice',
-      startTime: data[settlingEnd].time,
-      endTime: data[data.length - 1].time,
-      color: '#6366F1'
-    });
-    return phases;
-  }
-
-  const stabilizationEndIdx = findIndexAtTime(data, data[0].time + 8 * 60);
-  let lowestRollingIdx = 0;
-  let lowestRollingVal = Infinity;
-  for (let i = 0; i < rolling.length; i++) {
-    if (rolling[i] < lowestRollingVal) {
-      lowestRollingVal = rolling[i];
-      lowestRollingIdx = i;
-    }
-  }
-
-  const deepeningStartIdx = Math.max(settlingEnd, stabilizationEndIdx);
-  const clampedDeepening = Math.min(deepeningStartIdx, data.length - 1);
-  if (clampedDeepening < Math.min(lowestRollingIdx + windowSize, data.length - 1) && clampedDeepening > settlingEnd) {
-    phases.push({
-      name: 'Stabilization',
-      startTime: data[settlingEnd].time,
-      endTime: data[clampedDeepening].time,
-      color: '#3B82F6'
-    });
-  }
-
-  const absorptionThreshold = 6;
-  let absorptionStartIdx = -1;
-  let absorptionEndIdx = -1;
-  for (let i = clampedDeepening; i < rolling.length; i++) {
-    if (rolling[i] < absorptionThreshold) {
-      if (absorptionStartIdx === -1) absorptionStartIdx = i;
-      absorptionEndIdx = i;
-    }
-  }
-
-  const emergenceTime = Math.min(3 * 60, totalDuration * 0.15);
-  const emergenceStartIdx = findIndexAtTime(data, data[data.length - 1].time - emergenceTime);
-  const mainEndIdx = absorptionEndIdx > 0
-    ? Math.min(absorptionEndIdx + windowSize, emergenceStartIdx)
-    : emergenceStartIdx;
-  const safeMainEnd = Math.min(mainEndIdx, data.length - 1);
-
-  if (absorptionStartIdx > 0 && absorptionStartIdx < emergenceStartIdx) {
-    const absIdx = Math.min(absorptionStartIdx + windowSize, data.length - 1);
-    phases.push({
-      name: 'Deepening',
-      startTime: data[clampedDeepening].time,
-      endTime: data[absIdx].time,
-      color: '#8B5CF6'
-    });
-    phases.push({
-      name: 'Absorption',
-      startTime: data[absIdx].time,
-      endTime: data[safeMainEnd].time,
-      color: '#EC4899'
-    });
-  } else {
-    phases.push({
-      name: 'Deepening',
-      startTime: data[clampedDeepening].time,
-      endTime: data[safeMainEnd].time,
-      color: '#8B5CF6'
-    });
-  }
-
-  if (emergenceStartIdx < data.length - 1) {
-    const lastPhaseEnd = phases[phases.length - 1]?.endTime || data[emergenceStartIdx].time;
-    if (data[data.length - 1].time > lastPhaseEnd) {
-      phases.push({
-        name: 'Emergence',
-        startTime: lastPhaseEnd,
-        endTime: data[data.length - 1].time,
-        color: '#10B981'
-      });
-    }
-  }
-
-  return phases;
 }
 
 function detectPauses(data: BreathRateDataPoint[]): DetectedPause[] {
@@ -251,11 +119,13 @@ export default function SessionDetailPage() {
     const rollingAvgs = computeRollingAverage(bpmValues, windowSize);
     const minSustainedBpm = rollingAvgs.length > 0 ? Math.min(...rollingAvgs) : min;
 
+    const settlingMargin = 0.15;
+    const settlingTarget = minSustainedBpm * (1 + settlingMargin);
     let settlingTimeSeconds: number | null = null;
     const settlingWindowSize = Math.min(30, bpmValues.length);
     for (let i = 0; i <= bpmValues.length - settlingWindowSize; i++) {
       const windowAvg = bpmValues.slice(i, i + settlingWindowSize).reduce((s, v) => s + v, 0) / settlingWindowSize;
-      if (windowAvg <= 9) {
+      if (windowAvg <= settlingTarget) {
         settlingTimeSeconds = data[i].time;
         break;
       }
@@ -315,11 +185,6 @@ export default function SessionDetailPage() {
       timeLabel: formatTimeLabel(d.time),
       bpm: Math.round(d.bpm * 10) / 10
     }));
-  }, [session]);
-
-  const phases = useMemo(() => {
-    if (!session?.breathRateData || session.breathRateData.length < 30) return [];
-    return detectPhases(session.breathRateData);
   }, [session]);
 
   const pauses = useMemo(() => {
@@ -410,7 +275,7 @@ export default function SessionDetailPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {stats.settlingTimeSeconds !== null ? formatTimeLabel(stats.settlingTimeSeconds) : '—'}
                 </p>
-                <p className="text-gray-600 text-xs">Time to reach &lt;9 BPM</p>
+                <p className="text-gray-600 text-xs">To reach lowest rate</p>
               </div>
               <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
                 <p className="text-gray-500 text-xs uppercase tracking-wide">Crucial Zone</p>
@@ -449,26 +314,6 @@ export default function SessionDetailPage() {
                         fillOpacity={0.15}
                       />
                     ))}
-
-                    {phases.length > 1 && phases.map((phase, i) => {
-                      if (i === 0) return null;
-                      return (
-                        <ReferenceLine
-                          key={`phase-${i}`}
-                          x={phase.startTime}
-                          stroke={phase.color}
-                          strokeDasharray="4 4"
-                          strokeOpacity={0.6}
-                          label={{
-                            value: phase.name,
-                            position: 'top',
-                            fill: phase.color,
-                            fontSize: 11,
-                            fontWeight: 500
-                          }}
-                        />
-                      );
-                    })}
 
                     <XAxis 
                       dataKey="time"
@@ -521,42 +366,6 @@ export default function SessionDetailPage() {
 
               <p className="text-gray-600 text-sm mt-3 text-center">{stats.count} data points recorded</p>
             </div>
-
-            {phases.length > 0 && (
-              <div className="bg-gray-900 rounded-xl p-6 border border-gray-800 mb-6">
-                <h2 className="text-lg font-semibold mb-3 text-gray-300">Session Phases</h2>
-                <div className="flex w-full h-8 rounded-lg overflow-hidden mb-3">
-                  {phases.map((phase, i) => {
-                    const totalTime = phases[phases.length - 1].endTime - phases[0].startTime;
-                    const phaseTime = phase.endTime - phase.startTime;
-                    const widthPercent = totalTime > 0 ? (phaseTime / totalTime) * 100 : 0;
-                    return (
-                      <div
-                        key={i}
-                        className="flex items-center justify-center text-xs font-medium text-white/90 transition-all"
-                        style={{
-                          width: `${widthPercent}%`,
-                          backgroundColor: phase.color,
-                          opacity: 0.7,
-                          minWidth: widthPercent > 3 ? undefined : '2px'
-                        }}
-                        title={`${phase.name}: ${formatTimeLabel(phase.startTime)} – ${formatTimeLabel(phase.endTime)}`}
-                      >
-                        {widthPercent > 12 ? phase.name : ''}
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-gray-400">
-                  {phases.map((phase, i) => (
-                    <span key={i} className="flex items-center gap-1.5">
-                      <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ backgroundColor: phase.color }} />
-                      {phase.name} ({formatTimeLabel(phase.startTime)} – {formatTimeLabel(phase.endTime)})
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {pauses.length > 0 && (
               <div className="bg-gray-900 rounded-xl p-6 border border-gray-800 mb-6">
@@ -616,7 +425,7 @@ export default function SessionDetailPage() {
                     <strong className="text-gray-300">Breathing Zones.</strong> Research consistently shows that experienced meditators naturally settle into the 4–9 BPM range during practice, described as the "crucial breathing zone" for mindfulness (Khan et al., 2025). The narrower Deep Concentration zone (2–6 BPM) reflects the even slower rates associated with deep absorption states. The Resonance Zone (5.5–6.5 BPM) is the frequency at which breathing synchronizes with the heart's baroreflex, amplifying heart rate variability 4–10x above baseline (Lehrer & Vaschillo, Rutgers). Individual resonance frequency varies with body size — taller individuals tend toward the lower end.
                   </p>
                   <p>
-                    <strong className="text-gray-300">Breath Rate and Practice Depth.</strong> Sara Lazar's Harvard group found that the change in respiration rate from rest to meditation correlated with lifetime practice hours at r = −0.75. The Vernier Respiration Belt captures your breath rate approximately once per second, giving a high-resolution picture of how your breathing evolves across a session. The characteristic pattern is a U-shape: settling from baseline, sustaining low rates during the core practice, and gradually returning during emergence.
+                    <strong className="text-gray-300">Breath Rate and Practice Depth.</strong> Sara Lazar's Harvard group found that the change in respiration rate from rest to meditation correlated with lifetime practice hours at r = −0.75. The Vernier Respiration Belt captures your breath rate approximately once per second, giving a high-resolution picture of how your breathing evolves across a session. Settling Time measures how quickly you reach your deepest sustained breathing rate — defined as within 15% of your session's lowest 60-second rolling average. This is a trainable skill marker that improves with practice (Kodithuwakku, 2012).
                   </p>
                   <p>
                     <strong className="text-gray-300">Breath Rate Variability (BRV).</strong> SDBB and RMSSD measure how much your breath-to-breath intervals vary — analogous to heart rate variability. Research by Soni & Muniyandi (2019) found that experienced meditators showed 29% higher SDBB and 26% higher RMSSD than controls. The Regularity score (coefficient of variation) indicates how rhythmic your breathing was — Bernardi et al. (2001) found that regularity dropped from 22% to 6–8% during resonant breathing, with greater regularity accompanying greater cardiovascular benefit.

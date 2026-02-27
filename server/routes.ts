@@ -961,10 +961,12 @@ export function registerRoutes(app: Express): Server {
             }
             minSustainedBpm = minRolling === Infinity ? avgBpm : minRolling;
 
+            const settlingMargin = 0.15;
+            const settlingTarget = minSustainedBpm * (1 + settlingMargin);
             const settleWindow = Math.min(30, bpmValues.length);
             for (let i = 0; i <= bpmValues.length - settleWindow; i++) {
               const avg = bpmValues.slice(i, i + settleWindow).reduce((s: number, v: number) => s + v, 0) / settleWindow;
-              if (avg <= 9) {
+              if (avg <= settlingTarget) {
                 settlingTimeSeconds = data[i].time;
                 break;
               }
